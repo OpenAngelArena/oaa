@@ -1,0 +1,29 @@
+{
+  "name": "angel_arena_allstars",
+  "version": "0.0.0",
+  "description": "A really greate Dota 2 game mode.",
+  "main": "index.js",
+  "scripts": {
+    "test": "semistandard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelArenaAllstars/aaa.git"
+  },
+  "keywords": [
+    "dota2"
+  ],
+  "author": "Chris Vickery <chrisinajar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AngelArenaAllstars/aaa/issues"
+  },
+  "homepage": "https://github.com/AngelArenaAllstars/aaa#readme",
+  "devDependencies": {
+    "semistandard": "^9.2.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-dota2-npc": "^0.4.0"
+  }
+}
