@@ -15,6 +15,9 @@ A really great Dota 2 game mode.
 # Contributing
 Check out the discord!
 
+### Suggestions?
+Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
+
 ### Building npc custom files
 From within the addon directory, run `gulp`.
 
