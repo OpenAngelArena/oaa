@@ -2,6 +2,8 @@
 A really great Dota 2 game mode.
 
 # Installation
+For detailed instructions, check [here](docs/install.md)
+
 * Install the dota2 addon manager
   * `npm i -g dota2-addon-manager`
 * Install the gulp command line interface
