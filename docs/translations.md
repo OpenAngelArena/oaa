@@ -13,6 +13,7 @@ When creating a pull request containing English text, you must add new entries t
 * Pull request, merge, rejoice.
 
 # Ticket Template
+### Single Translation
 ```markdown
 ### Request for copy and translations
 **Key**: "PUT_KEY_HERE"  
@@ -26,4 +27,40 @@ Only begin translations when English text is approved. Add in the complete trans
  * [ ] Russian translation: ""
  * [ ] Spanish translation: ""
  * [ ] Portuguese translation: ""
+```
+### Multiple Translations
+Sometimes you create several similar pieces of text at once.
+
+```markdown
+### Request for copy and translations
+**Key**: "PUT_KEY_HERE"  
+**English copy**: "text"
+**Key**: "OTHER_KEY_HERE"  
+**English copy**: "text"
+**Key**: "MORE_KEYS"  
+**English copy**: "text"
+
+* [ ] English copy approved
+  * [ ] **PUT_KEY_HERE**
+  * [ ] **OTHER_KEY_HERE**
+  * [ ] **MORE_KEYS**
+
+Only begin translations when English text is approved. Add in the complete translation before checking the list item.
+
+ * [ ] Chinese translation: 
+   * [ ] **PUT_KEY_HERE**: "chinese"
+   * [ ] **OTHER_KEY_HERE**: "chinese"
+   * [ ] **MORE_KEYS**: "chinese"
+ * [ ] Russian translation: ""
+   * [ ] **PUT_KEY_HERE**: "russian"
+   * [ ] **OTHER_KEY_HERE**: "russian"
+   * [ ] **MORE_KEYS**: "russian"
+ * [ ] Spanish translation: ""
+   * [ ] **PUT_KEY_HERE**: "spanish"
+   * [ ] **OTHER_KEY_HERE**: "spanish"
+   * [ ] **MORE_KEYS**: "spanish"
+ * [ ] Portuguese translation: ""
+   * [ ] **PUT_KEY_HERE**: "portuguese"
+   * [ ] **OTHER_KEY_HERE**: "portuguese"
+   * [ ] **MORE_KEYS**: "portuguese"
 ```
