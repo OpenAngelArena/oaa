@@ -1,0 +1,38 @@
+#GameLengthPicker
+{
+  margin-top: 100px;
+  flow-children: right;
+  background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+  horizontal-align: center;
+}
+
+#GameLengthPicker .GameLengthOption
+{
+  padding: 10px 10px;
+  width: fill-parent-flow (1);
+  flow-children: down;
+  box-shadow: black 0px 0px 0px 0px;
+}
+#GameLengthPicker .GameLengthOption:selected
+{
+  box-shadow: black -4px -4px 8px 8px;
+}
+
+#GameLengthPicker Panel.RadioBox
+{
+  height: 20px;
+}
+#GameLengthPicker Label
+{
+  margin-top: -20px;
+  margin-left: 30px;
+}
+
+#GameLengthPicker Label.description
+{
+  margin-top: 10px;
+  margin-left: 0px;
+  height: 150px;
+  white-space: normal;
+  text-transform: none;
+}
