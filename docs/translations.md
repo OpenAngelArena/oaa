@@ -34,11 +34,11 @@ Sometimes you create several similar pieces of text at once.
 ```markdown
 ### Request for copy and translations
 **Key**: "PUT_KEY_HERE"  
-**English copy**: "text"
+**English copy**: "text"  
 **Key**: "OTHER_KEY_HERE"  
-**English copy**: "text"
+**English copy**: "text"  
 **Key**: "MORE_KEYS"  
-**English copy**: "text"
+**English copy**: "text"  
 
 * [ ] English copy approved
   * [ ] **PUT_KEY_HERE**
