@@ -1,3 +1,11 @@
+function split(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
 function DebugPrint(...)
   local spew = Convars:GetInt('barebones_spew') or -1
   if spew == -1 and BAREBONES_DEBUG_SPEW then
