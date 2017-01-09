@@ -23,15 +23,15 @@
     </Panel>
     <Panel class="Buttons">
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('need')" class="NGPRadio Need">
-        <Label text="Need" />
+        <Label text="#ngp_need" />
         <Button />
       </RadioButton>
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('greed')" class="NGPRadio Greed">
-        <Label text="Greed" />
+        <Label text="#ngp_greed" />
         <Button />
       </RadioButton>
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('pass')" class="NGPRadio Pass">
-        <Label text="Pass" />
+        <Label text="#ngp_pass" />
         <Button />
       </RadioButton>
     </Panel>
