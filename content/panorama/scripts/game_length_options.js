@@ -1,5 +1,10 @@
+var console = {
+  log: $.Msg.bind($)
+};
 
 function SetPlayerVote (vote) {
+  // return;
+
   var options = [
     'short',
     'normal',
@@ -7,8 +12,12 @@ function SetPlayerVote (vote) {
   ];
   vote = vote.toLowerCase();
   if (options.indexOf(vote) === -1) {
-    throw new Error('You can only vote for short, normal, or long games.');
+    console.log('You can only vote for short, normal, or long games.');
+    return;
   }
 
-  GameEvents.SendCustomGameEventToServer('gamelength_vote', vote);
+  GameEvents.SendCustomGameEventToServer('gamelength_vote', {
+    playerId: Players.GetLocalPlayer(),
+    vote: vote
+  });
 }
