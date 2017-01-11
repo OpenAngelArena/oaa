@@ -127,6 +127,7 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
+  InitModule(PointsManager)
   InitModule(CreepCamps)
 end
 
