@@ -11,7 +11,7 @@
   flow-children: right;
   transition: transform 0.2s ease-out 0s;
 
-  transform: translateX(-350px);
+  transform: translateX(-340px);
 }
 #NeedGreedPassSlider.Expanded
 {
@@ -52,7 +52,7 @@
 {
   horizontal-align: left;
   height: 83px;
-  width: 350px;
+  width: 340px;
   background-image: url("s2r://panorama/images/hud/reborn/bg_minimap_psd.vtex");
   background-size: 100% auto;
   flow-children: right;
@@ -98,7 +98,7 @@
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
-  height: 18px;
+  height: 20px;
   /*text-transform: uppercase;*/
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.Description
@@ -110,9 +110,8 @@
 }
 .NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto
 {
-  margin-top: 5px;
+  margin-top: 14px;
   height: 20px;
-  vertical-align: bottom;
   flow-children: right;
 }
 .NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto Label
@@ -120,6 +119,7 @@
   text-transform: uppercase;
   font-size: 10px;
   width: 30px;
+  height: 25px;
   line-height: 10px;
 }
 .NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto DOTAItemImage
@@ -133,9 +133,9 @@
 .NeedGreedPass .ItemPanel .Buttons
 {
   margin: 5px;
-  height: 100%;
-  horizontal-align: right;
   flow-children: down;
+  border-left: 1px solid #555;
+  padding-left: 5px;
 }
 .NeedGreedPass .ItemPanel .Buttons RadioButton
 {
@@ -191,7 +191,7 @@
 @keyframes 'slideitallin' {
   from {
     opacity:1;
-    transform: translateX(-350px);
+    transform: translateX(-340px);
   }
 
   to {

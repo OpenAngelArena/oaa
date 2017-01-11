@@ -1,5 +1,5 @@
 # Custom Events
-This is a list of events we have added to the game.
+This is a list of events we have added to the game. All events **must** pass objects or else dota crashes lol thanks volvo. List the keys the object expects.
 
 ## Server to Client
 
@@ -34,6 +34,13 @@ Type: `string` or `number`
 Unique ID for the item instance to dismiss
 
 ## Client to Server
+
+### gamelength_vote
+Vote on the length of the game.
+
+**vote**  
+Type: `string`  
+Either "**short**" "**normal**" or "**long**"
 
 ### ngp_selection
 Sent when a player has made their selection for a given Need/Greed/Pass instance.

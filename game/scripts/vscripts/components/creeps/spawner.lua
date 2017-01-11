@@ -24,6 +24,7 @@ CreepTypes = {
 }
 
 function CreepCamps:Init ()
+  DebugPrint ( '[creeps/spawner] Initialize' )
   CreepCamps = self
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepTimer'))
 end
