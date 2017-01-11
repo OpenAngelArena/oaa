@@ -32,7 +32,58 @@
 {
   margin-top: 10px;
   margin-left: 0px;
-  height: 150px;
+  height: 50px;
   white-space: normal;
   text-transform: none;
+}
+#custom_welcome_message_id
+{
+  margin-top: 10px;
+  horizontal-align: center;
+
+}
+
+#custom_welcome_message_id Label.text
+{
+  font-size: 42px;
+  font-weight: bolder;
+  color: #DDD;
+  background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
+  padding: 15px;
+}
+
+#TeamsList
+{
+  height:500px;
+  width:670px;
+  margin-left: 0px;
+  vertical-align: middle;
+  horizontal-align: center;
+}
+
+#TeamsListRoot
+{
+  flow-children: right;
+background-image: url("file://{images}/custom_game/vs2.png");
+}
+
+.team_2
+{
+  height:350px;
+  width:250px;
+}
+
+.team_3
+{
+  height:350px;
+  width:250px;
+  margin-left: 130px;
+  horizontal-align: right;
+}
+#GameAndPlayersRoot
+{
+  width: 330px;
+  height: 830px;
+  horizontal-align: right;
+  margin-top: 220px;
 }

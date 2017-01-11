@@ -41,6 +41,7 @@
   </script>
 
   <Panel>
+  <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
     <!-- CustomUIElements go here.-->
 
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />  -->
@@ -50,7 +51,7 @@
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/modmaker/modmaker.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" /> -->
     <!-- <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/game_length_choice.xml" /> -->
-    <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
+
 
     <!-- From Overthrow.
 
