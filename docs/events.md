@@ -1,10 +1,10 @@
 # Custom Events
-This is a list of events we have added to the game.
+This is a list of events we have added to the game. All events **must** pass objects or else dota crashes lol thanks volvo. List the keys the object expects.
 
 ## Server to Client
 
 ### ngp_add_item
-Display the Need/Greed/Padd UI for a given item. Passes object with the following keys.
+Display the Need/Greed/Padd UI for a given item.
 
 **id**  
 Type: `string` or `number`  
@@ -27,7 +27,7 @@ Type: `string[]`
 Array of string names of items to show in the hint box.
 
 ### ngp_expire_item
-Remove a given Need/Greed/Pass UI instance for a player's screen. Used when the choice expires and the item is no longer available. Passes object with the following keys.
+Remove a given Need/Greed/Pass UI instance for a player's screen. Used when the choice expires and the item is no longer available.
 
 **id**  
 Type: `string` or `number`
@@ -36,13 +36,14 @@ Unique ID for the item instance to dismiss
 ## Client to Server
 
 ### gamelength_vote
-Vote on the length of the game. Passes string `vote` directly.
+Vote on the length of the game.
 
+**vote**  
 Type: `string`  
 Either "**short**" "**normal**" or "**long**"
 
 ### ngp_selection
-Sent when a player has made their selection for a given Need/Greed/Pass instance. Passes object with the following keys.
+Sent when a player has made their selection for a given Need/Greed/Pass instance.
 
 **id**  
 Type: `string` or `number`  
