@@ -1,8 +1,6 @@
 
-tester = tester or ChatCommand()
-
-tester:LinkCommand("-gold", 'GoldCommand')
-function tester:GoldCommand(keys)
+ChatCommand:LinkCommand("-gold", 'GoldCommand')
+function GoldCommand(keys)
 	local id = keys.userid
 	local text = keys.text
 
@@ -18,7 +16,7 @@ end
 
 TestClass = TestClass or class({})
 
-tester:LinkCommand("-test", "TestCommand", TestClass)
+ChatCommand:LinkCommand("-test", "TestCommand", TestClass)
 function TestClass:TestCommand(keys)
 	print("testcommand works")
 end
