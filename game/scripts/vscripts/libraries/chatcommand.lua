@@ -14,6 +14,7 @@ created by Zarnotox with a lot of constructive help from https://discord.gg/Z7eC
 
 ChatCommand = ChatCommand or {}
 
+-- Begin Initialise
 function ChatCommand:Init() 
 	self.initialised = true
 	ListenToGameEvent("player_chat", Dynamic_Wrap(ChatCommand, 'OnPlayerChat'), self)
@@ -22,12 +23,15 @@ end
 if not ChatCommand.initialised then
     ChatCommand:Init()
 end
+-- End Initialise
 
+-- Function to create the link
 function ChatCommand:LinkCommand(command, funcName, obj)
 	self.commands = self.commands or {}
 	self.commands[command] = {funcName, obj}
 end
 
+-- Function that's called when somebody chats
 function ChatCommand:OnPlayerChat(keys)
 	self.commands = self.commands or {}
 	local text = keys.text

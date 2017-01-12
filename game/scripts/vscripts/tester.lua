@@ -1,22 +1,22 @@
 
-ChatCommand:LinkCommand("-gold", 'GoldCommand')
-function GoldCommand(keys)
-	local id = keys.userid
-	local text = keys.text
-
-	local splitted = split(text, " ")
-	local gold = tonumber(splitted[2])
-
-	print("Trying to give player'".. id .. "' " .. gold .. " custom gold")
-	print("Right now you have " .. Gold:GetGold(id) .. " custom gold")
-	Gold:ModifyGold(id, gold)
-	print("And now you have " .. Gold:GetGold(id) .. " custom gold")
+-- Global function
+ChatCommand:LinkCommand("-test", "TestCommand")
+function TestCommand(keys)
+	print("this test command works")
 end
 
 
-TestClass = TestClass or class({})
+-- Object:function
+GoldClass = GoldClass or class({})
 
-ChatCommand:LinkCommand("-test", "TestCommand", TestClass)
-function TestClass:TestCommand(keys)
-	print("testcommand works")
+ChatCommand:LinkCommand("-gold", 'GoldCommand', GoldClass)
+function GoldClass:GoldCommand(keys)
+	self.gold = self.gold or 0
+
+	local splitted = split(keys.text, " ")
+	local money = tonumber(splitted[2])
+
+	print("you had " .. self.gold .." gold before")
+	self.gold = self.gold + money
+	print("But now you have " .. self.gold .." gold!")
 end
