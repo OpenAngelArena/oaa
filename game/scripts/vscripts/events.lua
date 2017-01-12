@@ -145,7 +145,7 @@ function GameMode:OnPlayerLevelUp(keys)
   
   -- reduce the stat gain past a certain level
   if level > 25 then
-    local div = level / 20
+    local div = ( level - 25 + 12 ) / 12
 	
 	-- get the hero's stat gain
 	local gainStr = hero:GetStrengthGain()
