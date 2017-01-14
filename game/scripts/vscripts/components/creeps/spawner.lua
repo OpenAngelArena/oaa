@@ -9,16 +9,24 @@ end
 -- the timer scans the map for all supported creep camps and spawns the creeps
 -- profit
 CreepTypes = {
-  -- 1
+  -- 1 "easy camp"
   {
     "npc_dota_neutral_kobold",
     "npc_dota_neutral_kobold_taskmaster",
     "npc_dota_neutral_kobold_tunneler"
   },
-  -- 2
+  -- 2 "medium camp"
   {
     "npc_dota_neutral_harpy_storm",
     "npc_dota_neutral_harpy_scout"
+  },
+  -- 3 "hard camp"
+  {
+    "npc_dota_neutral_big_thunder_lizard",
+    "npc_dota_neutral_jungle_stalker",
+    "npc_dota_neutral_small_thunder_lizard",
+    "npc_dota_neutral_rock_golem",
+    "npc_dota_neutral_granite_golem"
   }
   -- ...
 }
@@ -46,6 +54,10 @@ end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
   local creepType = CreepTypes[difficulty]
+  if creepType == nil then
+    DebugPrint ('[creeps/spawner] unknown creep type ' .. difficulty)
+    return false
+  end
   creepType = creepType[math.random(#creepType)]
 
   -- ( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
