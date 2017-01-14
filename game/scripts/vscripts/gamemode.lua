@@ -46,6 +46,10 @@ require('settings')
 require('events')
 
 
+require('gold')
+require('libraries/chatcommand')
+require('examples/chatcommandExample')
+
 --require("examples/worldpanelsExample")
 
 --[[
