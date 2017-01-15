@@ -2,19 +2,14 @@
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
-For detailed instructions, check [here](docs/install.md)
+This addon uses the [Dota 2 Addon Manager](github.com/chrisinajar/dota2-addon-manager).
 
-* Install the dota2 addon manager
-  * `npm i -g dota2-addon-manager`
-* Install the gulp command line interface
-  * `npm install -g gulp-cli`
-* Initialize the **addons** directory using `d2am list` from inside your `dota 2 beta` directory.
-* Check out this repository into `dota 2 beta/addons/`
-* Run `d2am link` from inside the `dota 2 beta` directory
-* Open the addon using the dota2 tools. Done!
+For detailed instructions, check [here](docs/install.md)
 
 # Contributing
 Check out the discord!
+
+There are also issues marked with `Great for new contributors`.
 
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
