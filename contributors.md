@@ -15,15 +15,20 @@ A lot of people helped create Angel Arena Allstars.
  * Steamhat
 
 ## Translations
+
 ### Chinese
  * dkHugh
  * FishMargo
+
 ### Portuguese
  * Haganeko
+
 ### Spanish
  * DrWallaceBreen
+
 ### Russian
  * DJBotan
  * Murzer
+
 ### German
  * Germanerd
