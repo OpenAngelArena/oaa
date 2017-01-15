@@ -1,5 +1,5 @@
 # Angel Arena Allstars
-A really great Dota 2 game mode.
+A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
 For detailed instructions, check [here](docs/install.md)
