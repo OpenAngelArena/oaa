@@ -1,11 +1,12 @@
-require('creeps/spawner')
+-- load all components
+require('components/index')
 
 -- This is the primary barebones gamemode script and should be used to assist in initializing your game mode
 BAREBONES_VERSION = "1.00"
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = false
+BAREBONES_DEBUG_SPEW = true
 
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
@@ -85,6 +86,11 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
+
+  -- i wish this was observer pattern :/
+  if GameLengthVotes ~= nil then
+    GameLengthVotes:SetGameLength()
+  end
 end
 
 --[[
@@ -120,18 +126,24 @@ end
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
-  -- initialize the creep spawner
-  CreepCamps:Init()
-
+  -- initialize modules
+  InitModule(PointsManager)
+  InitModule(CreepCamps)
 end
 
-
+function InitModule(myModule)
+  if myModule ~= nil then
+    myModule:Init()
+  end
+end
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
+
+  InitModule(GameLengthVotes)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )

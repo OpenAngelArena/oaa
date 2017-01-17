@@ -37,13 +37,11 @@ jspm_packages
 .node_repl_history
 
 # Dota 2 stuff
-*.vxml_c
-*.vpk
-*.vjs_c
-*.vcss_c
-*.bin
-*.vtex_c
-*.cfg
+tools_thumbnail_cache.bin
+tools_asset_info.bin
 
+game/panorama/layout
+game/panorama/styles
+game/panorama/scripts
+panorama_debugger.cfg
 
-*.vpk
