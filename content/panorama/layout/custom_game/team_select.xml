@@ -9,13 +9,12 @@
   <scripts>
     <include src="file://{resources}/scripts/custom_game/team_select.js" />
     <include src="file://{resources}/scripts/game_length_options.js" />
+
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
 
-    <Panel id="custom_welcome_message_id">
-      <Label class="text" text="#custom_welcome_message" />
-    </Panel>
+
     <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">`
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
@@ -44,9 +43,11 @@
         </Panel>
         <Panel id="TeamsListRoot" />
 
+
+
         <Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
           <Label text="#custom_game_team_select_shuffle" />
-          <Image src="file://{images}/control_icons/shuffle.psd" />
+
         </Button>
       </Panel>
     </Panel>
@@ -56,9 +57,7 @@
 
     <Panel id="GameAndPlayersRoot">
       <Panel id="GameInfoPanel" >
-        <Panel id="MapInfo">
-          <Label id="MapInfoLabel" text="#LoadingScreenMapInfo" />
-        </Panel>
+
         <Panel id="StartGameCountdownTimer">
           <Image id="TimerBg" src="file://{images}/status_icons/timer_background.psd" />
           <Image id="TimerRing" src="file://{images}/status_icons/timer_ring.psd" />
@@ -67,6 +66,9 @@
             <Label id="TimerLabelAutoStart" text="#custom_game_team_select_auto_start" />
             <Label id="TimerLabelGameStart" text="#custom_game_team_select_starting" />
           </Panel>
+        </Panel>
+        <Panel id="MapInfo">
+          <Label id="MapInfoLabel" text="#LoadingScreenMapInfo" />
         </Panel>
       </Panel>
       <Panel id="UnassignedPlayerPanel" >
@@ -82,10 +84,10 @@
           <Label text="#custom_game_team_select_auto_assign" />
         </Button>
       </Panel>
-      <Button id="LockAndStartButton" class="PlayButton" onactivate="OnLockAndStartPressed()">
+      <Button id="LockAndStartButton" class="" onactivate="OnLockAndStartPressed()">
         <Label text="#custom_game_team_select_lock_start" />
       </Button>
-      <Button id="CancelAndUnlockButton" class="PlayButton" onactivate="OnCancelAndUnlockPressed()">
+      <Button id="CancelAndUnlockButton" class="" onactivate="OnCancelAndUnlockPressed()">
         <Label text="#custom_game_team_select_cancel_unlock" />
       </Button>
 

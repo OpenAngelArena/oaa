@@ -1,89 +1,72 @@
 #GameLengthPicker
 {
+  width: 1250px;
+  height: 170px;
   margin-top: 100px;
   flow-children: right;
-  background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
   horizontal-align: center;
+  background-image: url("file://{images}/custom_game/TeamSelect_Gamemode_bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
 }
 
 #GameLengthPicker .GameLengthOption
 {
-  padding: 10px 10px;
+  padding: 21px 40px;
   width: fill-parent-flow (1);
   flow-children: down;
-  box-shadow: black 0px 0px 0px 0px;
-}
-#GameLengthPicker .GameLengthOption:selected
-{
-  box-shadow: black -4px -4px 8px 8px;
+
 }
 
-#GameLengthPicker Panel.RadioBox
+#GameLengthPicker #ShortGame Panel.RadioBox
 {
-  height: 20px;
+  margin-left: 117px;
+  margin-top: -4px;
 }
+
+#GameLengthPicker #NormalGame Panel.RadioBox
+{
+  margin-left: 93px;
+  margin-top: -4px;
+}
+#GameLengthPicker #LongGame Panel.RadioBox
+{
+  margin-left: 115px;
+  margin-top: -4px;
+}
+
+#GameLengthPicker RadioButton:not(:selected) Panel.RadioBox
+{
+  box-shadow: none;
+  background-image: url("file://{images}/custom_game/TeamSelect_Button_off.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+  border: 3px solid #000000;
+}
+#GameLengthPicker  RadioButton:selected Panel.RadioBox
+{
+  box-shadow: none;
+  background-image: url("file://{images}/custom_game/TeamSelect_Button_on.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+}
+
 #GameLengthPicker Label
 {
-  margin-top: -20px;
-  margin-left: 30px;
+  margin-top: -15px;
+  margin-left: 160px;
+  font-size: 12px;
 }
+
 
 #GameLengthPicker Label.description
 {
-  margin-top: 10px;
-  margin-left: 0px;
-  height: 50px;
+  margin-top: 25px;
+  margin-left: 10px;
+  height: 60px;
   white-space: normal;
   text-transform: none;
-}
-#custom_welcome_message_id
-{
-  margin-top: 10px;
-  horizontal-align: center;
-
-}
-
-#custom_welcome_message_id Label.text
-{
-  font-size: 42px;
-  font-weight: bolder;
-  color: #DDD;
-  background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
-  padding: 15px;
-}
-
-#TeamsList
-{
-  height:500px;
-  width:670px;
-  margin-left: 0px;
-  vertical-align: middle;
-  horizontal-align: center;
-}
-
-#TeamsListRoot
-{
-  flow-children: right;
-background-image: url("file://{images}/custom_game/vs2.png");
-}
-
-.team_2
-{
-  height:350px;
-  width:250px;
-}
-
-.team_3
-{
-  height:350px;
-  width:250px;
-  margin-left: 130px;
-  horizontal-align: right;
-}
-#GameAndPlayersRoot
-{
-  width: 330px;
-  height: 830px;
-  horizontal-align: right;
-  margin-top: 220px;
+  font-size: 16px;
 }
