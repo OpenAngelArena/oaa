@@ -11,8 +11,10 @@ Check out the [Discord][discord-link]!
 
 There are also issues marked with [`Great for new contributors`](https://github.com/AngelArenaAllstars/aaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
 
+Music can be found at [Soundcloud][soundcloud-link]
+
 ### Suggestions?
-Do not create or comment on tickets in this repository for game suggestions. Use the [Discord](discord-link).
+Do not create or comment on tickets in this repository for game suggestions. Use the [Discord][discord-link].
 
 ### Building npc custom files
 From within the addon directory, run `gulp`.
@@ -21,4 +23,4 @@ From within the addon directory, run `gulp`.
 MIT
 
 [soundcloud-link]: https://soundcloud.com/angelarenaallstars "Music for Angel Arena Allstars"
-[discord-link]: https://discord.gg/WNFBB4d "Angel Arena Allstars Discord Instant Invite"
+[discord-link]: https://discord.gg/ "Angel Arena Allstars Discord Instant Invite"
