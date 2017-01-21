@@ -23,10 +23,12 @@
             <Label class="title" text="#aaa_game_length_short_title" />
             <Label class="description" text="#aaa_game_length_short" />
           </RadioButton>
-          <RadioButton group="GameLength" id="NormalGame" text="#aaa_game_length_normal_title" checked="checked" class="GameLengthOption">
+          <RadioButton group="GameLength" id="NormalGame" checked="checked" class="GameLengthOption">
+            <Label class="title" text="#aaa_game_length_normal_title" />
             <Label class="description" text="#aaa_game_length_normal" />
           </RadioButton>
-          <RadioButton group="GameLength" id="LongGame" text="#aaa_game_length_long_title" class="GameLengthOption">
+          <RadioButton group="GameLength" id="LongGame" class="GameLengthOption">
+            <Label class="title" text="#aaa_game_length_long_title" />
             <Label class="description" text="#aaa_game_length_long" />
           </RadioButton>
         </Panel>
