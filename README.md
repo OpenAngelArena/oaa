@@ -2,7 +2,7 @@
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
-This addon uses the [Dota 2 Addon Manager](github.com/chrisinajar/dota2-addon-manager).
+This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
 
 For detailed instructions, check [here](docs/install.md)
 
