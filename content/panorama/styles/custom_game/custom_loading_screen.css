@@ -9,33 +9,38 @@
   background-size: 100% 100%;
   background-repeat: no-repeat round;
   background-color: transparent;
+
+  padding: 0px 10px;
 }
 
 #GameLengthPicker .GameLengthOption
 {
-  padding: 21px 40px;
+  padding: 20px 40px;
+  margin-top: -4px;
   width: fill-parent-flow (1);
   flow-children: down;
-
+  /* it's nice to turn this on for visual spacing */
+  border: 1px solid transparent;
 }
 
-#GameLengthPicker #ShortGame Panel.RadioBox
+#GameLengthPicker #ShortGame
 {
-  margin-left: 117px;
-  margin-top: -4px;
+  padding-left: 46px;
 }
 
-#GameLengthPicker #NormalGame Panel.RadioBox
+#GameLengthPicker #NormalGame
 {
-  margin-left: 93px;
-  margin-top: -4px;
+  padding-left: 27px;
 }
-#GameLengthPicker #LongGame Panel.RadioBox
+#GameLengthPicker #LongGame
 {
-  margin-left: 115px;
-  margin-top: -4px;
+  padding-left: 55px;
 }
 
+#GameLengthPicker Panel.RadioBox
+{
+  margin-left: 100px;
+}
 #GameLengthPicker RadioButton:not(:selected) Panel.RadioBox
 {
   box-shadow: none;
@@ -53,11 +58,10 @@
   background-repeat: no-repeat round;
 }
 
-#GameLengthPicker Label
+#GameLengthPicker Label.title
 {
-  margin-top: -15px;
-  margin-left: 160px;
-  font-size: 12px;
+  margin-top: -20px;
+  margin-left: 130px;
 }
 
 
