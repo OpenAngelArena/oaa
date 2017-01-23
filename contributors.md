@@ -1,46 +1,69 @@
 # Contributors
-This project was started by [chrisinajar](https://github.com/chrisinajar) and [Baumi](https://youtube.com/baumi), but a lot of people helped create it.
+This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], but a lot of people helped create it.
 
 ## Coding
- * chrisinajar
- * salacryl
+ * [chrisinajar][chrisinajar]
+ * [salacryl][salacryl]
  * Zartonox
- * SquawkyArctangent
- * yahnich
+ * [SquawkyArctangent][SquawkyArctangent]
+ * [yahnich][yahnich]
 
 ## Design / Balance
- * Baumi
+ * [Baumi][baumi]
  * Zartonox
- * Haganeko
- * MelonGod
+ * [Haganeko][Haganeko]
+ * [MelonGod][MelonGod]
 
 ## Art
  * Steamhat
  * MrOutback
  
 ## Music
- * Sai
+ * [Sai][Sai]
  * Felix
- * RyanMusic
+ * [RyanMusic][RyanMusic]
  
 ## Documentation
- * Chronophylos
+ * [Chronophylos][Chronophylos]
 
 ## Translations
 
 ### Chinese
- * dkHugh
+ * [dkHugh][dkHugh]
  * FishMargo
 
 ### Portuguese
- * Haganeko
+ * [Haganeko][Haganeko]
 
 ### Spanish
- * DrWallaceBreen
+ * [DrWallaceBreen][DrWallaceBreen]
 
 ### Russian
- * DJBotan
- * Murzer
+ * [DJBotan][DJBotan]
+ * [Murzer][Murzer]
 
 ### German
- * Germanerd
+ * [Germanerd][Germanerd]
+
+
+[chrisinajar]: https://github.com/chrisinajar "chrisinajar's Github"
+[baumi]: https://github.com/l34Um1 "Baumi's Github"
+[baumi-yt]: https://youtube.com/baumi "Baumi's YouTube"
+[salacryl]: https://github.com/salacryl "salacryl's Github"
+[Zartonox]: https://github.com/AngelArenaAllstars "I have no Links"
+[SquawkyArctangent]: https://github.com/SquawkyArctangent "SquawkyArctangent's Github"
+[yahnich]: https://github.com/yahnich "yahnich's Github"
+[Haganeko]: https://github.com/Haganeko "Haganeko's Github"
+[MelonGod]: https://github.com/MelonGod "MelonGod's Github"
+[Steamhat]: https://github.com/AngelArenaAllstars "I have no Links"
+[MrOutback]: https://github.com/AngelArenaAllstars "I have no Links"
+[Sai]: https://github.com/Sai "Sai's Github"
+[Felix]: https://github.com/AngelArenaAllstars "I have no Links"
+[RyanMusic]: https://github.com/RyanMusic "RyanMusic's Github"
+[Chronophylos]: https://github.com/Chronophylos "Chronophylos' Github"
+[dkHugh]: https://github.com/dkHugh "dkHugh's Github"
+[FishMargo]: https://github.com/AngelArenaAllstars "I have no Links"
+[DrWallaceBreen]: https://github.com/DrWallaceBreen "DrWallaceBreen's Github"
+[DJBotan]: https://github.com/DJBotan "DJBotan's Github"
+[Murzer]: https://github.com/Murzer "Murzer's Github"
+[Germanerd]: https://github.com/Germanerd "Germanerd's Github"
