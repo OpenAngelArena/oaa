@@ -175,7 +175,7 @@ function GameMode:GameModeGoldThink()
     if PlayerResource:IsValidPlayerID(i) then
       if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         local goldtoadd = PlayerResource:GetGold(i)
-        if goldtoadd != 0 then
+        if goldtoadd ~= 0 then
           Gold:AddGold(i, goldtoadd)
           PlayerResource:SetGold(i, 0, false)
         end
