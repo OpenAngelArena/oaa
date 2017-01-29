@@ -1,6 +1,8 @@
 "use strict";
 
 /*
+  Author:
+    Angel Arena Blackstar
   Credits:
     Angel Arena Blackstar
 */// SNIPPET START
@@ -35,6 +37,7 @@ Entities.GetHeroPlayerOwner = function(unit) {
 
 /*
   Author:
+    Noya
     Chronophylos
   Credits:
     Noya
@@ -53,6 +56,8 @@ GameUI.FormatGold = function (gold) {
 }
 
 /*
+  Author:
+    Noya
   Credits:
     Noya
   Description:
