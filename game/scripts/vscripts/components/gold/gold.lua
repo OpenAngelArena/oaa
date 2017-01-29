@@ -6,7 +6,17 @@
     Angel Arena Blackstars
 ]]
 
-PLAYER_GOLD = {
+
+-- this file needs to be cleaned up, the whole PLAYER_GOLD thing isn't needed at all
+-- there's no good reason to track the data in two spots at once
+-- it'd also be great to figure out how to only send down the data to the player who cares
+
+if Gold == nil then
+  DebugPrint ( '[gold/gold] creating new Gold object' )
+  _G.Gold = class({})
+end
+
+local PLAYER_GOLD = {
   [0] = {},
   [1] = {},
   [2] = {},
@@ -19,16 +29,11 @@ PLAYER_GOLD = {
   [9] = {}
 }
 
-
-if Gold == nil then
-  _G.Gold = class({})
-end
-
 function Gold:Init()
   -- a table for every player
   PlayerTables:CreateTable("gold", {
     gold = {}
-    }, {0,1,2,3,4,5,6,7,8,9})
+  }, {0,1,2,3,4,5,6,7,8,9})
 
     -- start think timer
   Timers:CreateTimer(0, Dynamic_Wrap(Gold, "Think"))
@@ -37,11 +42,16 @@ end
 function Gold:UpdatePlayerGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
+    -- get full tree,
     local allgold = PlayerTables:GetTableValue("gold", "gold")
     allgold[playerID] = PLAYER_GOLD[playerID].SavedGold
+
     PlayerTables:SetTableValue("gold", "gold", allgold)
+
     local player = PlayerResource:GetPlayer(playerID)
-    CustomGameEventManager:Send_ServerToAllClients("aaa_update_gold", { gold=allgold })
+    CustomGameEventManager:Send_ServerToAllClients("aaa_update_gold", {
+      gold = allgold
+    })
   end
 end
 

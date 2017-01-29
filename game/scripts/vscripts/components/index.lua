@@ -4,3 +4,4 @@
 require('components/creeps/index')
 require('components/game_length_vote/index')
 require('components/points/index')
+require('components/gold/index')
