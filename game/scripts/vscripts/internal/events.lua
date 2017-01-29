@@ -5,6 +5,10 @@ function GameMode:_OnGameRulesStateChange(keys)
   end
 
   local newState = GameRules:State_Get()
+  CustomGameEventManager:Send_ServerToAllClients( 'aaa_state_change', {
+    newState = newState
+  })
+
   if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
     self.bSeenWaitForPlayers = true
   elseif newState == DOTA_GAMERULES_STATE_INIT then
@@ -63,7 +67,7 @@ function GameMode:_OnEntityKilled( keys )
     killerEntity = EntIndexToHScript( keys.entindex_attacker )
   end
 
-  if killedUnit:IsRealHero() then 
+  if killedUnit:IsRealHero() then
     DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
     if END_GAME_ON_KILLS and GetTeamHeroKills(killerEntity:GetTeam()) >= KILLS_TO_END_GAME_FOR_TEAM then
       GameRules:SetSafeToLeave( true )
@@ -93,7 +97,7 @@ function GameMode:_OnConnectFull(keys)
   local entIndex = keys.index+1
   -- The Player entity of the joining user
   local ply = EntIndexToHScript(entIndex)
-  
+
   local userID = keys.userid
 
   self.vUserIds = self.vUserIds or {}

@@ -9,6 +9,7 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
+  GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
   GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
   GameRules:SetPreGameTime( PRE_GAME_TIME)
   GameRules:SetPostGameTime( POST_GAME_TIME )
@@ -108,7 +109,7 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(GameMode, 'OnNPCGoalReached'), self)
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
-  
+
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)
@@ -151,7 +152,7 @@ mode = nil
 function GameMode:_CaptureGameMode()
   if mode == nil then
     -- Set GameMode parameters
-    mode = GameRules:GetGameModeEntity()        
+    mode = GameRules:GetGameModeEntity()
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
     mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
     mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
@@ -175,7 +176,7 @@ function GameMode:_CaptureGameMode()
     if FORCE_PICKED_HERO ~= nil then
       mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
     end
-    mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME ) 
+    mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
     mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
     mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
     mode:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
@@ -195,5 +196,5 @@ function GameMode:_CaptureGameMode()
     mode:SetStickyItemDisabled( DISABLE_STICKY_ITEM )
 
     self:OnFirstPlayerLoaded()
-  end 
+  end
 end
