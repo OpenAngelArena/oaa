@@ -110,7 +110,9 @@ end
   Credits:
     Angel Arena Blackstar
   Description:
-    I don't really know what this does
+    Returns the player id from a given unit / player / table.
+    For example, you should be able to pass in a reference to a lycan wolf and get back the correct player's ID.
+    -- chrisinajar
 ]]
 function UnitVarToPlayerID(unitvar)
   if unitvar then
