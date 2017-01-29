@@ -10,18 +10,21 @@ var useFormatting = "half";
 
 function UpdateGoldHud(data) {
   //$.Msg("UpdateGoldHud")
+  var player_gold = PlayerTables.GetTableValue("gold", "gold");
   var unit = Players.GetLocalPlayerPortraitUnit();
   var playerID = Game.GetLocalPlayerID()
   var GoldLabel = FindDotaHudElement("ShopButton").FindChildTraverse("GoldLabel");
+  var gold = player_gold[playerID];
   if (useFormatting == "full"){
-    GoldLabel.text = GameUI.FormatGold(data.gold[playerID]);
+    GoldLabel.text = GameUI.FormatGold(gold);
   } else if (useFormatting == "half") {
-    GoldLabel.text = GameUI.FormatComma(data.gold[playerID]);
+    GoldLabel.text = GameUI.FormatComma(gold);
   } else {
-    GoldLabel.text = data.gold[playerID];
+    GoldLabel.text = gold;
   }
 }
 
 (function () {
-    GameEvents.Subscribe("aaa_update_gold", UpdateGoldHud);
+    //GameEvents.Subscribe("aaa_update_gold", UpdateGoldHud);
+    PlayerTables.SubscribeNetTableListener("gold", UpdateGoldHud);
 })();
