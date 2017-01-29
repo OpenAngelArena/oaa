@@ -1,5 +1,6 @@
 --[[
   Author:
+    Angel Arena Blackstars
     Chronophylos
   Credits:
     Angel Arena Blackstars
