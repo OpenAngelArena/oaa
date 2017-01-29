@@ -154,10 +154,6 @@ function GameMode:InitGameMode()
     gold = {}
     }, {0,1,2,3,4,5,6,7,8,9})
 
-  for i = 0, 9 do
-    Gold:SetGold(i, 0)
-  end
-
   InitModule(GameLengthVotes)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
