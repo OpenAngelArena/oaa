@@ -1,3 +1,6 @@
+--[[
+  Credits go to Angel Arena Blackstars
+]]
 if Gold == nil then
   _G.Gold = class({})
 end
@@ -5,10 +8,11 @@ end
 function Gold:UpdatePlayerGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    PlayerResource:SetGold(playerID, 0, false)
-    local allgold = PlayerTables:GetTableValue("arena", "gold")
+    local allgold = PlayerTables:GetTableValue("aaa", "gold")
     allgold[playerID] = PLAYER_DATA[playerID].SavedGold
-    PlayerTables:SetTableValue("arena", "gold", allgold)
+    PlayerTables:SetTableValue("aaa", "gold", allgold)
+    local player = PlayerResource:GetPlayer(playerID)
+    CustomGameEventManager:Send_ServerToAllClients("aaa_update_gold", { gold=allgold })
   end
 end
 
@@ -37,6 +41,11 @@ function Gold:RemoveGold(unitvar, gold)
 end
 
 function Gold:AddGold(unitvar, gold)
+  DebugPrint("[Gold] AddGold")
+  DebugPrint("arg.unitvar: " .. unitvar)
+  DebugPrint("arg.gold: " .. gold)
+  --DebugPrint("current gold: " .. PlayerTables:GetTableValue("aaa", "gold"))
+  DebugPrintTable(PLAYER_DATA)
   local playerID = UnitVarToPlayerID(unitvar)
   PLAYER_DATA[playerID].SavedGold = (PLAYER_DATA[playerID].SavedGold or 0) + math.floor(gold)
   Gold:UpdatePlayerGold(playerID)
