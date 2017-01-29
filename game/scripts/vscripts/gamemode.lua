@@ -132,9 +132,7 @@ function GameMode:OnGameInProgress()
   -- initialize modules
   InitModule(PointsManager)
   InitModule(CreepCamps)
-
-  -- start think timer
-  Timers:CreateTimer(0, Dynamic_Wrap(GameMode, "GameModeGoldThink"))
+  InitModule(Gold)
 end
 
 function InitModule(myModule)
@@ -149,40 +147,12 @@ function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
-  -- a table for every player
-  PlayerTables:CreateTable("aaa", {
-    gold = {}
-    }, {0,1,2,3,4,5,6,7,8,9})
-
   InitModule(GameLengthVotes)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
-end
-
---[[
-  Author:
-    Chronophylos
-  Credits:
-    Angel Arena Blackstar
-  Description:
-    Add Gold to all players via our custom Gold API
-]]
-function GameMode:GameModeGoldThink()
-  for i = 0, 9 do
-    if PlayerResource:IsValidPlayerID(i) then
-      if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-        local goldtoadd = PlayerResource:GetGold(i)
-        if goldtoadd ~= 0 then
-          Gold:AddGold(i, goldtoadd)
-          PlayerResource:SetGold(i, 0, false)
-        end
-      end
-    end
-  end
-  return 0.2
 end
 
 -- This is an example console command
