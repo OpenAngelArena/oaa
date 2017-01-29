@@ -1,5 +1,8 @@
 --[[
-  Credits go to Angel Arena Blackstars
+  Author:
+    Chronophylos
+  Credits:
+    Angel Arena Blackstars
 ]]
 if Gold == nil then
   _G.Gold = class({})
@@ -41,11 +44,10 @@ function Gold:RemoveGold(unitvar, gold)
 end
 
 function Gold:AddGold(unitvar, gold)
-  DebugPrint("[Gold] AddGold")
+  --[[DebugPrint("[Gold] AddGold")
   DebugPrint("arg.unitvar: " .. unitvar)
   DebugPrint("arg.gold: " .. gold)
-  --DebugPrint("current gold: " .. PlayerTables:GetTableValue("aaa", "gold"))
-  DebugPrintTable(PLAYER_DATA)
+  DebugPrintTable(PLAYER_DATA)]]
   local playerID = UnitVarToPlayerID(unitvar)
   PLAYER_DATA[playerID].SavedGold = (PLAYER_DATA[playerID].SavedGold or 0) + math.floor(gold)
   Gold:UpdatePlayerGold(playerID)
