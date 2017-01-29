@@ -106,8 +106,26 @@ function DebugAllCalls()
     end
 end
 
-
-
+--[[
+  Credits:
+    Angel Arena Blackstar
+  Description:
+    I don't really know what this does
+]]
+function UnitVarToPlayerID(unitvar)
+  if unitvar then
+    if type(unitvar) == "number" then
+      return unitvar
+    elseif type(unitvar) == "table" and not unitvar:IsNull() and unitvar.entindex and unitvar:entindex() then
+      if unitvar.GetPlayerID and unitvar:GetPlayerID() > -1 then
+        return unitvar:GetPlayerID()
+      elseif unitvar.GetPlayerOwnerID then
+        return unitvar:GetPlayerOwnerID()
+      end
+    end
+  end
+  return -1
+end
 
 --[[Author: Noya
   Date: 09.08.2015.
