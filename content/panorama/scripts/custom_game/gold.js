@@ -9,7 +9,6 @@
 var useFormatting = "half";
 
 function UpdateGoldHud(data) {
-  //$.Msg("UpdateGoldHud")
   var player_gold = PlayerTables.GetTableValue("gold", "gold");
   var unit = Players.GetLocalPlayerPortraitUnit();
   var playerID = Game.GetLocalPlayerID()
@@ -25,6 +24,5 @@ function UpdateGoldHud(data) {
 }
 
 (function () {
-    //GameEvents.Subscribe("aaa_update_gold", UpdateGoldHud);
     PlayerTables.SubscribeNetTableListener("gold", UpdateGoldHud);
 })();
