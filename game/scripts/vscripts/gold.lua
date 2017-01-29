@@ -24,15 +24,48 @@ if Gold == nil then
   _G.Gold = class({})
 end
 
+function Gold:Init()
+  -- a table for every player
+  PlayerTables:CreateTable("gold", {
+    gold = {}
+    }, {0,1,2,3,4,5,6,7,8,9})
+
+    -- start think timer
+  Timers:CreateTimer(0, Dynamic_Wrap(Gold, "Think"))
+end
+
 function Gold:UpdatePlayerGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    local allgold = PlayerTables:GetTableValue("aaa", "gold")
+    local allgold = PlayerTables:GetTableValue("gold", "gold")
     allgold[playerID] = PLAYER_GOLD[playerID].SavedGold
-    PlayerTables:SetTableValue("aaa", "gold", allgold)
+    PlayerTables:SetTableValue("gold", "gold", allgold)
     local player = PlayerResource:GetPlayer(playerID)
     CustomGameEventManager:Send_ServerToAllClients("aaa_update_gold", { gold=allgold })
   end
+end
+
+--[[
+  Author:
+    Chronophylos
+  Credits:
+    Angel Arena Blackstar
+  Description:
+    Add Gold to all players via our custom Gold API
+]]
+function Gold:Think()
+  for i = 0, 9 do
+    if PlayerResource:IsValidPlayerID(i) then
+      if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        local goldtoadd = PlayerResource:GetGold(i)
+        if goldtoadd ~= 0 then
+          Gold:AddGold(i, goldtoadd)
+          PlayerResource:SetGold(i, 0, false)
+        end
+      end
+    end
+  end
+  return 0.2
 end
 
 function Gold:ClearGold(unitvar)
