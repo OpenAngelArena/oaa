@@ -4,6 +4,7 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
 ## Coding
  * [chrisinajar][chrisinajar]
  * [salacryl][salacryl]
+ * [Chronophylos][Chronophylos]
  * Zartonox
  * [SquawkyArctangent][SquawkyArctangent]
  * [yahnich][yahnich]
@@ -67,3 +68,4 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
 [DJBotan]: https://github.com/DJBotan "DJBotan's Github"
 [Murzer]: https://github.com/Murzer "Murzer's Github"
 [Germanerd]: https://github.com/Germanerd "Germanerd's Github"
+[Chronophylos]: https://github.com/Chronophylos "Chronophylos's Github"
