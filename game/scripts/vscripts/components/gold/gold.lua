@@ -29,6 +29,8 @@ local PLAYER_GOLD = {
   [9] = {}
 }
 
+local GOLD_CAP = 50000
+
 function Gold:Init()
   -- a table for every player
   PlayerTables:CreateTable("gold", {
@@ -67,10 +69,28 @@ function Gold:Think()
   for i = 0, 9 do
     if PlayerResource:IsValidPlayerID(i) then
       if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-        local goldtoadd = PlayerResource:GetGold(i)
-        if goldtoadd ~= 0 then
-          Gold:AddGold(i, goldtoadd)
-          PlayerResource:SetGold(i, 0, false)
+        
+        local currentGold = Gold:GetGold(i)
+        local currentDotaGold = PlayerResource:GetGold(i)
+
+        local newGold = currentGold
+        local newDotaGold = currentDotaGold
+        
+        if currentGold > GOLD_CAP then
+          newGold = currentGold + currentDotaGold - GOLD_CAP
+        else
+          newGold = currentDotaGold
+        end
+
+        if newGold > GOLD_CAP then
+          newDotaGold = GOLD_CAP
+        else
+          newDotaGold = newGold
+        end
+
+        if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
+          Gold:SetGold(i, newGold)
+          PlayerResource:SetGold(i, newDotaGold, false)
         end
       end
     end
