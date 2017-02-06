@@ -35,6 +35,8 @@ require('libraries/modmaker')
 require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
 require('libraries/selection')
+-- Helpful math functions from the internet
+require('libraries/math')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -129,6 +131,7 @@ function GameMode:OnGameInProgress()
   InitModule(PointsManager)
   InitModule(CreepCamps)
   InitModule(Gold)
+  InitModule(BlinkBlock)
 end
 
 function InitModule(myModule)
