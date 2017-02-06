@@ -39,7 +39,7 @@ end
 
 function CreepCamps:CreepTimer ()
   -- scan for creep camps and spawn them
-  DebugPrint('[creeps/spawner] Spawning creeps')
+  -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
   for _,camp in pairs(camps) do
     local numberOfCreeps = math.random(2, 5)
@@ -55,7 +55,7 @@ end
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
   local creepType = CreepTypes[difficulty]
   if creepType == nil then
-    DebugPrint ('[creeps/spawner] unknown creep type ' .. difficulty)
+    -- DebugPrint ('[creeps/spawner] unknown creep type ' .. difficulty)
     return false
   end
   creepType = creepType[math.random(#creepType)]
@@ -73,7 +73,7 @@ function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
 
   if (maximumUnits and maximumUnits < #units)
   then
-    DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
+    -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
     return false
   end
 

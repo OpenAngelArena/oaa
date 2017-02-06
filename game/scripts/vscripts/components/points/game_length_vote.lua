@@ -2,7 +2,7 @@
 
 -- Taken from bb template
 if GameLengthVotes == nil then
-    DebugPrint ( '[game_length_vote] creating new GameLength voter object' )
+    DebugPrint ( '[points/game_length_vote] creating new GameLength voter object' )
     GameLengthVotes = class({})
 end
 
@@ -14,8 +14,8 @@ function GameLengthVotes:Init ()
 end
 
 function GameLengthVotes:PlayerVote (eventSourceIndex, args)
-  DebugPrint ( '[game_length_vote] player vote: ' .. eventSourceIndex.vote )
-  DebugPrint ( '[game_length_vote] player vote: ' .. eventSourceIndex.playerId )
+  DebugPrint ( '[points/game_length_vote] player vote: ' .. eventSourceIndex.vote )
+  DebugPrint ( '[points/game_length_vote] player vote: ' .. eventSourceIndex.playerId )
 
   GameLengthVotes.Votes[eventSourceIndex.playerId] = eventSourceIndex.vote
 end
