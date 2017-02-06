@@ -14,7 +14,7 @@ local AbilityMovementMap = {
 
 -- Taken from bb template
 if BlinkBlock == nil then
-    DebugPrint ( '[zonecontrol/blink] creating new GameLength voter object' )
+    DebugPrint ( '[zonecontrol/blink] creating new blink blocker object' )
     BlinkBlock = class({})
 end
 
