@@ -10,6 +10,7 @@
 var console = {
   log: $.Msg.bind($)
 };
+
 // settings
 var useFormatting = 'half';
 
