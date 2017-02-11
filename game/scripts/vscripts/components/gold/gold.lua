@@ -7,29 +7,10 @@
 ]]
 
 
--- this file needs to be cleaned up, the whole PLAYER_GOLD thing isn't needed at all
--- there's no good reason to track the data in two spots at once
---- done
--- it'd also be great to figure out how to only send down the data to the player who cares
---- why?
-
 if Gold == nil then
   DebugPrint ( '[gold/gold] creating new Gold object' )
   _G.Gold = class({})
 end
-
---[[local PLAYER_GOLD = {
-  [0] = {},
-  [1] = {},
-  [2] = {},
-  [3] = {},
-  [4] = {},
-  [5] = {},
-  [6] = {},
-  [7] = {},
-  [8] = {},
-  [9] = {}
-}]]--
 
 local GOLD_CAP = 50000
 
