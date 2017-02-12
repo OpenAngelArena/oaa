@@ -44,6 +44,8 @@ function PointsManager:Think ()
 
   DebugPrintTable(limit)
   DebugPrintTable(scores)
+  DebugPrint("hasRadiantWon" .. hasRadiantWon)
+  DebugPrint("hasDireWon" .. hasDireWon)
 
   if hasRadiantWon or hasDireWon then return end
 
