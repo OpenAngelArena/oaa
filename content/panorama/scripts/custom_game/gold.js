@@ -10,6 +10,7 @@
 var console = {
   log: $.Msg.bind($)
 };
+
 // settings
 var useFormatting = 'half';
 
@@ -40,13 +41,16 @@ function UpdateGoldHud (gold) {
 }
 
 function UpdateGoldTooltip (gold) {
-  var tooltipLabels = FindDotaHudElement('DOTAHUDGoldTooltip').FindChildTraverse('Contents');
+  // HACK this spews error when attempting to change the tooltip if it is not visible
+  try {
+    var tooltipLabels = FindDotaHudElement('DOTAHUDGoldTooltip').FindChildTraverse('Contents');
 
-  var label = tooltipLabels.GetChild(0);
-  label.text = label.text.replace(/: [0-9]+/, ': ' + gold);
+    var label = tooltipLabels.GetChild(0);
+    label.text = label.text.replace(/: [0-9]+/, ': ' + gold);
 
-  var label = tooltipLabels.GetChild(1);
-  label.style.visibility = 'collapse';
+    var label = tooltipLabels.GetChild(1);
+    label.style.visibility = 'collapse';
+  } catch (e) {}
 }
 /*
   Author:
