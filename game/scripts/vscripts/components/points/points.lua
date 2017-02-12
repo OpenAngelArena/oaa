@@ -7,7 +7,8 @@ end
 
 function PointsManager:Init ()
   DebugPrint ( '[points/PointsManager] Initialize' )
-  PointsManager.hasWon = false
+  PointsManager.hasDireWon = false
+  PointsManager.hasRadiantWon = false
 
   if GameRules.GameLength == "long" then
     CustomNetTables:SetTableValue( "team_scores", "limit", { value = 200 } )
@@ -34,12 +35,17 @@ end
 function PointsManager:Think ()
   DebugPrint("[points/PointsManager] Thinking..")
   PointsManager:Debug()
+
   local interval = 5 -- when do we want to check for win conditions
-  if hasWon then return end
   local limit = CustomNetTables:GetTableValue("team_scores", "limit").value
   local scores = CustomNetTables:GetTableValue("team_scores", "score")
   local radiant = scores.radiant
   local dire = scores.dire
+
+  DebugPrintTable(limit)
+  DebugPrintTable(scores)
+
+  if hasRadiantWon or hasDireWon then return end
 
   if radiant >= limit then
     PointsManager:OnRadiantWin()
@@ -47,15 +53,32 @@ function PointsManager:Think ()
     PointsManager:OnDireWin()
   end
 
+  PointsManager:UpdatePoints()
   return interval
 end
 
 function PointsManager:OnRadiantWin ()
-  GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
+  --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
   DebugPrint("[points/PointsManager] Radiant win!")
+  hasRadiantWon = true
 end
 
 function PointsManager:OnDireWin ()
-  GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
+  --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
   DebugPrint("[points/PointsManager] Dire win!")
+  hasDireWon = true
+end
+
+function PointsManager:UpdatePoints ()
+  local limit = CustomNetTables:GetTableValue("team_scores", "limit").value
+  local scores = CustomNetTables:GetTableValue("team_scores", "score")
+  local radiant = scores.radiant
+  local dire = scores.dire
+  CustomGameEventManager:Send_ServerToAllClients("points", {
+    scores = scores,
+    hasWon = {
+      radiant = hasRadiantWon,
+      dire = hasDireWon
+    }
+  })
 end
