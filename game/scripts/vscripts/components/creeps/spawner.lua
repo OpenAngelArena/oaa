@@ -6,7 +6,10 @@ if CreepCamps == nil then
 end
 
 --creep power level is from CREEP_POWER_LEVEL_MIN to CREEP_POWER_LEVEL_MAX
-local CreepPowerLevel = 1.0 
+local CreepPowerLevel = 1.0
+
+-- how often we spawn creeps
+local CreepSpawnInterval = 60.0
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -17,48 +20,14 @@ local ARMOR_ENUM = 5
 local GOLD_BOUNTY_ENUM = 6
 local EXP_BOUNTY_ENUM = 7
 
---defines creep property multipliers for power levels
---if levels are not defined, GetPowerLevelPropertyMultiplier will interpolate values
-CreepPowerTable = {
-  --  LEVEL     HEALTH    MANA      DAMAGE    ARMOR     GOLD      EXP
-  {   0,        0.0,      0.0,      0.0,      0.0,      0.0,      0.0},
-  {   1,        1.0,      1.0,      1.0,      1.0,      1.0,      1.0},
-  {   3,        1.2,      1.0,      1.0,      1.0,      1.2,      1.2},
-  {   1000,     100.0,    100.0,    100.0,   100.0,     100.0,    100.0}  
-}
-
 -- we want to set a timer to spawn creeps
 -- the timer scans the map for all supported creep camps and spawns the creeps
 -- profit
--- "creep name", Health, Mana, Damage, Armor, Gold Bounty, Exp Bounty
-CreepTypes = {
-  -- 1 "easy camp"
-  {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-    {"npc_dota_neutral_kobold",               240,  0,    10,   0,    8,    25},
-    {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   1,    26,   41},
-    {"npc_dota_neutral_kobold_tunneler",      325,  0,    14,   1,    18,   25}
-  },
-  -- 2 "medium camp"
-  {                                         --HP    MANA  DMG   ARM   GOLD  EXP                                                                       
-    {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    35,   62},
-    {"npc_dota_neutral_harpy_scout",          400,  0,    31,   1,    25,   41} 
-  },
-  -- 3 "hard camp"
-  {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-    {"npc_dota_neutral_big_thunder_lizard",   1400, 400,  62,   2,    93,   155},
-    {"npc_dota_neutral_jungle_stalker",       1600, 400,  55,   2,    61,   119},
-    {"npc_dota_neutral_small_thunder_lizard", 800,  400,  44,   2,    65,   119},
-    {"npc_dota_neutral_rock_golem",           800,  400,  31,   4,    58,   119},
-    {"npc_dota_neutral_granite_golem",        1700, 600,  82,   8,    114,  155}
-  }
-  -- ...
-}
 
 function CreepCamps:Init ()
   DebugPrint ( '[creeps/spawner] Initialize' )
   CreepCamps = self
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
-  Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepUpgradeTimer'))
 end
 
 function CreepCamps:SetPowerLevel (powerLevel)
@@ -70,27 +39,29 @@ function CreepCamps:CreepSpawnTimer ()
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
   for _,camp in pairs(camps) do
-    local numberOfCreeps = math.random(2, 5)
-
-    for i=1,numberOfCreeps do
-      CreepCamps:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
-    end
+    CreepCamps:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
-  return 10.0
+  CreepCamps:UpgradeCreeps()
+
+  return CreepSpawnInterval
 end
 
-function CreepCamps:CreepUpgradeTimer ()
+function CreepCamps:UpgradeCreeps ()
   -- upgrade creeps power level every time it triggers
   CreepCamps:SetPowerLevel(CreepPowerLevel + 1)
-
-  return 10.0
 end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
-  local creepType = CreepTypes[difficulty]
-  if creepType == nil then
-    -- DebugPrint ('[creeps/spawner] unknown creep type ' .. difficulty)
+  local creepCategory = CreepTypes[difficulty]
+  local creepGroup = creepCategory[math.random(#creepCategory)]
+  for i=1, #creepGroup do
+    CreepCamps:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
+  end
+end
+function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
+  if creepProperties == nil then
+    DebugPrint ('[creeps/spawner] unknown creep type ')
     return false
   end
 
@@ -105,8 +76,7 @@ function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
     FIND_ANY_ORDER,
     false)
 
-  local creepProperties = creepType[math.random(#creepType)]
-  creepProperties = CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel ) 
+  creepProperties = CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel )
 
   if (maximumUnits and maximumUnits <= #units)
   then
@@ -121,8 +91,8 @@ function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
     return false
   end
 
-  local creepHandle = CreateUnitByName(creepProperties[NAME_ENUM], location, true, nil, nil, DOTA_TEAM_NEUTRALS) 
-  
+  local creepHandle = CreateUnitByName(creepProperties[NAME_ENUM], location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+
   if creepHandle ~= nil then
     CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   end
@@ -132,7 +102,7 @@ end
 
 function CreepCamps:GetCreepProperties(creepHandle)
   local creepProperties = {}
-  
+
   creepProperties[HEALTH_ENUM] = creepHandle:GetMaxHealth()
   creepProperties[MANA_ENUM] = creepHandle:GetMana()
   creepProperties[DAMAGE_ENUM] = (creepHandle:GetBaseDamageMin() + creepHandle:GetBaseDamageMax()) / 2
@@ -182,17 +152,17 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   creepHandle:SetBaseMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))
   creepHandle:SetMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))
   creepHandle:SetHealth(math.ceil(targetHealth))
-  
+
   --MANA
   creepHandle:SetMana(math.ceil(creepProperties[MANA_ENUM]))
-  
+
   --DAMAGE
   creepHandle:SetBaseDamageMin(math.ceil(creepProperties[DAMAGE_ENUM]))
   creepHandle:SetBaseDamageMax(math.ceil(creepProperties[DAMAGE_ENUM]))
-  
+
   --ARMOR
   creepHandle:SetPhysicalArmorBaseValue(creepProperties[ARMOR_ENUM])
-  
+
   --GOLD BOUNTY
   creepHandle:SetMinimumGoldBounty(math.ceil(creepProperties[GOLD_BOUNTY_ENUM]))
   creepHandle:SetMaximumGoldBounty(math.ceil(creepProperties[GOLD_BOUNTY_ENUM]))
@@ -221,9 +191,9 @@ function GetPowerLevelPropertyMultiplier( property_enum, powerLevel )
   else
     local lowerIndexLevel = CreepPowerTable[lowerIndex][1]
     local higherIndexLevel = CreepPowerTable[higherIndex][1]
-    
+
     local levelRatio = (powerLevel - lowerIndexLevel) / (higherIndexLevel - lowerIndexLevel)
-    
+
     local lowerIndexValue = CreepPowerTable[lowerIndex][property_enum]
     local higherIndexValue = CreepPowerTable[higherIndex][property_enum]
 
