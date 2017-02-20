@@ -62,9 +62,9 @@ function PointsManager:onTeamWin (side)
   --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
   DebugPrint("[points/PointsManager] " .. side .. " wins!")
 
-  if side == goodguysName then
+  if side == PointsManager.goodguysName then
     haveGoodguysWon = true
-  elseif side == badguysName then
+  elseif side == PointsManager.badguysName then
     haveBadguysWon = true
   end
 
@@ -73,8 +73,12 @@ function PointsManager:onTeamWin (side)
   })
 end
 
+
+function PointsManager:UpdateScore (score)
+end
+
 function PointsManager:SetScore (side, newScore)
-  DebugPrint("[points/PointsManager] Set Score of " .. side .. " to " .. newScore .. ".")
+  --DebugPrint("[points/PointsManager] Set Score of " .. side .. " to " .. newScore .. ".")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
 
@@ -88,7 +92,7 @@ function PointsManager:SetScore (side, newScore)
 end
 
 function PointsManager:IncrementScore (side)
-  DebugPrint("[points/PointsManager] Increase Score of " .. side .. " by one.")
+  --DebugPrint("[points/PointsManager] Increase Score of " .. side .. " by one.")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
 
