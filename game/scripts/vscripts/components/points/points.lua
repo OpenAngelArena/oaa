@@ -40,14 +40,17 @@ function PointsManager:Think ()
   DebugPrintTable(limit)
   DebugPrintTable(scores)
   DebugPrint("haveGoodguysWon: " .. tostring(PointsManager.haveGoodguysWon))
-  DebugPrint("haveBadguysWon; " .. tostring(PointsManager.haveBadguysWon))
+  DebugPrint("haveBadguysWon: " .. tostring(PointsManager.haveBadguysWon))
+
+  -- DEBUG
+  PointsManager:IncrementScore(PointsManager.goodguysName)
 
   if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then return end
 
   if goodguys >= limit then
-    PointsManager:onTeamWin(goodguysName)
+    PointsManager:onTeamWin(PointsManager.goodguysName)
   elseif badguys >= limit then
-    PointsManager:onTeamWin(badguysName)
+    PointsManager:onTeamWin(PointsManager.badguysName)
   end
 
   return interval
