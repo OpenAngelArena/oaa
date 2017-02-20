@@ -142,25 +142,25 @@ function GameMode:OnPlayerLevelUp(keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
   local hero = player:GetAssignedHero()
-  
+
   -- reduce the stat gain past a certain level
   if level > 25 then
     local div = (level - 25 + 12)/12
-	
+
 	-- get the hero's stat gain
 	local gainStr = hero:GetStrengthGain()
 	local gainAgi = hero:GetAgilityGain()
 	local gainInt = hero:GetIntellectGain()
-	
+
 	-- get the new stat gain
 	local newStr = gainStr / div
 	local newAgi = gainAgi / div
 	local newInt = gainInt / div
-	
+
 	--print( gainStr, newStr )
 	--print( gainAgi, newAgi )
 	--print( gainInt, newInt )
-	
+
 	-- modify the hero's stats, subtracting the normal stat gain while adding the one
 	hero:ModifyStrength( newStr - gainStr )
 	hero:ModifyAgility( newAgi - gainAgi )
@@ -240,6 +240,15 @@ function GameMode:OnTeamKillCredit(keys)
   local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
   local numKills = keys.herokills
   local killerTeamNumber = keys.teamnumber
+
+  -- Increment Points
+  if killerTeamNumber == 0 then
+    -- assume Radiant
+    PointsManager:IncrementPoints("Radiant")
+  elseif killerTeamNumber == 1 then
+    -- assume Dire
+    PointsManager:IncrementPoints("Dire")
+  end
 end
 
 -- An entity died
