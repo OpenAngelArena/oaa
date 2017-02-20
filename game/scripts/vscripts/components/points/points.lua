@@ -50,37 +50,23 @@ function PointsManager:Think ()
   if hasRadiantWon or hasDireWon then return end
 
   if radiant >= limit then
-    PointsManager:OnRadiantWin()
+    PointsManager:OnWin("Radiant")
   elseif dire >= limit then
-    PointsManager:OnDireWin()
+    PointsManager:OnWin("Radiant")
   end
 
-  PointsManager:UpdatePoints()
   return interval
 end
 
-function PointsManager:OnRadiantWin ()
+function PointsManager:OnWin (side)
   --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
-  DebugPrint("[points/PointsManager] Radiant win!")
-  hasRadiantWon = true
-end
-
-function PointsManager:OnDireWin ()
-  --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
-  DebugPrint("[points/PointsManager] Dire win!")
+  DebugPrint("[points/PointsManager] " .. side .. " win!")
   hasDireWon = true
+  CustomGameEventManager:Send_ServerToAllClients("points_won", {
+    who=side
+  })
 end
 
-function PointsManager:UpdatePoints ()
-  local limit = CustomNetTables:GetTableValue("team_scores", "limit").value
-  local scores = CustomNetTables:GetTableValue("team_scores", "score")
-  local radiant = scores.radiant
-  local dire = scores.dire
-  CustomGameEventManager:Send_ServerToAllClients("points", {
-    scores = scores,
-    hasWon = {
-      radiant = hasRadiantWon,
-      dire = hasDireWon
-    }
-  })
+function PointsManager:SetScore (side, newScore)
+
 end
