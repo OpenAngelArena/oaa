@@ -10,7 +10,7 @@ var console = {
 }());
 
 function onScoreChange(table, key, data) {
-  console.log('[PointsManager] onScoreChange');
+  //console.log('[PointsManager] onScoreChange');
 
   if (key === 'score') {
     var limit = CustomNetTables.GetTableValue('team_scores', 'limit')['value'];
@@ -23,10 +23,11 @@ function onScoreChange(table, key, data) {
     var badguys = score['badguys'];
   }
 
+/*
   console.log('limit: ' + limit);
   console.log('goodguys: ' + goodguys);
   console.log('badguys: ' + badguys);
-
+*/
   UpdatePointsHud(limit, goodguys, badguys);
 }
 
@@ -45,9 +46,10 @@ function UpdatePointsHud(limit, goodguys, badguys) {
   badguysLabel.text = badguys + '\n' + limit;
 }
 
+var someoneWon = false;
 function onTeamWin(data) {
-  // TODO: Put something meaningful here
-
-
-
+  if (!(someoneWon)) {
+    someoneWon = true
+    // TODO: Put something meaningful here
+  }
 }
