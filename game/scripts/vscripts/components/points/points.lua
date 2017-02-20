@@ -11,6 +11,8 @@ function PointsManager:Init ()
   PointsManager.haveGoodguysWon = false
   PointsManager.goodguysName = "Radiant"
   PointsManager.badguysName = "Dire"
+  PointsManager.goodguysID = 2
+  PointsManager.badguysID = 3
 
   if GameRules.GameLength == "long" then
     CustomNetTables:SetTableValue( "team_scores", "limit", { value = 200 } )
@@ -44,7 +46,11 @@ function PointsManager:Think ()
   DebugPrint("haveGoodguysWon: " .. tostring(PointsManager.haveGoodguysWon))
   DebugPrint("haveBadguysWon: " .. tostring(PointsManager.haveBadguysWon))
 
-  if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then return end
+  PointsManager:SetPoints(PointsManager.goodguysName, 200)
+
+  if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then
+    return
+  end
 
   if goodguys >= limit then
     PointsManager:onTeamWin(PointsManager.goodguysName)
@@ -61,14 +67,12 @@ function PointsManager:onTeamWin (side)
   DebugPrint("[points/PointsManager] " .. side .. " wins!")
 
   if side == PointsManager.goodguysName then
-    haveGoodguysWon = true
+    PointsManager.haveGoodguysWon = true
+    GameRules:SetGameWinner(PointsManager.goodguysID)
   elseif side == PointsManager.badguysName then
-    haveBadguysWon = true
+    PointsManager.haveBadguysWon = true
+    GameRules:SetGameWinner(PointsManager.badguysID)
   end
-
-  CustomGameEventManager:Send_ServerToAllClients("points_won", {
-    who=side
-  })
 end
 
 function PointsManager:SetPoints (side, newPoints)
@@ -77,9 +81,9 @@ function PointsManager:SetPoints (side, newPoints)
   local score = CustomNetTables:GetTableValue("team_scores", "score")
 
   if side == PointsManager.goodguysName then
-    score.goodguys = newScore
+    score.goodguys = newPoints
   elseif side == PointsManager.badguysName then
-    score.badguys = newScore
+    score.badguys = newPoints
   end
 
   CustomNetTables:SetTableValue("team_scores", "score", score)
