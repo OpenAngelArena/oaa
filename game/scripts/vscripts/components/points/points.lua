@@ -59,6 +59,7 @@ function PointsManager:Think ()
 end
 
 function PointsManager:onTeamWin (side)
+  -- NOTE Maybe set new GameState
   --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
   DebugPrint("[points/PointsManager] " .. side .. " wins!")
 
@@ -71,10 +72,6 @@ function PointsManager:onTeamWin (side)
   CustomGameEventManager:Send_ServerToAllClients("points_won", {
     who=side
   })
-end
-
-
-function PointsManager:UpdateScore (score)
 end
 
 function PointsManager:SetScore (side, newScore)
