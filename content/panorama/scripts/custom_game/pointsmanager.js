@@ -34,11 +34,20 @@ function UpdatePointsHud(limit, goodguys, badguys) {
   var goodguysLabel = FindDotaHudElement('TopBarRadiantScore');
   var badguysLabel = FindDotaHudElement('TopBarDireScore');
 
-  // BUG: limit doesnt get displayed correctly
+  goodguysLabel.style.fontSize = '18px';
+  goodguysLabel.style.marginTop = '2px';
+  goodguysLabel.style.lineHeight = '17px';
+  badguysLabel.style.fontSize = '18px';
+  badguysLabel.style.marginTop = '2px';
+  badguysLabel.style.lineHeight = '17px';
+
   goodguysLabel.text = goodguys + '\n' + limit;
   badguysLabel.text = badguys + '\n' + limit;
 }
 
 function onTeamWin(data) {
+  // TODO: Put something meaningful here
+
+
 
 }
