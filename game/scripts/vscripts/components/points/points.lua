@@ -22,7 +22,9 @@ function PointsManager:Init ()
   end
 
   -- set initial values for current scores
-  CustomNetTables:SetTableValue( "team_scores", "score", { goodguys = 0, badguys = 0 } )
+  CustomNetTables:SetTableValue( "team_scores", "score", { goodguys = 0,
+                                                           badguys = 0
+                                                         })
 
   -- Start Thinking
   Timers:CreateTimer(0, Dynamic_Wrap(PointsManager, "Think"))
@@ -76,9 +78,9 @@ function PointsManager:SetScore (side, newScore)
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
 
-  if side == goodguysName then
+  if side == PointsManager.goodguysName then
     score.goodguys = newScore
-  elseif side == badguysName then
+  elseif side == PointsManager.badguysName then
     score.badguys = newScore
   end
 
@@ -90,9 +92,9 @@ function PointsManager:IncrementScore (side)
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
 
-  if side == goodguysName then
+  if side == PointsManager.goodguysName then
     score.goodguys = score.goodguys + 1
-  elseif side == badguysName then
+  elseif side == PointsManager.badguysName then
     score.badguys = score.badguys + 1
   end
 
