@@ -6,7 +6,6 @@ var console = {
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('team_scores', onScoreChange);
-  //GameEvents.Subscribe('points_won', onTeamWin);
 }());
 
 function onScoreChange(table, key, data) {
@@ -45,12 +44,4 @@ function UpdatePointsHud(limit, goodguys, badguys) {
 
   goodguysLabel.text = goodguys + '\n' + limit;
   badguysLabel.text = badguys + '\n' + limit;
-}
-
-var someoneWon = false;
-function onTeamWin(data) {
-  if (!(someoneWon)) {
-    someoneWon = true
-    // TODO: Put something meaningful here
-  }
 }
