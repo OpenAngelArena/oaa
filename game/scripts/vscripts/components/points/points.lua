@@ -1,4 +1,3 @@
-
 -- Taken from bb template
 if PointsManager == nil then
   DebugPrint ( '[points/PointsManager] Creating new PointsManager object.' )
@@ -40,25 +39,30 @@ function PointsManager:Think ()
 
   DebugPrintTable(limit)
   DebugPrintTable(scores)
-  DebugPrint("haveGoodguysWon" .. haveGoodguysWon)
-  DebugPrint("haveBadguysWon" .. haveBadguysWon)
+  DebugPrint("haveGoodguysWon: " .. tostring(PointsManager.haveGoodguysWon))
+  DebugPrint("haveBadguysWon; " .. tostring(PointsManager.haveBadguysWon))
 
-  if haveGoodguysWon or haveBadguysWon then return end
+  if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then return end
 
   if goodguys >= limit then
-    PointsManager:OnWin(goodguysName)
+    PointsManager:onTeamWin(goodguysName)
   elseif badguys >= limit then
-    PointsManager:OnWin(badguysName)
+    PointsManager:onTeamWin(badguysName)
   end
 
   return interval
 end
 
-function PointsManager:OnWin (side)
+function PointsManager:onTeamWin (side)
   --GameRules.SetMode(DOTA_GAMERULES_STATE_POST_GAME)
   DebugPrint("[points/PointsManager] " .. side .. " wins!")
 
-  haveBadguysWon = true
+  if side == goodguysName then
+    haveGoodguysWon = true
+  elseif side == badguysName then
+    haveBadguysWon = true
+  end
+
   CustomGameEventManager:Send_ServerToAllClients("points_won", {
     who=side
   })
@@ -78,7 +82,7 @@ function PointsManager:SetScore (side, newScore)
   CustomNetTables:SetTableValue("team_scores", "score", score)
 end
 
-function PointsManager:IncreaseScore (side)
+function PointsManager:IncrementScore (side)
   DebugPrint("[points/PointsManager] Increase Score of " .. side .. " by one.")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
