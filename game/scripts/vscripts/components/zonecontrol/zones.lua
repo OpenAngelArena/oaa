@@ -93,6 +93,9 @@ function ZoneControl:CreateStateFromHandle (handle, options)
   state.enable = partial(ZoneControl['EnableZone'], state)
   state.disable = partial(ZoneControl['DisableZone'], state)
 
+  state.addPlayer = partial(ZoneControl['AddPlayer'], state)
+  state.removePlayer = partial(ZoneControl['RemovePlayer'], state)
+
   handle.triggerHandler = partial(ZoneControl['onTrigger'], state, 'OnTrigger')
   handle.startTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnStartTouch')
   handle.endTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnEndTouch')
@@ -138,6 +141,19 @@ function ZoneControl:DisableZone (state)
     return
   end
   state.handle:Disable()
+end
+
+function ZoneControl:AddPlayer (state, playerId)
+  if ZoneControl:SpreadZoneGroup(state, 'AddPlayer') then
+    return
+  end
+  state.players[playerId] = true
+end
+function ZoneControl:RemovePlayer (state, playerId)
+  if ZoneControl:SpreadZoneGroup(state, 'RemovePlayer') then
+    return
+  end
+  state.players[playerId] = false
 end
 
 -- rules enforcement
