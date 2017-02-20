@@ -71,7 +71,7 @@ function PointsManager:onTeamWin (side)
   })
 end
 
-function PointsManager:SetPoints (side, newScore)
+function PointsManager:SetPoints (side, newPoints)
   --DebugPrint("[points/PointsManager] Set Score of " .. side .. " to " .. newScore .. ".")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
