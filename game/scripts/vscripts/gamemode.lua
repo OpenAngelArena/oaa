@@ -132,6 +132,7 @@ function GameMode:OnGameInProgress()
   InitModule(CreepCamps)
   InitModule(Gold)
   InitModule(BlinkBlock)
+  InitModule(CreepItemDrop)
 end
 
 function InitModule(myModule)

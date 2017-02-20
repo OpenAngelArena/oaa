@@ -95,6 +95,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
   if creepHandle ~= nil then
     CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
+    creepHandle.Is_ItemDropEnabled = true
   end
 
   return true
