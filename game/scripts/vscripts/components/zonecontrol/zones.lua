@@ -90,13 +90,16 @@ function ZoneControl:CreateStateFromHandle (handle, options)
   state.bounds = handle:GetBounds()
   state.origin = handle:GetAbsOrigin()
 
+  -- api
   state.enable = partial(ZoneControl['EnableZone'], state)
   state.disable = partial(ZoneControl['DisableZone'], state)
 
   state.addPlayer = partial(ZoneControl['AddPlayer'], state)
   state.removePlayer = partial(ZoneControl['RemovePlayer'], state)
 
-  handle.triggerHandler = partial(ZoneControl['onTrigger'], state, 'OnTrigger')
+  state.setMode = partial(ZoneControl['SetMode'], state)
+
+  -- handlers
   handle.startTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnStartTouch')
   handle.endTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnEndTouch')
 
@@ -143,17 +146,31 @@ function ZoneControl:DisableZone (state)
   state.handle:Disable()
 end
 
+function ZoneControl:SetMode (state, mode)
+  if ZoneControl:SpreadZoneGroup(state, 'EnableZone') then
+    return
+  end
+  state.mode = mode
+
+  ZoneControl:EnforceRules(state)
+end
+
 function ZoneControl:AddPlayer (state, playerId)
   if ZoneControl:SpreadZoneGroup(state, 'AddPlayer') then
     return
   end
   state.players[playerId] = true
+
+  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
 end
+
 function ZoneControl:RemovePlayer (state, playerId)
   if ZoneControl:SpreadZoneGroup(state, 'RemovePlayer') then
     return
   end
   state.players[playerId] = false
+
+  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
 end
 
 -- rules enforcement
@@ -185,11 +202,15 @@ function ZoneControl:EnforceRules (state)
   ZoneControl:AssertIsSingleState(state)
 
   for playerId = 0,19 do
-    local player = PlayerResource:GetPlayer(playerId)
+    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  end
+end
 
-    if player then
-      ZoneControl:EnforceRulesOnEntity(state, playerId, player:GetAssignedHero())
-    end
+function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
+  local player = PlayerResource:GetPlayer(playerId)
+
+  if player then
+    ZoneControl:EnforceRulesOnEntity(state, playerId, player:GetAssignedHero())
   end
 end
 
