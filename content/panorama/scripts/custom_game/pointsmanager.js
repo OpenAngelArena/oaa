@@ -6,7 +6,7 @@ var console = {
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('team_scores', onScoreChange);
-  GameEvents.Subscribe('points_won', onTeamWin);
+  //GameEvents.Subscribe('points_won', onTeamWin);
 }());
 
 function onScoreChange(table, key, data) {
@@ -17,10 +17,11 @@ function onScoreChange(table, key, data) {
     var goodguys = data['goodguys'];
     var badguys = data['badguys'];
   } else if (key === 'limit') {
+    // assuming this only happens on gamestart
     var limit = data['value'];
     var score = CustomNetTables.GetTableValue('team_scores', 'score');
-    var goodguys = score['goodguys'];
-    var badguys = score['badguys'];
+    var goodguys = 0;
+    var badguys = 0;
   }
 
 /*
