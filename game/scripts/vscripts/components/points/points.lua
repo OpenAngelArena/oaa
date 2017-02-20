@@ -44,9 +44,6 @@ function PointsManager:Think ()
   DebugPrint("haveGoodguysWon: " .. tostring(PointsManager.haveGoodguysWon))
   DebugPrint("haveBadguysWon: " .. tostring(PointsManager.haveBadguysWon))
 
-  -- DEBUG
-  PointsManager:IncrementScore(PointsManager.goodguysName)
-
   if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then return end
 
   if goodguys >= limit then
@@ -74,7 +71,7 @@ function PointsManager:onTeamWin (side)
   })
 end
 
-function PointsManager:SetScore (side, newScore)
+function PointsManager:SetPoints (side, newScore)
   --DebugPrint("[points/PointsManager] Set Score of " .. side .. " to " .. newScore .. ".")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
@@ -88,7 +85,7 @@ function PointsManager:SetScore (side, newScore)
   CustomNetTables:SetTableValue("team_scores", "score", score)
 end
 
-function PointsManager:IncrementScore (side)
+function PointsManager:IncrementPoints (side)
   --DebugPrint("[points/PointsManager] Increase Score of " .. side .. " by one.")
 
   local score = CustomNetTables:GetTableValue("team_scores", "score")
