@@ -136,8 +136,12 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
-  -- disable creep spawning because it's noisy in the logs
-  -- InitModule(CreepCamps)
+
+  -- feel free to disable creep spawning because it's noisy in the logs
+  -- just comment out this line:
+  InitModule(CreepCamps)
+  -- everything else will still work fine
+
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
