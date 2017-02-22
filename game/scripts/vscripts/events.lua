@@ -242,13 +242,7 @@ function GameMode:OnTeamKillCredit(keys)
   local killerTeamNumber = keys.teamnumber
 
   -- Increment Points
-  if killerTeamNumber == 0 then
-    -- assume Radiant
-    PointsManager:IncrementPoints("Radiant")
-  elseif killerTeamNumber == 1 then
-    -- assume Dire
-    PointsManager:IncrementPoints("Dire")
-  end
+    PointsManager:IncrementPoints(GetTeamName(killerTeamNumber))
 end
 
 -- An entity died
