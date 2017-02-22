@@ -41,10 +41,10 @@ function PointsManager:Think ( )
   local goodguys = scores.goodguys
   local badguys = scores.badguys
 
-  DebugPrintTable( limit )
-  DebugPrintTable( scores )
-  DebugPrint( 'haveGoodguysWon: ' .. tostring( PointsManager.haveGoodguysWon ) )
-  DebugPrint( 'haveBadguysWon: ' .. tostring( PointsManager.haveBadguysWon ) )
+  --DebugPrintTable( limit )
+  --DebugPrintTable( scores )
+  --DebugPrint( 'haveGoodguysWon: ' .. tostring( PointsManager.haveGoodguysWon ) )
+  --DebugPrint( 'haveBadguysWon: ' .. tostring( PointsManager.haveBadguysWon ) )
 
   PointsManager:SetPoints( PointsManager.goodguysName, 200 )
 
