@@ -46,8 +46,6 @@ function PointsManager:Think ( )
   --DebugPrint( 'haveGoodguysWon: ' .. tostring( PointsManager.haveGoodguysWon ) )
   --DebugPrint( 'haveBadguysWon: ' .. tostring( PointsManager.haveBadguysWon ) )
 
-  PointsManager:SetPoints( PointsManager.goodguysName, 200 )
-
   if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then
     return
   end
