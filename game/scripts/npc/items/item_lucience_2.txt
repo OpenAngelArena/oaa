@@ -1,0 +1,71 @@
+	//=================================================================================================================
+	// Recipe: Lucience 2
+	//=================================================================================================================
+	"item_recipe_lucience_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3329"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_lucience_2"
+		"ItemRequirements"
+		{
+			"01"						"item_lucience;item_upgrade_core_3;item_recipe_lucience"
+			"02"						"item_lucience;item_upgrade_core_4;item_recipe_lucience"
+		}
+	}	
+
+	//=================================================================================================================
+	// Lucience 2
+	//=================================================================================================================
+	"item_lucience_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3332"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityTextureName"            "item_halloween_rapier"		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"2"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"15850"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"lucience"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"UpgradesItems"					"item_lucience_2;"
+		"UpgradeRecipe"					"item_recipe_lucience"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_bonus"			"75 100 150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_bonus"			"30 50 75"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"700"
+			}
+		}
+	}

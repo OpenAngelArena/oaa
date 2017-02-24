@@ -1,0 +1,82 @@
+	//=================================================================================================================
+	// Recipe: Blade Mail 3
+	//=================================================================================================================
+	"item_recipe_blade_mail_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3089"		// unique ID
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"FightRecapLevel"				"1"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_blade_mail_3"
+		"ItemRequirements"
+		{
+			"01"						"item_blade_mail_2;item_upgrade_core_2;item_recipe_blade_mail"
+			"02"						"item_blade_mail_2;item_upgrade_core_3;item_recipe_blade_mail"
+			"03"						"item_blade_mail_2;item_upgrade_core_4;item_recipe_blade_mail"
+		}
+	}
+
+	//=================================================================================================================
+	// Blade Mail 3
+	//=================================================================================================================
+	"item_blade_mail_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3091"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_blade_mail"
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+
+		// Spicy Parameters
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"3"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25"
+		"ItemCost"						"8200"
+		"ItemShopTags"					"damage;armor;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bm;blade mail;blademail"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"22 35 50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"6 9 12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"10 15 22"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.5"
+			}
+		}
+	}

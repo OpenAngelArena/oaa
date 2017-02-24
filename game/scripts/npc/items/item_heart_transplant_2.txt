@@ -1,0 +1,131 @@
+   "item_recipe_heart_transplant_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3259"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_heart_transplant_2"
+		"ItemRequirements"
+		{
+			"01"						"item_heart_transplant;item_upgrade_core_4;item_recipe_heart_transplant"
+		}
+	}
+
+   "item_heart_transplant_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3261"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCooldown"				"7.0"
+		"AbilitySharedCooldown"			"medallion"
+		"AbilityTextureName"            "item_halloween_rapier"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"14000"
+		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemShopTags"					"armor;regen_mana;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"transplant2"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "2"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"27 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen_pct"	"175 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_evasion"			"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"allied_armor"			"27 40"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"allied_evasion"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-27 -40"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enemy_armor_reduction_tooltip"		"27 40"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"miss_chance"			"25"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"7"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"valor_cast_range_tooltip"				"1000"
+			}			
+			// New Parameters
+			"11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_strength"        "135 180"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_health"          "1000 1350"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "health_regen_rate"     "3.25"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "cooldown_melee"        "5"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "cooldown_ranged_tooltip"       "7"
+            }
+		}
+	}

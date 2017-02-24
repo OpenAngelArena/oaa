@@ -1,0 +1,96 @@
+	//=================================================================================================================
+	// Recipe: Martyr's Mail
+	//=================================================================================================================
+	"item_recipe_martyrs_mail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3334"		// unique ID
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"FightRecapLevel"				"1"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1300"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_martyrs_mail"
+		"ItemRequirements"
+		{
+			"01"						"item_blade_mail;item_upgrade_core;item_recipe_martyrs_mail"
+			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
+			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
+			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+		}
+	}
+
+	//=================================================================================================================
+	// Martyr's Mail
+	//=================================================================================================================
+	"item_martyrs_mail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3336"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"            "item_halloween_rapier"
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+
+		// Spicy Parameters
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"UpgradesItems"					"item_martyrs_mail"
+		"UpgradeRecipe"					"item_recipe_martyrs_mail"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25"
+		"ItemCost"						"5000"
+		"ItemShopTags"					"damage;armor;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bm;martyrs mail;martyrsmail"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"22 35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"6 9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"10 15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_aoe"				"700"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal_percent"				"0.5 0.8"
+			}
+
+
+		}
+	}
