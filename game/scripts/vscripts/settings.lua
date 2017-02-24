@@ -2,11 +2,12 @@
 
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
-UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
+UNIVERSAL_SHOP_MODE = true              -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = true        -- Should we let people select the same hero as each other
 
+CUSTOM_GAME_SETUP_TIME = 30.0           -- How long to show custom game setup? 0 disables
 HERO_SELECTION_TIME = 30.0              -- How long should we let people select their hero?
-PRE_GAME_TIME = 5.0                    -- How long after people select their heroes should the horn blow and the game start?
+PRE_GAME_TIME = 5.0                     -- How long after people select their heroes should the horn blow and the game start?
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
@@ -43,13 +44,39 @@ END_GAME_ON_KILLS = true                -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 50                          -- What level should we let heroes get to?
+MAX_LEVEL = 5000                        -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
-XP_PER_LEVEL_TABLE = {}
-for i=1,MAX_LEVEL do
-  XP_PER_LEVEL_TABLE[i] = (i-1) * 100
+XP_PER_LEVEL_TABLE = {
+	0,
+	200,
+	500,
+	900,
+	1400,
+	2000,
+	2640,
+	3300,
+	3980,
+	4680,
+	5400,
+	6140,
+	7340,
+	8565,
+	9815,
+	11090,
+	12390,
+	13715,
+	15115,
+	16605,
+	18205,
+	20105,
+	22305,
+	24805,
+	27500,
+}
+for i = #XP_PER_LEVEL_TABLE + 1, MAX_LEVEL do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + ( i * 108 )
 end
 
 ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the first kill in this game?
@@ -91,7 +118,7 @@ ENABLED_RUNES[DOTA_RUNE_ARCANE] = true
 
 
 MAX_NUMBER_OF_TEAMS = 2                -- How many potential teams can be in this game mode?
-USE_CUSTOM_TEAM_COLORS = true           -- Should we use custom team colors?
+USE_CUSTOM_TEAM_COLORS = false           -- Should we use custom team colors?
 USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS = true          -- Should we use custom team colors to color the players/minimap?
 
 TEAM_COLORS = {}                        -- If USE_CUSTOM_TEAM_COLORS is set, use these colors.

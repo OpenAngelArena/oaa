@@ -1,3 +1,11 @@
+function split(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
 function DebugPrint(...)
   local spew = Convars:GetInt('barebones_spew') or -1
   if spew == -1 and BAREBONES_DEBUG_SPEW then
@@ -98,8 +106,28 @@ function DebugAllCalls()
     end
 end
 
-
-
+--[[
+  Credits:
+    Angel Arena Blackstar
+  Description:
+    Returns the player id from a given unit / player / table.
+    For example, you should be able to pass in a reference to a lycan wolf and get back the correct player's ID.
+    -- chrisinajar
+]]
+function UnitVarToPlayerID(unitvar)
+  if unitvar then
+    if type(unitvar) == "number" then
+      return unitvar
+    elseif type(unitvar) == "table" and not unitvar:IsNull() and unitvar.entindex and unitvar:entindex() then
+      if unitvar.GetPlayerID and unitvar:GetPlayerID() > -1 then
+        return unitvar:GetPlayerID()
+      elseif unitvar.GetPlayerOwnerID then
+        return unitvar:GetPlayerOwnerID()
+      end
+    end
+  end
+  return -1
+end
 
 --[[Author: Noya
   Date: 09.08.2015.

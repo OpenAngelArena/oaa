@@ -68,7 +68,7 @@ end
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
-  DebugPrintTable(keys) 
+  DebugPrintTable(keys)
 end
 
 -- An item was purchased by a player
@@ -81,11 +81,13 @@ function GameMode:OnItemPurchased( keys )
   if not plyID then return end
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
-  
+  local itemName = keys.itemname
+
   -- The cost of the item purchased
   local itemcost = keys.itemcost
-  
+
+
+
 end
 
 -- An ability was used by a player
@@ -139,6 +141,31 @@ function GameMode:OnPlayerLevelUp(keys)
 
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
+  local hero = player:GetAssignedHero()
+
+  -- reduce the stat gain past a certain level
+  if level > 25 then
+    local div = (level - 25 + 12)/12
+
+	-- get the hero's stat gain
+	local gainStr = hero:GetStrengthGain()
+	local gainAgi = hero:GetAgilityGain()
+	local gainInt = hero:GetIntellectGain()
+
+	-- get the new stat gain
+	local newStr = gainStr / div
+	local newAgi = gainAgi / div
+	local newInt = gainInt / div
+
+	--print( gainStr, newStr )
+	--print( gainAgi, newAgi )
+	--print( gainInt, newInt )
+
+	-- modify the hero's stats, subtracting the normal stat gain while adding the one
+	hero:ModifyStrength( newStr - gainStr )
+	hero:ModifyAgility( newAgi - gainAgi )
+	hero:ModifyIntellect( newInt - gainInt )
+  end
 end
 
 -- A player last hit a creep, a tower, or a hero
@@ -213,13 +240,16 @@ function GameMode:OnTeamKillCredit(keys)
   local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
   local numKills = keys.herokills
   local killerTeamNumber = keys.teamnumber
+
+  -- Increment Points
+    PointsManager:IncrementPoints(GetTeamName(killerTeamNumber))
 end
 
 -- An entity died
 function GameMode:OnEntityKilled( keys )
   DebugPrint( '[BAREBONES] OnEntityKilled Called' )
   DebugPrintTable( keys )
-  
+
 
   -- The Unit that was Killed
   local killedUnit = EntIndexToHScript( keys.entindex_killed )
@@ -244,7 +274,7 @@ end
 
 
 
--- This function is called 1 to 2 times as the player connects initially but before they 
+-- This function is called 1 to 2 times as the player connects initially but before they
 -- have completely connected
 function GameMode:PlayerConnect(keys)
   DebugPrint('[BAREBONES] PlayerConnect')
@@ -255,11 +285,11 @@ end
 function GameMode:OnConnectFull(keys)
   DebugPrint('[BAREBONES] OnConnectFull')
   DebugPrintTable(keys)
-  
+
   local entIndex = keys.index+1
   -- The Player entity of the joining user
   local ply = EntIndexToHScript(entIndex)
-  
+
   -- The Player ID of the joining player
   local playerID = ply:GetPlayerID()
 end
@@ -283,8 +313,8 @@ function GameMode:OnItemCombined(keys)
   local player = PlayerResource:GetPlayer(plyID)
 
   -- The name of the item purchased
-  local itemName = keys.itemname 
-  
+  local itemName = keys.itemname
+
   -- The cost of the item purchased
   local itemcost = keys.itemcost
 end
@@ -308,7 +338,7 @@ function GameMode:OnTowerKill(keys)
   local team = keys.teamnumber
 end
 
--- This function is called whenever a player changes there custom team selection during Game Setup 
+-- This function is called whenever a player changes there custom team selection during Game Setup
 function GameMode:OnPlayerSelectedCustomTeam(keys)
   DebugPrint('[BAREBONES] OnPlayerSelectedCustomTeam')
   DebugPrintTable(keys)
@@ -330,9 +360,27 @@ end
 
 -- This function is called whenever any player sends a chat message to team or All
 function GameMode:OnPlayerChat(keys)
+  DebugPrint('[BAREBONES] OnPlayerchat')
+  DebugPrintTable(keys)
   local teamonly = keys.teamonly
   local userID = keys.userid
   local playerID = self.vUserIds[userID]:GetPlayerID()
 
   local text = keys.text
+
+
+  if string.sub(text, 0,9) == "-show_ngp" then
+
+    splitted = split(text, " ")
+    DebugPrintTable(splitted)
+    local item =
+    {
+      id =splitted[2],
+      item =splitted[3],
+      title = splitted[4],
+      description = splitted[5],
+      buildsInto =splitted[6]
+    }
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
+  end
 end
