@@ -1,0 +1,12 @@
+--[[
+
+Clientside musicplayer and musicplayercontrol
+
+Player can start and pause a song using a panorama-button.
+
+]]
+
+require('components/musicplayer/musicplayercontrol')
+if IsClient() then
+  require('components/musicplayer/musicplayer')
+end

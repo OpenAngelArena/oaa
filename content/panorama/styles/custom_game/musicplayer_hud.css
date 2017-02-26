@@ -1,0 +1,128 @@
+.MusicPlayerContainer_Hud
+{
+  margin-bottom: 249px;
+
+  vertical-align: bottom;
+}
+
+.MinimapExtraLarge .MusicPlayerContainer_Hud
+{
+  margin-bottom: 285px;
+}
+
+#MusicPlayer_Background
+{
+  width: 100%;
+  height: 100%;
+  visibility: collapse;
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663cc ), color-stop( .5, #42566355 ), to( #0000 ) );
+}
+
+.MusicToggledOn #MusicPlayer_Background
+{
+  visibility: visible;
+  animation-name: slidein;
+  animation-duration: 0.25s;
+}
+
+#MusicPlayer_ToggleMusic {
+  width: 100%;
+  height: 100%;
+}
+
+.MusicToggledOn #MusicPlayer_ToggleMusic
+{
+  background-image: url("file://{images}/custom_game/musicplayer/foreground_play.png");
+}
+
+#MusicPlayer_ToggleMusic
+{
+  width: 40px;
+  height: 40px;
+  background-image: url("file://{images}/custom_game/musicplayer/foreground_mute.png");
+}
+
+#MusicPlayer_ToggleMusic_Bg
+{
+  width: 40px;
+  height: 40px;
+  background-image: url("file://{images}/custom_game/musicplayer/background_normal.png");
+}
+
+.MusicPlayer_MouseOver #MusicPlayer_ToggleMusic_Bg
+{
+  background-image: url("file://{images}/custom_game/musicplayer/background_mouseover.png");
+}
+
+.MusicPlayerC1
+{
+  width: 40px;
+  overflow: noclip;
+}
+
+.MusicPlayerC2
+{
+  margin-left: 40px;
+  width: 210px;
+  height: 40px;
+  overflow: noclip;
+}
+
+.MusicToggledOn #MusicPlayer_Display
+{
+  visibility: visible;
+  animation-name: fadein;
+  animation-duration: 0.25s;
+}
+
+#MusicPlayer_Display
+{
+  visibility: collapse;
+  width: 100%;
+}
+
+.Title
+{
+  font-weight: thin;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px 2 #00000099;
+  position: 0.0px 0.0px 0.0px;
+  text-align: left;
+  padding-top: 1px;
+  padding-left: 5px;
+  flow-children: down;
+  width: 200px;
+}
+
+.Artist
+{
+  font-weight: thin;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px 2 #00000099;
+  position: 0.0px 18.0px 0.0px;
+  text-align: left;
+  padding-top: 1px;
+  padding-left: 5px;
+  flow-children: down;
+  width: 200px;
+}
+
+@keyframes 'slidein' {
+  from {
+    opacity: 0;
+    transform: translatex(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0px);
+  }
+}
+
+@keyframes 'fadein' {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

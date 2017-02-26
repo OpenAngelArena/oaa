@@ -22,7 +22,7 @@ var useFormatting = 'half';
 function onGoldChange (table, data) {
   var unit = Players.GetLocalPlayerPortraitUnit();
   var playerID = Game.GetLocalPlayerID();
-  var gold = data.gold[playerID];
+  var gold = data.gold[playerID] || 0;
 
   UpdateGoldHud(gold);
   UpdateGoldTooltip(gold);
