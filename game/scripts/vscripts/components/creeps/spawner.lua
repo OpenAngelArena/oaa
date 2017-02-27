@@ -6,7 +6,7 @@ if CreepCamps == nil then
 end
 
 --creep power level is from CREEP_POWER_LEVEL_MIN to CREEP_POWER_LEVEL_MAX
-local CreepPowerLevel = 1.0
+local CreepPowerLevel = 0.0
 
 -- how often we spawn creeps
 local CreepSpawnInterval = 60.0
