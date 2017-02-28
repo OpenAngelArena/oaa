@@ -4,6 +4,7 @@
 	"item_recipe_mask_of_madness_3"
 	{
 		"ID"							"3081"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -25,6 +26,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3083"		// unique ID
+		"BaseClass"                     "item_mask_of_madness"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 

@@ -5,7 +5,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5018"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3618"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
@@ -33,7 +34,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3619"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_veil_of_discord"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
  		"AbilityTextureName"			"item_veil_of_discord"	
 		// Stats		

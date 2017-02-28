@@ -4,6 +4,7 @@
 	"item_recipe_abyssal_blade_5"
 	{
 		"ID"							"3111"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -22,6 +23,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3115"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_abyssal_blade"
 		"AbilityTextureName"			"item_abyssal_blade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"

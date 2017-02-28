@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3094"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
@@ -32,6 +33,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3098"		// unique ID
+		"BaseClass"                     "item_mjollnir"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

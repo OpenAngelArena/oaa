@@ -3,6 +3,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3317"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
@@ -16,9 +17,9 @@
 		"ItemResult"					"item_allied_cyclone_2"
 		"ItemRequirements"
 		{
-			"01"						"item_allied_cyclone;item_upgrade_core_2;item_allied_cyclone_recipe"
-			"02"						"item_allied_cyclone;item_upgrade_core_3;item_allied_cyclone_recipe"
-			"03"						"item_allied_cyclone;item_upgrade_core_4;item_allied_cyclone_recipe"
+			"01"						"item_allied_cyclone;item_upgrade_core_2"
+			"02"						"item_allied_cyclone;item_upgrade_core_3"
+			"03"						"item_allied_cyclone;item_upgrade_core_4"
 		}
 	}
 	
@@ -27,6 +28,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3319"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_cyclone"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"				"item_cyclone"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"

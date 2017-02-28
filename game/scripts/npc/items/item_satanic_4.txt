@@ -5,6 +5,7 @@
 	{
 
 		"ID"							"3160"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -25,6 +26,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3164"		// unique ID
+		"BaseClass"                     "item_satanic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_satanic"

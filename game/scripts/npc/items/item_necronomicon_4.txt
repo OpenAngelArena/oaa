@@ -4,6 +4,7 @@
 	"item_recipe_necronomicon_4"
 	{
 		"ID"							"3166"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"4"
@@ -26,8 +27,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3169"		// unique ID
+		"BaseClass"                     "item_necronomicon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_necronomicon_4"
+		"AbilityTextureName"            "item_necronomicon_3"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"

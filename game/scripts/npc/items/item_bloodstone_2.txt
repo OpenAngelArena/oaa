@@ -6,6 +6,7 @@
  
         "ID"                            "3124"      // unique ID
         "Model"                         "models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -27,6 +28,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3128"      // unique ID
+		"BaseClass"                     "item_bloodstone"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
  

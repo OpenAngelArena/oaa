@@ -4,6 +4,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3214"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"2"
 		
@@ -27,8 +28,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3217"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_refresher"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_refresher"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"

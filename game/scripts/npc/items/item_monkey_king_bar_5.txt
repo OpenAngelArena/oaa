@@ -5,7 +5,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5029"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3629"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -29,7 +30,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3633"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_monkey_king_bar"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_monkey_king_bar"
 		// Item Info

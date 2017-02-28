@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3330"
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
@@ -31,8 +32,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3333"
+		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_rapier"		
+		"AbilityTextureName"            "item_radiance"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"3"

@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3088"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"1"
 		
@@ -20,10 +21,10 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core;item_recipe_blade_mail"
-			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_blade_mail"
-			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_blade_mail"
-			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_blade_mail"
+			"01"						"item_blade_mail;item_upgrade_core"
+			"02"						"item_blade_mail;item_upgrade_core_2"
+			"03"						"item_blade_mail;item_upgrade_core_3"
+			"04"						"item_blade_mail;item_upgrade_core_4"
 		}
 	}
 
@@ -35,6 +36,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3090"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_blade_mail"
 		// Stats		

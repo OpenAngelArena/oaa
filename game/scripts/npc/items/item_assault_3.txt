@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3085"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
@@ -33,6 +34,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3087"		// unique ID
+		"BaseClass"                     "item_assault"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastRange"				"900"
 		"AbilityTextureName"				"item_assault"

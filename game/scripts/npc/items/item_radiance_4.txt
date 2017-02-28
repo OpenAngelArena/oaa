@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"4002"
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
@@ -32,6 +33,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"4006"
+		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_radiance"
 		// Stats

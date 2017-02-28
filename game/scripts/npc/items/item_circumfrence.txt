@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3342"
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
@@ -19,8 +20,8 @@
 		"ItemResult"					"item_circumfrence"
 		"ItemRequirements"
 		{
-			"01"						"item_radiance_3;item_upgrade_core_3;item_recipe_circumfrence"
-			"02"						"item_radiance_3;item_upgrade_core_4;item_recipe_circumfrence"
+			"01"						"item_radiance_3;item_upgrade_core_3"
+			"02"						"item_radiance_3;item_upgrade_core_4"
 		}
 	}	
  
@@ -33,6 +34,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3344"
+		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_radiance"
         // Stats

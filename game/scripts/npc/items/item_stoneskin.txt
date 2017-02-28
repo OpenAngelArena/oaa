@@ -5,6 +5,7 @@
     {
  
         "ID"                            "3244"       // unique ID
+		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.vmdl"
         "ItemCost"                      "1000"  
         "ItemShopTags"                  ""
@@ -24,8 +25,9 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3246"       // unique ID
+		"BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "item_halloween_rapier"  
+        "AbilityTextureName"            "item_shivas_guard"  
         // Stats       
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "0.0"

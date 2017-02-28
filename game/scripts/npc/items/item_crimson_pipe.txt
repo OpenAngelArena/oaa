@@ -6,6 +6,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3204"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
@@ -19,7 +20,7 @@
 		"ItemResult"					"item_crimson_pipe"
 		"ItemRequirements"
 		{
-			"01"						"item_crimson_guard_2;item_pipe_2;item_combiner;item_recipe_crimson_pipe"
+			"01"						"item_crimson_guard_2;item_pipe_2;item_combiner"
 		}
 	}
 
@@ -31,6 +32,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3206"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_pipe"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_halloween_rapier"
 		// Stats		

@@ -3,6 +3,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3229"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
@@ -25,6 +26,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3231"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_shivas_guard"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 
@@ -34,7 +36,7 @@
 		"AbilitySharedCooldown"			"shivas"
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"2"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_shivas_guard"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"

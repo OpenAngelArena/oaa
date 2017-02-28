@@ -6,6 +6,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3134"      // unique ID
+		"BaseClass"                     "item_datadriven"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_butterfly_4"
@@ -24,6 +25,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3138"      // unique ID
+		"BaseClass"                     "item_butterfly"
         //"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
  

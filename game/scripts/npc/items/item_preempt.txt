@@ -4,6 +4,7 @@
 	"item_recipe_preempt"
 	{
 		"ID"							"3550"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -24,6 +25,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3551"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
 		// Stats		

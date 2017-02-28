@@ -4,15 +4,16 @@
 	"item_recipe_bfury_3"
 	{
 		"ID"							"3075"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_3"
 		"ItemRequirements"
 		{
-			"01"						"item_bfury_2;item_upgrade_core_2;item_recipe_bfury"
-			"02"						"item_bfury_2;item_upgrade_core_3;item_recipe_bfury"
-			"03"						"item_bfury_2;item_upgrade_core_4;item_recipe_bfury"
+			"01"						"item_bfury_2;item_upgrade_core_2"
+			"02"						"item_bfury_2;item_upgrade_core_3"
+			"03"						"item_bfury_2;item_upgrade_core_4"
 		}
 	}
 
@@ -24,6 +25,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3078"		// unique ID
+		"BaseClass"                     "item_bfury"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"

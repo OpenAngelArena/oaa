@@ -2,6 +2,7 @@
 	{
 
 		"ID"							"3219"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -18,9 +19,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3222"		// unique ID
+		"BaseClass"                     "item_satanic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_satanic"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35.0"

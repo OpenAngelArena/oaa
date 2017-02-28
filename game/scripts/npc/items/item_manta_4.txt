@@ -4,6 +4,7 @@
 	"item_recipe_manta_4"
 	{
 		"ID"							"3174"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
@@ -25,6 +26,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3177"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_manta"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_manta"
 		// Stats		
