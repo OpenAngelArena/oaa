@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3334"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -21,10 +21,10 @@
 		"ItemResult"					"item_martyrs_mail"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core;item_recipe_martyrs_mail"
-			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
-			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
-			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+			"01"						"item_blade_mail;item_upgrade_core;item_transmogrifier"
+			"02"						"item_blade_mail;item_upgrade_core_2;item_transmogrifier"
+			"03"						"item_blade_mail;item_upgrade_core_3;item_transmogrifier"
+			"04"						"item_blade_mail;item_upgrade_core_4;item_transmogrifier"
 		}
 	}
 
@@ -47,8 +47,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_martyrs_mail"
-		"UpgradeRecipe"					"item_recipe_martyrs_mail"
+//		"UpgradesItems"					"item_martyrs_mail"
+//		"UpgradeRecipe"					"item_recipe_martyrs_mail"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"

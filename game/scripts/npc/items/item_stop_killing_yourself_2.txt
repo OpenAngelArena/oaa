@@ -4,7 +4,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3249"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17,8 +17,8 @@
 		"ItemResult"					"item_stop_killing_yourself_2"
 		"ItemRequirements"
 		{
-			"01"						"item_stop_killing_yourself;item_upgrade_core_3;item_recipe_stop_killing_yourself"
-			"02"						"item_stop_killing_yourself;item_upgrade_core_4;item_recipe_stop_killing_yourself"
+			"01"						"item_stop_killing_yourself;item_upgrade_core_3"
+			"02"						"item_stop_killing_yourself;item_upgrade_core_4"
 		}
 	}
 		"item_stop_killing_yourself_2"

@@ -5,7 +5,7 @@
 	{
 		"ID"							"3556"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -13,7 +13,7 @@
 		"ItemResult"					"item_react"
 		"ItemRequirements"
 		{
-			"01"						"item_reflex_core;item_recipe_react"
+			"01"						"item_reflex_core"
 		}
 	}
 

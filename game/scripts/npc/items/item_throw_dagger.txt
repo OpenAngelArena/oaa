@@ -5,9 +5,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3352"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3354"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,9 +20,9 @@
 		"ItemResult"					"item_throw_dagger"
 		"ItemRequirements"
 		{
-			"01"						"item_blink;item_upgrade_core_2;item_throw_dagger_recipe"
-			"02"						"item_blink;item_upgrade_core_3;item_throw_dagger_recipe"
-			"03"						"item_blink;item_upgrade_core_4;item_throw_dagger_recipe"
+			"01"						"item_blink;item_upgrade_core_2"
+			"02"						"item_blink;item_upgrade_core_3"
+			"03"						"item_blink;item_upgrade_core_4"
 
 		}
 	}
@@ -34,7 +34,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3353"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3355"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"

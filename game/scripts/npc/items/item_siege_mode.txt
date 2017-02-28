@@ -1,5 +1,5 @@
 	//=================================================================================================================
-	// Recipe: Dragon Lance
+	// Recipe: Siege Mode
 	//=================================================================================================================
 	"item_recipe_siege_mode"
 	{
@@ -7,11 +7,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3346"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -20,15 +20,15 @@
 		"ItemResult"					"item_siege_mode"
 		"ItemRequirements"
 		{
-			"01"						"item_dragon_lance_3;item_upgrade_core_3;item_recipe_siege_mode"
-			"02"						"item_dragon_lance_3;item_upgrade_core_4;item_recipe_siege_mode"
+			"01"						"item_dragon_lance_3;item_upgrade_core_3;item_transmogrifier"	//item added so that it doesn't clash with dragon lance 3
+			"02"						"item_dragon_lance_3;item_upgrade_core_4;item_transmogrifier"	//item added so that it doesn't clash with dragon lance 3
 
 		}
 	}
 
 	
 	//=================================================================================================================
-	// Dragon Lance
+	// Siege Mode
 	//=================================================================================================================
 	"item_siege_mode"
 	{
@@ -37,7 +37,7 @@
 		"ID"							"3348"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_dragon_lance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_dragon_lance"
+		"AbilityTextureName"            "item_firework_mine"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

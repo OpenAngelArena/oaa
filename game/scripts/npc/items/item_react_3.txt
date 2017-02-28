@@ -3,9 +3,9 @@
 	//=================================================================================================================
 	"item_recipe_react_3"
 	{
-		"ID"							"3554"		// unique ID
+		"ID"							"3560"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -26,7 +26,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3555"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3561"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"

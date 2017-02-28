@@ -5,6 +5,7 @@
 	{
 
 		"ID"							"3218"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -12,7 +13,7 @@
 		"ItemResult"					"item_satanic_core"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic;item_octarine_core;item_combiner;item_recipe_satanic_core"
+			"01"						"item_satanic;item_octarine_core;item_combiner"
 		}
 	}
 	
@@ -27,9 +28,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3221"		// unique ID
+		"BaseClass"                     "item_satanic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_satanic"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35.0"

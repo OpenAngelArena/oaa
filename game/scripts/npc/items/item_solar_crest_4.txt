@@ -5,9 +5,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3614"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,8 +20,8 @@
 		"ItemResult"					"item_solar_crest_4"
 		"ItemRequirements"
 		{
-			"01"						"item_solar_crest_3;item_upgrade_core_3;item_recipe_solar_crest"
-			"02"						"item_solar_crest_3;item_upgrade_core_4;item_recipe_solar_crest"
+			"01"						"item_solar_crest_3;item_upgrade_core_3"
+			"02"						"item_solar_crest_3;item_upgrade_core_4"
 		}
 	}
 
@@ -32,7 +32,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5017"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3617"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_solar_crest"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -56,7 +56,7 @@
 		"MaxUpgradeLevel"               "4"
 		"ItemBaseLevel"                 "4"
 		"UpgradesItems"                 "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
-		"UpgradeRecipe"                 "item_recipe_solar_crest"
+//		"UpgradeRecipe"                 "item_recipe_solar_crest"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3240"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"		
+		"Model"							"models/props_gameplay/recipe.mdl"		
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
 		"ItemResult"					"item_vlads_helm"
 		"ItemRequirements"
 		{
-			"01"						"item_vladimir;item_of_the_dominator;item_combiner;item_recipe_vlads_helm"
+			"01"						"item_vladmir;item_helm_of_the_dominator;item_combiner"
 		}
 	}
 	
@@ -40,7 +40,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
- 		"AbilityTextureName"			"item_vlads_helm"	
+ 		"AbilityTextureName"			"item_vladmir"	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"

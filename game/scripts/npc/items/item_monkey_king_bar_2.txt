@@ -19,10 +19,10 @@
 		"ItemResult"					"item_monkey_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar;item_upgrade_core;item_recipe_monkey_king_bar"
-			"02"						"item_monkey_king_bar;item_upgrade_core_2;item_recipe_monkey_king_bar"
-			"03"						"item_monkey_king_bar;item_upgrade_core_3;item_recipe_monkey_king_bar"
-			"04"						"item_monkey_king_bar;item_upgrade_core_4;item_recipe_monkey_king_bar"
+			"01"						"item_monkey_king_bar;item_upgrade_core"
+			"02"						"item_monkey_king_bar;item_upgrade_core_2"
+			"03"						"item_monkey_king_bar;item_upgrade_core_3"
+			"04"						"item_monkey_king_bar;item_upgrade_core_4"
 		}
 	}
 
@@ -48,7 +48,7 @@
 		"ItemBaseLevel"                 "2"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
