@@ -1,0 +1,67 @@
+	//=================================================================================================================
+	// Recipe: postactive Reflex
+	//=================================================================================================================
+	"item_recipe_postact"
+	{
+		"ID"							"3562"		// unique ID
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"FightRecapLevel"				"1"
+		"ItemCost"						"800"	
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_postact"
+		"ItemRequirements"
+		{
+			"01"						"item_reflex_core"
+		}
+	}
+
+	//=================================================================================================================
+	// postactive Reflex
+	//=================================================================================================================
+	"item_postact"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3563"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityTextureName"            "item_firecrackers"
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+		"AbilityCastPoint"				"0.0"
+
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"1"
+		"UpgradesItems"					"item_postact;item_postact_2"
+		"UpgradeRecipe"					"item_recipe_postact"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		"ItemCost"						"5000"
+		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"wing chun"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"effect_duration"	"0.0 5.0 5.0"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"		"0 0 50"
+			}
+		}
+	}
+	

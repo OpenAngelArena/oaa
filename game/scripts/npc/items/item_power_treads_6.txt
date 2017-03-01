@@ -1,0 +1,84 @@
+	//=================================================================================================================
+	// Recipe: Power Treads 6
+	//=================================================================================================================
+	"item_recipe_power_treads_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_power_treads_6"
+		"ItemRequirements"
+		{
+			"01"						"item_power_treads_5;item_upgrade_core_4;item_recipe_power_treads"							
+		}
+	}
+
+	//=================================================================================================================
+	// Power Treads 6
+	//=================================================================================================================
+	"item_power_treads_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_power_treads"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"            "item_power_treads"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"16650"
+		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"power treads"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"MaxUpgradeLevel"               "6"
+		"ItemBaseLevel"                 "6"            
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"  "45 50 55 60 65 70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_stat"			"9 15 24 36 54 72"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"25 30 35 40 45 50"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"0"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_radius"			"0 300 300 300 300 300"
+			}
+			"60"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_damage_percent"	"0 30 30 30 30 30"	
+			}
+		}
+	}

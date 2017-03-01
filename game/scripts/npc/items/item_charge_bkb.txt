@@ -1,0 +1,90 @@
+//=================================================================================================================
+	// Recipe: Charge BKB
+	//=================================================================================================================
+	"item_recipe_charge_bkb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_charge_bkb"
+		"ItemRequirements"
+		{
+			"01"						"item_black_king_bar;item_black_king_bar"
+		}
+	}
+	
+	//=================================================================================================================
+	// Charge BKB (based off Magic Wand)
+	//=================================================================================================================
+	"item_charge_bkb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_black_king_bar"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityTextureName"            "item_black_king_bar"		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13.0"
+		"AbilitySharedCooldown"			"bkb"
+		"AbilityCastRange"				"1200"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"9500"
+		"ItemShopTags"					"regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"charge bkb"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"17"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_radius"			"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"4"
+			}
+			// BKB
+
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"24"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"model_scale"			"30"     // Percentage over model scale
+			}
+		}
+	}
