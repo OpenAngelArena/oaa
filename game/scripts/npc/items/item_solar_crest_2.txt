@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3612"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,10 +20,10 @@
 		"ItemResult"					"item_solar_crest_2"
 		"ItemRequirements"
 		{
-			"01"						"item_solar_crest;item_upgrade_core;item_recipe_solar_crest"
-			"02"						"item_solar_crest;item_upgrade_core_2;item_recipe_solar_crest"
-			"03"						"item_solar_crest;item_upgrade_core_3;item_recipe_solar_crest"
-			"04"						"item_solar_crest;item_upgrade_core_4;item_recipe_solar_crest"
+			"01"						"item_solar_crest;item_upgrade_core"
+			"02"						"item_solar_crest;item_upgrade_core_2"
+			"03"						"item_solar_crest;item_upgrade_core_3"
+			"04"						"item_solar_crest;item_upgrade_core_4"
 		}
 	}
 
@@ -58,7 +58,7 @@
 		"MaxUpgradeLevel"               "4"
 		"ItemBaseLevel"                 "2"
 		"UpgradesItems"                 "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
-		"UpgradeRecipe"                 "item_recipe_solar_crest"
+//		"UpgradeRecipe"                 "item_recipe_solar_crest"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

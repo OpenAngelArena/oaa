@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3088"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -21,10 +21,10 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core"
-			"02"						"item_blade_mail;item_upgrade_core_2"
-			"03"						"item_blade_mail;item_upgrade_core_3"
-			"04"						"item_blade_mail;item_upgrade_core_4"
+			"01"						"item_blade_mail;item_upgrade_core;item_recipe_blade_mail"
+			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_blade_mail"
+			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_blade_mail"
+			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_blade_mail"
 		}
 	}
 

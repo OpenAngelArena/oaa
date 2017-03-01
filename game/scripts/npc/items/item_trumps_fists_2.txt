@@ -4,7 +4,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3263"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17,10 +17,10 @@
 		"ItemResult"					"item_trumps_fists_2"
 		"ItemRequirements"
 		{
-			"01"						"item_trumps_fists;item_upgrade_core;item_recipe_trumps_fists"
-			"02"						"item_trumps_fists;item_upgrade_core_2;item_recipe_trumps_fists"
-			"03"						"item_trumps_fists;item_upgrade_core_3;item_recipe_trumps_fists"
-			"04"						"item_trumps_fists;item_upgrade_core_4;item_recipe_trumps_fists"
+			"01"						"item_trumps_fists;item_upgrade_core"
+			"02"						"item_trumps_fists;item_upgrade_core_2"
+			"03"						"item_trumps_fists;item_upgrade_core_3"
+			"04"						"item_trumps_fists;item_upgrade_core_4"
 		}
 	}
 

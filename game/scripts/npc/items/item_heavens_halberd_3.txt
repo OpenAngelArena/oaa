@@ -19,9 +19,9 @@
 		"ItemResult"					"item_heavens_halberd_3"
 		"ItemRequirements"
 		{
-			"01"						"item_heavens_halberd_2;item_upgrade_core_2;item_recipe_heavens_halberd"
-			"02"						"item_heavens_halberd_2;item_upgrade_core_3;item_recipe_heavens_halberd"
-			"03"						"item_heavens_halberd_2;item_upgrade_core_4;item_recipe_heavens_halberd"
+			"01"						"item_heavens_halberd_2;item_upgrade_core_2"
+			"02"						"item_heavens_halberd_2;item_upgrade_core_3"
+			"03"						"item_heavens_halberd_2;item_upgrade_core_4"
 		}
 	}
 
@@ -59,7 +59,7 @@
 		"ItemBaseLevel"                 "3"
  
 		"UpgradesItems"                 "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
-		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
+//		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

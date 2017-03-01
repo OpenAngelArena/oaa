@@ -7,14 +7,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3356"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_turret"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner;item_recipe_turret"
+			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner"
 		}
 	}
 
@@ -29,7 +29,7 @@
 		"ID"							"3357"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_firework_mine"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

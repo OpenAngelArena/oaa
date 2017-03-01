@@ -5,16 +5,16 @@
 	{
 		"ID"							"3067"			// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_3"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick_2;item_upgrade_core_2;item_recipe_sheepstick"
-			"02"						"item_sheepstick_2;item_upgrade_core_3;item_recipe_sheepstick"
-			"03"						"item_sheepstick_2;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick_2;item_upgrade_core_2"
+			"02"						"item_sheepstick_2;item_upgrade_core_3"
+			"03"						"item_sheepstick_2;item_upgrade_core_4"
 		}
 	}
 

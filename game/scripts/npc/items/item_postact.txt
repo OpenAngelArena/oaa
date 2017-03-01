@@ -5,7 +5,7 @@
 	{
 		"ID"							"3562"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -13,7 +13,7 @@
 		"ItemResult"					"item_postact"
 		"ItemRequirements"
 		{
-			"01"						"item_reflex_core;item_recipe_postact"
+			"01"						"item_reflex_core"
 		}
 	}
 
@@ -25,7 +25,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3563"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_firecrackers"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"
 		// Stats		

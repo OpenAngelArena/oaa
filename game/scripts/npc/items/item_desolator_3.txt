@@ -20,7 +20,9 @@
 		"ItemResult"					"item_desolator_3"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_2;item_recipe_desolator"
+			"01"						"item_desolator_2;item_upgrade_core_2"
+			"02"						"item_desolator_2;item_upgrade_core_3"
+			"03"						"item_desolator_2;item_upgrade_core_4"
 		}
 	}
 
@@ -47,8 +49,6 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 3"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
-		"UpgradeRecipe"                 "item_recipe_desolator"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

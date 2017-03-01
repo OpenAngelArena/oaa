@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3258"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
 		"ItemResult"					"item_heart_transplant"
 		"ItemRequirements"
 		{
-			"01"						"item_heart_3;item_solar_crest_3;item_combiner;item_recipe_heart_transplant"
+			"01"						"item_heart_3;item_solar_crest_3;item_combiner"
 		}
 	}
 

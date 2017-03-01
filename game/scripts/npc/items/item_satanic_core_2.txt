@@ -3,15 +3,15 @@
 
 		"ID"							"3219"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core_2"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_core;item_upgrade_core_3;item_recipe_satanic_core"
-			"02"						"item_satanic_core;item_upgrade_core_4;item_recipe_satanic_core"
+			"01"						"item_satanic_core;item_upgrade_core_3"
+			"02"						"item_satanic_core;item_upgrade_core_4"
 		}
 	}
 		"item_satanic_core_2"

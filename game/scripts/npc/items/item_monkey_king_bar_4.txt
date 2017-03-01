@@ -19,8 +19,8 @@
 		"ItemResult"					"item_monkey_king_bar_4"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar_3;item_upgrade_core_3;item_recipe_monkey_king_bar"
-			"02"						"item_monkey_king_bar_3;item_upgrade_core_4;item_recipe_monkey_king_bar"
+			"01"						"item_monkey_king_bar_3;item_upgrade_core_3"
+			"02"						"item_monkey_king_bar_3;item_upgrade_core_4"
 		}
 	}
 
@@ -46,7 +46,7 @@
 		"ItemBaseLevel"                 "4"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

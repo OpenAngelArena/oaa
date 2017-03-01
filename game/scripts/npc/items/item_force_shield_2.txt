@@ -4,11 +4,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3255"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -17,8 +17,8 @@
 		"ItemResult"					"item_force_shield_2"
 		"ItemRequirements"
 		{
-			"01"						"item_force_shield;item_upgrade_core_3;item_recipe_force_shield"
-			"02"						"item_force_shield;item_upgrade_core_4;item_recipe_force_shield"
+			"01"						"item_force_shield;item_upgrade_core_3"
+			"02"						"item_force_shield;item_upgrade_core_4"
 		}
 	}
 

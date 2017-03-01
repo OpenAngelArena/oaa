@@ -19,9 +19,9 @@
 		"ItemResult"					"item_rod_of_atos_3"
 		"ItemRequirements"
 		{
-			"01"						"item_rod_of_atos_2;item_upgrade_core_2;item_recipe_rod_of_atos"
-			"02"						"item_rod_of_atos_2;item_upgrade_core_3;item_recipe_rod_of_atos"
-			"03"						"item_rod_of_atos_2;item_upgrade_core_4;item_recipe_rod_of_atos"
+			"01"						"item_rod_of_atos_2;item_upgrade_core_2"
+			"02"						"item_rod_of_atos_2;item_upgrade_core_3"
+			"03"						"item_rod_of_atos_2;item_upgrade_core_4"
 		}
 	}
 
@@ -57,7 +57,7 @@
 		"MaxUpgradeLevel"               "3"
 		"ItemBaseLevel"                 "3"
 		"UpgradesItems"                 "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
-		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
+//		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

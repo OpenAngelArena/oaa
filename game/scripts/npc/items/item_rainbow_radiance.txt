@@ -20,10 +20,10 @@
 		"ItemResult"					"item_rainbow_radiance"
 		"ItemRequirements"
 		{
-			"01"						"item_lucience_2;item_upgrade_core;item_recipe_rainbow_radiance"
-			"02"						"item_lucience_2;item_upgrade_core_2;item_recipe_rainbow_radiance"
-			"03"						"item_lucience_2;item_upgrade_core_3;item_recipe_rainbow_radiance"
-			"04"						"item_lucience_2;item_upgrade_core_4;item_recipe_rainbow_radiance"
+			"01"						"item_lucience_2;item_upgrade_core"
+			"02"						"item_lucience_2;item_upgrade_core_2"
+			"03"						"item_lucience_2;item_upgrade_core_3"
+			"04"						"item_lucience_2;item_upgrade_core_4"
 		}
 	}	
 	//=================================================================================================================
@@ -36,7 +36,7 @@
 		"ID"							"3339"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_radiance"
+		"AbilityTextureName"            "item_radiance"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
 		// Item Info

@@ -19,9 +19,9 @@
 		"ItemResult"					"item_ultimate_scepter_3"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter_2;item_upgrade_core_2;item_recipe_ultimate_scepter"
-			"02"						"item_ultimate_scepter_2;item_upgrade_core_3;item_recipe_ultimate_scepter"
-			"03"						"item_ultimate_scepter_2;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter_2;item_upgrade_core_2"
+			"02"						"item_ultimate_scepter_2;item_upgrade_core_3"
+			"03"						"item_ultimate_scepter_2;item_upgrade_core_4"
 		}
 	}
 
@@ -33,7 +33,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"7055"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"

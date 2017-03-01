@@ -3,7 +3,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3301"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -20,6 +21,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3303"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"				"item_aether_lens"
 	

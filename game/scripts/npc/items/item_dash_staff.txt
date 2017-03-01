@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3310"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,8 +20,8 @@
 		"ItemResult"					"item_dash_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff;item_upgrade_core_3;item_recipe_dash_staff"
-			"02"						"item_force_staff;item_upgrade_core_4;item_recipe_dash_staff"
+			"01"						"item_force_staff;item_upgrade_core_3"
+			"02"						"item_force_staff;item_upgrade_core_4"
 		}
 	}
 
@@ -34,7 +34,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3312"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_force_staff" //item_datadriven
+		"BaseClass"                     "item_force_staff" 											//item_datadriven
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"

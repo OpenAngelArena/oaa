@@ -6,15 +6,15 @@
 
 		"ID"							"3160"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_4"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_3;item_upgrade_core_3;item_recipe_satanic"
-			"02"						"item_satanic_3;item_upgrade_core_4;item_recipe_satanic"
+			"01"						"item_satanic_3;item_upgrade_core_3"
+			"02"						"item_satanic_3;item_upgrade_core_4"
 		}
 	}
 

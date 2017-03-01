@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3101"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -51,8 +51,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"3"
-		"UpgradesItems"					"item_bloodthorn_3;item_bloodthorn_4"
-		"UpgradeRecipe"					"item_recipe_bloodthorn"
+//		"UpgradesItems"					"item_bloodthorn_3;item_bloodthorn_4"
+//		"UpgradeRecipe"					"item_recipe_bloodthorn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

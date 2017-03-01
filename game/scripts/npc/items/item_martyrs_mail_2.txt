@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3335"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -21,9 +21,9 @@
 		"ItemResult"					"item_martyrs_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
-			"02"						"item_blade_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
-			"03"						"item_blade_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+			"01"						"item_martyrs_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
+			"02"						"item_martyrs_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
+			"03"						"item_martyrs_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
 		}
 	}
 

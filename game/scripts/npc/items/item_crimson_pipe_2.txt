@@ -5,7 +5,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3205"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -18,8 +18,8 @@
 		"ItemResult"					"item_crimson_pipe_2"
 		"ItemRequirements"
 		{
-			"01"						"item_crimson_Pipe;item_upgrade_core_3;item_recipe_crimson_pipe"
-			"02"						"item_crimson_Pipe;item_upgrade_core_4;item_recipe_crimson_pipe"
+			"01"						"item_crimson_pipe;item_upgrade_core_3;item_recipe_crimson_pipe"
+			"02"						"item_crimson_pipe;item_upgrade_core_4;item_recipe_crimson_pipe"
 		}
 	}
 	
@@ -31,7 +31,7 @@
 		"ID"							"3207"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_pipe"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_pipe"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"

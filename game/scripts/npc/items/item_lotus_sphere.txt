@@ -7,11 +7,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3208"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -20,7 +20,8 @@
 		"ItemResult"					"item_lotus_sphere"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner;item_recipe_lotus_sphere"
+			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner"
+		}
 	}
 	
 
@@ -112,9 +113,6 @@
                 "var_type"              "FIELD_FLOAT"
                 "block_cooldown"        "13.0"
             }
-
-
-			
 		}
 	}
 

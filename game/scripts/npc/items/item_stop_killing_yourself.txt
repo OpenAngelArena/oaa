@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3248"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
 		"ItemResult"					"item_stop_killing_yourself"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_sphere_1;item_bloodthorn_3;item_combiner;item_recipe_stop_killing_yourself"
+			"01"						"item_lotus_sphere;item_bloodthorn_3;item_combiner"
 		}
 	}
 	

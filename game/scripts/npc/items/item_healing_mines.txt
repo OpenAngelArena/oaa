@@ -7,7 +7,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3320"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -20,9 +20,9 @@
 		"ItemResult"					"item_healing_mines"
 		"ItemRequirements"
 		{
-			"01"						"item_bloodstone_2;item_upgrade_core_2;item_recipe_healing_mines"
-			"02"						"item_bloodstone_2;item_upgrade_core_3;item_recipe_healing_mines"
-			"03"						"item_bloodstone_2;item_upgrade_core_4;item_recipe_healing_mines"
+			"01"						"item_bloodstone_2;item_upgrade_core_2"
+			"02"						"item_bloodstone_2;item_upgrade_core_3"
+			"03"						"item_bloodstone_2;item_upgrade_core_4"
 		}
 	}
 
@@ -39,7 +39,7 @@
 		"ID"							"3323"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_halloween_candy_corn"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"

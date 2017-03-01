@@ -6,14 +6,14 @@
  
         "ID"                            "3244"       // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "1000"  
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_stoneskin"
         "ItemRequirements"
         {
-            "01"                        "item_shivas_guard_3;item_armlet_3;item_combiner;item_recipe_stoneskin"
+            "01"                        "item_shivas_guard_3;item_armlet_2;item_combiner"
       	} 
  
     }

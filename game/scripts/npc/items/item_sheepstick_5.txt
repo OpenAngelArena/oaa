@@ -5,14 +5,14 @@
 	{
 		"ID"							"3069"			// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_5"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick_4;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick_4;item_upgrade_core_4"
 		}
 	}
 

@@ -19,7 +19,7 @@
 		"ItemResult"					"item_ultimate_scepter_5"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter_4;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter_4;item_upgrade_core_4"
 		}
 	}
 
@@ -31,7 +31,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3057"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
