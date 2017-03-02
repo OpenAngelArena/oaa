@@ -242,7 +242,7 @@ function GameMode:OnTeamKillCredit(keys)
   local killerTeamNumber = keys.teamnumber
 
   -- Increment Points
-    PointsManager:IncrementPoints(GetTeamName(killerTeamNumber))
+    PointsManager:AddPoints(GetTeamName(killerTeamNumber))
 end
 
 -- An entity died
