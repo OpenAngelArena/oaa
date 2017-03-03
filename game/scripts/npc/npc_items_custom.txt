@@ -132,6 +132,7 @@
 	{
 		"ID"						"3108"	// unique ID
 		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"					"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -520,6 +521,7 @@
 		"ID"							"3111"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"ItemCost"						"0"	
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_abyssal_blade_5"
@@ -645,17 +647,18 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3300"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_glasses"
 		"ItemRequirements"
 		{
-			"01"						"item_aether_lens;item_upgrade_core;item_recipe_aether_glasses"
-			"02"						"item_aether_lens;item_upgrade_core_2;item_recipe_aether_glasses"
-			"03"						"item_aether_lens;item_upgrade_core_3;item_recipe_aether_glasses"
-			"04"						"item_aether_lens;item_upgrade_core_4;item_recipe_aether_glasses"
+			"01"						"item_aether_lens;item_upgrade_core"
+			"02"						"item_aether_lens;item_upgrade_core_2"
+			"03"						"item_aether_lens;item_upgrade_core_3"
+			"04"						"item_aether_lens;item_upgrade_core_4"
 		}
 	}
 
@@ -668,6 +671,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3302"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"				"item_aether_lens"
 	
@@ -719,7 +723,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3301"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -736,6 +741,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3303"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"				"item_aether_lens"
 	
@@ -858,7 +864,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3116"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -934,7 +940,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3117"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -1007,7 +1013,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3316"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1107,7 +1113,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3317"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1306,14 +1312,18 @@
 	"item_recipe_ancient_janggo_2"
 	{
 		"ID"							"3140"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"2100"	
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"ItemCost"						"700"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_ancient_janggo"
+		"ItemResult"					"item_ancient_janggo_2"
 		"ItemRequirements"
 		{
-			"01"						"item_ancient_janggo"
+			"01"					"item_ancient_janggo;item_upgrade_core"
+			"02"					"item_ancient_janggo;item_upgrade_core_2"
+			"03"					"item_ancient_janggo;item_upgrade_core_3"
+			"04"					"item_ancient_janggo;item_upgrade_core_4"
 		}
 	}
 
@@ -1325,6 +1335,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3141"		// unique ID
+		"BaseClass"                     "item_ancient_janggo"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"				"item_ancient_janggo"
 		"ItemPermanent"					"1"
@@ -1529,7 +1540,7 @@
  
         "ID"                            "3120"      // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -1733,7 +1744,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3084"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1825,7 +1836,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3085"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1966,7 +1977,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3305"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1976,7 +1987,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_azazel"
+		"ItemResult"					"item_azazel_2"
 		"ItemRequirements"
 		{
 			"01"						"item_azazel;item_upgrade_core_3"
@@ -2478,7 +2489,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2555,7 +2566,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3088"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -2569,10 +2580,10 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core"
-			"02"						"item_blade_mail;item_upgrade_core_2"
-			"03"						"item_blade_mail;item_upgrade_core_3"
-			"04"						"item_blade_mail;item_upgrade_core_4"
+			"01"						"item_blade_mail;item_upgrade_core;item_recipe_blade_mail"
+			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_blade_mail"
+			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_blade_mail"
+			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_blade_mail"
 		}
 	}
 
@@ -2641,7 +2652,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3089"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -2655,9 +2666,9 @@
 		"ItemResult"					"item_blade_mail_3"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail_2;item_upgrade_core_2"
-			"02"						"item_blade_mail_2;item_upgrade_core_3"
-			"03"						"item_blade_mail_2;item_upgrade_core_4"
+			"01"						"item_blade_mail_2;item_upgrade_core_2;item_recipe_blade_mail"
+			"02"						"item_blade_mail_2;item_upgrade_core_3;item_recipe_blade_mail"
+			"03"						"item_blade_mail_2;item_upgrade_core_4;item_recipe_blade_mail"
 		}
 	}
 
@@ -2843,7 +2854,7 @@
     {
  
         "ID"                            "3124"      // unique ID
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
 		"BaseClass"                     "item_datadriven"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
@@ -2969,7 +2980,7 @@
  
         "ID"                            "3125"      // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -3093,7 +3104,7 @@
  
         "ID"                            "3126"      // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -3215,7 +3226,7 @@
     {
  
         "ID"                            "3127"      // unique ID
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
 		"BaseClass"                     "item_datadriven"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
@@ -3377,8 +3388,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_bloodthorn;item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
-		"UpgradeRecipe"					"item_recipe_bloodthorn"
+//		"UpgradesItems"					"item_bloodthorn;item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
+//		"UpgradeRecipe"					"item_recipe_bloodthorn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3449,7 +3460,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3100"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3494,8 +3505,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
-		"UpgradeRecipe"					"item_recipe_bloodthorn"
+//		"UpgradesItems"					"item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
+//		"UpgradeRecipe"					"item_recipe_bloodthorn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3566,7 +3577,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3101"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3610,8 +3621,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"3"
-		"UpgradesItems"					"item_bloodthorn_3;item_bloodthorn_4"
-		"UpgradeRecipe"					"item_recipe_bloodthorn"
+//		"UpgradesItems"					"item_bloodthorn_3;item_bloodthorn_4"
+//		"UpgradeRecipe"					"item_recipe_bloodthorn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3682,7 +3693,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3102"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3725,8 +3736,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"4"
-		"UpgradesItems"					"item_bloodthorn_4"
-		"UpgradeRecipe"					"item_recipe_bloodthorn"
+//		"UpgradesItems"					"item_bloodthorn_4"
+//		"UpgradeRecipe"					"item_recipe_bloodthorn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3797,7 +3808,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3103"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3998,10 +4009,10 @@
         "ItemResult"                    "item_butterfly_2"
         "ItemRequirements"
         {
-            "01"                        "item_butterfly;item_upgrade_core;item_recipe_butterfly"
-            "02"                        "item_butterfly;item_upgrade_core_2;item_recipe_butterfly"
-            "03"                        "item_butterfly;item_upgrade_core_3;item_recipe_butterfly"
-            "04"                        "item_butterfly;item_upgrade_core_4;item_recipe_butterfly"
+            "01"                        "item_butterfly;item_upgrade_core"
+            "02"                        "item_butterfly;item_upgrade_core_2"
+            "03"                        "item_butterfly;item_upgrade_core_3"
+            "04"                        "item_butterfly;item_upgrade_core_4"
         }
     }
 
@@ -4087,9 +4098,9 @@
         "ItemResult"                    "item_butterfly_3"
         "ItemRequirements"
         {
-            "01"                        "item_butterfly_2;item_upgrade_core_2;item_recipe_butterfly"
-            "02"                        "item_butterfly_2;item_upgrade_core_3;item_recipe_butterfly"
-            "03"                        "item_butterfly_2;item_upgrade_core_4;item_recipe_butterfly"
+            "01"                        "item_butterfly_2;item_upgrade_core_2"
+            "02"                        "item_butterfly_2;item_upgrade_core_3"
+            "03"                        "item_butterfly_2;item_upgrade_core_4"
         }
     }
 
@@ -4175,8 +4186,8 @@
         "ItemResult"                    "item_butterfly_4"
         "ItemRequirements"
         {
-            "01"                        "item_butterfly_3;item_upgrade_core_3;item_recipe_butterfly"
-            "02"                        "item_butterfly_3;item_upgrade_core_4;item_recipe_butterfly"
+            "01"                        "item_butterfly_3;item_upgrade_core_3"
+            "02"                        "item_butterfly_3;item_upgrade_core_4"
         }
     }
 
@@ -4262,7 +4273,7 @@
         "ItemResult"                    "item_butterfly_5"
         "ItemRequirements"
         {
-            "01"                        "item_butterfly_4;item_upgrade_core_4;item_recipe_butterfly"
+            "01"                        "item_butterfly_4;item_upgrade_core_4"
         }
     }
 
@@ -4341,7 +4352,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4435,7 +4446,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4444,10 +4455,10 @@
 		"ItemResult"					"item_circumfrence"
 		"ItemRequirements"
 		{
-			"01"						"item_radiance_3;item_upgrade_core_3"
-			"02"						"item_radiance_3;item_upgrade_core_4"
+			"01"						"item_radiance_3;item_upgrade_core_3;item_relic" //added to not clash with radiance 4
+			"02"						"item_radiance_3;item_upgrade_core_4;item_relic" //relic added to not clash with radiance 4
 		}
-	}	
+	}
  
 	//=================================================================================================================
 	// circumfrence
@@ -4595,6 +4606,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1500"
+//		"ItemPurchasable"				"0"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -4608,7 +4620,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"243"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4734,7 +4746,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3198"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4864,7 +4876,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3204"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4891,7 +4903,7 @@
 		"ID"							"3206"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_pipe"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_pipe"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -4989,7 +5001,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3205"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5002,8 +5014,8 @@
 		"ItemResult"					"item_crimson_pipe_2"
 		"ItemRequirements"
 		{
-			"01"						"item_crimson_Pipe;item_upgrade_core_3;item_recipe_crimson_pipe"
-			"02"						"item_crimson_Pipe;item_upgrade_core_4;item_recipe_crimson_pipe"
+			"01"						"item_crimson_pipe;item_upgrade_core_3;item_recipe_crimson_pipe"
+			"02"						"item_crimson_pipe;item_upgrade_core_4;item_recipe_crimson_pipe"
 		}
 	}
 	
@@ -5015,7 +5027,7 @@
 		"ID"							"3207"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_pipe"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_pipe"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -5978,7 +5990,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3310"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5991,8 +6003,8 @@
 		"ItemResult"					"item_dash_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff;item_upgrade_core_3;item_recipe_dash_staff"
-			"02"						"item_force_staff;item_upgrade_core_4;item_recipe_dash_staff"
+			"01"						"item_force_staff;item_upgrade_core_3"
+			"02"						"item_force_staff;item_upgrade_core_4"
 		}
 	}
 
@@ -6005,7 +6017,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3312"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_force_staff" //item_datadriven
+		"BaseClass"                     "item_force_staff" 											//item_datadriven
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
@@ -6067,7 +6079,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3311"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6077,10 +6089,10 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_dash_staff"
+		"ItemResult"					"item_dash_staff_2"
 		"ItemRequirements"
 		{
-			"01"						"item_dash_staff_2;item_upgrade_core_4;item_recipe_dash_staff"
+			"01"						"item_dash_staff;item_upgrade_core_4;item_recipe_dash_staff"
 		}
 	}
 	
@@ -6089,7 +6101,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3313"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_force_staff" //"item_datadriven"
+		"BaseClass"                     "item_force_staff" 											//item_datadriven
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
@@ -6144,6 +6156,33 @@
 
 		}
 	}
+
+	//=================================================================================================================
+	// Decoy Courier (based on Courier)
+	//=================================================================================================================
+		"item_recipe_decoy_courier"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"197"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"100"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_decoy_courier"
+		"ItemRequirements"
+		{
+			"02"						"item_courier"
+		}
+	}
+	
 	//=================================================================================================================
 	// Decoy Courier (based on Courier)
 	//=================================================================================================================
@@ -6249,7 +6288,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3600"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6262,7 +6301,10 @@
 		"ItemResult"					"item_desolator_2"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_recipe_desolator"
+			"01"						"item_desolator;item_upgrade_core"
+			"02"						"item_desolator;item_upgrade_core_2"
+			"03"						"item_desolator;item_upgrade_core_3"
+			"04"						"item_desolator;item_upgrade_core_4"
 		}
 	}
 
@@ -6289,8 +6331,6 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 2"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
-		"UpgradeRecipe"                 "item_recipe_desolator"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6335,7 +6375,9 @@
 		"ItemResult"					"item_desolator_3"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_2;item_recipe_desolator"
+			"01"						"item_desolator_2;item_upgrade_core_2"
+			"02"						"item_desolator_2;item_upgrade_core_3"
+			"03"						"item_desolator_2;item_upgrade_core_4"
 		}
 	}
 
@@ -6362,8 +6404,6 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 3"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
-		"UpgradeRecipe"                 "item_recipe_desolator"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6386,6 +6426,7 @@
 			}
 		}
 	}
+
 	//=================================================================================================================
 	// Recipe: Desolator 4
 	//=================================================================================================================
@@ -6395,7 +6436,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3602"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6408,7 +6449,8 @@
 		"ItemResult"					"item_desolator_4"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_3;item_recipe_desolator"
+			"01"						"item_desolator_3;item_upgrade_core_3"
+			"02"						"item_desolator_3;item_upgrade_core_4"
 		}
 	}
 
@@ -6435,8 +6477,6 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 4"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
-		"UpgradeRecipe"                 "item_recipe_desolator"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6468,7 +6508,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3603"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6481,7 +6521,7 @@
 		"ItemResult"					"item_desolator_5"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_4;item_recipe_desolator"
+			"01"						"item_desolator_4;item_upgrade_core_4"
 		}
 	}
 
@@ -6508,8 +6548,6 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 5"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
-		"UpgradeRecipe"                 "item_recipe_desolator"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -7068,7 +7106,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -7136,7 +7174,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3644"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7213,7 +7251,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3646"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7289,7 +7327,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3650"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7358,15 +7396,18 @@
 			}
 		}
 	}
-//A dummy item that is used to take up item slots in the swap_to_item() Lua function.
-"item_dummy_datadriven"
-{
-  // General
-  //-------------------------------------------------------------------------------------------------------------
-  "ID"                            "2001"
-  "BaseClass"                     "item_datadriven"
-  "ItemBaseLevel"                 "1"
-}
+
+	//A dummy item that is used to take up item slots in the swap_to_item() Lua function.
+	"item_dummy_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                            "2001"
+		"BaseClass"                     "item_datadriven"
+		"ItemBaseLevel"                 "1"
+  		"ItemPurchasable"				"0"
+	}
+
 
 	//=================================================================================================================
 	// Recipe: Echo Sabre
@@ -7482,7 +7523,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3620"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7495,10 +7536,10 @@
 		"ItemResult"					"item_echo_sabre_2"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre;item_upgrade_core;item_recipe_echo_sabre"
-			"02"						"item_echo_sabre;item_upgrade_core_2;item_recipe_echo_sabre"
-			"03"						"item_echo_sabre;item_upgrade_core_3;item_recipe_echo_sabre"
-			"04"						"item_echo_sabre;item_upgrade_core_4;item_recipe_echo_sabre"
+			"01"						"item_echo_sabre;item_upgrade_core"
+			"02"						"item_echo_sabre;item_upgrade_core_2"
+			"03"						"item_echo_sabre;item_upgrade_core_3"
+			"04"						"item_echo_sabre;item_upgrade_core_4"
 		}
 	}
 
@@ -7592,7 +7633,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3621"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7605,9 +7646,9 @@
 		"ItemResult"					"item_echo_sabre_3"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_2;item_upgrade_core_2;item_recipe_echo_sabre"
-			"02"						"item_echo_sabre_2;item_upgrade_core_3;item_recipe_echo_sabre"
-			"03"						"item_echo_sabre_2;item_upgrade_core_4;item_recipe_echo_sabre"
+			"01"						"item_echo_sabre_2;item_upgrade_core_2"
+			"02"						"item_echo_sabre_2;item_upgrade_core_3"
+			"03"						"item_echo_sabre_2;item_upgrade_core_4"
 		}
 	}
 
@@ -7701,7 +7742,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3622"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7714,8 +7755,8 @@
 		"ItemResult"					"item_echo_sabre_4"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_3;item_upgrade_core_3;item_recipe_echo_sabre"
-			"02"						"item_echo_sabre_3;item_upgrade_core_4;item_recipe_echo_sabre"
+			"01"						"item_echo_sabre_3;item_upgrade_core_3"
+			"02"						"item_echo_sabre_3;item_upgrade_core_4"
 		}
 	}
 
@@ -7939,10 +7980,10 @@
 		"ItemResult"					"item_ethereal_blade_2"
 		"ItemRequirements"
 		{
-			"01"						"item_ethereal_blade;item_upgrade_core;item_recipe_ethereal_blade"
-			"02"						"item_ethereal_blade;item_upgrade_core_2;item_recipe_ethereal_blade"
-			"03"						"item_ethereal_blade;item_upgrade_core_3;item_recipe_ethereal_blade"
-			"04"						"item_ethereal_blade;item_upgrade_core_4;item_recipe_ethereal_blade"
+			"01"						"item_ethereal_blade;item_upgrade_core"
+			"02"						"item_ethereal_blade;item_upgrade_core_2"
+			"03"						"item_ethereal_blade;item_upgrade_core_3"
+			"04"						"item_ethereal_blade;item_upgrade_core_4"
 		}
 	}
 
@@ -8062,9 +8103,9 @@
 		"ItemResult"					"item_ethereal_blade_3"
 		"ItemRequirements"
 		{
-			"01"						"item_ethereal_blade_2;item_upgrade_core_2;item_recipe_ethereal_blade"
-			"02"						"item_ethereal_blade_2;item_upgrade_core_3;item_recipe_ethereal_blade"
-			"03"						"item_ethereal_blade_2;item_upgrade_core_4;item_recipe_ethereal_blade"
+			"01"						"item_ethereal_blade_2;item_upgrade_core_2"
+			"02"						"item_ethereal_blade_2;item_upgrade_core_3"
+			"03"						"item_ethereal_blade_2;item_upgrade_core_4"
 		}
 	}
 
@@ -8184,8 +8225,8 @@
 		"ItemResult"					"item_ethereal_blade_4"
 		"ItemRequirements"
 		{
-			"01"						"item_ethereal_blade_3;item_upgrade_core_3;item_recipe_ethereal_blade"
-			"02"						"item_ethereal_blade_3;item_upgrade_core_4;item_recipe_ethereal_blade"
+			"01"						"item_ethereal_blade_3;item_upgrade_core_3"
+			"02"						"item_ethereal_blade_3;item_upgrade_core_4"
 		}
 	}
 
@@ -8305,7 +8346,7 @@
 		"ItemResult"					"item_ethereal_blade_5"
 		"ItemRequirements"
 		{
-			"01"						"item_ethereal_blade_4;item_upgrade_core_4;item_recipe_ethereal_blade"
+			"01"						"item_ethereal_blade_4;item_upgrade_core_4"
 		}
 	}
 
@@ -8411,9 +8452,10 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3510"      // unique ID   
 		"BaseClass"                     "item_datadriven"
- 		"AbilityTextureName"            "item_winter_cake"
+ 
         // Stats
-        //------------------------------------------------------------------------------------------------------------- 
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityTextureName"            "item_halloween_candy_corn" 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
        "ItemCost"						"1500"
@@ -8432,7 +8474,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3254"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8445,7 +8487,7 @@
 		"ItemResult"					"item_force_shield"
 		"ItemRequirements"
 		{
-			"01"						"item_force_staff;item_sphere_2;item_combiner;item_recipe_force_shield"
+			"01"						"item_force_staff;item_sphere_2;item_combiner"
 		}
 	}
  
@@ -8527,11 +8569,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3255"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -8540,8 +8582,8 @@
 		"ItemResult"					"item_force_shield_2"
 		"ItemRequirements"
 		{
-			"01"						"item_force_shield;item_upgrade_core_3;item_recipe_force_shield"
-			"02"						"item_force_shield;item_upgrade_core_4;item_recipe_force_shield"
+			"01"						"item_force_shield;item_upgrade_core_3"
+			"02"						"item_force_shield;item_upgrade_core_4"
 		}
 	}
 
@@ -9123,7 +9165,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3030"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9263,7 +9305,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9406,7 +9448,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9548,7 +9590,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9689,7 +9731,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9912,7 +9954,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3184"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10002,7 +10044,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3185"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10089,7 +10131,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3320"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10102,9 +10144,9 @@
 		"ItemResult"					"item_healing_mines"
 		"ItemRequirements"
 		{
-			"01"						"item_bloodstone_2;item_upgrade_core_2;item_recipe_healing_mines"
-			"02"						"item_bloodstone_2;item_upgrade_core_3;item_recipe_healing_mines"
-			"03"						"item_bloodstone_2;item_upgrade_core_4;item_recipe_healing_mines"
+			"01"						"item_bloodstone_2;item_upgrade_core_2"
+			"02"						"item_bloodstone_2;item_upgrade_core_3"
+			"03"						"item_bloodstone_2;item_upgrade_core_4"
 		}
 	}
 
@@ -10121,7 +10163,7 @@
 		"ID"							"3323"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_halloween_candy_corn"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
@@ -10175,7 +10217,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3321"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10206,7 +10248,7 @@
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.0"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_halloween_candy_corn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10254,7 +10296,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3322"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10287,7 +10329,7 @@
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.0"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_halloween_candy_corn"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10761,7 +10803,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3258"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10774,7 +10816,7 @@
 		"ItemResult"					"item_heart_transplant"
 		"ItemRequirements"
 		{
-			"01"						"item_heart_3;item_solar_crest_3;item_combiner;item_recipe_heart_transplant"
+			"01"						"item_heart_3;item_solar_crest_3;item_combiner"
 		}
 	}
 
@@ -10902,7 +10944,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3259"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10915,7 +10957,7 @@
 		"ItemResult"					"item_heart_transplant_2"
 		"ItemRequirements"
 		{
-			"01"						"item_heart_transplant;item_upgrade_core_4;item_recipe_heart_transplant"
+			"01"						"item_heart_transplant;item_upgrade_core_4"
 		}
 	}
 
@@ -11176,10 +11218,10 @@
 		"ItemResult"					"item_heavens_halberd_2"
 		"ItemRequirements"
 		{
-			"01"						"item_heavens_halberd;item_upgrade_core;item_recipe_heavens_halberd"
-			"02"						"item_heavens_halberd;item_upgrade_core_2;item_recipe_heavens_halberd"
-			"03"						"item_heavens_halberd;item_upgrade_core_3;item_recipe_heavens_halberd"
-			"04"						"item_heavens_halberd;item_upgrade_core_4;item_recipe_heavens_halberd"
+			"01"						"item_heavens_halberd;item_upgrade_core"
+			"02"						"item_heavens_halberd;item_upgrade_core_2"
+			"03"						"item_heavens_halberd;item_upgrade_core_3"
+			"04"						"item_heavens_halberd;item_upgrade_core_4"
 		}
 	}
 
@@ -11217,7 +11259,7 @@
 		"ItemBaseLevel"                 "2"
  
 		"UpgradesItems"                 "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
-		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
+//		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -11307,9 +11349,9 @@
 		"ItemResult"					"item_heavens_halberd_3"
 		"ItemRequirements"
 		{
-			"01"						"item_heavens_halberd_2;item_upgrade_core_2;item_recipe_heavens_halberd"
-			"02"						"item_heavens_halberd_2;item_upgrade_core_3;item_recipe_heavens_halberd"
-			"03"						"item_heavens_halberd_2;item_upgrade_core_4;item_recipe_heavens_halberd"
+			"01"						"item_heavens_halberd_2;item_upgrade_core_2"
+			"02"						"item_heavens_halberd_2;item_upgrade_core_3"
+			"03"						"item_heavens_halberd_2;item_upgrade_core_4"
 		}
 	}
 
@@ -11347,7 +11389,7 @@
 		"ItemBaseLevel"                 "3"
  
 		"UpgradesItems"                 "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
-		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
+//		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -11425,7 +11467,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3326"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11438,9 +11480,9 @@
 		"ItemResult"					"item_jump_dagger"
 		"ItemRequirements"
 		{
-			"01"						"item_blink;item_upgrade_core_2;item_jump_dagger_recipe"
-			"02"						"item_blink;item_upgrade_core_3;item_jump_dagger_recipe"
-			"03"						"item_blink;item_upgrade_core_4;item_jump_dagger_recipe"
+			"01"						"item_blink;item_upgrade_core_2"
+			"02"						"item_blink;item_upgrade_core_3"
+			"03"						"item_blink;item_upgrade_core_4"
 
 		}
 	}
@@ -11506,7 +11548,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"221"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11604,7 +11646,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3188"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11617,10 +11659,10 @@
 		"ItemResult"					"item_lotus_orb_2"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_orb;item_upgrade_core;item_recipe_lotus_orb"
-			"02"						"item_lotus_orb;item_upgrade_core_2;item_recipe_lotus_orb"
-			"03"						"item_lotus_orb;item_upgrade_core_3;item_recipe_lotus_orb"
-			"04"						"item_lotus_orb;item_upgrade_core_4;item_recipe_lotus_orb"
+			"01"						"item_lotus_orb;item_upgrade_core"
+			"02"						"item_lotus_orb;item_upgrade_core_2"
+			"03"						"item_lotus_orb;item_upgrade_core_3"
+			"04"						"item_lotus_orb;item_upgrade_core_4"
 		}
 	}
 
@@ -11704,11 +11746,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3208"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -11717,7 +11759,8 @@
 		"ItemResult"					"item_lotus_sphere"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner;item_recipe_lotus_sphere"
+			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner"
+		}
 	}
 	
 
@@ -11809,9 +11852,6 @@
                 "var_type"              "FIELD_FLOAT"
                 "block_cooldown"        "13.0"
             }
-
-
-			
 		}
 	}
 
@@ -11822,7 +11862,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3209"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11952,9 +11992,9 @@
 		"ItemResult"					"item_lucience"
 		"ItemRequirements"
 		{
-			"01"						"item_radiance;item_upgrade_core_2;item_recipe_lucience"
-			"02"						"item_radiance;item_upgrade_core_3;item_recipe_lucience"
-			"03"						"item_radiance;item_upgrade_core_4;item_recipe_lucience"
+			"01"						"item_radiance;item_upgrade_core_2"
+			"02"						"item_radiance;item_upgrade_core_3"
+			"03"						"item_radiance;item_upgrade_core_4"
 		}
 	}
 
@@ -12152,7 +12192,7 @@
 	"item_recipe_manta"
 	{
 		"ID"							"146"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -12302,7 +12342,7 @@
 	{
 		"ID"							"3172"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -12456,7 +12496,7 @@
 	{
 		"ID"							"3173"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -12609,7 +12649,7 @@
 	{
 		"ID"							"3174"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -12761,7 +12801,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3334"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -12775,10 +12815,10 @@
 		"ItemResult"					"item_martyrs_mail"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core;item_recipe_martyrs_mail"
-			"02"						"item_blade_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
-			"03"						"item_blade_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
-			"04"						"item_blade_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+			"01"						"item_blade_mail;item_upgrade_core;item_relic"		//item added so that it doesn't clash with blade mail
+			"02"						"item_blade_mail;item_upgrade_core_2;item_relic"	//item added so that it doesn't clash with blade mail
+			"03"						"item_blade_mail;item_upgrade_core_3;item_relic"	//item added so that it doesn't clash with blade mail
+			"04"						"item_blade_mail;item_upgrade_core_4;item_relic"	//item added so that it doesn't clash with blade mail
 		}
 	}
 
@@ -12801,8 +12841,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_martyrs_mail"
-		"UpgradeRecipe"					"item_recipe_martyrs_mail"
+//		"UpgradesItems"					"item_martyrs_mail"
+//		"UpgradeRecipe"					"item_recipe_martyrs_mail"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"
@@ -12859,7 +12899,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3335"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		
 		// Item Info
@@ -12873,9 +12913,9 @@
 		"ItemResult"					"item_martyrs_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
-			"02"						"item_blade_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
-			"03"						"item_blade_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+			"01"						"item_martyrs_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
+			"02"						"item_martyrs_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
+			"03"						"item_martyrs_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
 		}
 	}
 
@@ -13035,7 +13075,7 @@
 	{
 		"ID"							"3080"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -13124,7 +13164,7 @@
 	{
 		"ID"							"3081"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -13358,7 +13398,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3092"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -13509,7 +13549,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3093"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -13659,7 +13699,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3094"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -13808,7 +13848,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3095"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -14039,10 +14079,10 @@
 		"ItemResult"					"item_monkey_king_bar_2"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar;item_upgrade_core;item_recipe_monkey_king_bar"
-			"02"						"item_monkey_king_bar;item_upgrade_core_2;item_recipe_monkey_king_bar"
-			"03"						"item_monkey_king_bar;item_upgrade_core_3;item_recipe_monkey_king_bar"
-			"04"						"item_monkey_king_bar;item_upgrade_core_4;item_recipe_monkey_king_bar"
+			"01"						"item_monkey_king_bar;item_upgrade_core"
+			"02"						"item_monkey_king_bar;item_upgrade_core_2"
+			"03"						"item_monkey_king_bar;item_upgrade_core_3"
+			"04"						"item_monkey_king_bar;item_upgrade_core_4"
 		}
 	}
 
@@ -14068,7 +14108,7 @@
 		"ItemBaseLevel"                 "2"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -14117,9 +14157,9 @@
 		"ItemResult"					"item_monkey_king_bar_3"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar_2;item_upgrade_core_2;item_recipe_monkey_king_bar"
-			"02"						"item_monkey_king_bar_2;item_upgrade_core_3;item_recipe_monkey_king_bar"
-			"03"						"item_monkey_king_bar_2;item_upgrade_core_4;item_recipe_monkey_king_bar"
+			"01"						"item_monkey_king_bar_2;item_upgrade_core_2"
+			"02"						"item_monkey_king_bar_2;item_upgrade_core_3"
+			"03"						"item_monkey_king_bar_2;item_upgrade_core_4"
 		}
 	}
 
@@ -14145,7 +14185,7 @@
 		"ItemBaseLevel"                 "3"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -14194,8 +14234,8 @@
 		"ItemResult"					"item_monkey_king_bar_4"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar_3;item_upgrade_core_3;item_recipe_monkey_king_bar"
-			"02"						"item_monkey_king_bar_3;item_upgrade_core_4;item_recipe_monkey_king_bar"
+			"01"						"item_monkey_king_bar_3;item_upgrade_core_3"
+			"02"						"item_monkey_king_bar_3;item_upgrade_core_4"
 		}
 	}
 
@@ -14221,7 +14261,7 @@
 		"ItemBaseLevel"                 "4"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -14270,7 +14310,7 @@
 		"ItemResult"					"item_monkey_king_bar_5"
 		"ItemRequirements"
 		{
-		"01"						"item_monkey_king_bar_4;item_upgrade_core_4;item_recipe_monkey_king_bar"
+		"01"						"item_monkey_king_bar_4;item_upgrade_core_4"
 		}
 	}
 
@@ -14296,7 +14336,7 @@
 		"ItemBaseLevel"                 "5"
  
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4"
-		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+//		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -14872,9 +14912,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3170"		// unique ID
-		"BaseClass"                     "item_necronomicon_5"
+		"BaseClass"                     "item_necronomicon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_necronomicon_5"
+		"AbilityTextureName"            "item_necronomicon_3"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
@@ -15003,9 +15043,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3171"		// unique ID
-		"BaseClass"                     "item_necronomicon_6"
+		"BaseClass"                     "item_necronomicon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_necronomicon_6"
+		"AbilityTextureName"            "item_necronomicon_3"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
@@ -15199,10 +15239,10 @@
 		"ItemResult"					"item_octarine_core_2"
 		"ItemRequirements"
 		{
-			"01"						"item_octarine_core;item_upgrade_core;item_recipe_octarine_core"
-			"02"						"item_octarine_core;item_upgrade_core_2;item_recipe_octarine_core"
-			"03"						"item_octarine_core;item_upgrade_core_3;item_recipe_octarine_core"
-			"04"						"item_octarine_core;item_upgrade_core_4;item_recipe_octarine_core"
+			"01"						"item_octarine_core;item_upgrade_core"
+			"02"						"item_octarine_core;item_upgrade_core_2"
+			"03"						"item_octarine_core;item_upgrade_core_3"
+			"04"						"item_octarine_core;item_upgrade_core_4"
 		}
 	}
 
@@ -15401,7 +15441,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3000"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -15526,7 +15566,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3001"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -15654,7 +15694,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3002"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -15781,7 +15821,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3003"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -15907,7 +15947,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3004"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16152,7 +16192,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3182"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16275,7 +16315,7 @@
 	{
 		"ID"							"3562"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -16283,7 +16323,7 @@
 		"ItemResult"					"item_postact"
 		"ItemRequirements"
 		{
-			"01"						"item_reflex_core;item_recipe_postact"
+			"01"						"item_reflex_core"
 		}
 	}
 
@@ -16295,7 +16335,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3563"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_firecrackers"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"
 		// Stats		
@@ -16342,7 +16382,7 @@
 	{
 		"ID"							"3564"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -16412,7 +16452,7 @@
 	{
 		"ID"							"3566"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -16434,7 +16474,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3567"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_firecrackers"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"
 		// Stats		
@@ -16567,7 +16607,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3010"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16653,7 +16693,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3011"														// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16742,7 +16782,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3012"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16830,7 +16870,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3013"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16917,7 +16957,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -16999,7 +17039,7 @@
 	{
 		"ID"							"3550"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -17007,7 +17047,7 @@
 		"ItemResult"					"item_preempt"
 		"ItemRequirements"
 		{
-			"01"						"item_reflex_core;item_recipe_preempt"
+			"01"						"item_reflex_core"
 		}
 	}
 
@@ -17076,9 +17116,9 @@
 	{
 		"ID"							"3552"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"800"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_preempt_2"
@@ -17156,9 +17196,9 @@
 	{
 		"ID"							"3554"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"800"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_preempt_3"
@@ -17188,6 +17228,8 @@
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"3"
+//		"UpgradesItems"					"item_preempt_3"
+		"UpgradeRecipe"					"item_recipe_preempt"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17235,7 +17277,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3340"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17341,7 +17383,6 @@
 		"ID"							"137"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_radiance"
-		"BaseClass"                     "item_radiance"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
@@ -17715,10 +17756,10 @@
 		"ItemResult"					"item_rainbow_radiance"
 		"ItemRequirements"
 		{
-			"01"						"item_lucience_2;item_upgrade_core;item_recipe_rainbow_radiance"
-			"02"						"item_lucience_2;item_upgrade_core_2;item_recipe_rainbow_radiance"
-			"03"						"item_lucience_2;item_upgrade_core_3;item_recipe_rainbow_radiance"
-			"04"						"item_lucience_2;item_upgrade_core_4;item_recipe_rainbow_radiance"
+			"01"						"item_lucience_2;item_upgrade_core"
+			"02"						"item_lucience_2;item_upgrade_core_2"
+			"03"						"item_lucience_2;item_upgrade_core_3"
+			"04"						"item_lucience_2;item_upgrade_core_4"
 		}
 	}	
 	//=================================================================================================================
@@ -17731,7 +17772,7 @@
 		"ID"							"3339"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_radiance"
+		"AbilityTextureName"            "item_radiance"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
 		// Item Info
@@ -17798,7 +17839,7 @@
 	{
 		"ID"							"3556"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -17806,7 +17847,7 @@
 		"ItemResult"					"item_react"
 		"ItemRequirements"
 		{
-			"01"						"item_reflex_core;item_recipe_react"
+			"01"						"item_reflex_core"
 		}
 	}
 
@@ -17875,7 +17916,7 @@
 	{
 		"ID"							"3558"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -17953,9 +17994,9 @@
 	//=================================================================================================================
 	"item_recipe_react_3"
 	{
-		"ID"							"3554"		// unique ID
+		"ID"							"3560"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
@@ -17976,7 +18017,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3555"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3561"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"
@@ -18132,7 +18173,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3180"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"2"
 		
 		// Item Info
@@ -18211,7 +18252,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3212"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"2"
 		
 		// Item Info
@@ -18225,7 +18266,7 @@
 		"ItemResult"					"item_refresher_core"
 		"ItemRequirements"
 		{
-			"01"						"item_refresher_2;item_octarine_core_2;item_combiner;item_recipe_refresher_core"
+			"01"						"item_refresher_2;item_octarine_core_2;item_combiner"
 		}
 	}
 
@@ -18329,7 +18370,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3213"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"2"
 		
 		// Item Info
@@ -18441,7 +18482,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3214"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"2"
 		
 		// Item Info
@@ -18739,7 +18780,7 @@
 		"ItemResult"					"item_ring_of_aquila_2"
 		"ItemRequirements"
 		{
-			"01"						"item_aquila;item_aquila;item_aquila_recipe"
+			"01"						"item_ring_of_aquila;item_ring_of_aquila"
 		}
 	}
 
@@ -18836,7 +18877,7 @@
 		"ItemResult"					"item_ring_of_aquila_3"
 		"ItemRequirements"
 		{
-			"01"						"item_aquila_2;item_aquila_2;item_combiner;item_recipe_aquila"
+			"01"						"item_ring_of_aquila_2;item_ring_of_aquila_2;item_combiner"
 		}
 	}
 
@@ -19019,10 +19060,10 @@
 		"ItemResult"					"item_rod_of_atos_2"
 		"ItemRequirements"
 		{
-			"01"						"item_rod_of_atos;item_upgrade_core;item_recipe_rod_of_atos"
-			"02"						"item_rod_of_atos;item_upgrade_core_2;item_recipe_rod_of_atos"
-			"03"						"item_rod_of_atos;item_upgrade_core_3;item_recipe_rod_of_atos"
-			"04"						"item_rod_of_atos;item_upgrade_core_4;item_recipe_rod_of_atos"
+			"01"						"item_rod_of_atos;item_upgrade_core"
+			"02"						"item_rod_of_atos;item_upgrade_core_2"
+			"03"						"item_rod_of_atos;item_upgrade_core_3"
+			"04"						"item_rod_of_atos;item_upgrade_core_4"
 		}
 	}
 
@@ -19058,7 +19099,7 @@
 		"MaxUpgradeLevel"               "3"
 		"ItemBaseLevel"                 "2"
 		"UpgradesItems"                 "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
-		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
+//		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -19107,9 +19148,9 @@
 		"ItemResult"					"item_rod_of_atos_3"
 		"ItemRequirements"
 		{
-			"01"						"item_rod_of_atos_2;item_upgrade_core_2;item_recipe_rod_of_atos"
-			"02"						"item_rod_of_atos_2;item_upgrade_core_3;item_recipe_rod_of_atos"
-			"03"						"item_rod_of_atos_2;item_upgrade_core_4;item_recipe_rod_of_atos"
+			"01"						"item_rod_of_atos_2;item_upgrade_core_2"
+			"02"						"item_rod_of_atos_2;item_upgrade_core_3"
+			"03"						"item_rod_of_atos_2;item_upgrade_core_4"
 		}
 	}
 
@@ -19145,7 +19186,7 @@
 		"MaxUpgradeLevel"               "3"
 		"ItemBaseLevel"                 "3"
 		"UpgradesItems"                 "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
-		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
+//		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -19296,10 +19337,10 @@
 		"ItemResult"					"item_sange_and_yasha_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sange_and_yasha;item_upgrade core"
-			"02"						"item_sange_and_yasha;item_upgrade core_2"
-			"03"						"item_sange_and_yasha;item_upgrade core_3"
-			"04"						"item_sange_and_yasha;item_upgrade core_4"
+			"01"						"item_sange_and_yasha;item_upgrade_core"
+			"02"						"item_sange_and_yasha;item_upgrade_core_2"
+			"03"						"item_sange_and_yasha;item_upgrade_core_3"
+			"04"						"item_sange_and_yasha;item_upgrade_core_4"
 		}
 	}
 
@@ -19473,17 +19514,17 @@
 
 		"ID"							"3158"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_2"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic;item_upgrade_core;item_recipe_satanic"
-			"02"						"item_satanic;item_upgrade_core_2;item_recipe_satanic"
-			"03"						"item_satanic;item_upgrade_core_3;item_recipe_satanic"
-			"04"						"item_satanic;item_upgrade_core_4;item_recipe_satanic"
+			"01"						"item_satanic;item_upgrade_core"
+			"02"						"item_satanic;item_upgrade_core_2"
+			"03"						"item_satanic;item_upgrade_core_3"
+			"04"						"item_satanic;item_upgrade_core_4"
 		}
 	}
 
@@ -19563,16 +19604,16 @@
 
 		"ID"							"3159"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_3"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_2;item_upgrade_core_2;item_recipe_satanic"
-			"02"						"item_satanic_2;item_upgrade_core_3;item_recipe_satanic"
-			"03"						"item_satanic_2;item_upgrade_core_4;item_recipe_satanic"
+			"01"						"item_satanic_2;item_upgrade_core_2"
+			"02"						"item_satanic_2;item_upgrade_core_3"
+			"03"						"item_satanic_2;item_upgrade_core_4"
 		}
 	}
 
@@ -19652,15 +19693,15 @@
 
 		"ID"							"3160"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_4"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_3;item_upgrade_core_3;item_recipe_satanic"
-			"02"						"item_satanic_3;item_upgrade_core_4;item_recipe_satanic"
+			"01"						"item_satanic_3;item_upgrade_core_3"
+			"02"						"item_satanic_3;item_upgrade_core_4"
 		}
 	}
 
@@ -19740,14 +19781,14 @@
 
 		"ID"							"3161"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_5"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_4;item_upgrade_core_4;item_recipe_satanic"
+			"01"						"item_satanic_4;item_upgrade_core_4"
 		}
 	}
 
@@ -19824,6 +19865,7 @@
 	{
 
 		"ID"							"3218"		// unique ID
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -19831,7 +19873,7 @@
 		"ItemResult"					"item_satanic_core"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic;item_octarine_core;item_combiner;item_recipe_satanic_core"
+			"01"						"item_satanic;item_octarine_core;item_combiner"
 		}
 	}
 	
@@ -19846,9 +19888,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3221"		// unique ID
+		"BaseClass"                     "item_satanic"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_satanic"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35.0"
@@ -19950,15 +19993,15 @@
 
 		"ID"							"3219"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core_2"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_core;item_upgrade_core_3;item_recipe_satanic_core"
-			"02"						"item_satanic_core;item_upgrade_core_4;item_recipe_satanic_core"
+			"01"						"item_satanic_core;item_upgrade_core_3"
+			"02"						"item_satanic_core;item_upgrade_core_4"
 		}
 	}
 		"item_satanic_core_2"
@@ -20067,14 +20110,14 @@
 
 		"ID"							"3220"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core_3"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic_core_2;item_upgrade_core_4;item_recipe_satanic_core"
+			"01"						"item_satanic_core_2;item_upgrade_core_4"
 		}
 	}
 	
@@ -20183,7 +20226,7 @@
 	"item_recipe_sheepstick"
 	{
 		"ID"							"95"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -20265,17 +20308,17 @@
 	{
 		"ID"							"3066"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick;item_upgrade_core;item_recipe_sheepstick"
-			"02"						"item_sheepstick;item_upgrade_core_2;item_recipe_sheepstick"
-			"03"						"item_sheepstick;item_upgrade_core_3;item_recipe_sheepstick"
-			"04"						"item_sheepstick;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick;item_upgrade_core"
+			"02"						"item_sheepstick;item_upgrade_core_2"
+			"03"						"item_sheepstick;item_upgrade_core_3"
+			"04"						"item_sheepstick;item_upgrade_core_4"
 		}
 	}
 
@@ -20351,16 +20394,16 @@
 	{
 		"ID"							"3067"			// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_3"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick_2;item_upgrade_core_2;item_recipe_sheepstick"
-			"02"						"item_sheepstick_2;item_upgrade_core_3;item_recipe_sheepstick"
-			"03"						"item_sheepstick_2;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick_2;item_upgrade_core_2"
+			"02"						"item_sheepstick_2;item_upgrade_core_3"
+			"03"						"item_sheepstick_2;item_upgrade_core_4"
 		}
 	}
 
@@ -20436,15 +20479,15 @@
 	{
 		"ID"							"3068"			// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_4"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick_3;item_upgrade_core_3;item_recipe_sheepstick"
-			"02"						"item_sheepstick_3;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick_3;item_upgrade_core_3"
+			"02"						"item_sheepstick_3;item_upgrade_core_4"
 		}
 	}
 
@@ -20520,14 +20563,14 @@
 	{
 		"ID"							"3069"			// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_5"
 		"ItemRequirements"
 		{
-			"01"						"item_sheepstick_4;item_upgrade_core_4;item_recipe_sheepstick"
+			"01"						"item_sheepstick_4;item_upgrade_core_4"
 		}
 	}
 
@@ -20602,6 +20645,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3224"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
@@ -20615,7 +20659,7 @@
 		"ItemResult"					"item_shivas_cuirass"
 		"ItemRequirements"
 		{
-			"01"						"item_assault_3;item_shivas_guard_3;item_combiner;item_recipe_shivas_cuirass"
+			"01"						"item_assault_3;item_shivas_guard_3;item_combiner"
 		}
 	}
 	
@@ -20629,9 +20673,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_assault"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_assault"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
@@ -20755,10 +20800,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3227"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_halloween_rapier"
+		"BaseClass"                     "item_assault"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_assault"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
@@ -21291,7 +21336,6 @@
 				"push_length"			"600"
 			}
 		}
-		}
 	}
 
 
@@ -21410,7 +21454,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3232"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -21423,7 +21467,7 @@
 		"ItemResult"					"item_shroud"
 		"ItemRequirements"
 		{
-			"01"						"item_ghost;item_glimmer_cape;item_combiner;item_recipe_shroud"
+			"01"						"item_ghost;item_glimmer_cape;item_combiner"
 		}
 	}	
 
@@ -21441,7 +21485,7 @@
 		"BaseClass"                     "item_glimmer_cape"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_glimmer_cape"		
+		"AbilityTextureName"            "item_vermillion_robe"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
@@ -21513,7 +21557,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3233"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -21539,10 +21583,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3235"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_shroud"
+		"BaseClass"                     "item_glimmer_cape"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_shroud"		
+		"AbilityTextureName"            "item_vermillion_robe"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
@@ -21606,7 +21650,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Dragon Lance
+	// Recipe: Siege Mode
 	//=================================================================================================================
 	"item_recipe_siege_mode"
 	{
@@ -21614,11 +21658,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3346"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"100"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -21627,15 +21671,15 @@
 		"ItemResult"					"item_siege_mode"
 		"ItemRequirements"
 		{
-			"01"						"item_dragon_lance_3;item_upgrade_core_3;item_recipe_siege_mode"
-			"02"						"item_dragon_lance_3;item_upgrade_core_4;item_recipe_siege_mode"
+			"01"						"item_dragon_lance_3;item_upgrade_core_3;item_relic"	//item added so that it doesn't clash with dragon lance 3
+			"02"						"item_dragon_lance_3;item_upgrade_core_4;item_relic"	//item added so that it doesn't clash with dragon lance 3
 
 		}
 	}
 
 	
 	//=================================================================================================================
-	// Dragon Lance
+	// Siege Mode
 	//=================================================================================================================
 	"item_siege_mode"
 	{
@@ -21644,7 +21688,7 @@
 		"ID"							"3348"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_dragon_lance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_dragon_lance"
+		"AbilityTextureName"            "item_firework_mine"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -21695,7 +21739,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Recipe: Dragon Lance
+	// Recipe: Sieghe Mode 2
 	//=================================================================================================================
 
 	"item_recipe_siege_mode_2"
@@ -21704,7 +21748,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3347"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -21717,20 +21761,23 @@
 		"ItemResult"					"item_siege_mode_2"
 		"ItemRequirements"
 		{
-			"01"						"item_siege_mode_1;item_upgrade_core_4;item_recipe_siege_mode"
+			"01"						"item_siege_mode;item_upgrade_core_4"
 
 		}
 	}
 
+	//=================================================================================================================
+	// Siege Mode 2
+	//=================================================================================================================
 
-	"item_siege_mode"
+	"item_siege_mode_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3349"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_dragon_lance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_dragon_lance"
+		"AbilityTextureName"            "item_firework_mine"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -22399,10 +22446,10 @@
 		"ItemResult"					"item_skadi_2"
 		"ItemRequirements"
 		{
-			"01"						"item_skadi;item_upgrade_core;item_recipe_skadi"
-			"02"						"item_skadi;item_upgrade_core_2;item_recipe_skadi"
-			"03"						"item_skadi;item_upgrade_core_3;item_recipe_skadi"
-			"04"						"item_skadi;item_upgrade_core_4;item_recipe_skadi"
+			"01"						"item_skadi;item_upgrade_core"
+			"02"						"item_skadi;item_upgrade_core_2"
+			"03"						"item_skadi;item_upgrade_core_3"
+			"04"						"item_skadi;item_upgrade_core_4"
 		}
 	}
 
@@ -22492,9 +22539,9 @@
 		"ItemResult"					"item_skadi_3"
 		"ItemRequirements"
 		{
-			"01"						"item_skadi_2;item_upgrade_core_2;item_recipe_skadi"
-			"02"						"item_skadi_2;item_upgrade_core_3;item_recipe_skadi"
-			"03"						"item_skadi_2;item_upgrade_core_4;item_recipe_skadi"
+			"01"						"item_skadi_2;item_upgrade_core_2"
+			"02"						"item_skadi_2;item_upgrade_core_3"
+			"03"						"item_skadi_2;item_upgrade_core_4"
 		}
 	}
 
@@ -22584,8 +22631,8 @@
 		"ItemResult"					"item_skadi_4"
 		"ItemRequirements"
 		{
-			"01"						"item_skadi_3;item_upgrade_core_3;item_recipe_skadi"
-			"02"						"item_skadi_3;item_upgrade_core_4;item_recipe_skadi"
+			"01"						"item_skadi_3;item_upgrade_core_3"
+			"02"						"item_skadi_3;item_upgrade_core_4"
 		}
 	}
 
@@ -22675,7 +22722,7 @@
 		"ItemResult"					"item_skadi_5"
 		"ItemRequirements"
 		{
-			"02"						"item_skadi_4;item_upgrade_core_4;item_recipe_skadi"
+			"02"						"item_skadi_4;item_upgrade_core_4"
 		}
 	}
 
@@ -22750,7 +22797,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"227"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -22864,7 +22911,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3612"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -22877,10 +22924,10 @@
 		"ItemResult"					"item_solar_crest_2"
 		"ItemRequirements"
 		{
-			"01"						"item_solar_crest;item_upgrade_core;item_recipe_solar_crest"
-			"02"						"item_solar_crest;item_upgrade_core_2;item_recipe_solar_crest"
-			"03"						"item_solar_crest;item_upgrade_core_3;item_recipe_solar_crest"
-			"04"						"item_solar_crest;item_upgrade_core_4;item_recipe_solar_crest"
+			"01"						"item_solar_crest;item_upgrade_core"
+			"02"						"item_solar_crest;item_upgrade_core_2"
+			"03"						"item_solar_crest;item_upgrade_core_3"
+			"04"						"item_solar_crest;item_upgrade_core_4"
 		}
 	}
 
@@ -22915,7 +22962,7 @@
 		"MaxUpgradeLevel"               "4"
 		"ItemBaseLevel"                 "2"
 		"UpgradesItems"                 "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
-		"UpgradeRecipe"                 "item_recipe_solar_crest"
+//		"UpgradeRecipe"                 "item_recipe_solar_crest"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -22982,7 +23029,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3613"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -22995,9 +23042,9 @@
 		"ItemResult"					"item_solar_crest_3"
 		"ItemRequirements"
 		{
-			"01"						"item_solar_crest_2;item_upgrade_core_2;item_recipe_solar_crest"
-			"02"						"item_solar_crest_2;item_upgrade_core_3;item_recipe_solar_crest"
-			"03"						"item_solar_crest_2;item_upgrade_core_4;item_recipe_solar_crest"
+			"01"						"item_solar_crest_2;item_upgrade_core_2"
+			"02"						"item_solar_crest_2;item_upgrade_core_3"
+			"03"						"item_solar_crest_2;item_upgrade_core_4"
 		}
 	}
 
@@ -23032,7 +23079,7 @@
 		"MaxUpgradeLevel"               "4"
 		"ItemBaseLevel"                 "3"
 		"UpgradesItems"                 "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
-		"UpgradeRecipe"                 "item_recipe_solar_crest"
+//		"UpgradeRecipe"                 "item_recipe_solar_crest"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -23097,9 +23144,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3614"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -23112,8 +23159,8 @@
 		"ItemResult"					"item_solar_crest_4"
 		"ItemRequirements"
 		{
-			"01"						"item_solar_crest_3;item_upgrade_core_3;item_recipe_solar_crest"
-			"02"						"item_solar_crest_3;item_upgrade_core_4;item_recipe_solar_crest"
+			"01"						"item_solar_crest_3;item_upgrade_core_3"
+			"02"						"item_solar_crest_3;item_upgrade_core_4"
 		}
 	}
 
@@ -23124,7 +23171,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5017"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3617"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_solar_crest"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -23148,7 +23195,7 @@
 		"MaxUpgradeLevel"               "4"
 		"ItemBaseLevel"                 "4"
 		"UpgradesItems"                 "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
-		"UpgradeRecipe"                 "item_recipe_solar_crest"
+//		"UpgradeRecipe"                 "item_recipe_solar_crest"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -23215,18 +23262,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3350"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_spell_totem"
 		"ItemRequirements"
 		{
-			"01"						"item_aether_lens_3;item_upgrade_core_3;item_recipe_spell_totem"
-			"02"						"item_aether_lens_3;item_upgrade_core_4;item_recipe_spell_totem"
-
-			"03"						"item_aether_glasses_2;item_upgrade_core_3;item_recipe_spell_totem"
-			"04"						"item_aether_glasses_2;item_upgrade_core_4;item_recipe_spell_totem"
+			"01"						"item_aether_lens_3;item_upgrade_core_3"
+			"02"						"item_aether_lens_3;item_upgrade_core_4"
+			"03"						"item_aether_glasses_2;item_upgrade_core_3"
+			"04"						"item_aether_glasses_2;item_upgrade_core_4"
 		}
 	}
 
@@ -23238,7 +23284,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3351"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 
 	
@@ -23249,7 +23295,7 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"totem"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_scare_the_beast"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -23284,7 +23330,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"122"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -23371,7 +23417,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3642"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -23384,10 +23430,10 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_upgrade_core;item_resipe_sphere"
-			"02"						"item_sphere;item_upgrade_core_2;item_resipe_sphere"
-			"03"						"item_sphere;item_upgrade_core_3;item_resipe_sphere"
-			"04"						"item_sphere;item_upgrade_core_4;item_resipe_sphere"
+			"01"						"item_sphere;item_upgrade_core;item_recipe_sphere"
+			"02"						"item_sphere;item_upgrade_core_2;item_recipe_sphere"
+			"03"						"item_sphere;item_upgrade_core_3;item_recipe_sphere"
+			"04"						"item_sphere;item_upgrade_core_4;item_recipe_sphere"
 		}
 	}
 
@@ -23419,8 +23465,8 @@
 		"MaxUpgradeLevel"               "2"
 		"ItemBaseLevel"                 "2"
  
-		"UpgradesItems"                 "item_sphere;item_sphere_2"
-		"UpgradeRecipe"                 "item_recipe_sphere"
+//		"UpgradesItems"                 "item_sphere;item_sphere_2"
+//		"UpgradeRecipe"                 "item_recipe_sphere"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -23462,7 +23508,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3352"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -23475,10 +23521,10 @@
 		"ItemResult"					"item_staff_of_confusion"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_orb_2;item_upgrade_core;item_recipe_staff_of_confusion"
-			"02"						"item_lotus_orb_2;item_upgrade_core_2;item_recipe_staff_of_confusion"
-			"03"						"item_lotus_orb_2;item_upgrade_core_3;item_recipe_staff_of_confusion"
-			"04"						"item_lotus_orb_2;item_upgrade_core_4;item_recipe_staff_of_confusion"
+			"01"						"item_lotus_orb_2;item_upgrade_core"
+			"02"						"item_lotus_orb_2;item_upgrade_core_2"
+			"03"						"item_lotus_orb_2;item_upgrade_core_3"
+			"04"						"item_lotus_orb_2;item_upgrade_core_4"
 		}
 	}
 	
@@ -23565,14 +23611,14 @@
  
         "ID"                            "3244"       // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "1000"  
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_stoneskin"
         "ItemRequirements"
         {
-            "01"                        "item_shivas_guard_3;item_armlet_3;item_combiner;item_recipe_stoneskin"
+            "01"                        "item_shivas_guard_3;item_armlet_2;item_combiner"
       	} 
  
     }
@@ -23675,7 +23721,7 @@
  
         "ID"                            "3245"      // unique ID
 		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "Model"                         "models/props_gameplay/recipe.mdl"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -23830,7 +23876,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3248"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -23843,7 +23889,7 @@
 		"ItemResult"					"item_stop_killing_yourself"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_sphere_1;item_bloodthorn_3;item_combiner;item_recipe_stop_killing_yourself"
+			"01"						"item_lotus_sphere;item_bloodthorn_3;item_combiner"
 		}
 	}
 	
@@ -23995,7 +24041,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3249"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -24008,8 +24054,8 @@
 		"ItemResult"					"item_stop_killing_yourself_2"
 		"ItemRequirements"
 		{
-			"01"						"item_stop_killing_yourself;item_upgrade_core_3;item_recipe_stop_killing_yourself"
-			"02"						"item_stop_killing_yourself;item_upgrade_core_4;item_recipe_stop_killing_yourself"
+			"01"						"item_stop_killing_yourself;item_upgrade_core_3"
+			"02"						"item_stop_killing_yourself;item_upgrade_core_4"
 		}
 	}
 		"item_stop_killing_yourself_2"
@@ -24151,9 +24197,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3352"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3354"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -24166,9 +24212,9 @@
 		"ItemResult"					"item_throw_dagger"
 		"ItemRequirements"
 		{
-			"01"						"item_blink;item_upgrade_core_2;item_throw_dagger_recipe"
-			"02"						"item_blink;item_upgrade_core_3;item_throw_dagger_recipe"
-			"03"						"item_blink;item_upgrade_core_4;item_throw_dagger_recipe"
+			"01"						"item_blink;item_upgrade_core_2"
+			"02"						"item_blink;item_upgrade_core_3"
+			"03"						"item_blink;item_upgrade_core_4"
 
 		}
 	}
@@ -24180,7 +24226,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3353"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3355"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_blink"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"FightRecapLevel"				"1"
@@ -24917,6 +24963,8 @@
 			}
 		}
 	}
+
+
 	//=================================================================================================================
 	// Recipe: Travel Boots
 	//=================================================================================================================
@@ -24925,7 +24973,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"47"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25001,7 +25049,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"219"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25077,7 +25125,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3020"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25153,7 +25201,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3021"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25234,7 +25282,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3022"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25312,7 +25360,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3023"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25384,9 +25432,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5048"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3648"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25410,7 +25458,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5049"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3649"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_travel_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -25459,7 +25507,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3252"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25472,9 +25520,9 @@
 		"ItemResult"					"item_tropical_pike"
 		"ItemRequirements"
 		{
-			"01"						"item_pull_staff;item_upgrade_core_2;item_recipe_tropical_pike"
-			"02"						"item_pull_staff;item_upgrade_core_3;item_recipe_tropical_pike"
-			"03"						"item_pull_staff;item_upgrade_core_4;item_recipe_tropical_pike"			
+			"01"						"item_pull_staff;item_upgrade_core_2"
+			"02"						"item_pull_staff;item_upgrade_core_3"
+			"03"						"item_pull_staff;item_upgrade_core_4"			
 		}
 	}
 	
@@ -25579,7 +25627,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3262"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25592,7 +25640,7 @@
 		"ItemResult"					"item_trumps_fists"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_3;item_skadi_3;item_combiner;item_recipe_trumps_fists"
+			"01"						"item_desolator_3;item_skadi_3;item_combiner"
 		}
 	}
 	
@@ -25698,7 +25746,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3263"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25711,10 +25759,10 @@
 		"ItemResult"					"item_trumps_fists_2"
 		"ItemRequirements"
 		{
-			"01"						"item_trumps_fists;item_upgrade_core;item_recipe_trumps_fists"
-			"02"						"item_trumps_fists;item_upgrade_core_2;item_recipe_trumps_fists"
-			"03"						"item_trumps_fists;item_upgrade_core_3;item_recipe_trumps_fists"
-			"04"						"item_trumps_fists;item_upgrade_core_4;item_recipe_trumps_fists"
+			"01"						"item_trumps_fists;item_upgrade_core"
+			"02"						"item_trumps_fists;item_upgrade_core_2"
+			"03"						"item_trumps_fists;item_upgrade_core_3"
+			"04"						"item_trumps_fists;item_upgrade_core_4"
 		}
 	}
 
@@ -25816,14 +25864,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3356"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_turret"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner;item_recipe_turret"
+			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner"
 		}
 	}
 
@@ -25838,7 +25886,7 @@
 		"ID"							"3357"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_firework_mine"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -25932,7 +25980,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"108"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -25995,10 +26043,10 @@
 		"ItemResult"					"item_ultimate_scepter_2"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter;item_upgrade_core;item_recipe_ultimate_scepter"
-			"02"						"item_ultimate_scepter;item_upgrade_core_2;item_recipe_ultimate_scepter"
-			"03"						"item_ultimate_scepter;item_upgrade_core_3;item_recipe_ultimate_scepter"
-			"04"						"item_ultimate_scepter;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter;item_upgrade_core"
+			"02"						"item_ultimate_scepter;item_upgrade_core_2"
+			"03"						"item_ultimate_scepter;item_upgrade_core_3"
+			"04"						"item_ultimate_scepter;item_upgrade_core_4"
 		}
 	}
 
@@ -26010,7 +26058,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3054"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -26073,9 +26121,9 @@
 		"ItemResult"					"item_ultimate_scepter_3"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter_2;item_upgrade_core_2;item_recipe_ultimate_scepter"
-			"02"						"item_ultimate_scepter_2;item_upgrade_core_3;item_recipe_ultimate_scepter"
-			"03"						"item_ultimate_scepter_2;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter_2;item_upgrade_core_2"
+			"02"						"item_ultimate_scepter_2;item_upgrade_core_3"
+			"03"						"item_ultimate_scepter_2;item_upgrade_core_4"
 		}
 	}
 
@@ -26087,7 +26135,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"7055"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -26150,8 +26198,8 @@
 		"ItemResult"					"item_ultimate_scepter_4"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter_3;item_upgrade_core_3;item_recipe_ultimate_scepter"
-			"02"						"item_ultimate_scepter_3;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter_3;item_upgrade_core_3"
+			"02"						"item_ultimate_scepter_3;item_upgrade_core_4"
 		}
 	}
 
@@ -26163,7 +26211,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"10556"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -26226,7 +26274,7 @@
 		"ItemResult"					"item_ultimate_scepter_5"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_scepter_4;item_upgrade_core_4;item_recipe_ultimate_scepter"
+			"01"						"item_ultimate_scepter_4;item_upgrade_core_4"
 		}
 	}
 
@@ -26238,7 +26286,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3057"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_ultimate_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -26287,7 +26335,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"                            "3530"      // unique ID  
 		"BaseClass"                     "item_datadriven"
- 		"AbilityTextureName"				"item_greater_clarity"
+ 		"AbilityTextureName"				"item_halloween_candy_corn"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
        
@@ -26312,7 +26360,7 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityTextureName"				"item_greater_clarity"       
+ 		"AbilityTextureName"				"item_halloween_candy_corn"       
  
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26334,7 +26382,7 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityTextureName"				"item_greater_clarity"       
+ 		"AbilityTextureName"				"item_halloween_candy_corn"       
  
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26356,7 +26404,7 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityTextureName"				"item_greater_clarity"       
+ 		"AbilityTextureName"				"item_halloween_candy_corn"       
  
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26376,7 +26424,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3236"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26389,7 +26437,7 @@
 		"ItemResult"					"item_urn_of_sorcery"
 		"ItemRequirements"
 		{
-			"01"						"item_urn_of_shadows;item_mekansm;item_magic_wand;item_combiner;item_recipe_urn_of_sorcery"
+			"01"						"item_urn_of_shadows;item_mekansm;item_magic_wand;item_combiner"
 		}
 	}
 
@@ -26402,9 +26450,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3238"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_urn_of_shadows"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
- 		"AbilityTextureName"				"item_halloween_rapier"		
+ 		"AbilityTextureName"				"item_urn_of_shadows"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
@@ -26503,7 +26551,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3237"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26516,9 +26564,9 @@
 		"ItemResult"					"item_urn_of_sorcery_2"
 		"ItemRequirements"
 		{
-			"01"						"item_urn_of_sorcery;item_upgrade_core_2;item_recipe_urn_of_sorcery"
-			"02"						"item_urn_of_sorcery;item_upgrade_core_3;item_recipe_urn_of_sorcery"
-			"03"						"item_urn_of_sorcery;item_upgrade_core_4;item_recipe_urn_of_sorcery"
+			"01"						"item_urn_of_sorcery;item_upgrade_core_2"
+			"02"						"item_urn_of_sorcery;item_upgrade_core_3"
+			"03"						"item_urn_of_sorcery;item_upgrade_core_4"
 		}
 	}
 
@@ -26527,9 +26575,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3239"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_urn_of_shadows"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
- 		"AbilityTextureName"				"item_halloween_rapier"			
+ 		"AbilityTextureName"				"item_urn_of_shadows"			
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
@@ -26629,7 +26677,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"189"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26736,7 +26784,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3618"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
+		"Model"							"models/props_gameplay/recipe.mdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26784,8 +26832,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"               "2"
 		"ItemBaseLevel"                 "2"
-		"UpgradesItems"                 "item_veil_of_discord;item_veil_of_discord_2"
-		"UpgradeRecipe"                 "item_recipe_veil_of_discord"
+//		"UpgradesItems"                 "item_veil_of_discord;item_veil_of_discord_2"
+//		"UpgradeRecipe"                 "item_recipe_veil_of_discord"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -26847,7 +26895,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3240"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"		
+		"Model"							"models/props_gameplay/recipe.mdl"		
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26860,7 +26908,7 @@
 		"ItemResult"					"item_vlads_helm"
 		"ItemRequirements"
 		{
-			"01"						"item_vladimir;item_of_the_dominator;item_combiner;item_recipe_vlads_helm"
+			"01"						"item_vladmir;item_helm_of_the_dominator;item_combiner"
 		}
 	}
 	
@@ -26880,7 +26928,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
- 		"AbilityTextureName"			"item_vlads_helm"	
+ 		"AbilityTextureName"			"item_vladmir"	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
@@ -26973,7 +27021,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3241"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"		
+		"Model"							"models/props_gameplay/recipe.mdl"		
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -26986,14 +27034,14 @@
 		"ItemResult"					"item_vlads_helm_2"
 		"ItemRequirements"
 		{
-			"01"						"item_vlad_helm;item_upgrade_core;item_recipe_vlads_helm"
-			"02"						"item_vlad_helm;item_upgrade_core_2;item_recipe_vlads_helm"
-			"03"						"item_vlad_helm;item_upgrade_core_3;item_recipe_vlads_helm"
-			"04"						"item_vlad_helm;item_upgrade_core_4;item_recipe_vlads_helm"
+			"01"						"item_vlads_helm;item_upgrade_core;item_recipe_vlads_helm"
+			"02"						"item_vlads_helm;item_upgrade_core_2;item_recipe_vlads_helm"
+			"03"						"item_vlads_helm;item_upgrade_core_3;item_recipe_vlads_helm"
+			"04"						"item_vlads_helm;item_upgrade_core_4;item_recipe_vlads_helm"
 		}
 	}
 
-	"item_vlads_helm"
+	"item_vlads_helm_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -27003,7 +27051,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
- 		"AbilityTextureName"			"item_vlads_helm"
+ 		"AbilityTextureName"			"item_vladmir"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
