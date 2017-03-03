@@ -2,10 +2,15 @@
 Welcome to the wonderful world of KV (Kivy), or KeyValue language. The name implies its structure: Keys on the left, Values on the right, forming pairs. KeyValues are stored information used primarily by LUA scripts. When invoked, these scripts trigger actions, pulling from the KeyValues when required
 ## Tools You'll need
 
-### SublimeText 3 (free software)
-Setup SublimeText 3 to highlight using Dota KV:
-- Ctrl+Shift+P -> Package Control: Install Package -> Dota KV
-- Ctrl+Shift+P -> Set Syntax Dota KV
+### Advanced PlainText editor
+
+SublimeText 3 (free software)
+- Setup SublimeText 3 to highlight using Dota KV:
+  - Ctrl+Shift+P -> Package Control: Install Package -> Dota KV
+  - Ctrl+Shift+P -> Set Syntax Dota KV
+
+Atom (free software) 
+- Settings -> Install: search for language-dotakv.
 
 ### Arhowk.github.io (website)
 - Easy online Sample Debugger for KV language.
