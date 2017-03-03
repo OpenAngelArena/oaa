@@ -33,7 +33,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3008"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item__phaseboots"
+		"BaseClass"                     "item_phaseboots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"            "item_phaseboots"
 		// Stats		

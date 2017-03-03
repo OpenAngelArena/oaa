@@ -11,16 +11,16 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1000"	
 		"ItemShopTags"					""
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_travel_boots_2"
+		"ItemResult"					"item_greater_travel_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_travel_boots;item_recipe_greater_travel_boots"
+			"01"						"item_travel_boots_2;item_farming_core;item_recipe_greater_travel_boots"
 		}
 	}
 

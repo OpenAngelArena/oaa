@@ -9031,7 +9031,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1700"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -9053,10 +9053,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3035"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_guardian_greaves"
+		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_greater_guardian_greaves"
+		"AbilityTextureName"            "item_guardian_greaves"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
@@ -9196,10 +9196,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3036"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_guardian_greaves"
+		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_greater_guardian_greaves"
+		"AbilityTextureName"            "item_guardian_greaves"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
@@ -9338,10 +9338,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3037"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_guardian_greaves"
+		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_greater_guardian_greaves"
+		"AbilityTextureName"            "item_guardian_greaves"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
@@ -9479,10 +9479,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3038"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_guardian_greaves"
+		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_greater_guardian_greaves"
+		"AbilityTextureName"            "item_guardian_greaves"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
@@ -9619,10 +9619,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3039"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_guardian_greaves"
+		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_greater_guardian_greaves"
+		"AbilityTextureName"            "item_guardian_greaves"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
@@ -9735,7 +9735,7 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"300"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -10137,7 +10137,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3008"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item__phaseboots"
+		"BaseClass"                     "item_phaseboots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"            "item_phaseboots"
 		// Stats		
@@ -10364,7 +10364,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"300"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -10797,7 +10797,7 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1550"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -11380,16 +11380,16 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1000"	
 		"ItemShopTags"					""
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_travel_boots_2"
+		"ItemResult"					"item_greater_travel_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_travel_boots;item_recipe_greater_travel_boots"
+			"01"						"item_travel_boots_2;item_farming_core;item_recipe_greater_travel_boots"
 		}
 	}
 
@@ -25234,7 +25234,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"214"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_tranquil_boots"	
+		"AbilityTextureName"            "item_tranquil_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
