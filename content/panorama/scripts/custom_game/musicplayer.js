@@ -1,7 +1,7 @@
 /*
-  Author:
-    Relacibo
-*/
+ *  Author:
+ *    Relacibo
+ */
 'use strict';
 
 var console = {
@@ -11,12 +11,12 @@ var container = $.GetContextPanel();
 var display = $.GetContextPanel().FindChildTraverse('MusicPlayer_Display');
 
 (function () {
-  PlayerTables.SubscribeNetTableListener('musicplayer_music', onMusicChange);
+  CustomNetTables.SubscribeNetTableListener('musicplayer', onMusicTableChange);
 }());
 
 function onToggleMusic() {
   container.ToggleClass('MusicToggledOn');
-  GameEvents.SendEventClientSide ('musicplayer_toggle', { });
+  GameEvents.SendCustomGameEventToServer('musicplayer_toggle', { });
 }
 
 function setMusicStatus(on) {
@@ -27,12 +27,12 @@ function setMusicStatus(on) {
   }
 }
 
-function onMusicChange( table, data ) {
-  var isMusicOn = data.isMusicOn;
-  var musicOn = isMusicOn == 1;
-  if (musicOn) {
-    var musicTitle = data.musicTitle;
-    var musicArtist = data.musicArtist;
+function onMusicTableChange( tableName, key, data ) {
+  // var playerID = Game.GetLocalPlayerID()
+  var isMusicOn = data.musicOn;
+  if (isMusicOn) {
+    var musicTitle = data.title;
+    var musicArtist = data.artist;
     var title = display.FindChild('Title');
     var artist = display.FindChild('Artist');
 
@@ -41,7 +41,7 @@ function onMusicChange( table, data ) {
   }
 
   // Sets musicpanel to the right status
-  if (musicOn ^ container.BHasClass('MusicToggledOn')) {
-      setMusicStatus(musicOn);
+  if (isMusicOn ^ container.BHasClass('MusicToggledOn')) {
+      setMusicStatus(isMusicOn);
   }
 }

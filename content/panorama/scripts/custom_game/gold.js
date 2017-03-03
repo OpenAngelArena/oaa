@@ -15,14 +15,14 @@ var console = {
 var useFormatting = 'half';
 
 (function () {
-  PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
+  //PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
 }());
 
 
 function onGoldChange (table, data) {
   var unit = Players.GetLocalPlayerPortraitUnit();
   var playerID = Game.GetLocalPlayerID();
-  var gold = data.gold[playerID] || 0;
+  var gold = data.gold[playerID];
 
   UpdateGoldHud(gold);
   UpdateGoldTooltip(gold);

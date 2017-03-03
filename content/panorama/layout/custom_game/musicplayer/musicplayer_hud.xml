@@ -4,8 +4,6 @@
     <include src="file://{resources}/styles/custom_game/musicplayer_hud.css" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/playertables/playertables_base.js" />
-    <include src="file://{resources}/scripts/util.js" />
     <include src="file://{resources}/scripts/custom_game/musicplayer.js" />
   </scripts>
   <Panel class="MusicPlayerContainer_Hud" hittest="false" >
@@ -17,8 +15,8 @@
     </Panel>
     <Panel class="MusicPlayerC2">
       <Panel id="MusicPlayer_Display" hittest="false" >
-        <Label class="Title" text="title"></Label>
-        <Label class="Artist" text="artist"></Label>
+        <Label id="Title" text="title"></Label>
+        <Label id="Artist" text="artist"></Label>
       </Panel>
     </Panel>
   </Panel>
