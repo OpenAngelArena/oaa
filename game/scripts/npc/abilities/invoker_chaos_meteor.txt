@@ -19,7 +19,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"55"
-		"AbilityManaCost"				"200"
+		"AbilityManaCost"				"200 200 200 200 200 200 200 200 200 200 205 210 220 230 240"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"465 615 780 930 1095 1245 1410 1575"
+				"travel_distance"		"465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750"
 				"levelkey"				"wexlevel"
 			}
 			"04"

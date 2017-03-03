@@ -17,7 +17,7 @@
 		"AbilityCastRange"				"950"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"125"
+		"AbilityManaCost"				"125 125 125 125 125 125 125 125 125 125 130 135 140 145 150"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_burned"			"100 175 250 325 400 475 550 625"
+				"mana_burned"			"100 175 250 325 400 475 550 625 675 725 775 825 875 925 1000"
 				"levelkey"				"wexlevel"
 			}
 			"04"

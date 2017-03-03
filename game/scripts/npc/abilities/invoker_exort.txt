@@ -8,7 +8,7 @@
 		"ID"							"5372"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"7"
+		"MaxLevel"						"14"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_per_instance"	"4 8 12 16 20 24 28"
+				"bonus_damage_per_instance"	"4 8 12 16 20 24 28 32 36 40 44 48 52 56"
 			}
 		}
 	}

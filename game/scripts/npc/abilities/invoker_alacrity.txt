@@ -22,7 +22,7 @@
 		"AbilityCastRange"				"650"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"45"
+		"AbilityManaCost"				"45 45 45 45 45 45 45 45 45 45 50 55 60 65 70"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -31,13 +31,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"		"10 25 40 55 70 85 100 115"
+				"bonus_attack_speed"		"10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
 				"levelkey"					"wexlevel"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"10 25 40 55 70 85 100 115"
+				"bonus_damage"				"10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
 				"levelkey"					"exortlevel"
 			}
 			"03"
