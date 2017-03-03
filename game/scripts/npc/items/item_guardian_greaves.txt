@@ -50,10 +50,10 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"					"1"
 
-		"MaxUpgradeLevel"               "6"
+		"MaxUpgradeLevel"               "1"
 		"ItemBaseLevel"                 "1"            
-		"UpgradesItems"                 "item_guardian_greaves;item_guardian_greaves_2;item_guardian_greaves_3;item_guardian_greaves_4;item_guardian_greaves_5"
-		"UpgradeRecipe"                 "item_recipe_phase_boots"		
+// TO BE REMOVED		"UpgradesItems"                 "item_guardian_greaves;item_guardian_greaves_2;item_guardian_greaves_3;item_guardian_greaves_4;item_guardian_greaves_5"
+// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_phase_boots"		
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -62,42 +62,42 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement"		"55 60 66 73 80 88"
+				"bonus_movement"		"55"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250 350 420 500 600 700"
+				"bonus_mana"			"250"
 			}		
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5 10 15 20 25 30"
+				"bonus_all_stats"		"5"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5 7 10 12 15 18"
+				"bonus_armor"			"5"
 			}	
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen"		"4 6 9 12 15 18"
+				"aura_health_regen"		"4"
 			}			
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_armor"			"2 3 4 5 6 7"
+				"aura_armor"			"2"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen_bonus"		"15 20 25 30 35 40"
+				"aura_health_regen_bonus"		"15"
 			}			
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_armor_bonus"			"15 17 20 23 26 29"
+				"aura_armor_bonus"			"15"
 			}
 			"09"
 			{
@@ -112,27 +112,17 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"replenish_health"		"250 350 450 550 650 750"
+				"replenish_health"		"250"
 			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"replenish_mana"		"160 200 250 325 400 475"
+				"replenish_mana"		"160"
 			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"replenish_radius"		"900"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_damage"			"0 100 150 225 340 450"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore_per_creep"	"0 25 40 60 85 110"
 			}
 		}
 	}

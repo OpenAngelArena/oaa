@@ -1,11 +1,11 @@
 	//=================================================================================================================
-	// Recipe: Boots of Travel 6
+	// Recipe: Boots of Travel 2
 	//=================================================================================================================
-	"item_recipe_travel_boots_6"
+	"item_recipe_travel_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3023"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3020"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
@@ -17,22 +17,21 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_travel_boots_6"
+		"ItemResult"					"item_travel_boots_2"
 		"ItemRequirements"
 		{
-			"01"						"item_travel_boots_5;item_upgrade_core_3;item_recipe_travel_boots"
-			"02"						"item_travel_boots_5;item_upgrade_core_4;item_recipe_travel_boots"
+			"01"						"item_travel_boots;item_recipe_travel_boots"
 		}
 	}
 
 	//=================================================================================================================
-	// Boots of Travel 6
+	// Boots of Travel 2
 	//=================================================================================================================
-	"item_travel_boots_6"
+	"item_travel_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3027"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3024"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_travel_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -48,14 +47,14 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75"
-		"ItemCost"						"15400"
+		"ItemCost"						"4900"
 		"ItemShopTags"					"teleport;move_speed"
 		"ItemQuality"					"common"
 		"ItemAliases"					"bot;boots of travel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"				"7"
-		"ItemBaseLevel"					"6"
-		
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"2"
+	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -63,12 +62,8 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"50 100 100 100 100 100 100"
+				"bonus_movement_speed"	"50 100"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_per_minute"	"0 0 60 90 120 150 180"
-			}
+
 		}
 	}

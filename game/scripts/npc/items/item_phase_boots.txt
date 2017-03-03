@@ -45,10 +45,10 @@
 		"ItemAliases"					"phase boots"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "6"
+		"MaxUpgradeLevel"               "1"
 		"ItemBaseLevel"                 "1"     		
-		"UpgradesItems"                 "item_phase_boots;item_phase_boots_2;item_phase_boots_3;item_phase_boots_4;item_phase_boots_5"
-		"UpgradeRecipe"                 "item_recipe_phase_boots"
+// TO BE REMOVED		"UpgradesItems"                 "item_phase_boots;item_phase_boots_2;item_phase_boots_3;item_phase_boots_4;item_phase_boots_5"
+// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -56,12 +56,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"45 50 55 60 65 70"
+				"bonus_movement_speed"	"45"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24 35 55 75 95 125"
+				"bonus_damage"			"24"
 			}			
 			"03"
 			{
@@ -81,7 +81,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed"  "24 26 29 32 35 38"
+				"phase_movement_speed"  "24"
 			}		
 			"07"
 			{
@@ -103,20 +103,5 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"0"
 			}	
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_bonus"		"0 3 3 3 3 3"
-			}	
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_total"		"1 4 4 4 4 4"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_range"		"700"
-			}
 		}
 	}

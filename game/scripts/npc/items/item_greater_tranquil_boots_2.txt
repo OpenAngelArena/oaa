@@ -1,13 +1,12 @@
 	//=================================================================================================================
-	// Recipe: Phase Boots 2
+	// Recipe: Tranquil Boots 2
 	//=================================================================================================================
-	"item_recipe_phase_boots_2"
+	"item_recipe_greater_tranquil_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3000"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3041"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17,109 +16,103 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_phase_boots_2"
+		"ItemResult"					"item_greater_tranquil_boots_2"
 		"ItemRequirements"
 		{
-			"01"						"item_phase_boots;item_farming_core;item_recipe_phase_boots"
+			"01"						"item_greater_tranquil_boots;item_upgrade_core;item_recipe_greater_tranquil_boots"
+			"02"						"item_greater_tranquil_boots;item_upgrade_core_2;item_recipe_greater_tranquil_boots"
+			"03"						"item_greater_tranquil_boots;item_upgrade_core_3;item_recipe_greater_tranquil_boots"
+			"04"						"item_greater_tranquil_boots;item_upgrade_core_4;item_recipe_greater_tranquil_boots"
 		}
 	}
 
 	//=================================================================================================================
-	// Phase Boots 2
+	// Tranquil Boots 2
 	//=================================================================================================================
-	"item_phase_boots_2"
+	"item_greater_tranquil_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3005"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phase_boots"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phase_boots"
+		"ID"							"3046"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_tranquil_boots"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_tranquil_boots"	
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
+		"AbilityCooldown"				"13.0"
+		"AbilityManaCost"				"0"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3340"
-		"ItemShopTags"					"damage;move_speed;hard_to_tag"
-		"ItemQuality"					"common"
-		"ItemAliases"					"phase boots"
+		"ItemCost"						"4200"
+		"ItemShopTags"					"move_speed;regen_health;armor"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"tranquil boots"
+		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"MaxUpgradeLevel"               "6"
-		"ItemBaseLevel"                 "2"     		
-		"UpgradesItems"                 "item_phase_boots_2;item_phase_boots_3;item_phase_boots_4;item_phase_boots_5"
-		"UpgradeRecipe"                 "item_recipe_phase_boots"
+  
+  		"MaxUpgradeLevel"               "5"
+		"ItemBaseLevel"                 "2"            
+		"UpgradesItems"                 "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
+		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"       		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"45 50 55 60 65 70"
+				"bonus_movement_speed"	"95 105 115 125 135"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24 35 55 75 95 125"
-			}			
+				"bonus_armor"			"4 5 7 9 11"
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_block_melee"	"0"
+				"bonus_health_regen"	"18 25 35 45 55"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_ranged"	"0"
+				"var_type"				"FIELD_FLOAT"
+				"heal_duration"			"20.0"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"0"
-			}		
+				"heal_amount"			"250"
+			}
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed"  "24 26 29 32 35 38"
-			}		
+				"var_type"				"FIELD_FLOAT"
+				"heal_interval"			"0.334"
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed_range"  "20"
+				"break_time"			"13"
 			}
 			"08"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"phase_duration"		"2.5"
+				"var_type"				"FIELD_INTEGER"
+				"break_count"			"1"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"0"
-			}		
+				"break_threshold"		"20"
+			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"0"
-			}	
+				"broken_movement_speed"	"55"
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_bonus"		"0 3 3 3 3 3"
-			}	
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_total"		"1 4 4 4 4 4"
+				"regen_from_creeps"		"20 30 45 60 120"    // New Functionality
 			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_range"		"700"
-			}		
 		}
 	}

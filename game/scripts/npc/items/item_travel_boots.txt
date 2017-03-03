@@ -50,10 +50,10 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"bot;boots of travel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"				"7"
+		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		
-		"UpgradesItems"					"item_travel_boots;item_travel_boots_2;item_travel_boots_3;item_travel_boots_4;item_travel_boots_5"
+		"UpgradesItems"					"item_travel_boots"
 		"UpgradeRecipe"					"item_recipe_travel_boots"
 
 
@@ -64,12 +64,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"50 100 100 100 100 100 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_per_minute"	"0 0 60 90 120 150 180"
+				"bonus_movement_speed"	"50 100"
 			}
 		}
 	}

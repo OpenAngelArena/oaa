@@ -1,11 +1,11 @@
 	//=================================================================================================================
 	// Recipe: Power Treads 4
 	//=================================================================================================================
-	"item_recipe_power_treads_4"
+	"item_recipe_greater_power_treads_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3012"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3013"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
@@ -17,38 +17,37 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_power_treads_4"
+		"ItemResult"					"item_greater_powertreads_4"
 		"ItemRequirements"
 		{
-			"01"						"item_power_treads_3;item_upgrade_core_2;item_recipe_power_treads"					
-			"02"						"item_power_treads_3;item_upgrade_core_3;item_recipe_power_treads"					
-			"03"						"item_power_treads_3;item_upgrade_core_4;item_recipe_power_treads"						
+			"01"						"item_greater_powertreads_3;item_upgrade_core_3;item_recipe_greater_power_treads"					
+			"02"						"item_greater_powertreads_3;item_upgrade_core_4;item_recipe_greater_power_treads"						
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 4
 	//=================================================================================================================
-	"item_power_treads_4"
+	"item_greater_powertreads_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3017"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_power_treads"
+		"ID"							"3018"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_powertreads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_power_treads"
+		"AbilityTextureName"            "item_powertreads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8050"
+		"ItemCost"						"11850"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"power treads"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "6"
+		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "4"            
-		"UpgradesItems"                 "item_power_treads_4;item_power_treads_5"
-		"UpgradeRecipe"                 "item_recipe_power_treads"
+		"UpgradesItems"                 "item_greater_powertreads_4"
+		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -57,32 +56,32 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"  "45 50 55 60 65 70"
+				"bonus_movement_speed"  "50 55 60 65 70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"9 15 24 36 54 72"
+				"bonus_stat"			"15 24 36 54 72"
 			}	
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25 30 35 40 45 50"
+				"bonus_attack_speed"	"30 35 40 45 50"
 			}		
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"0"
-			}		
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_radius"			"0 300 300 300 300 300"
+				"cleave_radius"			"300 300 300 300 300"
 			}
-			"60"
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"0 30 30 30 30 30"	
-			}
+				"cleave_damage_percent"	"30 30 30 30 30"	
+			}					
 		}
 	}

@@ -1,11 +1,11 @@
 	//=================================================================================================================
-	// Recipe: Power Treads 6
+	// Recipe: Power Treads
 	//=================================================================================================================
-	"item_recipe_power_treads_6"
+	"item_recipe_greater_power_treads"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3010"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		
@@ -17,34 +17,36 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_power_treads_6"
+		"ItemResult"					"item_greater_powertreads"
 		"ItemRequirements"
 		{
-			"01"						"item_power_treads_5;item_upgrade_core_4;item_recipe_power_treads"							
+			"01"						"item_powertreads;item_farming_core"					
 		}
 	}
 
 	//=================================================================================================================
-	// Power Treads 6
+	// Power Treads
 	//=================================================================================================================
-	"item_power_treads_6"
+	"item_greater_powertreads"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_power_treads"
+		"ID"							"3015"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_powertreads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_power_treads"
+		"AbilityTextureName"            "item_powertreads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16650"
+		"ItemCost"						"3450"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"power treads"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "6"
-		"ItemBaseLevel"                 "6"            
+		"MaxUpgradeLevel"               "5"
+		"ItemBaseLevel"                 "1"            
+		"UpgradesItems"                 "item_greater_powertreads;item_greater_powertreads_2;item_greater_powertreads_3;item_greater_powertreads_4"
+		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -53,17 +55,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"  "45 50 55 60 65 70"
+				"bonus_movement_speed"  "50 55 60 65 70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"9 15 24 36 54 72"
+				"bonus_stat"			"15 24 36 54 72"
 			}	
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25 30 35 40 45 50"
+				"bonus_attack_speed"	"30 35 40 45 50"
 			}		
 			"04"
 			{
@@ -73,12 +75,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_radius"			"0 300 300 300 300 300"
+				"cleave_radius"			"300 300 300 300 300"
 			}
-			"60"
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"0 30 30 30 30 30"	
+				"cleave_damage_percent"	"30 30 30 30 30"	
 			}
 		}
 	}

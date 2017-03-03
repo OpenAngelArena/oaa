@@ -1,11 +1,11 @@
 	//=================================================================================================================
-	// Recipe: Tranquil Boots 2
+	// Recipe: Tranquil Boots 4
 	//=================================================================================================================
-	"item_recipe_tranquil_boots_2"
+	"item_recipe_greater_tranquil_boots_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3040"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3043"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 	
 		// Item Info
@@ -16,22 +16,22 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_tranquil_boots_2"
+		"ItemResult"					"item_greater_tranquil_boots_4"
 		"ItemRequirements"
 		{
-			"01"						"item_tranquil_boots;item_farming_core;item_recipe_tranquil_boots"
-
+			"01"						"item_greater_tranquil_boots_3;item_upgrade_core_3;item_recipe_greater_tranquil_boots"
+			"02"						"item_greater_tranquil_boots_3;item_upgrade_core_4;item_recipe_greater_tranquil_boots"
 		}
 	}
 
 	//=================================================================================================================
-	// Tranquil Boots 2
+	// Tranquil Boots 4
 	//=================================================================================================================
-	"item_tranquil_boots_2"
+	"item_greater_tranquil_boots_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3045"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3048"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_tranquil_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_tranquil_boots"	
@@ -42,17 +42,17 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"10400"
 		"ItemShopTags"					"move_speed;regen_health;armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"tranquil boots"
 		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
   
-  		"MaxUpgradeLevel"               "6"
-		"ItemBaseLevel"                 "2"            
-		"UpgradesItems"                 "item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
-		"UpgradeRecipe"                 "item_recipe_tranquil_boots"       		
+  		"MaxUpgradeLevel"               "5"
+		"ItemBaseLevel"                 "4"            
+		"UpgradesItems"                 "item_greater_tranquil_boots_4"
+		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"       		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -60,17 +60,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"85 95 105 115 125 135"
+				"bonus_movement_speed"	"95 105 115 125 135"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"3 4 5 7 9 11"
+				"bonus_armor"			"4 5 7 9 11"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"12 18 25 35 45 55"
+				"bonus_health_regen"	"18 25 35 45 55"
 			}
 			"04"
 			{
@@ -110,7 +110,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen_from_creeps"		"0 20 30 45 60 120"    // New Functionality
+				"regen_from_creeps"		"20 30 45 60 120"    // New Functionality
 			}
 		}
 	}

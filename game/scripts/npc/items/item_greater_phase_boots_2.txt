@@ -1,11 +1,11 @@
 	//=================================================================================================================
-	// Recipe: Phase Boots 6
+	// Recipe: Greater Phase Boots 2
 	//=================================================================================================================
-	"item_recipe_phase_boots_6"
+	"item_recipe_greater_phase_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3004"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3001"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 	
@@ -17,38 +17,43 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_phase_boots_6"
+		"ItemResult"					"item_greater_phaseboots_2"
 		"ItemRequirements"
 		{
-			"01"						"item_phase_boots_5;item_upgrade_core_4;item_recipe_phase_boots"
+			"01"						"item_greater_phaseboots_1;item_upgrade_core;item_recipe_greater_phase_boots"
+			"02"						"item_greater_phaseboots_1;item_upgrade_core_2;item_recipe_greater_phase_boots"
+			"03"						"item_greater_phaseboots_1;item_upgrade_core_3;item_recipe_greater_phase_boots"
+			"04"						"item_greater_phaseboots_1;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
-	// Phase Boots 6
+	// Greater Phase Boots 2
 	//=================================================================================================================
-	"item_phase_boots_6"
+	"item_greater_phaseboots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3009"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phase_boots"
+		"ID"							"3006"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_phaseboots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phase_boots"
+		"AbilityTextureName"            "item_phaseboots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"15540"
+		"ItemCost"						"5140"
 		"ItemShopTags"					"damage;move_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"phase boots"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "6"
-		"ItemBaseLevel"                 "6"     		
+		"MaxUpgradeLevel"               "5"
+		"ItemBaseLevel"                 "2"     		
+		"UpgradesItems"                 "item_greater_phaseboots_2;item_greater_phaseboots_3;item_greater_phaseboots_4"
+		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -57,12 +62,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"45 50 55 60 65 70"
+				"bonus_movement_speed"	"50 55 60 65 70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24 35 55 75 95 125"
+				"bonus_damage"			"35 55 75 95 125"
 			}			
 			"03"
 			{
@@ -82,7 +87,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed"  "24 26 29 32 35 38"
+				"phase_movement_speed"  "26 29 32 35 38"
 			}		
 			"07"
 			{
@@ -107,12 +112,12 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_bonus"		"0 3 3 3 3 3"
+				"projectile_bonus"		"3 3 3 3 3"
 			}	
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_total"		"1 4 4 4 4 4"
+				"projectile_total"		"4 4 4 4 4"
 			}
 			"13"
 			{

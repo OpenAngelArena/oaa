@@ -46,10 +46,10 @@
 		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
   
-  		"MaxUpgradeLevel"               "6"
+  		"MaxUpgradeLevel"               "1"
 		"ItemBaseLevel"                 "1"            
-		"UpgradesItems"                 "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
-		"UpgradeRecipe"                 "item_recipe_tranquil_boots"       		
+// TO BE REMOVED		"UpgradesItems"                 "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
+// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_tranquil_boots"       		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -57,17 +57,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"85 95 105 115 125 135"
+				"bonus_movement_speed"	"85"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"3 4 5 7 9 11"
+				"bonus_armor"			"3"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"12 18 25 35 45 55"
+				"bonus_health_regen"	"12"
 			}
 			"04"
 			{
@@ -103,11 +103,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"broken_movement_speed"	"55"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_from_creeps"		"0 20 30 45 60 120"    // New Functionality
 			}
 		}
 	}
