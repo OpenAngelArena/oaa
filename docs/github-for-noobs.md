@@ -157,11 +157,11 @@ To create a PR goto [AngelArenaAllstars/aaa] on GitHub
 - 'Create pull request' and you're done!
 
 #Links
-[Read the entire Pro Git Book](https://git-scm.com/book/en/v2)!
-[Git on GitHub](https://GitHub.com/git/git)
-[Wikipedia](https://en.wikipedia.org/wiki/GitHub)
-[Git Questions?](https://stackoverflow.com/questions/tagged/git).
-[AngelArenaAllstars/aaa Master Repo](https://GitHub.com/AngelArenaAllstars/aaa)
+- [Read the entire Pro Git Book](https://git-scm.com/book/en/v2)!
+- [Git on GitHub](https://GitHub.com/git/git)
+- [Wikipedia](https://en.wikipedia.org/wiki/GitHub)
+- [Git Questions?](https://stackoverflow.com/questions/tagged/git).
+- [AngelArenaAllstars/aaa Master Repo](https://GitHub.com/AngelArenaAllstars/aaa)
 
 ## Authors
 Author Discord@Chronophylos#5199
