@@ -1672,13 +1672,32 @@ DOTAAbilityPanel.Hidden
 	horizontal-align: center;
 }
 
-/* Added for AAA*/
+/* AAA 5/6 level ability level indicator styling*/
 .Reborn .AbilityMaxLevel6 .LevelPanel
 {
   width: 7px;
   margin: 3px 1.5px 3px 1.5px;
 }
 
+.Reborn .QueryUnit .AbilityMaxLevel6 .LevelPanel
+{
+  width: 3px;
+  height: 3px;
+  margin: 0px 1.4px 1px 1.4px;
+}
+
+.Reborn .QueryUnit .AbilityMaxLevel5 .LevelPanel
+{
+  width: 4px;
+  height: 3px;
+  margin: 0px 1px 1px 1px;
+}
+
+.Reborn .QueryUnit .AbilityMaxLevel6 #AbilityLevelContainer
+{
+  margin-left: 1px;
+}
+/* End of AAA 5/6 level ability level indicator styling*/
 
 .Reborn .AbilityMaxLevel7 #AbilityLevelContainer
 {
