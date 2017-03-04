@@ -11,7 +11,7 @@ At this point just familiarize yourself with the following terminology:
 - Checkout - Switches between branches.
 - Clean -  Removes untracked files
 - Clone - Creates a copy of an existing Git repository.
-- Commit - Takes the staged snapshot and commits it to the project history. (Add -> Commit)
+- Commit - Takes the staged snapshot and commits it to the project history. (Add - Commit)
 - Fetch - Downloads a branch from another repository, without integrating it into your local repository.
 - Forking - Gives any contributor a server-side repository.
 - Git - Version control system (VCS) for tracking and coordination 
@@ -43,8 +43,8 @@ If you do not already have a GitHub.com Account, create one [here](https://GitHu
 Forking creates a simultaneous instance of aaa within your own GitHub repository.
 - Goto AngelArenaAllstars/aaa.
 - Click Fork
-- Choose where to Fork: Fork AngelArenaAllstars/aaa to <YOURUSERNAME>/aaa
-- Done! If you go to `GitHub.com/<YOURUSERNAME>/aaa` you'll see your own fork of [AngelArenaAllstars/aaa].
+- Choose where to Fork: Fork AngelArenaAllstars/aaa to YOURUSERNAME/aaa
+- Done! If you go to `GitHub.com/YOURUSERNAME/aaa` you'll see your own fork of [AngelArenaAllstars/aaa].
 
 ## Cloning
 Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
@@ -65,7 +65,7 @@ Now we should have a local copy of your fork of [AngelArenaAllstars/aaa]
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
-  - Right-Click on your repository at 'GitHub.com/<YOURUSERNAME>/aaa' and select `Open in Git Shell`
+  - Right-Click on your repository at 'GitHub.com/YOURUSERNAME/aaa' and select `Open in Git Shell`
 
 Now we should have something rougly like this:
  ![GitShell](/docs/GitHub-for-noobs/GitShell-Start.png)
@@ -80,63 +80,63 @@ To be able to work on your own stuff but still have all the newest changes and t
 
 - Let's first look at the different remotes we have by typing "git remote -v":
   ```
-  > git remote -v
-  origin  https://GitHub.com/<YOURUSERNAME>/aaa (fetch)
-  origin  https://GitHub.com/<YOURUSERNAME>/aaa (push)
+   git remote -v
+  origin  https://GitHub.com/YOURUSERNAME/aaa (fetch)
+  origin  https://GitHub.com/YOURUSERNAME/aaa (push)
   ```
 We start out with one remote named "origin". That's our Fork that we made from before.
 
 In order to stay up-to-date with the official AngelArenaAllstars/aaa (the official one), just add another remote like this:
  ```
- > git remote add AngelArenaAllstars https://GitHub.com/AngelArenaAllstars/aaa
+  git remote add AngelArenaAllstars https://GitHub.com/AngelArenaAllstars/aaa
  ```
  You do not have to call this Remote AngelArenaAllstars, you can call it whatever you want. Now let's get the newest changes from [AngelArenaAllstars/aaa]:
   ```
-  > git pull AngelArenaAllstars master
+   git pull AngelArenaAllstars master
   From https://GitHub.com/AngelArenaAllstars/aaa
-   * branch            master     -> FETCH_HEAD
+   * branch            master     - FETCH_HEAD
   Already up-to-date.
   ```
 ### Pushing
-When updating, the newest changes are downloaded from angelarenaallstars/aaa to our [local] [master] [branch]. Now push them to your repo <YOURUSERNAME>/aaa on GitHub:
+When updating, the newest changes are downloaded from angelarenaallstars/aaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/aaa on GitHub:
 ```
-> git push
+ git push
 Everything up-to-date
 ```
 
 ## Workflow
 When working, you want to keep two Branches. The first is your local master branch. Switch to it using:
 ```
-> git checkout master
+ git checkout master
 Your branch is up-to-date with 'origin/master'.
 Switched to branch 'master'
 ```
 Before changing any of the files, you should create and switch to your new branch:
 ```
-> git checkout -b awesome-branch
+ git checkout -b awesome-branch
 Switched to a new branch 'awesome-branch'
 ```
 Now you can do your changes!
 
 To commit your changes you can either use GitHub Desktop or do
 ```
-> git commit <YOUR CHANGED FILES> -m "WHAT YOU CHANGED" -m "A OPTIONAL EXTENDED DESCRIPTION"
+ git commit YOUR CHANGED FILES -m "WHAT YOU CHANGED" -m "A OPTIONAL EXTENDED DESCRIPTION"
 [GitHub-for-noobs 3be214d] more changes
  1 file changed, 19 insertions(+)
 ```
 
 or you add all files to the commit
 ```
-> git add <YOUR CHANGED FILES>
+ git add YOUR CHANGED FILES
 ```
 and commit all of them together
 ```
-> git commit -m "WHAT YOU CHANGED" -m "A OPTIONAL EXTENDED DESCRIPTION"
+ git commit -m "WHAT YOU CHANGED" -m "A OPTIONAL EXTENDED DESCRIPTION"
 ```
 
 Now push your changes to GitHub
 ```
-> git push
+ git push
 Counting objects: 4, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (4/4), done.
@@ -144,7 +144,7 @@ Writing objects: 100% (4/4), 600 bytes | 0 bytes/s, done.
 Total 4 (delta 3), reused 0 (delta 0)
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
 To https://GitHub.com/Chronophylos/aaa
-   1554bf2..3be214d  GitHub-for-noobs -> GitHub-for-noobs
+   1554bf2..3be214d  GitHub-for-noobs - GitHub-for-noobs
 ```
 
 ## Creating a PR
