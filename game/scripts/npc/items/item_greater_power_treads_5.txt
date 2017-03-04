@@ -17,30 +17,30 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads_5"
+		"ItemResult"					"item_greater_power_treads_5"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_powertreads_4;item_upgrade_core_4;item_recipe_greater_power_treads"							
+			"01"						"item_greater_power_treads_4;item_upgrade_core_4;item_recipe_greater_power_treads"							
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 5
 	//=================================================================================================================
-	"item_greater_powertreads_5"
+	"item_greater_power_treads_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16650"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads 5"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"

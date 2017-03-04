@@ -17,24 +17,24 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots_5"
+		"ItemResult"					"item_greater_phase_boots_5"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phaseboots_4;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_4;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots 5
 	//=================================================================================================================
-	"item_greater_phaseboots_5"
+	"item_greater_phase_boots_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3009"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"

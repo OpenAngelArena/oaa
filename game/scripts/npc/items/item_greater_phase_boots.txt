@@ -17,24 +17,24 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots"
+		"ItemResult"					"item_greater_phase_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_phaseboots;item_farming_core;item_recipe_greater_phase_boots"
+			"01"						"item_phase_boots;item_farming_core"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots
 	//=================================================================================================================
-	"item_greater_phaseboots"
+	"item_greater_phase_boots"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3005"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -49,7 +49,7 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "1"     		
-		"UpgradesItems"                 "item_greater_phaseboots;item_greater_phaseboots_2;item_greater_phaseboots_3;item_greater_phaseboots_4"
+		"UpgradesItems"                 "item_greater_phase_boots;item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
 		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

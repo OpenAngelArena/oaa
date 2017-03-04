@@ -9041,7 +9041,7 @@
 
 		"ItemRequirements"
 		{
-			"01"						"item_guardian_greaves;item_farming_core;item_recipe_greater_guardian_greaves"
+			"01"						"item_guardian_greaves;item_farming_core"
 		}
 	}
 
@@ -9181,10 +9181,10 @@
 
 		"ItemRequirements"
 		{
-			"01"						"item_greater_guardian_greaves_1;item_upgrade_core;item_recipe_greater_guardian_greaves"
-			"02"						"item_greater_guardian_greaves_1;item_upgrade_core_2;item_recipe_greater_guardian_greaves"
-			"03"						"item_greater_guardian_greaves_1;item_upgrade_core_3;item_recipe_greater_guardian_greaves"
-			"04"						"item_greater_guardian_greaves_1;item_upgrade_core_4;item_recipe_greater_guardian_greaves"
+			"01"						"item_greater_guardian_greaves;item_upgrade_core;item_recipe_greater_guardian_greaves"
+			"02"						"item_greater_guardian_greaves;item_upgrade_core_2;item_recipe_greater_guardian_greaves"
+			"03"						"item_greater_guardian_greaves;item_upgrade_core_3;item_recipe_greater_guardian_greaves"
+			"04"						"item_greater_guardian_greaves;item_upgrade_core_4;item_recipe_greater_guardian_greaves"
 		}
 	}
 
@@ -9741,24 +9741,24 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots"
+		"ItemResult"					"item_greater_phase_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_phaseboots;item_farming_core;item_recipe_greater_phase_boots"
+			"01"						"item_phase_boots;item_farming_core"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots
 	//=================================================================================================================
-	"item_greater_phaseboots"
+	"item_greater_phase_boots"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3005"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -9773,7 +9773,7 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "1"     		
-		"UpgradesItems"                 "item_greater_phaseboots;item_greater_phaseboots_2;item_greater_phaseboots_3;item_greater_phaseboots_4"
+		"UpgradesItems"                 "item_greater_phase_boots;item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
 		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9866,27 +9866,27 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots_2"
+		"ItemResult"					"item_greater_phase_boots_2"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phaseboots_1;item_upgrade_core;item_recipe_greater_phase_boots"
-			"02"						"item_greater_phaseboots_1;item_upgrade_core_2;item_recipe_greater_phase_boots"
-			"03"						"item_greater_phaseboots_1;item_upgrade_core_3;item_recipe_greater_phase_boots"
-			"04"						"item_greater_phaseboots_1;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots;item_upgrade_core;item_recipe_greater_phase_boots"
+			"02"						"item_greater_phase_boots;item_upgrade_core_2;item_recipe_greater_phase_boots"
+			"03"						"item_greater_phase_boots;item_upgrade_core_3;item_recipe_greater_phase_boots"
+			"04"						"item_greater_phase_boots;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots 2
 	//=================================================================================================================
-	"item_greater_phaseboots_2"
+	"item_greater_phase_boots_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3006"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -9901,7 +9901,7 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "2"     		
-		"UpgradesItems"                 "item_greater_phaseboots_2;item_greater_phaseboots_3;item_greater_phaseboots_4"
+		"UpgradesItems"                 "item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
 		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9994,26 +9994,26 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots_3"
+		"ItemResult"					"item_greater_phase_boots_3"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phaseboots_2;item_upgrade_core_2;item_recipe_greater_phase_boots"
-			"02"						"item_greater_phaseboots_2;item_upgrade_core_3;item_recipe_greater_phase_boots"
-			"03"						"item_greater_phaseboots_2;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_2;item_upgrade_core_2;item_recipe_greater_phase_boots"
+			"02"						"item_greater_phase_boots_2;item_upgrade_core_3;item_recipe_greater_phase_boots"
+			"03"						"item_greater_phase_boots_2;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots 3
 	//=================================================================================================================
-	"item_greater_phaseboots_3"
+	"item_greater_phase_boots_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3007"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -10028,7 +10028,7 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "3"     		
-		"UpgradesItems"                 "item_greater_phaseboots_3;item_greater_phaseboots_4"
+		"UpgradesItems"                 "item_greater_phase_boots_3;item_greater_phase_boots_4"
 		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10121,25 +10121,25 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots_4"
+		"ItemResult"					"item_greater_phase_boots_4"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phaseboots_3;item_upgrade_core_3;item_recipe_greater_phase_boots"
-			"02"						"item_greater_phaseboots_3;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_3;item_upgrade_core_3;item_recipe_greater_phase_boots"
+			"02"						"item_greater_phase_boots_3;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots 4
 	//=================================================================================================================
-	"item_greater_phaseboots_4"
+	"item_greater_phase_boots_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3008"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -10154,7 +10154,7 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "4"     		
-		"UpgradesItems"                 "item_greater_phaseboots_4"
+		"UpgradesItems"                 "item_greater_phase_boots_4"
 		"UpgradeRecipe"                 "item_recipe_greater_phase_boots"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10247,24 +10247,24 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_phaseboots_5"
+		"ItemResult"					"item_greater_phase_boots_5"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phaseboots_4;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_4;item_upgrade_core_4;item_recipe_greater_phase_boots"
 		}
 	}
 
 	//=================================================================================================================
 	// Greater Phase Boots 5
 	//=================================================================================================================
-	"item_greater_phaseboots_5"
+	"item_greater_phase_boots_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3009"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phaseboots"
+		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phaseboots"
+		"AbilityTextureName"            "item_phase_boots"
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
@@ -10365,41 +10365,41 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"300"	
-		"ItemShopTags"					""
+		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads"
+		"ItemResult"					"item_greater_power_treads"
 		"ItemRequirements"
 		{
-			"01"						"item_powertreads;item_farming_core"					
+			"01"						"item_power_treads;item_farming_core"					
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads
 	//=================================================================================================================
-	"item_greater_powertreads"
+	"item_greater_power_treads"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3015"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"3450"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "1"            
-		"UpgradesItems"                 "item_greater_powertreads;item_greater_powertreads_2;item_greater_powertreads_3;item_greater_powertreads_4"
-		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		// "UpgradesItems"	"item_greater_power_treads;item_greater_power_treads_2;item_greater_power_treads_3;item_greater_power_treads_4"
+		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10456,39 +10456,39 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads_2"
+		"ItemResult"					"item_greater_power_treads_2"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_powertreads;item_upgrade_core;item_recipe_greater_power_treads"					
-			"02"						"item_greater_powertreads;item_upgrade_core_2;item_recipe_greater_power_treads"					
-			"03"						"item_greater_powertreads;item_upgrade_core_3;item_recipe_greater_power_treads"					
-			"04"						"item_greater_powertreads;item_upgrade_core_4;item_recipe_greater_power_treads"					
+			"01"						"item_greater_power_treads;item_upgrade_core;item_recipe_greater_power_treads"					
+			"02"						"item_greater_power_treads;item_upgrade_core_2;item_recipe_greater_power_treads"					
+			"03"						"item_greater_power_treads;item_upgrade_core_3;item_recipe_greater_power_treads"					
+			"04"						"item_greater_power_treads;item_upgrade_core_4;item_recipe_greater_power_treads"					
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 2
 	//=================================================================================================================
-	"item_greater_powertreads_2"
+	"item_greater_power_treads_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3016"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"5250"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads 2"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "2"            
-		"UpgradesItems"                 "item_greater_powertreads_2;item_greater_powertreads_3;item_greater_powertreads_4"
-		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		// "UpgradesItems"                 "item_greater_power_treads_2;item_greater_power_treads_3;item_greater_power_treads_4"
+		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10545,38 +10545,38 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads_3"
+		"ItemResult"					"item_greater_power_treads_3"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_powertreads_2;item_upgrade_core_2;item_recipe_greater_power_treads"					
-			"02"						"item_greater_powertreads_2;item_upgrade_core_3;item_recipe_greater_power_treads"					
-			"03"						"item_greater_powertreads_2;item_upgrade_core_4;item_recipe_greater_power_treads"						
+			"01"						"item_greater_power_treads_2;item_upgrade_core_2;item_recipe_greater_power_treads"					
+			"02"						"item_greater_power_treads_2;item_upgrade_core_3;item_recipe_greater_power_treads"					
+			"03"						"item_greater_power_treads_2;item_upgrade_core_4;item_recipe_greater_power_treads"						
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 3
 	//=================================================================================================================
-	"item_greater_powertreads_3"
+	"item_greater_power_treads_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3017"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"8050"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads 3"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "3"            
-		"UpgradesItems"                 "item_greater_powertreads_3;item_greater_powertreads_4"
-		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		// "UpgradesItems"                 "item_greater_power_treads_3;item_greater_power_treads_4"
+		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10633,37 +10633,37 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads_4"
+		"ItemResult"					"item_greater_power_treads_4"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_powertreads_3;item_upgrade_core_3;item_recipe_greater_power_treads"					
-			"02"						"item_greater_powertreads_3;item_upgrade_core_4;item_recipe_greater_power_treads"						
+			"01"						"item_greater_power_treads_3;item_upgrade_core_3;item_recipe_greater_power_treads"					
+			"02"						"item_greater_power_treads_3;item_upgrade_core_4;item_recipe_greater_power_treads"						
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 4
 	//=================================================================================================================
-	"item_greater_powertreads_4"
+	"item_greater_power_treads_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3018"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"11850"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads 4"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "4"            
-		"UpgradesItems"                 "item_greater_powertreads_4"
-		"UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		// "UpgradesItems"                 "item_greater_power_treads_4"
+		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10720,30 +10720,30 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_powertreads_5"
+		"ItemResult"					"item_greater_power_treads_5"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_powertreads_4;item_upgrade_core_4;item_recipe_greater_power_treads"							
+			"01"						"item_greater_power_treads_4;item_upgrade_core_4;item_recipe_greater_power_treads"							
 		}
 	}
 
 	//=================================================================================================================
 	// Power Treads 5
 	//=================================================================================================================
-	"item_greater_powertreads_5"
+	"item_greater_power_treads_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_powertreads"
+		"BaseClass"                     "item_power_treads"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_powertreads"
+		"AbilityTextureName"            "item_power_treads"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16650"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
+		"ItemAliases"					"greater power treads 5"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
@@ -10803,10 +10803,10 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_tranquil_boots_1"
+		"ItemResult"					"item_greater_tranquil_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_tranquil_boots;item_farming_core;item_recipe_greater_tranquil_boots"
+			"01"						"item_tranquil_boots;item_farming_core"
 
 		}
 	}
@@ -11389,7 +11389,7 @@
 		"ItemResult"					"item_greater_travel_boots"
 		"ItemRequirements"
 		{
-			"01"						"item_travel_boots_2;item_farming_core;item_recipe_greater_travel_boots"
+			"01"						"item_travel_boots_2;item_farming_core"
 		}
 	}
 
@@ -11804,9 +11804,7 @@
 		"ItemAlertable"					"1"
 
 		"MaxUpgradeLevel"               "1"
-		"ItemBaseLevel"                 "1"            
-// TO BE REMOVED		"UpgradesItems"                 "item_guardian_greaves;item_guardian_greaves_2;item_guardian_greaves_3;item_guardian_greaves_4;item_guardian_greaves_5"
-// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_phase_boots"		
+		"ItemBaseLevel"                 "1"            		
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -17378,8 +17376,7 @@
 
 		"MaxUpgradeLevel"               "1"
 		"ItemBaseLevel"                 "1"     		
-// TO BE REMOVED		"UpgradesItems"                 "item_phase_boots;item_phase_boots_2;item_phase_boots_3;item_phase_boots_4;item_phase_boots_5"
-// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_phase_boots"
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -17934,8 +17931,6 @@
 
 		"MaxUpgradeLevel"               "1"
         "ItemBaseLevel"                 "1"            
-// TO BE REMOVED        "UpgradesItems"                 "item_power_treads;item_power_treads_2;item_power_treads_3;item_power_treads_4;item_power_treads_5"
-// TO BE REMOVED        "UpgradeRecipe"                 "item_recipe_power_treads"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
