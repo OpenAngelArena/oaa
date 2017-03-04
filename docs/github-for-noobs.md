@@ -65,7 +65,7 @@ Now we should have a local copy of your fork of [AngelArenaAllstars/aaa]
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
-  - Right-Click on your repository at https://GitHub.com/<YOURUSERNAME>/aaa and select `Open in Git Shell`
+  - Right-Click on your repository at 'https://GitHub.com/<YOURUSERNAME>/aaa' and select `Open in Git Shell`
 
 Now we should have something rougly like this:
  ![GitShell](/docs/GitHub-for-noobs/GitShell-Start.png)
