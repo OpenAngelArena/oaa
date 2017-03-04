@@ -44,7 +44,7 @@ Forking creates a simultaneous instance of aaa within your own GitHub repository
 - Goto AngelArenaAllstars/aaa.
 - Click Fork
 - Choose where to Fork: Fork AngelArenaAllstars/aaa to <YOURUSERNAME>/aaa
-- Done! If you go to `https://GitHub.com/<YOURUSERNAME>/aaa` you'll see your own fork of [AngelArenaAllstars/aaa].
+- Done! If you go to `GitHub.com/<YOURUSERNAME>/aaa` you'll see your own fork of [AngelArenaAllstars/aaa].
 
 ## Cloning
 Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
@@ -65,7 +65,7 @@ Now we should have a local copy of your fork of [AngelArenaAllstars/aaa]
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
-  - Right-Click on your repository at 'https://GitHub.com/<YOURUSERNAME>/aaa' and select `Open in Git Shell`
+  - Right-Click on your repository at 'GitHub.com/<YOURUSERNAME>/aaa' and select `Open in Git Shell`
 
 Now we should have something rougly like this:
  ![GitShell](/docs/GitHub-for-noobs/GitShell-Start.png)
