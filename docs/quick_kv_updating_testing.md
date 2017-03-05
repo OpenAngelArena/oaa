@@ -31,7 +31,7 @@ As you identify things that need changing about the items/abilities, you will mo
 These are fairly straight forward. One ability = one file. This makes them very easy to edit. 
 
 ### Items
-These are a much bigger pain in the ass. One item's data spans across multiple files because many of the items are considered 'upgrades'. For instance, if you wanted to make Dagon Level 6 do more damage, you'd have to edit this damage value 9 files because Dagon Level 6 data is contained in all 9 Dagon items (This also makes typos 9x more likely.)
+These are a much bigger pain in the ass. One item's data spans across multiple files because many of the items are considered 'upgrades'. For instance, if you wanted to make Dagon Level 6 do more damage, you'd have to edit this damage value across 9 files because Dagon Level 6 data is contained in all 9 Dagon items (This also makes typos 9x more likely.)
 
 ## Compiling NPC Files -> One File
 Editing the individual files is a necessary step in the workflow, however it won't effect the game until you compile this data into the files the game uses which are:
