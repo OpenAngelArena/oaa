@@ -5,7 +5,7 @@ var console = {
 (function () {
   hideShowUI(Game.GetState());
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
-    listenToGameEvent('aaa_state_change', onStateChange);
+    listenToGameEvent('oaa_state_change', onStateChange);
   }
 
   function onStateChange (data) {

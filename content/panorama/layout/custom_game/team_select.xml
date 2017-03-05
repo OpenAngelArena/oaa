@@ -21,16 +21,16 @@
       <Panel id="TeamsSelectEmptySpace">
         <Panel id="GameLengthPicker">
           <RadioButton class="GameLengthOption" group="GameLength" id="ShortGame">
-            <Label class="title" text="#aaa_game_length_short_title" />
-            <Label class="description" text="#aaa_game_length_short" />
+            <Label class="title" text="#oaa_game_length_short_title" />
+            <Label class="description" text="#oaa_game_length_short" />
           </RadioButton>
           <RadioButton group="GameLength" id="NormalGame" checked="checked" class="GameLengthOption">
-            <Label class="title" text="#aaa_game_length_normal_title" />
-            <Label class="description" text="#aaa_game_length_normal" />
+            <Label class="title" text="#oaa_game_length_normal_title" />
+            <Label class="description" text="#oaa_game_length_normal" />
           </RadioButton>
           <RadioButton group="GameLength" id="LongGame" class="GameLengthOption">
-            <Label class="title" text="#aaa_game_length_long_title" />
-            <Label class="description" text="#aaa_game_length_long" />
+            <Label class="title" text="#oaa_game_length_long_title" />
+            <Label class="description" text="#oaa_game_length_long" />
           </RadioButton>
         </Panel>
       </Panel>

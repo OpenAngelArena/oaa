@@ -1,4 +1,4 @@
-# Angel Arena Allstars
+# Open Angel Arena
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
@@ -22,5 +22,5 @@ From within the addon directory, run `gulp`.
 # License
 MIT
 
-[soundcloud-link]: https://soundcloud.com/angelarenaallstars "Music for Angel Arena Allstars"
-[discord-link]: https://discord.gg/ "Angel Arena Allstars Discord Instant Invite"
+[soundcloud-link]: https://soundcloud.com/angelarenaallstars "Music for Open Angel Arena"
+[discord-link]: https://discord.gg/ "Open Angel Arena Discord Instant Invite"
