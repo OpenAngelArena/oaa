@@ -39,7 +39,7 @@ Editing the individual files is a necessary step in the workflow, however it won
 - npc_abilities_override.txt
 - npc_items_custom.txt
 
-You can compile these by is is accomplished by running an automated script. Open Node.js command prompt which was included during installation according to 'aaa/README.md'. Typing 'gulp' into Node.js command prompt compiles the various files.
+You can compile these by running an automated script. Open Node.js command prompt which was included during installation according to 'aaa/README.md'. Typing 'gulp' into Node.js command prompt compiles the various files.
 
 IMPORTANT: At the moment I'm writing this the Node.js script does not properly compile. It will cause the abilities to be compiled into npc_abilities_custom.txt which is not correct. Chris or someone in coding needs to make sure Node.js (or whatever script they decide to use) works properly by the time you do your Test Stream.
 
