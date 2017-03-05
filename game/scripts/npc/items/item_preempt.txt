@@ -5,6 +5,7 @@
 	{
 		"ID"							"3550"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -33,10 +34,9 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityTextureName"            "item_firecrackers"
-		"MaxUpgradeLevel"				"3"
+		"MaxUpgradeLevel"				"1"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_preempt;item_preempt_2"
-		"UpgradeRecipe"					"item_recipe_preempt"
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,22 +55,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_reduction"		"0.5 1.0 1.0"
+				"damage_reduction"		"0.5"
 			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"effect_duration"		"2 2 4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_amount"			"0.0 0.0 0.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bubble_size"			"0 0 200"
+				"preempt_duration"		"2"
 			}
 		}
 	}

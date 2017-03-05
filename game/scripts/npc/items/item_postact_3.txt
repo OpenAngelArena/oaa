@@ -5,6 +5,7 @@
 	{
 		"ID"							"3566"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -35,8 +36,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"3"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,12 +56,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"effect_duration"	"0.0 5.0 5.0"
+				"postact_duration"	"5.0"
 			}			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen"		"0 0 50"
+				"postact_regen"		"50"
 			}
 		}
 	}

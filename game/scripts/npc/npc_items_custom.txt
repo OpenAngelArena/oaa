@@ -4365,7 +4365,7 @@
 		"ItemResult"					"item_charge_bkb"
 		"ItemRequirements"
 		{
-			"01"						"item_black_king_bar;item_black_king_bar"
+			"01"						"item_magic_wand;item_black_king_bar"
 		}
 	}
 	
@@ -9028,7 +9028,7 @@
 		"ID"							"3030"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1700"	
@@ -9168,7 +9168,7 @@
 		"ID"							"3031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -9311,7 +9311,7 @@
 		"ID"							"3032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -9453,7 +9453,7 @@
 		"ID"							"3033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -9594,7 +9594,7 @@
 		"ID"							"3034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -9732,7 +9732,7 @@
 		"ID"							"3000"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"300"	
@@ -9857,7 +9857,7 @@
 		"ID"							"3001"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -9985,7 +9985,7 @@
 		"ID"							"3002"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10112,7 +10112,7 @@
 		"ID"							"3003"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10238,7 +10238,7 @@
 		"ID"							"3004"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10361,7 +10361,7 @@
 		"ID"							"3010"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"300"	
@@ -10447,7 +10447,7 @@
 		"ID"							"3011"														// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10536,7 +10536,7 @@
 		"ID"							"3012"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10624,7 +10624,7 @@
 		"ID"							"3013"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10711,7 +10711,7 @@
 		"ID"							"3014"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -10794,7 +10794,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3040"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1550"	
@@ -10910,7 +10910,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3041"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11028,7 +11028,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3042"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11145,7 +11145,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3043"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11261,7 +11261,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3044"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-	
+		"AbilityTextureName"			"item_recipe"	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11377,7 +11377,7 @@
 		"ID"							"219"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
@@ -11453,7 +11453,7 @@
 		"ID"							"3021"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11534,7 +11534,8 @@
 		"ID"							"3022"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
+				
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11612,7 +11613,7 @@
 		"ID"							"3023"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -11688,6 +11689,7 @@
 		"ID"							"3648"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17687,6 +17689,7 @@
 	{
 		"ID"							"3562"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -17715,10 +17718,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
+		"MaxUpgradeLevel"				"1"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_postact;item_postact_2"
-		"UpgradeRecipe"					"item_recipe_postact"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17754,6 +17755,7 @@
 	{
 		"ID"							"3564"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -17785,10 +17787,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_postact_2"
-		"UpgradeRecipe"					"item_recipe_postact"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17824,6 +17824,7 @@
 	{
 		"ID"							"3566"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -17854,8 +17855,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"3"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -17965,6 +17966,7 @@
 	{
 		"ID"							"3550"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -17993,10 +17995,9 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityTextureName"            "item_firecrackers"
-		"MaxUpgradeLevel"				"3"
+		"MaxUpgradeLevel"				"1"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_preempt;item_preempt_2"
-		"UpgradeRecipe"					"item_recipe_preempt"
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -18042,6 +18043,7 @@
 	{
 		"ID"							"3552"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
@@ -18073,10 +18075,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_preempt_2"
-		"UpgradeRecipe"					"item_recipe_preempt"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -18122,6 +18122,7 @@
 	{
 		"ID"							"3554"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
@@ -18152,10 +18153,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"3"
-//		"UpgradesItems"					"item_preempt_3"
-		"UpgradeRecipe"					"item_recipe_preempt"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -18765,6 +18764,7 @@
 	{
 		"ID"							"3556"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -18842,6 +18842,7 @@
 	{
 		"ID"							"3558"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -18873,10 +18874,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_react_2"
-		"UpgradeRecipe"					"item_recipe_react"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -18922,6 +18921,7 @@
 	{
 		"ID"							"3560"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"800"	
@@ -18952,8 +18952,8 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"3"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -19558,8 +19558,8 @@
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_aquila;item_aquila_2"
-		"UpgradeRecipe"					"item_recipe_aquila"
+		"UpgradesItems"					"item_ring_of_aquila;item_ring_of_aquila_2"
+		"UpgradeRecipe"					"item_recipe_ring_of_aquila"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -19730,8 +19730,8 @@
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_aquila_2"
-		"UpgradeRecipe"					"item_recipe_aquila"
+		"UpgradesItems"					"item_ring_of_aquila_2"
+		"UpgradeRecipe"					"item_recipe_ring_of_aquila"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
