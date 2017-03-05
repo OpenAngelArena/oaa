@@ -2,10 +2,11 @@
 
 ## Setting up the Game
 1. Ensure you have the proper Clone of aaa. Check that you have the following:
-  - '\aaa\game\scripts\npc\npc_abilities_override.txt - containing ~500 abilities in ~29,000 lines of data.
-  - '\aaa\game\scripts\npc\npc_items_custom.txt - containing ~270 items in ~27,000 lines of data.
-  - '\aaa\game\scripts\npc\items\files - the ~270 individual items KV files.
-  - '\aaa\game\scripts\npc\abilities\files - the ~500 individual abilities KV files.
+  - '\aaa\game\scripts\npc\npc_abilities_override.txt' - containing ~500 abilities in ~29,000 lines of data.
+  - '\aaa\game\scripts\npc\npc_items_custom.txt' - containing ~270 items in ~27,000 lines of data.
+  - '\aaa\game\resource\addon_english.txt' - containing a bunch of tooltips.
+  - '\aaa\game\scripts\npc\items\files' - the ~270 individual items KV files.
+  - '\aaa\game\scripts\npc\abilities\files' - the ~500 individual abilities KV files.
 2. If you do not have the proper Clone, you'll have to Git one :D. 
 3. Ensure Launch Options: Dota 2 > Properties > Set Launch Options > '-console'
 
