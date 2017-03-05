@@ -60,15 +60,13 @@ Now just Clone your Fork to your computer We do this using the GitHub client. Yo
 - Verify Clone to your repo.
 Now we should have a local copy of your fork of [AngelArenaAllstars/aaa]
 
-## Open Git Shell
-- You can open it in a number of ways:
+## Open Git Power Shell
+Git Power Shell enables you to control Git using a variety of commands. You can open Git Power Shell in a number of ways:
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
   - Right-Click on your repository at 'GitHub.com/YOURUSERNAME/aaa' and select `Open in Git Shell`
 
-Now we should have something rougly like this:
- ![GitShell](/docs/GitHub-for-noobs/GitShell-Start.png)
  
 ## Finish Installing AAA
 Continue the [Installation Process](/docs/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
@@ -78,7 +76,7 @@ To be able to work on your own stuff but still have all the newest changes and t
 
 ### Remotes and Updating
 
-- Let's first look at the different remotes we have by typing "git remote -v":
+Let's first look at the different remotes we have by typing 'git remote -v':
   ```
    git remote -v
   origin  https://GitHub.com/YOURUSERNAME/aaa (fetch)
