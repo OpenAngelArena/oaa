@@ -1,4 +1,4 @@
-# Angel Arena Allstars
+# Open Angel Arena
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
