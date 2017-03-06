@@ -23,4 +23,4 @@ From within the addon directory, run `gulp`.
 MIT
 
 [soundcloud-link]: https://soundcloud.com/angelarenaallstars "Music for Open Angel Arena"
-[discord-link]: https://discord.gg/ "Open Angel Arena Discord Instant Invite"
+[discord-link]: https://discord.gg/WNFBB4d "Open Angel Arena Discord Instant Invite"
