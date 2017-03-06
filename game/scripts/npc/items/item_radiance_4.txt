@@ -1,0 +1,78 @@
+	//=================================================================================================================
+	// Recipe: Radiance 4
+	//=================================================================================================================
+ 	"item_recipe_radiance_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"4002"
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_radiance_4"
+		"ItemRequirements"
+		{
+			"01"						"item_radiance_3;item_upgrade_core_3;item_recipe_radiance"
+			"02"						"item_radiance_3;item_upgrade_core_4;item_recipe_radiance"
+		}
+	}
+
+	//=================================================================================================================
+	// Radiance 4
+	//=================================================================================================================
+	"item_radiance_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"4006"
+		"BaseClass"                     "item_radiance"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityTextureName"            "item_radiance"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"5"
+		"ItemBaseLevel"					"4"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"17000"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"radiance"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"UpgradesItems"					"item_radiance_4"
+		"UpgradeRecipe"					"item_recipe_radiance"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65 100 150 220 300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_damage"			"50 75 110 170 225"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blind_pct"				"17"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"700"
+			}
+		}
+	}
