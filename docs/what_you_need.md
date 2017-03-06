@@ -31,7 +31,7 @@ If use you Atom, following Packages / Plugins you should use:
 
 ### Github Links
 Organization: https://github.com/AngelArenaAllstars  
-Main head: https://github.com/AngelArenaAllstars/aaa
+Main head: https://github.com/AngelArenaAllstars/oaa
 
 ### Collaborating Tools:
 
@@ -40,5 +40,3 @@ Google-Account to share and get documents
 
 For coordinating: discord: Soon  
 Mindmap ideas: coggle.it: https://coggle.it/diagram/WF0DTy-C0LZE5uuE
-
-

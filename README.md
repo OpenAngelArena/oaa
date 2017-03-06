@@ -9,7 +9,7 @@ For detailed instructions, check [here](docs/install.md)
 # Contributing
 Check out the Discord!
 
-There are also issues marked with [`Great for new contributors`](https://github.com/AngelArenaAllstars/aaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
+There are also issues marked with [`Great for new contributors`](https://github.com/AngelArenaAllstars/oaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
 
 Music can be found at [Soundcloud][soundcloud-link]
 
