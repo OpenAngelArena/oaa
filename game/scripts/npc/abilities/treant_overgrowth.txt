@@ -1,0 +1,54 @@
+	//=================================================================================================================
+	// Treant Protector: Overgrowth
+	//=================================================================================================================
+	"treant_overgrowth"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5437"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"				"0.5"
+		"FightRecapLevel"				"2"
+
+		"HasScepterUpgrade"				"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"						"6"
+		"LevelsBetweenUpgrades"		"5"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 175 200 225 250"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"3.0 3.75 4.5 5.0 5.5"
+			}
+
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"800"
+			}
+
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"eyes_radius"					"800"
+			}
+		}
+	}

@@ -1,0 +1,92 @@
+	//=================================================================================================================
+	// Recipe: Turret
+	//=================================================================================================================
+	"item_recipe_turret"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3356"		// unique ID
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_turret"
+		"ItemRequirements"
+		{
+			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner"
+		}
+	}
+
+	//=================================================================================================================
+	// Turret
+	//=================================================================================================================
+	
+	"item_turret"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3357"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"            "item_firework_mine"
+	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"30000"
+		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"totem"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"10 15 25 35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10 15 25 35"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"10 15 20 25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"15 25 35 50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"75 125 175 250"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"proc_damage"			"0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"			"100"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed_slow"			"100"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"0.6"
+			}
+		}
+	}

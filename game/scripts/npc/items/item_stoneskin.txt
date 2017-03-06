@@ -1,0 +1,112 @@
+    //=================================================================================================================
+    // Recipe: stoneskin (Based on Armlet)
+    //=================================================================================================================
+    "item_recipe_stoneskin"
+    {
+ 
+        "ID"                            "3244"       // unique ID
+		"BaseClass"                     "item_datadriven"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "ItemCost"                      "1000"  
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_stoneskin"
+        "ItemRequirements"
+        {
+            "01"                        "item_shivas_guard_3;item_armlet_2;item_combiner"
+      	} 
+ 
+    }
+    //=================================================================================================================
+    // stoneskin
+    //=================================================================================================================
+    "item_stoneskin"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3246"       // unique ID
+		"BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityTextureName"            "item_shivas_guard"  
+        // Stats       
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.0"
+ 
+        // Spicy Parameters
+        //-------------------------------------------------------------------------------------------------------------
+ 
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_stoneskin"
+        "UpgradeRecipe"                 "item_recipe_stoneskin"
+ 
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "15000"
+        "ItemShopTags"                  "damage;attack_speed;armor;regen_health;hard_to_tag"
+        "ItemQuality"                   "epic"
+        "ItemAliases"                   "stoneskin of mordiggian"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+       
+        // Special 
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"          "9 15 20"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "25 28 32"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_armor"           "5 6 7"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_health_regen"    "7 9 11"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_bonus_damage"   "31 40 55"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_bonus_attack_speed" "0"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_bonus_strength" "25 30 35"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_bonus_armor"    "4 5 6"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_health_drain_per_tick"  "5 6 7"
+            }      
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "unholy_health_drain_per_second_tooltip"    "45 54 63"
+            }  
+            "11"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "toggle_cooldown"       "0.036f"
+            }  
+        }
+    }
+ 
