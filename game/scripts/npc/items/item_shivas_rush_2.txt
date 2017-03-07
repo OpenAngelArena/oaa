@@ -96,11 +96,51 @@
 				"var_type"				"FIELD_INTEGER"
 				"blast_speed"			"350"
 			}
-			// Force Staff Parameters
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"push_length"			"600"
-			}
+			// Drums Parameters
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_str"         "6 10"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_agi"         "3 5"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"          "3 5"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_mana_regen"      "50 75"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_aura_movement_speed" "20 25"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed_pct"    "25 30"
+            }
+            "16"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed_pct"  "13 15"
+            }
+            "17"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "6"
+            }
+            "18"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "900"
+            }
 		}
 	}
