@@ -3,11 +3,20 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
 
 ## Coding
  * [chrisinajar][chrisinajar]
- * [salacryl][salacryl]
  * [Chronophylos][Chronophylos]
+ * [salacryl][salacryl]
  * Zartonox
  * [SquawkyArctangent][SquawkyArctangent]
  * [yahnich][yahnich]
+ * [Trildar][Trildar]
+ * [Rachol][Rachol]
+
+## Data
+* [Warpdragon][Warpdragon]
+* [zelding][zelding]
+* [VoidsKeeper][VoidsKeeper]
+* Honeth
+* Trildar
 
 ## Design / Balance
  * [Baumi][baumi]
@@ -25,6 +34,7 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
  * [RyanMusic][RyanMusic]
  
 ## Documentation
+ * [Warpdragon][Warpdragon]
  * [Chronophylos][Chronophylos]
 
 ## Translations
@@ -69,3 +79,8 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
 [Murzer]: https://github.com/Murzer "Murzer's Github"
 [Germanerd]: https://github.com/Germanerd "Germanerd's Github"
 [Chronophylos]: https://github.com/Chronophylos "Chronophylos's Github"
+[Trildar]: https://github.com/Trildar "Trildar's Github"
+[Rachol]: https://github.com/Rachol "Rachol's Github"
+[Warpdragon]: https://github.com/Warpdragon "Warpdragon's Github"
+[zelding]: https://github.com/zelding "zelding's Github"
+[VoidsKeeper]: https://github.com/VoidsKeeper "VoidsKeeper's Github"
