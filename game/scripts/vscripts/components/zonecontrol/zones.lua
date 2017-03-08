@@ -316,9 +316,6 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   Timers:CreateTimer(function ()
     entity:SetOrigin(origin)
   end)
-  Timers:CreateTimer(function ()
-    entity:SetOrigin(origin)
-  end, 0.1)
 
 end
 

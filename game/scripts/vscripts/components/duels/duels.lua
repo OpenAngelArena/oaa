@@ -55,6 +55,8 @@ function Duels:StartDuel ()
       end
 
       Duels:ResetPlayerState(player:GetAssignedHero())
+      -- disable respawn
+      player:GetAssignedHero():SetRespawnsDisabled(true)
     end
   end
 
@@ -95,6 +97,9 @@ function Duels:StartDuel ()
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
+
+    Duels:MoveCameraToPlayer(goodGuy.id, goodPlayer:GetAssignedHero())
+    Duels:MoveCameraToPlayer(badGuy.id, badPlayer:GetAssignedHero())
   end
 
   spawn1 = Entities:FindByName(nil, 'duel_2_spawn_1'):GetAbsOrigin()
@@ -118,6 +123,9 @@ function Duels:StartDuel ()
 
     Duels.zone2.addPlayer(goodGuy.id)
     Duels.zone2.addPlayer(badGuy.id)
+
+    Duels:MoveCameraToPlayer(goodGuy.id, goodPlayer:GetAssignedHero())
+    Duels:MoveCameraToPlayer(badGuy.id, badPlayer:GetAssignedHero())
   end
 
   Duels.currentDuel = {
@@ -126,6 +134,16 @@ function Duels:StartDuel ()
     badPlayerIndex = badPlayerIndex,
     goodPlayerIndex = goodPlayerIndex
   }
+
+  Timers:CreateTimer(60, Dynamic_Wrap(Duels, 'EndDuel'))
+end
+
+function Duels:MoveCameraToPlayer (playerId, entity)
+  PlayerResource:SetCameraTarget(playerId, entity)
+
+  Timers:CreateTimer(2, function ()
+    PlayerResource:SetCameraTarget(playerId, nil)
+  end)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
@@ -150,13 +168,18 @@ function Duels:EndDuel ()
     Duels.zone2.removePlayer(playerId)
   end
 
-  Duels:AllPlayers(Duels.currentDuel, function (state)
-    DebugPrintTable(state)
-    local player = PlayerResource:GetPlayer(state.id)
-    Duels:RestorePlayerState (player:GetAssignedHero(), state)
+  local currentDuel = Duels.currentDuel
+  Duels.currentDuel = nil
+
+  Timers:CreateTimer(1, function ()
+    Duels:AllPlayers(currentDuel, function (state)
+      DebugPrintTable(state)
+      local player = PlayerResource:GetPlayer(state.id)
+      Duels:RestorePlayerState (player:GetAssignedHero(), state)
+      Duels:MoveCameraToPlayer(state.id, player)
+    end)
   end)
 
-  Duels.currentDuel = nil
 end
 
 function Duels:ResetPlayerState (hero)
