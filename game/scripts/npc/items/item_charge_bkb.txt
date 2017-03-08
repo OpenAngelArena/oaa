@@ -148,7 +148,7 @@
 				"Aura" 					"modifier_charge_bkb_datadriven_aura"
 				"Aura_Radius" 			"%charge_radius"
 				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" 	"0"
 			}
