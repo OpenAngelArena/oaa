@@ -1,7 +1,10 @@
-"DOTA_Tooltip_Ability_item_crimson_guard_2"				"Crimson Guard"
-"DOTA_Tooltip_Ability_item_recipe_crimson_guard_2"		"Crimson Guard Recipe"
-	"DOTA_Tooltip_ability_item_crimson_guard_2_Description"							"Active: Guard - Grant nearby allied heroes and buildings a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\nPassive: Damage Block - Grants the wielder a %block_chance%%% chance to block damage from incoming attacks based on whether the equipped hero is melee or ranged."
-	"DOTA_Tooltip_ability_item_crimson_guard_2_Lore"								"A cuirass originally built to protect against the dreaded Year Beast."
+//==============================================================================
+// Crimson Guard
+//==============================================================================
+		"DOTA_Tooltip_Ability_item_crimson_guard_2"				"Crimson Guard"
+		"DOTA_Tooltip_Ability_item_recipe_crimson_guard_2"		"Crimson Guard Recipe"
+		"DOTA_Tooltip_ability_item_crimson_guard_2_Description"							"Active: Guard - Grant nearby allied heroes and buildings a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack, along with %bonus_aoe_armor% armor. Lasts %duration% seconds.\nPassive: Damage Block - Grants the wielder a %block_chance%%% chance to block damage from incoming attacks based on whether the equipped hero is melee or ranged."
+		"DOTA_Tooltip_ability_item_crimson_guard_2_Lore"								"A cuirass originally built to protect against the dreaded Year Beast."
 		"DOTA_Tooltip_ability_item_crimson_guard_2_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_crimson_guard_2_bonus_health_regen"				"+$hp_regen"
 		"DOTA_Tooltip_ability_item_crimson_guard_2_bonus_all_stats"					"+$all"
@@ -15,3 +18,4 @@
 		"DOTA_Tooltip_ability_item_crimson_guard_2_bonus_aoe_radius"				"GUARD RADIUS:"
 		"DOTA_Tooltip_ability_item_crimson_guard_2_Note0"							"Multiple sources of damage block don't stack."
 		"DOTA_Tooltip_ability_item_crimson_guard_2_Note1"							"Guard does not affect units that have been affected by Guard in the last 46 seconds."
+		

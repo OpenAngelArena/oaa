@@ -1,7 +1,10 @@
-"DOTA_Tooltip_Ability_item_pipe_2"					"Pipe of Insight"
-"DOTA_Tooltip_Ability_item_recipe_pipe_2"			"Pipe of Insight Recipe"
-	"DOTA_Tooltip_ability_item_pipe_2_Description"							"Active: Barrier - Gives a shield that blocks %barrier_block% spell damage to all allies in a %barrier_radius% radius.\nPassive: Insight Aura - Gives allied units %aura_health_regen% health regeneration and %magic_resistance_aura%%% magic resistance in a %aura_radius% radius."
-	"DOTA_Tooltip_ability_item_pipe_2_Lore"									"A powerful artifact of mysterious origin, it creates barriers against magical forces."
+//==============================================================================
+// Pipe of Insight
+//==============================================================================
+		"DOTA_Tooltip_Ability_item_pipe_2"					"Pipe of Insight"
+		"DOTA_Tooltip_Ability_item_recipe_pipe_2"			"Pipe of Insight Recipe"
+		"DOTA_Tooltip_ability_item_pipe_2_Description"							"Active: Barrier - Gives a shield that blocks %barrier_block% spell damage to all allies in a %barrier_radius% radius.\nPassive: Insight Aura - Gives allied units %aura_health_regen% health regeneration and %magic_resistance_aura%%% magic resistance in a %aura_radius% radius."
+		"DOTA_Tooltip_ability_item_pipe_2_Lore"									"A powerful artifact of mysterious origin, it creates barriers against magical forces."
 		"DOTA_Tooltip_ability_item_pipe_2_Note0"							"Multiple instances of Barrier do not stack."
 		"DOTA_Tooltip_ability_item_pipe_2_Note1"							"Stacks multiplicatively with other sources of spell resistance."
 		"DOTA_Tooltip_ability_item_pipe_2_health_regen"						"+$hp_regen"
