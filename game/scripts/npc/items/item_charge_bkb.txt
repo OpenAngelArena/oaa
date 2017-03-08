@@ -1,4 +1,30 @@
 	//=================================================================================================================
+	// Recipe: Charge BKB
+	//=================================================================================================================
+	"item_recipe_charge_bkb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_charge_bkb"
+		"ItemRequirements"
+		{
+			"01"					"item_black_king_bar;item_magic_wand;item_combiner"  		//RamonNZ: Item combiner makes sense, since it is exactly a combination of both items. I'll leave the choice to you.
+		}
+	}
+
+	//=================================================================================================================
 	// Charge BKB (based off a combination of Magic Wand & BKB effects)
 	// Version 1.02 implimented with charge_bkb.lua script by RamonNZ
 	//=================================================================================================================
