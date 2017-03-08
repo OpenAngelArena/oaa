@@ -36,15 +36,15 @@ At this point just familiarize yourself with the following terminology:
 
 ## Setup
 
-First, follow the [Installation Process](/docs/install.md) but stop when you get to the part that says "Get the Addon". Now, instead of just Cloning (copying the angelarenaallstars/aaa repository) you'll create a Fork of it and work from there.
+First, follow the [Installation Process](/docs/install.md) but stop when you get to the part that says "Get the Addon". Now, instead of just Cloning (copying the angelarenaallstars/oaa repository) you'll create a Fork of it and work from there.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
 Forking creates a simultaneous instance of aaa within your own GitHub repository.
-- Goto AngelArenaAllstars/aaa.
+- Goto angelarenaallstars/oaa.
 - Click Fork
-- Choose where to Fork: Fork AngelArenaAllstars/aaa to YOURUSERNAME/aaa
-- Done! If you go to `GitHub.com/YOURUSERNAME/aaa` you'll see your own fork of [AngelArenaAllstars/aaa].
+- Choose where to Fork: Fork angelarenaallstars/oaa to YOURUSERNAME/aaa
+- Done! If you go to `GitHub.com/YOURUSERNAME/aaa` you'll see your own fork of [angelarenaallstars/oaa].
 
 ## Cloning
 Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
@@ -58,7 +58,7 @@ Now just Clone your Fork to your computer We do this using the GitHub client. Yo
 - Select Clone.
 - Select your Account and the forked `aaa` repository.
 - Verify Clone to your repo.
-Now we should have a local copy of your fork of [AngelArenaAllstars/aaa]
+Now we should have a local copy of your fork of [angelarenaallstars/oaa]
 
 ## Open Git Power Shell
 Git Power Shell enables you to control Git using a variety of commands. You can open Git Power Shell in a number of ways:
@@ -84,19 +84,19 @@ Let's first look at the different remotes we have by typing 'git remote -v':
   ```
 We start out with one remote named "origin". That's our Fork that we made from before.
 
-In order to stay up-to-date with the official AngelArenaAllstars/aaa (the official one), just add another remote like this:
+In order to stay up-to-date with the official angelarenaallstars/oaa (the official one), just add another remote like this:
  ```
-  git remote add AngelArenaAllstars https://GitHub.com/AngelArenaAllstars/aaa
+  git remote add AngelArenaAllstars https://GitHub.com/angelarenaallstars/oaa
  ```
- You do not have to call this Remote AngelArenaAllstars, you can call it whatever you want. Now let's get the newest changes from [AngelArenaAllstars/aaa]:
+ You do not have to call this Remote AngelArenaAllstars, you can call it whatever you want. Now let's get the newest changes from [angelarenaallstars/oaa]:
   ```
    git pull AngelArenaAllstars master
-  From https://GitHub.com/AngelArenaAllstars/aaa
+  From https://GitHub.com/angelarenaallstars/oaa
    * branch            master     - FETCH_HEAD
   Already up-to-date.
   ```
 ### Pushing
-When updating, the newest changes are downloaded from angelarenaallstars/aaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/aaa on GitHub:
+When updating, the newest changes are downloaded from angelarenaallstars/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/aaa on GitHub:
 ```
  git push
 Everything up-to-date
@@ -146,7 +146,8 @@ To https://GitHub.com/Chronophylos/aaa
 ```
 
 ## Creating a PR
-To create a PR goto [AngelArenaAllstars/aaa] on GitHub
+
+To create a PR goto [AngelArenaAllstars/oaa] on GitHub
 - Click 'New Pull Request'
 - Click `compare across forks`
 - Click `head fork` and choose your Repository
@@ -159,7 +160,7 @@ To create a PR goto [AngelArenaAllstars/aaa] on GitHub
 - [Git on GitHub](https://GitHub.com/git/git)
 - [Wikipedia](https://en.wikipedia.org/wiki/GitHub)
 - [Git Questions?](https://stackoverflow.com/questions/tagged/git).
-- [AngelArenaAllstars/aaa Master Repo](https://GitHub.com/AngelArenaAllstars/aaa)
+- [angelarenaallstars/oaa Master Repo](https://GitHub.com/angelarenaallstars/oaa)
 
 ## Authors
 Author Discord@Chronophylos#5199

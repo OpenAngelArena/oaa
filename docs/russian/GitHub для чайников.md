@@ -37,17 +37,17 @@
 
 ## Настройка:
 
-Для начала, следуйте инструкции по [этой ссылке](/docs/install.md) , но остановитесь, когда дойдёте до части, под названием "Get the Addon". Теперь, вместо использования Cloning (копирования хранилища angelarenaallstars/aaa) вам надо создать его Fork и работать с ним (с Fork'ом).
+Для начала, следуйте инструкции по [этой ссылке](/docs/install.md) , но остановитесь, когда дойдёте до части, под названием "Get the Addon". Теперь, вместо использования Cloning (копирования хранилища angelarenaallstars/oaa) вам надо создать его Fork и работать с ним (с Fork'ом).
 Если у вас ещё нет аккаунта на GitHub.com , то создайте его [тут](https://GitHub.com/join) .
 
 ## Создание и работа с Fork'ами:
 
 Когда вы создаёте Fork , то в вашем хранилище на GitHub появляется копия хранилища, которое вы Fork'нули  (Иными словами, вы сделали себе копию проекта, над которым вы работаете и теперь он вам доступен на вашей странице/хранилище).
 Ваши шаги для создание Fork'а AngelArenaAllstars:
--Перейдите на AngelArenaAllstars/aaa
+-Перейдите на angelarenaallstars/oaa
 -Нажмите кнопку "Fork"
--Выберите куда сохранять ваш Fork (Например: Fork AngelArenaAllstars/aaa to YOURUSERNAME/aaa).
--Готово! Теперь, если вы перейдёте на страницу 'GitHub.com/YOURUSERNAME/aaa' , то вы увидите вашу личную копию (ваш личный Fork) [AngelArenaAllstars/aaa] .
+-Выберите куда сохранять ваш Fork (Например: Fork angelarenaallstars/oaa to YOURUSERNAME/aaa).
+-Готово! Теперь, если вы перейдёте на страницу 'GitHub.com/YOURUSERNAME/aaa' , то вы увидите вашу личную копию (ваш личный Fork) [angelarenaallstars/oaa] .
 
 ## Cloning(клонирование):
 
@@ -62,7 +62,7 @@
 - Нажмите "Clone".
 - Выберите свой аккаунт и Fork'нутое хранилище `aaa`.
 - Проверьте есть ли ваш "клон" в вашем хранилище.
-Теперь у вас должна быть локальная копия вашего Fork'а для [AngelArenaAllstars/aaa]
+Теперь у вас должна быть локальная копия вашего Fork'а для [angelarenaallstars/oaa]
 
 ## Запуск Git Power Shell:
 Git Power Shell позволяет вам контролировать ваш Git с помощью разнообразных команд. Можно запустить Git Power Shell разными способами:
@@ -88,20 +88,20 @@ Git Power Shell позволяет вам контролировать ваш Gi
   ```
  Первый способ называется "origin". Это наш Fork ,который мы создали ранее.
 
- Чтобы постоянно быть в курсе о последних изменениях на AngelArenaAllstars/aaa (на главной "ветке" - "master" "ветке"), просто добавьте:
+ Чтобы постоянно быть в курсе о последних изменениях на angelarenaallstars/oaa (на главной "ветке" - "master" "ветке"), просто добавьте:
  ```
-  git remote add AngelArenaAllstars https://GitHub.com/AngelArenaAllstars/aaa
+  git remote add AngelArenaAllstars https://GitHub.com/angelarenaallstars/oaa
  ```
- Вам необязательно называть это хранилище AngelArenaAllstars: название может быть любым. Теперь, давайте получим последние изменения с [AngelArenaAllstars/aaa]:
+ Вам необязательно называть это хранилище AngelArenaAllstars: название может быть любым. Теперь, давайте получим последние изменения с [angelarenaallstars/oaa]:
   ```
    git pull AngelArenaAllstars master
-  From https://GitHub.com/AngelArenaAllstars/aaa
+  From https://GitHub.com/angelarenaallstars/oaa
    * branch            master     - FETCH_HEAD
   Already up-to-date.
   ```
 
 ### Pushing
-При обновлении, самые последние изменения загружаются с angelarenaallstars/aaa в нашу [local] [master] [branch]. Теперь Push'те их в ваше хранилище YOURUSERNAME/aaa на GitHub:
+При обновлении, самые последние изменения загружаются с angelarenaallstars/oaa в нашу [local] [master] [branch]. Теперь Push'те их в ваше хранилище YOURUSERNAME/aaa на GitHub:
 ```
   Git push
 Everything up-to-date
@@ -151,7 +151,8 @@ To https://GitHub.com/Chronophylos/aaa
 ```
 
 ## Создание Pull request (PR):
-Для того, чтобы создать PR перейдите в [AngelArenaAllstars/aaa] на GitHub
+
+Для того, чтобы создать PR перейдите в [angelarenaallstars/oaa] на GitHub
 - Нажмите 'New Pull Request'
 - Нажмите `compare across forks`
 - Нажмите `head fork` and choose your Repository
@@ -164,7 +165,7 @@ To https://GitHub.com/Chronophylos/aaa
 - [Git на GitHub](https://GitHub.com/git/git)
 - [Wikipedia](https://en.wikipedia.org/wiki/GitHub)
 - [Вопросы о Git?](https://stackoverflow.com/questions/tagged/git).
-- [AngelArenaAllstars/aaa главное хранилище](https://GitHub.com/AngelArenaAllstars/aaa)
+- [angelarenaallstars/oaa главное хранилище](https://GitHub.com/angelarenaallstars/oaa)
 
 ## Авторы
 Автор Discord@Chronophylos#5199
