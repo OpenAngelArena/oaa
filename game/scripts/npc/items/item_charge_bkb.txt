@@ -1,32 +1,6 @@
 	//=================================================================================================================
-	// Recipe: Charge BKB
-	//=================================================================================================================
-	"item_recipe_charge_bkb"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_charge_bkb"
-		"ItemRequirements"
-		{
-			"01"					"item_black_king_bar;item_magic_wand;item_combiner"  		//RamonNZ: Item combiner makes sense, since it is exactly a combination of both items. I'll leave the choice to you.
-		}
-	}
-
-	//=================================================================================================================
 	// Charge BKB (based off a combination of Magic Wand & BKB effects)
-	// Version 1.01 implimented with charge_bkb.lua script by RamonNZ
+	// Version 1.02 implimented with charge_bkb.lua script by RamonNZ
 	//=================================================================================================================
 	"item_charge_bkb"
 	{
@@ -102,21 +76,45 @@
 		}
 		"OnSpellStart"
 		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName" "modifier_charge_bkb_spell_immunity"
+			}
 			"RunScript"
 			{
 				"ScriptFile"			"items/charge_bkb.lua"
-				"Function"				"modifier_charge_bkb_datadriven_on_spell_start"
-				"PercentageOverModelScale"	"%percentage_over_model_scale"
-//				"Duration" 				"%duration"
+				"Function"				"modifier_charge_bkb_on_spell_start"
 				"RestorePerCharge"		"%restore_per_charge"
 				"ChargeImmunityTime"	"%immunity_time_per_charge"
-				
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.BlackKingBar.Activate"
+				"Target"        "CASTER"
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_charge_bkb_datadriven"
+			"modifier_charge_bkb_spell_immunity"
+			{
+				"IsBuff"           		"1"	      
+				"Duration"				"%duration"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"	
+//				"EffectAttachType"		"follow_origin"
+				"EffectAttachType"      "PATTACH_ABSORIGIN"
+				"Target"        		"CASTER"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		
+			"modifier_charge_bkb_passives"
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
@@ -135,51 +133,37 @@
 					"RunScript"
 					{
 						"ScriptFile"			"items/charge_bkb.lua"
-						"Function"				"modifier_charge_bkb_datadriven_on_created"
+						"Function"				"modifier_charge_bkb_on_created"
 						"ChargeDecayTime"		"%charge_decay_time"
 					}
 				}
 			}
-			"modifier_charge_bkb_datadriven_aura_emitter"
+			"modifier_charge_bkb_aura_emitter"
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				
-				"Aura" 					"modifier_charge_bkb_datadriven_aura"
+				"Aura" 					"modifier_charge_bkb_aura"
 				"Aura_Radius" 			"%charge_radius"
 				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" 	"0"
 			}
-			"modifier_charge_bkb_datadriven_aura"
+			"modifier_charge_bkb_aura"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-//				"IsBuff"			"0"
-//				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"items/charge_bkb.lua"
-						"Function"				"modifier_charge_bkb_datadriven_aura_on_ability_executed"
+						"Function"				"modifier_charge_bkb_aura_on_ability_executed"
 						"MaxCharges"			"%max_charges"
+						"ChargeDecayTime"		"%charge_decay_time"
 					}
-				}
-			}
-			"modifier_charge_bkb_datadriven_active"
-			{
-				"Duration" 					"%duration"
-				"Passive"					"0"
-				"IsHidden"					"0"
-				"EffectName"            	"particles/items_fx/black_king_bar_avatar.vpcf"
-				"EffectAttachType"      	"PATTACH_ABSORIGIN"
-				"Properties"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
