@@ -1,0 +1,88 @@
+	//=================================================================================================================
+	// Recipe: Eye of Skadi 5
+	//=================================================================================================================
+	"item_recipe_skadi_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3193"		// unique ID
+		"BaseClass"                     "item_datadriven"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_skadi_5"
+		"ItemRequirements"
+		{
+			"02"						"item_skadi_4;item_upgrade_core_4"
+		}
+	}
+
+	//=================================================================================================================
+	// Eye of Skadi 5
+	//=================================================================================================================
+	"item_skadi_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3197"		// unique ID
+		"BaseClass"                     "item_skadi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_skadi"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"25675"
+		"ItemShopTags"					"agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"eos;eye of skadi"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"MaxUpgradeLevel"				"5"
+		"ItemBaseLevel"					"5"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"25 28 31 34 38"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"225 300 400 550 750"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"250 325 450 575 800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_movement_speed"	"-35 -37 -39 -41 -43"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_attack_speed"		"-45 -47 -49 -51 -53"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration_melee"	"5.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration_ranged"	"2.5"
+			}
+		}
+	}

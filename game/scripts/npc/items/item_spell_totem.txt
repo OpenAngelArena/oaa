@@ -1,0 +1,69 @@
+	//=================================================================================================================
+	// Recipe: Spell Totem
+	//=================================================================================================================
+	"item_recipe_spell_totem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3350"		// unique ID
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_spell_totem"
+		"ItemRequirements"
+		{
+			"01"						"item_aether_lens_3;item_upgrade_core_3"
+			"02"						"item_aether_lens_3;item_upgrade_core_4"
+			"03"						"item_aether_glasses_2;item_upgrade_core_3"
+			"04"						"item_aether_glasses_2;item_upgrade_core_4"
+		}
+	}
+
+	//=================================================================================================================
+	// Spell Totem
+	//=================================================================================================================
+	"item_spell_totem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3351"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_aether_lens"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+
+	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"30000"
+		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"totem"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityTextureName"            "item_scare_the_beast"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_bonus"			"300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spell_amp"				"10"
+			}
+		}
+	}
