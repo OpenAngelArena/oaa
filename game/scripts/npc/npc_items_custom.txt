@@ -13982,6 +13982,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"700"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -14055,6 +14060,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"700"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -14124,6 +14134,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65"
 			}
 		}
 	}
@@ -14824,8 +14839,8 @@
 			}
 			"06"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_percent"				"0.5 0.8"
+				"var_type"				"FIELD_INTEGER"
+				"heal_percent"				"50 80"
 			}
 
 
@@ -14920,8 +14935,8 @@
 			}
 			"06"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_percent"				"0.5 0.8"
+				"var_type"				"FIELD_INTEGER"
+				"heal_percent"				"50 80"
 			}
 		}
 	}
@@ -18621,14 +18636,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"block_amount"			"150"
 			}
-
-
-
-
-
-
-
-
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65"
+			}
 		}
 	}
    
@@ -21997,7 +22009,7 @@
 		"ItemResult"					"item_shivas_rush"
 		"ItemRequirements"
 		{
-			"01"						"item_shivas_guard_3;item_force_staff;item_combiner;item_recipe_force_staff"
+			"01"						"item_shivas_guard_3;item_ancient_janggo_of_endurance;item_combiner;item_recipe_force_staff"
 		}
 	}
 	
@@ -22084,16 +22096,54 @@
 				"var_type"				"FIELD_INTEGER"
 				"blast_speed"			"350"
 			}
-			// Force Staff Parameters
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"push_length"			"600"
-			}
+			// Drums Parameters
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_str"         "6 10"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_agi"         "3 5"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"          "3 5"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_mana_regen"      "50 75"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_aura_movement_speed" "20 25"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed_pct"    "25 30"
+            }
+            "16"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed_pct"  "13 15"
+            }
+            "17"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "6"
+            }
+            "18"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "900"
+            }
 		}
 	}
-
-
 	"item_recipe_shivas_rush_2"
 	{
 		// General
@@ -22192,12 +22242,52 @@
 				"var_type"				"FIELD_INTEGER"
 				"blast_speed"			"350"
 			}
-			// Force Staff Parameters
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"push_length"			"600"
-			}
+			// Drums Parameters
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_str"         "6 10"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_agi"         "3 5"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"          "3 5"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_mana_regen"      "50 75"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_aura_movement_speed" "20 25"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed_pct"    "25 30"
+            }
+            "16"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed_pct"  "13 15"
+            }
+            "17"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "duration"              "6"
+            }
+            "18"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "900"
+            }
 		}
 	}
 	//=================================================================================================================
@@ -22278,27 +22368,27 @@
 				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
 			}
 			// Glimmer Cape Parameters
-			"01"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25 28"
 			}
-			"02"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_magical_armor"	"15 20"
 			}
-			"03"
+			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"fade_delay"				"0.6"
 			}
-			"04"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"active_magical_armor"	"30 35"
 			}
-			"05"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"	"5"
@@ -22377,27 +22467,27 @@
 				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
 			}
 			// Glimmer Cape Parameters
-			"01"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25 28"
 			}
-			"02"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_magical_armor"	"15 20"
 			}
-			"03"
+			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"fade_delay"				"0.6"
 			}
-			"04"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"active_magical_armor"	"30 35"
 			}
-			"05"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"	"5"
@@ -24415,62 +24505,84 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "9 15 20"
+                "bonus_damage"          "22 24"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "25 28 32"
+                "bonus_attack_speed"    "32 34"
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_armor"           "5 6 7"
+                "bonus_armor"           "35 40"
             }
             "04"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_health_regen"    "7 9 11"
+                "bonus_health_regen"    "12 14"
             }
+            // Shivas Guard Parameters
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_damage"   "31 40 55"
+                "bonus_intellect"       "75 80"
             }
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_attack_speed" "0"
+                "aura_radius"           "900"
             }
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_strength" "25 30 35"
+                "aura_attack_speed"     "-55"
             }
             "08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_armor"    "4 5 6"
+                "blast_damage"          "500 600"
             }
             "09"
             {
                 "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_tick"  "5 6 7"
-            }      
+                "blast_movement_speed"  "-45 -50"
+            }
             "10"
             {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_second_tooltip"    "45 54 63"
-            }  
+                "var_type"              "FIELD_FLOAT"
+                "blast_debuff_duration" "4.0"
+            }
             "11"
             {
+                "var_type"              "FIELD_INTEGER"
+                "blast_radius"          "300"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blast_speed"           "350"
+            }
+            // Stoneskin stuff
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_armor"           "80 130"
+            }
+            "14"
+            {
+
                 "var_type"              "FIELD_FLOAT"
-                "toggle_cooldown"       "0.036f"
-            }  
+                "bonus_magic_resist"           "0.2 0.4"
+            }
+            "15"
+            {
+
+                "var_type"              "FIELD_FLOAT"
+                "bonus_ice_armor_slow"           "-0.4 -0.4"
+            }
         }
     }
- 
-
    "item_recipe_stoneskin_2"
     {
  
@@ -24541,85 +24653,65 @@
                 "var_type"              "FIELD_INTEGER"
                 "bonus_health_regen"    "12 14"
             }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_damage"   "60 75"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_attack_speed" "0"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_strength" "40 45"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_armor"    "20 25"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_tick"  "8 9"
-            }      
-            "10"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_second_tooltip"    "65 68"
-            }  
-            "11"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "toggle_cooldown"       "0.036f"
-            }  
-
             // Shivas Guard Parameters
-            "12"
+            "05"
             {
                 "var_type"              "FIELD_INTEGER"
                 "bonus_intellect"       "75 80"
             }
-            "14"
+            "06"
             {
                 "var_type"              "FIELD_INTEGER"
                 "aura_radius"           "900"
             }
-            "15"
+            "07"
             {
                 "var_type"              "FIELD_INTEGER"
                 "aura_attack_speed"     "-55"
             }
-            "16"
+            "08"
             {
                 "var_type"              "FIELD_INTEGER"
                 "blast_damage"          "500 600"
             }
-            "17"
+            "09"
             {
                 "var_type"              "FIELD_INTEGER"
                 "blast_movement_speed"  "-45 -50"
             }
-            "18"
+            "10"
             {
                 "var_type"              "FIELD_FLOAT"
                 "blast_debuff_duration" "4.0"
             }
-            "19"
+            "11"
             {
                 "var_type"              "FIELD_INTEGER"
                 "blast_radius"          "300"
             }
-            "20"
+            "12"
             {
                 "var_type"              "FIELD_INTEGER"
                 "blast_speed"           "350"
             }
+            // Stoneskin stuff            
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_armor"           "80 130"
+            }
+            "14"
+            {
 
+                "var_type"              "FIELD_FLOAT"
+                "bonus_magic_resist"           "0.2 0.4"
+            }
+            "15"
+            {
 
+                "var_type"              "FIELD_FLOAT"
+                "bonus_ice_armor_slow"           "-0.4 -0.4"
+            }
         }
     }
 	//=================================================================================================================
