@@ -17,32 +17,12 @@ function Duels:Init ()
   Duels.zone1 = ZoneControl:CreateZone('duel_1', {
     mode = ZONE_CONTROL_INCLUSIVE,
     players = {
-      [0] = false,
-      [1] = false,
-      [2] = false,
-      [3] = false,
-      [4] = false,
-      [5] = false,
-      [6] = false,
-      [7] = false,
-      [8] = false,
-      [9] = false
     }
   })
 
   Duels.zone2 = ZoneControl:CreateZone('duel_2', {
     mode = ZONE_CONTROL_INCLUSIVE,
     players = {
-      [0] = false,
-      [1] = false,
-      [2] = false,
-      [3] = false,
-      [4] = false,
-      [5] = false,
-      [6] = false,
-      [7] = false,
-      [8] = false,
-      [9] = false
     }
   })
 end
