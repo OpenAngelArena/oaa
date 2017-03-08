@@ -1,43 +1,18 @@
-//=================================================================================================================
-	// Recipe: Charge BKB
 	//=================================================================================================================
-	"item_recipe_charge_bkb"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_charge_bkb"
-		"ItemRequirements"
-		{
-			"01"						"item_magic_wand;item_black_king_bar"
-		}
-	}
-	
-	//=================================================================================================================
-	// Charge BKB (based off Magic Wand)
+	// Charge BKB (based off a combination of Magic Wand & BKB effects)
+	// Version 1.02 implimented with charge_bkb.lua script by RamonNZ
 	//=================================================================================================================
 	"item_charge_bkb"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_black_king_bar"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityTextureName"            "item_black_king_bar"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0"
+		"AbilityCooldown"				"13.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges anyway, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
 		"AbilitySharedCooldown"			"bkb"
 		"AbilityCastRange"				"1200"
 
@@ -49,42 +24,147 @@
 		"ItemAliases"					"charge bkb"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"4"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm.
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"17"
+				"bonus_strength"		"14"		//RamonNZ: BKB + added wand +4
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1200"
+				"bonus_damage"			"24"		
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"4"
+				"duration"				"0.1"		//RamonNZ: Leave as a placeholder please, and do not edit. This duration key is overwritten based on number of charges, but the lua script doesn't seem to be able to lessen the duration if you make it high.
 			}
-			// BKB
-
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"10"
+				"max_charges"			"17"		//RamonNZ: Based on wand, seems fair, not that you'll realistically get much more than 5 or so with the charge decay.
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24"
+				"charge_radius"			"1200"		//RamonNZ: Wand gain charge radius.
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"model_scale"			"30"     // Percentage over model scale
+				"bonus_all_stats"		"4"			//RamonNZ: Because its combined with a wand
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"restore_per_charge"	"15"		//RamonNZ: If used - keeping the functionality of wand restore as well, because it makes sense. Set to 0 if not wanted.
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_decay_time"		"20"		//RamonNZ: New KV - Charges will decay by -1 at this time interval.
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"immunity_time_per_charge"	"2"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated.
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName" "modifier_charge_bkb_spell_immunity"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"items/charge_bkb.lua"
+				"Function"				"modifier_charge_bkb_on_spell_start"
+				"RestorePerCharge"		"%restore_per_charge"
+				"ChargeImmunityTime"	"%immunity_time_per_charge"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.BlackKingBar.Activate"
+				"Target"        "CASTER"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_charge_bkb_spell_immunity"
+			{
+				"IsBuff"           		"1"	      
+				"Duration"				"%duration"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"	
+//				"EffectAttachType"		"follow_origin"
+				"EffectAttachType"      "PATTACH_ABSORIGIN"
+				"Target"        		"CASTER"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		
+			"modifier_charge_bkb_passives"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%bonus_damage"
+				}
+			
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/charge_bkb.lua"
+						"Function"				"modifier_charge_bkb_on_created"
+						"ChargeDecayTime"		"%charge_decay_time"
+					}
+				}
+			}
+			"modifier_charge_bkb_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Aura" 					"modifier_charge_bkb_aura"
+				"Aura_Radius" 			"%charge_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" 	"0"
+			}
+			"modifier_charge_bkb_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsPurgable"		"0"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/charge_bkb.lua"
+						"Function"				"modifier_charge_bkb_aura_on_ability_executed"
+						"MaxCharges"			"%max_charges"
+						"ChargeDecayTime"		"%charge_decay_time"
+					}
+				}
 			}
 		}
 	}
