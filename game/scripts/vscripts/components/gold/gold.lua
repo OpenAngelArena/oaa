@@ -21,7 +21,7 @@ function Gold:Init()
   }, {0,1,2,3,4,5,6,7,8,9})
 
     -- start think timer
-  Timers:CreateTimer(0, Dynamic_Wrap(Gold, "Think"))
+  Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)
