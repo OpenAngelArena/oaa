@@ -8,7 +8,7 @@
 		"BaseClass"					"npc_dota_broodmother_spiderling"	// Class of entity of link to.
 		"Model"						"models/heroes/broodmother/spiderling.vmdl"	// Model.
 		"SoundSet"					"0"					// Name of sound set.
-		"ModelScale"				"0.46"								// old 0.7
+		"ModelScale"				"0.6"								// old 0.7
 		"Level"						"2"
 		"IsSummoned"				"1"
 		"SelectionGroup"			"Spiderite"
@@ -35,8 +35,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"18"		// Damage range min.
-		"AttackDamageMax"			"20"		// Damage range max.
+		"AttackDamageMin"			"36"		// Damage range min.
+		"AttackDamageMax"			"40"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.675"		// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
@@ -64,8 +64,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"350"		// Base health.
-		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
+		"StatusHealth"				"900"		// Base health.
+		"StatusHealthRegen"			"3.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
