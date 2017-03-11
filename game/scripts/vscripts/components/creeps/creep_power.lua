@@ -9,7 +9,13 @@ CreepPowerTable = {
 
 function AddScaleValue (minute)
   table.insert(CreepPowerTable, {
-    minute, (minute ^ 2 / 100) + 1, minute, (minute / 10) + 1, minute ^ 0.5, (minute / 2) + 1, (3 * (minute^2) + (19 * minute) + 89)/89
+    minute,                                   -- minute
+    (minute ^ 2 / 75) + 1,                    -- hp
+    minute,                                   -- mana
+    (minute / 10) + 1,                        -- damage
+    minute ^ 0.5,                             -- armor
+    (minute / 2) + 1,                         -- gold
+    (3 * (minute^2) + (19 * minute) + 89)/89  -- xp
   })
 end
 

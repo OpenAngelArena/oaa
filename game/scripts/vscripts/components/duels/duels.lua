@@ -251,6 +251,10 @@ function Duels:EndDuel ()
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId)
     Duels.zone2.removePlayer(playerId)
+    local player = PlayerResource:GetPlayer(state.id)
+    if player ~= nil then
+      player:GetAssignedHero():SetRespawnsDisabled(false)
+    end
   end
 
   local currentDuel = Duels.currentDuel
@@ -259,6 +263,7 @@ function Duels:EndDuel ()
   Timers:CreateTimer(1, function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
+      DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
