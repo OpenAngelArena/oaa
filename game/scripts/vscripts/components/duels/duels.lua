@@ -5,8 +5,8 @@ if Duels == nil then
 
   -- debugging lines, enable logging and enable chat commands to start/stop duels
 
-  -- Debug.EnabledModules['duels:*'] = true
-  -- Debug.EnabledModules['zonecontrol:*'] = true
+  Debug.EnabledModules['duels:*'] = true
+  Debug.EnabledModules['zonecontrol:*'] = true
 
   -- ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   -- ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
@@ -15,7 +15,6 @@ end
 --[[
  TODO: Refactor this file into a few modules so that there's less of a wall of code here
 ]]
-
 
 function Duels:Init ()
   DebugPrint('Init duels')
@@ -37,7 +36,7 @@ function Duels:Init ()
     Duels:CheckDuelStatus(keys)
   end)
 
-  Timers:CreateTimer(5, function ()
+  Timers:CreateTimer(1, function ()
     Duels:StartDuel()
   end)
 end
@@ -77,6 +76,22 @@ function Duels:StartDuel ()
     DebugPrint ('There is already a duel running')
     return
   end
+  Duels.currentDuel = true
+
+  Notifications:TopToAll({text="A duel will start in 10 seconds!", duration=5.0})
+  for index = 1,5 do
+    Timers:CreateTimer(4 + index, function ()
+      Notifications:TopToAll({text=(6 - index), duration=1.0})
+    end)
+  end
+
+  Timers:CreateTimer(10, function ()
+    Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    Duels:ActuallyStartDuel()
+  end)
+end
+
+function Duels:ActuallyStartDuel ()
   -- respawn everyone
   local goodPlayerIndex = 1
   local badPlayerIndex = 1
@@ -120,7 +135,7 @@ function Duels:StartDuel ()
 
   if maxPlayers < 1 then
     DebugPrint('There aren\'t enough players to start the duel')
-    ShowMessage('There aren\'t enough players to start the duel')
+    Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     return
   end
 
@@ -203,7 +218,7 @@ end
 function Duels:MoveCameraToPlayer (playerId, entity)
   PlayerResource:SetCameraTarget(playerId, entity)
 
-  Timers:CreateTimer(2.5, function ()
+  Timers:CreateTimer(1, function ()
     PlayerResource:SetCameraTarget(playerId, nil)
   end)
 end
@@ -224,7 +239,14 @@ function Duels:EndDuel ()
     return
   end
 
-  Timers:CreateTimer(300, Dynamic_Wrap(Duels, 'StartDuel'))
+  DebugPrint('Duel has ended')
+
+  local nextDuelIn = 65
+  -- why dont these run?
+  Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
+  Timers:CreateTimer(nextDuelIn - 50, function ()
+    Notifications:TopToAll({text="A duel will start in 1 minute!", duration=10.0})
+  end)
 
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId)
@@ -236,7 +258,7 @@ function Duels:EndDuel ()
 
   Timers:CreateTimer(1, function ()
     Duels:AllPlayers(currentDuel, function (state)
-      DebugPrintTable(state)
+      -- DebugPrintTable(state)
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
