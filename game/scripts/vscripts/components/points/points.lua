@@ -1,11 +1,13 @@
 -- Taken from bb template
 if PointsManager == nil then
-  DebugPrint ( '[points/points] Creating new PointsManager object.' )
+  Debug.EnabledModules['points:*'] = true
+
+  DebugPrint ( 'Creating new PointsManager object.' )
   PointsManager = class({})
 end
 
 function PointsManager:Init ()
-  DebugPrint ( '[points/points] Initializing.' )
+  DebugPrint ( 'Initializing.' )
 
   PointsManager.haveBadguysWon = false
   PointsManager.haveGoodguysWon = false
@@ -27,52 +29,45 @@ function PointsManager:Init ()
   CustomNetTables:SetTableValue( 'team_scores', 'score', { goodguys = 0,
                                                            badguys = 0
                                                          })
-
-  -- Start Thinking
-  Timers:CreateTimer( 0, Dynamic_Wrap( PointsManager, 'Think' ) )
 end
 
-function PointsManager:Think ( )
-  --DebugPrint('[points/points] Thinking..')
-
-  local interval = 5 -- when do we want to check for win conditions
-  local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
-  local scores = CustomNetTables:GetTableValue('team_scores', 'score')
-  local goodguys = scores.goodguys
-  local badguys = scores.badguys
-
-  --DebugPrintTable( limit )
-  --DebugPrintTable( scores )
-  --DebugPrint( 'haveGoodguysWon: ' .. tostring( PointsManager.haveGoodguysWon ) )
-  --DebugPrint( 'haveBadguysWon: ' .. tostring( PointsManager.haveBadguysWon ) )
-
+function PointsManager:CheckWinCondition ( scores )
   if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then
     return
   end
+
+  local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
+  local goodguys = scores.goodguys
+  local badguys = scores.badguys
+
+  DebugPrint (math.max(goodguys, badguys) .. ' / ' .. limit)
 
   if goodguys >= limit then
     PointsManager:handleVictory( PointsManager.goodguysName )
   elseif badguys >= limit then
     PointsManager:handleVictory( PointsManager.badguysName )
   end
-
-  return interval
 end
 
 function PointsManager:handleVictory ( side )
-  DebugPrint( '[points/points] ' .. side .. ' wins!' )
+  DebugPrint( side .. ' wins!' )
+  local winner = nil
 
   if side == PointsManager.goodguysName then
     PointsManager.haveGoodguysWon = true
-    GameRules:SetGameWinner( PointsManager.goodguysID )
+    winner = PointsManager.goodguysID
   elseif side == PointsManager.badguysName then
     PointsManager.haveBadguysWon = true
-    GameRules:SetGameWinner( PointsManager.badguysID )
+    winner = PointsManager.badguysID
   end
+
+  Timers:CreateTimer(1, function()
+    GameRules:SetGameWinner( winner )
+  end)
 end
 
 function PointsManager:SetPoints ( side, newPoints )
-  --DebugPrint('[points/points] Set Score of ' .. side .. ' to ' .. newScore .. '.')
+  DebugPrint('Set Score of ' .. side .. ' to ' .. newScore .. '.')
 
   local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
 
@@ -83,6 +78,7 @@ function PointsManager:SetPoints ( side, newPoints )
   end
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', score )
+  PointsManager:CheckWinCondition(score)
 end
 
 function PointsManager:AddPoints ( side, amount )
@@ -90,15 +86,20 @@ function PointsManager:AddPoints ( side, amount )
     amount = 1
   end
 
-  --DebugPrint( '[points/points] Increase Score of ' .. side .. ' by ' .. amount .. '.' )
+  DebugPrint( 'Increase Score of ' .. side .. ' by ' .. amount .. '.' )
 
   local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
 
-  if side == PointsManager.goodguysName then
+  DebugPrintTable(score)
+
+  if side == PointsManager.goodguysName or side == PointsManager.goodguysID then
     score.goodguys = score.goodguys + amount
-  elseif side == PointsManager.badguysName then
+  elseif side == PointsManager.badguysName or side == PointsManager.badguysID then
     score.badguys = score.badguys + amount
+  else
+    DebugPrint('What is ' .. side)
   end
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', score )
+  PointsManager:CheckWinCondition(score)
 end

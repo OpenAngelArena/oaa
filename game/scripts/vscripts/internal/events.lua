@@ -79,6 +79,10 @@ function GameMode:_OnEntityKilled( keys )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS) )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
     end
+
+    if killerEntity:IsRealHero() then
+      GameMode:OnHeroKilled(killerEntity, killedUnit)
+    end
   end
 
   GameMode._reentrantCheck = true
