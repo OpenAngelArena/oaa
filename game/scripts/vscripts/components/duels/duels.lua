@@ -241,7 +241,7 @@ function Duels:EndDuel ()
 
   DebugPrint('Duel has ended')
 
-  local nextDuelIn = 65
+  local nextDuelIn = 300
   -- why dont these run?
   Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
   Timers:CreateTimer(nextDuelIn - 50, function ()
