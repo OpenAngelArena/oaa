@@ -40,11 +40,11 @@ First, follow the [Installation Process](/docs/install.md) but stop when you get
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
-Forking creates a simultaneous instance of aaa within your own GitHub repository.
+Forking creates a simultaneous instance of oaa within your own GitHub repository.
 - Goto angelarenaallstars/oaa.
 - Click Fork
-- Choose where to Fork: Fork angelarenaallstars/oaa to YOURUSERNAME/aaa
-- Done! If you go to `GitHub.com/YOURUSERNAME/aaa` you'll see your own fork of [angelarenaallstars/oaa].
+- Choose where to Fork: Fork angelarenaallstars/oaa to YOURUSERNAME/oaa
+- Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [angelarenaallstars/oaa].
 
 ## Cloning
 Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
@@ -56,7 +56,7 @@ Now just Clone your Fork to your computer We do this using the GitHub client. Yo
 - Click Save.
 - Click on the "+" in the upper left corner.
 - Select Clone.
-- Select your Account and the forked `aaa` repository.
+- Select your Account and the forked `oaa` repository.
 - Verify Clone to your repo.
 Now we should have a local copy of your fork of [angelarenaallstars/oaa]
 
@@ -65,10 +65,10 @@ Git Power Shell enables you to control Git using a variety of commands. You can 
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
-  - Right-Click on your repository at 'GitHub.com/YOURUSERNAME/aaa' and select `Open in Git Shell`
+  - Right-Click on your repository at 'GitHub.com/YOURUSERNAME/oaa' and select `Open in Git Shell`
 
  
-## Finish Installing AAA
+## Finish Installing oaa
 Continue the [Installation Process](/docs/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
 
 ## Getting Started
@@ -79,8 +79,8 @@ To be able to work on your own stuff but still have all the newest changes and t
 Let's first look at the different remotes we have by typing 'git remote -v':
   ```
    git remote -v
-  origin  https://GitHub.com/YOURUSERNAME/aaa (fetch)
-  origin  https://GitHub.com/YOURUSERNAME/aaa (push)
+  origin  https://GitHub.com/YOURUSERNAME/oaa (fetch)
+  origin  https://GitHub.com/YOURUSERNAME/oaa (push)
   ```
 We start out with one remote named "origin". That's our Fork that we made from before.
 
@@ -96,7 +96,7 @@ In order to stay up-to-date with the official angelarenaallstars/oaa (the offici
   Already up-to-date.
   ```
 ### Pushing
-When updating, the newest changes are downloaded from angelarenaallstars/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/aaa on GitHub:
+When updating, the newest changes are downloaded from angelarenaallstars/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/oaa on GitHub:
 ```
  git push
 Everything up-to-date
@@ -141,7 +141,7 @@ Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 600 bytes | 0 bytes/s, done.
 Total 4 (delta 3), reused 0 (delta 0)
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To https://GitHub.com/Chronophylos/aaa
+To https://GitHub.com/Chronophylos/oaa
    1554bf2..3be214d  GitHub-for-noobs - GitHub-for-noobs
 ```
 

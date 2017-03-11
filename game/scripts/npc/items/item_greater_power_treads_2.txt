@@ -48,8 +48,21 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "2"            
-		// "UpgradesItems"                 "item_greater_power_treads_2;item_greater_power_treads_3;item_greater_power_treads_4"
-		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		"Modifiers"
+	    {
+	        "item_greater_power_treads_cleave"
+	        {
+	            "Passive"   "1"
+	            "OnAttackLanded"
+	            {
+	                "CleaveAttack"
+	                {
+	                    "CleavePercent" "80"
+	                    "CleaveRadius"  "300"
+	                }
+	            }
+	        }
+	    }
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -75,15 +88,5 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"0"
 			}		
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_radius"			"300 300 300 300 300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"30 30 30 30 30"	
-			}
 		}
 	}

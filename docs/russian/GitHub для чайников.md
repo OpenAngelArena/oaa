@@ -46,8 +46,8 @@
 Ваши шаги для создание Fork'а AngelArenaAllstars:
 -Перейдите на angelarenaallstars/oaa
 -Нажмите кнопку "Fork"
--Выберите куда сохранять ваш Fork (Например: Fork angelarenaallstars/oaa to YOURUSERNAME/aaa).
--Готово! Теперь, если вы перейдёте на страницу 'GitHub.com/YOURUSERNAME/aaa' , то вы увидите вашу личную копию (ваш личный Fork) [angelarenaallstars/oaa] .
+-Выберите куда сохранять ваш Fork (Например: Fork angelarenaallstars/oaa to YOURUSERNAME/oaa).
+-Готово! Теперь, если вы перейдёте на страницу 'GitHub.com/YOURUSERNAME/oaa' , то вы увидите вашу личную копию (ваш личный Fork) [angelarenaallstars/oaa] .
 
 ## Cloning(клонирование):
 
@@ -60,7 +60,7 @@
 - Нажмите "Save" (сохранить настройки).
 - Нажмите на "+" в лево верхнем углу экрана.
 - Нажмите "Clone".
-- Выберите свой аккаунт и Fork'нутое хранилище `aaa`.
+- Выберите свой аккаунт и Fork'нутое хранилище `oaa`.
 - Проверьте есть ли ваш "клон" в вашем хранилище.
 Теперь у вас должна быть локальная копия вашего Fork'а для [angelarenaallstars/oaa]
 
@@ -69,9 +69,9 @@ Git Power Shell позволяет вам контролировать ваш Gi
   - С помощью ярлыка на рабочем столе (под названием Git Shell).
   - Через меню "пуск" (название то же).
   - CMD `%USERPROFILE%\AppData\Local\GitHub\GitHub.appref-ms --open-shell`
-  - ПКМ на ваше хранилище на 'GitHub.com/YOURUSERNAME/aaa' и выбрать `Open in Git Shell`
+  - ПКМ на ваше хранилище на 'GitHub.com/YOURUSERNAME/oaa' и выбрать `Open in Git Shell`
 
-  ## Завершение установки AAA:
+  ## Завершение установки oaa:
 Продолжайте [Installation Process](/docs/install.md) ,который упоминался в начале этого поста, пропуская секцию под названием "Get the Addon"
 
 ## Начало работы:
@@ -83,8 +83,8 @@ Git Power Shell позволяет вам контролировать ваш Gi
 Для начала посмотрим на различные способы управления хранилищем (доступные вам), используя команду 'git remote -v':
   ```
    git remote -v
-  origin  https://GitHub.com/YOURUSERNAME/aaa (fetch)
-  origin  https://GitHub.com/YOURUSERNAME/aaa (push)
+  origin  https://GitHub.com/YOURUSERNAME/oaa (fetch)
+  origin  https://GitHub.com/YOURUSERNAME/oaa (push)
   ```
  Первый способ называется "origin". Это наш Fork ,который мы создали ранее.
 
@@ -101,7 +101,7 @@ Git Power Shell позволяет вам контролировать ваш Gi
   ```
 
 ### Pushing
-При обновлении, самые последние изменения загружаются с angelarenaallstars/oaa в нашу [local] [master] [branch]. Теперь Push'те их в ваше хранилище YOURUSERNAME/aaa на GitHub:
+При обновлении, самые последние изменения загружаются с angelarenaallstars/oaa в нашу [local] [master] [branch]. Теперь Push'те их в ваше хранилище YOURUSERNAME/oaa на GitHub:
 ```
   Git push
 Everything up-to-date
@@ -146,7 +146,7 @@ Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 600 bytes | 0 bytes/s, done.
 Total 4 (delta 3), reused 0 (delta 0)
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-To https://GitHub.com/Chronophylos/aaa
+To https://GitHub.com/Chronophylos/oaa
    1554bf2..3be214d  GitHub-for-noobs - GitHub-for-noobs
 ```
 

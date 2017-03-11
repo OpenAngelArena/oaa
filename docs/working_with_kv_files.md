@@ -16,8 +16,8 @@ Atom (free software)
 - Easy online Sample Debugger for KV language.
 
 ### Git/Github (free software)
-Git is a version control system (VCS) used in the AAA project as a way of updating everyone's game as work is done ("aaa" sending game-data downstream to users) and as a way to receive contributors' work (users sending game-data upstream to "aaa")
-Github is an app/website used to manage "aaa"s files.
+Git is a version control system (VCS) used in the oaa project as a way of updating everyone's game as work is done ("oaa" sending game-data downstream to users) and as a way to receive contributors' work (users sending game-data upstream to "oaa")
+Github is an app/website used to manage "oaa"s files.
 
 ### Node.js (custom software)
 For compiling lots of KeyValue files into a single file (such as with npc data found in the /npc directory)
@@ -77,7 +77,7 @@ Here's a very simplified breakdown of what you should expect to see when you loo
 ## Workflow
 
 ### Setup
-Ideally you should use Git to create your own development branch (see Git tutorial). This way you can change any files you want without disturbing your master copy of aaa.
+Ideally you should use Git to create your own development branch (see Git tutorial). This way you can change any files you want without disturbing your master copy of oaa.
 
 ### Author
 When making KV files, you should always start with a valid, up-to-date template, many of which can be found at www.ModDota.com. 
@@ -88,8 +88,8 @@ When you think you've got your files the way you want, run Node.js and gulp. Thi
 ### Debug
 Copy the contents of the KeyValue file you wish to debug into arhowk.github.io. Fix any errors in the *individual KV files* not in the compiled file. Once you've fixed all the errors, gulp again. This will put the updated KV files into the compiled form again.
 
-### Test in aaa
-Launch Dota 2 Tools; Load "aaa" addon; Load Console by pressing "~"; Launch the addon using the following command:
+### Test in oaa
+Launch Dota 2 Tools; Load "oaa" addon; Load Console by pressing "~"; Launch the addon using the following command:
 ```
-"dota_launch_custom_game aaa aaa"
+"dota_launch_custom_game oaa oaa"
 ```
