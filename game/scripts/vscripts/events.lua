@@ -240,9 +240,11 @@ function GameMode:OnTeamKillCredit(keys)
   local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
   local numKills = keys.herokills
   local killerTeamNumber = keys.teamnumber
+end
 
+function GameMode:OnHeroKilled (killerEntity, killedUnit)
   -- Increment Points
-    PointsManager:AddPoints(GetTeamName(killerTeamNumber))
+  PointsManager:AddPoints(killerEntity:GetTeam())
 end
 
 -- An entity died
