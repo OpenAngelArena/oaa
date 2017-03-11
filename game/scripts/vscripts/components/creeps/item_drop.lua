@@ -6,7 +6,7 @@ if CreepItemDrop == nil then
 end
 
 --item power level defines what items drop at given time
-local ItemPowerLevel = 1.0 
+local ItemPowerLevel = 1.0
 
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
 local DROP_CHANCE = 0.35
@@ -27,9 +27,9 @@ local RARITY_ENUM = 4
 --it is possible to define the same item twice, for maximum flexibility
 ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
-  { "item_clarity",             -1,      -1,      5},  
+  { "item_clarity",             -1,      -1,      5},
   { "item_enchanted_mango",     -1,      -1,      13},
-  { "item_bottle",              12,      -1,      1}, 
+  { "item_bottle",              12,      -1,      1},
   { "item_tango_single",        -1,      18,      2}
 }
 
@@ -57,6 +57,10 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   newItem:SetPurchaseTime(0)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+  Timers:CreateTimer(3, function ()
+    --newItem:GetContainer():Destroy()
+    newItem:GetContainer():RemoveSelf()
+  end)
 end
 
 function CreepItemDrop:OnEntityKilled (event)
@@ -79,11 +83,11 @@ function CreepItemDrop:RandomDropItemName( property_enum, powerLevel )
     return ""
   end
 
-  --now iterate through item power table and see which items qualify for  
+  --now iterate through item power table and see which items qualify for
   local totalChancePool = 0.0
   local filteredItemTable = {}
 
-  for i=1, #ItemPowerTable do 
+  for i=1, #ItemPowerTable do
     local from = ItemPowerTable[i][FROM_ENUM]
     local to = ItemPowerTable[i][TO_ENUM]
     local rarity = ItemPowerTable[i][RARITY_ENUM]
