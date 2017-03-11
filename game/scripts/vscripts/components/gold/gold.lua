@@ -77,6 +77,7 @@ function Gold:Think()
         if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
           Gold:SetGold(i, newGold)
           PlayerResource:SetGold(i, newDotaGold, false)
+          PlayerResource:SetGold(i, 0, true)
         end
       end
     end
