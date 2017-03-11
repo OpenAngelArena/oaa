@@ -25,6 +25,44 @@ function Duels:Init ()
     players = {
     }
   })
+
+  GameEvents:OnHeroKilled(function (keys)
+    Duels:CheckDuelStatus(keys)
+  end)
+
+  Timers:CreateTimer(5, function ()
+    Duels:StartDuel()
+  end)
+end
+
+function Duels:CheckDuelStatus (keys)
+  if not Duels.currentDuel then
+    return
+  end
+
+  local playerId = keys.killed:GetPlayerOwnerID()
+  local foundIt = false
+
+  Duels:AllPlayers(Duels.currentDuel, function (player)
+    if foundIt or player.id ~= playerId then
+      return
+    end
+    foundIt = true
+    local scoreIndex = player.team .. 'Living' .. player.duelNumber
+    DebugPrint('Found dead player on ' .. player.team .. ' team with scoreindex ' .. scoreIndex)
+
+    Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] - 1
+
+    if Duels.currentDuel[scoreIndex] <= 0 then
+      Duels.currentDuel['duelEnd' .. player.duelNumber] = true
+      DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
+    end
+
+    if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then
+      DebugPrint('both duels are over, resuming normal play!')
+      Duels:EndDuel()
+    end
+  end)
 end
 
 function Duels:StartDuel ()
@@ -45,11 +83,13 @@ function Duels:StartDuel ()
       if player:GetTeam() == 3 then
         badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
         badPlayers[badPlayerIndex].id = playerId
+        badPlayers[badPlayerIndex].team = 'bad'
         badPlayerIndex = badPlayerIndex + 1
 
       elseif player:GetTeam() == 2 then
         goodPlayers[goodPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
         goodPlayers[goodPlayerIndex].id = playerId
+        goodPlayers[goodPlayerIndex].team = 'good'
         goodPlayerIndex = goodPlayerIndex + 1
 
       end
@@ -74,7 +114,8 @@ function Duels:StartDuel ()
     return
   end
 
-  local playerSplitOffset = math.random(1, maxPlayers)
+  -- local playerSplitOffset = math.random(1, maxPlayers)
+  local playerSplitOffset = maxPlayers
   local spawnLocations = math.random(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_1_spawn_2'):GetAbsOrigin()
@@ -91,6 +132,9 @@ function Duels:StartDuel ()
     local badGuy = Duels:GetUnassignedPlayer(badPlayers, badPlayerIndex)
     local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
     local badPlayer = PlayerResource:GetPlayer(badGuy.id)
+
+    goodGuy.duelNumber = 1
+    badGuy.duelNumber = 1
 
     FindClearSpaceForUnit(goodPlayer:GetAssignedHero(), spawn1, true)
     FindClearSpaceForUnit(badPlayer:GetAssignedHero(), spawn2, true)
@@ -118,6 +162,9 @@ function Duels:StartDuel ()
     local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
     local badPlayer = PlayerResource:GetPlayer(badGuy.id)
 
+    goodGuy.duelNumber = 2
+    badGuy.duelNumber = 2
+
     FindClearSpaceForUnit(goodPlayer:GetAssignedHero(), spawn1, true)
     FindClearSpaceForUnit(badPlayer:GetAssignedHero(), spawn2, true)
 
@@ -129,28 +176,31 @@ function Duels:StartDuel ()
   end
 
   Duels.currentDuel = {
+    goodLiving1 = playerSplitOffset,
+    badLiving1 = playerSplitOffset,
+    goodLiving2 = maxPlayers - playerSplitOffset,
+    badLiving2 = maxPlayers - playerSplitOffset,
+    duelEnd2 = maxPlayers == playerSplitOffset,
     badPlayers = badPlayers,
     goodPlayers = goodPlayers,
     badPlayerIndex = badPlayerIndex,
     goodPlayerIndex = goodPlayerIndex
   }
 
-  Timers:CreateTimer(60, Dynamic_Wrap(Duels, 'EndDuel'))
+  Timers:CreateTimer(90, Dynamic_Wrap(Duels, 'EndDuel'))
 end
 
 function Duels:MoveCameraToPlayer (playerId, entity)
   PlayerResource:SetCameraTarget(playerId, entity)
 
-  Timers:CreateTimer(2, function ()
+  Timers:CreateTimer(2.5, function ()
     PlayerResource:SetCameraTarget(playerId, nil)
   end)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
-  DebugPrint('max value is ' .. max)
   while true do
     local playerIndex = math.random(1, max)
-    DebugPrint('Does a player exist at position ' .. playerIndex)
     if group[playerIndex].assigned == nil then
       group[playerIndex].assigned = true
       return group[playerIndex]
@@ -162,6 +212,8 @@ function Duels:EndDuel ()
   if Duels.currentDuel == nil then
     DebugPrint ('There is no duel running')
   end
+
+  Timers:CreateTimer(300, Dynamic_Wrap(Duels, 'StartDuel'))
 
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId)
@@ -175,11 +227,14 @@ function Duels:EndDuel ()
     Duels:AllPlayers(currentDuel, function (state)
       DebugPrintTable(state)
       local player = PlayerResource:GetPlayer(state.id)
-      Duels:RestorePlayerState (player:GetAssignedHero(), state)
-      Duels:MoveCameraToPlayer(state.id, player)
+      local hero = player:GetAssignedHero()
+      hero:SetRespawnsDisabled(false)
+      hero:RespawnUnit()
+
+      Duels:RestorePlayerState (hero, state)
+      Duels:MoveCameraToPlayer(state.id, hero)
     end)
   end)
-
 end
 
 function Duels:ResetPlayerState (hero)
@@ -240,7 +295,6 @@ function Duels:AllPlayers (state, cb)
       end
     end
   else
-    DebugPrint('player index ' .. state.badPlayerIndex)
     for playerIndex = 1,state.badPlayerIndex do
       if state.badPlayers[playerIndex] ~= nil then
         cb(state.badPlayers[playerIndex])

@@ -13,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- functional event implementation
+require('libraries/event')
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
