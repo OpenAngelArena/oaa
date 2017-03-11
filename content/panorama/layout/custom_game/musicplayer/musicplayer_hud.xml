@@ -1,0 +1,23 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/musicplayer_hud.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/musicplayer.js" />
+  </scripts>
+  <Panel class="MusicPlayerContainer_Hud" hittest="false" >
+    <Panel id="MusicPlayer_Background"></Panel>
+    <Panel class="MusicPlayerC1" onmouseover="AddStyle(MusicPlayer_MouseOver)" onmouseout="RemoveStyle(MusicPlayer_MouseOver)">
+      <Panel id="MusicPlayer_ToggleMusic_Bg"></Panel>
+      <Panel id="MusicPlayer_ToggleMusic" onactivate="onToggleMusic()"></Panel>
+
+    </Panel>
+    <Panel class="MusicPlayerC2">
+      <Panel id="MusicPlayer_Display" hittest="false" >
+        <Label id="Title" text="title"></Label>
+        <Label id="Artist" text="artist"></Label>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

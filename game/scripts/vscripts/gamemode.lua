@@ -163,6 +163,8 @@ function GameMode:InitGameMode()
 
   InitModule(GameLengthVotes)
 
+  InitModule(MusicPlayerControl)
+
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 

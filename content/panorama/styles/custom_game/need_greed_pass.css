@@ -1,9 +1,12 @@
 .NeedGreedPass
 {
-  height: 100%;
-  width: 100%;
   vertical-align: bottom;
-  padding-bottom: 250px;
+  margin-bottom: 294px;
+}
+
+.MinimapExtraLarge .NeedGreedPass
+{
+  margin-bottom: 330px;
 }
 #NeedGreedPassSlider
 {

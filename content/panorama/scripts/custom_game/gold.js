@@ -15,7 +15,7 @@ var console = {
 var useFormatting = 'half';
 
 (function () {
-  PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
+  //PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
 }());
 
 

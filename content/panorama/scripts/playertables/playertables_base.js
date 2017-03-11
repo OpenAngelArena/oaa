@@ -229,7 +229,6 @@ function DeleteTableKeys(msg)
 
 (function(){
   GameUI.CustomUIConfig().PlayerTables = PlayerTables;
-
   SendPID();
 
   GameEvents.Subscribe( "pt_fu", TableFullUpdate);
