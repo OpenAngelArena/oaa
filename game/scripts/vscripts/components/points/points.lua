@@ -29,6 +29,11 @@ function PointsManager:Init ()
   CustomNetTables:SetTableValue( 'team_scores', 'score', { goodguys = 0,
                                                            badguys = 0
                                                          })
+
+  GameEvents:OnHeroKilled(function (keys)
+    -- increment points
+    PointsManager:AddPoints(keys.killer:GetTeam())
+  end)
 end
 
 function PointsManager:CheckWinCondition ( scores )

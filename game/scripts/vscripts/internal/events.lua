@@ -81,7 +81,9 @@ function GameMode:_OnEntityKilled( keys )
     end
 
     if killerEntity:IsRealHero() then
-      GameMode:OnHeroKilled(killerEntity, killedUnit)
+      keys.killer = killerEntity
+      keys.killed = killedUnit
+      GameMode:OnHeroKilled(keys)
     end
   end
 
