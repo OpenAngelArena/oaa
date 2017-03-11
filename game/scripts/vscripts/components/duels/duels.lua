@@ -3,12 +3,19 @@ if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
 
-  Debug.EnabledModules['duels:*'] = true
-  Debug.EnabledModules['zonecontrol:*'] = true
+  -- debugging lines, enable logging and enable chat commands to start/stop duels
 
-  ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
-  ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
+  -- Debug.EnabledModules['duels:*'] = true
+  -- Debug.EnabledModules['zonecontrol:*'] = true
+
+  -- ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
+  -- ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
 end
+
+--[[
+ TODO: Refactor this file into a few modules so that there's less of a wall of code here
+]]
+
 
 function Duels:Init ()
   DebugPrint('Init duels')
@@ -68,6 +75,7 @@ end
 function Duels:StartDuel ()
   if Duels.currentDuel then
     DebugPrint ('There is already a duel running')
+    return
   end
   -- respawn everyone
   local goodPlayerIndex = 1
@@ -83,6 +91,8 @@ function Duels:StartDuel ()
       if player:GetTeam() == 3 then
         badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
         badPlayers[badPlayerIndex].id = playerId
+        -- used to generate keynames like badEnd1
+        -- not used in dota apis
         badPlayers[badPlayerIndex].team = 'bad'
         badPlayerIndex = badPlayerIndex + 1
 
@@ -114,8 +124,8 @@ function Duels:StartDuel ()
     return
   end
 
-  -- local playerSplitOffset = math.random(1, maxPlayers)
-  local playerSplitOffset = maxPlayers
+  local playerSplitOffset = math.random(1, maxPlayers)
+  -- local playerSplitOffset = maxPlayers
   local spawnLocations = math.random(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_1_spawn_2'):GetAbsOrigin()
@@ -211,6 +221,7 @@ end
 function Duels:EndDuel ()
   if Duels.currentDuel == nil then
     DebugPrint ('There is no duel running')
+    return
   end
 
   Timers:CreateTimer(300, Dynamic_Wrap(Duels, 'StartDuel'))
