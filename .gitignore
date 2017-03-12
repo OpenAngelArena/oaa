@@ -46,9 +46,11 @@ tools_thumbnail_cache.bin
 tools_asset_info.bin
 
 # Dota 2 compiled files
-game/panorama/layout
-game/panorama/styles
-game/panorama/scripts
-game/panorama/images
-game/maps
 panorama_debugger.cfg
+
+*.vmat_c
+*.vtex_c
+*.vxml_c
+*.vjs_c
+*.vcss_c
+*.vpk
