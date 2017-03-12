@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Power Treads 2
 	//=================================================================================================================
@@ -8,22 +10,22 @@
 		"ID"							"3011"														// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_greater_power_treads_2"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_power_treads;item_upgrade_core;item_recipe_greater_power_treads"					
-			"02"						"item_greater_power_treads;item_upgrade_core_2;item_recipe_greater_power_treads"					
-			"03"						"item_greater_power_treads;item_upgrade_core_3;item_recipe_greater_power_treads"					
-			"04"						"item_greater_power_treads;item_upgrade_core_4;item_recipe_greater_power_treads"					
+			"01"						"item_greater_power_treads;item_upgrade_core;item_recipe_greater_power_treads"
+			"02"						"item_greater_power_treads;item_upgrade_core_2;item_recipe_greater_power_treads"
+			"03"						"item_greater_power_treads;item_upgrade_core_3;item_recipe_greater_power_treads"
+			"04"						"item_greater_power_treads;item_upgrade_core_4;item_recipe_greater_power_treads"
 		}
 	}
 
@@ -47,24 +49,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "2"            
-		"Modifiers"
-	    {
-	        "item_greater_power_treads_cleave"
-	        {
-	            "Passive"   "1"
-	            "OnAttackLanded"
-	            {
-	                "CleaveAttack"
-	                {
-	                    "CleavePercent" "80"
-	                    "CleaveRadius"  "300"
-	                }
-	            }
-	        }
-	    }
-		
-		// Special	
+		"ItemBaseLevel"                 "2"
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -77,16 +63,18 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_stat"			"15 24 36 54 72"
-			}	
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"30 35 40 45 50"
-			}		
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"0"
-			}		
+			}
 		}
 	}
+
+}
