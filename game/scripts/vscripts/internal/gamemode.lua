@@ -161,7 +161,7 @@ function GameMode:_CaptureGameMode()
     mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
     mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
     mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-    mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
+    --mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
     mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
