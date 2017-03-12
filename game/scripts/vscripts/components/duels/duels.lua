@@ -116,7 +116,6 @@ function Duels:ActuallyStartDuel ()
         goodPlayers[goodPlayerIndex].id = playerId
         goodPlayers[goodPlayerIndex].team = 'good'
         goodPlayerIndex = goodPlayerIndex + 1
-
       end
 
       Duels:ResetPlayerState(player:GetAssignedHero())
@@ -251,7 +250,7 @@ function Duels:EndDuel ()
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId)
     Duels.zone2.removePlayer(playerId)
-    local player = PlayerResource:GetPlayer(state.id)
+    local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil then
       player:GetAssignedHero():SetRespawnsDisabled(false)
     end
