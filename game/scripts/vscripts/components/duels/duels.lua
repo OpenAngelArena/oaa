@@ -116,7 +116,6 @@ function Duels:ActuallyStartDuel ()
         goodPlayers[goodPlayerIndex].id = playerId
         goodPlayers[goodPlayerIndex].team = 'good'
         goodPlayerIndex = goodPlayerIndex + 1
-
       end
 
       Duels:ResetPlayerState(player:GetAssignedHero())
@@ -241,7 +240,7 @@ function Duels:EndDuel ()
 
   DebugPrint('Duel has ended')
 
-  local nextDuelIn = 65
+  local nextDuelIn = 300
   -- why dont these run?
   Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
   Timers:CreateTimer(nextDuelIn - 50, function ()
@@ -251,6 +250,10 @@ function Duels:EndDuel ()
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId)
     Duels.zone2.removePlayer(playerId)
+    local player = PlayerResource:GetPlayer(playerId)
+    if player ~= nil then
+      player:GetAssignedHero():SetRespawnsDisabled(false)
+    end
   end
 
   local currentDuel = Duels.currentDuel
@@ -259,6 +262,7 @@ function Duels:EndDuel ()
   Timers:CreateTimer(1, function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
+      DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
