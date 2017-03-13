@@ -8,8 +8,8 @@ if Duels == nil then
   Debug.EnabledModules['duels:*'] = true
   Debug.EnabledModules['zonecontrol:*'] = true
 
-  -- ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
-  -- ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
+  ChatCommand:LinkCommand("-duel", "Start a Duel", "", ACCESSLEVEL_ADMIN, "StartDuel", Duels)
+  ChatCommand:LinkCommand("-end_duel", "End a Duel", "", ACCESSLEVEL_ADMIN, "EndDuel", Duels)
 end
 
 --[[
