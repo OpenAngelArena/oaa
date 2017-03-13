@@ -33,24 +33,6 @@ end
 --[[
   Author: Noya
   Date: 25.01.2015.
-  Checks for trees, if the spell didn't target one on its radius, interrupt with a message
-]]
--- function furion_force_of_nature:OnAbilityPhaseStart()
---   local point = self:GetCursorPosition()
---   local area_of_effect = self:GetSpecialValueFor( "area_of_effect" )
-
---   if GridNav:IsNearbyTree( point, area_of_effect, true ) then
---     --print(ability,"Trees found")
---     return true
---   else
---     FireGameEvent( 'dota_hud_error_message', { reason = 80, message = "#dota_hud_error_must_target_tree" } )
---     return false
---   end
--- end
-
---[[
-  Author: Noya
-  Date: 25.01.2015.
   Latches the tree_cut event to spawn treants up to the amount of trees destroyed, limited by the ability rank.
 ]]
 function furion_force_of_nature:OnSpellStart()
