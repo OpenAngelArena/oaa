@@ -14,6 +14,7 @@ function furion_force_of_nature:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
 end
 
+-- Check for trees in cast area and throw a cast error if there are none
 function furion_force_of_nature:CastFilterResultLocation( target_point )
   if IsServer() then
     local area_of_effect = self:GetSpecialValueFor( "area_of_effect" )
@@ -31,9 +32,8 @@ function furion_force_of_nature:GetCustomCastErrorLocation( target_point )
 end
 
 --[[
-  Author: Noya
-  Date: 25.01.2015.
-  Latches the tree_cut event to spawn treants up to the amount of trees destroyed, limited by the ability rank.
+  Gets all tree entities that would be destroyed by the ability and counts them then spawns treants up to that tree count.
+  Prioritizes spawning Giant Treants first before spawning normal Treants if tree count allows it.
 ]]
 function furion_force_of_nature:OnSpellStart()
   local caster = self:GetCaster()
@@ -62,7 +62,6 @@ function furion_force_of_nature:OnSpellStart()
   -- Create the units on the next frame
   Timers:CreateTimer(
     function()
-      --print(ability.trees_cut)
       -- Figure out how many of each treant type to spawn
       local giant_treants_to_spawn = math.min( max_giant_treants, tree_count )
       local treants_to_spawn = math.min( max_treants, tree_count - giant_treants_to_spawn )
