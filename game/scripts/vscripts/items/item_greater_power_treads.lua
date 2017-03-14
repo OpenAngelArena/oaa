@@ -194,6 +194,7 @@ if IsServer() then
 				projSpeed = 950
 			end
 			
+			--
 			-- find all appropriate targets around the initial target
 			local units = FindUnitsInRadius(
 				parentTeam,
