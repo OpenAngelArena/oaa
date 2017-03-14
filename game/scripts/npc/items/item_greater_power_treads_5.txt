@@ -34,7 +34,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3019"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_power_treads"
+		"BaseClass"                    	"item_lua"
+		"ScriptFile"                   	"items/item_greater_power_treads.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_power_treads"
 		// Item Info
@@ -47,22 +48,8 @@
 
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "5"
-		"Modifiers"
-	    {
-	        "item_greater_power_treads_cleave"
-	        {
-	            "Passive"   "1"
-	            "OnAttackLanded"
-	            {
-	                "CleaveAttack"
-	                {
-	                    "CleavePercent" "80"
-	                    "CleaveRadius"  "300"
-	                }
-	            }
-	        }
-	    }		
-		// Special	
+		
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -75,17 +62,32 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_stat"			"15 24 36 54 72"
-			}	
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"30 35 40 45 50"
-			}		
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"0"
-			}				
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"split_radius"			"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"split_damage"			"80"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"split_damage_ranged"	"80"
+			}
 		}
 	}
 }
