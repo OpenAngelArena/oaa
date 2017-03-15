@@ -145,6 +145,7 @@ function GameMode:OnGameInProgress()
   InitModule(CreepItemDrop)
   InitModule(ZoneControl)
   InitModule(Duels)
+  InitModule(AbilityLevels)
 
 end
 
