@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Manta Style 2
 	//=================================================================================================================
@@ -6,6 +8,7 @@
 		"ID"							"3172"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		"FightRecapLevel"				"1"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
@@ -152,3 +155,4 @@
 			}			
 		}
 	}
+}

@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Stop Killing Yourself (Based on Lotus Sphere)
 		//=================================================================================================================
@@ -8,6 +10,7 @@
 		"ID"							"3248"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -165,3 +168,5 @@
 		}
 	}
 
+
+}

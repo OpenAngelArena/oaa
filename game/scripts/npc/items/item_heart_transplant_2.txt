@@ -1,3 +1,5 @@
+"DOTAItems"
+{
    "item_recipe_heart_transplant_2"
 	{
 		// General
@@ -51,83 +53,46 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+ 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"27 40"
+				"var_type"						"FIELD_INTEGER"
+				"duration"						"7"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen_pct"	"175 250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"allied_armor"			"27 40"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"allied_evasion"			"0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-27 -40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"enemy_armor_reduction_tooltip"		"27 40"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_chance"			"25"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"7"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"valor_cast_range_tooltip"				"1000"
+				"var_type"						"FIELD_INTEGER"
+				"transplant_range_tooltip"		"1000"
 			}			
 			// New Parameters
-			"11"
+			"03"
             {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_strength"        "135 180"
+                "var_type"             			 "FIELD_INTEGER"
+                "bonus_strength"        		"135 180"
             }
-            "12"
+            "04"
             {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "1000 1350"
+                "var_type"              		"FIELD_INTEGER"
+                "bonus_health"          		"1000 1350"
             }
-            "13"
+            "05"
             {
-                "var_type"              "FIELD_FLOAT"
-                "health_regen_rate"     "3.25"
+                "var_type"              		"FIELD_FLOAT"
+                "health_regen_rate"     		"3.25"
             }
-            "14"
+            "06"
             {
-                "var_type"              "FIELD_INTEGER"
-                "cooldown_melee"        "5"
+                "var_type"              		"FIELD_INTEGER"
+                "cooldown_melee"        		"5"
             }
-            "15"
+            "07"
             {
-                "var_type"              "FIELD_INTEGER"
+                "var_type"              		"FIELD_INTEGER"
                 "cooldown_ranged_tooltip"       "7"
             }
 		}
 	}
+
+ 
+}

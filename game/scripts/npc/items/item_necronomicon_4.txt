@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Necronomicon 4
 	//=================================================================================================================
@@ -5,6 +7,8 @@
 	{
 		"ID"							"3166"		// unique ID
 		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"4"
@@ -131,3 +135,4 @@
 			}
 		}
 	}
+}

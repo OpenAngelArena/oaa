@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Aether Glasses
 	//=================================================================================================================
@@ -8,6 +10,7 @@
 		"ID"							"3300"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"	
 		"ItemCost"						"800"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
@@ -76,3 +79,5 @@
 		}
 	}
 
+
+}

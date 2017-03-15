@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	//=================================================================================================================
 	// Recipe: Power Treads 4
 	//=================================================================================================================
@@ -33,7 +35,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3018"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_power_treads"
+		"BaseClass"                    	"item_lua"
+		"ScriptFile"                   	"items/item_greater_power_treads.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_power_treads"
 		// Item Info
@@ -45,11 +48,9 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "4"            
-		// "UpgradesItems"                 "item_greater_power_treads_4"
-		// "UpgradeRecipe"                 "item_recipe_greater_power_treads"
+		"ItemBaseLevel"                 "4"          
 		
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -62,12 +63,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_stat"			"15 24 36 54 72"
-			}	
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"30 35 40 45 50"
-			}		
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -76,12 +77,18 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_radius"			"300 300 300 300 300"
+				"split_radius"			"400"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"30 30 30 30 30"	
-			}					
+				"split_damage"			"80"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"split_damage_ranged"	"80"
+			}
 		}
 	}
+}

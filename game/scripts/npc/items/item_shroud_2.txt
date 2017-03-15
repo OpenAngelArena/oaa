@@ -1,3 +1,5 @@
+"DOTAItems"
+{
 	"item_recipe_shroud_2"
 	{
 		// General
@@ -33,7 +35,7 @@
 		"BaseClass"                     "item_glimmer_cape"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_vermillion_robe"		
+		"AbilityTextureName"            "item_glimmer_cape"		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
@@ -69,30 +71,31 @@
 				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
 			}
 			// Glimmer Cape Parameters
-			"01"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25 28"
 			}
-			"02"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_magical_armor"	"15 20"
 			}
-			"03"
+			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"fade_delay"				"0.6"
 			}
-			"04"
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"active_magical_armor"	"30 35"
 			}
-			"05"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"	"5"
 			}
 		}
 	}
+}

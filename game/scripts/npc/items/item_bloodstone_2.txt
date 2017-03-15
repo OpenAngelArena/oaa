@@ -1,3 +1,5 @@
+"DOTAItems"
+{
     //=================================================================================================================
     // Recipe: Bloodstone 2
     //=================================================================================================================
@@ -6,6 +8,7 @@
  
         "ID"                            "3124"      // unique ID
         "Model"                         "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"            "item_recipe"   
 		"BaseClass"                     "item_datadriven"
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
@@ -123,3 +126,4 @@
             }
         }
     }
+}

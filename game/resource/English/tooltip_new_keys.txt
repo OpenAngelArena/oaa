@@ -1,25 +1,6 @@
-// These are the DOTA 2 ORIGINAL keys here
-
-//		"dota_ability_variable_health"					"Health"					// $health
-//		"dota_ability_variable_mana"					"Mana"						// $mana
-//		"dota_ability_variable_armor"					"Armor"						// $armor
-//		"dota_ability_variable_damage"					"Damage"					// $damage
-//		"dota_ability_variable_str"						"Strength"					// $str
-//		"dota_ability_variable_int"						"Intelligence"					// $int
-//		"dota_ability_variable_agi"						"Agility"					// $agi
-//		"dota_ability_variable_all"						"All Attributes"			// $all
-//		"dota_ability_variable_attack"					"Attack Speed"				// $attack
-//		"dota_ability_variable_hp_regen"				"HP Regeneration"			// $hp_regen
-//		"dota_ability_variable_mana_regen"				"Mana Regeneration"			// $mana_regen
-//		"dota_ability_variable_move_speed"				"Movement Speed"			// $move_speed
-//		"dota_ability_variable_evasion"					"Evasion"					// $evasion
-//		"dota_ability_variable_spell_resist"			"Spell Resistance"			// $spell_resist
-//		"dota_ability_variable_selected_attrib"			"Selected Attribute"		// $selected_attribute
-//		"dota_ability_variable_attack_range"			"Attack Range <font color='#7d7d7d'>(Ranged Only)</font>"    // $attack_range
-//		"dota_ability_variable_cast_range"	    		"Cast Range"                // $cast_range
-
-// Insert NEW Keys here
-
+//======================================================================================================
+// Keys
+//======================================================================================================
 		"dota_ability_variable_gpm"						"Gold per Min"				// $gpm
 		"dota_ability_variable_spell_damage"			"Spell Damage"				// $spell_damage
 		"dota_ability_variable_projectile_bonus"		"Projectile Bonus"			// $projectile_bonus 
@@ -28,3 +9,7 @@
 		"dota_ability_variable_regen_from_creeps"		"Regen from Creeps"			// $regen_from_creeps
 		"dota_ability_variable_cleave_radius"			"Cleave Radius"				// $cleave_radius
 		"dota_ability_variable_cleave_damage_percent"	"Cleave % Damage"			// $cleave_damage_percent
+		"dota_ability_variable_preempt_duration"		"Preempt Duration"			// $preempt_duration
+		"dota_ability_variable_react_duration"			"React Duration"			// $react_duration
+		"dota_ability_variable_postact_duration"		"Postact Duration"			// $postact_duration
+		"dota_ability_variable_postact_regen"			"Postact Regen"				// $postact_regen

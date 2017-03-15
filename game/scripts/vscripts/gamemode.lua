@@ -13,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- functional event implementation
+require('libraries/event')
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
@@ -137,16 +139,13 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
-
-  -- feel free to disable creep spawning because it's noisy in the logs
-  -- just comment out this line:
   InitModule(CreepCamps)
-  -- everything else will still work fine
-
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
   InitModule(ZoneControl)
+  InitModule(Duels)
+
 end
 
 function InitModule(myModule)

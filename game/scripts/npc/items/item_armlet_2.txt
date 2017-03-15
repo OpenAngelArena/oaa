@@ -1,3 +1,5 @@
+"DOTAItems"
+{
     //=================================================================================================================
     // Recipe: Armlet 2
     //=================================================================================================================
@@ -7,6 +9,7 @@
         "ID"                            "3120"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"            "item_recipe"   
         "ItemCost"                      "0"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
@@ -113,3 +116,4 @@
             }  
         }
     }
+}

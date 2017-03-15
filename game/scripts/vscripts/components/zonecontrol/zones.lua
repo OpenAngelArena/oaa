@@ -43,6 +43,8 @@ function ZoneControl:CreateZone (name, options)
   local handles = Entities:FindAllByName(name)
   options = options or {}
 
+  DebugPrint('Creating new zone ' .. name)
+
   assert(#handles > 0, "Could not find an entity handle for (" .. name .. ")")
   if #handles > 1 then
     -- create group
@@ -314,9 +316,6 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   Timers:CreateTimer(function ()
     entity:SetOrigin(origin)
   end)
-  Timers:CreateTimer(function ()
-    entity:SetOrigin(origin)
-  end, 0.1)
 
 end
 
