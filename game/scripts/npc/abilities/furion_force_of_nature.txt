@@ -37,85 +37,79 @@
 				"var_type"								"FIELD_INTEGER"
 				"max_treants"							"2 3 4 5 4 3"
 			}
-	      	"03"
-	      	{
-	      		"var_type"        						"FIELD_INTEGER"
-	        	"max_giant_treants"   					"0 0 0 0 1 2"
-	      	}
-			"04"
+
+			"03"
 			{
 				"var_type"								"FIELD_FLOAT"
 				"duration"								"60 60 60 60"
-			}
-			// Treant Stats
-			//-------------------------------------------------------------------------------------------------------------			
-			"05"
+			}		
+			"04"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_health_tooltip"					"550"
 			}
-			"06"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_hp_bonus"						"550"
-			}
-			"07"
+
+			"05"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_min_dmg_tooltip"				"30"
 			}
-			"08"
+			"06"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_max_dmg_tooltip"				"34"
 			}
-			"09"
+			"07"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"treant_hp_bonus"						"550"
+			}			
+			"08"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_damage_bonus"					"32"
 			}
-			// Giant Treant Stats
-			//-------------------------------------------------------------------------------------------------------------		
-	      	"10"
-	      	{
-	        	"var_type"        						"FIELD_INTEGER"
-	        	"treant_giant_health_tooltip"   		"2000"
-	      	}
-	      	"11"
-	      	{
-	        	"var_type"        						"FIELD_INTEGER"
-	        	"treant_giant_hp_bonus"     			"2000"
-	      	}
-
-	      	"12"
-	      	{
-	        	"var_type"        						"FIELD_INTEGER"
-	        	"treant_giant_min_dmg_tooltip"   		"100"
-	      	}
-	      	"13"
-	      	{
-	        	"var_type"        						"FIELD_INTEGER"
-	        	"treant_giant_max_dmg_tooltip"   		"175"
-	      	}	      	
-	      	"14"
-	      	{
-	        	"var_type"        						"FIELD_INTEGER"
-	        	"treant_giant_damage_bonus"   			"137"
-	      	}
-			// Large Treant Stats (Aghs)
-			//-------------------------------------------------------------------------------------------------------------	      	
-			"15"
+			"09"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_large_hp_bonus"					"1650"
-			}
-			"16"
+			}				
+	      	"10"
 			{
 				"var_type"								"FIELD_INTEGER"
 				"treant_large_damage_bonus"				"96"
 			}
-			// Colossal Treant Stats (Aghs)
-			//-------------------------------------------------------------------------------------------------------------	 	      	
+	      	"11"
+	      	{
+	      		"var_type"        						"FIELD_INTEGER"
+	        	"max_giant_treants"   					"0 0 0 0 1 2"
+	      	}	      	
+	      	"12"
+	      	{
+	        	"var_type"        						"FIELD_INTEGER"
+	        	"treant_giant_hp_bonus"     			"2000"
+	      	}
+	       	"13"
+	      	{
+	        	"var_type"        						"FIELD_INTEGER"
+	        	"treant_giant_damage_bonus"   			"137"
+	      	}
+
+	      	"14"
+	      	{
+	        	"var_type"        						"FIELD_INTEGER"
+	        	"treant_giant_min_dmg_tooltip"   		"100"
+	      	}
+	      	"15"
+	      	{
+	        	"var_type"        						"FIELD_INTEGER"
+	        	"treant_giant_max_dmg_tooltip"   		"175"
+	      	}
+	      	"16"
+	      	{
+	        	"var_type"        						"FIELD_INTEGER"
+	        	"treant_giant_health_tooltip"   		"2000"
+	      	}
 			"17"
 			{
 				"var_type"								"FIELD_INTEGER"
@@ -126,14 +120,6 @@
 				"var_type"								"FIELD_INTEGER"
 				"treant_colossal_damage_bonus"				"250"
 			}
-
-
-
-
-
-
-
 		}
 	}
-
 }
