@@ -49,10 +49,12 @@ function modifier_charge_bkb_aura_on_ability_executed(keys)
 		if oldest_unfilled_wand ~= nil then
 			if oldest_unfilled_wand:GetCurrentCharges() < keys.MaxCharges then
 				oldest_unfilled_wand:SetCurrentCharges(oldest_unfilled_wand:GetCurrentCharges() + 1)
+        --RamonNZ: start the charges decay timer when a new charge is added
+        create_decay_timer(keys)
 			end
 		end
-		--RamonNZ: start the charges decay timer when a new charge is added
-		create_decay_timer(keys)
+
+
 	end
 end
 
