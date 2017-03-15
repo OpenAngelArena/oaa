@@ -21,7 +21,7 @@ function Gold:Init()
   }, {0,1,2,3,4,5,6,7,8,9})
 
     -- start think timer
-  Timers:CreateTimer(0, Dynamic_Wrap(Gold, "Think"))
+  Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)
@@ -77,6 +77,7 @@ function Gold:Think()
         if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
           Gold:SetGold(i, newGold)
           PlayerResource:SetGold(i, newDotaGold, false)
+          PlayerResource:SetGold(i, 0, true)
         end
       end
     end

@@ -25,7 +25,7 @@ ZONE_CONTROL_INCLUSIVE = 3
 
 -- Taken from bb template
 if ZoneControl == nil then
-    DebugPrint ( '[zonecontrol/zones] creating new zone control object' )
+    DebugPrint ( 'creating new zone control object' )
     ZoneControl = class({})
 end
 
@@ -42,6 +42,8 @@ end
 function ZoneControl:CreateZone (name, options)
   local handles = Entities:FindAllByName(name)
   options = options or {}
+
+  DebugPrint('Creating new zone ' .. name)
 
   assert(#handles > 0, "Could not find an entity handle for (" .. name .. ")")
   if #handles > 1 then
@@ -314,9 +316,6 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   Timers:CreateTimer(function ()
     entity:SetOrigin(origin)
   end)
-  Timers:CreateTimer(function ()
-    entity:SetOrigin(origin)
-  end, 0.1)
 
 end
 

@@ -1,5 +1,5 @@
 # Writing and Translations
-There's a lot of text in AAA, varying between single word titles to paragraph descriptions. This document is mostly a place to hold the template for creating tickets to manage the writing workflow.
+There's a lot of text in OAA, varying between single word titles to paragraph descriptions. This document is mostly a place to hold the template for creating tickets to manage the writing workflow.
 
 ## Workflow
 When creating a pull request containing English text, you must add new entries to the `addon_english.txt` file as opposed to putting them directly into the KV/xml/js/lua/whatever. Pull requests with visible English text outside of this file will not be approved.

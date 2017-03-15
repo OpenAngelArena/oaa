@@ -1,55 +1,65 @@
 # Contributors
-This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], but a lot of people helped create it.
+This project was started by [chrisinajar] and [Baumi][Baumi-yt], but a lot of people helped create it.
 
 ## Coding
- * [chrisinajar][chrisinajar]
- * [salacryl][salacryl]
- * [Chronophylos][Chronophylos]
+ * [chrisinajar]
+ * [Chronophylos]
+ * [salacryl]
  * Zartonox
- * [SquawkyArctangent][SquawkyArctangent]
- * [yahnich][yahnich]
+ * [SquawkyArctangent]
+ * [yahnich]
+ * [Trildar]
+ * [Rachol]
+
+## Data
+* [Warpdragon]
+* [zelding]
+* [VoidsKeeper]
+* Honeth
+* [Trildar]
 
 ## Design / Balance
- * [Baumi][baumi]
+ * [Baumi]
  * Zartonox
- * [Haganeko][Haganeko]
- * [MelonGod][MelonGod]
+ * [Haganeko]
+ * [MelonGod]
 
 ## Art
  * Steamhat
  * MrOutback
  
 ## Music
- * [Sai][Sai]
+ * [Sai]
  * Felix
- * [RyanMusic][RyanMusic]
+ * [RyanMusic]
  
 ## Documentation
- * [Chronophylos][Chronophylos]
+ * [Warpdragon]
+ * [Chronophylos]
 
 ## Translations
 
 ### Chinese
- * [dkHugh][dkHugh]
+ * [dkHugh]
  * FishMargo
 
 ### Portuguese
- * [Haganeko][Haganeko]
+ * [Haganeko]
 
 ### Spanish
- * [DrWallaceBreen][DrWallaceBreen]
+ * [DrWallaceBreen]
 
 ### Russian
- * [DJBotan][DJBotan]
- * [Murzer][Murzer]
+ * [DJBotan]
+ * [Murzer]
 
 ### German
- * [Germanerd][Germanerd]
+ * [Germanerd]
 
 
 [chrisinajar]: https://github.com/chrisinajar "chrisinajar's Github"
-[baumi]: https://github.com/l34Um1 "Baumi's Github"
-[baumi-yt]: https://youtube.com/baumi "Baumi's YouTube"
+[Baumi]: https://github.com/l34Um1 "Baumi's Github"
+[Baumi-yt]: https://youtube.com/baumi "Baumi's YouTube"
 [salacryl]: https://github.com/salacryl "salacryl's Github"
 [Zartonox]: https://github.com/AngelArenaAllstars "I have no Links"
 [SquawkyArctangent]: https://github.com/SquawkyArctangent "SquawkyArctangent's Github"
@@ -69,3 +79,8 @@ This project was started by [chrisinajar][chrisinajar] and [Baumi][baumi-yt], bu
 [Murzer]: https://github.com/Murzer "Murzer's Github"
 [Germanerd]: https://github.com/Germanerd "Germanerd's Github"
 [Chronophylos]: https://github.com/Chronophylos "Chronophylos's Github"
+[Trildar]: https://github.com/Trildar "Trildar's Github"
+[Rachol]: https://github.com/Rachol "Rachol's Github"
+[Warpdragon]: https://github.com/Warpdragon "Warpdragon's Github"
+[zelding]: https://github.com/zelding "zelding's Github"
+[VoidsKeeper]: https://github.com/VoidsKeeper "VoidsKeeper's Github"

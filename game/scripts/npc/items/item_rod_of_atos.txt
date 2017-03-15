@@ -1,0 +1,86 @@
+"DOTAItems"
+{
+	//=================================================================================================================
+	// Recipe: Rod of Atos
+	//=================================================================================================================
+	"item_recipe_rod_of_atos"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"205"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rod_of_atos"
+		"ItemRequirements"
+		{
+			"01"						"item_vitality_booster;item_staff_of_wizardry;item_staff_of_wizardry"
+		}
+	}
+
+	//=================================================================================================================
+	// Rod of Atos
+	//=================================================================================================================
+	"item_rod_of_atos"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"206"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityTextureName"            "item_rod_of_atos"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 150 250"
+		"ItemCost"						"3100"
+		"ItemShopTags"					"int;regen_health"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"rod of atos"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"               "3"
+		"ItemBaseLevel"                 "1"
+		"UpgradesItems"                 "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
+		"UpgradeRecipe"                 "item_recipe_rod_of_atos"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"30 45 70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"				"350 525 800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"root_radius"				"0 0 200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0 3.0 3.0"
+			}
+		}
+	}
+}

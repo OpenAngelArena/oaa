@@ -1,0 +1,134 @@
+"DOTAItems"
+{
+   "item_recipe_stoneskin_2"
+    {
+ 
+        "ID"                            "3245"      // unique ID
+		"BaseClass"                     "item_datadriven"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "ItemCost"                      "0"
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_stoneskin_2"
+        "ItemRequirements"
+        {
+            "01"                        "item_stoneskin;item_upgrade_core;item_recipe_stoneskin"
+            "02"                        "item_stoneskin;item_upgrade_core_2;item_recipe_stoneskin"
+            "03"                        "item_stoneskin;item_upgrade_core_3;item_recipe_stoneskin"
+            "04"                        "item_stoneskin;item_upgrade_core_4;item_recipe_stoneskin"
+        }
+    }
+ 
+     "item_stoneskin_2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "3247"      // unique ID
+		"BaseClass"                     "item_datadriven"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityTextureName"            "item_shivas_guard" 
+        // Stats       
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.0"
+ 
+        // Spicy Parameters
+        //-------------------------------------------------------------------------------------------------------------
+ 
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "2"
+
+ 
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "20000"
+        "ItemShopTags"                  "damage;attack_speed;armor;regen_health;hard_to_tag"
+        "ItemQuality"                   "epic"
+        "ItemAliases"                   "stoneskin of mordiggian"
+        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+       
+        // Special 
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"          "22 24"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "32 34"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_armor"           "35 40"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_health_regen"    "12 14"
+            }
+            // Shivas Guard Parameters
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_intellect"       "75 80"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "aura_radius"           "900"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "aura_attack_speed"     "-55"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blast_damage"          "500 600"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blast_movement_speed"  "-45 -50"
+            }
+            "10"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "blast_debuff_duration" "4.0"
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blast_radius"          "300"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "blast_speed"           "350"
+            }
+            // Stoneskin stuff            
+            "13"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_armor"           "80 130"
+            }
+            "14"
+            {
+
+                "var_type"              "FIELD_FLOAT"
+                "bonus_magic_resist"           "0.2 0.4"
+            }
+            "15"
+            {
+
+                "var_type"              "FIELD_FLOAT"
+                "bonus_ice_armor_slow"           "-0.4 -0.4"
+            }
+        }
+    }
+}

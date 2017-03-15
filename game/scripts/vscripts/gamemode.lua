@@ -3,7 +3,8 @@ BAREBONES_VERSION = "1.00"
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = true
+-- this overrides per-module logging rules and just opens the floodgates
+BAREBONES_DEBUG_SPEW = false
 
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
@@ -12,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- functional event implementation
+require('libraries/event')
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
@@ -136,16 +139,14 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
-
-  -- feel free to disable creep spawning because it's noisy in the logs
-  -- just comment out this line:
   InitModule(CreepCamps)
-  -- everything else will still work fine
-
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
   InitModule(ZoneControl)
+  InitModule(Duels)
+  InitModule(AbilityLevels)
+
 end
 
 function InitModule(myModule)

@@ -2,20 +2,23 @@
 
 -- Taken from bb template
 if GameLengthVotes == nil then
-    DebugPrint ( '[points/game_length_vote] creating new GameLength voter object' )
+    DebugPrint ( 'creating new GameLength voter object.' )
     GameLengthVotes = class({})
 end
 
 function GameLengthVotes:Init ()
+  DebugPrint( 'Initializing.' )
   GameLengthVotes = self
   GameLengthVotes.Votes = {}
+
+  Debug.EnabledModules["game_length_vote:*"] = true
 
   CustomGameEventManager:RegisterListener( "gamelength_vote", Dynamic_Wrap(GameLengthVotes, 'PlayerVote') )
 end
 
 function GameLengthVotes:PlayerVote (eventSourceIndex, args)
-  DebugPrint ( '[points/game_length_vote] player vote: ' .. eventSourceIndex.vote )
-  DebugPrint ( '[points/game_length_vote] player vote: ' .. eventSourceIndex.playerId )
+  DebugPrint ( 'player vote: ' .. eventSourceIndex.vote )
+  DebugPrint ( 'player vote: ' .. eventSourceIndex.playerId )
 
   GameLengthVotes.Votes[eventSourceIndex.playerId] = eventSourceIndex.vote
 end

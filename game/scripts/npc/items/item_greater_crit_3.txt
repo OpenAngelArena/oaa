@@ -1,0 +1,78 @@
+"DOTAItems"
+{
+	//=================================================================================================================
+	// Recipe: Daedalus 3
+	//=================================================================================================================
+	"item_recipe_greater_crit_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3059"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_greater_crit_3"
+		"ItemRequirements"
+		{
+			"01"						"item_greater_crit_2;item_upgrade_core_2;item_recipe_greater_crit"
+			"02"						"item_greater_crit_2;item_upgrade_core_3;item_recipe_greater_crit"
+			"03"						"item_greater_crit_2;item_upgrade_core_4;item_recipe_greater_crit"
+		}
+	}
+
+	//=================================================================================================================
+	// Daedalus 3
+	//=================================================================================================================
+	"item_greater_crit_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3063"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_greater_crit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_greater_crit"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"     
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"12520"
+		"ItemShopTags"					"damage;crit"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"daedalus"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "UpgradesItems"                 "item_greater_crit_3;item_greater_crit_4"
+        "UpgradeRecipe"                 "item_recipe_greater_crit"	
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"81 100 125 150 175"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"25 30 35 40 45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_multiplier"		"240 300 350 400 450"
+			}
+		}
+	}
+}
