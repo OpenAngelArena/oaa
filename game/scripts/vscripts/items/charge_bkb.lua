@@ -16,18 +16,11 @@ function modifier_charge_bkb_on_spell_start(keys)
 	keys.caster:GiveMana(amount_to_restore)
 --RamonNZ: BKB Effect:
 	local modifier_duration = keys.ChargeImmunityTime*keys.ability:GetCurrentCharges()
---	keys.Duration = modifier_duration		--if only life were this simple
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
---	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_active", {duration = modifier_duration})
 
---	keys.caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
 	print ("--> bkb spell immunity length = ", modifier_duration)
 	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
-	
-	
---	keys.caster:AddNewModifier(keys.caster, keys.ability, "item_charge_bkb", {duration = modifier_duration})
---	keys.ability:ApplyDataDrivenModifier(keys.caster,keys.caster, "modifier_charge_bkb_active", {duration = modifier_duration})	--In case AddNewModifier has problems this will do the same thing
---	keys.ability:ApplyDataDrivenModifier(keys.caster,keys.ability, "modifier_charge_bkb_active", {duration = modifier_duration})
+
 	keys.ability:SetCurrentCharges(0)	--or use code keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) if we want to just remove 1 charge
 end
 
@@ -58,9 +51,7 @@ function modifier_charge_bkb_aura_on_ability_executed(keys)
 				oldest_unfilled_wand:SetCurrentCharges(oldest_unfilled_wand:GetCurrentCharges() + 1)
 			end
 		end
-		--RamonNZ: start the charges decay timer & first remove it if there's already one in play (we don't want more than one in play removing charges)
-		--RamonNZ: this resets the decay timer every time it gains a charge. Seems fair. Otherwise you could theoretically gain a charge and lose it like 1 second later which would be unfortunate.
---		Timers:RemoveTimer("charges_decay_timer")
+		--RamonNZ: start the charges decay timer when a new charge is added
 		create_decay_timer(keys)
 	end
 end
@@ -84,7 +75,7 @@ end
 
 
 --[[ ============================================================================================================
-	RamonNZ: This code creates the decay timer when item is created
+	RamonNZ: This code creates a decay timer * every initial charge when item is created
 ================================================================================================================= ]]
 function modifier_charge_bkb_on_created(keys)
 	for i=1, keys.ability:GetCurrentCharges() do	--updateme
