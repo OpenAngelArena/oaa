@@ -37,7 +37,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3331"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_radiance"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_radiance"
 		// Stats
@@ -53,6 +53,20 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"UpgradesItems"					"item_lucience;item_lucience_2"
 		"UpgradeRecipe"					"item_recipe_lucience"
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_item_lucience_"
+
+
+
+
+
+
+
+
+		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
