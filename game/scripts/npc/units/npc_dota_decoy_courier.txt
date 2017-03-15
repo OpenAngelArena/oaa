@@ -21,11 +21,11 @@
 		"AbilityLayout"				"6"		// changes when we change to flying -> "5"
 
 		"Ability1"					"courier_return_to_base"
-		"Ability2"					"courier_go_to_secretshop"		
+		"Ability2"					"courier_go_to_secretshop"
 		"Ability3"					"courier_return_stash_items"
 		"Ability4"					"courier_take_stash_items"
-		"Ability5"					"courier_transfer_items"	
-		"Ability6"					"courier_burst"		
+		"Ability5"					"courier_transfer_items"
+		"Ability6"					"courier_burst"
 		"Ability7"					"courier_morph"
 		"Ability8"					"courier_take_stash_and_transfer_items"
 		"Ability9"					"courier_transfer_items_to_other_player"
@@ -43,7 +43,7 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
 		"MovementSpeed"				"350"		// Speed
 		"MovementTurnRate"			"0.5"		// Turning rate.
-	
+
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyGoldMin"				"0"		// Gold earned min.
@@ -62,7 +62,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"350"		// Range of vision during day light.
@@ -74,12 +74,10 @@
 
 		//Inventory
 		"HasInventory"				"0"
-		
+
 		"IdleExpression"			"scenes/default_idle.vcd"
-		
+
 		"WakesNeutrals"				"0"
 	}
-
-}
 
 }
