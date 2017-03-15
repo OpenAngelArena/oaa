@@ -1,7 +1,7 @@
 --[[ ============================================================================================================
 	Charge BKB: Combines magic_wand functionality with BKB functionality, and charges decay with time.
 	Written by RamonNZ
-	Version 1.02
+	Version 1.01
 	Credit: Some original code from Rook
 	RamonNZ: The code below starts when you activate the BKB:
 ================================================================================================================= ]]
@@ -18,9 +18,16 @@ function modifier_charge_bkb_on_spell_start(keys)
 	local modifier_duration = keys.ChargeImmunityTime*keys.ability:GetCurrentCharges()
 --	keys.Duration = modifier_duration		--if only life were this simple
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
+--	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_active", {duration = modifier_duration})
+
+--	keys.caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
 	print ("--> bkb spell immunity length = ", modifier_duration)
 	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
-
+	
+	
+--	keys.caster:AddNewModifier(keys.caster, keys.ability, "item_charge_bkb", {duration = modifier_duration})
+--	keys.ability:ApplyDataDrivenModifier(keys.caster,keys.caster, "modifier_charge_bkb_active", {duration = modifier_duration})	--In case AddNewModifier has problems this will do the same thing
+--	keys.ability:ApplyDataDrivenModifier(keys.caster,keys.ability, "modifier_charge_bkb_active", {duration = modifier_duration})
 	keys.ability:SetCurrentCharges(0)	--or use code keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) if we want to just remove 1 charge
 end
 
@@ -28,9 +35,7 @@ end
 
 --[[ ============================================================================================================
 	RamonNZ: This code adds charges when abilities are used by enemies. 
-	Known Bugs (by Rook): Because OnAbilityExecuted does not pass in information about the ability that was just executed,
-	this code cannot use ProcsMagicStick() to determine if Magic Stick should gain a charge.  For now, every cast
-	ability awards a charge.
+	Known Bugs (by Rook): Because OnAbilityExecuted does not pass in information about the ability that was just executed, this code cannot use ProcsMagicStick() to determine if Magic Stick should gain a charge.  For now, every cast ability awards a charge.
 	RamonNZ: In addition to above, another limitation/bug of the code is that the regular magic wand/stick adds charges if a neutral creep uses an ability nearby, but this doesn't seem to trigger on neutrals, nor does it seem possible.
 ================================================================================================================= ]]
 function modifier_charge_bkb_aura_on_ability_executed(keys)
@@ -55,28 +60,17 @@ function modifier_charge_bkb_aura_on_ability_executed(keys)
 		end
 		--RamonNZ: start the charges decay timer & first remove it if there's already one in play (we don't want more than one in play removing charges)
 		--RamonNZ: this resets the decay timer every time it gains a charge. Seems fair. Otherwise you could theoretically gain a charge and lose it like 1 second later which would be unfortunate.
-		Timers:RemoveTimer("charges_decay_timer")
-		Timers:CreateTimer("charges_decay_timer", {
-		useGameTime = true,
-		endTime = keys.ChargeDecayTime,
-		callback = function()
-			if keys.ability:GetCurrentCharges() > 0 then
-				print ("--> -1 Charge_BKB charge")
-				keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) 
-			end
-			return keys.ChargeDecayTime
-		end})
+--		Timers:RemoveTimer("charges_decay_timer")
+		create_decay_timer(keys)
 	end
 end
 
 
 --[[ ============================================================================================================
-	RamonNZ: This code creates the decay timer when item is created
+	RamonNZ: This is the decay timer - every charge added creates a one-shot timer based on ChargeDecayTime
 ================================================================================================================= ]]
-function modifier_charge_bkb_on_created(keys)
-	--RamonNZ: start the charges decay timer & remove it if there's already one in play (we don't want more than one in play removing charges)
-	Timers:RemoveTimer("charges_decay_timer")
-	Timers:CreateTimer("charges_decay_timer", {
+function create_decay_timer(keys)
+	Timers:CreateTimer({
 	useGameTime = true,
 	endTime = keys.ChargeDecayTime,
 	callback = function()
@@ -84,6 +78,19 @@ function modifier_charge_bkb_on_created(keys)
 			print ("--> -1 Charge_BKB charge")
 			keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) 
 		end
-		return keys.ChargeDecayTime
+		return nil
 	end})
+end
+
+
+--[[ ============================================================================================================
+	RamonNZ: This code creates the decay timer when item is created
+================================================================================================================= ]]
+function modifier_charge_bkb_on_created(keys)
+	for i=1, keys.ability:GetCurrentCharges() do	--updateme
+		create_decay_timer(keys)
+	end
+	--RamonNZ: start the charges decay timer & remove it if there's already one in play (we don't want more than one in play removing charges)
+--	Timers:RemoveTimer("charges_decay_timer")
+
 end
