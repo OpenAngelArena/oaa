@@ -1,19 +1,22 @@
+// NOT USED, SEE TINY_GROW_OAA
+// THIS ABILITY CRASHES THE GAME MOST OF THE TIME
+
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tiny: Grow
-	//=================================================================================================================
+  //=================================================================================================================
+  // Tiny: Grow
+  //=================================================================================================================
 	"tiny_grow"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5109"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"HasScepterUpgrade"			"1"
 
-		"MaxLevel"								"5"
+		"MaxLevel"								"3"
 		"RequiredLevel"						"6"
 		"LevelsBetweenUpgrades"		"5"
 
