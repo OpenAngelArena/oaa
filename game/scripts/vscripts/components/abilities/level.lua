@@ -2,45 +2,58 @@
 if AbilityLevels == nil then
     DebugPrint ( 'creating new ability level requirement object.' )
     AbilityLevels = class({})
+    Debug.EnabledModules["abilities:*"] = true
 end
 
 function AbilityLevels:Init ()
-  GameEvents:OnPlayerLearnedAbility(Dynamic_Wrap(AbilityLevels, 'OnPlayerLearnedAbility'))
+  GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(AbilityLevels, "ExecuteOrderFilterTest"), nil)
 end
 
-function AbilityLevels.OnPlayerLearnedAbility (keys, keys2)
-  DebugPrint('Checking ability on level up if it should be in-level-uped')
-  local player = EntIndexToHScript(keys.player)
-  if player == nil then
-    return
-  end
-  local hero = player:GetAssignedHero()
-  if not hero then
-    return
+function AbilityLevels:ExecuteOrderFilterTest (keys)
+  -- Immediately return true if intercepted order isn't an ability upgrade order
+  if keys.order_type ~= 11 then
+    return true
   end
 
+  -- Ability hero level requirements
+  local basicLevel5Req = 28
+  local basicLevel6Req = 40
+  local ultimateLevel4Req = 37
+  local ultimateLevel5Req = 49
+
+  local ability = EntIndexToHScript(keys.entindex_ability)
+  local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
+  local hero = EntIndexToHScript(keys.units["0"])
   local heroLevel = hero:GetLevel()
-  local ability = hero:FindAbilityByName(keys.abilityname)
   local abilityLevel = ability:GetLevel()
-  local abilityKV = ability:GetAbilityKeyValues()
+  local abilityType = ability:GetAbilityType()
+  local abilityCanUpgrade = true
+  local requriedHeroLevel = -1
 
-  -- 28 / 40
-  -- 37 / 49
-  if abilityKV['AbilityType'] == 'DOTA_ABILITY_TYPE_BASIC' then
-    if abilityLevel >= 5 and heroLevel < 28 then
-      ability:SetLevel(4)
-      hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
-    elseif abilityLevel >= 6 and heroLevel < 40 then
-      ability:SetLevel(5)
-      hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+  if abilityType == 0 then -- Ability is DOTA_ABILITY_TYPE_BASIC
+    if abilityLevel >= 4 and heroLevel < basicLevel5Req then
+      abilityCanUpgrade = false
+      requiredHeroLevel = basicLevel5Req
+    elseif abilityLevel >= 5 and heroLevel < basicLevel6Req then
+      abilityCanUpgrade = false
+      requiredHeroLevel = basicLevel6Req
     end
-  elseif abilityKV['AbilityType'] == 'DOTA_ABILITY_TYPE_ULTIMATE' then
-    if abilityLevel >= 4 and heroLevel < 37 then
-      ability:SetLevel(3)
-      hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
-    elseif abilityLevel >= 5 and heroLevel < 49 then
-      ability:SetLevel(4)
-      hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+  elseif abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+    if abilityLevel >= 3 and heroLevel < ultimateLevel4Req then
+      abilityCanUpgrade = false
+      requiredHeroLevel = ultimateLevel4Req
+    elseif abilityLevel >= 4 and heroLevel < ultimateLevel5Req then
+      abilityCanUpgrade = false
+      requiredHeroLevel = ultimateLevel5Req
     end
+  end
+
+  if abilityCanUpgrade then
+    return true
+  else
+    -- Send event to client to display error message about hero level requirement
+    CustomGameEventManager:Send_ServerToPlayer(player, "ability_level_error", {requiredLevel = requiredHeroLevel})
+    -- Return false to reject ability upgrade order
+    return false
   end
 end
