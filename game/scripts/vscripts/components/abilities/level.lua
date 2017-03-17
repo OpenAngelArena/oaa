@@ -11,7 +11,7 @@ end
 
 function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   -- Immediately return true if intercepted order isn't an ability upgrade order
-  if keys.order_type ~= 11 then
+  if keys.order_type ~= DOTA_UNIT_ORDER_TRAIN_ABILITY then
     return true
   end
 
