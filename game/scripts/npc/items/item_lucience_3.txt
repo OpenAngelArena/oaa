@@ -34,9 +34,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3333"
-		"BaseClass"                     "item_radiance"
+		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_radiance"		
+		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityCooldown"               "3"
+        "AbilityManaCost"               "0"	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"3"
@@ -49,6 +51,134 @@
 		"ItemAliases"					"lucience"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"	
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"				
+		}
+		// Toggle between heal and speed auras
+		//-----------------------------------------------------------------------
+		"OnUnequip"
+		{
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_heal"
+			}
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_movespeed"
+			}
+		}
+		"OnUpgrade"
+		{
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_heal"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_movespeed"
+			}
+		}
+		"OnEquip"
+		{
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_heal"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_movespeed"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_movespeed"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_heal"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_heal"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_item_lucience_movespeed"
+			}
+		}
+		"Modifiers"
+		{
+			// Passive Stats
+			//-----------------------------------------------------------------------
+			"modifier_item_lucience_passive_stats"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
+
+
+			// Feel the healin' beat!
+			//-----------------------------------------------------------------------
+			"modifier_item_lucience_heal"
+			{
+				"IsHidden"						"1"
+				"Aura"							"heal_aura_effect"
+				"Aura_Radius"					"%aura_radius"
+				"Aura_Teams"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"			"1"
+			}
+			"heal_aura_effect"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen_bonus"
+				}
+			"EffectName" 						"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
+            "EffectAttachType" 					"follow_origin"
+			}
+			// Speed boost!
+			//-----------------------------------------------------------------------
+			"modifier_item_lucience_movespeed"
+			{
+				"IsHidden"						"1"
+				"Aura"							"movespeed_aura_effect"
+				"Aura_Radius"					"%aura_radius"
+				"Aura_Teams"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"			"1"
+			}
+			"movespeed_aura_effect"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
+				}
+			"EffectName" 						"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient_glow.vpcf"
+            "EffectAttachType" 					"follow_origin"
+			}
+		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
