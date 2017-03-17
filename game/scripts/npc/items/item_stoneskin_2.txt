@@ -29,7 +29,8 @@
         "AbilityTextureName"            "item_shivas_guard" 
         // Stats       
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "0.0"
+        "AbilityCooldown"               "2"
+        "AbilityManaCost"               "50"
  
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
@@ -48,86 +49,103 @@
        
         // Special 
         //-------------------------------------------------------------------------------------------------------------
+        "precache"
+        {
+            "particle"                  "particles/status_fx/status_effect_frost_lich.vpcf"
+        }
+        "OnToggleOn"
+        {
+            "ApplyModifier"
+            {
+                "ModifierName"          "modifier_item_stoneskin_stone_armor"
+                "Target"                "CASTER"   
+            }
+        }
+        "OnToggleOff"
+        {
+            "RemoveModifier"
+            {
+                "ModifierName"          "modifier_item_stoneskin_stone_armor"
+                "Target"                "CASTER"   
+            }
+        }
+
+
+
+        "Modifiers"
+        {
+            // PASSIVE
+            "modifier_item_stoneskin_properties"
+            {
+                "Passive"   "1"
+                "IsHidden"    "1"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%bonus_damage"
+                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%bonus_armor"
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%bonus_health_regen"
+                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+                }
+
+            }
+            // STONESKIN
+            "modifier_item_stoneskin_stone_armor"
+            {
+                "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"
+                "StatusEffectPriority" "10"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%stone_armor"
+                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"    "%stone_resist"
+                    "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"  "%stone_move_speed"
+                }
+            }
+        }
+
+
         "AbilitySpecial"
         {
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "22 24"
+                "bonus_damage"          "30 35"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "32 34"
+                "bonus_attack_speed"    "20 25"
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_armor"           "35 40"
+                "bonus_armor"           "20 25"
             }
             "04"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_health_regen"    "12 14"
+                "bonus_health_regen"    "10 15"
             }
-            // Shivas Guard Parameters
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "75 80"
+                "bonus_int"             "75 80"
             }
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "aura_radius"           "900"
+                "stone_move_speed"      "100"    
             }
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "aura_attack_speed"     "-55"
+                "stone_armor"           "80 130"
             }
             "08"
             {
-                "var_type"              "FIELD_INTEGER"
-                "blast_damage"          "500 600"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blast_movement_speed"  "-45 -50"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "blast_debuff_duration" "4.0"
-            }
-            "11"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blast_radius"          "300"
-            }
-            "12"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blast_speed"           "350"
-            }
-            // Stoneskin stuff            
-            "13"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_armor"           "80 130"
-            }
-            "14"
-            {
 
-                "var_type"              "FIELD_FLOAT"
-                "bonus_magic_resist"           "0.2 0.4"
-            }
-            "15"
-            {
-
-                "var_type"              "FIELD_FLOAT"
-                "bonus_ice_armor_slow"           "-0.4 -0.4"
+                "var_type"              "FIELD_INTEGER"
+                "stone_resist"           "10 15"
             }
         }
     }
