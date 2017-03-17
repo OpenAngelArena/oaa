@@ -41,8 +41,10 @@ function Duels:Init ()
   end)
 end
 
+local DUEL_IS_STARTING = 21
+
 function Duels:CheckDuelStatus (keys)
-  if not Duels.currentDuel then
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
     return
   end
 
@@ -76,7 +78,7 @@ function Duels:StartDuel ()
     DebugPrint ('There is already a duel running')
     return
   end
-  Duels.currentDuel = true
+  Duels.currentDuel = DUEL_IS_STARTING
 
   Notifications:TopToAll({text="A duel will start in 10 seconds!", duration=5.0})
   for index = 1,5 do
