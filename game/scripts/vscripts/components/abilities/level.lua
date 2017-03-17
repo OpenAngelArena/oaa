@@ -6,10 +6,10 @@ if AbilityLevels == nil then
 end
 
 function AbilityLevels:Init ()
-  GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(AbilityLevels, "ExecuteOrderFilterTest"), nil)
+  GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"), nil)
 end
 
-function AbilityLevels:ExecuteOrderFilterTest (keys)
+function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   -- Immediately return true if intercepted order isn't an ability upgrade order
   if keys.order_type ~= 11 then
     return true
