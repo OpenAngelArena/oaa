@@ -8,17 +8,17 @@
 		"ID"						"3108"	// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		"ItemCost"					"0"	
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"					"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_abyssal_blade_2"
 		"ItemRequirements"
 		{
-			"01"					"item_abyssal_blade;item_upgrade_core;item_recipe_abyssal_blade"
-			"02"					"item_abyssal_blade;item_upgrade_core_2;item_recipe_abyssal_blade"
-			"03"					"item_abyssal_blade;item_upgrade_core_3;item_recipe_abyssal_blade"
-			"04"					"item_abyssal_blade;item_upgrade_core_4;item_recipe_abyssal_blade"
+			"01"					"item_abyssal_blade;item_upgrade_core"
+			"02"					"item_abyssal_blade;item_upgrade_core_2"
+			"03"					"item_abyssal_blade;item_upgrade_core_3"
+			"04"					"item_abyssal_blade;item_upgrade_core_4"
 		}
 	}
 
@@ -38,7 +38,7 @@
 		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35"
 		"AbilityCastRange"				"140"
@@ -60,15 +60,15 @@
 		"ItemAliases"					"abyssal blade"
 		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_health"			"250 350 500 700 1000"
+				"bonus_health"			"250 500 1000 2000 4000"
 			}
 			"02"
 			{
@@ -84,7 +84,7 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"block_damage_ranged"		"35 40 45 50 55"
-			}			
+			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
@@ -119,7 +119,7 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"bonus_chance_damage"		"85 100 140 200 275"
-			}	
+			}
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"

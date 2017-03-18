@@ -7,14 +7,15 @@
 	{
 		"ID"							"3111"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_abyssal_blade_5"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_abyssal_blade_4;item_upgrade_core_4;item_recipe_abyssal_blade"
+			"01"						"item_abyssal_blade_4;item_upgrade_core_4"
 		}
 	}
 
@@ -34,7 +35,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"FightRecapLevel"				"1"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35"
 		"AbilityCastRange"				"140"
@@ -54,15 +55,15 @@
 		"ItemAliases"					"abyssal blade"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250 350 500 700 1000"
+				"bonus_health"			"250 500 1000 2000 4000"
 			}
 			"02"
 			{
@@ -78,7 +79,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_damage_ranged"	"35 40 45 50 55"
-			}			
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -113,7 +114,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_chance_damage"	"85 100 140 200 275"
-			}	
+			}
 			"12"
 			{
 				"var_type"				"FIELD_FLOAT"

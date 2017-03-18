@@ -7,22 +7,23 @@
 		"ID"							"3311"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_dash_staff_2"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_dash_staff;item_upgrade_core_4;item_recipe_dash_staff"
 		}
 	}
-	
+
 		"item_dash_staff_2"
 	{
 		// General
@@ -40,7 +41,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"dash"
-		"AbilityTextureName"            "item_force_staff"	
+		"AbilityTextureName"            "item_force_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"
@@ -49,8 +50,8 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"fs;dash staff"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -73,7 +74,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"invincibility_window"	"0.5"				
+				"invincibility_window"	"0.5"
 			}
 			"05"
 			{

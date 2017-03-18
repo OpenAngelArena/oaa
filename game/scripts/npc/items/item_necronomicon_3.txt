@@ -6,11 +6,12 @@
 	"item_recipe_necronomicon_3"
 	{
 		"ID"							"192"		// unique ID
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"3"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_necronomicon_3"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_necronomicon_2;item_recipe_necronomicon"
@@ -47,8 +48,8 @@
 
 		"UpgradesItems"					"item_necronomicon_3;item_necronomicon_4;item_necronomicon_5"
 		"UpgradeRecipe"					"item_recipe_necronomicon"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -66,7 +67,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"summon_duration"		"40"
-			}			
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -91,7 +92,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"explosion"				"550 675 800 1000 1200 1500"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"

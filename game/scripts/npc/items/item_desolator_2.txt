@@ -10,13 +10,13 @@
 		"ID"							"3600"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -44,7 +44,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "2" 
+		"ItemBaseLevel"                 "2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -53,8 +53,8 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator 2"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

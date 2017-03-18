@@ -9,16 +9,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"243"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"	
+		"ItemCost"						"600"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_crimson_guard"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_vanguard;item_buckler"
@@ -34,8 +35,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"242"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_crimson_guard"	
-		// Stats		
+		"AbilityTextureName"            "item_crimson_guard"
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"46.0"
 		"AbilityCastRange"				"900"
@@ -53,15 +54,15 @@
 		"ItemQuality"					"epic"
 		"ItemAlertable"					"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250 350"
+				"bonus_health"			"250 500"
 			}
 			"02"
 			{
@@ -87,7 +88,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_damage_ranged"	"35 45"
-			}			
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -102,12 +103,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"	"10"
-			}		
+			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_aoe_radius"		"900"
-			}		
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -117,12 +118,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_damage_ranged_active"	"60"
-			}		
+			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_chance_active"			"100"
-			}	
+			}
 		}
 	}
 }

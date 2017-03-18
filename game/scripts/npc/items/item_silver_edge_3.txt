@@ -7,15 +7,16 @@
 	{
 		"ID"							"3151"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge_3"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_silver_edge_2;item_upgrade_core_2;item_recipe_silver_edge"
-			"02"						"item_silver_edge_2;item_upgrade_core_3;item_recipe_silver_edge"
-			"03"						"item_silver_edge_2;item_upgrade_core_4;item_recipe_silver_edge"
+			"01"						"item_silver_edge_2;item_upgrade_core_2"
+			"02"						"item_silver_edge_2;item_upgrade_core_3"
+			"03"						"item_silver_edge_2;item_upgrade_core_4"
 		}
 	}
 
@@ -31,12 +32,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"            "item_silver_edge"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"24.0"
 		"AbilitySharedCooldown"			"shadow_blade"
 
-		// Spicy Parameters		
+		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"3"
@@ -52,8 +53,8 @@
 		"ItemAliases"					"sb;invis;shadow blade"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

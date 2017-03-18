@@ -10,21 +10,22 @@
 		"ID"							"3093"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"	
+		"ItemCost"						"3400"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_mjollnir_3"
 		"ItemRequirements"
 		{
-			"01"						"item_mjollnir_2;item_upgrade_core_2;item_recipe_mjollnir"
-			"02"						"item_mjollnir_2;item_upgrade_core_3;item_recipe_mjollnir"
-			"03"						"item_mjollnir_2;item_upgrade_core_4;item_recipe_mjollnir"
+			"01"						"item_mjollnir_2;item_upgrade_core_2"
+			"02"						"item_mjollnir_2;item_upgrade_core_3"
+			"03"						"item_mjollnir_2;item_upgrade_core_4"
 		}
 	}
 
@@ -63,8 +64,8 @@
 		"ItemAliases"					"mjollnir"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

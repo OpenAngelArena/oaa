@@ -13,7 +13,11 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,7 +26,7 @@
 		"ItemResult"					"item_lucience_3"
 		"ItemRequirements"
 		{
-			"01"						"item_lucience_2;item_upgrade_core_4;item_recipe_lucience"
+			"01"						"item_lucience_2;item_upgrade_core_4"
 		}
 	}
 
