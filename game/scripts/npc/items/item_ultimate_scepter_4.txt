@@ -9,10 +9,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3052"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"			"item_recipe"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe

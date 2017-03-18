@@ -9,16 +9,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"173"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"	
+		"ItemCost"						"700"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_diffusal_blade"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
@@ -55,7 +56,7 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"diffusal blade 1"
 		"ItemBaseLevel"					"1"
-		
+
 		"ItemPermanent"					"1"
 		"ItemInitialCharges"			"8"
 		"ItemRequiresCharges"			"1"
@@ -65,8 +66,8 @@
 
 		"UpgradesItems"					"item_diffusal_blade;item_diffusal_blade_2;item_diffusal_blade_3;item_diffusal_blade_4"
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
