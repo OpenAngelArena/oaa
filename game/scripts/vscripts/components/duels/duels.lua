@@ -135,9 +135,14 @@ function Duels:ActuallyStartDuel ()
     Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     return
   else
-    Duels:ResetPlayerState(player:GetAssignedHero())
-    -- disable respawn
-    player:GetAssignedHero():SetRespawnsDisabled(true)
+    for playerId = 0,19 do
+      local player = PlayerResource:GetPlayer(playerId)
+      if player ~= nil then
+        Duels:ResetPlayerState(player:GetAssignedHero())
+        -- disable respawn
+        player:GetAssignedHero():SetRespawnsDisabled(true)
+      end
+	   end
   end
 
   local playerSplitOffset = math.random(1, maxPlayers)
