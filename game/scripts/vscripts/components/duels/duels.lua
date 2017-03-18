@@ -271,7 +271,7 @@ function Duels:EndDuel ()
   local currentDuel = Duels.currentDuel
   Duels.currentDuel = nil
 
-  Timers:CreateTimer(1, function ()
+  Timers:CreateTimer(function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
