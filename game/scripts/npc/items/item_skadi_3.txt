@@ -59,17 +59,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"25 28 31 34 38"
+				"bonus_all_stats"		"25 30 40 50 70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"225 300 400 550 750"
+				"bonus_health"			"225 400 600 1000 1500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250 325 450 575 800"
+				"bonus_mana"			"250 450 700 1100 1600"
 			}
 			"04"
 			{
@@ -79,7 +79,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cold_attack_speed"		"-45 -47 -49 -51 -53"
+				"cold_attack_speed"		"-45 -60 -80 -105 -130"
 			}
 			"06"
 			{
