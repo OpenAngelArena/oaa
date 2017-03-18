@@ -11,6 +11,7 @@
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_butterfly"
+        "AbilityTextureName"			"item_recipe"
         "ItemRequirements"
         {
             "01"                        "item_eagle;item_talisman_of_evasion;item_quarterstaff"
@@ -27,19 +28,19 @@
         "ID"                            "139"       // unique ID
         //"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
- 
-        // Stats       
+
+        // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25.0"
- 
-        // Spicy Parameters    
+
+        // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "1"
         "UpgradesItems"                 "item_butterfly;item_butterfly_2;item_butterfly_3;item_butterfly_4"
         "UpgradeRecipe"                 "item_recipe_butterfly"
-        "AbilityTextureName"            "item_butterfly"  
+        "AbilityTextureName"            "item_butterfly"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "5525"
@@ -47,8 +48,8 @@
         "ItemQuality"                   "epic"
         "ItemAliases"                   "bfly;butterfly"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {

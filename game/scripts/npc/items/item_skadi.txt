@@ -8,16 +8,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"159"		// unique ID
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_skadi"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom"
@@ -47,7 +48,7 @@
 		"UpgradesItems"					"item_skadi;item_skadi_2;item_skadi_3;item_skadi_4"
 		"UpgradeRecipe"					"item_recipe_skadi"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

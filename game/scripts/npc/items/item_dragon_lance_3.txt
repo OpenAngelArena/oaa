@@ -10,25 +10,26 @@
 		"ID"							"3646"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_dragon_lance_3"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_dragon_lance_2;item_upgrade_core_2;item_recipe_dragon_lance"
-			"02"						"item_dragon_lance_2;item_upgrade_core_3;item_recipe_dragon_lance"
-			"03"						"item_dragon_lance_2;item_upgrade_core_4;item_recipe_dragon_lance"
+			"01"						"item_dragon_lance_2;item_upgrade_core_2"
+			"02"						"item_dragon_lance_2;item_upgrade_core_3"
+			"03"						"item_dragon_lance_2;item_upgrade_core_4"
 
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Dragon Lance
 	//=================================================================================================================
@@ -55,7 +56,7 @@
 
 
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

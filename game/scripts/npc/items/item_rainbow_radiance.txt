@@ -11,12 +11,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -28,7 +28,7 @@
 			"03"						"item_lucience_2;item_upgrade_core_3"
 			"04"						"item_lucience_2;item_upgrade_core_4"
 		}
-	}	
+	}
 	//=================================================================================================================
 	// rainbow_radiance
 	//=================================================================================================================
@@ -49,7 +49,7 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"rainbow_radiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -95,5 +95,5 @@
 			}
 		}
 	}
-   
+
 }

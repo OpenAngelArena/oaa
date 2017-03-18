@@ -10,21 +10,22 @@
 		"ID"							"4001"
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_radiance_3"
 		"ItemRequirements"
 		{
-			"01"						"item_radiance_2;item_upgrade_core_2;item_recipe_radiance"
-			"02"						"item_radiance_2;item_upgrade_core_3;item_recipe_radiance"
-			"03"						"item_radiance_2;item_upgrade_core_4;item_recipe_radiance"
+			"01"						"item_radiance_2;item_upgrade_core_2"
+			"02"						"item_radiance_2;item_upgrade_core_3"
+			"03"						"item_radiance_2;item_upgrade_core_4"
 		}
 	}
 
@@ -52,8 +53,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"UpgradesItems"					"item_radiance_3;item_radiance_4"
 		"UpgradeRecipe"					"item_recipe_radiance"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

@@ -10,13 +10,13 @@
 		"ID"							"3050"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -45,7 +45,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityTextureName"            "item_ultimate_scepter"
 		"AbilityCastRange"				"600"
-		
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -59,7 +59,7 @@
 		"ItemBaseLevel"					"2"
 		"UpgradesItems"					"item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"
 		"UpgradeRecipe"					"item_recipe_ultimate_scepter"
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

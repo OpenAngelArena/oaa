@@ -7,15 +7,16 @@
 	{
 		"ID"							"3168"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"6"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_necronomicon_6"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_necronomicon_5;item_upgrade_core_3;item_recipe_necronomicon"
-			"02"						"item_necronomicon_5;item_upgrade_core_4;item_recipe_necronomicon"
+			"01"						"item_necronomicon_5;item_upgrade_core_3"
+			"02"						"item_necronomicon_5;item_upgrade_core_4"
 		}
 	}
 
@@ -47,8 +48,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"6"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -66,7 +67,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"summon_duration"		"40"
-			}			
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -91,7 +92,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"explosion"				"550 675 800 1000 1200 1500"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"

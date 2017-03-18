@@ -10,20 +10,21 @@
 		"ID"							"3060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_greater_crit_4"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_crit_3;item_upgrade_core_3;item_recipe_greater_crit"
-			"02"						"item_greater_crit_3;item_upgrade_core_4;item_recipe_greater_crit"
+			"01"						"item_greater_crit_3;item_upgrade_core_3"
+			"02"						"item_greater_crit_3;item_upgrade_core_4"
 		}
 	}
 
@@ -41,7 +42,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"               "5"
-        "ItemBaseLevel"                 "4"     
+        "ItemBaseLevel"                 "4"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -51,9 +52,9 @@
 		"ItemAliases"					"daedalus"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "UpgradesItems"                 "item_greater_crit_4"
-        "UpgradeRecipe"                 "item_recipe_greater_crit"	
+        "UpgradeRecipe"                 "item_recipe_greater_crit"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

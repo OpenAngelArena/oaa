@@ -5,21 +5,21 @@
     //=================================================================================================================
     "item_recipe_bloodstone_2"
     {
- 
+
         "ID"                            "3124"      // unique ID
         "Model"                         "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"            "item_recipe"   
+        "AbilityTextureName"            "item_recipe"
 		"BaseClass"                     "item_datadriven"
-        "ItemCost"                      "0"
+        "ItemCost"                      "1500"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_bloodstone_2"
         "ItemRequirements"
         {
-            "01"                        "item_bloodstone;item_upgrade_core;item_recipe_bloodstone"
-            "02"                        "item_bloodstone;item_upgrade_core_2;item_recipe_bloodstone"
-            "03"                        "item_bloodstone;item_upgrade_core_3;item_recipe_bloodstone"
-            "04"                        "item_bloodstone;item_upgrade_core_4;item_recipe_bloodstone"
+            "01"                        "item_bloodstone;item_upgrade_core"
+            "02"                        "item_bloodstone;item_upgrade_core_2"
+            "03"                        "item_bloodstone;item_upgrade_core_3"
+            "04"                        "item_bloodstone;item_upgrade_core_4"
         }
     }
 
@@ -34,21 +34,21 @@
 		"BaseClass"                     "item_bloodstone"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
- 
+
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.0"
         "AbilityCooldown"               "300.0"
-        "AbilityTextureName"            "item_bloodstone"  
+        "AbilityTextureName"            "item_bloodstone"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "2"
         "UpgradesItems"                 "item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
         "UpgradeRecipe"                 "item_recipe_bloodstone"
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "7300"
@@ -59,8 +59,8 @@
         "ItemDisplayCharges"            "1"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "AllowedInBackpack"             "0"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {

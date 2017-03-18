@@ -7,22 +7,23 @@
 		"ID"							"3213"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		"FightRecapLevel"				"2"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_refresher_core_2"
 		"ItemRequirements"
 		{
-			"01"						"item_refresher_core;item_upgrade_core_2;item_recipe_refresher_core"
-			"02"						"item_refresher_core;item_upgrade_core_3;item_recipe_refresher_core"
-			"03"						"item_refresher_core;item_upgrade_core_4;item_recipe_refresher_core"
+			"01"						"item_refresher_core;item_upgrade_core_2"
+			"02"						"item_refresher_core;item_upgrade_core_3"
+			"03"						"item_refresher_core;item_upgrade_core_4"
 		}
 	}
 
@@ -49,8 +50,8 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"refresher_core orb"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -63,12 +64,12 @@
 //			{
 //				"var_type"				"FIELD_INTEGER"
 //				"bonus_mana_regen"		"400 450 500"
-//			}		
+//			}
 //			"03"
 //			{
 //				"var_type"				"FIELD_INTEGER"
 //				"bonus_damage"			"30"
-//			}	
+//			}
 
 			// Octarine Core Parameters
 			"04"
@@ -95,12 +96,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"40"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10"
-			}		
+			}
 		}
 	}
 }
