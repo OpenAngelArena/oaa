@@ -278,7 +278,9 @@ function Duels:EndDuel ()
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
-      hero:RespawnUnit()
+      if not hero:IsAlive() then
+        hero:RespawnUnit()
+      end
 
       Duels:RestorePlayerState (hero, state)
       Duels:MoveCameraToPlayer(state.id, hero)
@@ -287,7 +289,10 @@ function Duels:EndDuel ()
 end
 
 function Duels:ResetPlayerState (hero)
-  hero:RespawnUnit()
+  if not hero:IsAlive() then
+    hero:RespawnUnit()
+  end
+
   hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
