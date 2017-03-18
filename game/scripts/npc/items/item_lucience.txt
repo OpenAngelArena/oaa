@@ -11,12 +11,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2350"	
+		"ItemCost"						"2350"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -39,7 +39,7 @@
 		"ID"							"3331"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_lucience"
 		"AbilityCooldown"               "3"
         "AbilityManaCost"               "0"
 		// Stats
@@ -59,8 +59,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"	
-			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"		
+			"particle"					"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
 		}
 		// Toggle between heal and speed auras
 		//-----------------------------------------------------------------------
@@ -183,7 +183,7 @@
             "EffectAttachType" 					"follow_origin"
 			}
 		}
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
