@@ -46,6 +46,16 @@ function GameMode:OnNPCSpawned(keys)
   DebugPrintTable(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
+
+  npc.deathEvent = Event()
+  function npc:OnDeath(fn)
+    return npc.deathEvent.listen(fn)
+  end
+
+  npc.hurtEvent = Event()
+  function npc:OnHurt(fn)
+    return npc.hurtEvent.listen(fn)
+  end
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
@@ -67,6 +77,10 @@ function GameMode:OnEntityHurt(keys)
 
     if keys.entindex_inflictor ~= nil then
       damagingAbility = EntIndexToHScript( keys.entindex_inflictor )
+    end
+
+    if entVictim.hurtEvent then
+      entVictim.hurtEvent.broadcast(keys)
     end
   end
 end
@@ -344,9 +358,11 @@ function GameMode:OnEntityKilled( keys )
 
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
-  -- Put code here to handle when an entity gets killed
+  -- Fire ent killed event
+  if killedUnit.deathEvent then
+    killedUnit.deathEvent.broadcast(keys)
+  end
 end
-
 
 
 -- This function is called 1 to 2 times as the player connects initially but before they
