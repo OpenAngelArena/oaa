@@ -119,10 +119,6 @@ function Duels:ActuallyStartDuel ()
         goodPlayers[goodPlayerIndex].team = 'good'
         goodPlayerIndex = goodPlayerIndex + 1
       end
-
-      Duels:ResetPlayerState(player:GetAssignedHero())
-      -- disable respawn
-      player:GetAssignedHero():SetRespawnsDisabled(true)
     end
   end
 
@@ -138,6 +134,15 @@ function Duels:ActuallyStartDuel ()
     DebugPrint('There aren\'t enough players to start the duel')
     Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     return
+  else
+    for playerId = 0,19 do
+      local player = PlayerResource:GetPlayer(playerId)
+      if player ~= nil then
+        Duels:ResetPlayerState(player:GetAssignedHero())
+        -- disable respawn
+        player:GetAssignedHero():SetRespawnsDisabled(true)
+      end
+	   end
   end
 
   local playerSplitOffset = math.random(1, maxPlayers)
