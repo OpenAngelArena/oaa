@@ -309,7 +309,7 @@ function Duels:SavePlayerState (hero)
     mana = hero:GetMana()
   }
 
-  for abilityIndex = 0,state.abilityCount do
+  for abilityIndex = 0,state.abilityCount-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       state.maxAbility = abilityIndex
@@ -324,10 +324,12 @@ end
 
 function Duels:RestorePlayerState (hero, state)
   hero:SetAbsOrigin(state.location)
-  hero:SetHealth(state.hp)
+  if state.hp > 0 then
+    hero:SetHealth(state.hp)
+  end
   hero:SetMana(state.mana)
 
-  for abilityIndex = 0,state.maxAbility do
+  for abilityIndex = 0,state.maxAbility-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:StartCooldown(state.abilities[abilityIndex].cooldown)
