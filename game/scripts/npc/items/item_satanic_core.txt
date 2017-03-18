@@ -10,7 +10,7 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core"
@@ -19,7 +19,7 @@
 			"01"						"item_satanic;item_octarine_core;item_combiner"
 		}
 	}
-	
+
 
 
 
@@ -35,10 +35,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_octarine_core"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 
-		// Spicy Parameters		
+		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 
 		"MaxUpgradeLevel"				"3"
@@ -53,8 +53,8 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic core"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -93,12 +93,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"50 65 80"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10 20 30"
-			}	
+			}
 		}
 	}
 }

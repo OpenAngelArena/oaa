@@ -8,8 +8,8 @@
 		"ID"							"3140"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		"ItemCost"						"700"	
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"2200"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_ancient_janggo_2"
@@ -36,12 +36,12 @@
 		"ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30.0"
 		"AbilityCastRange"				"900"
 
-		// Spicy Parameters		
+		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"2"
@@ -61,7 +61,7 @@
 		"ItemRequiresCharges"			"0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3627"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -47,11 +47,11 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"               "5"
 		"ItemBaseLevel"                 "3"
- 
+
 		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
 //		"UpgradeRecipe"                 "item_recipe_monkey_king_bar"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

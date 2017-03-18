@@ -7,12 +7,12 @@
 		"ID"							"3317"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -24,7 +24,7 @@
 			"03"						"item_allied_cyclone;item_upgrade_core_4"
 		}
 	}
-	
+
 		"item_allied_cyclone_2"
 	{
 		// General
@@ -44,7 +44,7 @@
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"2"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"23.0"
 
@@ -56,8 +56,8 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"allied_cyclone euls;eul's scepter of divinity"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

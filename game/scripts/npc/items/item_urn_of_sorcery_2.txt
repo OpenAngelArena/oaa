@@ -7,12 +7,12 @@
 		"ID"							"3237"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -32,7 +32,7 @@
 		"ID"							"3239"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_urn_of_shadows"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
- 		"AbilityTextureName"				"item_urn_of_shadows"			
+ 		"AbilityTextureName"				"item_urn_of_shadows"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
@@ -48,7 +48,7 @@
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
 
-		// Magic Wand Parameters	
+		// Magic Wand Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -81,7 +81,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"soul_heal_amount"		"400 600"
-			}			
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -116,7 +116,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_health_regen"		"5 8"
-			}		
+			}
 			"14"
 			{
 				"var_type"				"FIELD_INTEGER"

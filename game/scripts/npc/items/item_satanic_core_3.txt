@@ -6,7 +6,7 @@
 		"ID"							"3220"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core_3"
@@ -15,7 +15,7 @@
 			"01"						"item_satanic_core_2;item_upgrade_core_4"
 		}
 	}
-	
+
 		"item_satanic_core_3"
 	{
 		// General
@@ -25,9 +25,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_octarine_core"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		// Spicy Parameters		
+		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 
 		"MaxUpgradeLevel"				"3"
@@ -40,8 +40,8 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic_core"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -80,12 +80,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"50 65 80"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10 20 30"
-			}	
+			}
 		}
 	}
 }

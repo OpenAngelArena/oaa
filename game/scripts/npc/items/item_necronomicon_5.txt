@@ -7,7 +7,7 @@
 	{
 		"ID"							"3167"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"	
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"5"
 		"ItemRecipe"					"1"
@@ -48,10 +48,10 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"5"
-		
+
 		"UpgradesItems"					"item_necronomicon_5"
 		"UpgradeRecipe"					"item_recipe_necronomicon"
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -69,7 +69,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"summon_duration"		"40"
-			}			
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -94,7 +94,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"explosion"				"550 675 800 1000 1200 1500"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"

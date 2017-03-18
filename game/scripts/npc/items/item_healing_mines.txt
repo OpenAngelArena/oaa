@@ -11,12 +11,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"400"	
+		"ItemCost"						"2900"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -29,7 +29,7 @@
 		}
 	}
 
-  
+
 
 
 	//=================================================================================================================
@@ -43,7 +43,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"AbilityTextureName"            "item_halloween_candy_corn"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"500"
@@ -62,31 +62,31 @@
         "ItemBaseLevel"                 "1"
         "UpgradesItems"                 "item_healing_mines;item_healing_mines_2"
         "UpgradeRecipe"                 "item_recipe_healing_mines"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"number_of_mines"		"8"	
+				"number_of_mines"		"8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_aoe"				"350"	
+				"mine_aoe"				"350"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_duration"			"8"	
+				"mine_duration"			"8"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_heal"				"100 150 225"	
-			}		
+				"mine_heal"				"100 150 225"
+			}
 		}
 	}
 

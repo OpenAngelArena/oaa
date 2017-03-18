@@ -10,12 +10,12 @@
 		"ID"							"4027"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -37,7 +37,7 @@
 		"BaseClass"                     "item_heart"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_heart"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7.0"
 		"MaxUpgradeLevel"				"5"
@@ -51,7 +51,7 @@
 		"ItemAliases"					"hot;heart of tarrasque"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

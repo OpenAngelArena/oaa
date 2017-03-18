@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3043"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"AbilityTextureName"			"item_recipe"	
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -36,12 +36,12 @@
 		"ID"							"3048"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_tranquil_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_tranquil_boots"	
-		// Stats		
+		"AbilityTextureName"            "item_tranquil_boots"
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
 		"AbilityManaCost"				"0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"10400"
@@ -50,12 +50,12 @@
 		"ItemAliases"					"tranquil boots"
 		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-  
+
   		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "4"            
+		"ItemBaseLevel"                 "4"
 		"UpgradesItems"                 "item_greater_tranquil_boots_4"
-		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"       		
-		// Special	
+		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

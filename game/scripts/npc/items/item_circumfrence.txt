@@ -10,13 +10,13 @@
 		"ID"							"3342"
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -27,7 +27,7 @@
 			"02"						"item_radiance_3;item_upgrade_core_4;item_relic" //relic added to not clash with radiance 4
 		}
 	}
- 
+
 	//=================================================================================================================
 	// circumfrence
 	//=================================================================================================================
@@ -53,8 +53,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "UpgradesItems"					"item_circumfrence"
 		"UpgradeRecipe"					"item_recipe_circumfrence"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -80,5 +80,5 @@
 			}
 		}
 	}
- 
+
 }

@@ -10,12 +10,12 @@
 		"ID"							"3622"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -56,8 +56,8 @@
 		"ItemBaseLevel"                 "4"
 		"UpgradesItems"                 "item_echo_sabre;item_echo_sabre_2;item_echo_sabre_3;item_echo_sabre_4"
 		"UpgradeRecipe"                 "item_recipe_echo_sabre"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

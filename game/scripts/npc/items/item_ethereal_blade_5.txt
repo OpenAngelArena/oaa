@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3145"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -44,7 +44,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"	    
+		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"ethereal"
 
 		// Spicy Parameters
@@ -61,8 +61,8 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemAliases"					"eb;ethereal blade"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

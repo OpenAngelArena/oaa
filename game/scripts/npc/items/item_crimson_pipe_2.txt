@@ -8,13 +8,13 @@
 		"ID"							"3205"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"	
+		"ItemCost"						"5500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -25,7 +25,7 @@
 			"02"						"item_crimson_pipe;item_upgrade_core_4;item_recipe_crimson_pipe"
 		}
 	}
-	
+
 
     "item_crimson_pipe_2"
 	{
@@ -35,7 +35,7 @@
 		"BaseClass"                     "item_pipe"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "item_pipe"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
 		"AbilityCastRange"				"900"
@@ -50,8 +50,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "MaxUpgradeLevel"               "2"
         "ItemBaseLevel"                 "2"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -94,7 +94,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"magic_damage_threshold"			"150 250"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -104,7 +104,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_damage_ranged_aura"	"40 50"
-			}		
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"

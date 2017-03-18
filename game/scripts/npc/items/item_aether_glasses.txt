@@ -10,8 +10,8 @@
 		"ID"							"3300"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		"ItemCost"						"800"	
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"2300"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_glasses"
@@ -36,7 +36,7 @@
 		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"				"item_aether_lens"
-	
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"5000"
@@ -44,7 +44,7 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"aether glasses"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
@@ -52,7 +52,7 @@
 		"UpgradesItems"					"item_aether_glasses"
 		"UpgradeRecipe"					"item_recipe_aether_glasses"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

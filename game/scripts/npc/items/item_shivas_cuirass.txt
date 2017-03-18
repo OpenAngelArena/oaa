@@ -11,12 +11,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"	
+		"ItemCost"						"2100"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -26,9 +26,9 @@
 			"01"						"item_assault_3;item_shivas_guard_3;item_combiner"
 		}
 	}
-	
 
-		
+
+
 	//=================================================================================================================
 	// Shivas Cuirass (Based on Shivas Guard)
 	//=================================================================================================================
@@ -41,7 +41,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"            "item_assault"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
 		"AbilitySharedCooldown"			"shivas"
@@ -57,11 +57,11 @@
 		"ItemAliases"					"shivas guard"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		"UpgradesItems"					"item_shivas_cuirass;item_shivas_cuirass_2;item_shivas_cuirass_3"
 		"UpgradeRecipe"					"item_recipe_shivas_cuirass"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -130,7 +130,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_negative_armor"	"-5"
-			}	
+			}
 		}
 	}
 

@@ -2,11 +2,11 @@
 {
    "item_recipe_stoneskin_2"
     {
- 
+
         "ID"                            "3245"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
-        "ItemCost"                      "0"
+        "ItemCost"                      "1500"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_stoneskin_2"
@@ -18,7 +18,7 @@
             "04"                        "item_stoneskin;item_upgrade_core_4;item_recipe_stoneskin"
         }
     }
- 
+
      "item_stoneskin_2"
     {
         // General
@@ -26,19 +26,19 @@
         "ID"                            "3247"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "item_shivas_guard" 
-        // Stats       
+        "AbilityTextureName"            "item_shivas_guard"
+        // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "2"
         "AbilityManaCost"               "50"
- 
+
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "2"
         "ItemBaseLevel"                 "2"
 
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "20000"
@@ -46,8 +46,8 @@
         "ItemQuality"                   "epic"
         "ItemAliases"                   "stoneskin of mordiggian"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
@@ -58,7 +58,7 @@
             "ApplyModifier"
             {
                 "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"   
+                "Target"                "CASTER"
             }
         }
         "OnToggleOff"
@@ -66,7 +66,7 @@
             "RemoveModifier"
             {
                 "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"   
+                "Target"                "CASTER"
             }
         }
 
@@ -134,7 +134,7 @@
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "stone_move_speed"      "100"    
+                "stone_move_speed"      "100"
             }
             "07"
             {

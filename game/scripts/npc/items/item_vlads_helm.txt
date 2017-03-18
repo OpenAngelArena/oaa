@@ -1,7 +1,7 @@
 "DOTAItems"
 {
 	//=================================================================================================================
-	// Recipe: Vladimirs Helm 
+	// Recipe: Vladimirs Helm
 	//=================================================================================================================
 	"item_recipe_vlads_helm"
 	{
@@ -10,13 +10,13 @@
 		"ID"							"3240"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"			
+		"AbilityTextureName"			"item_recipe"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"725"	
+		"ItemCost"						"2225"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -26,7 +26,7 @@
 			"01"						"item_vladmir;item_helm_of_the_dominator;item_combiner"
 		}
 	}
-	
+
 
 
 
@@ -43,7 +43,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
- 		"AbilityTextureName"			"item_vladmir"	
+ 		"AbilityTextureName"			"item_vladmir"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
@@ -61,8 +61,8 @@
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_vlads_helm"
 		"UpgradeRecipe"					"item_recipe_vlads_helm"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -115,7 +115,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_aura"			"20 30"
-			}			
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -125,7 +125,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"vampiric_aura_ranged"			"10 13"
-			}	
+			}
 		}
 	}
 

@@ -7,7 +7,7 @@
 	{
 		"ID"							"3076"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_4"
@@ -46,8 +46,8 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bf;battle fury"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -80,17 +80,17 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"quelling_bonus_ranged"	"125"
-			}			
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cleave_starting_width"	"150"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cleave_ending_width"	"300"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -105,7 +105,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range_ward"			"450"
-			}			
+			}
 		}
 	}
 }

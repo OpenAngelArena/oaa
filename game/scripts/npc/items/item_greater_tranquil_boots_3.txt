@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3042"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"AbilityTextureName"			"item_recipe"	
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"2500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -37,12 +37,12 @@
 		"ID"							"3047"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_tranquil_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_tranquil_boots"	
-		// Stats		
+		"AbilityTextureName"            "item_tranquil_boots"
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
 		"AbilityManaCost"				"0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6800"
@@ -51,12 +51,12 @@
 		"ItemAliases"					"tranquil boots"
 		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-  
+
   		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "3"            
+		"ItemBaseLevel"                 "3"
 		"UpgradesItems"                 "item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
-		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"       		
-		// Special	
+		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

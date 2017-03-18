@@ -9,12 +9,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"2"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -46,8 +46,8 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"refresher_core orb"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -60,12 +60,12 @@
 //			{
 //				"var_type"				"FIELD_INTEGER"
 //				"bonus_mana_regen"		"400 450 500"
-//			}		
+//			}
 //			"03"
 //			{
 //				"var_type"				"FIELD_INTEGER"
 //				"bonus_damage"			"30"
-//			}	
+//			}
 
 			// Octarine Core Parameters
 			"04"
@@ -92,12 +92,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"40"
-			}			
+			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10"
-			}	
+			}
 		}
 	}
 }

@@ -10,7 +10,7 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_2"
@@ -35,11 +35,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_satanic"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35.0"
 
-		// Spicy Parameters		
+		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 
 		"MaxUpgradeLevel"				"5"
@@ -54,8 +54,8 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

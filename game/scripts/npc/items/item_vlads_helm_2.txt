@@ -6,13 +6,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3241"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"		
+		"Model"							"models/props_gameplay/recipe.mdl"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -53,8 +53,8 @@
 		"MaxUpgradeLevels"				"2"
 		"ItemBaseLevel"					"2"
 
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -109,7 +109,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_aura"			"20 30"
-			}			
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -119,7 +119,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"vampiric_aura_ranged"			"10 13"
-			}	
+			}
 		}
 	}
 }

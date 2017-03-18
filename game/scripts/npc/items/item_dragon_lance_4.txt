@@ -10,12 +10,12 @@
 		"ID"							"3650"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"	
 		"ItemShopTags"					""
-		
+
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
 
@@ -32,7 +32,7 @@
 
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Dragon Lance
 	//=================================================================================================================
@@ -57,7 +57,7 @@
 
 
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

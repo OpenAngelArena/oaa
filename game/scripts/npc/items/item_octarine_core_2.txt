@@ -9,7 +9,7 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_octarine_core_2"
@@ -41,11 +41,11 @@
 		"ItemAliases"					"mana;mb;octarine core"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		
+
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"2"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -73,12 +73,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"25 35"
-			}			
+			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"5 7"
-			}	
+			}
 		}
 	}
 }

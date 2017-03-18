@@ -8,7 +8,7 @@
 		"ID"							"3068"			// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"ItemCost"						"0"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_sheepstick_4"
@@ -48,7 +48,7 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		// Special-----------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
