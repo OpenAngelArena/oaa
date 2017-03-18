@@ -46,7 +46,14 @@ function UpdateGoldTooltip (gold) {
     var tooltipLabels = FindDotaHudElement('DOTAHUDGoldTooltip').FindChildTraverse('Contents');
 
     var label = tooltipLabels.GetChild(0);
-    label.text = label.text.replace(/: [0-9]+/, ': ' + gold);
+    if (useFormatting == 'full'){
+      gold = FormatGold(gold);
+    } else if (useFormatting == 'half') {
+      gold = FormatComma(gold);
+    } else {
+      gold= gold;
+    }
+    label.text = label.text.replace(/: .+/, ': ' + gold);
 
     var label = tooltipLabels.GetChild(1);
     label.style.visibility = 'collapse';
