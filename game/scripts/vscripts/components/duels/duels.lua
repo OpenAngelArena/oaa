@@ -121,8 +121,6 @@ function Duels:ActuallyStartDuel ()
       end
 
       Duels:ResetPlayerState(player:GetAssignedHero())
-      -- disable respawn
-      player:GetAssignedHero():SetRespawnsDisabled(true)
     end
   end
 
@@ -158,18 +156,24 @@ function Duels:ActuallyStartDuel ()
     local badGuy = Duels:GetUnassignedPlayer(badPlayers, badPlayerIndex)
     local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
     local badPlayer = PlayerResource:GetPlayer(badGuy.id)
+    local goodHero = goodPlayer:GetAssignedHero()
+    local badHero = badPlayer:GetAssignedHero()
 
     goodGuy.duelNumber = 1
     badGuy.duelNumber = 1
 
-    FindClearSpaceForUnit(goodPlayer:GetAssignedHero(), spawn1, true)
-    FindClearSpaceForUnit(badPlayer:GetAssignedHero(), spawn2, true)
+    FindClearSpaceForUnit(goodHero, spawn1, true)
+    FindClearSpaceForUnit(badHero, spawn2, true)
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
 
-    Duels:MoveCameraToPlayer(goodGuy.id, goodPlayer:GetAssignedHero())
-    Duels:MoveCameraToPlayer(badGuy.id, badPlayer:GetAssignedHero())
+    Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
+    Duels:MoveCameraToPlayer(badGuy.id, badHero)
+
+    -- disable respawn
+    goodHero:SetRespawnsDisabled(true)
+    badHero:SetRespawnsDisabled(true)
   end
 
   spawn1 = Entities:FindByName(nil, 'duel_2_spawn_1'):GetAbsOrigin()
@@ -187,18 +191,24 @@ function Duels:ActuallyStartDuel ()
     local badGuy = Duels:GetUnassignedPlayer(badPlayers, badPlayerIndex)
     local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
     local badPlayer = PlayerResource:GetPlayer(badGuy.id)
+    local goodHero = goodPlayer:GetAssignedHero()
+    local badHero = badPlayer:GetAssignedHero()
 
     goodGuy.duelNumber = 2
     badGuy.duelNumber = 2
 
-    FindClearSpaceForUnit(goodPlayer:GetAssignedHero(), spawn1, true)
-    FindClearSpaceForUnit(badPlayer:GetAssignedHero(), spawn2, true)
+    FindClearSpaceForUnit(goodHero, spawn1, true)
+    FindClearSpaceForUnit(badHero, spawn2, true)
 
     Duels.zone2.addPlayer(goodGuy.id)
     Duels.zone2.addPlayer(badGuy.id)
 
-    Duels:MoveCameraToPlayer(goodGuy.id, goodPlayer:GetAssignedHero())
-    Duels:MoveCameraToPlayer(badGuy.id, badPlayer:GetAssignedHero())
+    Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
+    Duels:MoveCameraToPlayer(badGuy.id, badHero)
+
+    -- disable respawn
+    goodHero:SetRespawnsDisabled(true)
+    badHero:SetRespawnsDisabled(true)
   end
 
   Duels.currentDuel = {
