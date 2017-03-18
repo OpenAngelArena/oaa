@@ -10,19 +10,19 @@
 		"ID"							"3004"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_greater_phase_boots_5"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phase_boots_4;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_4;item_upgrade_core_4"
 		}
 	}
 
@@ -37,10 +37,10 @@
 		"BaseClass"                     "item_phase_boots"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"            "item_phase_boots"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"15540"
@@ -50,12 +50,12 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "5"     		
-		// Special	
+		"ItemBaseLevel"                 "5"
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			
+
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -65,7 +65,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"35 55 75 95 125"
-			}			
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -80,12 +80,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"block_chance"			"0"
-			}		
+			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"phase_movement_speed"  "26 29 32 35 38"
-			}		
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -100,17 +100,17 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"0"
-			}		
+			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"0"
-			}	
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"projectile_bonus"		"3 3 3 3 3"
-			}	
+			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -120,7 +120,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"projectile_range"		"700"
-			}		
+			}
 		}
 	}
 }

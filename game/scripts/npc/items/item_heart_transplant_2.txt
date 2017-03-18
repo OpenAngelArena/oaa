@@ -7,12 +7,13 @@
 		"ID"							"3259"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+    "AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -33,7 +34,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
@@ -51,7 +52,7 @@
         "MaxUpgradeLevel"               "2"
         "ItemBaseLevel"                 "2"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
  		"AbilitySpecial"
 		{
@@ -64,7 +65,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"transplant_range_tooltip"		"1000"
-			}			
+			}
 			// New Parameters
 			"03"
             {
@@ -94,5 +95,5 @@
 		}
 	}
 
- 
+
 }

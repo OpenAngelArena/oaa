@@ -10,17 +10,17 @@
 		"ID"							"3116"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		"ItemCost"						"0"	
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_lens_2"
 		"ItemRequirements"
 		{
-			"01"						"item_aether_lens;item_upgrade_core;item_recipe_aether_lens"
-			"02"						"item_aether_lens;item_upgrade_core_2;item_recipe_aether_lens"
-			"03"						"item_aether_lens;item_upgrade_core_3;item_recipe_aether_lens"
-			"04"						"item_aether_lens;item_upgrade_core_4;item_recipe_aether_lens"
+			"01"						"item_aether_lens;item_upgrade_core"
+			"02"						"item_aether_lens;item_upgrade_core_2"
+			"03"						"item_aether_lens;item_upgrade_core_3"
+			"04"						"item_aether_lens;item_upgrade_core_4"
 		}
 	}
 
@@ -35,7 +35,7 @@
 		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"				"item_aether_lens"
-	
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"4450"
@@ -43,7 +43,7 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"aether lens"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"3"
@@ -51,7 +51,7 @@
 		"UpgradesItems"					"item_aether_lens_2"
 		"UpgradeRecipe"					"item_recipe_aether_lens"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

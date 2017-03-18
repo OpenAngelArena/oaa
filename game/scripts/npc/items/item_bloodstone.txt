@@ -5,13 +5,14 @@
     //=================================================================================================================
     "item_recipe_bloodstone"
     {
- 
+
         "ID"                            "120"       // unique ID
         "Model"                         "models/props_gameplay/recipe.vmdl"
-        "ItemCost"                      "900"  
+        "ItemCost"                      "900"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_bloodstone"
+        "AbilityTextureName"			"item_recipe"
         "ItemRequirements"
         {
             "01"                        "item_soul_ring;item_soul_booster"
@@ -28,21 +29,21 @@
         "ID"                            "121"       // unique ID
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
- 
+
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.0"
         "AbilityCooldown"               "300.0"
-        "AbilityTextureName"            "item_bloodstone" 
+        "AbilityTextureName"            "item_bloodstone"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "1"
         "UpgradesItems"                 "item_bloodstone;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
         "UpgradeRecipe"                 "item_recipe_bloodstone"
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "4900"
@@ -53,8 +54,8 @@
         "ItemDisplayCharges"            "1"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "AllowedInBackpack"             "0"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {

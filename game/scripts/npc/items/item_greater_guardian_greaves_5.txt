@@ -10,12 +10,12 @@
 		"ID"							"3034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -23,7 +23,7 @@
 
 		"ItemRequirements"
 		{
-			"01"						"item_greater_guardian_greaves_4;item_upgrade_core_4;item_recipe_greater_guardian_greaves"
+			"01"						"item_greater_guardian_greaves_4;item_upgrade_core_4"
 		}
 	}
 
@@ -39,7 +39,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"            "item_guardian_greaves"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"
 		"AbilityCastRange" 				"900"
@@ -55,12 +55,12 @@
 		"ItemAlertable"					"1"
 
 		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "5"            		
+		"ItemBaseLevel"                 "5"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
-		{				
+		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -70,7 +70,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana"			"350 420 500 600 700"
-			}		
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -80,12 +80,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"7 10 12 15 18"
-			}	
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_health_regen"		"6 9 12 15 18"
-			}			
+			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -95,7 +95,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_health_regen_bonus"		"20 25 30 35 40"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -110,7 +110,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"900"
-			}	
+			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"

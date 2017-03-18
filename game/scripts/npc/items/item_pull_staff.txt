@@ -11,25 +11,25 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"	
+		"ItemCost"						"2400"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_pull_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_hurricane_pike;item_upgrade_core;item_recipe_hurricane_pike"
-			"02"						"item_hurricane_pike;item_upgrade_core_2;item_recipe_hurricane_pike"
-			"03"						"item_hurricane_pike;item_upgrade_core_3;item_recipe_hurricane_pike"
-			"04"						"item_hurricane_pike;item_upgrade_core_4;item_recipe_hurricane_pike"						
+			"01"						"item_hurricane_pike;item_upgrade_core"
+			"02"						"item_hurricane_pike;item_upgrade_core_2"
+			"03"						"item_hurricane_pike;item_upgrade_core_3"
+			"04"						"item_hurricane_pike;item_upgrade_core_4"
 		}
 	}
-	
+
 	//=================================================================================================================
 	// pull Staff
 	//=================================================================================================================
@@ -59,8 +59,8 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"ps;pull staff"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

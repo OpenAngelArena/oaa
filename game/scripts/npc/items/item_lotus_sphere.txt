@@ -11,12 +11,12 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"	
+		"ItemCost"						"1600"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -26,7 +26,7 @@
 			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner"
 		}
 	}
-	
+
 
 	//=================================================================================================================
 	// Lotus Orb (Based on Lotus Orb)
@@ -41,7 +41,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_lotus_orb"		
+		"AbilityTextureName"            "item_lotus_orb"
 		"AbilityCooldown"				"15.0"
 		"AbilityCastRange"				"900"
 		"AbilityManaCost"				"75"
@@ -59,8 +59,8 @@
 		"ItemAliases"					"funball"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -83,7 +83,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana_regen"		"200 250"
-			}			
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"

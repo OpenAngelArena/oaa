@@ -10,23 +10,23 @@
 		"ID"							"3084"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_assault_2"
 		"ItemRequirements"
 		{
-			"01"						"item_assault;item_upgrade_core;item_recipe_assault"
-			"02"						"item_assault;item_upgrade_core_2;item_recipe_assault"
-			"03"						"item_assault;item_upgrade_core_3;item_recipe_assault"
-			"04"						"item_assault;item_upgrade_core_4;item_recipe_assault"
+			"01"						"item_assault;item_upgrade_core"
+			"02"						"item_assault;item_upgrade_core_2"
+			"03"						"item_assault;item_upgrade_core_3"
+			"04"						"item_assault;item_upgrade_core_4"
 		}
 	}
 
@@ -49,7 +49,7 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"ac;assault cuirass"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		//Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"3"
@@ -57,7 +57,7 @@
 		"UpgradesItems"					"item_assault_2"
 		"UpgradeRecipe"					"item_recipe_assault"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -90,7 +90,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_negative_armor"	"-5 -7 -9"
-			}			
+			}
 		}
 	}
 }
