@@ -10,6 +10,9 @@
 		"ID"							"3330"
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityTextureName"			"item_recipe"
 
 		// Item Info
@@ -37,7 +40,7 @@
 		"ID"							"3333"
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_lucience"
 		"AbilityCooldown"               "3"
         "AbilityManaCost"               "0"
 		// Stats

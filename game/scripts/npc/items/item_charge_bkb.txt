@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -38,10 +38,10 @@
 		"ID"							"3309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityTextureName"            "item_black_king_bar"
+    "AbilityTextureName"            "item_charge_bkb"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
+		"AbilityCooldown"				"10.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
 		"AbilitySharedCooldown"			"bkb"
 		"AbilityCastRange"				"1200"
 
@@ -54,7 +54,7 @@
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
 		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"4"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm.
+		"ItemInitialCharges"			"0"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
 		"AbilitySpecial"
 		{
 			//Wand Stats:

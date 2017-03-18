@@ -14,7 +14,9 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
+
 		"ItemCost"						"4850"
+
 		"ItemShopTags"					""
 
 		// Recipe
@@ -39,7 +41,7 @@
 		"ID"							"3331"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "item_lucience"
 		"AbilityCooldown"               "3"
         "AbilityManaCost"               "0"
 		// Stats
