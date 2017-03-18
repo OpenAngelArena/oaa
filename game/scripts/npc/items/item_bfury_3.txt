@@ -7,10 +7,11 @@
 	{
 		"ID"							"3075"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_3"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_bfury_2;item_upgrade_core_2"
