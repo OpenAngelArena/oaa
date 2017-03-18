@@ -13,7 +13,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,9 +22,9 @@
 		"ItemResult"					"item_greater_phase_boots_3"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_phase_boots_2;item_upgrade_core_2;item_recipe_greater_phase_boots"
-			"02"						"item_greater_phase_boots_2;item_upgrade_core_3;item_recipe_greater_phase_boots"
-			"03"						"item_greater_phase_boots_2;item_upgrade_core_4;item_recipe_greater_phase_boots"
+			"01"						"item_greater_phase_boots_2;item_upgrade_core_2"
+			"02"						"item_greater_phase_boots_2;item_upgrade_core_3"
+			"03"						"item_greater_phase_boots_2;item_upgrade_core_4"
 		}
 	}
 

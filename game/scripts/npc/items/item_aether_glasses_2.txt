@@ -7,15 +7,16 @@
 		"ID"							"3301"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_glasses_2"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_aether_glasses;item_upgrade_core_2;item_recipe_aether_glasses"
-			"02"						"item_aether_glasses;item_upgrade_core_3;item_recipe_aether_glasses"
-			"03"						"item_aether_glasses;item_upgrade_core_4;item_recipe_aether_glasses"
+			"01"						"item_aether_glasses;item_upgrade_core_2"
+			"02"						"item_aether_glasses;item_upgrade_core_3"
+			"03"						"item_aether_glasses;item_upgrade_core_4"
 		}
 	}
 	"item_aether_glasses_2"

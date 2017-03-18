@@ -9,17 +9,17 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"4"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_necronomicon_4"
 		"ItemRequirements"
 		{
-			"01"						"item_necronomicon_3;item_upgrade_core;item_recipe_necronomicon"
-			"02"						"item_necronomicon_3;item_upgrade_core_2;item_recipe_necronomicon"
-			"03"						"item_necronomicon_3;item_upgrade_core_3;item_recipe_necronomicon"
-			"04"						"item_necronomicon_3;item_upgrade_core_4;item_recipe_necronomicon"
+			"01"						"item_necronomicon_3;item_upgrade_core"
+			"02"						"item_necronomicon_3;item_upgrade_core_2"
+			"03"						"item_necronomicon_3;item_upgrade_core_3"
+			"04"						"item_necronomicon_3;item_upgrade_core_4"
 		}
 	}
 

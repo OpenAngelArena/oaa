@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"62"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"300"	
+		"ItemCost"						"300"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -46,9 +46,9 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"MaxUpgradeLevel"               "1"
-        "ItemBaseLevel"                 "1"            
-		
-		// Special	
+        "ItemBaseLevel"                 "1"
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -61,17 +61,17 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_stat"			"9"
-			}	
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"25"
-			}		
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"0"
-			}		
+			}
 		}
 	}
 }

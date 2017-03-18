@@ -10,7 +10,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -19,8 +19,8 @@
 		"ItemResult"					"item_healing_mines_2"
 		"ItemRequirements"
 		{
-			"01"						"item_healing_mines;item_upgrade_core_3;item_recipe_healing_mines"
-			"02"						"item_healing_mines;item_upgrade_core_4;item_recipe_healing_mines"
+			"01"						"item_healing_mines;item_upgrade_core_3"
+			"02"						"item_healing_mines;item_upgrade_core_4"
 		}
 	}
 

@@ -11,16 +11,16 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_lens_2"
 		"ItemRequirements"
 		{
-			"01"						"item_aether_lens;item_upgrade_core;item_recipe_aether_lens"
-			"02"						"item_aether_lens;item_upgrade_core_2;item_recipe_aether_lens"
-			"03"						"item_aether_lens;item_upgrade_core_3;item_recipe_aether_lens"
-			"04"						"item_aether_lens;item_upgrade_core_4;item_recipe_aether_lens"
+			"01"						"item_aether_lens;item_upgrade_core"
+			"02"						"item_aether_lens;item_upgrade_core_2"
+			"03"						"item_aether_lens;item_upgrade_core_3"
+			"04"						"item_aether_lens;item_upgrade_core_4"
 		}
 	}
 

@@ -10,16 +10,16 @@
 		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_preempt_2"
 		"ItemRequirements"
 		{
-			"01"						"item_preempt;item_upgrade_core;item_recipe_preempt"
-			"02"						"item_preempt;item_upgrade_core_2;item_recipe_preempt"
-			"03"						"item_preempt;item_upgrade_core_3;item_recipe_preempt"
-			"04"						"item_preempt;item_upgrade_core_4;item_recipe_preempt"
+			"01"						"item_preempt;item_upgrade_core"
+			"02"						"item_preempt;item_upgrade_core_2"
+			"03"						"item_preempt;item_upgrade_core_3"
+			"04"						"item_preempt;item_upgrade_core_4"
 		}
 	}
 

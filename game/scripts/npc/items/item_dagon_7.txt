@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,9 +22,9 @@
 		"ItemResult"					"item_dagon_7"
 		"ItemRequirements"
 		{
-			"02"						"item_dagon_6;item_recipe_dagon;item_upgrade_core_2"
-			"03"						"item_dagon_6;item_recipe_dagon;item_upgrade_core_3"
-			"04"						"item_dagon_6;item_recipe_dagon;item_upgrade_core_4"
+			"02"						"item_dagon_6;item_upgrade_core_2"
+			"03"						"item_dagon_6;item_upgrade_core_3"
+			"04"						"item_dagon_6;item_upgrade_core_4"
 		}
 	}
 

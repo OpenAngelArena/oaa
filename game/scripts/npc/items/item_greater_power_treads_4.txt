@@ -13,7 +13,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,8 +22,8 @@
 		"ItemResult"					"item_greater_power_treads_4"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_power_treads_3;item_upgrade_core_3;item_recipe_greater_power_treads"
-			"02"						"item_greater_power_treads_3;item_upgrade_core_4;item_recipe_greater_power_treads"
+			"01"						"item_greater_power_treads_3;item_upgrade_core_3"
+			"02"						"item_greater_power_treads_3;item_upgrade_core_4"
 		}
 	}
 

@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,10 +23,10 @@
 		"ItemResult"					"item_pipe_2"
 		"ItemRequirements"
 		{
-			"01"						"item_pipe;item_upgrade_core;item_recipe_pipe"
-			"02"						"item_pipe;item_upgrade_core_2;item_recipe_pipe"
-			"03"						"item_pipe;item_upgrade_core_3;item_recipe_pipe"
-			"04"						"item_pipe;item_upgrade_core_4;item_recipe_pipe"
+			"01"						"item_pipe;item_upgrade_core"
+			"02"						"item_pipe;item_upgrade_core_2"
+			"03"						"item_pipe;item_upgrade_core_3"
+			"04"						"item_pipe;item_upgrade_core_4"
 		}
 	}
 

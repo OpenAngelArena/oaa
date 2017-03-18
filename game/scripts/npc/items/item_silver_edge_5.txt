@@ -7,13 +7,13 @@
 	{
 		"ID"							"3153"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"4500"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge_5"
 		"ItemRequirements"
 		{
-			"01"						"item_silver_edge_4;item_upgrade_core_4;item_recipe_silver_edge"
+			"01"						"item_silver_edge_4;item_upgrade_core_4"
 		}
 	}
 

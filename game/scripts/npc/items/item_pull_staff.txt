@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2400"	
+		"ItemCost"						"2400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,10 +23,10 @@
 		"ItemResult"					"item_pull_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_hurricane_pike;item_upgrade_core;item_recipe_hurricane_pike"
-			"02"						"item_hurricane_pike;item_upgrade_core_2;item_recipe_hurricane_pike"
-			"03"						"item_hurricane_pike;item_upgrade_core_3;item_recipe_hurricane_pike"
-			"04"						"item_hurricane_pike;item_upgrade_core_4;item_recipe_hurricane_pike"
+			"01"						"item_hurricane_pike;item_upgrade_core"
+			"02"						"item_hurricane_pike;item_upgrade_core_2"
+			"03"						"item_hurricane_pike;item_upgrade_core_3"
+			"04"						"item_hurricane_pike;item_upgrade_core_4"
 		}
 	}
 

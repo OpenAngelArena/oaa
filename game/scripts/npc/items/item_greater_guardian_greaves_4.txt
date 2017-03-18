@@ -13,7 +13,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,8 +23,8 @@
 
 		"ItemRequirements"
 		{
-			"01"						"item_greater_guardian_greaves_3;item_upgrade_core_3;item_recipe_greater_guardian_greaves"
-			"02"						"item_greater_guardian_greaves_3;item_upgrade_core_4;item_recipe_greater_guardian_greaves"
+			"01"						"item_greater_guardian_greaves_3;item_upgrade_core_3"
+			"02"						"item_greater_guardian_greaves_3;item_upgrade_core_4"
 		}
 	}
 

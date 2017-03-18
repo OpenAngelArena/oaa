@@ -7,16 +7,16 @@
 	{
 		"ID"							"3167"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"5"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_necronomicon_5"
 		"ItemRequirements"
 		{
-			"01"						"item_necronomicon_4;item_upgrade_core_2;item_recipe_necronomicon"
-			"02"						"item_necronomicon_4;item_upgrade_core_3;item_recipe_necronomicon"
-			"03"						"item_necronomicon_4;item_upgrade_core_4;item_recipe_necronomicon"
+			"01"						"item_necronomicon_4;item_upgrade_core_2"
+			"02"						"item_necronomicon_4;item_upgrade_core_3"
+			"03"						"item_necronomicon_4;item_upgrade_core_4"
 		}
 	}
 

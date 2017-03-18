@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,10 +23,10 @@
 		"ItemResult"					"item_bloodthorn_2"
 		"ItemRequirements"
 		{
-			"01"						"item_bloodthorn;item_upgrade_core;item_recipe_bloodthorn"
-			"02"						"item_bloodthorn;item_upgrade_core_2;item_recipe_bloodthorn"
-			"03"						"item_bloodthorn;item_upgrade_core_3;item_recipe_bloodthorn"
-			"04"						"item_bloodthorn;item_upgrade_core_4;item_recipe_bloodthorn"
+			"01"						"item_bloodthorn;item_upgrade_core"
+			"02"						"item_bloodthorn;item_upgrade_core_2"
+			"03"						"item_bloodthorn;item_upgrade_core_3"
+			"04"						"item_bloodthorn;item_upgrade_core_4"
 		}
 	}
 

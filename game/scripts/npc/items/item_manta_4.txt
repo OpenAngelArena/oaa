@@ -9,14 +9,14 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_manta_4"
 		"ItemRequirements"
 		{
-			"01"						"item_manta_3;item_upgrade_core_3;item_recipe_manta"
-			"02"						"item_manta_3;item_upgrade_core_4;item_recipe_manta"
+			"01"						"item_manta_3;item_upgrade_core_3"
+			"02"						"item_manta_3;item_upgrade_core_4"
 		}
 	}
 

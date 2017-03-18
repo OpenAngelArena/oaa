@@ -9,16 +9,16 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_mask_of_madness_2"
 		"ItemRequirements"
 		{
-			"01"						"item_mask_of_madness;item_upgrade_core;item_recipe_mask_of_madness"
-			"02"						"item_mask_of_madness;item_upgrade_core_2;item_recipe_mask_of_madness"
-			"03"						"item_mask_of_madness;item_upgrade_core_3;item_recipe_mask_of_madness"
-			"04"						"item_mask_of_madness;item_upgrade_core_4;item_recipe_mask_of_madness"
+			"01"						"item_mask_of_madness;item_upgrade_core"
+			"02"						"item_mask_of_madness;item_upgrade_core_2"
+			"03"						"item_mask_of_madness;item_upgrade_core_3"
+			"04"						"item_mask_of_madness;item_upgrade_core_4"
 		}
 	}
 

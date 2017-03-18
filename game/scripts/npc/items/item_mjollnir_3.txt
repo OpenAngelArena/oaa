@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3400"	
+		"ItemCost"						"3400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,9 +22,9 @@
 		"ItemResult"					"item_mjollnir_3"
 		"ItemRequirements"
 		{
-			"01"						"item_mjollnir_2;item_upgrade_core_2;item_recipe_mjollnir"
-			"02"						"item_mjollnir_2;item_upgrade_core_3;item_recipe_mjollnir"
-			"03"						"item_mjollnir_2;item_upgrade_core_4;item_recipe_mjollnir"
+			"01"						"item_mjollnir_2;item_upgrade_core_2"
+			"02"						"item_mjollnir_2;item_upgrade_core_3"
+			"03"						"item_mjollnir_2;item_upgrade_core_4"
 		}
 	}
 

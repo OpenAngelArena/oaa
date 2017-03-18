@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,8 +22,8 @@
 		"ItemResult"					"item_lucience_2"
 		"ItemRequirements"
 		{
-			"01"						"item_lucience;item_upgrade_core_3;item_recipe_lucience"
-			"02"						"item_lucience;item_upgrade_core_4;item_recipe_lucience"
+			"01"						"item_lucience;item_upgrade_core_3"
+			"02"						"item_lucience;item_upgrade_core_4"
 		}
 	}
 

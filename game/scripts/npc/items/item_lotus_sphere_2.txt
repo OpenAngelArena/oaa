@@ -10,7 +10,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -19,10 +19,10 @@
 		"ItemResult"					"item_lotus_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_sphere;item_upgrade_core;item_recipe_lotus_sphere"
-			"02"						"item_lotus_sphere;item_upgrade_core_2;item_recipe_lotus_sphere"
-			"03"						"item_lotus_sphere;item_upgrade_core_3;item_recipe_lotus_sphere"
-			"04"						"item_lotus_sphere;item_upgrade_core_4;item_recipe_lotus_sphere"
+			"01"						"item_lotus_sphere;item_upgrade_core"
+			"02"						"item_lotus_sphere;item_upgrade_core_2"
+			"03"						"item_lotus_sphere;item_upgrade_core_3"
+			"04"						"item_lotus_sphere;item_upgrade_core_4"
 		}
 	}
 

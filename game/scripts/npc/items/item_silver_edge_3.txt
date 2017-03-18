@@ -7,15 +7,15 @@
 	{
 		"ID"							"3151"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge_3"
 		"ItemRequirements"
 		{
-			"01"						"item_silver_edge_2;item_upgrade_core_2;item_recipe_silver_edge"
-			"02"						"item_silver_edge_2;item_upgrade_core_3;item_recipe_silver_edge"
-			"03"						"item_silver_edge_2;item_upgrade_core_4;item_recipe_silver_edge"
+			"01"						"item_silver_edge_2;item_upgrade_core_2"
+			"02"						"item_silver_edge_2;item_upgrade_core_3"
+			"03"						"item_silver_edge_2;item_upgrade_core_4"
 		}
 	}
 

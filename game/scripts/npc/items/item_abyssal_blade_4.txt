@@ -7,14 +7,15 @@
 	{
 		"ID"							"3110"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_abyssal_blade_4"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_abyssal_blade_3;item_upgrade_core_3;item_recipe_abyssal_blade"
-			"01"						"item_abyssal_blade_3;item_upgrade_core_4;item_recipe_abyssal_blade"
+			"01"						"item_abyssal_blade_3;item_upgrade_core_3"
+			"01"						"item_abyssal_blade_3;item_upgrade_core_4"
 		}
 	}
 

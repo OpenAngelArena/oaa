@@ -12,7 +12,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -21,8 +21,8 @@
 		"ItemResult"					"item_refresher_core_3"
 		"ItemRequirements"
 		{
-			"01"						"item_refresher_core_2;item_upgrade_core_3;item_recipe_refresher_core"
-			"02"						"item_refresher_core_2;item_upgrade_core_4;item_recipe_refresher_core"
+			"01"						"item_refresher_core_2;item_upgrade_core_3"
+			"02"						"item_refresher_core_2;item_upgrade_core_4"
 		}
 	}
 	"item_refresher_core_3"

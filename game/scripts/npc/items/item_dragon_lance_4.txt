@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		"MaxUpgradeLevel"				"4"
@@ -27,8 +27,8 @@
 		"ItemResult"					"item_dragon_lance_4"
 		"ItemRequirements"
 		{
-			"02"						"item_dragon_lance_3;item_upgrade_core_3;item_recipe_dragon_lance"
-			"03"						"item_dragon_lance_3;item_upgrade_core_4;item_recipe_dragon_lance"
+			"02"						"item_dragon_lance_3;item_upgrade_core_3"
+			"03"						"item_dragon_lance_3;item_upgrade_core_4"
 
 		}
 	}

@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemAliases"					"hom"
 
@@ -24,10 +24,10 @@
 		"ItemResult"					"item_hand_of_midas_2"
 		"ItemRequirements"
 		{
-			"01"						"item_hand_of_midas;item_upgrade_core;item_recipe_hand_of_midas"
-			"02"						"item_hand_of_midas;item_upgrade_core_2;item_recipe_hand_of_midas"
-			"03"						"item_hand_of_midas;item_upgrade_core_3;item_recipe_hand_of_midas"
-			"04"						"item_hand_of_midas;item_upgrade_core_4;item_recipe_hand_of_midas"
+			"01"						"item_hand_of_midas;item_upgrade_core"
+			"02"						"item_hand_of_midas;item_upgrade_core_2"
+			"03"						"item_hand_of_midas;item_upgrade_core_3"
+			"04"						"item_hand_of_midas;item_upgrade_core_4"
 		}
 	}
 

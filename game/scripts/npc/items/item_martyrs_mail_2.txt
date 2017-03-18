@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,9 +23,9 @@
 		"ItemResult"					"item_martyrs_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_martyrs_mail;item_upgrade_core_2;item_recipe_martyrs_mail"
-			"02"						"item_martyrs_mail;item_upgrade_core_3;item_recipe_martyrs_mail"
-			"03"						"item_martyrs_mail;item_upgrade_core_4;item_recipe_martyrs_mail"
+			"01"						"item_martyrs_mail;item_upgrade_core_2"
+			"02"						"item_martyrs_mail;item_upgrade_core_3"
+			"03"						"item_martyrs_mail;item_upgrade_core_4"
 		}
 	}
 

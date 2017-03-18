@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"	
+		"ItemCost"						"2500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,9 +22,9 @@
 		"ItemResult"					"item_assault_3"
 		"ItemRequirements"
 		{
-			"01"						"item_assault_2;item_upgrade_core_2;item_recipe_assault"
-			"02"						"item_assault_2;item_upgrade_core_3;item_recipe_assault"
-			"03"						"item_assault_2;item_upgrade_core_4;item_recipe_assault"
+			"01"						"item_assault_2;item_upgrade_core_2"
+			"02"						"item_assault_2;item_upgrade_core_3"
+			"03"						"item_assault_2;item_upgrade_core_4"
 		}
 	}
 

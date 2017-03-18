@@ -9,12 +9,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"89"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"800"	
+		"ItemCost"						"800"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -36,7 +36,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_pipe"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
@@ -55,8 +55,8 @@
 		"ItemAliases"					"pipe of insight"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"					"1"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -69,7 +69,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"magic_resistance"		"30 45"
-			}			
+			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
@@ -79,7 +79,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"tooltip_resist"			"30"
-			}			
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -89,12 +89,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"magic_resistance_aura"		"10 15"
-			}	
+			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"900"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -114,7 +114,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"0"
-			}			
+			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
