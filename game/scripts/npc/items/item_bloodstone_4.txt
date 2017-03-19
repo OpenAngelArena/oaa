@@ -5,18 +5,19 @@
     //=================================================================================================================
     "item_recipe_bloodstone_4"
     {
- 
+
         "ID"                            "3126"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
-        "ItemCost"                      "0"
+        "ItemCost"                      "3500"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_bloodstone_4"
+        "AbilityTextureName"			"item_recipe"
         "ItemRequirements"
         {
-            "01"                        "item_bloodstone_3;item_upgrade_core_3;item_recipe_bloodstone"
-            "02"                        "item_bloodstone_3;item_upgrade_core_4;item_recipe_bloodstone"
+            "01"                        "item_bloodstone_3;item_upgrade_core_3"
+            "02"                        "item_bloodstone_3;item_upgrade_core_4"
         }
     }
 
@@ -31,21 +32,21 @@
 		"BaseClass"                     "item_bloodstone"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
- 
+
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.0"
         "AbilityCooldown"               "300.0"
-        "AbilityTextureName"            "item_bloodstone"  
+        "AbilityTextureName"            "item_bloodstone"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "4"
         "UpgradesItems"                 "item_bloodstone_4"
         "UpgradeRecipe"                 "item_recipe_bloodstone"
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "15100"
@@ -56,8 +57,8 @@
         "ItemDisplayCharges"            "1"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "AllowedInBackpack"             "0"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {

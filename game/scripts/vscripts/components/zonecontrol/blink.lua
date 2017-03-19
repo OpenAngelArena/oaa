@@ -82,8 +82,8 @@ function BlinkBlock:CheckBlink(startLoc, endLoc)
       return endLoc
     end
 
-    DebugPrint(minBounds)
-    DebugPrint(maxBounds)
+    -- DebugPrint(minBounds)
+    -- DebugPrint(maxBounds)
 
     local xSide = 0
     local ySide = 0

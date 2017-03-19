@@ -10,15 +10,15 @@
 		"AbilityTextureName"			"item_recipe"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"800"	
+		"ItemCost"						"3300"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_postact_3"
 		"ItemRequirements"
 		{
-			"01"						"item_postact_2;item_upgrade_core_2;item_recipe_postact"
-			"02"						"item_postact_2;item_upgrade_core_3;item_recipe_postact"
-			"03"						"item_postact_2;item_upgrade_core_4;item_recipe_postact"									
+			"01"						"item_postact_2;item_upgrade_core_2"
+			"02"						"item_postact_2;item_upgrade_core_3"
+			"03"						"item_postact_2;item_upgrade_core_4"
 		}
 	}
 
@@ -33,7 +33,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"            "item_firecrackers"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"
 		"AbilityCastPoint"				"0.0"
@@ -50,8 +50,8 @@
 		"ItemAliases"					"wing chun"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 				"AbilitySpecial"
 		{
@@ -59,7 +59,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"postact_duration"	"5.0"
-			}			
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -67,5 +67,5 @@
 			}
 		}
 	}
-	
+
 }

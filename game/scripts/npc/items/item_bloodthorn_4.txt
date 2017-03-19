@@ -10,20 +10,21 @@
 		"ID"							"3102"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bloodthorn_4"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_bloodthorn_3;item_upgrade_core_3;item_recipe_bloodthorn"
-			"02"						"item_bloodthorn_3;item_upgrade_core_4;item_recipe_bloodthorn"
+			"01"						"item_bloodthorn_3;item_upgrade_core_3"
+			"02"						"item_bloodthorn_3;item_upgrade_core_4"
 		}
 	}
 
@@ -47,7 +48,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"13.0"
 		"AbilitySharedCooldown"			"orchid"
-		"AbilityTextureName"            "item_bloodthorn" 	
+		"AbilityTextureName"            "item_bloodthorn"
 		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
@@ -63,8 +64,8 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -87,7 +88,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana_regen"		"150 175 200 225 250"
-			}			
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -97,12 +98,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"crit_multiplier"		"175 190 210 230 250"
-			}	
+			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"silence_damage_percent"	"30"
-			}	
+			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"

@@ -5,20 +5,20 @@
     //=================================================================================================================
     "item_recipe_stoneskin"
     {
- 
+
         "ID"                            "3244"       // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
         "AbilityTextureName"            "item_recipe"
-        "ItemCost"                      "1000"  
+        "ItemCost"                      "250000"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_stoneskin"
         "ItemRequirements"
         {
             "01"                        "item_shivas_guard_3;item_armlet_2;item_combiner"
-      	} 
- 
+      	}
+
     }
     //=================================================================================================================
     // stoneskin
@@ -30,19 +30,19 @@
         "ID"                            "3246"       // unique ID
 		"BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "item_shivas_guard"  
-        // Stats       
+        "AbilityTextureName"            "item_stoneskin"
+        // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "2"
         "AbilityManaCost"               "50"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "2"
         "ItemBaseLevel"                 "1"
         "UpgradesItems"                 "item_stoneskin"
         "UpgradeRecipe"                 "item_recipe_stoneskin"
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "15000"
@@ -50,8 +50,8 @@
         "ItemQuality"                   "epic"
         "ItemAliases"                   "stoneskin of mordiggian"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
@@ -62,7 +62,7 @@
             "ApplyModifier"
             {
                 "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"   
+                "Target"                "CASTER"
             }
         }
         "OnToggleOff"
@@ -70,7 +70,7 @@
             "RemoveModifier"
             {
                 "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"   
+                "Target"                "CASTER"
             }
         }
 
@@ -138,7 +138,7 @@
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "stone_move_speed"      "100"    
+                "stone_move_speed"      "100"
             }
             "07"
             {

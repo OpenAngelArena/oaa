@@ -9,12 +9,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"189"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"400"	
+		"ItemCost"						"400"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -34,8 +35,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"190"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
- 		"AbilityTextureName"			"item_veil_of_discord"	
-		// Stats		
+ 		"AbilityTextureName"			"item_veil_of_discord"
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20"
 		"AbilityCastRange"				"1000"
@@ -54,8 +55,8 @@
 		"ItemBaseLevel"                 "1"
 		"UpgradesItems"                 "item_veil_of_discord;item_veil_of_discord_2"
 		"UpgradeRecipe"                 "item_recipe_veil_of_discord"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

@@ -7,25 +7,26 @@
 		"ID"							"3322"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"4500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_healing_mines_3"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_healing_mines_2;item_upgrade_core_4;item_recipe_healing_mines"
+			"01"						"item_healing_mines_2;item_upgrade_core_4"
 		}
 	}
-	
 
 
- 
+
+
     "item_healing_mines_3"
 	{
 		// General
@@ -34,7 +35,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"500"
@@ -51,31 +52,31 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "MaxUpgradeLevel"               "3"
         "ItemBaseLevel"                 "3"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"number_of_mines"		"8"	
+				"number_of_mines"		"8"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_aoe"				"350"	
+				"mine_aoe"				"350"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_duration"			"8"	
+				"mine_duration"			"8"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mine_heal"				"100 150 225"	
-			}		
+				"mine_heal"				"100 150 225"
+			}
 		}
 	}
 }

@@ -8,16 +8,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"211"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_ring_of_aquila"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_wraith_band;item_ring_of_basilius"
@@ -44,7 +45,7 @@
 		"ItemShopTags"					""
 		"ItemQuality"					"rare"
 		"ItemAliases"					"roa;ring of aquila"
-		"ItemShareability"				""		
+		"ItemShareability"				""
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
 		"MaxUpgradeLevel"				"3"
@@ -53,12 +54,12 @@
 		"UpgradeRecipe"					"item_recipe_ring_of_aquila"
 
 		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
+		//-------------------------------------------------------------------------------------------------------------
 		"UIPickupSound"					"Item.PickUpRingShop"
 		"UIDropSound"					"Item.DropRingShop"
 		"WorldDropSound"				"Item.DropRingWorld"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -101,8 +102,8 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_bonus_armor"		"2 3 4"
-			}			
-		}		
+			}
+		}
 	}
 
 
@@ -121,19 +122,19 @@
 		"ItemShopTags"					""
 		"ItemQuality"					"rare"
 		"ItemAliases"					"roa;ring of aquila"
-		"ItemShareability"				""		
+		"ItemShareability"				""
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"3"
 
 		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
+		//-------------------------------------------------------------------------------------------------------------
 		"UIPickupSound"					"Item.PickUpRingShop"
 		"UIDropSound"					"Item.DropRingShop"
 		"WorldDropSound"				"Item.DropRingWorld"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -176,7 +177,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_bonus_armor"		"2 3 4"
-			}			
-		}		
+			}
+		}
 	}
 }

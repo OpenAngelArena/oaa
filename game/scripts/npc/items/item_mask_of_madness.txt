@@ -7,10 +7,11 @@
 	{
 		"ID"							"171"		// unique ID
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"700"	
+		"ItemCost"						"700"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_mask_of_madness"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_lifesteal"
@@ -28,7 +29,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
 
@@ -47,8 +48,8 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"mom;mask of madness"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

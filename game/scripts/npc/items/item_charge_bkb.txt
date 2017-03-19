@@ -10,13 +10,13 @@
 		"ID"							"3308"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"	
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -38,10 +38,10 @@
 		"ID"							"3309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityTextureName"            "item_black_king_bar"		
+    "AbilityTextureName"            "item_charge_bkb"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
+		"AbilityCooldown"				"10.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
 		"AbilitySharedCooldown"			"bkb"
 		"AbilityCastRange"				"1200"
 
@@ -54,7 +54,7 @@
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
 		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"4"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm.
+		"ItemInitialCharges"			"0"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
 		"AbilitySpecial"
 		{
 			//Wand Stats:
@@ -67,7 +67,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"charge_radius"			"1200"		//RamonNZ: Wand gain charge radius.
-			}			
+			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -81,12 +81,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"14"		//RamonNZ: +10 BKB +4 Wand 
+				"bonus_strength"		"14"		//RamonNZ: +10 BKB +4 Wand
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24"		
+				"bonus_damage"			"24"
 			}
 			"07"
 			{
@@ -130,16 +130,16 @@
 				"Target"        "CASTER"
 			}
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_charge_bkb_spell_immunity"
 			{
-				"IsBuff"           		"1"	      
+				"IsBuff"           		"1"
 				"Duration"				"%duration"
 				"Passive"				"0"
 				"IsHidden"				"0"
-				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"	
+				"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
 //				"EffectAttachType"		"follow_origin"
 				"EffectAttachType"      "PATTACH_ABSORIGIN"
 				"Target"        		"CASTER"
@@ -148,13 +148,13 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"					"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-		
+
 			"modifier_charge_bkb_passives"
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
@@ -162,7 +162,7 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_intellect"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%bonus_damage"
 				}
-			
+
 				"OnCreated"
 				{
 					"RunScript"

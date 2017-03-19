@@ -8,16 +8,17 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"209"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_heavens_halberd"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"						"item_sange;item_talisman_of_evasion"
@@ -37,7 +38,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"            "item_heavens_halberd"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"22 20 18"
 		"AbilityCastRange"				"600"
@@ -55,11 +56,11 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"               "3"
 		"ItemBaseLevel"                 "1"
- 
+
 		"UpgradesItems"                 "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
 		"UpgradeRecipe"                 "item_recipe_heavens_halberd"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -68,7 +69,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_evasion"				"25"
-			}			
+			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -98,7 +99,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"maim_slow_movement_range"	"-10 -15 -20"
-			}			
+			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -108,7 +109,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"maim_duration"			"5.0"
-			}			
+			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
@@ -118,12 +119,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"disarm_melee"				"3.0"
-			}	
+			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"disarm_cast_range_tooltip"	"600"
-			}				
+			}
 		}
 	}
 }

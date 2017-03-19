@@ -2,8 +2,29 @@ var console = {
   log: $.Msg.bind($)
 };
 
+var itemIdIndex = 0;
+function onNGPChange () {
+  var playerID = Game.GetLocalPlayerID();
+  var teamID = Players.GetTeam(playerID)
+  var teamName = teamID === 2 ? 'good' : 'bad';
+  var data = CustomNetTables.GetTableValue('ngp', teamName);
+
+  console.log(data);
+
+  function OnNeedGreedPass (item) {
+    generateNGPPanel(item.id, item.item, item.title, item.description, item.buildsInto);
+  }
+
+  Object.keys(data).forEach(function (i) {
+    var item = data[i];
+    item.buildsInto = Object.keys(item.buildsInto).map(function (i) { return item.buildsInto[i]; });
+    OnNeedGreedPass(item);
+  });
+}
+
 var NGPOption = {
 };
+
 function SelectNGP (option) {
   var panel = $.GetContextPanel();
   var id = panel.id.split('ItemPanel_');
@@ -47,9 +68,17 @@ function idNameForId (id) {
   return 'ItemPanel_' + id;
 }
 
+
 // group id doesn't work
 var ngpGroupIndex = 0;
+var existingPanels = {};
 function generateNGPPanel (id, item, title, description, buildsInto) {
+  console.log('Generating panel for item id ', id)
+  if (existingPanels[id]) {
+    return;
+  }
+
+  existingPanels[id] = true;
   var panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
   panel.BLoadLayout( "file://{resources}/layout/custom_game/need_greed_pass/panel.xml", false, false );
 
@@ -78,3 +107,10 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
 
   return panel;
 }
+
+// down here so that static vars get declared
+(function () {
+  CustomNetTables.SubscribeNetTableListener('ngp', onNGPChange);
+  onNGPChange();
+}());
+

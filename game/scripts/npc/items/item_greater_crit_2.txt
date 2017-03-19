@@ -11,22 +11,22 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_greater_crit_2"
 		"ItemRequirements"
 		{
-			"01"						"item_greater_crit;item_upgrade_core;item_recipe_greater_crit"
-			"02"						"item_greater_crit;item_upgrade_core_2;item_recipe_greater_crit"
-			"03"						"item_greater_crit;item_upgrade_core_3;item_recipe_greater_crit"
-			"04"						"item_greater_crit;item_upgrade_core_4;item_recipe_greater_crit"
+			"01"						"item_greater_crit;item_upgrade_core"
+			"02"						"item_greater_crit;item_upgrade_core_2"
+			"03"						"item_greater_crit;item_upgrade_core_3"
+			"04"						"item_greater_crit;item_upgrade_core_4"
 		}
 	}
 
@@ -44,7 +44,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"               "5"
-        "ItemBaseLevel"                 "2"     
+        "ItemBaseLevel"                 "2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -54,9 +54,9 @@
 		"ItemAliases"					"daedalus"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "UpgradesItems"                 "item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
-        "UpgradeRecipe"                 "item_recipe_greater_crit"	
+        "UpgradeRecipe"                 "item_recipe_greater_crit"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

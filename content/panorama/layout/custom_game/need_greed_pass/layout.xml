@@ -6,16 +6,6 @@
   <scripts>
       <include src="file://{resources}/scripts/need_greed_pass.js" />
   </scripts>
-  <script>
-    GameEvents.Subscribe('ngp_add_item', OnNeedGreedPass);
-    GameEvents.Subscribe('ngp_expire_item', RemoveNeedGreedPass);
-
-    var itemIdIndex = 0;
-    function OnNeedGreedPass (item) {
-      item.id = item.id || itemIdIndex++;
-      generateNGPPanel(item.id, item.item, item.title, item.description, item.buildsInto);
-    }
-  </script>
   <Panel hittest="false" class="NeedGreedPass">
     <Panel id="NeedGreedPassSlider" onactivate="RemoveStyle ( Expanded )" oncontextmenu="RemoveStyle ( Expanded )" >
       <Panel hittest="false" class="ItemHopper" id="NGPItemHopper" onactivate="">

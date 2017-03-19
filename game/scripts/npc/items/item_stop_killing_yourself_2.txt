@@ -7,12 +7,13 @@
 		"ID"							"3249"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -33,7 +34,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_lotus_orb"			
+		"AbilityTextureName"            "item_lotus_orb"
 		"AbilityCooldown"				"15.0"
 		"AbilityCastRange"				"900"
 		"AbilityManaCost"				"75"
@@ -49,8 +50,8 @@
 		"ItemAliases"					"sky"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -74,7 +75,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana_regen"		"200 250"
-			}			
+			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -127,7 +128,7 @@
             {
                 "var_type"              "FIELD_INTEGER"
                 "bonus_mana_regen"      "225 235"
-            }          
+            }
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
@@ -137,12 +138,12 @@
             {
                 "var_type"              "FIELD_INTEGER"
                 "crit_multiplier"       "230 250"
-            }  
+            }
             "07"
             {
                 "var_type"              "FIELD_FLOAT"
                 "silence_damage_percent"    "30"
-            }  
+            }
             "08"
             {
                 "var_type"              "FIELD_FLOAT"
@@ -152,7 +153,7 @@
             {
                 "var_type"              "FIELD_FLOAT"
                 "target_crit_multiplier"        "200 200"
-            }			
+            }
 		}
 	}
 }

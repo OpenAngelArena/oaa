@@ -12,6 +12,8 @@
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_butterfly_4"
+        "ItemCost"                      "3500"
+        "AbilityTextureName"			"item_recipe"
         "ItemRequirements"
         {
             "01"                        "item_butterfly_3;item_upgrade_core_3"
@@ -30,19 +32,19 @@
 		"BaseClass"                     "item_butterfly"
         //"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
- 
-        // Stats       
+
+        // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25.0"
- 
-        // Spicy Parameters    
+
+        // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "4"
         "UpgradesItems"                 "item_butterfly_4"
         "UpgradeRecipe"                 "item_recipe_butterfly"
-        "AbilityTextureName"            "item_butterfly" 
+        "AbilityTextureName"            "item_butterfly"
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "16025"
@@ -50,8 +52,8 @@
         "ItemQuality"                   "epic"
         "ItemAliases"                   "bfly;butterfly"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {
