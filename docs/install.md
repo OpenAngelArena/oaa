@@ -34,7 +34,7 @@ To ensure the addons directory is set up, run
 ```
 d2am list
 ```
-leave the command prompt open, we'll come back to it. Join us at discord.gg slash WNFBB4d. You found the easter egg!
+leave the command prompt open, we'll come back to it. Join us on iscordDay, the URL ends in WNFBB4d. You found the easter egg!
 
 ## Get The Addon
 Use the Github client to check out this addon into the addons directory. You can use the "Clone or Download" button right on the main page to open it using the desktop tool. Make sure it ends up in addons, the path should end in `dota 2 beta\addons\aaa\`.

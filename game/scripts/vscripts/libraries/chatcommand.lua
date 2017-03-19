@@ -7,7 +7,7 @@ Usage:
 		keys are those delivered from the 'player_chat' event
 	-Use ChatCommand:LinkCommand("-MyTrigger", "MyFunction") 	OR 		ChatCommand:LinkCommand("-MyTrigger", "SomeFunction", SomeClass) 
 		Use this to call this function everytime someone's chat starts with -MyTrigger
-created by Zarnotox with a lot of constructive help from https://discord.gg/Z7eCcGT (check it out!)
+created by Zarnotox with a lot of constructive help from the mod data guys https://discord.gg/Z7eCcGT (THIS IS NOT THE AAA DISCORD, THIS IS THE MODDATA DISCORD. YOU DID NOT FIND THE SECRET. check it out!)
 ]] 
 
 ChatCommand = ChatCommand or {}

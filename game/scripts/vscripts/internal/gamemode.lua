@@ -40,6 +40,14 @@ function GameMode:_InitGameMode()
     GameRules:EnableCustomGameSetupAutoLaunch( ENABLE_AUTO_LAUNCH )
   end
 
+  -- exponential gpm increase
+  local goldTickCount = 0
+  Timers:CreateTimer(5, function ()
+    goldTickCount = goldTickCount + 5
+    GameRules:SetGoldPerTick(2 ^ (goldTickCount / 480))
+    return 5
+  end)
+
 
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
@@ -161,7 +169,7 @@ function GameMode:_CaptureGameMode()
     mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
     mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
     mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-    mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
+    --mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
     mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )

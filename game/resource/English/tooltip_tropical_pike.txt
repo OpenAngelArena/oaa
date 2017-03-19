@@ -1,0 +1,30 @@
+		//===========================================
+		// Hurricane Pull Active
+		//===========================================
+
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_active"							"Hurricane Pull"
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_active_Description"				"Being pulled by Hurricane Pike."
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_active_alternate"					"Hurricane Pull"
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_active_alternate_Description"		"Being pulled by Hurricane Pike."
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_range"								"Hurricane Pull Range"
+		"DOTA_Tooltip_modifier_item_hurricane_pull_staff_range_Description"					"Can attack the target without range restrictions."
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_Description"                   		"Active: When used on an enemy, it pulls you both toward each other %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Grants %bonus_attack_speed% Attack Speed during the attacks. Works like Force Staff when used on self or allies.\nPassive: Increases attack range of ranged heroes by %base_attack_range%."
+
+		//===========================================
+		// Hurricane Pull Staff Item 
+		//===========================================
+
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff"									"Hurricane Pull Staff"
+		"DOTA_Tooltip_Ability_item_recipe_hurricane_pull_staff"								"Hurricane Pull Staff Recipe"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_Lore"                           	"A legendary staff that can channel a controlled gust."
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_Note0"                          	"Self-cast will use Hurricane Pull Staff on yourself."
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_Note1"                          	"Hurricane Pull Staff doesn't interrupt the target's actions."
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_Note2"                          	"Will not work on a unit inside Chronosphere, Duel, or Black Hole."
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_bonus_intellect"                	"+$int"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_bonus_health_regen"             	"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_bonus_agility"                  	"+$agi"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_bonus_strength"                 	"+$str"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_base_attack_range"              	"+$attack_range"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_range_duration"                 	"UNLIMITED RANGE DURATION:"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_cast_range_enemy"               	"CAST RANGE ON ENEMY:"
+		"DOTA_Tooltip_Ability_item_hurricane_pull_staff_max_attacks"                    	"UNLIMITED RANGE ATTACKS:"

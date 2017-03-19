@@ -2,6 +2,8 @@
   <scripts>
     <include src="file://{resources}/scripts/playertables/playertables_base.js" />
     <include src="file://{resources}/scripts/custom_game/gold.js" />
+    <include src="file://{resources}/scripts/custom_game/pointsmanager.js" />
+    <include src="file://{resources}/scripts/custom_game/abilitylevels.js" />
     <include src="file://{resources}/scripts/util.js" />
   </scripts>
   <script>
@@ -55,6 +57,7 @@
 
     <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/need_greed_pass/layout.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
 
     <!-- From Overthrow.
 

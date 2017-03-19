@@ -1,17 +1,20 @@
--- load all components
-require('components/index')
-
 -- This is the primary barebones gamemode script and should be used to assist in initializing your game mode
 BAREBONES_VERSION = "1.00"
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = true
+-- this overrides per-module logging rules and just opens the floodgates
+BAREBONES_DEBUG_SPEW = false
 
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
     _G.GameMode = class({})
 end
+
+-- functional library, sugar for excellent code. this should be usable in any library, so we include it first
+require('libraries/functional')
+-- functional event implementation
+require('libraries/event')
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
@@ -37,6 +40,8 @@ require('libraries/pathgraph')
 require('libraries/selection')
 -- Helpful math functions from the internet
 require('libraries/math')
+-- chat command registry made easy
+require('libraries/chatcommand')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -46,6 +51,11 @@ require('internal/events')
 require('settings')
 -- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core barebones files.
 require('events')
+
+--[[ all library code has been loaded ]]
+
+-- load components
+require('components/index')
 
 --require("examples/worldpanelsExample")
 
@@ -132,6 +142,13 @@ function GameMode:OnGameInProgress()
   InitModule(CreepCamps)
   InitModule(Gold)
   InitModule(BlinkBlock)
+  InitModule(CreepItemDrop)
+  InitModule(ZoneControl)
+  InitModule(Duels)
+  InitModule(AbilityLevels)
+  InitModule(BossSpawner)
+  InitModule(NGP)
+
 end
 
 function InitModule(myModule)
