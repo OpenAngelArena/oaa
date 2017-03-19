@@ -146,6 +146,8 @@ function GameMode:OnGameInProgress()
   InitModule(ZoneControl)
   InitModule(Duels)
   InitModule(AbilityLevels)
+  InitModule(BossSpawner)
+  InitModule(NGP)
 
 end
 
