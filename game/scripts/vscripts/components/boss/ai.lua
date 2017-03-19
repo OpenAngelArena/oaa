@@ -79,7 +79,7 @@ function BossAI:DeathHandler (state, keys)
   if state.tier == 1 then
     NGP:GiveItemToTeam({
       item = "item_upgrade_core",
-      title = "Upgrade Core",
+      title = "Upgrade Core 1",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_2",
@@ -90,7 +90,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core",
-      title = "Upgrade Core",
+      title = "Upgrade Core 1",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_2",
@@ -117,12 +117,14 @@ function BossAI:DeathHandler (state, keys)
       title = "Item Combiner",
       description = "Combine two items into one!",
       buildsInto = {
-        "item_stoneskin"
+        "item_stoneskin",
+        "item_refresher_core",
+        "item_charge_bkb"
       }
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_2",
-      title = "Upgrade Core",
+      title = "Upgrade Core 2",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_3",
@@ -133,7 +135,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_2",
-      title = "Upgrade Core",
+      title = "Upgrade Core 2",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_3",
@@ -144,7 +146,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core",
-      title = "Upgrade Core",
+      title = "Upgrade Core e",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_2",
@@ -160,12 +162,14 @@ function BossAI:DeathHandler (state, keys)
       title = "Item Combiner",
       description = "Combine two items into one!",
       buildsInto = {
-        "item_stoneskin"
+        "item_stoneskin",
+        "item_refresher_core",
+        "item_charge_bkb"
       }
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_3",
-      title = "Upgrade Core",
+      title = "Upgrade Core 3",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_4",
@@ -176,7 +180,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_3",
-      title = "Upgrade Core",
+      title = "Upgrade Core 3",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_4",
@@ -187,7 +191,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_2",
-      title = "Upgrade Core",
+      title = "Upgrade Core 2",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_3",
@@ -203,12 +207,14 @@ function BossAI:DeathHandler (state, keys)
       title = "Item Combiner",
       description = "Combine two items into one!",
       buildsInto = {
-        "item_stoneskin"
+        "item_stoneskin",
+        "item_refresher_core",
+        "item_charge_bkb"
       }
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_4",
-      title = "Upgrade Core",
+      title = "Upgrade Core 4",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_5",
@@ -219,7 +225,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_4",
-      title = "Upgrade Core",
+      title = "Upgrade Core 4",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_5",
@@ -230,7 +236,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_3",
-      title = "Upgrade Core",
+      title = "Upgrade Core 3",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_4",
@@ -246,12 +252,14 @@ function BossAI:DeathHandler (state, keys)
       title = "Item Combiner",
       description = "Combine two items into one!",
       buildsInto = {
-        "item_stoneskin"
+        "item_stoneskin",
+        "item_refresher_core",
+        "item_charge_bkb"
       }
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_5",
-      title = "Upgrade Core",
+      title = "Upgrade Core 5",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_6",
@@ -262,7 +270,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_5",
-      title = "Upgrade Core",
+      title = "Upgrade Core 5",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_6",
@@ -273,7 +281,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_4",
-      title = "Upgrade Core",
+      title = "Upgrade Core 4",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_5",
@@ -289,14 +297,16 @@ function BossAI:DeathHandler (state, keys)
       title = "Item Combiner",
       description = "Combine two items into one!",
       buildsInto = {
-        "item_stoneskin"
+        "item_stoneskin",
+        "item_refresher_core",
+        "item_charge_bkb"
       }
     }, team)
     PointsManager:AddPoints(teamId)
 
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_5",
-      title = "Upgrade Core",
+      title = "Upgrade Core 5",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_6",
@@ -307,7 +317,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_5",
-      title = "Upgrade Core",
+      title = "Upgrade Core 5",
       description = "Common crafting component for creating tier 2 boss items",
       buildsInto = {
         "item_radiance_6",
@@ -318,7 +328,7 @@ function BossAI:DeathHandler (state, keys)
     }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_4",
-      title = "Upgrade Core",
+      title = "Upgrade Core 4",
       description = "Common crafting component for creating tier 1 boss items",
       buildsInto = {
         "item_radiance_5",
