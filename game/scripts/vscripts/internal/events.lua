@@ -80,7 +80,11 @@ function GameMode:_OnEntityKilled( keys )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
     end
 
-    local killerPlayerEntity = killerEntity:GetOwnerEntity() or killerEntity
+    killerPlayerEntity = killerEntity
+
+    if not killerPlayerEntity:IsRealHero() then
+      killerPlayerEntity = killerEntity:GetOwnerEntity() or killerEntity
+    end
 
     if killerPlayerEntity:IsRealHero() then
       keys.killer = killerPlayerEntity
