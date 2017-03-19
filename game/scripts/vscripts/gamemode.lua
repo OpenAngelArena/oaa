@@ -141,11 +141,13 @@ function GameMode:OnGameInProgress()
   InitModule(PointsManager)
   InitModule(CreepCamps)
   InitModule(Gold)
-  InitModule(BlinkBlock)
+--InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
   InitModule(ZoneControl)
   InitModule(Duels)
   InitModule(AbilityLevels)
+  InitModule(BossSpawner)
+  InitModule(NGP)
 
 end
 
