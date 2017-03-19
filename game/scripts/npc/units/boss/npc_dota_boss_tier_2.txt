@@ -7,13 +7,13 @@
     {
         // General
         //
-        "BaseClass"                 "npc_dota_datadriven"   // Class of entity of link to.
+        "BaseClass"                 "npc_dota_creature"   // Class of entity of link to.
         "Model"                     "models/courier/greevil/greevil.vmdl"   // Model.
         "SoundSet"                  "Greevil"                   // Name of sound set.
-        "ModelScale"                "10.0"
+        "ModelScale"                "5.0"
         "Level"                     "50"
-        "UnitLabel"                 "greevil"
         "IsAncient"                 "1"
+        "ConsideredHero"            "1"
 
         // Abilities
         //----------------------------------------------------------------
@@ -54,7 +54,7 @@
         //----------------------------------------------------------------
         "RingRadius"                "70"
         "HealthBarOffset"           "160"
-        "BoundsHullName"            "DOTA_HULL_SIZE_REGULAR"
+        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
 
         // Movement
         //----------------------------------------------------------------
@@ -66,8 +66,16 @@
         //----------------------------------------------------------------
         "StatusHealth"              "100000"        // Base health.
         "StatusHealthRegen"         "50"        // Health regeneration rate.
-        "StatusMana"                "500"           // Base mana.
-        "StatusManaRegen"           "2"         // Mana regeneration rate.
+        "StatusMana"                "0"           // Base mana.
+        "StatusManaRegen"           "0"         // Mana regeneration rate.
+
+        // Creature data
+
+        "Creature"
+         {
+            //Makes it only have 25% remaining of applied crowd control
+            "DisableResistance"            "75.0"
+         }
 
         // Team
         //----------------------------------------------------------------
