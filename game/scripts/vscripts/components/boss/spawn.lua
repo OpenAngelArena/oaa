@@ -20,23 +20,39 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    local bossTier = bossPit:GetIntAttr('tier')
-    local options = Bosses[bossTier]
-    local bossName = options[math.random(#options)]
-
-    DebugPrint('Spawning ' .. bossName)
-    BossSpawner:SpawnBoss(bossPit, bossName, bossTier)
+    BossSpawner:SpawnBossAtPit(bossPit)
   end
+end
+
+function BossSpawner:SpawnBossAtPit (pit, tieroverride)
+  local bossTier = tieroverride or pit:GetIntAttr('tier')
+  local options = Bosses[bossTier]
+  local bossName = options[math.random(#options)]
+
+  DebugPrint('Spawning ' .. bossName)
+  BossSpawner:SpawnBoss(pit, bossName, bossTier)
 end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
+  if bossHandle == nil then
+    return
+  end
+
   local heart = CreateItem("item_heart", bossHandle, bossHandle)
 
   bossHandle:AddItem(heart)
 
-  BossAI:Create(bossHandle, {
+  local bossAI = BossAI:Create(bossHandle, {
     tier = bossTier
   })
+
+  local newBossTier = math.max(6, bossTier + 1)
+
+  bossAI.onDeath(function ()
+    Timers:CreateTimer(60, function()
+      BossSpawner:SpawnBossAtPit(pit, newBossTier)
+    end)
+  end)
 end

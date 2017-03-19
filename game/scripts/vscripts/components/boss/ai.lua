@@ -23,7 +23,9 @@ function BossAI:Create (unit, options)
     agroDamage = options.agroDamage or 100 * options.tier,
     tier = options.tier,
     currentDamage = 0,
-    state = BossAI.IDLE
+    state = BossAI.IDLE,
+
+    deathEvent = Event()
   }
 
   unit:OnHurt(function (keys)
@@ -37,7 +39,7 @@ function BossAI:Create (unit, options)
   unit:SetAcquisitionRange(0)
 
   return {
-
+    onDeath = state.deathEvent.listen
   }
 end
 
@@ -63,6 +65,8 @@ function BossAI:DeathHandler (state, keys)
   state.handle = nil
   local killer = EntIndexToHScript(keys.entindex_attacker)
   local teamId = killer:GetTeam()
+
+  state.deathEvent.broadcast(keys)
 
   if teamId == 2 then
     team = 'good'
@@ -109,6 +113,14 @@ function BossAI:DeathHandler (state, keys)
     end
   elseif state.tier == 2 then
     NGP:GiveItemToTeam({
+      item = "item_combiner",
+      title = "Item Combiner",
+      description = "Combine two items into one!",
+      buildsInto = {
+        "item_stoneskin"
+      }
+    }, team)
+    NGP:GiveItemToTeam({
       item = "item_upgrade_core_2",
       title = "Upgrade Core",
       description = "Common crafting component for creating tier 2 boss items",
@@ -142,6 +154,15 @@ function BossAI:DeathHandler (state, keys)
       }
     }, team)
   elseif state.tier == 3 then
+
+    NGP:GiveItemToTeam({
+      item = "item_combiner",
+      title = "Item Combiner",
+      description = "Combine two items into one!",
+      buildsInto = {
+        "item_stoneskin"
+      }
+    }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_3",
       title = "Upgrade Core",
@@ -176,6 +197,15 @@ function BossAI:DeathHandler (state, keys)
       }
     }, team)
   elseif state.tier == 4 then
+
+    NGP:GiveItemToTeam({
+      item = "item_combiner",
+      title = "Item Combiner",
+      description = "Combine two items into one!",
+      buildsInto = {
+        "item_stoneskin"
+      }
+    }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_4",
       title = "Upgrade Core",
@@ -210,6 +240,15 @@ function BossAI:DeathHandler (state, keys)
       }
     }, team)
   elseif state.tier == 5 then
+
+    NGP:GiveItemToTeam({
+      item = "item_combiner",
+      title = "Item Combiner",
+      description = "Combine two items into one!",
+      buildsInto = {
+        "item_stoneskin"
+      }
+    }, team)
     NGP:GiveItemToTeam({
       item = "item_upgrade_core_5",
       title = "Upgrade Core",
@@ -244,6 +283,15 @@ function BossAI:DeathHandler (state, keys)
       }
     }, team)
   elseif state.tier == 6 then
+
+    NGP:GiveItemToTeam({
+      item = "item_combiner",
+      title = "Item Combiner",
+      description = "Combine two items into one!",
+      buildsInto = {
+        "item_stoneskin"
+      }
+    }, team)
     PointsManager:AddPoints(teamId)
 
     NGP:GiveItemToTeam({
