@@ -62,7 +62,7 @@ function furion_force_of_nature:OnSpellStart()
   -- Figure out how many of each treant type to spawn
   local giant_treants_to_spawn = math.min( max_giant_treants, tree_count )
   local treants_to_spawn = math.min( max_treants, tree_count - giant_treants_to_spawn )
-  -- Check whether the caster has the 2x Treant health/damage talent
+  -- Check whether the caster has learnt the 2x Treant health/damage talent
   local treant_bonus_ability = caster:FindAbilityByName( "special_bonus_unique_furion" )
   local caster_has_treant_bonus = false
   if treant_bonus_ability then
