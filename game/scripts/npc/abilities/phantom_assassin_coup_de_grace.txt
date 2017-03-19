@@ -11,7 +11,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"5"	
+		"MaxLevel"						"5"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -19,7 +19,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"				"230 340 450 700 1500"
+				"crit_bonus"				"230 340 450 650 1000"
 			}
 			"02"
 			{
