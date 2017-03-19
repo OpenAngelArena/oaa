@@ -59,39 +59,35 @@ function furion_force_of_nature:OnSpellStart()
 
   GridNav:DestroyTreesAroundPoint( target_point, area_of_effect, true )
 
-  -- Create the units on the next frame
-  Timers:CreateTimer(
-    function()
-      -- Figure out how many of each treant type to spawn
-      local giant_treants_to_spawn = math.min( max_giant_treants, tree_count )
-      local treants_to_spawn = math.min( max_treants, tree_count - giant_treants_to_spawn )
-      -- Check whether the caster has the 2x Treant health/damage talent
-      local treant_bonus_ability = caster:FindAbilityByName( "special_bonus_unique_furion" )
-      local caster_has_treant_bonus
-      if (treant_bonus_ability) then
-        caster_has_treant_bonus = treant_bonus_ability:GetLevel() > 0
-      end
-      -- Spawn giant treants
-      for i=1,giant_treants_to_spawn do
-        local giant_treant = CreateUnitByName( giant_treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
-        giant_treant:SetControllableByPlayer( pID, false )
-        giant_treant:SetOwner( caster )
-        giant_treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
-        if (caster_has_treant_bonus) then
-          giant_treant:AddNewModifier( caster, self, "modifier_treant_giant_bonus", {} )
-        end
-      end
-      -- Spawn regular treants
-      for i=1,treants_to_spawn do
-        local treant = CreateUnitByName( treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
-        treant:SetControllableByPlayer( pID, false )
-        treant:SetOwner( caster )
-        treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
-        if (caster_has_treant_bonus) then
-          treant:AddNewModifier( caster, self, "modifier_treant_bonus", {} )
-        end
-      end
+  -- Figure out how many of each treant type to spawn
+  local giant_treants_to_spawn = math.min( max_giant_treants, tree_count )
+  local treants_to_spawn = math.min( max_treants, tree_count - giant_treants_to_spawn )
+  -- Check whether the caster has learnt the 2x Treant health/damage talent
+  local treant_bonus_ability = caster:FindAbilityByName( "special_bonus_unique_furion" )
+  local caster_has_treant_bonus = false
+  if treant_bonus_ability then
+    caster_has_treant_bonus = treant_bonus_ability:GetLevel() > 0
+  end
+
+  -- Spawn giant treants
+  for i=1,giant_treants_to_spawn do
+    local giant_treant = CreateUnitByName( giant_treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
+    giant_treant:SetControllableByPlayer( pID, false )
+    giant_treant:SetOwner( caster )
+    giant_treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
+    if caster_has_treant_bonus then
+      giant_treant:AddNewModifier( caster, self, "modifier_treant_giant_bonus", {} )
     end
-  )
+  end
+  -- Spawn regular treants
+  for i=1,treants_to_spawn do
+    local treant = CreateUnitByName( treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
+    treant:SetControllableByPlayer( pID, false )
+    treant:SetOwner( caster )
+    treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
+    if caster_has_treant_bonus then
+      treant:AddNewModifier( caster, self, "modifier_treant_bonus", {} )
+    end
+  end
   EmitSoundOnLocationWithCaster( target_point, "Hero_Furion.ForceOfNature", caster )
 end
