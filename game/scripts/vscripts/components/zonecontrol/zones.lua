@@ -313,7 +313,8 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
     end
   end
 
-  entity:SetOrigin(origin)
+  FindClearSpaceForUnit(entity, origin, true)
+  -- entity:SetOrigin(origin)
 
 end
 
