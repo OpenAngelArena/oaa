@@ -4,8 +4,7 @@
 // Boss tier 1
 //=================================================================================
 	"npc_dota_boss_tier_1"
-	{										
-	
+	{
 		// General
 		//
 		"BaseClass"					"npc_dota_datadriven" // Class of entity of link to.
@@ -14,7 +13,7 @@
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"0"
-				
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					""
@@ -69,7 +68,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
@@ -79,7 +78,7 @@
 		//----------------------------------------------------------------
 		"HasInventory"				"1"
 
-		//"MinimapIcon"					"minimap_roshancamp"
-		//"MinimapIconSize"				"450"
+		"MinimapIcon"					"minimap_roshancamp"
+		"MinimapIconSize"				"450"
 	}
 }
