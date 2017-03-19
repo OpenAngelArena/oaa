@@ -279,7 +279,7 @@ function Duels:EndDuel ()
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
       if not hero:IsAlive() then
-        hero:RespawnUnit()
+        hero:RespawnHero(false,false,false)
       end
 
       Duels:RestorePlayerState (hero, state)
@@ -290,7 +290,7 @@ end
 
 function Duels:ResetPlayerState (hero)
   if not hero:IsAlive() then
-    hero:RespawnUnit()
+    hero:RespawnHero(false,false,false)
   end
 
   hero:SetHealth(hero:GetMaxHealth())

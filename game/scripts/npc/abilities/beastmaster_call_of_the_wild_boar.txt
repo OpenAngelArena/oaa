@@ -8,16 +8,19 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5580"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"           "ability_lua"
+    "ScriptFile"          "abilities/oaa_call_of_the_wild_boar"
+    "AbilityTextureName"  "beastmaster_call_of_the_wild_boar"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"						"6"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"42 38 34 30 30 30"
 
@@ -63,7 +66,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"boar_duration"				"60 60 60 60 60 60"
-			}		
+			}
 		}
 	}
 }
