@@ -29,7 +29,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
   local item = NGP.activeItems[tonumber(id)]
 
   if item.team ~= team then
-    Notifications:TopToAll({text="Someone is trying to cheat", duration=5.0})
+    Notifications:TopToAll({text="NGP mismatch " .. item.team .. " vs " .. team, duration=2.0})
     return
   end
 
@@ -43,12 +43,13 @@ function NGP:GiveItemToTeam (item, team)
   DebugPrint('item index will be ' .. NGP.itemIndex)
   DebugPrintTable(ngpItems)
   item.id = NGP.itemIndex
+  NGP.itemIndex = NGP.itemIndex + 1
+
   item.team = team
   NGP.activeItems[item.id] = item
 
   NGP.activeItems[item.id].votes = {}
 
-  NGP.itemIndex = NGP.itemIndex + 1
 
   ngpItems[item.id] = item
 

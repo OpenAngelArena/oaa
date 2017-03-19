@@ -63,12 +63,9 @@ function ZoneControl:CreateEmptyState (options)
   }
 end
 
-function ZoneControl:Log (msg)
-  DebugPrint ( '[zonecontrol/zones] ' .. msg )
-end
-
 function ZoneControl:onTrigger (state, eventName, zoneHandle, event)
-  ZoneControl:Log('Trigger is firing! ' .. eventName)
+  DebugPrint('Trigger is firing! ' .. eventName)
+  DebugPrintTable(event)
   --[[
 [   VScript  ]: activator:
 [   VScript  ]:     __self: userdata: 0x002e20a8
@@ -221,6 +218,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   ZoneControl:AssertIsSingleState(state)
 
   local isTouching = state.handle:IsTouching(entity)
+  local initialOrigin = entity:GetAbsOrigin()
   local origin = entity:GetAbsOrigin()
   local bounds = entity:GetBounds()
 
@@ -249,6 +247,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   if shouldBeLockedOut then
     -- the player should be locked out, but there's an entity touching us!
     if isTouching then
+      DebugPrint('Player is touching, but should be locked out')
       --[[
       we want to find the spot outside of the zone that the entity should be placed
       potential for FindPlaceWhatever to infinite loop rounding a player back into a zone?
@@ -291,6 +290,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
     end
   elseif shouldBeLockedIn then
     if not isTouching then
+      DebugPrint('Player is not touching, but should be!')
       local x = origin.x
       local y = origin.y
       local topWall = state.origin.y + state.bounds.Maxs.y
@@ -313,9 +313,9 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
     end
   end
 
-  FindClearSpaceForUnit(entity, origin, true)
-  -- entity:SetOrigin(origin)
-
+  if origin ~= initialOrigin then
+    FindClearSpaceForUnit(entity, origin, true)
+  end
 end
 
 -- utility methods
