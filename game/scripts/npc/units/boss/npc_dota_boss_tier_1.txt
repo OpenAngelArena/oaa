@@ -7,12 +7,13 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_datadriven" // Class of entity of link to.
+		"BaseClass"					"npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/creeps/roshan/roshan.vmdl"	// Model.
 		"SoundSet"					"Roshan"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
-		"IsAncient"					"0"
+		"IsAncient"					"1"
+    "ConsideredHero"  "1"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -57,10 +58,19 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"10000"		// Base health - this is set via roshan_halloween_base_health ConVar
+		"StatusHealth"				"10000"		// Base health
 		"StatusHealthRegen"			"35"		// Health regeneration rate.
-		"StatusMana"				"5000"		// Base mana.
-		"StatusManaRegen"			"150"		// Mana regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0"		// Mana regeneration rate.
+
+   // Creature data
+
+     "Creature"
+      {
+        //Makes it only have 25% remaining of applied crowd control
+        "DisableResistance"            "75.0"
+      }
+
 
 		// Team
 		//----------------------------------------------------------------
