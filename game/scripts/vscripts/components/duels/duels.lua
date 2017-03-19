@@ -138,7 +138,7 @@ function Duels:ActuallyStartDuel ()
     return
   end
 
-  local playerSplitOffset = math.random(1, maxPlayers)
+  local playerSplitOffset = math.random(0, maxPlayers)
   -- local playerSplitOffset = maxPlayers
   local spawnLocations = math.random(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
@@ -271,14 +271,16 @@ function Duels:EndDuel ()
   local currentDuel = Duels.currentDuel
   Duels.currentDuel = nil
 
-  Timers:CreateTimer(1, function ()
+  Timers:CreateTimer(function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
       hero:SetRespawnsDisabled(false)
-      hero:RespawnUnit()
+      if not hero:IsAlive() then
+        hero:RespawnUnit()
+      end
 
       Duels:RestorePlayerState (hero, state)
       Duels:MoveCameraToPlayer(state.id, hero)
@@ -287,7 +289,10 @@ function Duels:EndDuel ()
 end
 
 function Duels:ResetPlayerState (hero)
-  hero:RespawnUnit()
+  if not hero:IsAlive() then
+    hero:RespawnUnit()
+  end
+
   hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
@@ -309,7 +314,7 @@ function Duels:SavePlayerState (hero)
     mana = hero:GetMana()
   }
 
-  for abilityIndex = 0,state.abilityCount do
+  for abilityIndex = 0,state.abilityCount-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       state.maxAbility = abilityIndex
@@ -324,10 +329,12 @@ end
 
 function Duels:RestorePlayerState (hero, state)
   hero:SetAbsOrigin(state.location)
-  hero:SetHealth(state.hp)
+  if state.hp > 0 then
+    hero:SetHealth(state.hp)
+  end
   hero:SetMana(state.mana)
 
-  for abilityIndex = 0,state.maxAbility do
+  for abilityIndex = 0,state.maxAbility-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:StartCooldown(state.abilities[abilityIndex].cooldown)
