@@ -58,7 +58,7 @@ function IsAnyTraceEnabled (traces)
   return false
 end
 
--- written by yeahbuddy, taken from https://github.com/AngelArenaAllstars/aaa/pull/80
+-- written by yeahbuddy, taken from https://github.com/OpenAngelArena/oaa/pull/80
 -- modified for clarity
 function GetCallingFile (offset)
   offset = offset or 4

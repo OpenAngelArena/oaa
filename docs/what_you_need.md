@@ -30,8 +30,8 @@ If use you Atom, following Packages / Plugins you should use:
 - editorconfig
 
 ### Github Links
-Organization: https://github.com/AngelArenaAllstars  
-Main head: https://github.com/AngelArenaAllstars/oaa
+Organization: https://github.com/OpenAngelArena  
+Main head: https://github.com/OpenAngelArena/oaa
 
 ### Collaborating Tools:
 
