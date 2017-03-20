@@ -9,7 +9,7 @@ For installation instructions click [here](docs/install.md).
 For testing instructions click [here](docs/testing.md).
 
 # Contributing
-Check out the Discord
+Check out our [Discord](https://discord.gg/E6f6TCe)!
 
 There are also issues marked with [`Great for new contributors`](https://github.com/OpenAngelArena/oaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
 
