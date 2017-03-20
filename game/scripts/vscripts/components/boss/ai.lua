@@ -78,11 +78,12 @@ function BossAI:DeathHandler (state, keys)
 
   if state.tier == 1 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-
+    NGP:GiveItemToTeam(BossItems["item_reflex_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_reflex_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_reflex_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_reflex_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_reflex_core"], team)
+    
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
         local player = PlayerResource:GetPlayer(playerId)
@@ -96,35 +97,35 @@ function BossAI:DeathHandler (state, keys)
     end
   elseif state.tier == 2 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
   elseif state.tier == 3 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
   elseif state.tier == 4 then
 
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
   elseif state.tier == 5 then
 
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+
   elseif state.tier == 6 then
     PointsManager:AddPoints(teamId)
 
@@ -133,9 +134,9 @@ function BossAI:DeathHandler (state, keys)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
   end
 end
 
