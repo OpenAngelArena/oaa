@@ -44,7 +44,7 @@ function GameMode:_InitGameMode()
   local goldTickCount = 0
   Timers:CreateTimer(5, function ()
     goldTickCount = goldTickCount + 5
-    GameRules:SetGoldPerTick(2 ^ (goldTickCount / 480))
+    GameRules:SetGoldPerTick(2 * (2 ^ (goldTickCount / 480)))
     return 5
   end)
 
