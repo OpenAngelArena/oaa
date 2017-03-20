@@ -1,5 +1,5 @@
 # Installing Angel Arena Allstars
-You have to set up several things before you can run a local instance of AAA for development.
+You have to set up several things before you can run a local instance of OAA for development.
 
 ## System Dependencies
 Start by installing these programs:
@@ -16,37 +16,48 @@ Install the Dota 2 Workshop Tools.
 ## Addon Tool
 Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 
+### Navigate with command promt
+Now we will define 3 paths 
+ * `Dota2 installation folder` is something like `C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\` or at ant other drive or install location, but certainly ends with `dota 2 beta`
+ * `Dota2 addons folder` is folder named `Addons` in `Intallation folder`, so it looks something like `\dota 2 beta\addons`
+ * `Open Angel arena folder` is a folder name `oaa` inside of `addons folder`, it contains all the files which are present in this github repo  
+
+**Navigating with command prompt**: using command `cd` and the undergoing path to navigate, for example
+```
+dota 2 beta\addons> cd oaa
+```
+will go from addons folder to `Open Angel Arena` folder, and
+```
+dota 2 beta\addons\oaa> cd ../
+```
+will navigate you back a step to `Addons` folder
+
 ### Install Node Dependencies
-Run the command 
+The global install for some reason works very confusingly, so i recommend using local repo for gulp.
+Now we navigate into `Open Angel Arena` folder, and first install global dependencies
 ```
-npm install -g gulp-cli dota2-addon-manager
+npm install -g gulp gulp-cli dota2-addon-manager
 ```
-This will install both `gulp`, used for building npc files, and `d2am`, used to manage the addons directory.
+And then create local repo with dependencies
+```
+npm install gulp gulp-dota2-npc
+```
 
 ### Prepare Addon Directory
-Next find your `dota 2 beta` folder. You must change the directory of the node.js command prompt to this folder, this can be done with the `cd` command. It should look something like this...
-```
-cd C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\
-```
-**Note**: The directory path may be different depending on how you installed Steam. If Steam is installed on another drive you'll need to change drives using the letter then a `:` symbol. For example, `E:`.
-
-To ensure the addons directory is set up, run
+To ensure the addons directory is set up, navigate to `Dota2 Installation` folder and run
 ```
 d2am list
 ```
-leave the command prompt open, we'll come back to it. Join us on iscordDay, the URL ends in WNFBB4d. You found the easter egg!
-
-## Get The Addon
-Use the Github client to check out this addon into the addons directory. You can use the "Clone or Download" button right on the main page to open it using the desktop tool. Make sure it ends up in addons, the path should end in `dota 2 beta\addons\aaa\`.
-
-**You must link the addon before it will work**. You can do this from that same node.js window you had open by running
+and if it show that `oaa` if ready, then run
 ```
 d2am link
 ```
-You will see output about creating links for `aaa` game and content.
+leave the command prompt open, we'll come back to it.
+
 
 ## Launch Tools
-Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting "Launch Dota 2 - Tools". It should be the second option on the dropdown below "Play Game..."
+Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting `Launch Dota 2 - Tools`. It should be the second option on the dropdown below `Play Game`
 
-Open `aaa` from the window that opens, and you're in! Open one of the maps and click the gamepad sybol to test the gamemode. Any changes you make will show up in the Github client, read for a pull request to be made.
+Open `oaa` from the window that opens, and you're in!
 
+Also all the development is discussed in Discord, so please join us at https://discord.gg/E6f6TCe
