@@ -1,4 +1,4 @@
-# Installing Angel Arena Allstars
+# Installing Open Angel Arena
 You have to set up several things before you can run a local instance of OAA for development.
 
 ## System Dependencies
