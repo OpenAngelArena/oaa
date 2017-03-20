@@ -1,17 +1,14 @@
-"DOTAHeroes"
+//=================================================================================================================
+// HERO: Tiny
+//=================================================================================================================
+"npc_dota_hero_tiny_oaa"
 {
-  //=================================================================================================================
-  // HERO: Tiny
-  //=================================================================================================================
-  "npc_dota_hero_tiny_oaa"
-  {
-    "override_hero"       "npc_dota_hero_tiny"      // Hero to override
+  "override_hero"       "npc_dota_hero_tiny"      // Hero to override
 
-    // Abilities
-    //-------------------------------------------------------------------------------------------------------------
-    "Ability1"        "tiny_avalanche"            // Ability 1
-    "Ability2"        "tiny_toss"               // Ability 2
-    "Ability3"        "tiny_craggy_exterior"          // Ability 3
-    "Ability4"        "tiny_grow_oaa"               // Ability 4
-  }
+  // Abilities
+  //-------------------------------------------------------------------------------------------------------------
+  "Ability1"        "tiny_avalanche"            // Ability 1
+  "Ability2"        "tiny_toss"               // Ability 2
+  "Ability3"        "tiny_craggy_exterior"          // Ability 3
+  "Ability4"        "tiny_grow_oaa"               // Ability 4
 }
