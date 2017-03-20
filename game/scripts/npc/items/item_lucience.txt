@@ -179,7 +179,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
 				}
 			"EffectName" 						"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient_glow.vpcf"
             "EffectAttachType" 					"follow_origin"
@@ -197,7 +197,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"20 40 60"
+				"speed_bonus"			"30 50 75"
 			}
 			"03"
 			{

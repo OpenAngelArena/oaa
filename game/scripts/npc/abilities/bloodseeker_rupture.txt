@@ -15,30 +15,30 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.4"
 
-		// Time
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 200 25 350 750"
-
+		"AbilityManaCost"				"150 200 25 350 750"		
+		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
-
+			
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// Only does damage

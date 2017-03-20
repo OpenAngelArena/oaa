@@ -39,13 +39,12 @@ function BlinkBlock:OnAbilityUsed(keys)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local abilityname = keys.abilityname
 
-  local startPos = AbilityMovementMap[keys.PlayerID].start or player:GetAssignedHero():GetAbsOrigin()
+  local startPos = AbilityMovementMap[keys.PlayerID].start
 
   -- todo: Meepo will break this
   -- todo: allow things like natures profit
   Timers:CreateTimer(0, function ()
     local endPos = player:GetAssignedHero():GetAbsOrigin()
-    AbilityMovementMap[keys.PlayerID].start = nil
 
     local shouldMoveUnit, moveLocaiton = BlinkBlock:CheckBlink(startPos, endPos)
 

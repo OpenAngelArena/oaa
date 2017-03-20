@@ -18,15 +18,15 @@
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		"HasScepterUpgrade"			"1"
-
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2 0.2 0.2 0.2 0.2"
 
-		// Time
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
 		"AbilityCooldown"				"90.0 75.0 60.0 60.0 60.0"

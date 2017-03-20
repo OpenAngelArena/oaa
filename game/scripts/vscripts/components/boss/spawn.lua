@@ -48,7 +48,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
     tier = bossTier
   })
 
-  local newBossTier = math.min(6, bossTier + 1)
+  local newBossTier = math.max(6, bossTier + 1)
 
   bossAI.onDeath(function ()
     Timers:CreateTimer(60, function()

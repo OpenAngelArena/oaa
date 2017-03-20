@@ -10,21 +10,21 @@
 		"ID"					"5129"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityChannelTime"			"10"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-
-		// Time
+		
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"90"
 		"AbilityDuration"				"10.0"
@@ -45,7 +45,7 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"radius"			"835"
-			}
+			}		
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"

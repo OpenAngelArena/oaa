@@ -15,23 +15,23 @@
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		"HasScepterUpgrade"			"1"
-
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-
-		// Time
+		
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40 40 40 40 40"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 100 100 100 100"
-
+		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -42,32 +42,32 @@
 				"radius"					"575 575 575 575 575"
 			}
 			"02"
-			{
+			{	
 				"var_type"					"FIELD_INTEGER"
 				"vision"					"800"
 			}
 			"03"
-			{
+			{	
 				"var_type"					"FIELD_FLOAT"
 				"armor_per_second"			"0.75 1 1.25 1.75 3.75"
 			}
 			"04"
-			{
+			{	
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"24.0"
 			}
 			"05"
-			{
+			{	
 				"var_type"					"FIELD_INTEGER"
 				"radius_scepter"			"775 775 775 775 775"
 			}
 			"06"
-			{
+			{	
 				"var_type"					"FIELD_INTEGER"
 				"duration_scepter"			"24"
 			}
 			"07"
-			{
+			{	
 				"var_type"					"FIELD_FLOAT"
 				"armor_per_second_scepter"	"1.25 1.5 1.75 2.25 4.25"
 			}

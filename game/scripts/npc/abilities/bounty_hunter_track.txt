@@ -15,20 +15,20 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		// Unit Targeting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-
+		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
 		"AbilityCooldown"				"4"
 		"AbilityManaCost"				"65"
-
+			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
