@@ -15,11 +15,11 @@
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
-
+		"LevelsBetweenUpgrades"			"5"
+		
 		"HasScepterUpgrade"			"1"
 
-		// Time
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"90.0 75.0 60.0 60 60"
 
@@ -48,7 +48,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"strength_damage"	"1.0 2.0 3.0 5.0 8.0"
+				"strength_damage"	"1.0 2.0 3.0 5.0 13.0"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"04"

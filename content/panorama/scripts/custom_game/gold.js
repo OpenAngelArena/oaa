@@ -82,5 +82,8 @@ function FormatGold (gold) {
     We use a whitespace because of some DIN
 */
 function FormatComma (value) {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  try {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  } catch(e) {}
 }
+

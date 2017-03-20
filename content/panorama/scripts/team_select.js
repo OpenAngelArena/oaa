@@ -6,10 +6,14 @@ var console = {
   hideShowUI(Game.GetState());
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     listenToGameEvent('aaa_state_change', onStateChange);
+    listenToGameEvent('gamelength_vote_confirmed', onVotingDone);
   }
 
   function onStateChange (data) {
     hideShowUI(data.newState);
+  }
+  function onVotingDone (data) {
+    FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = $.Localize(("#aaa_game_length_" + data.length + "_title").toLowerCase());
   }
 }());
 

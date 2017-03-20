@@ -105,8 +105,6 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
     elem.group = 'NGP' + ngpId;
   });
 
-  $("#NeedGreedPassSlider").SetHasClass('Expanded', true)
-
   return panel;
 }
 

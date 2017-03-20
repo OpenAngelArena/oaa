@@ -12,8 +12,6 @@
   transition: transform 0.2s ease-out 0s;
 
   transform: translateX(-340px);
-  padding-right: 10px;
-  padding-bottom: 10px;
 }
 #NeedGreedPassSlider.Expanded
 {
@@ -40,8 +38,6 @@
   vertical-align: bottom;
   border-radius: 0 10px 10px 0;
   transition: opacity 0.1s ease-in 0s;
-
-  box-shadow: #00ff00ff 0px 0px 8px 0px;
 }
 .NeedGreedPass .ExpandItems.Inactive
 {
