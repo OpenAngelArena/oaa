@@ -52,7 +52,7 @@ end
     Add Gold to all players via our custom Gold API
 ]]
 function Gold:Think()
-  for i = 0, 9 do
+  for i = 0,19 do
     if PlayerResource:IsValidPlayerID(i) then
       if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 

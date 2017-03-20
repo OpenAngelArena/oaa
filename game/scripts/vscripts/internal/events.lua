@@ -18,7 +18,7 @@ function GameMode:_OnGameRulesStateChange(keys)
     GameMode:OnAllPlayersLoaded()
 
     if USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS then
-      for i=0,9 do
+      for i=0,19 do
         if PlayerResource:IsValidPlayer(i) then
           local color = TEAM_COLORS[PlayerResource:GetTeam(i)]
           PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
