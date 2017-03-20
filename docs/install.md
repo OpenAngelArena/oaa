@@ -16,21 +16,28 @@ Install the Dota 2 Workshop Tools.
 ## Setting evrything up
 Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 
-### Navigate with command promt
+### Folder definitions
 Now we will define 3 paths 
  * `Dota2 installation folder` is something like `C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\` or at ant other drive or install location, but certainly ends with `dota 2 beta`
  * `Dota2 addons folder` is folder named `Addons` in `Intallation folder`, so it looks something like `\dota 2 beta\addons`
- * `Open Angel arena folder` is a folder name `oaa` inside of `addons folder`, it contains all the files which are present in this github repo  
+ * `Open Angel arena folder` is a folder name `oaa` inside of `addons folder`, it contains all the files which are present in this github repo 
+`Dota2 addons folder` and `Open Angel arena folder` may not exist for the first time, so don't be afraid to create them
+Final structure sholud look like `C:\(some path to steam library)\Steam\steamapps\common\dota 2 beta\addons\oaa\`
 
-**Navigating with command prompt**: using command `cd` and the undergoing path to navigate, for example
+### Navigating with command prompt
+Use command `cd` and the undergoing path to navigate,(`cd` works relative to your current path), for example
 ```
 dota 2 beta\addons> cd oaa
 ```
-will go from addons folder to `Open Angel Arena` folder, and
+will go from `Addons` folder to `Open Angel Arena` folder, and
 ```
 dota 2 beta\addons\oaa> cd ../
 ```
-will navigate you back a step to `Addons` folder
+will navigate you back a step to `Addons` folder, and
+```
+C:\somerandompath> D:
+```
+will change your current active drive to D:
 
 ### Install Node Dependencies
 The global install for some reason works very confusingly, so i recommend using local repo for gulp.
@@ -42,6 +49,10 @@ And then create local repo with dependencies
 ```
 npm install gulp gulp-dota2-npc
 ```
+
+### Download Project
+This is simple, you have to open `GitHub Client` and using top left `+` button `colne` a repo with `OAA` to your newly created `Open Angel arena folder`
+
 
 ### Prepare Addon Directory
 To ensure the addons directory is set up, navigate to `Dota2 Installation` folder and run
