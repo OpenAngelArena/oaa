@@ -5,7 +5,7 @@ function GameMode:_OnGameRulesStateChange(keys)
   end
 
   local newState = GameRules:State_Get()
-  CustomGameEventManager:Send_ServerToAllClients( 'aaa_state_change', {
+  CustomGameEventManager:Send_ServerToAllClients( 'oaa_state_change', {
     newState = newState
   })
 

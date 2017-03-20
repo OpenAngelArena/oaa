@@ -6,6 +6,6 @@
 - /items/*files* - these are the individual files which comprise npc_items_custom.txt. They're not important unless we need to change something.
 
 # Git
-1. Sync your repository with angelarenaallstars/aaa-master
+1. Sync your repository with OpenAngelArena/oaa-master
 2. Pull warpdragon into a working branch of your local repository
-3. Or wait for it to be pulled into the AngelArenaAllstars repo and pull from there.
+3. Or wait for it to be pulled into the OpenAngelArena repo and pull from there.

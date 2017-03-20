@@ -1,14 +1,14 @@
 {
   "name": "angel_arena_allstars",
   "version": "0.0.0",
-  "description": "A really greate Dota 2 game mode.",
+  "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
     "test": "semistandard"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AngelArenaAllstars/aaa.git"
+    "url": "git+https://github.com/OpenAngelArena/oaa.git"
   },
   "keywords": [
     "dota2"
@@ -16,9 +16,9 @@
   "author": "Chris Vickery <chrisinajar@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AngelArenaAllstars/aaa/issues"
+    "url": "https://github.com/OpenAngelArena/oaa/issues"
   },
-  "homepage": "https://github.com/AngelArenaAllstars/aaa#readme",
+  "homepage": "https://github.com/OpenAngelArena/oaa#readme",
   "devDependencies": {
     "semistandard": "^9.2.1"
   },
