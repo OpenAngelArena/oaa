@@ -30,6 +30,7 @@ function hidePregameUI () {
 function showPregameUI () {
   FindDotaHudElement('PreGame').style.opacity = 1;
   FindDotaHudElement('PreGame').style.visibility = 'visible';
+  FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = "Open Angel Arena";
 }
 
 function FindDotaHudElement(id) {
