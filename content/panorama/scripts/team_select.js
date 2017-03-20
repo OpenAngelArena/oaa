@@ -30,7 +30,8 @@ function hidePregameUI () {
 function showPregameUI () {
   FindDotaHudElement('PreGame').style.opacity = 1;
   FindDotaHudElement('PreGame').style.visibility = 'visible';
-  FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = "Open Angel Arena";
+  // FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = "Open Angel Arena";
+  // this line is to output text to status message during pick, recommend to use for time voting result output, but personally dont know where it is!
 }
 
 function FindDotaHudElement(id) {
