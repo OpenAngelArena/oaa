@@ -76,7 +76,7 @@ XP_PER_LEVEL_TABLE = {
 	27500,
 }
 for i = #XP_PER_LEVEL_TABLE + 1, MAX_LEVEL do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + ( i * 108 )
+  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (300 * ( i - 15 ))
 end
 
 ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the first kill in this game?

@@ -1,7 +1,7 @@
 GitHub Contibuting Guide
 
 # Intro
-This is an introduction to GitHub and Git on the example of contributing to AngelArenaAllstars. Nearly all of the implementation (from KV files, localization, scripts, graphics, to models) can be streamlined by using a very basic software tool called a Version Control System (VCS). The one we're using is called Git and the repository (server storage) we are using is called GitHub. Essentially, Git enables the development teams to branch out and work on the exact same files as each other without overwriting each other's work. Also, every person can have multiple development branches of the same files available simultaneously using only a couple very basic commands. This enables one to modify files in a development branch without effecting the others (like if you wanted to test abilties you script but didn't want to have to overwrite and manually back up everytime you change something). Furthermore, Git tracks history, so if you make a mistake, you can just reset to ANY point in the development (even if you delete files). Yes it's going to take some effort to learn.
+This is an introduction to GitHub and Git on the example of contributing to OpenAngelArena. Nearly all of the implementation (from KV files, localization, scripts, graphics, to models) can be streamlined by using a very basic software tool called a Version Control System (VCS). The one we're using is called Git and the repository (server storage) we are using is called GitHub. Essentially, Git enables the development teams to branch out and work on the exact same files as each other without overwriting each other's work. Also, every person can have multiple development branches of the same files available simultaneously using only a couple very basic commands. This enables one to modify files in a development branch without effecting the others (like if you wanted to test abilties you script but didn't want to have to overwrite and manually back up everytime you change something). Furthermore, Git tracks history, so if you make a mistake, you can just reset to ANY point in the development (even if you delete files). Yes it's going to take some effort to learn.
 
 # Terminology
 At this point just familiarize yourself with the following terminology:
@@ -36,15 +36,15 @@ At this point just familiarize yourself with the following terminology:
 
 ## Setup
 
-First, follow the [Installation Process](/docs/install.md) but stop when you get to the part that says "Get the Addon". Now, instead of just Cloning (copying the angelarenaallstars/oaa repository) you'll create a Fork of it and work from there.
+First, follow the [Installation Process](/docs/install.md) but stop when you get to the part that says "Get the Addon". Now, instead of just Cloning (copying the OpenAngelArena/oaa repository) you'll create a Fork of it and work from there.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
 Forking creates a simultaneous instance of oaa within your own GitHub repository.
-- Goto angelarenaallstars/oaa.
+- Goto OpenAngelArena/oaa.
 - Click Fork
-- Choose where to Fork: Fork angelarenaallstars/oaa to YOURUSERNAME/oaa
-- Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [angelarenaallstars/oaa].
+- Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
+- Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
 
 ## Cloning
 Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
@@ -58,7 +58,7 @@ Now just Clone your Fork to your computer We do this using the GitHub client. Yo
 - Select Clone.
 - Select your Account and the forked `oaa` repository.
 - Verify Clone to your repo.
-Now we should have a local copy of your fork of [angelarenaallstars/oaa]
+Now we should have a local copy of your fork of [OpenAngelArena/oaa]
 
 ## Open Git Power Shell
 Git Power Shell enables you to control Git using a variety of commands. You can open Git Power Shell in a number of ways:
@@ -84,19 +84,19 @@ Let's first look at the different remotes we have by typing 'git remote -v':
   ```
 We start out with one remote named "origin". That's our Fork that we made from before.
 
-In order to stay up-to-date with the official angelarenaallstars/oaa (the official one), just add another remote like this:
+In order to stay up-to-date with the official OpenAngelArena/oaa (the official one), just add another remote like this:
  ```
-  git remote add AngelArenaAllstars https://GitHub.com/angelarenaallstars/oaa
+  git remote add OpenAngelArena https://GitHub.com/OpenAngelArena/oaa
  ```
- You do not have to call this Remote AngelArenaAllstars, you can call it whatever you want. Now let's get the newest changes from [angelarenaallstars/oaa]:
+ You do not have to call this Remote OpenAngelArena, you can call it whatever you want. Now let's get the newest changes from [OpenAngelArena/oaa]:
   ```
-   git pull AngelArenaAllstars master
-  From https://GitHub.com/angelarenaallstars/oaa
+   git pull OpenAngelArena master
+  From https://GitHub.com/OpenAngelArena/oaa
    * branch            master     - FETCH_HEAD
   Already up-to-date.
   ```
 ### Pushing
-When updating, the newest changes are downloaded from angelarenaallstars/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/oaa on GitHub:
+When updating, the newest changes are downloaded from OpenAngelArena/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/oaa on GitHub:
 ```
  git push
 Everything up-to-date
@@ -147,7 +147,7 @@ To https://GitHub.com/Chronophylos/oaa
 
 ## Creating a PR
 
-To create a PR goto [AngelArenaAllstars/oaa] on GitHub
+To create a PR goto [OpenAngelArena/oaa] on GitHub
 - Click 'New Pull Request'
 - Click `compare across forks`
 - Click `head fork` and choose your Repository
@@ -160,7 +160,7 @@ To create a PR goto [AngelArenaAllstars/oaa] on GitHub
 - [Git on GitHub](https://GitHub.com/git/git)
 - [Wikipedia](https://en.wikipedia.org/wiki/GitHub)
 - [Git Questions?](https://stackoverflow.com/questions/tagged/git).
-- [angelarenaallstars/oaa Master Repo](https://GitHub.com/angelarenaallstars/oaa)
+- [OpenAngelArena/oaa Master Repo](https://GitHub.com/OpenAngelArena/oaa)
 
 ## Authors
 Author Discord@Chronophylos#5199
