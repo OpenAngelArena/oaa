@@ -9,11 +9,9 @@ For installation instructions click [here](docs/install.md).
 For testing instructions click [here](docs/testing.md).
 
 # Contributing
-Check out the Discord!
+Check out the Discord
 
-There are also issues marked with [`Great for new contributors`](https://github.com/AngelArenaAllstars/aaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
-
-Music can be found at [Soundcloud][soundcloud-link]
+There are also issues marked with [`Great for new contributors`](https://github.com/OpenAngelArena/oaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
 
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
@@ -21,5 +19,4 @@ Do not create or comment on tickets in this repository for game suggestions. Use
 # License
 MIT
 
-[soundcloud-link]: https://soundcloud.com/angelarenaallstars "Music for Angel Arena Allstars"
-[discord-link]: https://discord.gg/ "Angel Arena Allstars Discord Instant Invite"
+[Soundcloud](https://soundcloud.com/user-238514931/ryan-dueling-music-first-draft)
