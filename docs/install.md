@@ -47,7 +47,7 @@ npm install dota2-addon-manager
 ```
 
 ### Download Project
-This is simple, you have to open `GitHub Client` and using top left `+` button `colne` a repo with `OAA` to your newly created `Open Angel arena folder`
+This is simple, you have to open `GitHub Client` and using top left `+` button `clone` a repo with `OAA` to your newly created `Open Angel arena folder`
 
 
 ### Prepare Addon Directory
