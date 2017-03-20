@@ -32,7 +32,9 @@ function PointsManager:Init ()
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
-    PointsManager:AddPoints(keys.killer:GetTeam())
+    if keys.killer:GetTeam() ~= keys.killed:GetTeam() then
+      PointsManager:AddPoints(keys.killer:GetTeam())
+    end
   end)
 end
 
