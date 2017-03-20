@@ -77,28 +77,11 @@ function BossAI:DeathHandler (state, keys)
   end
 
   if state.tier == 1 then
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_2",
-        "item_butterfly_2",
-        "item_greater_power_treads_2",
-        "item_heart_2"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_2",
-        "item_butterfly_2",
-        "item_greater_power_treads_2",
-        "item_heart_2"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
 
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
@@ -112,221 +95,47 @@ function BossAI:DeathHandler (state, keys)
       end
     end
   elseif state.tier == 2 then
-    NGP:GiveItemToTeam({
-      item = "item_combiner",
-      title = "Item Combiner",
-      description = "Combine two items into one!",
-      buildsInto = {
-        "item_stoneskin"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_2",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_3",
-        "item_butterfly_3",
-        "item_greater_power_treads_3",
-        "item_heart_3"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_2",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_3",
-        "item_butterfly_3",
-        "item_greater_power_treads_3",
-        "item_heart_3"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_2",
-        "item_butterfly_2",
-        "item_greater_power_treads_2",
-        "item_heart_2"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
   elseif state.tier == 3 then
-
-    NGP:GiveItemToTeam({
-      item = "item_combiner",
-      title = "Item Combiner",
-      description = "Combine two items into one!",
-      buildsInto = {
-        "item_stoneskin"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_3",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_4",
-        "item_butterfly_4",
-        "item_greater_power_treads_4",
-        "item_heart_4"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_3",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_4",
-        "item_butterfly_4",
-        "item_greater_power_treads_4",
-        "item_heart_4"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_2",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_3",
-        "item_butterfly_3",
-        "item_greater_power_treads_3",
-        "item_heart_3"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
   elseif state.tier == 4 then
 
-    NGP:GiveItemToTeam({
-      item = "item_combiner",
-      title = "Item Combiner",
-      description = "Combine two items into one!",
-      buildsInto = {
-        "item_stoneskin"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_4",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_5",
-        "item_butterfly_5",
-        "item_greater_power_treads_5",
-        "item_heart_5"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_4",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_5",
-        "item_butterfly_5",
-        "item_greater_power_treads_5",
-        "item_heart_5"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_3",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_4",
-        "item_butterfly_4",
-        "item_greater_power_treads_4",
-        "item_heart_4"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
   elseif state.tier == 5 then
 
-    NGP:GiveItemToTeam({
-      item = "item_combiner",
-      title = "Item Combiner",
-      description = "Combine two items into one!",
-      buildsInto = {
-        "item_stoneskin"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_5",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_6",
-        "item_butterfly_6",
-        "item_greater_power_treads_6",
-        "item_heart_6"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_5",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_6",
-        "item_butterfly_6",
-        "item_greater_power_treads_6",
-        "item_heart_6"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_4",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_5",
-        "item_butterfly_5",
-        "item_greater_power_treads_5",
-        "item_heart_5"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
   elseif state.tier == 6 then
-
-    NGP:GiveItemToTeam({
-      item = "item_combiner",
-      title = "Item Combiner",
-      description = "Combine two items into one!",
-      buildsInto = {
-        "item_stoneskin"
-      }
-    }, team)
     PointsManager:AddPoints(teamId)
 
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_5",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_6",
-        "item_butterfly_6",
-        "item_greater_power_treads_6",
-        "item_heart_6"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_5",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 2 boss items",
-      buildsInto = {
-        "item_radiance_6",
-        "item_butterfly_6",
-        "item_greater_power_treads_6",
-        "item_heart_6"
-      }
-    }, team)
-    NGP:GiveItemToTeam({
-      item = "item_upgrade_core_4",
-      title = "Upgrade Core",
-      description = "Common crafting component for creating tier 1 boss items",
-      buildsInto = {
-        "item_radiance_5",
-        "item_butterfly_5",
-        "item_greater_power_treads_5",
-        "item_heart_5"
-      }
-    }, team)
+    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
   end
 end
 
@@ -371,6 +180,9 @@ function BossAI:Think (state)
   if distance > state.leash then
     BossAI:Leash(state)
   elseif distance < state.leash / 2 and state.state == BossAI.LEASHING then
+    state.state = BossAI.IDLE
+    return false
+  elseif distance == 0 and state.state == BossAI.AGRO then
     state.state = BossAI.IDLE
     return false
   end

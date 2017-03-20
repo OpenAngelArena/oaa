@@ -1,6 +1,6 @@
 -- Taken from bb template
 if PointsManager == nil then
-  Debug.EnabledModules['points:*'] = true
+  Debug.EnabledModules['points:*'] = false
 
   DebugPrint ( 'Creating new PointsManager object.' )
   PointsManager = class({})
@@ -32,7 +32,9 @@ function PointsManager:Init ()
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
-    PointsManager:AddPoints(keys.killer:GetTeam())
+    if keys.killer:GetTeam() ~= keys.killed:GetTeam() then
+      PointsManager:AddPoints(keys.killer:GetTeam())
+    end
   end)
 end
 
