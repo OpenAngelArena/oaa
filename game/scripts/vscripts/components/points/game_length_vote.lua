@@ -47,4 +47,7 @@ function GameLengthVotes:SetGameLength ()
   end
   DebugPrint ( 'votes ' .. votes.short .. ', ' .. votes.normal .. ', ' .. votes.long .. ' result: ' .. length)
   GameRules.GameLength = length
+  CustomGameEventManager:Send_ServerToAllClients("gamelength_vote_confirmed", {
+    length = length
+  })
 end
