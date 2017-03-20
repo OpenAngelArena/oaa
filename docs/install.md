@@ -13,7 +13,7 @@ Install the Dota 2 Workshop Tools.
  * Go to the DLC tab of the window that pops up
  * Check the `INSTALL` box next to `Dota 2 Workshop Tools DLC`
 
-## Addon Tool
+## Setting evrything up
 Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 
 ### Navigate with command promt
@@ -59,5 +59,7 @@ leave the command prompt open, we'll come back to it.
 Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting `Launch Dota 2 - Tools`. It should be the second option on the dropdown below `Play Game`
 
 Open `oaa` from the window that opens, and you're in!
+
+The instructions of testing are present in [Next guide](/docs/testing.md)
 
 Also all the development is discussed in Discord, so please join us at https://discord.gg/E6f6TCe
