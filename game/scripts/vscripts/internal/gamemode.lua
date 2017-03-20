@@ -148,7 +148,7 @@ function GameMode:_InitGameMode()
   self.bSeenWaitForPlayers = false
   self.vUserIds = {}
 
-  DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
+  DebugPrint('[BAREBONES] Done loading Barebones gamemode!')
   GameMode._reentrantCheck = true
   GameMode:InitGameMode()
   GameMode._reentrantCheck = false

@@ -8,7 +8,8 @@
 
 
 if Gold == nil then
-  DebugPrint ( '[gold/gold] creating new Gold object' )
+  DebugPrint ( 'creating new Gold object' )
+  Debug.EnabledModules["gold:*"] = false
   _G.Gold = class({})
 end
 
@@ -20,23 +21,42 @@ function Gold:Init()
     gold = {}
   }, {0,1,2,3,4,5,6,7,8,9})
 
+  ChatCommand:LinkCommand("-goldc", "handleChatCommand", Gold)
+
     -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
+end
+
+function Gold:handleChatCommand (keys)
+  DebugPrintTable(keys)
+  command = split(keys.text, ' ')
+  DebugPrintTable(command)
+
+  local player = PlayerResource:GetPlayer(keys.playerid)
+  local playerid = keys.playerid
+
+  local action = command[2]
+  local arg = tonumber(command[3])
+
+  if action == "add" then
+    Gold:AddGold(playerid, arg)
+  elseif action == "set" and arg then
+    Gold:SetGold(playerid, arg)
+  elseif action == "remove" then
+    Gold:RemoveGold(playerid, arg)
+  elseif action == "modify" then
+    Gold:ModifyGold(playerid, arg)
+  elseif action == "clear" then
+    Gold:ClearGold(playerid)
+  else
+    DebugPrint("Displaying Help")
+    Say(player, "Usage: -goldc < add <amount> | set <amount> | remove <amount> | modify <amount> | clear >", keys.teamonly == 1)
+  end
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    -- get full tree,
-    --[[local allgold = PlayerTables:GetTableValue("gold", "gold")
-    allgold[playerID] = PLAYER_GOLD[playerID].SavedGold
-
-    PlayerTables:SetTableValue("gold", "gold", allgold)
-
-    local player = PlayerResource:GetPlayer(playerID)
-    CustomGameEventManager:Send_ServerToAllClients("aaa_update_gold", {
-      gold = allgold
-    })]]--
     local tableGold = PlayerTables:GetTableValue("gold", "gold")
     tableGold[playerID] = newGold
     PlayerTables:SetTableValue("gold", "gold", tableGold)
@@ -55,7 +75,7 @@ function Gold:Think()
   for i = 0, 9 do
     if PlayerResource:IsValidPlayerID(i) then
       if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-
+        -- WORKAROUND!! PLS ADD CUSTOM SHOP !! !!
         local currentGold = Gold:GetGold(i)
         local currentDotaGold = PlayerResource:GetGold(i)
 
@@ -87,17 +107,19 @@ end
 
 
 function Gold:ClearGold(unitvar)
+  DebugPrint("Clearing Gold of " .. unitvar)
   Gold:SetGold(unitvar, 0)
 end
 
 function Gold:SetGold(unitvar, gold)
+  DebugPrint("Set Gold of " .. unitvar .. " to " .. gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  --PLAYER_GOLD[playerID].SavedGold = math.floor(gold)
   local newGold = math.floor(gold)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
+  DebugPrint("Modify Gold of " .. unitvar .. " by " .. gold)
   if gold > 0 then
     Gold:AddGold(unitvar, gold)
   elseif gold < 0 then
@@ -106,20 +128,16 @@ function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
 end
 
 function Gold:RemoveGold(unitvar, gold)
+  DebugPrint("Remove " .. gold .. " from " .. unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
-  --  PLAYER_GOLD[playerID].SavedGold = math.max((PLAYER_GOLD[playerID].SavedGold or 0) - math.ceil(gold), 0)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGold(unitvar, gold)
-  --[[DebugPrint("[Gold] AddGold")
-  DebugPrint("arg.unitvar: " .. unitvar)
-  DebugPrint("arg.gold: " .. gold)
-  DebugPrintTable(PLAYER_GOLD)]]
+  DebugPrint("Add " .. gold .. " to " .. unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
-  --PLAYER_GOLD[playerID].SavedGold = (PLAYER_GOLD[playerID].SavedGold or 0) + math.floor(gold)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = (oldGold or 0) + math.floor(gold)
   Gold:UpdatePlayerGold(playerID, newGold)
@@ -134,6 +152,5 @@ end
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
-  --return math.floor(PLAYER_GOLD[playerID].SavedGold or 0)
   return math.floor(currentGold or 0)
 end
