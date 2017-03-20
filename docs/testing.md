@@ -11,7 +11,7 @@ It is rebuilt by double-clicking `aaa.vmap` in `Asset browser` and then pressing
 `It should be done evey time you make changes to the map`
 
 ## Running a game
-Now when you are set, you can start debugging your game, for this you need to open `dota console` in `Asset Browser`(Button on top or a key `~`)
+Now when you are set, you can start debugging your game, for this you need to open `dota console` in `Asset Browser`(Button on top or a key `~` [located under `esc` and above `tab`])
 Then a command to launch game is:
 ```
 dota_launch_custom_game (mod name) (map name)
