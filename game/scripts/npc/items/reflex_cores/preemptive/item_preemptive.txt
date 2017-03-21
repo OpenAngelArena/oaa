@@ -6,6 +6,7 @@
   "item_recipe_preemptive"
   {
     "ID"            "3801"   // unique ID
+    "BaseClass"     "item_datadriven"
     "ItemCost"          "1550"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
@@ -25,9 +26,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                    "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"             "item_lua"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"    "item_sphere"
-    "BaseClass"             "item_lua"
     "ScriptFile"            "items/reflex/preemptive.lua"
     "FightRecapLevel"       "1"
 
@@ -40,8 +41,8 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     // even though this levels up, it splits at every level, so we dont show it that way
-    "MaxUpgradeLevel"       "1"
-    "ItemBaseLevel"         "1"
+    // "MaxUpgradeLevel"       "1"
+    // "ItemBaseLevel"         "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
