@@ -25,10 +25,10 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   local heroLevel = hero:GetLevel()
   local abilityLevel = ability:GetLevel()
   local abilityType = ability:GetAbilityType()
-
-  if abilityType == 0 then -- Ability is DOTA_ABILITY_TYPE_BASIC
-    req_table = basic_reqs
-  elseif abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+  local req_table = basic_reqs
+  local requirement = -1
+  
+  if abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
     req_table = ultimate_reqs
   end
   
