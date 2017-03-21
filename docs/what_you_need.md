@@ -16,8 +16,7 @@ If you don’t want to use Atom, these are the requirements:
 
 
 Now you have to install Lua (for linting) and node.js
- https://nodejs.org/en/download/
-Install gulp globally with the Node.js Command Prompt: npm i -g gulp-cli
+https://nodejs.org/en/download/
 http://www.lua.org
 
 

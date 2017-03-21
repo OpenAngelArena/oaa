@@ -16,9 +16,6 @@ Music can be found at [Soundcloud][soundcloud-link]
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
 
-### Building npc custom files
-From within the addon directory, run `gulp`.
-
 # License
 MIT
 
