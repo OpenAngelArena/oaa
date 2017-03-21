@@ -8,7 +8,7 @@ if Duels == nil then
   Debug.EnabledModules['duels:*'] = true
   Debug.EnabledModules['zonecontrol:*'] = true
 
-  ChatCommand:LinkCommand("-duel", "Warn", Duels)
+  ChatCommand:LinkCommand("-duel", "QueueDuels", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuels", Duels)
 end
 
@@ -29,12 +29,12 @@ function Duels:Init ()
   self.teams = Duels:GetTeams()
 
   Timers:CreateTimer(1, function ()
-    Duels:Warn()
+    Duels:QueueDuels()
   end)
 
 end
 
-function Duels:Warn()
+function Duels:QueueDuels()
   Notifications:TopToAll({text="A duel will start in 10 seconds!", duration=5.0})
   for index = 1,5 do
     Timers:CreateTimer(4 + index, function ()
