@@ -16,8 +16,8 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   end
 
   -- Ability hero level requirements
-  local basic_reqs = {0, 0, 0, 0, 28, 40}
-  local ultimate_reqs = {0, 0, 0, 37, 49}
+  local basicReqs = {0, 0, 0, 0, 28, 40}
+  local ultimateReqs = {0, 0, 0, 37, 49}
 
   local ability = EntIndexToHScript(keys.entindex_ability)
   local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
@@ -25,17 +25,17 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   local heroLevel = hero:GetLevel()
   local abilityLevel = ability:GetLevel()
   local abilityType = ability:GetAbilityType()
-  local req_table = basic_reqs
+  local reqTable = basicReqs
   local requirement = -1
   
   if abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
-    req_table = ultimate_reqs
+    reqTable = ultimateReqs
   end
   
-  if abilityLevel >= #req_table then
-    requirement = req_table[#req_table]
+  if abilityLevel >= #reqTable then
+    requirement = reqTable[#reqTable]
   else
-    requirement = req_table[abilityLevel+1]
+    requirement = reqTable[abilityLevel+1]
   end
   
   if heroLevel >= requirement then
