@@ -1,0 +1,107 @@
+"DOTAItems"
+{
+	"item_recipe_refresher_core_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3213"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
+		"FightRecapLevel"				"2"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2500"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_refresher_core_2"
+		"ItemRequirements"
+		{
+			"01"						"item_refresher_core;item_upgrade_core_2"
+			"02"						"item_refresher_core;item_upgrade_core_3"
+			"03"						"item_refresher_core;item_upgrade_core_4"
+		}
+	}
+
+		"item_refresher_core_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3216"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"                     "item_octarine_core"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_octarine_core"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"2"
+		"UpgradesItems"					"item_refresher_core_2"
+		"UpgradeRecipe"					"item_recipe_refresher_core"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"25000"
+		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"refresher_core orb"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+//			"01"
+//			{
+//				"var_type"				"FIELD_INTEGER"
+//				"bonus_health_regen"	"18"
+//			}
+//			"02"
+//			{
+//				"var_type"				"FIELD_INTEGER"
+//				"bonus_mana_regen"		"400 450 500"
+//			}
+//			"03"
+//			{
+//				"var_type"				"FIELD_INTEGER"
+//				"bonus_damage"			"30"
+//			}
+
+			// Octarine Core Parameters
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intelligence"	"40 45 50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"600 700 800"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"600"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_cooldown"		"40 50 60"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_lifesteal"		"40"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_lifesteal"		"10"
+			}
+		}
+	}
+}

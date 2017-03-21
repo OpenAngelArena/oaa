@@ -1,38 +1,76 @@
 #GameLengthPicker
 {
+  width: 1250px;
+  height: 170px;
   margin-top: 100px;
   flow-children: right;
-  background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619ff ), to( #000000dd ) );
   horizontal-align: center;
+  background-image: url("file://{images}/custom_game/TeamSelect_Gamemode_bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+
+  padding: 0px 10px;
 }
 
 #GameLengthPicker .GameLengthOption
 {
-  padding: 10px 10px;
+  padding: 20px 40px;
+  margin-top: -4px;
   width: fill-parent-flow (1);
   flow-children: down;
-  box-shadow: black 0px 0px 0px 0px;
+  /* it's nice to turn this on for visual spacing */
+  border: 1px solid transparent;
 }
-#GameLengthPicker .GameLengthOption:selected
+
+#GameLengthPicker #ShortGame
 {
-  box-shadow: black -4px -4px 8px 8px;
+  padding-left: 46px;
+}
+
+#GameLengthPicker #NormalGame
+{
+  padding-left: 27px;
+}
+#GameLengthPicker #LongGame
+{
+  padding-left: 55px;
 }
 
 #GameLengthPicker Panel.RadioBox
 {
-  height: 20px;
+  margin-left: 100px;
 }
-#GameLengthPicker Label
+#GameLengthPicker RadioButton:not(:selected) Panel.RadioBox
+{
+  box-shadow: none;
+  background-image: url("file://{images}/custom_game/TeamSelect_Button_off.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+  border: 3px solid #000000;
+}
+#GameLengthPicker  RadioButton:selected Panel.RadioBox
+{
+  box-shadow: none;
+  background-image: url("file://{images}/custom_game/TeamSelect_Button_on.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+}
+
+#GameLengthPicker Label.title
 {
   margin-top: -20px;
-  margin-left: 30px;
+  margin-left: 130px;
 }
+
 
 #GameLengthPicker Label.description
 {
-  margin-top: 10px;
-  margin-left: 0px;
-  height: 150px;
+  margin-top: 25px;
+  margin-left: 10px;
+  height: 60px;
   white-space: normal;
   text-transform: none;
+  font-size: 16px;
 }

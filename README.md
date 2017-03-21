@@ -1,20 +1,17 @@
-# Angel Arena Allstars
-A really great Dota 2 game mode.
+# Open Angel Arena
+A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
+This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
+
 For detailed instructions, check [here](docs/install.md)
 
-* Install the dota2 addon manager
-  * `npm i -g dota2-addon-manager`
-* Install the gulp command line interface
-  * `npm install -g gulp-cli`
-* Initialize the **addons** directory using `d2am list` from inside your `dota 2 beta` directory.
-* Check out this repository into `dota 2 beta/addons/`
-* Run `d2am link` from inside the `dota 2 beta` directory
-* Open the addon using the dota2 tools. Done!
-
 # Contributing
-Check out the discord!
+Check out the Discord!
+
+There are also issues marked with [`Great for new contributors`](https://github.com/OpenAngelArena/oaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
+
+Music can be found at [Soundcloud][soundcloud-link]
 
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
@@ -24,3 +21,6 @@ From within the addon directory, run `gulp`.
 
 # License
 MIT
+
+[soundcloud-link]: https://soundcloud.com/OpenAngelArena "Music for Open Angel Arena"
+[discord-link]: https://discord.gg/WNFBB4d "Open Angel Arena Discord Instant Invite"

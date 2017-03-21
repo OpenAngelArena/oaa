@@ -36,5 +36,21 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Dota 2 stuff
+# swap files
+*.swp
+*~
+*.bak
+
+# Dota 2 Binaries
 tools_thumbnail_cache.bin
+tools_asset_info.bin
+
+# Dota 2 compiled files
+panorama_debugger.cfg
+
+*.vmat_c
+*.vtex_c
+*.vxml_c
+*.vjs_c
+*.vcss_c
+*.vpk

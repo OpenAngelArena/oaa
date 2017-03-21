@@ -9,7 +9,7 @@ First and obvious: we do need the Workshop Tools for dota. You can find it if yo
 ![Image of Dota 2 Tools](https://i.imgsafe.org/b48317a26e.png)
 
 As Scripting-Programmers we mostly work on Text-Files. So we also need a Texteditor. Recommended: Atom - http://www.atom.io
-If you don’t want to use Atom, these are the requirements:
+If you donâ€™t want to use Atom, these are the requirements:
 - It should have syntax-highlighting for lua, HTML, JS, XML, 
 - It should have on-the-fly linting
 - it MUST respect .editorconfig http://editorconfig.org/
@@ -30,18 +30,13 @@ If use you Atom, following Packages / Plugins you should use:
 - editorconfig
 
 ### Github Links
-Organization: https://github.com/AngelArenaAllstars
-Boilerplate: https://github.com/AngelArenaAllstars/boilerplate-scripts
-Main head: There intentionally is not one until after new years
-Playgrounds
-Salacryl: https://github.com/salacryl/AAA
-chrisinajar: https://github.com/chrisinajar/aaa-playground
+Organization: https://github.com/OpenAngelArena  
+Main head: https://github.com/OpenAngelArena/oaa
 
 ### Collaborating Tools:
 
 You need a GitHub account. Every changes you do, will first go in your own clone of the project and then - if you followed the code of conduct at least - you can place a pull-request
 Google-Account to share and get documents
-For coordinating: discord: https://discord.gg/4wpWd
+
+For coordinating: discord: Soon  
 Mindmap ideas: coggle.it: https://coggle.it/diagram/WF0DTy-C0LZE5uuE
-
-

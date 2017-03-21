@@ -5,6 +5,10 @@ function GameMode:_OnGameRulesStateChange(keys)
   end
 
   local newState = GameRules:State_Get()
+  CustomGameEventManager:Send_ServerToAllClients( 'oaa_state_change', {
+    newState = newState
+  })
+
   if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
     self.bSeenWaitForPlayers = true
   elseif newState == DOTA_GAMERULES_STATE_INIT then
@@ -14,7 +18,7 @@ function GameMode:_OnGameRulesStateChange(keys)
     GameMode:OnAllPlayersLoaded()
 
     if USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS then
-      for i=0,9 do
+      for i=0,19 do
         if PlayerResource:IsValidPlayer(i) then
           local color = TEAM_COLORS[PlayerResource:GetTeam(i)]
           PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
@@ -63,7 +67,7 @@ function GameMode:_OnEntityKilled( keys )
     killerEntity = EntIndexToHScript( keys.entindex_attacker )
   end
 
-  if killedUnit:IsRealHero() then 
+  if killedUnit:IsRealHero() then
     DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
     if END_GAME_ON_KILLS and GetTeamHeroKills(killerEntity:GetTeam()) >= KILLS_TO_END_GAME_FOR_TEAM then
       GameRules:SetSafeToLeave( true )
@@ -74,6 +78,18 @@ function GameMode:_OnEntityKilled( keys )
     if SHOW_KILLS_ON_TOPBAR then
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS) )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
+    end
+
+    killerPlayerEntity = killerEntity
+
+    if not killerPlayerEntity:IsRealHero() then
+      killerPlayerEntity = killerEntity:GetOwnerEntity() or killerEntity
+    end
+
+    if killerPlayerEntity:IsRealHero() then
+      keys.killer = killerPlayerEntity
+      keys.killed = killedUnit
+      GameMode:OnHeroKilled(keys)
     end
   end
 
@@ -93,7 +109,7 @@ function GameMode:_OnConnectFull(keys)
   local entIndex = keys.index+1
   -- The Player entity of the joining user
   local ply = EntIndexToHScript(entIndex)
-  
+
   local userID = keys.userid
 
   self.vUserIds = self.vUserIds or {}

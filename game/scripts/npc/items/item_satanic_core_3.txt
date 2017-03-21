@@ -1,0 +1,92 @@
+"DOTAItems"
+{
+	"item_recipe_satanic_core_3"
+	{
+
+		"ID"							"3220"		// unique ID
+		"BaseClass"                     "item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"4500"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_satanic_core_3"
+		"ItemRequirements"
+		{
+			"01"						"item_satanic_core_2;item_upgrade_core_4"
+		}
+	}
+
+		"item_satanic_core_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3223"		// unique ID
+		"BaseClass"                     "item_octarine_core"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"            "item_octarine_core"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		// Spicy Parameters
+		//-------------------------------------------------------------------------------------------------------------
+
+		"MaxUpgradeLevel"				"3"
+		"ItemBaseLevel"					"3"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"26000"
+		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"satanic_core"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+//			"01"
+//			{
+//				"var_type"				"FIELD_INTEGER"
+//				"bonus_strength"		"32 33 34"
+//			}
+//			"02"
+//			{
+//				"var_type"				"FIELD_INTEGER"
+//				"bonus_damage"			"100 150 200"
+//			}
+			// Octarine Core Parameters
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intelligence"	"25 35 45"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"500"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_cooldown"		"35 40 45"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_lifesteal"		"50 65 80"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_lifesteal"		"10 20 30"
+			}
+		}
+	}
+}
