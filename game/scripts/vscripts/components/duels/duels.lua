@@ -216,6 +216,7 @@ function Duels:ActuallyStartDuel ()
     badLiving1 = playerSplitOffset,
     goodLiving2 = maxPlayers - playerSplitOffset,
     badLiving2 = maxPlayers - playerSplitOffset,
+    duelEnd1 = playerSplitOffset == 0,
     duelEnd2 = maxPlayers == playerSplitOffset,
     badPlayers = badPlayers,
     goodPlayers = goodPlayers,
