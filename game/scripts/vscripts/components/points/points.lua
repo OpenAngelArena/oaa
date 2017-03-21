@@ -16,15 +16,6 @@ function PointsManager:Init ()
   PointsManager.goodguysID = 2
   PointsManager.badguysID = 3
 
-  if GameRules.GameLength == 'long' then
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 200 } )
-  elseif GameRules.GameLength == 'short' then
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 50 } )
-  else
-    -- default to 100 in case of no selection / invalid selection
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 100 } )
-  end
-
   -- set initial values for current scores
   CustomNetTables:SetTableValue( 'team_scores', 'score', { goodguys = 0,
                                                            badguys = 0
