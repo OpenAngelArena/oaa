@@ -44,7 +44,7 @@ end
 local DUEL_IS_STARTING = 21
 
 function Duels:CheckDuelStatus (keys)
-  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING or keys.killed:IsReincarnating() then
     return
   end
 
