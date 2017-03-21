@@ -10,9 +10,9 @@ function Duel:Init (teams, spawns, zone)
 
   for index, team in pairs(teams) do
     self.scores[index] = {#team}
-	for _,player in pairs(team) do
-	  player.team = index
-	end
+	  for _,player in pairs(team) do
+	    player.team = index
+  	end
   end
 
   GameEvents:OnHeroKilled(function (keys)
@@ -26,17 +26,17 @@ end
 function Duel:Start()
   for index, team in pairs(self.teams) do
     local teamSpawn = self.spawns[index]
-	for _, player in pairs(team) do
-	  Duel:SpawnPlayer(player, teamSpawn)
-	end
+	  for _, player in pairs(team) do
+	    Duel:SpawnPlayer(player, teamSpawn)
+	  end
   end
 end
 
 function Duel.Map(func)
   for _, team in pairs(self.teams) do
     for _, player in pairs(team) do
-	  func(player)
-	end
+	      func(player)
+	  end
   end
 end
 
