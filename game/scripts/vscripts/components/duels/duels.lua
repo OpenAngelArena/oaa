@@ -53,11 +53,11 @@ function Duels:GetTeams()
 
   for playerId = 0,19 do
     local player = PlayerResource:GetPlayer(playerId)
-	if player:GetTeam() == 3 then
-	  table.insert(teams[1], player)
-	elseif player:GetTeam() == 2 then
-	  table.insert(teams[2], player)
-	end
+	  if player:GetTeam() == 3 then
+	    table.insert(teams[1], player)
+	  elseif player:GetTeam() == 2 then
+	    table.insert(teams[2], player)
+	  end
   end
   return teams
 end
@@ -91,8 +91,8 @@ function Duels:CreateDuels()
   local maxPlayers = 20
   for _, team in self.teams do
     if #team < maxPlayers then
-	  maxPlayers = #team
-	end
+	    maxPlayers = #team
+	  end
   end
 
   DebugPrint('Max players per team for this duel ' .. maxPlayers)
@@ -110,8 +110,8 @@ function Duels:CreateDuels()
   local duelists = {{},{}}
   for playerNumber = 1,playerSplitOffset do
     for index, team in pairs(self.teams) do
-	  table.insert(duelists[index], team[playerNumber])
-	end
+	    table.insert(duelists[index], team[playerNumber])
+	  end
   end
 
   local spawns = Duels:GetSpawns(1)
@@ -120,8 +120,8 @@ function Duels:CreateDuels()
   local duelists2 = {{},{}}
   for playerNumber = playerSplitOffset+1, maxPlayers do
     for index, team in pairs(self.teams) do
-	  table.insert(duelists[index], team[playerNumber])
-	end
+	    table.insert(duelists[index], team[playerNumber])
+	  end
   end
 
   local spawns2 = Duels.GetSpawns(2)
