@@ -44,15 +44,15 @@ end
 local DUEL_IS_STARTING = 21
 
 function Duels:CheckDuelStatus (keys)
-  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then -- <- There is nothing here, git.
     return
   end
   if keys.killed:IsReincarnating() then
     keys.killed:SetRespawnsDisabled(false)
+    Timers:CreateTimer(1, function ()
+      keys.killed:SetRespawnsDisabled(true)
+    end )
   end
-  Timers:CreateTimer(1, function ()
-    keys.killed:SetRespawnsDisabled(true)
-  end )
 
   local playerId = keys.killed:GetPlayerOwnerID()
   local foundIt = false
