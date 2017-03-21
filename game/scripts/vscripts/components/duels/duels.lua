@@ -5,8 +5,8 @@ if Duels == nil then
 
   -- debugging lines, enable logging and enable chat commands to start/stop duels
 
-  Debug.EnabledModules['duels:*'] = true
-  Debug.EnabledModules['zonecontrol:*'] = true
+  Debug.EnabledModules['duels:*'] = false
+  Debug.EnabledModules['zonecontrol:*'] = false
 
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
@@ -44,8 +44,14 @@ end
 local DUEL_IS_STARTING = 21
 
 function Duels:CheckDuelStatus (keys)
-  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING or keys.killed:IsReincarnating() then
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then -- <- There is nothing here, git.
     return
+  end
+  if keys.killed:IsReincarnating() then
+    keys.killed:SetRespawnsDisabled(false)
+    Timers:CreateTimer(1, function ()
+      keys.killed:SetRespawnsDisabled(true)
+    end )
   end
 
   local playerId = keys.killed:GetPlayerOwnerID()
