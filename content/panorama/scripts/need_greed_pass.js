@@ -12,12 +12,11 @@ function onNGPChange () {
   console.log(data);
 
   function OnNeedGreedPass (item) {
-    generateNGPPanel(item.id, item.item, item.title, item.description, item.buildsInto);
+    generateNGPPanel(item.id, item.item, item.title, item.description);
   }
 
   Object.keys(data).forEach(function (i) {
     var item = data[i];
-    item.buildsInto = Object.keys(item.buildsInto).map(function (i) { return item.buildsInto[i]; });
     OnNeedGreedPass(item);
   });
 }
@@ -72,7 +71,10 @@ function idNameForId (id) {
 // group id doesn't work
 var ngpGroupIndex = 0;
 var existingPanels = {};
-function generateNGPPanel (id, item, title, description, buildsInto) {
+
+//TODO: buildsinto diable
+
+function generateNGPPanel (id, item, title, description) {
   console.log('Generating panel for item id ', id)
   if (existingPanels[id]) {
     return;
@@ -90,13 +92,6 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
   });
   panel.FindChildrenWithClassTraverse('DataItemDescription').forEach(function (elem) {
     elem.text = description;
-  });
-  panel.FindChildrenWithClassTraverse('DataUpgradesInto').forEach(function (elem) {
-    elem.text = description;
-    buildsInto.forEach(function (item) {
-      var itemImage = $.CreatePanel('DOTAItemImage', elem, '');
-      itemImage.itemname = item;
-    });
   });
 
   // setting group doesn't work :/

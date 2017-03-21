@@ -98,87 +98,77 @@
 {
   width: fill-parent-flow (1);
   flow-children: down;
-  padding: 5px 0 10px 0;
+  padding: 5px 0 3px 0;
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
   height: 20px;
+  margin-bottom: 2px;
   /*text-transform: uppercase;*/
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.Description
 {
-  font-size: 12px;
+  font-size: 13px;
   white-space: normal;
   height: fill-parent-flow (1);
-  line-height: 10px;
+  line-height: 13px;
 }
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto
+
+/*
+ * NGP BUTTONS
+ */
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons
 {
   /*margin-top: 14px;*/
   height: 20px;
   flow-children: right;
-}
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto Label
-{
-  text-transform: uppercase;
-  font-size: 10px;
-  width: 30px;
-  height: 25px;
-  line-height: 10px;
-}
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto DOTAItemImage
-{
-  margin-right: 5px;
+  width: fill-parent-flow (1);
+  margin-top: 3px;
 }
 
-/*
- * BUTTONS
- */
-.NeedGreedPass .ItemPanel .Buttons
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons RadioButton
 {
-  margin: 5px;
-  flow-children: down;
-  border-left: 1px solid #555;
-  padding-left: 5px;
-}
-.NeedGreedPass .ItemPanel .Buttons RadioButton
-{
-  vertical-align: top;
+  vertical-align: middle;
   flow-children: right;
-  horizontal-align: right;
+  horizontal-align: center;
+  padding-left: 10px;
+  width: fill-parent-flow (1);
+  
+  border-right: 1px solid #555;
 }
-.NeedGreedPass .ItemPanel .Buttons .RadioBox
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .RadioBox
 {
   opacity: 0;
   visibility: collapse;
 }
-.NeedGreedPass .ItemPanel .Buttons Button
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons Button
 {
   width: 24px;
   height: 24px;
   background-size: 100% 100%;
 }
-.NeedGreedPass .ItemPanel .Buttons RadioButton Label
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons Label
 {
-  /*visibility: collapse;*/
-}
-.NeedGreedPass .ItemPanel .Buttons RadioButton Label, .NeedGreedPass .ItemPanel .Buttons RadioButton Button
-{
-  horizontal-align: center;
+  margin-left: 0;
 }
 
-.NeedGreedPass .ItemPanel .Buttons .Need Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Need Button
 {
   background-image: url("s2r://panorama/images/hud/reborn/icon_courier_upgrade_on_psd.vtex");
 }
-.NeedGreedPass .ItemPanel .Buttons .Greed Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Greed Button
 {
   background-image: url("s2r://panorama/images/hud/reborn/gold_small_psd.vtex");
 }
-.NeedGreedPass .ItemPanel .Buttons .Pass Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass Button
 {
   background-image: url("s2r://panorama/images/hud/reborn/icon_courier_boost_on_psd.vtex");
 }
+
 
 @keyframes 'slidein' {
   from {
