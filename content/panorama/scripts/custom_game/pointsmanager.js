@@ -18,10 +18,12 @@ function onScoreChange(table, key, data) {
   } else if (key === 'limit') {
     // assuming this only happens on gamestart
     var limit = data['value'];
+    var length = data['name'];
     var score = CustomNetTables.GetTableValue('team_scores', 'score');
+    FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = $.Localize(("#oaa_game_length_" + length + "_title").toLowerCase());
     var goodguys = 0;
     var badguys = 0;
-  }
+  } 
 
 /*
   console.log('limit: ' + limit);
