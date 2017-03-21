@@ -6,7 +6,7 @@ Start by installing these programs:
  * [Steam](http://steampowered.com)
  * [nodejs](http://nodejs.org)
  * [Github client](http://desktop.github.com/)
- * [Sublime Text 3](http://www.sublimetext.com/) **optional**
+ * [Visual Studio Code](http://code.visualstudio.com/) `Text editor which includes support for github, editorconfig and much more`
 
 Install the Dota 2 Workshop Tools.
  * From within steam, right click on `Dota 2` and select `Properties` at the bottom
@@ -19,9 +19,11 @@ Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 ### Folder definitions
 Now we will define 3 paths 
  * `Dota2 installation folder` is something like `C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta\` or at ant other drive or install location, but certainly ends with `dota 2 beta`
- * `Dota2 addons folder` is folder named `Addons` in `Intallation folder`, so it looks something like `\dota 2 beta\addons`
+ * `Dota2 addons folder` is folder named `addons` in `Intallation folder`, so it looks something like `\dota 2 beta\addons`
  * `Open Angel arena folder` is a folder name `oaa` inside of `addons folder`, it contains all the files which are present in this github repo 
-`Dota2 addons folder` and `Open Angel arena folder` may not exist for the first time, so don't be afraid to create them
+
+**`Dota2 addons folder` and `Open Angel arena folder` may not exist for the first time, they will be created after `Prepare Addon Directory` step**
+
 Final structure sholud look like `C:\(some path to steam library)\Steam\steamapps\common\dota 2 beta\addons\oaa\`
 
 ### Navigating with command prompt
@@ -46,21 +48,19 @@ Now we navigate into `Dota2 installation folder` folder, and first install depen
 npm install dota2-addon-manager
 ```
 
-### Download Project
-This is simple, you have to open `GitHub Client` and using top left `+` button `clone` a repo with `OAA` to your newly created `Open Angel arena folder`
-To become more familiar with `Git` and `GitHub` you can read a [guide for newcomers](/docs/github-for-noobs.md)
-
-
-### Prepare Addon Directory
+### Download and Deploy Project
 To ensure the addons directory is set up, navigate to `Dota2 Installation` folder and run
 ```
 d2am list
 ```
-and if it show that `oaa` if ready, then run
+This will create `Dota2 addons folder` folder and set it up!
+Now you have to open `GitHub Client` and using top left `+` button `clone` a repo `OAA` to your newly created `Dota2 addons folder`
+To become more familiar with `Git` and `GitHub` you can read a [guide for newcomers](/docs/github-for-noobs.md)
+Now we need to link this project to `Dota 2 Tools` with command
 ```
 d2am link
 ```
-leave the command prompt open, we'll come back to it.
+After this console shold print out that evrything has been set up!
 
 
 ## Launch Tools
