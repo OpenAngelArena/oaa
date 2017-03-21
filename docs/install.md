@@ -6,14 +6,20 @@ Start by installing these programs:
  * [Steam](http://steampowered.com)
  * [nodejs](http://nodejs.org)
  * [Github client](http://desktop.github.com/)
- * [Visual Studio Code](http://code.visualstudio.com/) `Text editor which includes support for github, editorconfig and much more`
 
+### Text Editors
+You can use any editor you want, but it should support `editorconfig` and for better usability `syntax highlighting`
+ * [Visual Studio Code](http://code.visualstudio.com/)
+ * [Sublime Text 3](https://www.sublimetext.com/3/)
+ * [Atom](https://atom.io/)
+
+### Workshop Tools
 Install the Dota 2 Workshop Tools.
  * From within steam, right click on `Dota 2` and select `Properties` at the bottom
  * Go to the DLC tab of the window that pops up
  * Check the `INSTALL` box next to `Dota 2 Workshop Tools DLC`
 
-## Setting evrything up
+## Setting everything up
 Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 
 ### Folder definitions
