@@ -106,10 +106,10 @@ function Duel:RestorePlayerState(player)
   hero:setMana(s.mana)
 
   for abilityIndex = 0,state.maxAbility-1 do
-	local ability = hero:GetAbilityByIndex(abilityIndex)
-	if ability ~= nil then
-	  ability:StartCooldown(state.abilities[abilityIndex].cooldown)
-	end
+	  local ability = hero:GetAbilityByIndex(abilityIndex)
+	  if ability ~= nil then
+	    ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+	  end
   end
   self.zone.removePlayer(player.id)
 end
