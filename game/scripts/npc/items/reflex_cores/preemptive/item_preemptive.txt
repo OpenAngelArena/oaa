@@ -1,0 +1,76 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Preemptive Reflect Core 1
+  //=================================================================================================================
+  "item_recipe_preemptive"
+  {
+    "ID"            "3801"   // unique ID
+    "ItemCost"          "1550"
+    "ItemShopTags"          ""
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_preemptive"
+    "AbilityTextureName"      "item_recipe"
+    "ItemRequirements"
+    {
+      "01"            "item_reflex_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Preemptive Reflect Core 1
+  //=================================================================================================================
+  "item_preemptive"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                    "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"    "item_sphere"
+    "BaseClass"             "item_lua"
+    "ScriptFile"            "items/reflex/preemptive.lua"
+    "FightRecapLevel"       "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+    "AbilitySharedCooldown" "reflex"
+    "AbilityCastPoint"      "0.0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    // even though this levels up, it splits at every level, so we dont show it that way
+    "MaxUpgradeLevel"       "1"
+    "ItemBaseLevel"         "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"          "1550"
+    "ItemShopTags"          "defense;support;mobility;hard_to_tag"
+    "ItemQuality"         "epic"
+    "ItemAliases"         "reflex;preemptive"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Modifiers
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage_reduction"  "-50"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "2.0"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "cooldown"        "20.0"
+      }
+    }
+  }
+}
