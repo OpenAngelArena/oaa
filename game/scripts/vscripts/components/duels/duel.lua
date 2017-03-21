@@ -12,7 +12,7 @@ function Duel:Init (teams, spawns, zone)
     self.scores[index] = {#team}
     for _,player in pairs(team) do
       player.team = index
-  	end
+    end
   end
 
   GameEvents:OnHeroKilled(function (keys)
