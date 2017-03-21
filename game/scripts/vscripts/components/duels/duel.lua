@@ -10,7 +10,7 @@ function Duel:Init (teams, spawns, zone)
 
   for index, team in pairs(teams) do
     self.scores[index] = {#team}
-	  for _,player in pairs(team) do
+    for _,player in pairs(team) do
 	    player.team = index
   	end
   end
@@ -26,9 +26,9 @@ end
 function Duel:Start()
   for index, team in pairs(self.teams) do
     local teamSpawn = self.spawns[index]
-	  for _, player in pairs(team) do
-	    Duel:SpawnPlayer(player, teamSpawn)
-	  end
+    for _, player in pairs(team) do
+      Duel:SpawnPlayer(player, teamSpawn)
+    end
   end
 end
 
