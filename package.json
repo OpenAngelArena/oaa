@@ -1,8 +1,8 @@
 {
-  "name": "angel_arena_allstars",
-  "version": "0.0.0",
+  "name": "open_angel_arena",
+  "version": "0.0.1",
   "description": "A really great Dota 2 game mode.",
-  "main": "index.js",
+ // "main": "index.js",
   "scripts": {
     "test": "semistandard"
   },
@@ -21,9 +21,5 @@
   "homepage": "https://github.com/OpenAngelArena/oaa#readme",
   "devDependencies": {
     "semistandard": "^9.2.1"
-  },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-dota2-npc": "^0.4.0"
   }
 }

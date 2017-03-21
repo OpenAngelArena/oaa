@@ -19,9 +19,9 @@ Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
 ### Install Node Dependencies
 Run the command 
 ```
-npm install -g gulp-cli dota2-addon-manager
+npm install -g dota2-addon-manager
 ```
-This will install both `gulp`, used for building npc files, and `d2am`, used to manage the addons directory.
+This will install both `d2am`, used to manage the addons directory.
 
 ### Prepare Addon Directory
 Next find your `dota 2 beta` folder. You must change the directory of the node.js command prompt to this folder, this can be done with the `cd` command. It should look something like this...
