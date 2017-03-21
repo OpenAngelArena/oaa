@@ -69,4 +69,4 @@ Open `oaa` from the window that opens, and you're in!
 
 The instructions of testing are present in [Next guide](/docs/testing.md)
 
-Also all the development is discussed in Discord, so please join us at https://discord.gg/E6f6TCe
+Also all the development is discussed in Discord, so please join us at https://discord.gg/WNFBB4d
