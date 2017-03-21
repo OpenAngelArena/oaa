@@ -17,7 +17,7 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
 
   -- Ability hero level requirements
   local basic_reqs = {0, 0, 0, 0, 28, 40}
-  local ultimate_reqs = {0, 0, 0, 0, 37, 49}
+  local ultimate_reqs = {0, 0, 0, 37, 49}
 
   local ability = EntIndexToHScript(keys.entindex_ability)
   local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
@@ -32,10 +32,10 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
     req_table = ultimate_reqs
   end
   
-  if abilityLevel > #req_table then
+  if abilityLevel >= #req_table then
     requirement = req_table[#req_table]
   else
-    requirement = req_table[abilityLevel]
+    requirement = req_table[abilityLevel+1]
   end
   
   if heroLevel >= requirement then
