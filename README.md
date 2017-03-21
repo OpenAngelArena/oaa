@@ -13,6 +13,8 @@ Check out our [Discord](https://discord.gg/WNFBB4d)!
 
 There are also issues marked with [`Great for new contributors`](https://github.com/OpenAngelArena/oaa/issues?q=is%3Aissue+is%3Aopen+label%3A%22great+for+new+contributor%22).
 
+Some useful links with info and documentation can be found [here](docs/useful_links.md).
+
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
 
