@@ -8,7 +8,11 @@ Start by installing these programs:
  * [Github client](http://desktop.github.com/)
 
 ### Text Editors
+Text editor is needed to work with lua, js, xml and pretty much any other code files.
+
 You can use any editor you want, but it should support `editorconfig` and for better usability `syntax highlighting`
+
+These are some editors, which we use and recommend: 
  * [Visual Studio Code](http://code.visualstudio.com/)
  * [Sublime Text 3](https://www.sublimetext.com/3/)
  * [Atom](https://atom.io/)
@@ -49,6 +53,7 @@ will change your current active drive to D:
 
 ### Install Node Dependencies
 The global install for some reason works very confusingly, so i recommend using local repo for gulp.
+
 Now we navigate into `Dota2 installation folder` folder, and first install dependencies
 ```
 npm install dota2-addon-manager
@@ -60,8 +65,11 @@ To ensure the addons directory is set up, navigate to `Dota2 Installation` folde
 d2am list
 ```
 This will create `Dota2 addons folder` folder and set it up!
+
 Now you have to open `GitHub Client` and using top left `+` button `clone` a repo `OAA` to your newly created `Dota2 addons folder`
+
 To become more familiar with `Git` and `GitHub` you can read a [guide for newcomers](/docs/github-for-noobs.md)
+
 Now we need to link this project to `Dota 2 Tools` with command
 ```
 d2am link
