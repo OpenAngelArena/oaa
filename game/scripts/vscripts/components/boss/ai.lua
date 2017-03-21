@@ -19,7 +19,7 @@ function BossAI:Create (unit, options)
   local state = {
     handle = unit,
     origin = unit:GetAbsOrigin(),
-    leash = options.leash or 1000,
+    leash = options.leash or 1500,
     agroDamage = options.agroDamage or 100 * options.tier,
     tier = options.tier,
     currentDamage = 0,
@@ -183,7 +183,7 @@ end
 
 function BossAI:Leash (state)
   local difference = state.handle:GetAbsOrigin() - state.origin
-  local location = state.origin + (difference / 2)
+  local location = state.origin + (difference / 8)
 
   state.state = BossAI.LEASHING
 
