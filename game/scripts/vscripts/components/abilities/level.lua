@@ -16,10 +16,8 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   end
 
   -- Ability hero level requirements
-  local basicLevel5Req = 28
-  local basicLevel6Req = 40
-  local ultimateLevel4Req = 37
-  local ultimateLevel5Req = 49
+  local basic_reqs = {0, 0, 0, 0, 28, 40}
+  local ultimate_reqs = {0, 0, 0, 0, 37, 49}
 
   local ability = EntIndexToHScript(keys.entindex_ability)
   local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
@@ -27,32 +25,24 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   local heroLevel = hero:GetLevel()
   local abilityLevel = ability:GetLevel()
   local abilityType = ability:GetAbilityType()
-  local abilityCanUpgrade = true
-  local requriedHeroLevel = -1
 
   if abilityType == 0 then -- Ability is DOTA_ABILITY_TYPE_BASIC
-    if abilityLevel >= 4 and heroLevel < basicLevel5Req then
-      abilityCanUpgrade = false
-      requiredHeroLevel = basicLevel5Req
-    elseif abilityLevel >= 5 and heroLevel < basicLevel6Req then
-      abilityCanUpgrade = false
-      requiredHeroLevel = basicLevel6Req
-    end
+    req_table = basic_reqs
   elseif abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
-    if abilityLevel >= 3 and heroLevel < ultimateLevel4Req then
-      abilityCanUpgrade = false
-      requiredHeroLevel = ultimateLevel4Req
-    elseif abilityLevel >= 4 and heroLevel < ultimateLevel5Req then
-      abilityCanUpgrade = false
-      requiredHeroLevel = ultimateLevel5Req
-    end
+    req_table = ultimate_reqs
   end
-
-  if abilityCanUpgrade then
+  
+  if abilityLevel > #req_table then
+    requirement = req_table[#req_table]
+  else
+    requirement = req_table[abilityLevel]
+  end
+  
+  if heroLevel >= requirement then
     return true
   else
     -- Send event to client to display error message about hero level requirement
-    CustomGameEventManager:Send_ServerToPlayer(player, "ability_level_error", {requiredLevel = requiredHeroLevel})
+    CustomGameEventManager:Send_ServerToPlayer(player, "ability_level_error", {requiredLevel = requirement})
     -- Return false to reject ability upgrade order
     return false
   end
