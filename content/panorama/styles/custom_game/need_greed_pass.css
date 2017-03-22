@@ -98,7 +98,7 @@
 {
   width: fill-parent-flow (1);
   flow-children: down;
-  padding: 5px 0 3px 0;
+  padding: 5px 0 0 0;
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
@@ -121,7 +121,7 @@
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons
 {
   /*margin-top: 14px;*/
-  height: 20px;
+  height: 25px;
   flow-children: right;
   width: fill-parent-flow (1);
   margin-top: 3px;
@@ -132,9 +132,9 @@
   vertical-align: middle;
   flow-children: right;
   horizontal-align: center;
-  padding-left: 10px;
-  width: fill-parent-flow (1);
-  
+  text-align: center;
+  padding: 0 7px 0 7px ;
+  /*border-top: 1px solid #555;*/
   border-right: 1px solid #555;
 }
 
@@ -149,11 +149,19 @@
   width: 24px;
   height: 24px;
   background-size: 100% 100%;
+  vertical-align: middle;
 }
 
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons Label
 {
   margin-left: 0;
+  vertical-align: middle;
+}
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass
+{
+  width: fill-parent-flow (1);
+  padding: 0 0 0 16px ;
+  border-right: 0;
 }
 
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Need Button
