@@ -8,8 +8,8 @@ end
 NGP.itemIndex = 0
 NGP.activeItems = {}
 NGP.activeTimers = {}
-totalgoodplayers = 0;
-totalbadplayers = 0;
+totalgoodplayers = 0
+totalbadplayers = 0
 
 function NGP:Init ()
 
@@ -26,9 +26,9 @@ function NGP:Init ()
     local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil then
       if player:GetTeam() == 3 then
-        totalbadplayers = totalbadplayers + 1;
+        totalbadplayers = totalbadplayers + 1
       elseif player:GetTeam() == 2 then
-        totalgoodplayers = totalgoodplayers + 1;
+        totalgoodplayers = totalgoodplayers + 1
       end
     end
   end
