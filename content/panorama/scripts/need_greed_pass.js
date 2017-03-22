@@ -37,27 +37,24 @@ function SelectNGP (option) {
   var needsSchedule = !NGPOption[id];
 
   NGPOption[id] = option;
-  $.Schedule(0.5, function () {
-
     option = NGPOption[id];
     delete NGPOption[id];
-
+    console.log("1");
     //VOTED!
     panel.FindChildrenWithClassTraverse('NGPRadio').forEach(function (elem) {
       elem.RemoveAndDeleteChildren();
     });
-
+console.log("2");
     panel.FindChildrenWithClassTraverse('NGPButtons').forEach(function (elem) {
       var votedlabel = $.CreatePanel('Label', elem, '');
       votedlabel.AddClass("VotedLabel");
       votedlabel.text = $.Localize("#ngp_" + option);
     });
-
+console.log("3");
     GameEvents.SendCustomGameEventToServer('ngp_selection', {
       id: id,
       option: option
     });
-  });
 }
 
 function RemoveNeedGreedPass (data) {
