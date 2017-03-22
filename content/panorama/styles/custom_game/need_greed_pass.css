@@ -166,15 +166,15 @@
 
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Need Button
 {
-  background-image: url("s2r://panorama/images/hud/reborn/icon_courier_upgrade_on_psd.vtex");
+  background-image: url("file://{images}/custom_game/ngp_need.png");
 }
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Greed Button
 {
-  background-image: url("s2r://panorama/images/hud/reborn/gold_small_psd.vtex");
+  background-image: url("file://{images}/custom_game/ngp_greed.png");
 }
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass Button
 {
-  background-image: url("s2r://panorama/images/hud/reborn/icon_courier_boost_on_psd.vtex");
+  background-image: url("file://{images}/custom_game/ngp_pass.png");
 }
 
 
