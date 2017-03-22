@@ -9,8 +9,6 @@ function onNGPChange () {
   var teamName = teamID === 2 ? 'good' : 'bad';
   var data = CustomNetTables.GetTableValue('ngp', teamName);
 
-  console.log(data);
-
   function OnNeedGreedPass (item) {
     generateNGPPanel(item.id, item.item, item.title, item.description);
   }

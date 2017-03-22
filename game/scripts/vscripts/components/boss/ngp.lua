@@ -20,7 +20,7 @@ function NGP:Init ()
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
-  DebugPrintTable(eventSourceIndex)
+  -- DebugPrintTable(eventSourceIndex)
   -- DebugPrintTable(args)
   local playerID = eventSourceIndex.PlayerID
   local id = eventSourceIndex.id
@@ -33,7 +33,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
     return
   end
 
-  DebugPrint(team)
+  -- DebugPrint(team)
   item.votes[playerID] = option
 end
 
@@ -113,7 +113,7 @@ function NGP:GiveItemToPlayer (item, playerId)
 end
 
 function ShortTeamName(teamId)
-  DebugPrint(teamId)
+  -- DebugPrint(teamId)
   if teamId == 2 then
     return 'good'
   else
