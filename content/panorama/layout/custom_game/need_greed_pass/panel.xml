@@ -16,18 +16,19 @@
       <Label class="ItemTitle DataItemTitle" text="xxxxxxxxxx" />
       <Label class="Description DataItemDescription" text="xxxxxxxxx" />
       <Panel class="NGPButtons">
+        <Label class="ItemTimer" text="60" />
         <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('need')" class="NGPRadio Need">
          <Label text="#ngp_need" /> 
-        <Button />
-      </RadioButton>
-      <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('greed')" class="NGPRadio Greed">
-         <Label text="#ngp_greed" /> 
-        <Button />
-      </RadioButton>
-      <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('pass')" class="NGPRadio Pass">
-         <Label text="#ngp_pass" /> 
-        <Button />
-      </RadioButton>
+          <Button />
+        </RadioButton>
+        <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('greed')" class="NGPRadio Greed">
+          <Label text="#ngp_greed" /> 
+          <Button />
+        </RadioButton>
+        <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('pass')" class="NGPRadio Pass">
+          <Label text="#ngp_pass" /> 
+          <Button />
+        </RadioButton>
       </Panel>
     </Panel>
   </Panel>

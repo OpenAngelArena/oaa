@@ -17,7 +17,9 @@ function onNGPChange () {
 
   Object.keys(data).forEach(function (i) {
     var item = data[i];
-    OnNeedGreedPass(item);
+    if (!item.finished == true) {
+      OnNeedGreedPass(item);
+    }
   });
 }
 
@@ -36,11 +38,20 @@ function SelectNGP (option) {
 
   NGPOption[id] = option;
   $.Schedule(0.5, function () {
-    RemoveNeedGreedPass({
-      id: id
-    });
+
     option = NGPOption[id];
     delete NGPOption[id];
+
+    //VOTED!
+    panel.FindChildrenWithClassTraverse('NGPRadio').forEach(function (elem) {
+      elem.RemoveAndDeleteChildren();
+    });
+
+    panel.FindChildrenWithClassTraverse('NGPButtons').forEach(function (elem) {
+      var votedlabel = $.CreatePanel('Label', elem, '');
+      votedlabel.AddClass("VotedLabel");
+      votedlabel.text = $.Localize("#ngp_" + option);
+    });
 
     GameEvents.SendCustomGameEventToServer('ngp_selection', {
       id: id,
@@ -72,8 +83,6 @@ function idNameForId (id) {
 var ngpGroupIndex = 0;
 var existingPanels = {};
 
-//TODO: buildsinto diable
-
 function generateNGPPanel (id, item, title, description) {
   console.log('Generating panel for item id ', id)
   if (existingPanels[id]) {
@@ -101,8 +110,29 @@ function generateNGPPanel (id, item, title, description) {
   });
 
   $("#NeedGreedPassSlider").SetHasClass('Expanded', true)
-
+  timerByOneDown(panel, 60);
   return panel;
+}
+
+function timerByOneDown(panel, time) {
+  var newtime = time - 1;
+  if (newtime != 0) {
+    panel.FindChildrenWithClassTraverse('ItemTimer').forEach(function (elem) {
+      elem.text = newtime;
+    });
+    $.Schedule(1, function() {
+      timerByOneDown(panel, newtime)
+    });
+  } else {
+      var id = panel.id.split('ItemPanel_');
+      if (id.length !== 2) {
+        return;
+      }
+      id = id[1];
+      RemoveNeedGreedPass({
+        id: id
+      });
+  }
 }
 
 // down here so that static vars get declared

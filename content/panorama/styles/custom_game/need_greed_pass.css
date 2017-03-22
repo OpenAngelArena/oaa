@@ -11,7 +11,7 @@
   flow-children: right;
   transition: transform 0.2s ease-out 0s;
 
-  transform: translateX(-340px);
+  transform: translateX(-364px);
   padding-right: 10px;
   padding-bottom: 10px;
 }
@@ -56,7 +56,7 @@
 {
   horizontal-align: left;
   height: 83px;
-  width: 340px;
+  width: 364px;
   background-image: url("s2r://panorama/images/hud/reborn/bg_minimap_psd.vtex");
   background-size: 100% auto;
   flow-children: right;
@@ -75,7 +75,7 @@
 {
   width: 86px;
   height: 100%;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   flow-children: down;
 }
 
@@ -99,11 +99,13 @@
   width: fill-parent-flow (1);
   flow-children: down;
   padding: 5px 0 0 0;
+  margin-left: 5px;
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
   height: 20px;
   margin-bottom: 2px;
+  margin-left: 5px;
   /*text-transform: uppercase;*/
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.Description
@@ -112,6 +114,7 @@
   white-space: normal;
   height: fill-parent-flow (1);
   line-height: 13px;
+  margin-left: 5px;
 }
 
 /*
@@ -123,7 +126,6 @@
   /*margin-top: 14px;*/
   height: 25px;
   flow-children: right;
-  width: fill-parent-flow (1);
   margin-top: 3px;
 }
 
@@ -135,7 +137,7 @@
   text-align: center;
   padding: 0 7px 0 7px ;
   /*border-top: 1px solid #555;*/
-  border-right: 1px solid #555;
+  border-left: 1px solid #555;
 }
 
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .RadioBox
@@ -152,16 +154,32 @@
   vertical-align: middle;
 }
 
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons Label
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .ItemTimer
+{
+  text-transform: uppercase;
+  margin: 0 5px;
+  text-align: center;  
+  width: 20px;
+}
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .VotedLabel
+{
+  text-transform: uppercase;
+  margin: 0 50px;
+  width: fill-parent-flow (1);
+  text-align: center;
+}
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .NGPRadio Label
 {
   margin-left: 0;
   vertical-align: middle;
 }
+
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass
 {
   width: fill-parent-flow (1);
   padding: 0 0 0 16px ;
-  border-right: 0;
 }
 
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Need Button
@@ -193,7 +211,7 @@
 @keyframes 'slideitallin' {
   from {
     opacity:1;
-    transform: translateX(-340px);
+    transform: translateX(-364px);
   }
 
   to {

@@ -34,7 +34,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
   end
 
   DebugPrint(team)
-  NGP.activeItems[tonumber(id)].votes[playerID] = option
+  item.votes[playerID] = option
 end
 
 function NGP:GiveItemToTeam (item, team)
@@ -43,8 +43,9 @@ function NGP:GiveItemToTeam (item, team)
   DebugPrint('item index will be ' .. NGP.itemIndex)
   DebugPrintTable(ngpItems)
   item.id = NGP.itemIndex
+  item.finished = false
   NGP.itemIndex = NGP.itemIndex + 1
-
+  DebugPrint('XD ')
   item.team = team
   NGP.activeItems[item.id] = item
 
@@ -56,11 +57,15 @@ function NGP:GiveItemToTeam (item, team)
   CustomNetTables:SetTableValue('ngp', team, ngpItems)
 
   Timers:CreateTimer(60, function ()
+    NGP.activeItems[item.id].finished = true
+    ngpItems[item.id].finished = true
+    CustomNetTables:SetTableValue('ngp', team, ngpItems)
     NGP:FinishVoting(NGP.activeItems[item.id])
   end)
 end
 
 function NGP:FinishVoting (item)
+
   local needVotes = {}
   local greedVotes = {}
   local passVotes = {}
@@ -79,17 +84,18 @@ function NGP:FinishVoting (item)
   if #needVotes > 0 then
     -- someone voted need! decide between them...
     local winningPlayer = needVotes[math.random(1, #needVotes)]
-    DebugPrint(winningPlayer .. ' won!!')
+    DebugPrint(winningPlayer .. ' won by need!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return
   end
   if #greedVotes > 0 then
     -- someone voted need! decide between them...
     local winningPlayer = greedVotes[math.random(1, #greedVotes)]
-    DebugPrint(winningPlayer .. ' won!!')
+    DebugPrint(winningPlayer .. ' won by greed!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return
   end
+  DebugPrint('Everyone Passed!')
 end
 
 function NGP:GiveItemToPlayer (item, playerId)
