@@ -1,6 +1,6 @@
 -- Taken from bb template
 if PointsManager == nil then
-  Debug.EnabledModules['points:*'] = true
+  Debug.EnabledModules['points:*'] = false
 
   DebugPrint ( 'Creating new PointsManager object.' )
   PointsManager = class({})
@@ -16,15 +16,6 @@ function PointsManager:Init ()
   PointsManager.goodguysID = 2
   PointsManager.badguysID = 3
 
-  if GameRules.GameLength == 'long' then
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 200 } )
-  elseif GameRules.GameLength == 'short' then
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 50 } )
-  else
-    -- default to 100 in case of no selection / invalid selection
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 100 } )
-  end
-
   -- set initial values for current scores
   CustomNetTables:SetTableValue( 'team_scores', 'score', { goodguys = 0,
                                                            badguys = 0
@@ -32,7 +23,9 @@ function PointsManager:Init ()
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
-    PointsManager:AddPoints(keys.killer:GetTeam())
+    if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() then
+      PointsManager:AddPoints(keys.killer:GetTeam())
+    end
   end)
 end
 

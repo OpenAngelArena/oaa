@@ -19,7 +19,7 @@ function BossAI:Create (unit, options)
   local state = {
     handle = unit,
     origin = unit:GetAbsOrigin(),
-    leash = options.leash or 1000,
+    leash = options.leash or 1500,
     agroDamage = options.agroDamage or 100 * options.tier,
     tier = options.tier,
     currentDamage = 0,
@@ -58,6 +58,17 @@ function BossAI:HurtHandler (state, keys)
   end
 end
 
+function BossAI:GiveItemToWholeTeam (item, teamId)
+  for playerId = 0,19 do
+    if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
+      local player = PlayerResource:GetPlayer(playerId)
+      local hero = player:GetAssignedHero()
+
+      hero:AddItemByName(item)
+    end
+  end
+end
+
 function BossAI:DeathHandler (state, keys)
   DebugPrint('Handling death of boss ' .. state.tier)
   state.state = BossAI.DEAD
@@ -77,11 +88,7 @@ function BossAI:DeathHandler (state, keys)
   end
 
   if state.tier == 1 then
-    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
 
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
@@ -97,45 +104,29 @@ function BossAI:DeathHandler (state, keys)
   elseif state.tier == 2 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+
   elseif state.tier == 3 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif state.tier == 4 then
 
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
   elseif state.tier == 5 then
 
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif state.tier == 6 then
     PointsManager:AddPoints(teamId)
 
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end
 
@@ -192,7 +183,7 @@ end
 
 function BossAI:Leash (state)
   local difference = state.handle:GetAbsOrigin() - state.origin
-  local location = state.origin + (difference / 2)
+  local location = state.origin + (difference / 8)
 
   state.state = BossAI.LEASHING
 

@@ -5,8 +5,8 @@ There's a lot of ideas floating around. But most aren't official. If you're not 
 ## Things you can contribute
 Anything any team feels would be necessary to publish in case new members need a reference to start working quickly and effectively. Artists can write up documentation on creating and baking textures, creating models, etc. Musicians can write up documentation on putting music into the game, Balance can publish their workflow, Design can publish the official design philosophies so they can stop repeating themselves every 10 seconds. You get the idea!
 ## Ways to contribute
-1. Open an issue at http://github.com/angelarenaallstars/oaa/issues. Tag your issue [Links], [Tables], [Instructionals], [Resource], etc please.
-2.  Create your own development branch (preferred method) and send a pull request to angelarenaallstars/oaa:moar-docs
+1. Open an issue at http://github.com/OpenAngelArena/oaa/issues. Tag your issue [Links], [Tables], [Instructionals], [Resource], etc please.
+2.  Create your own development branch (preferred method) and send a pull request to OpenAngelArena/oaa:moar-docs
 3. Do *not* reply to this post with submissions.
 
 ## Questions about Moar-docs?
