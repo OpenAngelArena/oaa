@@ -41,7 +41,6 @@ function NGP:GiveItemToTeam (item, team)
   local ngpItems = CustomNetTables:GetTableValue('ngp', team)
 
   DebugPrint('item index will be ' .. NGP.itemIndex)
-  DebugPrintTable(ngpItems)
   item.id = NGP.itemIndex
   item.finished = false
   NGP.itemIndex = NGP.itemIndex + 1
