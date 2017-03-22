@@ -45,7 +45,6 @@ function NGP:GiveItemToTeam (item, team)
   item.id = NGP.itemIndex
   item.finished = false
   NGP.itemIndex = NGP.itemIndex + 1
-  DebugPrint('XD ')
   item.team = team
   NGP.activeItems[item.id] = item
 
@@ -57,8 +56,9 @@ function NGP:GiveItemToTeam (item, team)
   CustomNetTables:SetTableValue('ngp', team, ngpItems)
 
   Timers:CreateTimer(60, function ()
-    NGP.activeItems[item.id].finished = true
-    ngpItems[item.id].finished = true
+    item = ngpItems[item.id]
+    item.finished = true
+    ngpItems[item.id] = item
     CustomNetTables:SetTableValue('ngp', team, ngpItems)
     NGP:FinishVoting(NGP.activeItems[item.id])
   end)
