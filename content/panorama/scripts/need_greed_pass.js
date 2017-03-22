@@ -2,7 +2,9 @@ var console = {
   log: $.Msg.bind($)
 };
 
-var itemIdIndex = 0;
+var idToRemove = [];
+
+
 function onNGPChange () {
   var playerID = Game.GetLocalPlayerID();
   var teamID = Players.GetTeam(playerID)
@@ -12,11 +14,17 @@ function onNGPChange () {
   function OnNeedGreedPass (item) {
     generateNGPPanel(item.id, item.item, item.title, item.description);
   }
-
+  console.log(idToRemove);
+  
   Object.keys(data).forEach(function (i) {
     var item = data[i];
-    if (!item.finished == true) {
+    
+    console.log(!item.finished);
+    console.log(idToRemove.indexOf(item.id) == -1);
+    if (!item.finished) {
       OnNeedGreedPass(item);
+    } else if (idToRemove.indexOf(item.id) == -1) {
+      idToRemove.push(item.id);
     }
   });
 }
@@ -102,25 +110,24 @@ function generateNGPPanel (id, item, title, description) {
   });
 
   $("#NeedGreedPassSlider").SetHasClass('Expanded', true)
-  timerByOneDown(panel, 60);
+  timerByOneDown(panel, 60, id);
   return panel;
 }
 
-function timerByOneDown(panel, time) {
+function timerByOneDown(panel, time, id) {
   var newtime = time - 1;
-  if (newtime != 0) {
+  if (idToRemove.indexOf(id) > -1) {
+    RemoveNeedGreedPass({
+        id: id
+      });
+  } else if (newtime != 0) {
     panel.FindChildrenWithClassTraverse('ItemTimer').forEach(function (elem) {
       elem.text = newtime;
     });
     $.Schedule(1, function() {
-      timerByOneDown(panel, newtime)
+      timerByOneDown(panel, newtime, id)
     });
   } else {
-      var id = panel.id.split('ItemPanel_');
-      if (id.length !== 2) {
-        return;
-      }
-      id = id[1];
       RemoveNeedGreedPass({
         id: id
       });

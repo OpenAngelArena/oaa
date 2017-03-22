@@ -7,6 +7,9 @@ end
 
 NGP.itemIndex = 0
 NGP.activeItems = {}
+NGP.activeTimers = {}
+totalgoodplayers = 0;
+totalbadplayers = 0;
 
 function NGP:Init ()
 
@@ -17,6 +20,18 @@ function NGP:Init ()
   })
 
   CustomGameEventManager:RegisterListener('ngp_selection', Dynamic_Wrap(NGP, 'PlayerVote'))
+
+
+  for playerId = 0,19 do
+    local player = PlayerResource:GetPlayer(playerId)
+    if player ~= nil then
+      if player:GetTeam() == 3 then
+        totalbadplayers = totalbadplayers + 1;
+      elseif player:GetTeam() == 2 then
+        totalgoodplayers = totalgoodplayers + 1;
+      end
+    end
+  end
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
@@ -35,6 +50,25 @@ function NGP:PlayerVote (eventSourceIndex, args)
 
   -- DebugPrint(team)
   item.votes[playerID] = option
+  
+  -- for future, so we can show icons of voters
+  local ngpItems = CustomNetTables:GetTableValue('ngp', team)
+  ngpItems[tonumber(id)] = item
+  CustomNetTables:SetTableValue('ngp', team, ngpItems)
+
+  totalvoted = 0
+  for i = 0,19 do
+    if item.votes[i] then
+      totalvoted = totalvoted + 1
+    end
+  end
+  if totalvoted > (totalbadplayers-1) and team == "bad" then
+    Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
+    NGP:FinishVoting(item, team)
+  elseif totalvoted > (totalgoodplayers-1) and team == "good" then
+    Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
+    NGP:FinishVoting(item, team)
+  end
 end
 
 function NGP:GiveItemToTeam (item, team)
@@ -54,16 +88,19 @@ function NGP:GiveItemToTeam (item, team)
 
   CustomNetTables:SetTableValue('ngp', team, ngpItems)
 
-  Timers:CreateTimer(60, function ()
-    item = ngpItems[item.id]
-    item.finished = true
-    ngpItems[item.id] = item
-    CustomNetTables:SetTableValue('ngp', team, ngpItems)
-    NGP:FinishVoting(NGP.activeItems[item.id])
+  NGP.activeTimers[item.id] = Timers:CreateTimer(60, function ()
+    NGP:FinishVoting(NGP.activeItems[item.id], team)
   end)
 end
 
-function NGP:FinishVoting (item)
+
+function NGP:FinishVoting (item, team)
+
+  local ngpItems = CustomNetTables:GetTableValue('ngp', team)
+  item.finished = true
+  ngpItems[item.id] = item
+  CustomNetTables:SetTableValue('ngp', team, ngpItems)
+
 
   local needVotes = {}
   local greedVotes = {}
