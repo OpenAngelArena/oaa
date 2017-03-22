@@ -1,9 +1,10 @@
 --[[ ============================================================================================================
 	Charge BKB: Combines magic_wand functionality with BKB functionality, and charges decay with time.
 	Written by RamonNZ
-	Version 1.01
+	Version 1.04
 	Credit: Some original code from Rook
 	RamonNZ: The code below starts when you activate the BKB:
+	RamonNZ: Added basic purge on BKB start.
 ================================================================================================================= ]]
 
 require( "libraries/Timers" )	--needed for the timers.
@@ -17,6 +18,13 @@ function modifier_charge_bkb_on_spell_start(keys)
 --RamonNZ: BKB Effect:
 	local modifier_duration = keys.ChargeImmunityTime*keys.ability:GetCurrentCharges()
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
+-- Basic Purge:
+	local RemovePositiveBuffs = false
+	local RemoveDebuffs = true
+	local BuffsCreatedThisFrameOnly = false
+	local RemoveStuns = false
+	local RemoveExceptions = false
+	keys.caster:Purge(RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
 	print ("--> bkb spell immunity length = ", modifier_duration)
 	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
@@ -28,8 +36,8 @@ end
 
 --[[ ============================================================================================================
 	RamonNZ: This code adds charges when abilities are used by enemies. 
-	Known Bugs (by Rook): Because OnAbilityExecuted does not pass in information about the ability that was just executed, this code cannot use ProcsMagicStick() to determine if Magic Stick should gain a charge.  For now, every cast ability awards a charge.
-	RamonNZ: In addition to above, another limitation/bug of the code is that the regular magic wand/stick adds charges if a neutral creep uses an ability nearby, but this doesn't seem to trigger on neutrals, nor does it seem possible.
+	Known Bugs (by Rook - wand code): Because OnAbilityExecuted does not pass in information about the ability that was just executed, this code cannot use ProcsMagicStick() to determine if Magic Stick should gain a charge.  For now, every cast ability awards a charge.
+	RamonNZ: Fixed - Charges can be added by neutral abilities, just like wand
 ================================================================================================================= ]]
 function modifier_charge_bkb_aura_on_ability_executed(keys)
 	if keys.caster:GetTeam() ~= keys.unit:GetTeam() and keys.caster:CanEntityBeSeenByMyTeam(keys.unit) then
@@ -78,10 +86,7 @@ end
 	RamonNZ: This code creates a decay timer * every initial charge when item is created
 ================================================================================================================= ]]
 function modifier_charge_bkb_on_created(keys)
-	for i=1, keys.ability:GetCurrentCharges() do	--updateme
+	for i=1, keys.ability:GetCurrentCharges() do
 		create_decay_timer(keys)
 	end
-	--RamonNZ: start the charges decay timer & remove it if there's already one in play (we don't want more than one in play removing charges)
---	Timers:RemoveTimer("charges_decay_timer")
-
 end
