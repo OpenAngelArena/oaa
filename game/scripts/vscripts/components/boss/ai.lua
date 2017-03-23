@@ -103,8 +103,12 @@ function BossAI:DeathHandler (state, keys)
     end
   elseif state.tier == 2 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    Timers:CreateTimer( 1.0 , function()
+      NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+      Timers:CreateTimer( 1.0 , function()
+        NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+      end)
+    end)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
   elseif state.tier == 3 then

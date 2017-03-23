@@ -19,7 +19,6 @@ function onNGPChange () {
 
   Object.keys(data).forEach(function (i) {
     var item = data[i];
-      
     if (!item.finished) {
       OnNeedGreedPass(item);
     } else if (idToRemove.indexOf(item.id) == -1) {
@@ -85,16 +84,18 @@ var existingPanels = {};
 function generateNGPPanel (id, item, title, description, votes, heronames) {
   if (existingPanels[id]) {
     var activePanel = getPanelForId(id);
-    activePanel.FindChildrenWithClassTraverse('TopLine').forEach(function (elem) {
-      Object.keys(votes).forEach(function(vote) {
-        if (elem.FindChildTraverse(vote) == null) {
-          var addicon = $.CreatePanel('DOTAHeroImage', elem, vote);
-          addicon.AddClass("HeroImage");
-          addicon.heroname = heronames[vote];
-          addicon.heroimagestyle="portrait" 
-        }        
+    if (activePanel!=null) {
+      activePanel.FindChildrenWithClassTraverse('TopLine').forEach(function (elem) {
+        Object.keys(votes).forEach(function(vote) {
+          if (elem.FindChildTraverse(vote) == null) {
+            var addicon = $.CreatePanel('DOTAHeroImage', elem, vote);
+            addicon.AddClass("HeroImage");
+            addicon.heroname = heronames[vote];
+            addicon.heroimagestyle="portrait" 
+          }        
+        });
       });
-    });
+    }
     return;
   }
 
