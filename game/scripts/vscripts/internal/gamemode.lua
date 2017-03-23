@@ -30,7 +30,7 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
-  if SKIP_TEAM_SETUP or IsInToolsMode() then
+  if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
     GameRules:EnableCustomGameSetupAutoLaunch( true )
