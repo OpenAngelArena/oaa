@@ -42,21 +42,21 @@ function SelectNGP (option) {
   var needsSchedule = !NGPOption[id];
 
   NGPOption[id] = option;
-    option = NGPOption[id];
-    delete NGPOption[id];
-    //VOTED!
-    panel.FindChildrenWithClassTraverse('NGPRadio').forEach(function (elem) {
-      elem.RemoveAndDeleteChildren();
-    });
-    panel.FindChildrenWithClassTraverse('NGPButtons').forEach(function (elem) {
-      var votedlabel = $.CreatePanel('Label', elem, '');
-      votedlabel.AddClass("VotedLabel");
-      votedlabel.text = $.Localize("#ngp_" + option);
-    });
-    GameEvents.SendCustomGameEventToServer('ngp_selection', {
-      id: id,
-      option: option
-    });
+  option = NGPOption[id];
+  delete NGPOption[id];
+  //VOTED!
+  panel.FindChildrenWithClassTraverse('NGPButtons').forEach(function (elem) {
+    elem.RemoveClass("bold");
+  });
+  panel.FindChildrenWithClassTraverse(option).forEach(function (elem) {
+    console.log(option);
+    elem.AddClass("bold");
+  });
+
+  GameEvents.SendCustomGameEventToServer('ngp_selection', {
+    id: id,
+    option: option
+  });
 }
 
 function RemoveNeedGreedPass (data) {

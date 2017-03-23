@@ -11,13 +11,13 @@
   flow-children: right;
   transition: transform 0.2s ease-out 0s;
 
-  transform: translateX(-364px);
+  transform: translateX(-370px);
   padding-right: 10px;
   padding-bottom: 10px;
 }
 #NeedGreedPassSlider.Expanded
 {
-  width: 364px;
+  width: 370px;
   transform: translateX(0px);
   transition: transform 0.1s linear 0s;
 }
@@ -56,7 +56,7 @@
 {
   horizontal-align: left;
   height: 83px;
-  width: 364px;
+  width: 370px;
   background-image: url("s2r://panorama/images/hud/reborn/bg_minimap_psd.vtex");
   background-size: 100% auto;
   flow-children: right;
@@ -71,7 +71,7 @@
 /*
  * PREVIEW
  */
-.NeedGreedPass .ItemPanel .ItemPeview
+.NeedGreedPass .ItemPanel .ItemPreview
 {
   width: 86px;
   height: 100%;
@@ -79,7 +79,7 @@
   flow-children: down;
 }
 
-.NeedGreedPass .ItemPanel .ItemPeview Label
+.NeedGreedPass .ItemPanel .ItemPreview Label
 {
   text-transform: uppercase;
   font-size: 10px;
@@ -105,7 +105,6 @@
 .TopLine {
   margin-bottom: 2px;
   margin-left: 5px;
-  margin-right: 5px;
   flow-children: right;
 }
 
@@ -168,35 +167,32 @@
   width: 20px;
 }
 
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .VotedLabel
-{
-  text-transform: uppercase;
-  margin: 0 50px;
-  width: fill-parent-flow (1);
-  text-align: center;
-}
-
 .NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .NGPRadio Label
 {
   margin-left: 0;
   vertical-align: middle;
 }
 
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .pass
 {
   width: fill-parent-flow (1);
-  padding: 0 0 0 16px ;
+  padding: 0 0 0 10px ;
 }
 
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Need Button
+.bold
+{
+  color: #ffffff;
+}
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .need Button
 {
   background-image: url("file://{images}/custom_game/ngp_need.png");
 }
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Greed Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .greed Button
 {
   background-image: url("file://{images}/custom_game/ngp_greed.png");
 }
-.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .Pass Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .pass Button
 {
   background-image: url("file://{images}/custom_game/ngp_pass.png");
 }
@@ -206,8 +202,9 @@
 {
   width: 20px;
   height: 20px;
-    vertical-align: top;
-    horizontal-align: right;
+  vertical-align: top;
+  horizontal-align: right;
+  margin-right: 5px;
 }
 
 .spacefiller {
@@ -229,7 +226,7 @@
 @keyframes 'slideitallin' {
   from {
     opacity:1;
-    transform: translateX(-364px);
+    transform: translateX(-370px);
   }
 
   to {
