@@ -3,6 +3,7 @@ node_js:
   - "7"
 deploy:
 - provider: script
+  skip_cleanup: true
   script: node scripts/send-translations.js
   on:
     branch: build-system
