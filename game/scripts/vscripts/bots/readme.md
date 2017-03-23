@@ -1,6 +1,6 @@
 <br>
 
- <span style="color: #0000ff; font-family: Babas; font-size: 2em;">Instructions on making the bots work:</span>
+#Instructions on making the bots work:
 
 <br>
 
@@ -22,7 +22,7 @@ dota\_bot\_practice\_difficulty is probably not doing anything, it’s probably 
 
 <br>
 
- <span style="color: #0000ff; font-family: Babas; font-size: 2em;">Option #2:</span>
+#Option #2:
 
 <br>
 
@@ -60,10 +60,6 @@ Then add in this function at the bottom somewhere:
 
 **if (bPopulated == false) then**
 
-**GameRules:SetCustomGameTeamMaxPlayers( DOTA\_TEAM\_GOODGUYS, 5 )--good** --change to any number you prefer
-
-**GameRules:SetCustomGameTeamMaxPlayers( DOTA\_TEAM\_BADGUYS, 5 )--bad** --change to any number you prefer
-
 **SendToServerConsole( "sv\_cheats 1" )**
 
 **SendToServerConsole( "dota\_bot\_set\_difficulty 4" )**
@@ -93,7 +89,7 @@ Don't forget to backup your edited gamemode.lua, or it might get overwritten.
 
 <br>
 
- <span style="color: #0000ff; font-family: Babas; font-size: 2em;">Notes:</span>
+#Notes:
 
 <br>
 
