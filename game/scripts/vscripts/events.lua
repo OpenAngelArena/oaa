@@ -212,24 +212,24 @@ function GameMode:OnPlayerLevelUp(keys)
   if level > 25 then
     local div = (level - 25 + 12)/12
 
-	-- get the hero's stat gain
-	local gainStr = hero:GetStrengthGain()
-	local gainAgi = hero:GetAgilityGain()
-	local gainInt = hero:GetIntellectGain()
+  -- get the hero's stat gain
+  local gainStr = hero:GetStrengthGain()
+  local gainAgi = hero:GetAgilityGain()
+  local gainInt = hero:GetIntellectGain()
 
-	-- get the new stat gain
-	local newStr = gainStr / div
-	local newAgi = gainAgi / div
-	local newInt = gainInt / div
+  -- get the new stat gain
+  local newStr = gainStr / div
+  local newAgi = gainAgi / div
+  local newInt = gainInt / div
 
-	--print( gainStr, newStr )
-	--print( gainAgi, newAgi )
-	--print( gainInt, newInt )
+  --print( gainStr, newStr )
+  --print( gainAgi, newAgi )
+  --print( gainInt, newInt )
 
-	-- modify the hero's stats, subtracting the normal stat gain while adding the one
-	hero:ModifyStrength( newStr - gainStr )
-	hero:ModifyAgility( newAgi - gainAgi )
-	hero:ModifyIntellect( newInt - gainInt )
+  -- modify the hero's stats, subtracting the normal stat gain while adding the one
+  hero:ModifyStrength( newStr - gainStr )
+  hero:ModifyAgility( newAgi - gainAgi )
+  hero:ModifyIntellect( newInt - gainInt )
   end
 end
 
@@ -474,27 +474,28 @@ end
 -- game event object for OnPlayerChat
 local OnPlayerChatEvent = CreateGameEvent('OnPlayerChat')
 function GameMode:OnPlayerChat(keys)
-	OnPlayerChatEvent(keys)
-	DebugPrint('[BAREBONES] OnPlayerchat')
-	DebugPrintTable(keys)
+  OnPlayerChatEvent(keys)
+  DebugPrint('[BAREBONES] OnPlayerchat')
+  DebugPrintTable(keys)
+  local teamonly = keys.teamonly
+  local userID = keys.userid
+  local playerID = self.vUserIds[userID]:GetPlayerID()
 
-	local teamonly = keys.teamonly
-	local playerID = keys.playerid
+  local text = keys.text
 
-	local text = string.lower(keys.text)
-	local hero = PlayerResource:GetSelectedHeroEntity(playerID) 
 
-	if string.sub(text, 0,9) == "-show_ngp" then
-	    splitted = split(text, " ")
-	    DebugPrintTable(splitted)
-	    local item =
-	    {
-	      id =splitted[2],
-	      item =splitted[3],
-	      title = splitted[4],
-	      description = splitted[5],
-	      buildsInto =splitted[6]
-	    }
-	    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
-	  end
+  if string.sub(text, 0,9) == "-show_ngp" then
+
+    splitted = split(text, " ")
+    DebugPrintTable(splitted)
+    local item =
+    {
+      id =splitted[2],
+      item =splitted[3],
+      title = splitted[4],
+      description = splitted[5],
+      buildsInto =splitted[6]
+    }
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
+  end
 end
