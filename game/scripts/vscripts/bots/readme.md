@@ -1,6 +1,6 @@
 <br>
 
-#Instructions on making the bots work:
+**#Instructions on making the bots work:**
 
 <br>
 
@@ -22,7 +22,7 @@ dota\_bot\_practice\_difficulty is probably not doing anything, it’s probably 
 
 <br>
 
-#Option #2:
+**#Option #2:**
 
 <br>
 
@@ -89,7 +89,7 @@ Don't forget to backup your edited gamemode.lua, or it might get overwritten.
 
 <br>
 
-#Notes:
+**#Notes:**
 
 <br>
 
