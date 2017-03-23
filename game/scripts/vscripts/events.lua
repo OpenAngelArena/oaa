@@ -474,89 +474,28 @@ end
 -- game event object for OnPlayerChat
 local OnPlayerChatEvent = CreateGameEvent('OnPlayerChat')
 function GameMode:OnPlayerChat(keys)
-	OnPlayerChatEvent(keys)
-	DebugPrint('[BAREBONES] OnPlayerchat')
-	DebugPrintTable(keys)
+  OnPlayerChatEvent(keys)
+  DebugPrint('[BAREBONES] OnPlayerchat')
+  DebugPrintTable(keys)
+  local teamonly = keys.teamonly
+  local userID = keys.userid
+  local playerID = self.vUserIds[userID]:GetPlayerID()
 
-	local teamonly = keys.teamonly
-	local playerID = keys.playerid
+  local text = keys.text
 
-	local text = string.lower(keys.text)
-	local hero = PlayerResource:GetSelectedHeroEntity(playerID) 
 
-    ----------------------------
-    -- Debug/Cheat Commands
-    ----------------------------
-	if IsInToolsMode() or Convars:GetBool("sv_cheats") then  
-		
-		-- Test command to quickly test anything
-		if string.find(text, "-list") or string.find(text, "-help") then
-			GameRules:SendCustomMessage("-allvision, -normalvision, -god, -disarm, -dagger, -core 1-4", 0, 0)
-		-- Force start of a duel
-		elseif string.find(text, "-allvision") then
-			--Duels:StartDuel()
-			mode:SetFogOfWarDisabled(true)
-		-- Force start of a duel
-		elseif string.find(text, "-normalvision") then
-			mode:SetFogOfWarDisabled(false)
-		elseif string.find(text, "-startduel") then
-			Duels:StartDuel()
+  if string.sub(text, 0,9) == "-show_ngp" then
 
-		-- Give Invulnerability
-		elseif string.find(text, "-god") then
-			local godMode = hero:FindModifierByName("modifier_invulnerable")
-			if godMode then
-				hero:RemoveModifierByName("modifier_invulnerable")
-			else
-				hero:AddNewModifier(hero,nil,"modifier_invulnerable",{duration = duration})
-			end
-
-		-- Give Invulnerability
-		elseif string.find(text, "-disarm") then
-			local godMode = hero:FindModifierByName("modifier_disarmed")
-			if godMode then
-				hero:RemoveModifierByName("modifier_disarmed")
-			else
-				hero:AddNewModifier(hero,nil,"modifier_disarmed",{duration = duration})
-			end
-  
-		-- Give Global blink dagger 
-		elseif string.find(text, "-dagger") then 
-			hero:AddItemByName('item_devDagger')
-		
-		-- Give upgrade core of level x
-		elseif string.find(text, "-core") then 
-            -- Give user 1 level, unless they specify a number after
-            local level = 1
-            local splitted = split(text, " ")       
-            if splitted[2] and tonumber(splitted[2]) then
-                level = tonumber(splitted[2])
-            end
-
-            if level == 1 then
-            	hero:AddItemByName("item_upgrade_core")
-           	elseif level == 2 then
-           		hero:AddItemByName("item_upgrade_core_2")
-           	elseif level == 3 then
-           		hero:AddItemByName("item_upgrade_core_3")
-           	elseif level == 4 then
-           		hero:AddItemByName("item_upgrade_core_4")
-           	end
-
-        end        
-	end
-
-	if string.sub(text, 0,9) == "-show_ngp" then
-	    splitted = split(text, " ")
-	    DebugPrintTable(splitted)
-	    local item =
-	    {
-	      id =splitted[2],
-	      item =splitted[3],
-	      title = splitted[4],
-	      description = splitted[5],
-	      buildsInto =splitted[6]
-	    }
-	    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
-	  end
+    splitted = split(text, " ")
+    DebugPrintTable(splitted)
+    local item =
+    {
+      id =splitted[2],
+      item =splitted[3],
+      title = splitted[4],
+      description = splitted[5],
+      buildsInto =splitted[6]
+    }
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
+  end
 end
