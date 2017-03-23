@@ -13,7 +13,10 @@
       <DOTAItemImage class="DataItemId" itemname="xxxxxxxxxxx" />
     </Panel>
     <Panel class="DescriptionArea">
-      <Label class="ItemTitle DataItemTitle" text="xxxxxxxxxx" />
+      <Panel class="TopLine">
+        <Label class="ItemTitle DataItemTitle" text="xxxxxxxxxx" />
+        <Label class="spacefiller" />
+      </Panel>
       <Label class="Description DataItemDescription" text="xxxxxxxxx" />
       <Panel class="NGPButtons">
         <Label class="ItemTimer" text="60" />

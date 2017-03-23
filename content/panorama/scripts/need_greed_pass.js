@@ -12,15 +12,14 @@ function onNGPChange () {
   var data = CustomNetTables.GetTableValue('ngp', teamName);
 
   function OnNeedGreedPass (item) {
-    generateNGPPanel(item.id, item.item, item.title, item.description);
+    generateNGPPanel(item.id, item.item, item.title, item.description, item.votes, item.heroname);
   }
-  console.log(idToRemove);
   
+
+
   Object.keys(data).forEach(function (i) {
     var item = data[i];
-    
-    console.log(!item.finished);
-    console.log(idToRemove.indexOf(item.id) == -1);
+      
     if (!item.finished) {
       OnNeedGreedPass(item);
     } else if (idToRemove.indexOf(item.id) == -1) {
@@ -83,12 +82,23 @@ function idNameForId (id) {
 var ngpGroupIndex = 0;
 var existingPanels = {};
 
-function generateNGPPanel (id, item, title, description) {
-  console.log('Generating panel for item id ', id)
+function generateNGPPanel (id, item, title, description, votes, heronames) {
   if (existingPanels[id]) {
+    var activePanel = getPanelForId(id);
+    activePanel.FindChildrenWithClassTraverse('TopLine').forEach(function (elem) {
+      Object.keys(votes).forEach(function(vote) {
+        if (elem.FindChildTraverse(vote) == null) {
+          var addicon = $.CreatePanel('DOTAHeroImage', elem, vote);
+          addicon.AddClass("HeroImage");
+          addicon.heroname = heronames[vote];
+          addicon.heroimagestyle="portrait" 
+        }        
+      });
+    });
     return;
   }
 
+  console.log('Generating panel for item id ', id)
   existingPanels[id] = true;
   var panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
   panel.BLoadLayout( "file://{resources}/layout/custom_game/need_greed_pass/panel.xml", false, false );

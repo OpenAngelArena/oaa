@@ -101,11 +101,17 @@
   padding: 5px 0 0 0;
   margin-left: 5px;
 }
+
+.TopLine {
+  margin-bottom: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  flow-children: right;
+}
+
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
   height: 20px;
-  margin-bottom: 2px;
-  margin-left: 5px;
   /*text-transform: uppercase;*/
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.Description
@@ -195,6 +201,18 @@
   background-image: url("file://{images}/custom_game/ngp_pass.png");
 }
 
+
+.HeroImage
+{
+  width: 20px;
+  height: 20px;
+    vertical-align: top;
+    horizontal-align: right;
+}
+
+.spacefiller {
+  width: fill-parent-flow (1);
+}
 
 @keyframes 'slidein' {
   from {
