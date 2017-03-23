@@ -36,5 +36,12 @@ request.put({
     content: JSON.stringify(englishStrings)
   }
 }, function (err, data) {
-  console.log(err, data.body);
+  if (err) {
+    throw err;
+  }
+  console.log(data.body);
+  if (!data.body.redirect) {
+    console.error(data);
+    throw data.body;
+  }
 });
