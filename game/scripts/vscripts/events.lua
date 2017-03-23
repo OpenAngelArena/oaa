@@ -1,6 +1,5 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
 GameEvents = GameEvents or {}
-require('libraries/timers')
 
 function CreateGameEvent (name)
   local event = Event()
@@ -560,6 +559,7 @@ function GameMode:OnPlayerChat(keys)
 		elseif string.find(text, "-fog") then
 			mode:SetFogOfWarDisabled(false)
 
+
     -- Force start of a duel
 		elseif string.find(text, "-startduel") then
 			Duels:StartDuel()
@@ -577,7 +577,7 @@ function GameMode:OnPlayerChat(keys)
 				hero:AddNewModifier(hero,nil,"modifier_invulnerable",{duration = duration})
 			end
 
-		-- Give Invulnerability
+		-- Disarms the hero, to prevent autoattack
 		elseif string.find(text, "-disarm") then
 			local godMode = hero:FindModifierByName("modifier_disarmed")
 			if godMode then
@@ -592,24 +592,68 @@ function GameMode:OnPlayerChat(keys)
 		
 		-- Give upgrade core of level x
 		elseif string.find(text, "-core") then 
-            -- Give user 1 level, unless they specify a number after
-            local level = 1
-            local splitted = split(text, " ")       
-            if splitted[2] and tonumber(splitted[2]) then
-                level = tonumber(splitted[2])
+      -- Give user lvl 1 core, unless they specify a number after
+      local level = 1
+      local splitted = split(text, " ")       
+      if splitted[2] and tonumber(splitted[2]) then
+          level = tonumber(splitted[2])
+      end
+
+      if level == 1 then
+      	hero:AddItemByName("item_upgrade_core")
+     	elseif level == 2 then
+     		hero:AddItemByName("item_upgrade_core_2")
+     	elseif level == 3 then
+     		hero:AddItemByName("item_upgrade_core_3")
+     	elseif level == 4 then
+     		hero:AddItemByName("item_upgrade_core_4")
+     	end
+
+    -- Adds an ability, if partial name given, gives the last ability it finds matching that string
+    elseif string.find(text, "-add") then 
+      local splitted = split(text, " ")       
+      if splitted[2] then 
+        local absCustom = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
+        for k,v in pairs(absCustom) do
+            --print(k)
+            if string.find(k, splitted[2]) then
+              splitted[2] = k
             end
+        end
+        hero:AddAbility(splitted[2])
+        for i = 0, 23 do
+            if hero:GetAbilityByIndex(i) then 
+                local ability = hero:GetAbilityByIndex(i)
+                if ability and string.match(ability:GetName(), "special_bonus_") then
+                    local abName = ability:GetName()
+                    hero:RemoveAbility(abName)
+                end
+            end
+        end
+      end
 
-            if level == 1 then
-            	hero:AddItemByName("item_upgrade_core")
-           	elseif level == 2 then
-           		hero:AddItemByName("item_upgrade_core_2")
-           	elseif level == 3 then
-           		hero:AddItemByName("item_upgrade_core_3")
-           	elseif level == 4 then
-           		hero:AddItemByName("item_upgrade_core_4")
-           	end
+    -- Give items. If you put a number after the name of the item, it will look for that number, e.g. "-give heart 3" gives lvl 3 heart
+    elseif string.find(text, "-give") then 
+      local level = nil 
+      local splitted = split(text, " ") 
 
-        end        
+      if splitted[3] and tonumber(splitted[3]) then
+          level = tonumber(splitted[3])
+      end
+      if splitted[2] then 
+        local absCustom = LoadKeyValues('scripts/npc/npc_items_custom.txt')
+        for k,v in pairs(absCustom) do
+          if string.find(k, splitted[2]) and not string.find(k, "recipe") then
+            if not splitted[3] or string.find(k, splitted[3]) then 
+              splitted[2] = k
+            end
+          end
+      end
+
+      hero:AddItemByName(splitted[2])
+    end
+
+    end          
 	end
   
 	if string.sub(text, 0,9) == "-show_ngp" then
