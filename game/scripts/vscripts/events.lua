@@ -212,24 +212,24 @@ function GameMode:OnPlayerLevelUp(keys)
   if level > 25 then
     local div = (level - 25 + 12)/12
 
-	-- get the hero's stat gain
-	local gainStr = hero:GetStrengthGain()
-	local gainAgi = hero:GetAgilityGain()
-	local gainInt = hero:GetIntellectGain()
+  -- get the hero's stat gain
+  local gainStr = hero:GetStrengthGain()
+  local gainAgi = hero:GetAgilityGain()
+  local gainInt = hero:GetIntellectGain()
 
-	-- get the new stat gain
-	local newStr = gainStr / div
-	local newAgi = gainAgi / div
-	local newInt = gainInt / div
+  -- get the new stat gain
+  local newStr = gainStr / div
+  local newAgi = gainAgi / div
+  local newInt = gainInt / div
 
-	--print( gainStr, newStr )
-	--print( gainAgi, newAgi )
-	--print( gainInt, newInt )
+  --print( gainStr, newStr )
+  --print( gainAgi, newAgi )
+  --print( gainInt, newInt )
 
-	-- modify the hero's stats, subtracting the normal stat gain while adding the one
-	hero:ModifyStrength( newStr - gainStr )
-	hero:ModifyAgility( newAgi - gainAgi )
-	hero:ModifyIntellect( newInt - gainInt )
+  -- modify the hero's stats, subtracting the normal stat gain while adding the one
+  hero:ModifyStrength( newStr - gainStr )
+  hero:ModifyAgility( newAgi - gainAgi )
+  hero:ModifyIntellect( newInt - gainInt )
   end
 end
 
