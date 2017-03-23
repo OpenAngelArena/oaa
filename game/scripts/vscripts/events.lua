@@ -1,5 +1,6 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
 GameEvents = GameEvents or {}
+require('libraries/timers')
 
 function CreateGameEvent (name)
   local event = Event()
@@ -491,16 +492,81 @@ function GameMode:OnPlayerChat(keys)
 		
 		-- Test command to quickly test anything
 		if string.find(text, "-list") or string.find(text, "-help") then
-			GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel", 0, 0)
-		-- Force start of a duel
+			GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots", 0, 0)
+		
+    -- Add bots to both teams
+    elseif string.find(text, "-addbots") then
+      local num = 0
+      local used_hero_name = "npc_dota_hero_luna"
+      
+      for i=0, DOTA_MAX_TEAM_PLAYERS do
+          if PlayerResource:IsValidPlayer(i) then
+              print(i)
+              
+              -- Random heroes for people who have not picked
+              if PlayerResource:HasSelectedHero(i) == false then
+                  --print("Randoming hero for:", i)
+                  
+                  local player = PlayerResource:GetPlayer(i)
+                  player:MakeRandomHeroSelection()
+                  
+                  local hero_name = PlayerResource:GetSelectedHeroName(i)
+                  
+                  --print("Randomed:", hero_name)
+              end
+              
+              used_hero_name = PlayerResource:GetSelectedHeroName(i)
+              num = num + 1
+          end
+      end
+      
+      self.numPlayers = num
+      --print("Number of players:", num)
+
+      -- Eanble bots and fill empty slots
+      if IsServer() == true and 10 - self.numPlayers > 0 then
+          --print("Adding bots in empty slots")
+          
+          for i=1, 5 do
+              Tutorial:AddBot(used_hero_name, "", "unfair", true)
+              Tutorial:AddBot(used_hero_name, "", "unfair", false)
+          end
+          
+      end
+
+      GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
+      Tutorial:StartTutorialMode()
+      GameRules:GetGameModeEntity():SetBotsInLateGame(true)
+
+      Timers:CreateTimer(5,function()
+        for playerID=0,24-1 do
+            local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+            if hero ~= nil and IsValidEntity(hero) and PlayerResource:GetSteamAccountID(playerID) == 0 then
+                hero:AddAbility("dev_bot_control")
+                local controller = hero:FindAbilityByName("dev_bot_control")
+                if controller then
+                  controller:UpgradeAbility(false)
+                  controller:SetHidden(true)
+                end
+            end
+        end
+      end)
+
+    -- Remove fog of war on the map, revealing everything
 		elseif string.find(text, "-nofog") then
-			--Duels:StartDuel()
 			mode:SetFogOfWarDisabled(true)
-		-- Force start of a duel
+
+		-- Bring back the fog of war
 		elseif string.find(text, "-fog") then
 			mode:SetFogOfWarDisabled(false)
+
+    -- Force start of a duel
 		elseif string.find(text, "-startduel") then
 			Duels:StartDuel()
+
+    -- Force end of a duel
+    elseif string.find(text, "-endduel") then
+      Duels:EndDuel()
 
 		-- Give Invulnerability
 		elseif string.find(text, "-god") then
@@ -545,7 +611,7 @@ function GameMode:OnPlayerChat(keys)
 
         end        
 	end
-
+  
 	if string.sub(text, 0,9) == "-show_ngp" then
 	    splitted = split(text, " ")
 	    DebugPrintTable(splitted)
