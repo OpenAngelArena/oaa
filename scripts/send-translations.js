@@ -4,6 +4,7 @@ var path = require('path');
 var Transifex = require('transifex');
 var request = require('request');
 
+
 var fileData = fs.readFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), {
   encoding: 'ucs2'
 });
