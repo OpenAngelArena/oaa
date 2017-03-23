@@ -491,7 +491,7 @@ function GameMode:OnPlayerChat(keys)
 		
 		-- Test command to quickly test anything
 		if string.find(text, "-list") or string.find(text, "-help") then
-			GameRules:SendCustomMessage("-allvision, -normalvision, -god, -disarm, -dagger, -core 1-4", 0, 0)
+			GameRules:SendCustomMessage("-allvision, -normalvision, -god, -disarm, -dagger, -core 1-4, -startduel", 0, 0)
 		-- Force start of a duel
 		elseif string.find(text, "-allvision") then
 			--Duels:StartDuel()
