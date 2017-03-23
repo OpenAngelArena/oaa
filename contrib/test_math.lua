@@ -1,7 +1,6 @@
 luaunit = require('contrib/luaunit')
 require('game/scripts/vscripts/libraries/math')
 
--- Test math.doLinesIntersect(a, b, c, d)
 TestMath = {}
 
 function TestMath:setUp()
