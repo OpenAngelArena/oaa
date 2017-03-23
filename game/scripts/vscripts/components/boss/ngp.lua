@@ -7,11 +7,11 @@ end
 
 NGP.itemIndex = 2
 NGP.activeItems = {}
-activeTimers = {}
-totalgoodplayers = 0
-totalbadplayers = 0
-ngpItemsGood = {}
-ngpItemsBad = {}
+NGP.activeTimers = {}
+local totalgoodplayers = 0
+local totalbadplayers = 0
+local ngpItemsGood = {}
+local ngpItemsBad = {}
 
 function NGP:Init ()
 
@@ -70,10 +70,10 @@ function NGP:PlayerVote (eventSourceIndex, args)
     end
   end
   if totalvoted > (totalbadplayers-1) and team == "bad" then
-    Timers:RemoveTimer(activeTimers[tonumber(id)])
+    Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
     NGP:FinishVoting(tonumber(id), team)
   elseif totalvoted > (totalgoodplayers-1) and team == "good" then
-    Timers:RemoveTimer(activeTimers[tonumber(id)])
+    Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
     NGP:FinishVoting(tonumber(id), team)
   end
 end
@@ -95,7 +95,7 @@ function NGP:GiveItemToTeam (item, team)
   setTableItem(item, team)
   setGlobalTable(team)
 
-  activeTimers[item.id] = Timers:CreateTimer(60, function ()
+  NGP.activeTimers[item.id] = Timers:CreateTimer(60, function ()
     NGP:FinishVoting(item.id, team)
   end)
 end
