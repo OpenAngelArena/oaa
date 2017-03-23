@@ -48,4 +48,4 @@ You will see output about creating links for `oaa` game and content.
 ## Launch Tools
 Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting "Launch Dota 2 - Tools". It should be the second option on the dropdown below "Play Game..."
 
-Open `oaa` from the window that opens, and you're in! Open one of the maps and click the gamepad sybol to test the gamemode. Any changes you make will show up in the Github client, read for a pull request to be made.
+Open `oaa` from the window that opens, and you're in! To start the game, open the Vconsole and type 'dota_launch_custom_game oaa aaa', if you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Open the 'Asset Browser' window that opened when you started the game, and click the hammer icon on the top left. Open one of the maps (probably aaa) and click the gamepad sybol to test the gamemode. Any changes you make will show up in the Github client, read for a pull request to be made.
