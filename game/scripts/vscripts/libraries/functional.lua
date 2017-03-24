@@ -36,13 +36,12 @@ function partial (fn, ...)
     local argLength = #arg
     local totalLength = argLength + partialArgumentsLength
     local fnArgs = {}
-    fnArgs[1] = self
 
     for i,v in ipairs(partialArguments) do
-      fnArgs[i + 1] = v
+      fnArgs[i] = v
     end
     for i,v in ipairs(arg) do
-      fnArgs[partialArgumentsLength + i + 1] = v
+      fnArgs[partialArgumentsLength + i] = v
     end
 
     return fn(unpack(fnArgs))
