@@ -28,7 +28,7 @@
         "AbilityTextureName"            "item_stoneskin_2"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "2"
+        "AbilityCooldown"               "3.5"
         "AbilityManaCost"               "50"
 
         // Spicy Parameters
@@ -54,11 +54,12 @@
         }
         "OnToggleOn"
         {
-            "ApplyModifier"
-            {
-                "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"
-            }
+          "RunScript"
+          {
+            "ScriptFile"			"items/item_stoneskin.lua"
+            "Function"				"modifier_stoneskin_on_spell_start"
+            "Delay"           "%start_delay"
+          }
         }
         "OnToggleOff"
         {
@@ -145,6 +146,11 @@
 
                 "var_type"              "FIELD_INTEGER"
                 "stone_resist"           "10 15"
+            }
+            "09"
+            {
+              "var_type"                "FIELD_FLOAT"
+              "start_delay"             "1.5"
             }
         }
     }

@@ -31,12 +31,13 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3246"       // unique ID
 		"BaseClass"                     "item_datadriven"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"            "item_stoneskin"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "2"
+        "AbilityCooldown"               "5"
         "AbilityManaCost"               "50"
+        "AbilityCastPoint"              "1.5"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
@@ -58,25 +59,17 @@
         "precache"
         {
             "particle"                  "particles/status_fx/status_effect_frost_lich.vpcf"
-        }
-        "OnToggleOn"
-        {
-            "ApplyModifier"
-            {
-                "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"
-            }
-        }
-        "OnToggleOff"
-        {
-            "RemoveModifier"
-            {
-                "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"
-            }
-        }
 
-
+        }
+        "OnSpellStart"
+        {
+        		"RunScript"
+        		{
+        			"ScriptFile"			"items/item_stoneskin.lua"
+        			"Function"				"modifier_stoneskin_on_spell_start"
+        			"Delay"           "%start_delay"
+        		}
+        }
 
         "Modifiers"
         {
@@ -152,6 +145,11 @@
 
                 "var_type"              "FIELD_INTEGER"
                 "stone_resist"           "10 15"
+            }
+            "09"
+            {
+              "var_type"                "FIELD_FLOAT"
+              "start_delay"             "1.5"
             }
         }
     }
