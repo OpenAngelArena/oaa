@@ -1,16 +1,16 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_2b
+  // Recipe: preemptive_2a
   //=================================================================================================================
-  "item_recipe_preemptive_2b"
+  "item_recipe_preemptive_2a"
   {
-    "ID"            "3806"   // unique ID
+    "ID"            "3803"   // unique ID
     "BaseClass"     "item_datadriven"
     "ItemCost"          "1550"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
-    "ItemResult"          "item_preemptive_2b"
+    "ItemResult"          "item_preemptive_2a"
     "AbilityTextureName"      "item_recipe"
     "ItemRequirements"
     {
@@ -19,17 +19,17 @@
   }
 
   //=================================================================================================================
-  // preemptive_2b
+  // preemptive_2a
   //=================================================================================================================
-  "item_preemptive_2b"
+  "item_preemptive_2a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                    "3805"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                    "3804"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"             "item_lua"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"    "item_ultimate_orb"
-    "ScriptFile"            "items/reflex/preemptive_2b.lua"
+    "ScriptFile"            "items/reflex/preemptive_2a.lua"
     "FightRecapLevel"       "1"
 
     // Stats
@@ -40,11 +40,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "6200"
+    "ItemCost"              "6200"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
-    "ItemQuality"         "epic"
-    "ItemAliases"         "reflex;preemptive_2b"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemQuality"           "epic"
+    "ItemAliases"           "reflex;preemptive_2a;purge"
+    "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
     // Special
@@ -53,8 +53,8 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage_reduction"  "-100"
+        "var_type"          "FIELD_FLOAT"
+        "tick_interval"     "0.2"
       }
       "02"
       {
