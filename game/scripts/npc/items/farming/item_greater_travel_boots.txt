@@ -34,7 +34,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"220"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_travel_boots"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/farming/item_greater_travel_boots.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
@@ -51,7 +52,7 @@
 		"AbilityManaCost"				"75"
 		"ItemCost"						"4900"
 		"ItemShopTags"					"teleport;move_speed"
-		"ItemQuality"					"common"
+		"ItemQuality"					"epic"
 		"ItemAliases"					"bot;boots of travel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"				"5"
