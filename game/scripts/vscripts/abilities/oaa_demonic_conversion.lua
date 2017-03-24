@@ -18,11 +18,7 @@ function enigma_demonic_conversion:OnSpellStart()
                       "npc_dota_colossal_eidolon"}
 
   -- Check whether the caster has learnt the extra eidolons talent
-  local extraEidolonsAbility = caster:FindAbilityByName("special_bonus_unique_enigma")
-  local casterHasExtraEidolons = false
-  if extraEidolonsAbility then
-    casterHasExtraEidolons = extraEidolonsAbility:GetLevel() > 0
-  end
+  local casterHasExtraEidolons = caster:HasLearnedAbility("special_bonus_unique_enigma")
 
   -- Grant extra ediolon spawns from talent
   if casterHasExtraEidolons then
