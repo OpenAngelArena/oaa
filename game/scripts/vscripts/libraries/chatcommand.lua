@@ -5,15 +5,15 @@ Does not break when using script_reload
 Usage:
 	-Create a function MyFunction(keys) 						OR 		function SomeClass:SomeFunction(keys)
 		keys are those delivered from the 'player_chat' event
-	-Use ChatCommand:LinkCommand("-MyTrigger", "MyFunction") 	OR 		ChatCommand:LinkCommand("-MyTrigger", "SomeFunction", SomeClass) 
+	-Use ChatCommand:LinkCommand("-MyTrigger", "MyFunction") 	OR 		ChatCommand:LinkCommand("-MyTrigger", "SomeFunction", SomeClass)
 		Use this to call this function everytime someone's chat starts with -MyTrigger
 created by Zarnotox with a lot of constructive help from the mod data guys https://discord.gg/Z7eCcGT (THIS IS NOT THE AAA DISCORD, THIS IS THE MODDATA DISCORD. YOU DID NOT FIND THE SECRET. check it out!)
-]] 
+]]
 
 ChatCommand = ChatCommand or {}
 
 -- Begin Initialise
-function ChatCommand:Init() 
+function ChatCommand:Init()
 	self.initialised = true
 	ListenToGameEvent("player_chat", Dynamic_Wrap(ChatCommand, 'OnPlayerChat'), self)
 end
@@ -55,7 +55,7 @@ function ChatCommand:OnPlayerChat(keys)
     -- Debug/Cheat Commands
     ----------------------------
 	if IsInToolsMode() or Convars:GetBool("sv_cheats") then
-	  
+
 	  -- Test command to quickly test anything
 	  if string.find(text, "-list") or string.find(text, "-help") then
 	    GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots -add -give x y", 0, 0)

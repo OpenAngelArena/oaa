@@ -3,11 +3,12 @@ var fs = require('fs');
 var path = require('path');
 var Transifex = require('transifex');
 var request = require('request');
+var parseTranslation = require('./parse-translation');
 
 var fileData = fs.readFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), {
   encoding: 'ucs2'
 });
-var data = parseKV(fileData);
+var data = parseTranslation();
 
 var englishStrings = {};
 var foundStrings = {};
