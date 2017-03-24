@@ -57,12 +57,12 @@ forEach(myArray, function (value)
 end)
 
 ]]
-function forEach (ar, fn)
-  for i,v in ipairs(ar) do
-    fn(v, i)
-  end
-  return ar
-end
+-- function forEach (ar, fn)
+--   for i,v in ipairs(ar) do
+--     fn(v, i)
+--   end
+--   return ar
+-- end
 
 
 --[[
@@ -72,10 +72,10 @@ myArray = map(myArray, function (value)
 end)
 
 ]]
-function map (ar, fn)
-  local newAr = {}
-  for i,v in ipairs(ar) do
-    newAr[i] = fn(v, i)
-  end
-  return newAr
-end
+-- function map (ar, fn)
+--   local newAr = {}
+--   for i,v in ipairs(ar) do
+--     newAr[i] = fn(v, i)
+--   end
+--   return newAr
+-- end
