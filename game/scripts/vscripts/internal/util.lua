@@ -15,9 +15,9 @@ function split(s, delimiter)
     return result;
 end
 
-function regexsplit(s, delimiter)
+function regexsplit(s, regex)
     result = {};
-    for match in s:gmatch("([^"..delimiter.."]+)") do
+    for match in s:gmatch(regex) do
         table.insert(result, match);
     end
     return result;
@@ -27,7 +27,7 @@ function TracesFromFilename (filename)
   local traces = {}
   local i = 1
 
-  local parts = regexsplit(filename, '%s/\\')
+  local parts = regexsplit(filename, '([^%s/\\]+)')
   local partialTrade = nil
   for i, part in ipairs(parts) do
     if partialTrade == nil and part ~= "components" then
