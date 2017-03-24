@@ -178,7 +178,7 @@ end
 function GameMode:OnEntityKilled( event )
   local killedUnit = EntIndexToHScript( event.entindex_killed )
   local killingUnit = EntIndexToHScript( event.entindex_attacker )
-  local respawnTime = 6
+  local respawnTime = 5
   if killedUnit:IsRealHero() == true and killingUnit:IsRealHero() ~= true then
     killedUnit:SetTimeUntilRespawn(respawnTime)    
   end
