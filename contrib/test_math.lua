@@ -1,4 +1,3 @@
-luaunit = require('contrib/luaunit')
 require('game/scripts/vscripts/libraries/math')
 
 TestMath = {}
@@ -48,7 +47,3 @@ function TestMath:test5()
   luaunit.assertTrue(isIntersecting)
   luaunit.assertEquals(intersection, self.P1)
 end
-
-local runner = luaunit.LuaUnit.new()
-runner:setOutputType("tap")
-os.exit( runner:runSuite() )
