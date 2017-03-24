@@ -1,5 +1,5 @@
 # Chat commands
-Commands to be used for debugging and testing purposes, currently requires the game to either be in tools mode or have sv_cheats 1 enabled. 
+Commands to be used for debugging and testing purposes, currently requires the game to either be in tools mode or have sv_cheats 1 enabled. <b>As for now, there is a bug that prevents the chat listener from working on workshop mode, and thus none of these commands will work in upload versions, only in tools mode.</b>
 <br>
 <br>
 "-list"/"-help" - Displays a list of all available chat commands
