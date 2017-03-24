@@ -148,6 +148,7 @@ function GameMode:OnGameInProgress()
   InitModule(AbilityLevels)
   InitModule(BossSpawner)
   InitModule(NGP)
+  InitModule(HeroProgression)
 
 end
 
