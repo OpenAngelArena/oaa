@@ -44,6 +44,8 @@ require('libraries/selection')
 require('libraries/math')
 -- chat command registry made easy
 require('libraries/chatcommand')
+-- extension functions to PlayerResource
+require('libraries/playerresource')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
