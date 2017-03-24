@@ -1,4 +1,3 @@
-luaunit = require('contrib/luaunit')
 require('game/scripts/vscripts/internal/util')
 
 TestSplit = {}
@@ -44,7 +43,7 @@ function TestSplit:test2()
     " Curabitur consequat at massa in convallis",
     ""
   }
-  luaunit.assertEquals(split(self.string1, "."), result)
+  luaunit.assertEquals(split(self.string1, "\."), result)
 end
 
 TestRegexSplit = {}
@@ -78,8 +77,3 @@ function TestRegexSplit:test1()
   }
   luaunit.assertEquals(regexsplit(self.string1, "it|ti"), result)
 end
-
-
-local runner = luaunit.LuaUnit.new()
-runner:setOutputType("tap")
-os.exit( runner:runSuite() )
