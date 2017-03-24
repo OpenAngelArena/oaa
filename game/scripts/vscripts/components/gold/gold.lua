@@ -18,7 +18,7 @@ function Gold:Init()
   -- a table for every player
   PlayerTables:CreateTable("gold", {
     gold = {}
-  }, {0,1,2,3,4,5,6,7,8,9})
+  }, totable(PlayerResource:GetAllTeamPlayerIDs()))
 
     -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
@@ -52,7 +52,7 @@ end
     Add Gold to all players via our custom Gold API
 ]]
 function Gold:Think()
-  for i = 0,19 do
+  foreach(function(i)
     if PlayerResource:IsValidPlayerID(i) then
       if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 
@@ -81,7 +81,7 @@ function Gold:Think()
         end
       end
     end
-  end
+  end, PlayerResource:GetAllTeamPlayerIDs())
   return 0.2
 end
 
