@@ -16,9 +16,7 @@
         "ItemResult"                    "item_stoneskin"
         "ItemRequirements"
         {
-            "01"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_2"
-            "02"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_3"
-            "03"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_4"
+            "01"                        "item_shivas_guard_3;item_armlet_2;item_combiner"
       	}
 
     }
@@ -35,9 +33,9 @@
         "AbilityTextureName"            "item_stoneskin"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "5"
+        //"AbilityCooldown"               "5"
         "AbilityManaCost"               "50"
-        "AbilityCastPoint"              "1.5"
+        //"AbilityCastPoint"              "1.5"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
@@ -61,15 +59,27 @@
             "particle"                  "particles/status_fx/status_effect_frost_lich.vpcf"
 
         }
-        "OnSpellStart"
+        "OnToggleOn"
         {
         		"RunScript"
         		{
         			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_on_spell_start"
+        			"Function"				"modifier_stoneskin_toggle"
         			"Delay"           "%start_delay"
+              "Cooldown"        "%cooldown_after_delay"
         		}
         }
+        "OnToggleOff"
+        {
+        		"RunScript"
+        		{
+        			"ScriptFile"			"items/item_stoneskin.lua"
+        			"Function"				"modifier_stoneskin_toggle"
+        			"Delay"           "%start_delay"
+              "Cooldown"        "%cooldown_after_delay"
+        		}
+        }
+
 
         "Modifiers"
         {
@@ -150,6 +160,11 @@
             {
               "var_type"                "FIELD_FLOAT"
               "start_delay"             "1.5"
+            }
+            "10"
+            {
+              "var_type"                "FIELD_INTEGER"
+              "cooldown_after_delay"    "2"
             }
         }
     }
