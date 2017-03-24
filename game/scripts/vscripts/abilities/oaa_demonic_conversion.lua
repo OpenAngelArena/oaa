@@ -22,7 +22,7 @@ function enigma_demonic_conversion:OnSpellStart()
 
   -- Grant extra ediolon spawns from talent
   if casterHasExtraEidolons then
-    spawnCount = spawnCount + extraEidolonsAbility:GetSpecialValueFor("value")
+    spawnCount = spawnCount + caster:FindAbilityByName("special_bonus_unique_enigma"):GetSpecialValueFor("value")
   end
 
   -- Kill the target and spawn Eidolons
