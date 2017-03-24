@@ -1,27 +1,28 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_2a
+  // Recipe: preemptive_3a
   //=================================================================================================================
-  "item_recipe_preemptive_2a"
+  "item_recipe_preemptive_3a"
   {
     "ID"            "3803"   // unique ID
     "BaseClass"     "item_datadriven"
     "ItemCost"          "1550"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
-    "ItemResult"          "item_preemptive_2a"
+    "ItemResult"          "item_preemptive_3a"
     "AbilityTextureName"      "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_preemptive;item_upgrade_core"
+      "01"            "item_preemptive_2a;item_upgrade_core_2"
+      "02"            "item_preemptive_2b;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
-  // preemptive_2a
+  // preemptive_3a
   //=================================================================================================================
-  "item_preemptive_2a"
+  "item_preemptive_3a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +47,7 @@
     "ItemCost"              "6200"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
     "ItemQuality"           "epic"
-    "ItemAliases"           "reflex;preemptive_2a;purge"
+    "ItemAliases"           "reflex;preemptive_3a;purge"
     "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
