@@ -13,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- Lua Fun(ctional) library
+require('libraries/fun')()
 -- functional event implementation
 require('libraries/event')
 
