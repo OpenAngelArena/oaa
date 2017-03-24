@@ -88,8 +88,6 @@ function BossAI:DeathHandler (state, keys)
   end
 
   if state.tier == 1 then
-    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
-
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
         local player = PlayerResource:GetPlayer(playerId)
@@ -97,40 +95,26 @@ function BossAI:DeathHandler (state, keys)
 
         if hero and not hero.hasFarmingCore then
           hero:AddItemByName("item_farming_core")
+          hero:AddItemByName("item_reflex_core") --remove this line after second t1 boss addition
           hero.hasFarmingCore = true
         end
       end
     end
   elseif state.tier == 2 then
-    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
-    Timers:CreateTimer( 1.0 , function()
-      NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-      Timers:CreateTimer( 1.0 , function()
-        NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-      end)
-    end)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-
+    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif state.tier == 3 then
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif state.tier == 4 then
-
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
   elseif state.tier == 5 then
-
     NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif state.tier == 6 then
     PointsManager:AddPoints(teamId)
-
-    NGP:GiveItemToTeam(BossItems["item_combiner"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    BossAI:GiveItemToWholeTeam("item_combiner", teamId)
   end
 end
 
