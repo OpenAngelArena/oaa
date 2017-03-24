@@ -15,9 +15,9 @@ function split(s, delimiter)
     return result;
 end
 
-function regexsplit(s, regex)
+function regexsplit(s, delimiter)
     result = {};
-    for match in s:gmatch(regex) do
+    for match in s:gmatch("([^"..delimiter.."]+)") do
         table.insert(result, match);
     end
     return result;
@@ -27,7 +27,7 @@ function TracesFromFilename (filename)
   local traces = {}
   local i = 1
 
-  local parts = regexsplit(filename, '([^%s/\\]+)')
+  local parts = regexsplit(filename, '%s/\\')
   local partialTrade = nil
   for i, part in ipairs(parts) do
     if partialTrade == nil and part ~= "components" then
@@ -63,12 +63,15 @@ end
 function GetCallingFile (offset)
   offset = offset or 4
 
-  local functionInfo = debug.getinfo(offset - 1, "Sl")
-  local filePath = string.match(functionInfo.source, "scripts[/\\]vscripts[/\\](.+).lua")
-  if functionInfo.currentline then
-    return TracesFromFilename(filePath), filePath .. ":" .. functionInfo.currentline
+  local str = debug.traceback()
+  local lines = split(str, '\n')
+  local line = lines[offset]
+  local dirName , lineNo= string.match(line, "scripts[/\\]vscripts[/\\](.+).lua:([0-9]+):")
+
+  if lineNo then
+    return TracesFromFilename(dirName), dirName .. ":" .. lineNo
   else
-    return TracesFromFilename(filePath), filePath
+    return TracesFromFilename(dirName), dirName
   end
 end
 

@@ -75,5 +75,5 @@ function TestRegexSplit:test1()
     ", quis commodo neque tempor eget. Curab",
     "ur consequat at massa in convallis."
   }
-  luaunit.assertEquals(regexsplit(self.string1, "it|ti"), result)
+  luaunit.assertEquals(regexsplit(self.string1, "[^ti]"), result)
 end
