@@ -119,12 +119,22 @@ function ChatCommand:OnPlayerChat(keys)
 	    end)
 
 	  -- Remove fog of war on the map, revealing everything
-	   elseif string.find(text, "-nofog") then
+	  elseif string.find(text, "-nofog") then
 	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
 
 	  -- Bring back the fog of war
 	  elseif string.find(text, "-fog") then
 	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
+
+	  -- Bring back the fog of war
+	  elseif string.find(text, "-fixspawn") then
+	     for playerID=0,24-1 do
+	      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+	      if hero ~= nil and IsValidEntity(hero) then
+	      	hero:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 1})
+	      end
+	    end
+
 
 	  -- Force start of a duel
 	  elseif string.find(text, "-startduel") then
