@@ -165,24 +165,13 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(GameLengthVotes)
-  	ListenToGameEvent( "entity_killed", Dynamic_Wrap( GameMode, 'OnEntityKilled' ), self )
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end
 
----------------------------------------------------------------------------
--- Event: OnEntityKilled
----------------------------------------------------------------------------
-function GameMode:OnEntityKilled( event )
-  local killedUnit = EntIndexToHScript( event.entindex_killed )
-  local killingUnit = EntIndexToHScript( event.entindex_attacker )
-  local respawnTime = 5
-  if killedUnit:IsRealHero() == true and killingUnit:IsRealHero() ~= true then
-    killedUnit:SetTimeUntilRespawn(respawnTime)    
-  end
-end
+
 
 -- This is an example console command
 -- function GameMode:ExampleConsoleCommand()
