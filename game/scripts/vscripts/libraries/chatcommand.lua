@@ -119,13 +119,12 @@ function ChatCommand:OnPlayerChat(keys)
 	    end)
 
 	  -- Remove fog of war on the map, revealing everything
-	  elseif string.find(text, "-nofog") then
-	    mode:SetFogOfWarDisabled(true)
+	   elseif string.find(text, "-nofog") then
+	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
 
 	  -- Bring back the fog of war
 	  elseif string.find(text, "-fog") then
-	    mode:SetFogOfWarDisabled(false)
-
+	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
 
 	  -- Force start of a duel
 	  elseif string.find(text, "-startduel") then
