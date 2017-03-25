@@ -30,8 +30,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3179"		// unique ID
-		"BaseClass"                     "item_octarine_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/refresher_core.lua"
+		"AbilityBehavior"				        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_octarine_core"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

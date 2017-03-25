@@ -41,11 +41,14 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3215"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_octarine_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/refresher_core.lua"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_octarine_core"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "195.0"
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"1"
