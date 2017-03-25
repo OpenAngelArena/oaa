@@ -144,7 +144,5 @@ function timerByOneDown(panel, time, id) {
 // down here so that static vars get declared
 (function () {
   CustomNetTables.SubscribeNetTableListener('ngp', onNGPChange);
-  //onNGPChange();
-  //GameEvents.Subscribe( "ngp_update", onNGPEvent );
 }());
 
