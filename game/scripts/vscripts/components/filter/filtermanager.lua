@@ -36,6 +36,7 @@ function FilterManager:HandleBottlesInInventory (player)
     if item and item:GetName() == "item_bottle" then
       DebugPrint("Found the bottle")
       item:Destroy()
+      --TODO Add Modifier here
       return i
     end
   end
