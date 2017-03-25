@@ -37,7 +37,7 @@ function NGP:Init ()
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
-  getGlobalTable(team) 
+  NGP:getGlobalTable(team) 
   -- DebugPrintTable(eventSourceIndex)
   -- DebugPrintTable(args)
   local playerID = eventSourceIndex.PlayerID
@@ -53,7 +53,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
   item.votes[playerID] = option
   item.heroname[playerID] = heroname
 
-  setTableItem(item, team)
+  NGP:setTableItem(item, team)
   
   if item.finished == false then
     local totalvoted = 0
@@ -78,7 +78,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
 end
 
 function NGP:GiveItemToTeam (item, team)
-  getGlobalTable(team)
+  NGP:getGlobalTable(team)
 
   DebugPrint('item index will be ' .. NGP.itemIndex)
   item.id = NGP.itemIndex
@@ -89,7 +89,7 @@ function NGP:GiveItemToTeam (item, team)
   NGP.activeItems[item.id].votes = {}
   NGP.activeItems[item.id].heroname = {}
 
-  setTableItem(item, team)
+  NGP:setTableItem(item, team)
 
   NGP.activeTimers[item.id] = Timers:CreateTimer(60, function ()
     NGP:FinishVoting(item.id, team)
@@ -97,7 +97,7 @@ function NGP:GiveItemToTeam (item, team)
 end
 
 
-function getGlobalTable(team) 
+function NGP:getGlobalTable(team) 
   if team == 'good' then
     ngpItemsGood = CustomNetTables:GetTableValue('ngp', team)
   elseif team == 'bad' then
@@ -105,16 +105,16 @@ function getGlobalTable(team)
   end
 end
 
-function setTableItem(item, team)
+function NGP:setTableItem(item, team)
   if team == 'good' then
     ngpItemsGood[item.id] = item
   elseif team == 'bad' then
     ngpItemsBad[item.id] = item
   end
-  setGlobalTable(team)
+  NGP:setGlobalTable(team)
 end
 
-function setGlobalTable(team) 
+function NGP:setGlobalTable(team) 
   if team == 'good' then
     CustomNetTables:SetTableValue('ngp', team, ngpItemsGood)
   elseif team == 'bad' then
@@ -127,8 +127,8 @@ function NGP:FinishVoting (id, team)
 
   local item = NGP.activeItems[id]
   item.finished = true
-  getGlobalTable(team)
-  setTableItem(item, team)
+  NGP:getGlobalTable(team)
+  NGP:setTableItem(item, team)
 
 
   local needVotes = {}
