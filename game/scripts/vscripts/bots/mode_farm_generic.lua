@@ -2,10 +2,13 @@
 --- This is mostly built from the ground up. In fact it's kind of a clusterfuck of code. 
 --- I wrote the whole thing in one file rather that switching between different files and desire. Yes I eventually will do that.
 --- Credits: PLATINUM_DOTA2 (Pooya J.) I took a bit of his code here and there, but not much.  However I learned a lot from looking at what he did.
+---	Thanks darklord for helping stop the bots tping.
 
 --Utility = require( GetScriptDirectory().."/Utility")
 --Duels = require( GetScriptDirectory() .. "/vscripts/components/duels/duels")
 --require('components/duels/duels')
+
+
 
 -------
 _G._savedEnv = getfenv()
@@ -77,16 +80,16 @@ local xxtime = 0;
 local runtime = -10;
 local retreattime = -100;
 
-local herosearchradius = 1200; --Must be below 1600
-local creepsearchradius = 500; --Must be below 1600. Don't make too high or they try to attack 2 camps at once.
+local herosearchradius = 1550; --Must be below 1600
+local creepsearchradius = 500; --Must be below 1600. Don't make too high or they get confused trying to attack 2 camps at once.
 
 function  OnStart()
 	if bOnce == false then
 		if GetBot():GetTeam() == TEAM_DIRE then
-			CurrentCamp = Dire2;
+			CurrentCamp = Dire4;
 			bOnce = true;
 		else
-			CurrentCamp = Radiant2;
+			CurrentCamp = Radiant4;
 			bOnce = true;
 		end
 	end
@@ -96,7 +99,7 @@ function OnEnd()
 end
 
 function GetDesire()
-	return 0.99;
+	return 0.9;
 end
 
 local function SwitchCamp()
@@ -104,17 +107,17 @@ local function SwitchCamp()
 
 	local randomx=camp;
 	local lowernumber = 1;
-	local uppernumber = 3;
+	local uppernumber = 4;
 	if npcBot:GetLevel() <= 3 then
 		lowernumber = 1;
-		uppernumber = 3;
+		uppernumber = 4;
 	elseif npcBot:GetLevel() <= 6 then
 		lowernumber = 1;
 		uppernumber = 4;
 	elseif npcBot:GetLevel() <= 9 then
 		lowernumber = 1;
 		uppernumber = 5;
-	elseif npcBot:GetLevel() <= 11 then
+	elseif npcBot:GetLevel() <= 12 then
 		lowernumber = 1;
 		uppernumber = 6;
 	elseif npcBot:GetLevel() <= 18 then
@@ -189,10 +192,18 @@ local function SwitchCamp()
 end
 
 function Think()
+
 	local npcBot=GetBot()
 --	local playerNotBot;
 	
 --	print(npcBot:GetUnitName(),npcBot:GetAttackPoint(),GetLaneFrontLocation(GetTeam(),LANE_BOT,0.0),GetLaneFrontAmount(GetTeam(),LANE_BOT,true));
+	
+	if npcBot:HasModifier("modifier_teleporting") then
+		if npcBot:GetHealth() == npcBot:GetMaxHealth() then
+			npcBot:Action_ClearActions( true )
+			print("------> ",npcBot:GetUnitName()," Attempted teleport intercepted.")
+		end
+	end
 	
 	if npcBot:IsUsingAbility() or npcBot:IsChanneling() then
 		return;
@@ -201,8 +212,6 @@ function Think()
 	local EnemyHeroes = npcBot:GetNearbyHeroes( herosearchradius,true,BOT_MODE_NONE );
 	local EnemyCreeps = npcBot:GetNearbyCreeps( creepsearchradius, true )		
 	local NeutralCreeps= npcBot:GetNearbyNeutralCreeps( creepsearchradius );
-	
-
 
 --	if oldmode ~= npcBot:GetActiveMode() then
 --		oldmode=npcBot:GetActiveMode();
@@ -266,7 +275,7 @@ function Think()
 		retreattime = DotaTime()+5;
 		SwitchCamp()
 		if DotaTime() > stopmessage then
-			print("---------------------> ",npcBot:GetUnitName()," is running for their life.");
+--			print("---------------------> ",npcBot:GetUnitName()," is running for their life.");
 			stopmessage=DotaTime()+7;
 		end
 
@@ -281,7 +290,7 @@ function Think()
 	if npcBot.IsRetreating == true then
 		if npcBot:GetHealth()/npcBot:GetMaxHealth()>0.30 then
 			npcBot.IsRetreating = false
-			print("---------------------> ",npcBot:GetUnitName()," is not Retreating any more");
+--			print("---------------------> ",npcBot:GetUnitName()," is not Retreating any more");
 			return;
 		end
 		if npcBot:GetTeam() == TEAM_RADIANT then
@@ -329,7 +338,7 @@ function Think()
 		if spellwait < DotaTime() then
 --			print ("---------------------> ",GetBot():GetUnitName(),"spellwait < DotaTime1");
 			currentspell= currentspell+1;
-			if currentspell > 2 then
+			if currentspell > 3 then
 				currentspell = 0;
 --				print ("---------------------> ",GetBot():GetUnitName(),"currentspell = 0a");
 			end
@@ -339,7 +348,7 @@ function Think()
 			
 --				print ("---------------------> ",GetBot():GetUnitName(),"hAbility and not spell:IsPassive1",currentspell);
 				if hAbility:IsFullyCastable() then
-					print ("---------------------> ",GetBot():GetUnitName(),"IsFullyCastable: ",currentspell);
+--					print ("---------------------> ",GetBot():GetUnitName(),"IsFullyCastable: ",currentspell);
 					
 --					local hAbilityName = hAbility:GetAbilityName();
 --					local hAbilityName = tostring(hAbility:GetAbilityName());
@@ -351,34 +360,34 @@ function Think()
 
 --					if hAbility:GetBehavior() % 8 then
 					if bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET:",currentspell);
 --						if bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_ENEMY ) or bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_BOTH ) then
 --						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_UNIT_TARGET_TEAM_ENEMY:",currentspell);
 						npcBot:Action_UseAbilityOnEntity(hAbility,WeakestHero);
 						spellwait = DotaTime()+.5;
-						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 						return;
 					elseif bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_AOE ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_AOE:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_AOE:",currentspell);
 						local weakestdistance = GetUnitToUnitDistance(WeakestHero, npcBot);
 						if weakestdistance < 100 then
-							print ("---------------------> ",GetBot():GetUnitName(),"AOE spell not used because distance:",weakestdistance);
+--							print ("---------------------> ",GetBot():GetUnitName(),"AOE spell not used because distance:",weakestdistance);
 							npcBot:Action_UseAbility(hAbility);
 							spellwait = DotaTime()+.5;
-							print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--							print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 							return;
 						else
 							npcBot:Action_AttackUnit(WeakestHero,true);
 						end
 					elseif bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET ) or bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_POINT ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET:",currentspell);
 						
 						--if hAbility:GetAbilityTargetTeam() == DOTA_UNIT_TARGET_TEAM_ENEMY or hAbility:GetAbilityTargetTeam() == DOTA_UNIT_TARGET_TEAM_BOTH then
 --						if bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_ENEMY ) or bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_BOTH ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET or POINT:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET or POINT:",currentspell);
 						npcBot:Action_UseAbilityOnLocation(hAbility,WeakestHeroLocation);
 						spellwait = DotaTime()+.5;
-						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 						return;
 
 					end
@@ -422,7 +431,7 @@ function Think()
 			
 --				print ("---------------------> ",GetBot():GetUnitName(),"hAbility and not spell:IsPassive1",currentspell);
 				if hAbility:IsFullyCastable() then
-					print ("---------------------> ",GetBot():GetUnitName(),"IsFullyCastable: ",currentspell);
+--					print ("---------------------> ",GetBot():GetUnitName(),"IsFullyCastable: ",currentspell);
 					
 --					local hAbilityName = hAbility:GetAbilityName();
 --					local hAbilityName = tostring(hAbility:GetAbilityName());
@@ -434,34 +443,34 @@ function Think()
 
 --					if hAbility:GetBehavior() % 8 then
 					if bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET:",currentspell);
 --						if bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_ENEMY ) or bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_BOTH ) then
 --						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_UNIT_TARGET_TEAM_ENEMY:",currentspell);
 						npcBot:Action_UseAbilityOnEntity(hAbility,WeakestCreep);
 						spellwait = DotaTime()+.5;
-						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 						return;
 					elseif bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_AOE ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_AOE:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_AOE:",currentspell);
 						local weakestdistance = GetUnitToUnitDistance(WeakestCreep, npcBot);
 						if weakestdistance < 100 then
-							print ("---------------------> ",GetBot():GetUnitName(),"AOE spell not used because distance:",weakestdistance);
+--							print ("---------------------> ",GetBot():GetUnitName(),"AOE spell not used because distance:",weakestdistance);
 							npcBot:Action_UseAbility(hAbility);
 							spellwait = DotaTime()+.5;
-							print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--							print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 							return;
 						else
 							npcBot:Action_AttackUnit(WeakestCreep,true);
 						end
 					elseif bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET ) or bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_POINT ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET:",currentspell);
 						
 						--if hAbility:GetAbilityTargetTeam() == DOTA_UNIT_TARGET_TEAM_ENEMY or hAbility:GetAbilityTargetTeam() == DOTA_UNIT_TARGET_TEAM_BOTH then
 --						if bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_ENEMY ) or bit.band(hAbility.CDOTABaseAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_BOTH ) then
-						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET or POINT:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"DOTA_ABILITY_BEHAVIOR_NO_TARGET or POINT:",currentspell);
 						npcBot:Action_UseAbilityOnLocation(hAbility,WeakestCreepLocation);
 						spellwait = DotaTime()+.5;
-						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
+--						print ("---------------------> ",GetBot():GetUnitName(),"used spell number:",currentspell);
 						return;
 
 					end
@@ -494,7 +503,7 @@ function Think()
 		else
 			if DotaTime() > runtime then --or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_IDLE or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_NONE then --
 				if DotaTime() > stopmessage then
-					print("---------------------> ",npcBot:GetUnitName()," runtime is ",runtime," Dota time is ",DotaTime());
+--					print("---------------------> ",npcBot:GetUnitName()," runtime is ",runtime," Dota time is ",DotaTime());
 					stopmessage=DotaTime()+2;
 				end
 				SwitchCamp()

@@ -95,9 +95,14 @@ function BossAI:DeathHandler (state, keys)
         local player = PlayerResource:GetPlayer(playerId)
         local hero = player:GetAssignedHero()
 
-        if hero and not hero.hasFarmingCore then
-          hero:AddItemByName("item_farming_core")
-          hero.hasFarmingCore = true
+        if hero then
+          if not hero.hasFarmingCore then
+            hero:AddItemByName("item_farming_core")
+            hero.hasFarmingCore = true
+          elseif not hero.hasReflexCore then
+            hero:AddItemByName("item_reflex_core")
+            hero.hasReflexCore = true
+          end
         end
       end
     end
