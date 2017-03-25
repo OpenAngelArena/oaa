@@ -22,6 +22,7 @@ function BossAI:Create (unit, options)
     leash = options.leash or 1500,
     agroDamage = options.agroDamage or 100 * options.tier,
     tier = options.tier,
+    variant = options.variant,
     currentDamage = 0,
     state = BossAI.IDLE,
 
@@ -92,11 +93,12 @@ function BossAI:DeathHandler (state, keys)
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
         local player = PlayerResource:GetPlayer(playerId)
         local hero = player:GetAssignedHero()
-
-        if hero and not hero.hasFarmingCore then
+        if state.variant == 1 and hero and not hero.hasFarmingCore then
           hero:AddItemByName("item_farming_core")
-          hero:AddItemByName("item_reflex_core") --remove this line after second t1 boss addition
           hero.hasFarmingCore = true
+        elseif state.variant == 2 and hero and not hero.hasReflexCore then
+          hero:AddItemByName("item_reflex_core")
+          hero.hasReflexCore = true        
         end
       end
     end

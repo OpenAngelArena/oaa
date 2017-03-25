@@ -1,7 +1,8 @@
 Bosses = {
   -- tier 1
   {
-    "npc_dota_boss_tier_1"
+    "npc_dota_boss_tier_1a",
+    "npc_dota_boss_tier_1b"
   },
   -- tier 2
   {

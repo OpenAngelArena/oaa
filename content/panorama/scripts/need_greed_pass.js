@@ -16,15 +16,17 @@ function onNGPChange () {
   }
   
 
-
+  console.log("sssss");
   Object.keys(data).forEach(function (i) {
     var item = data[i];
+    console.log(item.finished);
     if (!item.finished) {
       OnNeedGreedPass(item);
     } else if (idToRemove.indexOf(item.id) == -1) {
       idToRemove.push(item.id);
     }
   });
+  console.log("ddddd");
 }
 
 var NGPOption = {
@@ -101,7 +103,8 @@ function generateNGPPanel (id, item, title, description, votes, heronames) {
 
   console.log('Generating panel for item id ', id)
   existingPanels[id] = true;
-  var panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
+  var holder = $('#NGPItemHopper');
+  var panel = $.CreatePanel('Panel', holder, idNameForId(id));
   panel.BLoadLayout( "file://{resources}/layout/custom_game/need_greed_pass/panel.xml", false, false );
 
   panel.FindChildrenWithClassTraverse('DataItemId').forEach(function (elem) {
