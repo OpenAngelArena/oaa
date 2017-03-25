@@ -84,6 +84,8 @@ function GameMode:_OnEntityKilled( keys )
 
     if not killerPlayerEntity:IsRealHero() then
       killerPlayerEntity = killerEntity:GetOwnerEntity() or killerEntity
+      --Change respawn timer for hero killed by creep.
+      killedUnit:SetTimeUntilRespawn(5)   
     end
 
     if killerPlayerEntity:IsRealHero() then
