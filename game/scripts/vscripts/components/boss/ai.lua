@@ -99,7 +99,7 @@ function BossAI:DeathHandler (state, keys)
           if not hero.hasFarmingCore then
             hero:AddItemByName("item_farming_core")
             hero.hasFarmingCore = true
-          else if not hero.hasReflexCore then
+          elseif not hero.hasReflexCore then
             hero:AddItemByName("item_reflex_core")
             hero.hasReflexCore = true
           end
