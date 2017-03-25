@@ -151,6 +151,7 @@ function GameMode:OnGameInProgress()
   InitModule(BossSpawner)
   InitModule(NGP)
   InitModule(HeroProgression)
+  InitModule(FilterManager)
 
 end
 
