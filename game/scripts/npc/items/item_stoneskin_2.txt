@@ -13,10 +13,8 @@
         "ItemResult"                    "item_stoneskin_2"
         "ItemRequirements"
         {
-            "01"                        "item_stoneskin;item_upgrade_core"
-            "02"                        "item_stoneskin;item_upgrade_core_2"
-            "03"                        "item_stoneskin;item_upgrade_core_3"
-            "04"                        "item_stoneskin;item_upgrade_core_4"
+            "01"                        "item_stoneskin;item_upgrade_core_3"
+            "02"                        "item_stoneskin;item_upgrade_core_4"
         }
     }
 
@@ -25,12 +23,11 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3247"      // unique ID
-		"BaseClass"                     "item_datadriven"
+		    "BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"            "item_stoneskin_2"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "2"
         "AbilityManaCost"               "50"
 
         // Spicy Parameters
@@ -56,22 +53,24 @@
         }
         "OnToggleOn"
         {
-            "ApplyModifier"
-            {
-                "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"
-            }
+        		"RunScript"
+        		{
+        			"ScriptFile"			"items/item_stoneskin.lua"
+        			"Function"				"modifier_stoneskin_toggle"
+        			"Delay"           "%start_delay"
+              "Cooldown"        "%cooldown_after_delay"
+        		}
         }
         "OnToggleOff"
         {
-            "RemoveModifier"
-            {
-                "ModifierName"          "modifier_item_stoneskin_stone_armor"
-                "Target"                "CASTER"
-            }
+        		"RunScript"
+        		{
+        			"ScriptFile"			"items/item_stoneskin.lua"
+        			"Function"				"modifier_stoneskin_toggle"
+        			"Delay"           "%start_delay"
+              "Cooldown"        "%cooldown_after_delay"
+        		}
         }
-
-
 
         "Modifiers"
         {
@@ -82,11 +81,11 @@
                 "IsHidden"    "1"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"  "%bonus_damage"
+                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
                     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%bonus_armor"
-                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"   "%bonus_health_regen"
-                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
+                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"       "%bonus_health_regen"
+                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
                 }
 
             }
@@ -97,9 +96,9 @@
                 "StatusEffectPriority" "10"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%stone_armor"
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%stone_armor"
                     "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"    "%stone_resist"
-                    "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"  "%stone_move_speed"
+                    "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"          "%stone_move_speed"
                 }
             }
         }
@@ -147,6 +146,16 @@
 
                 "var_type"              "FIELD_INTEGER"
                 "stone_resist"           "10 15"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "start_delay"           "1.5"
+            }
+            "10"
+            {
+                "var_type"               "FIELD_INTEGER"
+                "cooldown_after_delay"   "2"
             }
         }
     }
