@@ -8,7 +8,7 @@
   Date: 10.03.2017
 ]]
 furion_force_of_nature = class ({})
-LinkLuaModifier( "modifier_treant_giant_bonus", "modifiers/modifier_treant_giant_bonus", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE )
 
 function furion_force_of_nature:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
@@ -77,7 +77,7 @@ function furion_force_of_nature:OnSpellStart()
     giant_treant:SetOwner( caster )
     giant_treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
     if caster_has_treant_bonus then
-      giant_treant:AddNewModifier( caster, self, "modifier_treant_giant_bonus", {} )
+      giant_treant:AddNewModifier( caster, self, "modifier_treant_bonus_oaa", {} )
     end
   end
   -- Spawn regular treants
