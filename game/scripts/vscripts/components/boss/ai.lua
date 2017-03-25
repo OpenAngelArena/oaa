@@ -117,7 +117,7 @@ function BossAI:DeathHandler (state, keys)
   elseif state.tier == 6 then
     PointsManager:AddPoints(teamId)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
-    BossAI:GiveItemToWholeTeam("item_combiner", teamId)
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
   end
 end
 
