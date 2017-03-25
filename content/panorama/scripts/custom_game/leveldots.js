@@ -61,4 +61,7 @@ function InjectQueryAbilityDotsStyle() {
   var containerStyles = {AbilityMaxLevel6: {"margin-left": "1px"},
                          default: {"margin": null}}
   InjectAbilityDotsStyle(abilitiesPanel, dotStyles, containerStyles)
+  //  Also call styling function for bottom panel in case user has set unit query to override
+  //hero control panel
+  InjectBottomAbilityDotsStyle()
 }
