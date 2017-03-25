@@ -5,29 +5,22 @@ var console = {
 var idToRemove = [];
 
 
-function onNGPChange () {
+function onNGPChange (table_name, key, data) {
   var playerID = Game.GetLocalPlayerID();
   var teamID = Players.GetTeam(playerID)
   var teamName = teamID === 2 ? 'good' : 'bad';
-  var data = CustomNetTables.GetTableValue('ngp', teamName);
+  console.log(data);
+  console.log(key);
 
-  function OnNeedGreedPass (item) {
-    generateNGPPanel(item.id, item.item, item.title, item.description, item.votes, item.heroname);
-  }
-  
-
-  console.log("sssss");
-  Object.keys(data).forEach(function (i) {
-    var item = data[i];
-    console.log(item.finished);
-    if (!item.finished) {
-      OnNeedGreedPass(item);
-    } else if (idToRemove.indexOf(item.id) == -1) {
-      idToRemove.push(item.id);
+  if (data.team == teamName) {
+    if (!data.finished) {
+      generateNGPPanel(data.id, data.item, data.title, data.description, data.votes, data.heroname);
+    } else if (idToRemove.indexOf(data.id) == -1) {
+      idToRemove.push(data.id);
     }
-  });
-  console.log("ddddd");
+  }
 }
+
 
 var NGPOption = {
 };
@@ -151,6 +144,7 @@ function timerByOneDown(panel, time, id) {
 // down here so that static vars get declared
 (function () {
   CustomNetTables.SubscribeNetTableListener('ngp', onNGPChange);
-  onNGPChange();
+  //onNGPChange();
+  //GameEvents.Subscribe( "ngp_update", onNGPEvent );
 }());
 

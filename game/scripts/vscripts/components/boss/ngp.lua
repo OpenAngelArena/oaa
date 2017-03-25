@@ -5,13 +5,11 @@ if NGP == nil then
     NGP = class({})
 end
 
-NGP.itemIndex = 2
+NGP.itemIndex = 1
 NGP.activeItems = {}
 NGP.activeTimers = {}
 local totalgoodplayers = 0
 local totalbadplayers = 0
-local ngpItemsGood = {}
-local ngpItemsBad = {}
 
 function NGP:Init ()
 
@@ -34,10 +32,10 @@ function NGP:Init ()
       end
     end
   end
+
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
-  NGP:getGlobalTable(team) 
   -- DebugPrintTable(eventSourceIndex)
   -- DebugPrintTable(args)
   local playerID = eventSourceIndex.PlayerID
@@ -53,9 +51,9 @@ function NGP:PlayerVote (eventSourceIndex, args)
   item.votes[playerID] = option
   item.heroname[playerID] = heroname
 
-  NGP:setTableItem(item, team)
   
   if item.finished == false then
+    NGP:setTableItem(item)
     local totalvoted = 0
     for i = 0,19 do
       if item.votes[i] then
@@ -70,15 +68,9 @@ function NGP:PlayerVote (eventSourceIndex, args)
       NGP:FinishVoting(tonumber(id), team)
     end
   end
-
-  --getGlobalTable(team)
-  --DebugPrintTable(ngpItemsGood)
-  --DebugPrint("sssss")
-
 end
 
 function NGP:GiveItemToTeam (item, team)
-  NGP:getGlobalTable(team)
 
   DebugPrint('item index will be ' .. NGP.itemIndex)
   item.id = NGP.itemIndex
@@ -89,46 +81,25 @@ function NGP:GiveItemToTeam (item, team)
   NGP.activeItems[item.id].votes = {}
   NGP.activeItems[item.id].heroname = {}
 
-  NGP:setTableItem(item, team)
+  NGP:setTableItem(item)
 
   NGP.activeTimers[item.id] = Timers:CreateTimer(60, function ()
-    NGP:FinishVoting(item.id, team)
+    NGP:FinishVoting(item.id)
   end)
 end
 
 
-function NGP:getGlobalTable(team) 
-  if team == 'good' then
-    ngpItemsGood = CustomNetTables:GetTableValue('ngp', team)
-  elseif team == 'bad' then
-    ngpItemsBad = CustomNetTables:GetTableValue('ngp', team)
-  end
-end
-
-function NGP:setTableItem(item, team)
-  if team == 'good' then
-    ngpItemsGood[item.id] = item
-  elseif team == 'bad' then
-    ngpItemsBad[item.id] = item
-  end
-  NGP:setGlobalTable(team)
-end
-
-function NGP:setGlobalTable(team) 
-  if team == 'good' then
-    CustomNetTables:SetTableValue('ngp', team, ngpItemsGood)
-  elseif team == 'bad' then
-    CustomNetTables:SetTableValue('ngp', team, ngpItemsBad)
-  end
+function NGP:setTableItem(item)
+  CustomNetTables:SetTableValue('ngp', "key_" .. item.id, item)
 end
 
 
-function NGP:FinishVoting (id, team)
+
+function NGP:FinishVoting (id)
 
   local item = NGP.activeItems[id]
   item.finished = true
-  NGP:getGlobalTable(team)
-  NGP:setTableItem(item, team)
+  NGP:setTableItem(item)
 
 
   local needVotes = {}
