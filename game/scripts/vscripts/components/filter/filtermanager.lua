@@ -13,13 +13,15 @@ function FilterManager:InventoryFilter (filterTable)
   local item_entindex = filterTable.item_entindex_const
   local item_owner_entindex = filterTable.item_parent_entindex_const
   local suggested_slot = filterTable.suggested_slot
+  local inventory_owner_handler = EntIndexToHScript(inventory_owner_entindex)
   local item_owner_handle = EntIndexToHScript(item_owner_entindex)
   local item_handle = EntIndexToHScript(item_entindex)
   local item_name = item_handle:GetName()
 
 
   if item_name == "item_bottle" then
-    filterTable.suggested_slot = FilterManager:HandleBottlesInInventory(item_owner_handle)
+    local handle = item_owner_handle or inventory_owner_handler
+    filterTable.suggested_slot = FilterManager:HandleBottlesInInventory(handle)
   end
 
   DebugPrintTable(filterTable)

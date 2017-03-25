@@ -58,8 +58,9 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
   Timers:CreateTimer(60, function ()
-    --newItem:GetContainer():Destroy()
-    newItem:GetContainer():RemoveSelf()
+    if newItem ~= nil then
+      newItem:GetContainer():RemoveSelf()
+    end
   end)
 end
 
