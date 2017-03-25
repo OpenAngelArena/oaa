@@ -3,9 +3,7 @@
 Base health and damage is checked only on first application of modifier
 Primary use of this modifier is for Nature's Prophet 2x Treant health/damage talent
 ]]
-require("internal/util")
 modifier_treant_bonus_oaa = class({})
-Debug.EnabledModules['modifiers:*'] = true
 
 function modifier_treant_bonus_oaa:DeclareFunctions()
   local funcs = {
