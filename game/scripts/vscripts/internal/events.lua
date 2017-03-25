@@ -84,8 +84,12 @@ function GameMode:_OnEntityKilled( keys )
 
     if not killerPlayerEntity:IsRealHero() then
       killerPlayerEntity = killerEntity:GetOwnerEntity() or killerEntity
+    end
+
+    if killerPlayerEntity:GetTeam() == DOTA_TEAM_NEUTRALS then
       --Change respawn timer for hero killed by creep.
-      killedUnit:SetTimeUntilRespawn(5)   
+      DebugPrint("Killed by Neutral")
+      killedUnit:SetTimeUntilRespawn(5)
     end
 
     if killerPlayerEntity:IsRealHero() then
