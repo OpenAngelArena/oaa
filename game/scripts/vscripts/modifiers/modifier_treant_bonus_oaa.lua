@@ -17,11 +17,13 @@ function modifier_treant_bonus_oaa:DeclareFunctions()
 end
 
 function modifier_treant_bonus_oaa:OnCreated(keys)
-  local parentUnit = self:GetParent()
-  -- Get parent unit's base health and damage at time of modifier application
-  self.parentMaxHealth = parentUnit:GetBaseMaxHealth()
-  self.parentMinDamage = parentUnit:GetBaseDamageMin()
-  self.parentMaxDamage = parentUnit:GetBaseDamageMax()
+  if IsServer() then
+    local parentUnit = self:GetParent()
+    -- Get parent unit's base health and damage at time of modifier application
+    self.parentMaxHealth = parentUnit:GetBaseMaxHealth()
+    self.parentMinDamage = parentUnit:GetBaseDamageMin()
+    self.parentMaxDamage = parentUnit:GetBaseDamageMax()
+  end
 end
 
 function modifier_treant_bonus_oaa:IsPurgable()
@@ -33,5 +35,8 @@ function modifier_treant_bonus_oaa:GetModifierExtraHealthBonus()
 end
 
 function modifier_treant_bonus_oaa:GetModifierBaseAttack_BonusDamage()
-  return (self.parentMinDamage + self.parentMaxDamage) / 2
+  -- Check that min and max damage values have been fetched to prevent errors
+  if self.parentMinDamage and self.parentMaxDamage then
+    return (self.parentMinDamage + self.parentMaxDamage) / 2
+  end
 end
