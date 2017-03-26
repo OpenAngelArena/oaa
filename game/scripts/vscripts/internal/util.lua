@@ -63,15 +63,12 @@ end
 function GetCallingFile (offset)
   offset = offset or 4
 
-  local str = debug.traceback()
-  local lines = split(str, '\n')
-  local line = lines[offset]
-  local dirName , lineNo= string.match(line, "scripts[/\\]vscripts[/\\](.+).lua:([0-9]+):")
-
-  if lineNo then
-    return TracesFromFilename(dirName), dirName .. ":" .. lineNo
+  local functionInfo = debug.getinfo(offset - 1, "Sl")
+  local filePath = string.match(functionInfo.source, "scripts[/\\]vscripts[/\\](.+).lua")
+  if functionInfo.currentline then
+    return TracesFromFilename(filePath), filePath .. ":" .. functionInfo.currentline
   else
-    return TracesFromFilename(dirName), dirName
+    return TracesFromFilename(filePath), filePath
   end
 end
 

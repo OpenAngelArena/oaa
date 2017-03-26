@@ -4,7 +4,7 @@
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
-    "test": "semistandard"
+    "test": "echo 'no tests'"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/OpenAngelArena/oaa#readme",
   "devDependencies": {
+    "parse-kv": "^0.1.0",
     "semistandard": "^9.2.1"
+  },
+  "dependencies": {
+    "request": "^2.81.0",
+    "transifex": "^1.4.6"
   }
 }

@@ -9,7 +9,7 @@ function beastmaster_call_of_the_wild:OnSpellStart()
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
 
   -- Spawn hawk and orient it to face the same way as the caster
-  local hawk = CreateUnitByName(levelUnitName, caster:GetOrigin() + RandomVector(100), true, caster, caster:GetOwner(), caster:GetTeam())
+  local hawk = CreateUnitByName(levelUnitName, caster:GetOrigin() + RandomVector(1):Normalized() * RandomFloat(50, 100), true, caster, caster:GetOwner(), caster:GetTeam())
   hawk:SetControllableByPlayer(playerID, false)
   hawk:SetOwner(caster)
   hawk:SetForwardVector(caster:GetForwardVector())

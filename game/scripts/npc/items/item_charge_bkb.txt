@@ -23,13 +23,18 @@
 		"ItemResult"					"item_charge_bkb"
 		"ItemRequirements"
 		{
-			"01"					"item_black_king_bar;item_magic_wand;item_combiner"  		//RamonNZ: Item combiner makes sense, since it is exactly a combination of both items. I'll leave the choice to you.
+      "01"          "item_black_king_bar;item_magic_wand;item_upgrade_core"
+      "02"          "item_black_king_bar;item_magic_wand;item_upgrade_core_2"
+      "03"          "item_black_king_bar;item_magic_wand;item_upgrade_core_3"
+      "04"          "item_black_king_bar;item_magic_wand;item_upgrade_core_4"
 		}
 	}
 
 	//=================================================================================================================
 	// Charge BKB (based off a combination of Magic Wand & BKB effects)
-	// Version 1.02 implimented with charge_bkb.lua script by RamonNZ
+	// Version 1.04 implimented with charge_bkb.lua script by RamonNZ
+	// Added shared cooldown with BKB to prevent some double BKB abuse.
+	// Hopefully now the wand aura is hidden.
 	//=================================================================================================================
 	"item_charge_bkb"
 	{
@@ -42,7 +47,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
-		"AbilitySharedCooldown"			"bkb"
+		"AbilitySharedCooldown"			"item_black_king_bar"
 		"AbilityCastRange"				"1200"
 
 		// Item Info
@@ -54,7 +59,7 @@
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
 		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"0"			//RamonNZ: This should possibly be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
+		"ItemInitialCharges"			"0"			//RamonNZ: This should be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
 		"AbilitySpecial"
 		{
 			//Wand Stats:
@@ -91,7 +96,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"15"		//RamonNZ: If used - keeping this functionality of wand would restore a bit of health/mana when activated. Set to 0 if not wanted.
+				"restore_per_charge"	"0"		//RamonNZ: If used - keeping this functionality of wand would restore a bit of health/mana when activated. Set to 0 if not wanted.
 			}
 			"08"
 			{
@@ -101,12 +106,12 @@
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"charge_decay_time"		"20"		//RamonNZ: New KV - Charges will decay by -1 at this time interval.
+				"charge_decay_time"		"20"		//RamonNZ: New KV - Each added charge will decay at this time interval.
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"immunity_time_per_charge"	"2"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated.
+				"immunity_time_per_charge"	"2"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated. Is 2 too high?
 			}
 		}
 		"OnSpellStart"
@@ -186,10 +191,10 @@
 			}
 			"modifier_charge_bkb_aura"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"IsPurgable"		"0"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsPurgable"			"0"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
