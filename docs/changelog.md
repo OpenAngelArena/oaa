@@ -72,12 +72,20 @@ Last Update: `2017-03-27 13:37 UTC+0200`
 * Fixed Invoker Leveling Pattern
   * Invoker now gets an Ability Point for every Level
   * Invoker now can actually level his Abilities when he should
+* Fixed Tusk
+  * Frozen Sigil
+    * Added Units for Level 5 and 6
+* Fixed Naga Siren
+  * Mirror Image
+    * Added Level 5 and 6
 
 #### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
   * Reduced Damage from `3750` to `255`
   * Reduced Health from `100000` to `75000`
+* Buffed all 6 Tiers of Bosses
+  * Added Magical Resistance of `15 20 25 30 35 40`
   
 #### Duels
 * Fixed Item Cooldown not saved in Duels
@@ -85,6 +93,7 @@ Last Update: `2017-03-27 13:37 UTC+0200`
 #### UI
 * Fixed Level Dots not showing for Level 5 and 6 Abilities
 * Added Icons to Stoneskin Armour, Dashstaff, Demon Blood and Metal Armour
+* Added Minimap with Trees
 
 #### Misc
 * Changed Strategy and Showcase time to `0`
