@@ -75,15 +75,19 @@ end
 modifier_item_martyrs_mail_martyr_active = class({})
 
 function modifier_item_martyrs_mail_martyr_active:IsAura()
-	if self:GetCaster() == self:GetParent() then
-		return true
-	end
-	
-	return false
+	return true
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetModifierAura()
 	return "modifier_item_martyrs_mail_martyr_aura"
+end
+
+function modifier_item_martyrs_mail_martyr_active:GetAuraEntityReject( hEntity )
+	if self:GetCaster() == hEntity then
+		return true
+	end
+	
+	return false
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraRadius()
@@ -150,14 +154,6 @@ end
 --------------------------------------------------------------------------------
 
 modifier_item_martyrs_mail_martyr_aura = class({})
-
-function modifier_item_martyrs_mail_martyr_aura:IsHidden()
-	if self:GetCaster() == self:GetParent() then
-		return true
-	end
-	
-	return false
-end
 
 function modifier_item_martyrs_mail_martyr_aura:GetEffectName()
 	if self:GetCaster() == self:GetParent() then
