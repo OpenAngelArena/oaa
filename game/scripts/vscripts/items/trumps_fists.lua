@@ -25,7 +25,7 @@ function modifier_item_trumps_fists_passive:IsHidden()
 	return true
 end
 
-function modifier_item_trumps_fists_passive:OnCreated( kv )
+function modifier_item_trumps_fists_passive:OnCreated()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
 	self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
@@ -83,12 +83,12 @@ function modifier_item_trumps_fists_passive:GetModifierManaBonus()
 	return self.bonus_mana
 end
 
-function modifier_item_trumps_fists_passive:OnAttackLanded( keys )
+function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
 	if IsServer() then
-		if keys.attacker == self:GetParent() then
-			keys.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_cold", { duration = self.cold_duration } )
-			keys.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_corruption", { duration = self.corruption_duration } )
-			keys.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+		if kv.attacker == self:GetParent() then
+			kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_cold", { duration = self.cold_duration } )
+			kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_corruption", { duration = self.corruption_duration } )
+			kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
 		end
 	end
 end
@@ -97,7 +97,7 @@ end
 
 modifier_item_trumps_fists_frostbite = class({})
 
-function modifier_item_trumps_fists_frostbite:OnCreated( kv )
+function modifier_item_trumps_fists_frostbite:OnCreated()
 	self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
 end
 
@@ -116,7 +116,7 @@ end
 function modifier_item_trumps_fists_frostbite:OnHealReceived( kv )
 	if IsServer() then
 		if kv.unit:HasModifier("modifier_item_trumps_fists_frostbite") then
-			kv.unit:SetHealth( kv.unit:GetHealth() - kv.gain * self.heal_prevent_percent / 100 )
+			kv.unit:SetHealth( kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100 )
 		end
 	end
 end
@@ -125,7 +125,7 @@ end
 
 modifier_item_trumps_fists_corruption = class({})
 
-function modifier_item_trumps_fists_corruption:OnCreated( kv )
+function modifier_item_trumps_fists_corruption:OnCreated()
 	self.corruption_armor = self:GetAbility():GetSpecialValueFor( "corruption_armor" )
 end
 
@@ -141,13 +141,13 @@ function modifier_item_trumps_fists_corruption:DeclareFunctions()
 end
 
 function modifier_item_trumps_fists_corruption:GetModifierPhysicalArmorBonus()
-	return -self.corruption_armor
+	return self.corruption_armor
 end
 
 --------------------------------------------------------------------------------
 modifier_item_trumps_fists_cold = class({})
 
-function modifier_item_trumps_fists_cold:OnCreated( kv )
+function modifier_item_trumps_fists_cold:OnCreated()
 	self.cold_movement_speed = self:GetAbility():GetSpecialValueFor( "cold_movement_speed" )
 	self.cold_attack_speed = self:GetAbility():GetSpecialValueFor( "cold_attack_speed" )
 end
@@ -165,11 +165,11 @@ function modifier_item_trumps_fists_cold:DeclareFunctions()
 end
 
 function modifier_item_trumps_fists_cold:GetModifierMoveSpeedBonus_Percentage()
-	return -self.cold_movement_speed
+	return self.cold_movement_speed
 end
 
 function modifier_item_trumps_fists_cold:GetModifierAttackSpeedBonus_Constant()
-	return -self.cold_attack_speed
+	return self.cold_attack_speed
 end
 
 --------------------------------------------------------------------------------

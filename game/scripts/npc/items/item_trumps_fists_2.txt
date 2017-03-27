@@ -61,7 +61,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"20 25"
+				"corruption_armor"		"-20 -25"
 			}
 			"03"
 			{
@@ -86,12 +86,12 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_movement_speed"   "40"
+                "cold_movement_speed"   "-40"
             }
             "08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_attack_speed"     "50"
+                "cold_attack_speed"     "-50"
             }
             "09"
             {
@@ -106,7 +106,7 @@
        		"11"
             {
                 "var_type"              "FIELD_INTEGER"
-                "heal_prevent_percent"  "15 75"
+                "heal_prevent_percent"  "-15 -75"
             }
             "12"
             {
