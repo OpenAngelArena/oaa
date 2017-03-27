@@ -107,13 +107,13 @@ end
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
 	local funcs = {
-		MODIFIER_EVENT_ON_HEAL_RECEIVED,
+		MODIFIER_EVENT_ON_HEALTH_GAINED,
 	}
 	return funcs
 end
 
 
-function modifier_item_trumps_fists_frostbite:OnHealReceived( kv )
+function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
 	if IsServer() then
 		if kv.unit:HasModifier("modifier_item_trumps_fists_frostbite") then
 			kv.unit:SetHealth( kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100 )
