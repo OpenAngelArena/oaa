@@ -1,7 +1,7 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-03-27 13:37 UTC+0200`
+Last Update: `2017-03-27 22:47 UTC+0200`
 
 ### Translation Progress
 * Chinese: 0%
