@@ -78,7 +78,7 @@ end
 function modifier_octarine_vampirism_applier:OnCreated( kv )
   self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
   if IsServer() and self:GetParent() ~= self:GetCaster() then
-      self:StartIntervalThink( 0.5 )
+    self:StartIntervalThink( 0.5 )
   end
 end
 
