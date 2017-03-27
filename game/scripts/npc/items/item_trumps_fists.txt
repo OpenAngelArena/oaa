@@ -23,9 +23,9 @@
 		"ItemResult"					"item_trumps_fists"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_3;item_skadi_3;item_upgrade_core_2"
-      "02"            "item_desolator_3;item_skadi_3;item_upgrade_core_3"
-      "03"            "item_desolator_3;item_skadi_3;item_upgrade_core_4"
+			"01"				"item_desolator_3;item_skadi_3;item_upgrade_core_2"
+			"02"				"item_desolator_3;item_skadi_3;item_upgrade_core_3"
+			"03"				"item_desolator_3;item_skadi_3;item_upgrade_core_4"
 
 		}
 	}
@@ -40,9 +40,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3264"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_halloween_rapier"
+		"ScriptFile"					"items/trumps_fists"
+
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "MaxUpgradeLevel"               "2"
@@ -70,7 +72,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-20 -25"
+				"corruption_armor"		"20 25"
 			}
 			"03"
 			{
@@ -95,12 +97,12 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_movement_speed"   "-40"
+                "cold_movement_speed"   "40"
             }
             "08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_attack_speed"     "-50"
+                "cold_attack_speed"     "50"
             }
             "09"
             {
@@ -120,10 +122,8 @@
             "12"
             {
                 "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "5 5"
+                "heal_prevent_duration"  "5"
             }
 		}
 	}
-
-
 }

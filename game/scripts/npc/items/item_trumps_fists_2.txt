@@ -32,11 +32,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3265"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"BaseClass"                     "item_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_halloween_rapier"
+		"ScriptFile"					"items/trumps_fists"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "MaxUpgradeLevel"               "2"
@@ -62,7 +61,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-20 -25"
+				"corruption_armor"		"20 25"
 			}
 			"03"
 			{
@@ -87,12 +86,12 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_movement_speed"   "-40"
+                "cold_movement_speed"   "40"
             }
             "08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_attack_speed"     "-50"
+                "cold_attack_speed"     "50"
             }
             "09"
             {
@@ -112,7 +111,7 @@
             "12"
             {
                 "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "5 5"
+                "heal_prevent_duration"  "5"
             }
 		}
 	}
