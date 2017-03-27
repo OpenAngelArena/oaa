@@ -8,7 +8,7 @@
   Date: 10.03.2017
 ]]
 furion_force_of_nature = class ({})
-LinkLuaModifier( "modifier_treant_giant_bonus", "modifiers/modifier_treant_giant_bonus", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE )
 
 function furion_force_of_nature:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
@@ -41,10 +41,15 @@ function furion_force_of_nature:OnSpellStart()
   local target_point = self:GetCursorPosition()
   local area_of_effect = self:GetSpecialValueFor( "area_of_effect" )
   local max_treants = self:GetSpecialValueFor( "max_treants" )
-  local max_giant_treants = self:GetSpecialValueFor( "max_giant_treants" )
   local duration = self:GetSpecialValueFor( "duration" )
-  local treant_name = "npc_dota_furion_treant"
-  local giant_treant_name = "npc_dota_furion_giant_treant"
+  local ability_level = self:GetLevel()
+  -- Units to spawn for each ability level
+  local treant_names = {"npc_dota_furion_treant",
+                        "npc_dota_furion_treant",
+                        "npc_dota_furion_treant",
+                        "npc_dota_furion_treant",
+                        "npc_dota_furion_giant_treant",
+                        "npc_dota_furion_giant_treant_2"}
 
   local trees = GridNav:GetAllTreesAroundPoint( target_point, area_of_effect, true )
   local tree_count = #trees
@@ -59,34 +64,24 @@ function furion_force_of_nature:OnSpellStart()
 
   GridNav:DestroyTreesAroundPoint( target_point, area_of_effect, true )
 
-  -- Figure out how many of each treant type to spawn
-  local giant_treants_to_spawn = math.min( max_giant_treants, tree_count )
-  local treants_to_spawn = math.min( max_treants, tree_count - giant_treants_to_spawn )
   -- Check whether the caster has learnt the 2x Treant health/damage talent
-  local treant_bonus_ability = caster:FindAbilityByName( "special_bonus_unique_furion" )
-  local caster_has_treant_bonus = false
-  if treant_bonus_ability then
-    caster_has_treant_bonus = treant_bonus_ability:GetLevel() > 0
+  local caster_has_treant_bonus = caster:HasLearnedAbility( "special_bonus_unique_furion" )
+  -- Check whether the caster has learnt the +4 Treants talent
+  local caster_has_plus_treants = caster:HasLearnedAbility( "special_bonus_unique_furion_2" )
+  -- Increase maximum Treants based on +4 Treants talent
+  if caster_has_plus_treants then
+    max_treants = max_treants + caster:FindAbilityByName( "special_bonus_unique_furion_2" ):GetSpecialValueFor( "value" )
   end
+  local treants_to_spawn = math.min( max_treants, tree_count )
 
-  -- Spawn giant treants
-  for i=1,giant_treants_to_spawn do
-    local giant_treant = CreateUnitByName( giant_treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
-    giant_treant:SetControllableByPlayer( pID, false )
-    giant_treant:SetOwner( caster )
-    giant_treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
-    if caster_has_treant_bonus then
-      giant_treant:AddNewModifier( caster, self, "modifier_treant_giant_bonus", {} )
-    end
-  end
-  -- Spawn regular treants
+  -- Spawn Treants
   for i=1,treants_to_spawn do
-    local treant = CreateUnitByName( treant_name, target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
+    local treant = CreateUnitByName( treant_names[ability_level], target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
     treant:SetControllableByPlayer( pID, false )
     treant:SetOwner( caster )
     treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
     if caster_has_treant_bonus then
-      treant:AddNewModifier( caster, self, "modifier_treant_bonus", {} )
+      treant:AddNewModifier( caster, self, "modifier_treant_bonus_oaa", {} )
     end
   end
   EmitSoundOnLocationWithCaster( target_point, "Hero_Furion.ForceOfNature", caster )
