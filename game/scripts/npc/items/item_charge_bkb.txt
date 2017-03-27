@@ -20,10 +20,13 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_charge_bkb"
+		"ItemResult"					"custom/charge_bkb"
 		"ItemRequirements"
 		{
-			"01"					"item_black_king_bar;item_magic_wand;item_combiner"  		//RamonNZ: Item combiner makes sense, since it is exactly a combination of both items. I'll leave the choice to you.
+      "01"          "item_black_king_bar;item_magic_wand;item_upgrade_core"
+      "02"          "item_black_king_bar;item_magic_wand;item_upgrade_core_2"
+      "03"          "item_black_king_bar;item_magic_wand;item_upgrade_core_3"
+      "04"          "item_black_king_bar;item_magic_wand;item_upgrade_core_4"
 		}
 	}
 
@@ -40,7 +43,7 @@
 		"ID"							"3309"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"            "item_charge_bkb"
+    "AbilityTextureName"            "custom/charge_bkb"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
