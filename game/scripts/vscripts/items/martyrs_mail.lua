@@ -83,11 +83,7 @@ function modifier_item_martyrs_mail_martyr_active:GetModifierAura()
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraEntityReject( hEntity )
-	if self:GetCaster() == hEntity then
-		return true
-	end
-	
-	return false
+	return self:GetCaster() == hEntity
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraRadius()
@@ -156,10 +152,6 @@ end
 modifier_item_martyrs_mail_martyr_aura = class({})
 
 function modifier_item_martyrs_mail_martyr_aura:GetEffectName()
-	if self:GetCaster() == self:GetParent() then
-		return
-	end
-	
 	return "particles/world_shrine/radiant_shrine_active_ray.vpcf"
 end
 
