@@ -32,7 +32,7 @@
         "ID"                            "3246"       // unique ID
 		    "BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "item_stoneskin"
+        "AbilityTextureName"            "custom/stoneskin"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "50"
