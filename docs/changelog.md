@@ -31,6 +31,7 @@ Last Update: `2017-03-27 13:37 UTC+0200`
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
 
 ### Update 0.1.0
+`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
 #### Items
 * Buffed Echo Sabre 
   * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
@@ -48,7 +49,42 @@ Last Update: `2017-03-27 13:37 UTC+0200`
 * Buffed Greater Travel Boots
   * Decreased Channel Time from `3.0` to `3.0 2.75 2.5 2.25 2`
   * Increased Movementspeed from `100 100 100 100 100` to `100 125 150 175 200`
+  * Increased GPM from `60 120 240 480 960` to `150 300 600 1200 2400`
 * Added Pullstaff Item aka 'Reverse Force Staff'
+* Nerfed Greater Power Treads
+  * Reduced Split Damage from `40` to `10 20 30 40 50`
+* Buffed Abyssal Blade
+  * Increased Melee Damage Block from `70 75 80 85 90` to `70 100 140 200 280`
+  * Increased Ranged Damage Block from `35 40 45 50 55` to `35 50 70 100 140`
+* Buffed Assault Cuirass
+  * Increased Armour Aura from `5 7 9` to `5 10 20`
+* Buffed Battle Fury
+  * Increased Cleave Damage fron `35` to `35 45 55 65 75`
+* Buffed Bloodstone
+  * Increased Health from `475 675 900 1300 1600` to `475 1000 1800 2600 3200`
+  * Increased Mana from `425 600 800 1200 1500` to `425 900 1600 2400 3000`
+  * Increased Health Regeneration from `9 12 15 18 21` to `9 25 45 65 90`
+  * Increased Mana Regeneration from `200 250 300 350 400` to `200 350 500 750 1000`
+  * Increased Death Base Area Heal from `500 600 700 800 900` to `500 1000 1500 2000 2500`
+  * Increased Death Bonus Area Heal per Charge from `30 40 50 60 70` to `30 60 120 240 480`
+* Buffed Ethereal Blade
+  * Increased Bonus Damage from `40` to `40 50 60 70 80`
+* Buffed Hand of Midas
+  * Increased XP Multiplier from `2.5 2.7 3.0` to `2.5 3.5 4.5`
+  * Increased Bonus Gold from `190 230 275` to `190 380 760`
+* Buffed Heavens Halberd
+  * Increased Strength from `20 30 45` to `20 40 80`
+  * Increased Lesser Maim Attack Speed Slow (Melee) from `20 30 40` to `20 40 60`
+  * Increased Lesser Maim Attack Speed Slow (Ranged) from `10 15 20` to `10 20 30`
+* Buffed Radiance
+  * Increased Aura Damage from `50 75 110 170 225` to `50 100 200 350 550`
+* Buffed Rod of Atos
+  * Increased Bonus Health from `350 525 800` to `350 700 1400`
+* Buffed Shivas Guard
+  * Increased Bonus Armour from `15 30 45` to `15 40 70`
+  * Decreased Aura Attack Speed from `-45 -50 -55` to `-45 -70 -110`
+  * Increased Attack Damage from `200 300 450` to `200 400 600`
+  
 
 #### Heroes
 * Fixed Zeus Nimbus Cloud attacking too fast
@@ -57,6 +93,8 @@ Last Update: `2017-03-27 13:37 UTC+0200`
 * Changed Nature's Prophet
   * Nature's Call
     * Only spawning one Treant Type now
+  * Teleportation
+    * Decreased CastPoint from `3 3 3 3` to `3 3 3 3 3 1.5
 * Nerfed Bloodseeker
   * Bloodbath
     * Reduced Duration from `3 4 5 6 8 10` to `3 4 5 6 7 8`
@@ -78,6 +116,27 @@ Last Update: `2017-03-27 13:37 UTC+0200`
 * Fixed Naga Siren
   * Mirror Image
     * Added Level 5 and 6
+* Nerfed Antimage
+  * Mana Break
+    * Reduced Mana per Hit from `28 40 52 64 88 184` to `28 40 52 64 78 96`
+  * Mana Void
+    * Reduced Damage per missing Mana from `0.6 0.85 1.1 1.6 3.6` to `0.6 0.85 1.1 1.4 1.9`
+* Buffed Bristleback
+  * Quill Spray
+    * Increased Damage from `550.0` to `550.0 550.0 550.0 550.0 1100.0 2200.0`
+* Nerfed Dragon Knight
+  * Dragon Tail
+    * Reduced Damage from `25 50 75 100 150 350` to `25 50 75 100 150 225`
+* Nerfed Phantom Assasin
+  * Coup de Grace
+    * Reduced Crit Damage from `230 340 450 650 1000` to `230 340 450 560 750`
+* Nerfed Phantom Lancer
+  * Juxtapose
+    * Reduced Max Illusions from `5 7 9 13 22` to `5 7 9 11 15`
+* Buffed Ursa
+  * Enrage
+    * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
+
 
 #### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
