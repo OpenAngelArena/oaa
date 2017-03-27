@@ -2,10 +2,12 @@
 """Display stats about oaa."""
 
 import os
+import requests
 
 basedir = os.sep.join(os.path.realpath(__file__).split(os.sep)[:-2])
 npcdir = os.path.join(basedir, "game", "scripts", "npc")
 herolist = os.path.join(npcdir, "herolist.txt")
+transifexapi = "https://www.transifex.com/api/2/"
 
 npcs = ["abilities", "heroes", "items", "units"]
 
@@ -33,6 +35,10 @@ def countFiles(dir):
 def display(npc, files, linked):
     """Display."""
     print("{}: {}/{}".format(npc, files, linked))
+
+
+def getTransifexProgress(url, username, password):
+    pass
 
 
 def main():
