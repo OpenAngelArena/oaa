@@ -71,12 +71,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-        "bonus_movement_speed"  "100 125 150 175 200"
+				"bonus_movement_speed"	"100 125 150 175 200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_per_minute"	"60 120 240 480 960"
+				"bonus_gold_per_minute"	"150 300 600 1200 2400"
 			}
 		}
 	}
