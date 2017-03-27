@@ -71,6 +71,7 @@ Last Update: `2017-03-27 13:37 UTC+0200`
     * Reduced Damage from `80 120 160 320 1000` to `80 120 160 320 640`
 * Fixed Invoker Leveling Pattern
   * Invoker now gets an Ability Point for every Level
+  * Invoker now can actually level his Abilities when he should
 
 #### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
