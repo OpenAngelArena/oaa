@@ -1,3 +1,4 @@
+LinkLuaModifier( "modifier_bottle_charges", "modifiers/modifier_bottle_charges", LUA_MODIFIER_MOTION_NONE )
 
 function bottlePickup( event )
     local caster = event.caster
