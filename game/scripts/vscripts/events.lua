@@ -1,4 +1,6 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
+LinkLuaModifier( "modifier_bottle_charges", "modifiers/modifier_bottle_charges", LUA_MODIFIER_MOTION_NONE )
+
 GameEvents = GameEvents or {}
 
 function CreateGameEvent (name)
@@ -146,7 +148,18 @@ function GameMode:OnAbilityUsed(keys)
   DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
   local abilityname = keys.abilityname
+
+  -- If hero uses a bottle, gives them a modifier-thinker that will remove itself when the hero has no more bottle charges
+  if abilityname == "item_bottle" then
+    local modifier = hero:FindModifierByName("modifier_bottle_charges")
+    if not modifier then
+      hero:AddNewModifier(hero, nil, "modifier_bottle_charges", {duration = duration})
+      modifier = hero:FindModifierByName("modifier_bottle_charges")
+    end
+  end
+
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
