@@ -29,7 +29,7 @@ ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
   { "item_clarity",             -1,      -1,      5},
   { "item_enchanted_mango",     -1,      -1,      13},
-  { "item_bottle",              12,      -1,      1},
+  { "item_dummy_bottle",              -1,      -1,      1},
   { "item_tango_single",        -1,      18,      2}
 }
 

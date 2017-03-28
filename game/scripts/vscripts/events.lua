@@ -151,14 +151,6 @@ function GameMode:OnAbilityUsed(keys)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
   local abilityname = keys.abilityname
 
-  -- If hero uses a bottle, gives them a modifier-thinker that will remove itself when the hero has no more bottle charges
-  if abilityname == "item_bottle" then
-    local modifier = hero:FindModifierByName("modifier_bottle_charges")
-    if not modifier then
-      hero:AddNewModifier(hero, nil, "modifier_bottle_charges", {duration = duration})
-      modifier = hero:FindModifierByName("modifier_bottle_charges")
-    end
-  end
 
 end
 

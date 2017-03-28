@@ -64,4 +64,47 @@
             }           
         }
     }   
+
+    "item_dummy_bottle"
+    {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "2151"              
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "item_tome_of_intellect"
+    
+    "Model"                         "models/props_gameplay/bottle_blue.vmdl"
+    
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    //"ItemCost"                        "0"
+    "ItemShopTags"                  "consumable"
+    "ItemQuality"                   "consumable"
+    "ItemStackable"                 "1"
+    "ItemKillable"                  "1"
+    "ItemPurchasable"               "0"
+    "ItemShareability"              "ITEM_FULLY_SHAREABLE_STACKING"
+    "ItemPermanent"                 "0"
+    "ItemInitialCharges"            "1"
+    "SideShop"                      "0"
+    "SecretShop" "1"
+    
+    "ItemCastOnPickup"              "1"
+    "OnSpellStart"
+    {
+        "SpendCharge"
+        {}
+        "RunScript"
+        {
+            "ScriptFile"            "item_dummy_bottle.lua"
+            "Function"              "bottlePickup"
+        }     
+    }
+    }
+
+
+
+        
+
 }
