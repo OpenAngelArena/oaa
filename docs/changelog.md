@@ -18,6 +18,7 @@ German
 Chinese
 Spanish
 ## Changes until now
+* Added anti-spawn camp mechanic
 * Added new Map
 * Added Level 5 & 6 for normal Abilities and Level 4 & 5 for Ultimates to all Heros
 * Added new Items
