@@ -3109,6 +3109,8 @@
 	//====================================================================================
 		"DOTA_Tooltip_ability_item_devDagger" "Dev Dagger"
    	    "DOTA_Tooltip_ability_item_devDagger_Description" "Dagger used by developers to help in testing."
+    "DOTA_Tooltip_modifier_fountain_aura_buff"                          "Fountain Rejuvenation"
+    "DOTA_Tooltip_modifier_fountain_aura_buff_Description"              "Heals %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP and %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% + %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second. Heroes cannot be damaged while they have this effect."
 
     }
 }
