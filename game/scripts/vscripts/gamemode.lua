@@ -141,6 +141,7 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
+  InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(Gold)
   InitModule(BlinkBlock)
