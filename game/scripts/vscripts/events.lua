@@ -1,6 +1,4 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
-LinkLuaModifier( "modifier_bottle_charges", "modifiers/modifier_bottle_charges", LUA_MODIFIER_MOTION_NONE )
-
 GameEvents = GameEvents or {}
 
 function CreateGameEvent (name)
@@ -148,10 +146,7 @@ function GameMode:OnAbilityUsed(keys)
   DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
   local abilityname = keys.abilityname
-
-
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
