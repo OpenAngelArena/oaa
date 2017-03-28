@@ -49,6 +49,16 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
 
+function modifier_item_greater_travel_boots:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE
+  }
+end
+
+function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Boots()
+  return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
+end
+
 function modifier_item_greater_travel_boots:OnCreated()
   self:StartIntervalThink(1)
 end

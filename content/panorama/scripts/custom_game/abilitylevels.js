@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 (function () {
   GameEvents.Subscribe("ability_level_error", DisplayAbilityLevelError)

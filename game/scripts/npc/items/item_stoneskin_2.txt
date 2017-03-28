@@ -25,7 +25,7 @@
         "ID"                            "3247"      // unique ID
 		    "BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "item_stoneskin_2"
+        "AbilityTextureName"            "custom/stoneskin_2"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "50"
@@ -33,6 +33,7 @@
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
+        "AbilitySharedCooldown"         "stoneskin"
         "MaxUpgradeLevel"               "2"
         "ItemBaseLevel"                 "2"
 
