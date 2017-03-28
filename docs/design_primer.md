@@ -1,4 +1,4 @@
-#Design Primer
+# Design Primer
 
 ## Boss Concepts
 1. When submitting, outline purely the mechanics.
