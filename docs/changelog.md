@@ -3,14 +3,14 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 Last Update: `2017-03-27 22:47 UTC+0200`
 
-### Translation Progress
+## Translation Progress
 * Chinese: 0%
 * German: 27%
 * Portuguese: 77%
 * Russian: 65%
 * Spanish: 0%
 
-### Changes until now
+## Changes until now
 * Added new Map
 * Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heros
 * Added new Items
@@ -24,15 +24,15 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Added a Duel System
 * Added Level Requirements for Abilities
 
-### Update 0.0.1 2017-03-24 
+## Update 0.0.1 2017-03-24 
 `07a33e56577acdf503c608b4a5a966b5e4d3a403`
-#### Items
+### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
 
-### Update 0.1.0
+## Update 0.1.0 2017-03-27
 `b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
-#### Items
+### Items
 * Buffed Echo Sabre 
   * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
 * Added Reverse Compatibility of Upgrade Cores to Reflex Cores
@@ -86,7 +86,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Increased Attack Damage from `200 300 450` to `200 400 600`
   
 
-#### Heroes
+### Heroes
 * Fixed Zeus Nimbus Cloud attacking too fast
 * Fixed Talents for Additional Treants and Eidolons
 * Tweaked Spawn Location of Beastmasters Hawk
@@ -138,7 +138,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
     * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
 
-#### Bosses
+### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
   * Reduced Damage from `3750` to `255`
@@ -146,14 +146,32 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
   
-#### Duels
+### Duels
 * Fixed Item Cooldown not saved in Duels
 
-#### UI
+### UI
 * Fixed Level Dots not showing for Level 5 and 6 Abilities
 * Added Icons to Stoneskin Armour, Dashstaff, Demon Blood and Metal Armour
 * Added Minimap with Trees
 
-#### Misc
+### Misc
 * Changed Strategy and Showcase time to `0`
 * Decreased Respawn Time when killed by Creeps from `25` to `10`
+
+## Hotfix 0.1.1 2017-03-27
+`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
+### Items
+* Fixed Greater Travel Boots not working
+
+## Update 0.2.0 2017-03-27
+`ac9347374cde1186dc45dc9f282f8de5f7be84a7`
+### Items
+* Added Matyr's Mail
+* Fixed Charge BKB Recipie
+* Added Preemptive Core 3B
+
+### Creeps
+* Decreased XP for all Camps
+  * Decreased Easy Camp XP from `25` to `20`
+  * Decreased Medium Camp XP from `35` to `25`
+  * Decreased Hard Camp XP from `40` to `30`
