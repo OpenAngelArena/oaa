@@ -122,8 +122,8 @@
     //=============================================================================
     // Preempt Preemption 2 B
     //=============================================================================
-            "DOTA_Tooltip_modifier_item_preemptive_2b"                           "Preemption"
-            "DOTA_Tooltip_modifier_item_preemptive_2b_Description"               "Unit is taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% reduced damage."
+            "DOTA_Tooltip_modifier_item_preemptive_damage_reduction"               "Preemption"
+            "DOTA_Tooltip_modifier_item_preemptive_damage_reduction_Description"   "Unit is taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% reduced damage."
 
     //=============================================================================
     // Greater Travels Passive GPM Buff
@@ -2076,13 +2076,14 @@
             "DOTA_Tooltip_ability_item_preemptive_3a_Description"                              "Active: Periodic Purge - Purges debuffs every %tick_interval% seconds.  Lasts %duration% seconds"
             "DOTA_Tooltip_Ability_item_preemptive_3a_Lore"                                     "Your preparedness is your shield."
 
-            "DOTA_Tooltip_Ability_item_preemptive_2b"                                           "Preemptive Reflex 2 B"
+            "DOTA_Tooltip_Ability_item_preemptive_2b"                                           "Preemptive Damage Block"
             "DOTA_Tooltip_Ability_item_preemptive_2b_Description"                               "Active: Take %damage_reduction%%% damage for %duration% seconds."
             "DOTA_Tooltip_Ability_item_preemptive_2b_Lore"                                      "Your preparedness is your shield."
 
-            "DOTA_Tooltip_Ability_item_preemptive_3"                                           "Preemptive Reflex 3"
-            "DOTA_Tooltip_Ability_item_preemptive_3_Description"                               "Active:"
-            "DOTA_Tooltip_Ability_item_preemptive_3_Lore"                                      "Your preparedness is your shield."
+            "DOTA_Tooltip_Ability_item_preemptive_3b"                                           "Preemptive  Damage Block"
+            "DOTA_Tooltip_Ability_item_preemptive_3b_Description"                               "Active: Take %damage_reduction%%% damage for %duration% seconds. Heal for %damage_as_healing%%% of damage blocked."
+            "DOTA_Tooltip_Ability_item_preemptive_3b_Lore"                                      "Your preparedness is your shield."
+            "DOTA_Tooltip_Ability_item_preemptive_3b_Note0"                                     "Heal amount is based on damage after reduction"
 
     //=====================================================================================
     // Pull Staff
@@ -3108,9 +3109,6 @@
 	//====================================================================================
 		"DOTA_Tooltip_ability_item_devDagger" "Dev Dagger"
    	    "DOTA_Tooltip_ability_item_devDagger_Description" "Dagger used by developers to help in testing."
-    "DOTA_Tooltip_modifier_fountain_aura_buff"                          "Fountain Rejuvenation"
-    "DOTA_Tooltip_modifier_fountain_aura_buff_Description"              "Heals %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP and %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% + %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana per second. Heroes cannot be damaged while they have this effect."
-
 
     }
 }
