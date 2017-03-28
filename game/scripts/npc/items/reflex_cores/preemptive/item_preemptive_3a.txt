@@ -37,8 +37,8 @@
     "ScriptFile"            "items/reflex/preemptive_purge.lua"
     "FightRecapLevel"       "1"
 
-    "MaxUpgradeLevel"       "2"
-    "ItemBaseLevel"         "2"
+    "MaxUpgradeLevel"       "3"
+    "ItemBaseLevel"         "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "duration"        "2.0 4.0"
+        "duration"        "4.0"
       }
       "03"
       {
