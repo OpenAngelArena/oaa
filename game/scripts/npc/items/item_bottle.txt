@@ -1,0 +1,110 @@
+"DOTAItems"
+{
+    //=================================================================================================================
+    // Bottle
+    //=================================================================================================================
+
+    "item_bottle"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "41"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "Model"                         "models/props_gameplay/bottle_blue.vmdl"
+        "ModelAlternate"                "models/props_gameplay/bottle_empty.vmdl"
+        "FightRecapLevel"               "1"
+        "SideShop"                      "1"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.5"
+        "AbilityCastRange"              "350"
+        "AbilityCastPoint"              "0.0"
+        
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "600"
+        "ItemPurchasable"               "0"
+        "ItemSellable"                  "0"
+        "ItemShopTags"                  "consumable"
+        "ItemQuality"                   "consumable"
+        "ItemAliases"                   "bottle"
+        "ItemStackable"                 "0"
+        "ItemShareability"              "ITEM_PARTIALLY_SHAREABLE"
+        "ItemPermanent"                 "1"
+        "ItemInitialCharges"            "3"
+        "ItemDisplayCharges"            "1"
+        "IsTempestDoubleClonable"       "0"
+        
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "health_restore"        "90"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "mana_restore"          "60"
+            }           
+            "03"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "restore_time"          "2.5"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movement_speed_percent_bonus"          "-30"
+            }           
+        }
+    }   
+
+    "item_dummy_bottle"
+    {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "2151"              
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "item_tome_of_intellect"
+    
+    "Model"                         "models/props_gameplay/bottle_blue.vmdl"
+    
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    //"ItemCost"                        "0"
+    "ItemShopTags"                  "consumable"
+    "ItemQuality"                   "consumable"
+    "ItemStackable"                 "1"
+    "ItemKillable"                  "1"
+    "ItemPurchasable"               "0"
+    "ItemShareability"              "ITEM_FULLY_SHAREABLE_STACKING"
+    "ItemPermanent"                 "0"
+    "ItemInitialCharges"            "1"
+    "SideShop"                      "0"
+    "SecretShop" "1"
+    
+    "ItemCastOnPickup"              "1"
+    "OnSpellStart"
+    {
+        "SpendCharge"
+        {}
+        "RunScript"
+        {
+            "ScriptFile"            "item_dummy_bottle.lua"
+            "Function"              "bottlePickup"
+        }     
+    }
+    }
+
+
+
+        
+
+}
