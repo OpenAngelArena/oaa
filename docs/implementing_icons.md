@@ -1,6 +1,6 @@
 # Implementing icons
 
-## Icons
+## Items
 
 #### File Locations
 
