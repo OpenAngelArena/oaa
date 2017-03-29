@@ -34,12 +34,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.5 1.0 1.5 2.0 2.5 3.0"
+				"stun_duration"				"0.5 1.0 1.5 2.0 2.25 2.5"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"140 160 180 200 240 400"
+				"strike_crit_mult"			"140 160 180 200 220 250"
 				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king"
 			}
 			"03"
