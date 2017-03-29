@@ -175,6 +175,7 @@ end
 function GetPowerLevelPropertyMultiplier( property_enum, powerLevel )
   local powerLevelPropertyMultiplier = 1
   local lowerIndex = 1
+  local CreepPowerTable = CreepPower.PowerTable
   local higherIndex = #CreepPowerTable
 
   for i=1, #CreepPowerTable do

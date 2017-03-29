@@ -42,6 +42,8 @@ require('libraries/selection')
 require('libraries/math')
 -- chat command registry made easy
 require('libraries/chatcommand')
+-- Extensions to CDOTA_BaseNPC
+require('libraries/basenpc')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -139,6 +141,7 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
+  InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(Gold)
   InitModule(BlinkBlock)
@@ -148,6 +151,7 @@ function GameMode:OnGameInProgress()
   InitModule(AbilityLevels)
   InitModule(BossSpawner)
   InitModule(NGP)
+  InitModule(HeroProgression)
 
 end
 
