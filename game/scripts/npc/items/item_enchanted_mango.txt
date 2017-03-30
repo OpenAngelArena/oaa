@@ -1,31 +1,38 @@
 "DOTAItems"
 {
 	//=================================================================================================================
-	// Upgrade Core
+	// Enchanted Mango
 	//=================================================================================================================
-	"item_upgrade_core"
+	"item_enchanted_mango"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "3530"      // unique ID
-		"BaseClass"                     "item_datadriven"
- 		"AbilityTextureName"				"custom/upgrade_core"
+		"ID"							"216"														// unique
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-
-
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"110"
+		"ItemStackable"					"1"
+		"ItemHideCharges"				"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 
-    		"ItemCost"						  "1500"
-    		"ItemPurchasable"				"0"
-        //"ItemSellable"          "0"
-        "ItemKillable"          "0"
-        "ItemShareability"      "ITEM_FULLY_SHAREABLE"
-
-		// Special
+		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hp_regen"		"1.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"replenish_amount"		"150"
+			}	
+		}
 	}
-
 }
