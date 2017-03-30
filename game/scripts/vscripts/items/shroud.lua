@@ -21,20 +21,7 @@ end
 
 --------------------------------------------------------------------------------
 
-item_shroud_2 = class({})
-
-function item_shroud_2:GetIntrinsicModifierName()
-	return "modifier_item_shroud_passive"
-end
-
-function item_shroud_2:OnSpellStart()
-	local hTarget = self:GetCursorTarget()
-	local shroud_duration = self:GetSpecialValueFor( "duration" )
-
-	EmitSoundOn( "Item.GlimmerCape.Activate", hTarget )
-	hTarget:AddNewModifier( hTarget, self, "modifier_ghost_state", { duration = shroud_duration } )
-	hTarget:AddNewModifier( hTarget, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
-end
+item_shroud_2 = item_shroud
 
 --------------------------------------------------------------------------------
 
