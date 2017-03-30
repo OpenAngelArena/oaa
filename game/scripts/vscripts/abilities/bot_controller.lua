@@ -9,24 +9,12 @@ function Control( keys )
   local healthRetreat = 400
   local enemyHeroSearchRadius = 1500
   local creepSearchRadius = 500
-  local teamLeader = GetStrongestHeroForTeam(caster:GetTeamNumber())
 
   --local ability_level = ability:GetLevel() - 1
 
   -- Little bonus for bots because they dont farm and mostly walk around doing nothing
   caster:AddExperience(5,0,false,false)
   caster:ModifyGold(5,false,0)
-
-  -- Level up their abilities if they have spare points
-  if caster:GetAbilityPoints() > 0 then
-    local index = RandomInt(0, 16)
-    abAbility = caster:GetAbilityByIndex(index)
-    if abAbility and not string.match(abAbility:GetName(), "special") and abAbility:GetLevel() < abAbility:GetMaxLevel() then
-      abAbility:UpgradeAbility(false)
-    end
-  end
-
-
 
   position = caster:GetAbsOrigin()
   -- Hardcoded arenas coordinates, the top left corner and the bottom right corner
@@ -97,19 +85,4 @@ function Control( keys )
 
   ability:StartCooldown(cooldown)
 
-end
-
-function GetStrongestHeroForTeam(team)
-  local mostHP = 1
-  local strongestHero = nil
-  for playerID=0,24-1 do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    if hero ~= nil and IsValidEntity(hero) and PlayerResource:GetSteamAccountID(playerID) == 0 and hero:GetTeam() == team then
-      if hero:GetMaxHealth() > mostHP then
-        mostHP = hero:GetMaxHealth()
-        strongestHero = hero
-      end
-    end
-  end
-  return strongestHero
 end
