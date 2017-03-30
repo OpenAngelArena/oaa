@@ -1,0 +1,39 @@
+This is an all-git solution to removing trailing whitespace (and other whitespace errors) from files. It is important because the senseless conflicts created is disruptive to large development teams. (You don't want to be "that guy".)
+
+The git diff command has a --check option which will check for "trailing whitespace" and merge-markers. This option is often used in git hooks to either reject a commit locally, if you are developer who takes pride in your own work, or to reject receipt of a push, if you have a perfectionist manager like the other of this project. Interestingly, the "trailing whitespace" check actually rejects a few other things too. That makes it a little more difficult to clean up or code systematically. I could study the C code for git to design my algorithm and update it any time the code changes. Luckily there is a way to use git's own whitespace functionality to correct the errors. This project simplifies that. What's nice about using git's native abilities to do the cleaning is that there are no dependencies and no surprises.
+
+NOTICE:
+Copy/move/symlink git-fix-whitespace into a directory in your $PATH, and you can call it like so:
+    git fix-whitespace --cached
+    git fix-whitespace HEAD~1 HEAD
+
+The examples below can be cut and pasted onto the command line assuming that you cloned this repo:
+    git clone git@github.com:RichardBronosky/git-fix-whitespace.git
+
+Example 1 (cleaning whitespace in your index):
+    # create some test files
+    ./create_files.sh
+    git add *.txt
+    git status
+
+    # Examine the problem
+    git diff-index --cached --check HEAD
+
+    # Fix the problem
+    ./git-fix-whitespace --cached
+    git status
+
+Example 2 (cleaning whitespace in your history):
+    # create some test files
+    ./create_files.sh
+    git add *.txt
+    git commit -am 'added dirty text files'
+    git status
+
+    # Examine the problem
+    git diff --check HEAD~1 HEAD # compare HEAD minus 1 commit to HEAD
+
+    # Fix the problem
+    ./git-fix-whitespace HEAD~1 HEAD
+    git status
+    #git commit -am 'cleaned the dirty text files'
