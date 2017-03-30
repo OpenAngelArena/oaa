@@ -93,5 +93,5 @@ function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Per
 
   spell.damageTaken = spell.damageTaken + event.damage
 
-  return spell:GetSpecialValueFor( "damage_reduction" )
+  return spell:GetSpecialValueFor( "damage_reduction" ) * -1
 end
