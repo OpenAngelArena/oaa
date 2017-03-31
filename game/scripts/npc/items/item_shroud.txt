@@ -41,10 +41,14 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3234"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_glimmer_cape"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"					"items/shroud"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"            "item_glimmer_cape"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
@@ -95,7 +99,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.6"
+				"fade_delay"			"0.6"
 			}
 			"07"
 			{
@@ -105,7 +109,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"	"5"
+				"duration"				"5"
 			}
 		}
 	}
