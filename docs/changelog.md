@@ -181,3 +181,28 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 ### Creeps
 * Changed Creep XP
   * XP now also depends on Player Count
+
+### Items
+* Added Shroud of Shadows 
+  * Make self/ally invisible + Not attackable
+* Fixed Damage Reduction Tooltip of Preemptive Core
+
+
+
+## Template
+```Markdown
+## <Name> <Tag>
+`<commit>`
+### Creeps
+### Items
+### Heroes
+### Bosses
+### Duels
+### UI
+### Misc
+```
+```Markdown
+* 'what' changed
+  * explicit change
+    * detailed description
+```
