@@ -69,48 +69,48 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
+				"bonus_attack_speed"	"30 40"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"550 600"
+				"aura_radius"			"900"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-50"
+				"blast_damage"			"550 600"
 			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_movement_speed"	"-50"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"blast_debuff_duration"	"4.0"
 			}
-			"07"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"blast_radius"			"900"
 			}
-			"08"
+			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"blast_speed"			"350"
 			}
-			"09"
+			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_attack_speed"		"-55"
 			}
 			// Assault Cuirass Parameters
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_negative_armor"	"-5"
-			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40"
+				"aura_negative_armor"	"-5"
 			}
 			"12"
 			{
