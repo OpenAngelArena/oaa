@@ -41,7 +41,7 @@
     "AbilityTextureName"            "item_charge_bkb"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
+		"AbilityCooldown"				"20.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
 		"AbilitySharedCooldown"			"bkb"
 		"AbilityCastRange"				"1200"
 
@@ -61,7 +61,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"17"		//RamonNZ: Based on wand, seems fair.
+				"max_charges"			"99"		//RamonNZ: Based on wand, seems fair.
 			}
 			"02"
 			{
@@ -106,7 +106,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"immunity_time_per_charge"	"2"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated.
+				"immunity_time_per_charge"	"1"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated.
 			}
 		}
 		"OnSpellStart"
