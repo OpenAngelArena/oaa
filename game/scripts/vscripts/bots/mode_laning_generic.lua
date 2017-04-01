@@ -54,18 +54,20 @@ local DuelLocation2 = Vector(-4900,4400)
 local DireBase = Vector(5000,-300)
 local RadiantBase = Vector(-5000,-300)
 
-local RadiantBotEasy = Vector(-3750,1400)
-local RadiantTopEasy = Vector(-3750,-1300)
+local RadiantTopEasy = Vector(-3500,1500)
 local RadiantMidEasy = Vector(-1100,-400)
+local RadiantBotEasy = Vector(-3600,-1750)
+
+local RadiantTopMedium = Vector(-1800,1900)
 local RadiantMidMedium = Vector(-2100,200)
 local RadiantBotMedium = Vector(-1900,-2200)
-local RadiantTopMedium = Vector(-1800,1900)
 
-local DireTopEasy = Vector(3750,1200)
-local DireBotEasy = Vector(3800,-1600)
+local DireTopEasy = Vector(3700,1400)
 local DireMidEasy = Vector(1000,200)
-local DireMidMedium = Vector(2000,-600)
+local DireBotEasy = Vector(3700,-1750)
+
 local DireTopMedium = Vector(1600,2000)
+local DireMidMedium = Vector(2000,-600)
 local DireBotMedium = Vector(1700,-2500)
 
 
@@ -115,7 +117,7 @@ local currentduel = false
 ----	Important Hero vs Hero/Creep Variables:
 
 local maxsearchradius = 1600 --Must not be greater than 1600 or error
-local creepsearchradius = 1000  -- (1200) Must not be greater than 1600 or error
+local creepsearchradius = 900  -- (1200) Must not be greater than 1600 or error
 local AISwitchOffDistance = 1400 -- must not be greater than 1600
 
 
@@ -329,6 +331,11 @@ local function SwitchCamps()
 				return
 --			npcBot:Action_MoveToLocation (CurrentCamp)
 			else
+				if npcBot:GetHealth()/npcBot:GetMaxHealth() < 0.6 then
+					npcBot.IsRetreating = true
+					print("---> ",npcBot:GetUnitName()," Is Healing before next camp.")
+					return
+				end
 				if DotaTime() > runtime then --or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_IDLE or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_NONE then --
 					if NextCamp ~= Vector(0,0) then
 						CurrentCamp = NextCamp
@@ -406,11 +413,11 @@ function GetDesire()
 	if npcBotLocation.x > DuelLocation1.x and npcBotLocation.y < DuelLocation1.y then
 		currentduel = true
 --		print("--> Duel Location #1a")
-		return 0.1
+		return 0.3
 	elseif npcBotLocation.x < DuelLocation2.x and npcBotLocation.y > DuelLocation2.y then
 		currentduel = true
 --		print("--> Duel Location #2a")
-		return 0.1
+		return 0.3
 	else
 		currentduel = false
 	end
@@ -418,7 +425,7 @@ function GetDesire()
 	GetClosestHero( maxsearchradius,true )
 --	if ClosestHero == nil then
 	if #EnemyHeroes~=0 then
-		return 0.1
+		return 0.3
 	else
 		return 0.7 -- general farm desire
 	end
