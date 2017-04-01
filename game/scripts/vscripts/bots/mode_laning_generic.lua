@@ -370,9 +370,9 @@ function  OnStart()
 			NextCamp = RadiantBotMedium
 			NextNextCamp = RadiantMidMedium
 		else
-			CurrentCamp = RadiantMidMedium	--DireMidMedium
-			NextCamp = RadiantMidMedium	--DireTopMedium
-			NextNextCamp = RadiantMidMedium	--DireMidMedium
+			CurrentCamp = DireMidMedium
+			NextCamp = DireTopMedium
+			NextNextCamp = DireMidMedium
 
 		end
 	end
@@ -417,7 +417,7 @@ function GetDesire()
 	
 	GetClosestHero( maxsearchradius,true )
 --	if ClosestHero == nil then
-	if #EnemyHeroes==0 then
+	if #EnemyHeroes~=0 then
 		return 0.1
 	else
 		return 0.7 -- general farm desire
