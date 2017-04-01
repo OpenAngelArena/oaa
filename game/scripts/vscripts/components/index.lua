@@ -1,6 +1,7 @@
 
 -- component list. comment out things to disable them
 
+require('components/filters/index')
 require('components/abilities/index')
 require('components/creeps/index')
 require('components/points/index')
