@@ -1,3 +1,8 @@
+-- In order to add a filter, call FilterManager:AddFilter(filterType, context, filterFunc)
+--filterType is a constant number corresponding to Filters as listed below
+--context is the same as hContext in vanilla API Set*Filter
+--filterFunc is the same as hFunction in vanilla API Set*Filter
+
 if not FilterManager then
   DebugPrint("Creating FilterManager...")
   FilterManager = class({})
