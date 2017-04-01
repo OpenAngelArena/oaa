@@ -3,7 +3,7 @@ require('game/scripts/vscripts/libraries/math')
 TestMath = {}
 
 function TestMath:setUp()
-  print("Testing doLinesIntersect")
+  print("Testing doLinesIntersect() from libraries/math.lua")
   self.P1 = { x = 0, y = 0 }
   self.P2 = { x = 1, y = 1 }
   self.P3 = { x = 0, y = 1 }
