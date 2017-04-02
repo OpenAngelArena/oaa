@@ -19,7 +19,7 @@ if not FilterManager then
   FilterManager.TrackingProjectile = 10
   FilterManager.NumFilterTypes = 10
 
-  Debug.EnabledModules["filters:*"] = true
+  Debug.EnabledModules["filters:*"] = false
 end
 
 function FilterManager:Init()
