@@ -11,7 +11,7 @@ function CreepPower:AddScaleValue (minute)
     (minute / 20) + 1,                        -- damage
     minute ^ 0.5,                             -- armor
     (minute / 2) + 1,                         -- gold
-    ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor --xp
+    ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor -- xp
   })
 end
 
