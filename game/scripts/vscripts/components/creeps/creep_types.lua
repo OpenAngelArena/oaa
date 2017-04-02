@@ -18,7 +18,6 @@ CreepTypes = {
       {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    17,   90},
       {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    17,   90},
       {"npc_dota_neutral_harpy_scout",          400,  0,    31,   1,    17,   90},
-      {"npc_dota_neutral_harpy_scout",          400,  0,    31,   1,    17,   90}
     }
   },
     -- 3 "hard camp"
