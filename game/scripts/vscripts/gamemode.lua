@@ -88,12 +88,11 @@ function GameMode:FilterDamage(filterTable)
   end
   local victim = EntIndexToHScript(victim_index)
   local attacker = EntIndexToHScript(attacker_index)
-  print("damaged")
 
-  if victim:FindModifierByName("modifier_fountain_aura_buff") then 
+  if victim:FindModifierByName("modifier_fountain_aura_buff") then
     return false
   end
-  
+
   return true
 
 end
