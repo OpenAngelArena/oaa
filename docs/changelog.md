@@ -212,7 +212,10 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Decreased Damage from `1000` to `500-600`
 
 ### Bots
-* [Update 2.0](game/scripts/vscripts/bots/docs/AAO Bot.txt)
+* Hero vs Hero fighting is taken over by default AI
+* Bots knows when they're in a duel and fight almost to the death
+* Farming is more efficient
+* A thousand little Tweaks and Bug fixes
 
 ### Misc
 * Added Automatic Courier Spawning before Game Start
