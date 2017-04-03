@@ -9,7 +9,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"                            "3530"      // unique ID
 		"BaseClass"                     "item_datadriven"
- 		"AbilityTextureName"				"item_upgrade_core"
+ 		"AbilityTextureName"				"custom/upgrade_core"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@
 
     		"ItemCost"						  "1500"
     		"ItemPurchasable"				"0"
-        "ItemSellable"          "0"
+        //"ItemSellable"          "0"
         "ItemKillable"          "0"
         "ItemShareability"      "ITEM_FULLY_SHAREABLE"
 

@@ -13,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- Lua Fun(ctional) library
+require('libraries/fun')()
 -- functional event implementation
 require('libraries/event')
 
@@ -42,6 +44,10 @@ require('libraries/selection')
 require('libraries/math')
 -- chat command registry made easy
 require('libraries/chatcommand')
+-- extension functions to PlayerResource
+require('libraries/playerresource')
+-- Extensions to CDOTA_BaseNPC
+require('libraries/basenpc')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -113,7 +119,9 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-
+  if not Courier.hasCourier[hero:GetTeamNumber()] then
+    Courier:SpawnCourier(hero)
+  end
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   --hero:SetGold(500, false)
 
@@ -139,6 +147,7 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(PointsManager)
+  InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(Gold)
   InitModule(BlinkBlock)
@@ -148,6 +157,9 @@ function GameMode:OnGameInProgress()
   InitModule(AbilityLevels)
   InitModule(BossSpawner)
   InitModule(NGP)
+  InitModule(HeroProgression)
+  InitModule(SellBlackList)
+  InitModule(Courier)
 
 end
 
