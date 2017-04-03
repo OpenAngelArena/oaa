@@ -5,11 +5,12 @@
     "BaseClass"               "ability_lua"
     "ScriptFile"              "abilities/charger/boss_charger_charge.lua"
     "AbilityTextureName"      "magnataur_skewer"
-    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
-    "MaxLevel"                "1"
+    "MaxLevel"                "3"
     "RequiredLevel"           "1"
     "LevelsBetweenUpgrades"   "1"
+    "AbilityChannelTime"      "1.0 0.6 0.4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,6 +20,36 @@
       {
         "var_type"          "FIELD_INTEGER"
         "cooldown"          "10 5 0"
+      }
+      "02"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "distance"         "1000"
+      }
+      "03"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "charge_duration"     "1.0"
+      }
+      "04"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "speed"            "20 25 30"
+      }
+      "05"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "debuff_duration"     "5.0 3.0 2.0"
+      }
+      "06"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "debuff_magic_resist"     "-60"
+      }
+      "07"
+      {
+        "var_type"         "FIELD_INTEGER"
+        "debuff_armor"     "-100"
       }
     }
   }
