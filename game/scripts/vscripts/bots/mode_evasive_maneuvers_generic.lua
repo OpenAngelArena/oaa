@@ -9,4 +9,7 @@ function GetDesire()
 end
 
 function Think()
+	local npcBot=GetBot()
+--	print (npcBot:GetUnitName(),"Evasive Thinking")
+	return
 end

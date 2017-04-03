@@ -11,5 +11,4 @@ function GetDesire()
 end
 
 function Think()
-
 end
