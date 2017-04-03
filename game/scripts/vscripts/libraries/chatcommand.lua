@@ -144,6 +144,11 @@ function ChatCommand:OnPlayerChat(keys)
 	  elseif string.find(text, "-endduel") then
 	    Duels:EndDuel()
 
+    -- Prints vector of current position of hero to console
+    elseif string.find(text, "-getpos") then
+      print(hero:GetAbsOrigin())
+      GameRules:SendCustomMessage(tostring(hero:GetAbsOrigin()), 0, 0)
+
 	  -- Give Invulnerability
 	  elseif string.find(text, "-god") then
 	    local godMode = hero:FindModifierByName("modifier_invulnerable")
