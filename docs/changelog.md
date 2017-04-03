@@ -40,7 +40,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Added 1.5 second delay to Toggle
   * Fixed Toggle not respecting Cooldown
 * Added Preemptive Purge Item
-* Removed Combiner Core from all Recipies and replaced them with Upgrade Cores
+* Removed Combiner Core from all Recipes and replaced them with Upgrade Cores
 * Nerfed Octarine Core
   * Nerfed Cooldown from `25 35` to `25 30`
 * Nerfed Refresher Core
@@ -167,7 +167,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 `ac9347374cde1186dc45dc9f282f8de5f7be84a7`
 ### Items
 * Added Matyr's Mail
-* Fixed Charge BKB Recipie
+* Fixed Charge BKB Recipe
 * Added Preemptive Core 3B
 
 ### Creeps
@@ -185,7 +185,19 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 ### Items
 * Added Shroud of Shadows 
   * Make self/ally invisible + Not attackable
-* Fixed Damage Reduction Tooltip of Preemptive Core
+* Fixed Damage Reduction Tooltip of Preemptive Reflex Core
+* Added Postactive Reflex Core
+* Fixed Shroud Level 2 Targeting
+* Fixed Phase Boots Level 1 Recipe
+* Added Shivas Cuirass Level 1 and 2
+  * A Mix between Shivas Guard and Assault Cuirass
+
+### Heroes
+* Fixed Talents
+
+### Misc
+* Added Automatic Courier Spawning before Game Start
+
 
 
 
