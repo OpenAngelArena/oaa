@@ -146,7 +146,6 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(FilterManager)
   InitModule(PointsManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
@@ -176,6 +175,7 @@ function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
+  InitModule(FilterManager)
   InitModule(GameLengthVotes)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
