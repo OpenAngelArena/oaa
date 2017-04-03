@@ -176,8 +176,8 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Decreased Medium Camp XP from `35` to `25`
   * Decreased Hard Camp XP from `40` to `30`
 
-## Update 0.3.0
-``
+## Update 0.3.0 2017-04-03
+`67397b7a2a648bdafecf645ebb9b6193183eb970`
 ### Creeps
 * Changed Creep XP
   * XP now also depends on Player Count
