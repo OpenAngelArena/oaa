@@ -11,6 +11,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Spanish: 0%
 
 ### Changes until now
+* Added Anti-Spawn Camping Mechanic: Immune to Damage
 * Added new Map
 * Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heros
 * Added new Items

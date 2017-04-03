@@ -80,7 +80,29 @@ require('components/index')
 
   This function should generally only be used if the Precache() function in addon_game_mode.lua is not working.
 ]]
+
+
+
+function GameMode:FilterDamage(filterTable)
+  local victim_index = filterTable["entindex_victim_const"]
+  local attacker_index = filterTable["entindex_attacker_const"]
+  local ability_index = filterTable["entindex_inflictor_const"]
+  if not victim_index or not attacker_index then
+      return true
+  end
+  local victim = EntIndexToHScript(victim_index)
+  local attacker = EntIndexToHScript(attacker_index)
+
+  if victim:FindModifierByName("modifier_fountain_aura_buff") then
+    return false
+  end
+
+  return true
+
+end
+
 function GameMode:PostLoadPrecache()
+  GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(GameMode, 'FilterDamage'),self)
   DebugPrint("[BAREBONES] Performing Post-Load precache")
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
   --PrecacheItemByNameAsync("example_ability", function(...) end)
