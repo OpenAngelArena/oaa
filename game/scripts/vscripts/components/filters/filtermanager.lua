@@ -23,23 +23,32 @@ if not FilterManager then
 end
 
 function FilterManager:Init()
-  -- Filter function table
+  -- Registered filter function table
   self.Filters = {}
+  -- Master filter function table
+  self.MasterFilters = {}
   for i=1, self.NumFilterTypes do
+    -- Populate self.Filters with empty tables so that AddFilter can table.insert Filter entries
     self.Filters[i] = {}
+
+    -- Generate master filter functions
+    function MasterFilter(self, keys)
+      return self:RunFilterForType(keys, i)
+    end
+    self.MasterFilters[i] = MasterFilter
   end
 
   local gameMode = GameRules:GetGameModeEntity()
-  gameMode:SetAbilityTuningValueFilter(Dynamic_Wrap(self, "AbilityTuningValueFilter"), self)
-  gameMode:SetBountyRunePickupFilter(Dynamic_Wrap(self, "BountyRunePickupFilter"), self)
-  gameMode:SetDamageFilter(Dynamic_Wrap(self, "DamageFilter"), self)
-  gameMode:SetExecuteOrderFilter(Dynamic_Wrap(self, "ExecuteOrderFilter"), self)
-  gameMode:SetItemAddedToInventoryFilter(Dynamic_Wrap(self, "ItemAddedtoInventoryFilter"), self)
-  gameMode:SetModifierGainedFilter(Dynamic_Wrap(self, "ModifierGainedFilter"), self)
-  gameMode:SetModifyExperienceFilter(Dynamic_Wrap(self, "ModifyExperienceFilter"), self)
-  gameMode:SetModifyGoldFilter(Dynamic_Wrap(self, "ModifyGoldFilter"), self)
-  gameMode:SetRuneSpawnFilter(Dynamic_Wrap(self, "RuneSpawnFilter"), self)
-  gameMode:SetTrackingProjectileFilter(Dynamic_Wrap(self, "TrackingProjectileFilter"), self)
+  gameMode:SetAbilityTuningValueFilter(Dynamic_Wrap(self.MasterFilters, self.AbilityTuningValue), self)
+  gameMode:SetBountyRunePickupFilter(Dynamic_Wrap(self.MasterFilters, self.BountyRunePickup), self)
+  gameMode:SetDamageFilter(Dynamic_Wrap(self.MasterFilters, self.Damage), self)
+  gameMode:SetExecuteOrderFilter(Dynamic_Wrap(self.MasterFilters, self.ExecuteOrder), self)
+  gameMode:SetItemAddedToInventoryFilter(Dynamic_Wrap(self.MasterFilters, self.ItemAddedtoInventory), self)
+  gameMode:SetModifierGainedFilter(Dynamic_Wrap(self.MasterFilters, self.ModifierGained), self)
+  gameMode:SetModifyExperienceFilter(Dynamic_Wrap(self.MasterFilters, self.ModifyExperience), self)
+  gameMode:SetModifyGoldFilter(Dynamic_Wrap(self.MasterFilters, self.ModifyGold), self)
+  gameMode:SetRuneSpawnFilter(Dynamic_Wrap(self.MasterFilters, self.RuneSpawn), self)
+  gameMode:SetTrackingProjectileFilter(Dynamic_Wrap(self.MasterFilters, self.TrackingProjectile), self)
 end
 
 function FilterManager:AddFilter(filterType, context, filterFunc)
@@ -50,48 +59,19 @@ function FilterManager.ApplyFilter(keys, context, filterFunc)
   return filterFunc(context, keys)
 end
 
----------------------------------
--- Master filter functions which call filter functions registered through FilterManager:AddFilter
-
-function FilterManager:AbilityTuningValueFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.AbilityTuningValue]))))
+function FilterManager:CreateFilterIterator(filterType)
+  -- create iterator on table and then unpack each entry
+  return wrap(map(unpack, iter(self.Filters[filterType])))
 end
 
-function FilterManager:BountyRunePickupFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.BountyRunePickup]))))
+function FilterManager:ApplyFiltersToIterator(keys, filterIter)
+  -- ApplyFilter(keys, entry) for each entry and return the results
+  return wrap(map(partial(self.ApplyFilter, keys), filterIter))
 end
 
-function FilterManager:DamageFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.Damage]))))
-end
+function FilterManager:RunFilterForType(keys, type)
+  local filterIter = self:CreateFilterIterator(type)
+  local filterResults = self:ApplyFiltersToIterator(keys, filterIter)
 
-function FilterManager:ExecuteOrderFilter(keys)
-  DebugPrintTable(self.Filters)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.ExecuteOrder]))))
+  return reduce(operator.land, true, filterResults)
 end
-
-function FilterManager:ItemAddedtoInventoryFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.ItemAddedtoInventory]))))
-end
-
-function FilterManager:ModifierGainedFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.ModifierGained]))))
-end
-
-function FilterManager:ModifyExperienceFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.ModifyExperience]))))
-end
-
-function FilterManager:ModifyGoldFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.ModifyGold]))))
-end
-
-function FilterManager:RuneSpawnFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.RuneSpawn]))))
-end
-
-function FilterManager:TrackingProjectileFilter(keys)
-  return reduce(operator.land, true, map(partial(self.ApplyFilter, keys), map(unpack, iter(self.Filters[self.TrackingProjectile]))))
-end
-
----------------------------------
