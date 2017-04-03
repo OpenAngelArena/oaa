@@ -176,12 +176,14 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(GameLengthVotes)
-
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
+  
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end
+
+
 
 -- This is an example console command
 -- function GameMode:ExampleConsoleCommand()
