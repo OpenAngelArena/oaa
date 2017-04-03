@@ -331,6 +331,15 @@ function Duels:SavePlayerState (hero)
     mana = hero:GetMana()
   }
 
+  -- If hero is dead during start of the duel, make his saved location his foutain area
+  if hero:IsAlive() == false then
+    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+        state.location = Vector(-5221.958496, -139.014923, 387.999023)
+    else
+        state.location = Vector(4908.748047, -91.460907, 392.000000)
+    end
+  end
+
   for abilityIndex = 0,state.abilityCount-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then

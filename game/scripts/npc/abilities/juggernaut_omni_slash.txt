@@ -48,7 +48,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"omni_slash_jumps"			"3 6 9 14 32"
+				"omni_slash_jumps"			"3 6 9 12 18"
 			}
 			"03"
 			{
@@ -58,12 +58,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"omni_slash_bounce_tick"	"0.4"
+				"omni_slash_bounce_tick"	"0.4 0.4 0.4 0.4 0.3 0.1"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"omni_slash_jumps_scepter"		"6 9 12 18 40"
+				"omni_slash_jumps_scepter"		"6 9 12 15 18"
 			}
 			"06"
 			{

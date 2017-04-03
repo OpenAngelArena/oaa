@@ -36,13 +36,12 @@ function partial (fn, ...)
     local argLength = #arg
     local totalLength = argLength + partialArgumentsLength
     local fnArgs = {}
-    fnArgs[1] = self
 
     for i,v in ipairs(partialArguments) do
-      fnArgs[i + 1] = v
+      fnArgs[i] = v
     end
     for i,v in ipairs(arg) do
-      fnArgs[partialArgumentsLength + i + 1] = v
+      fnArgs[partialArgumentsLength + i] = v
     end
 
     return fn(unpack(fnArgs))
@@ -58,12 +57,12 @@ forEach(myArray, function (value)
 end)
 
 ]]
-function forEach (ar, fn)
-  for i,v in ipairs(ar) do
-    fn(v, i)
-  end
-  return ar
-end
+-- function forEach (ar, fn)
+--   for i,v in ipairs(ar) do
+--     fn(v, i)
+--   end
+--   return ar
+-- end
 
 
 --[[
@@ -73,10 +72,10 @@ myArray = map(myArray, function (value)
 end)
 
 ]]
-function map (ar, fn)
-  local newAr = {}
-  for i,v in ipairs(ar) do
-    newAr[i] = fn(v, i)
-  end
-  return newAr
-end
+-- function map (ar, fn)
+--   local newAr = {}
+--   for i,v in ipairs(ar) do
+--     newAr[i] = fn(v, i)
+--   end
+--   return newAr
+-- end

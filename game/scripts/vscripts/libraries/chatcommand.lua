@@ -58,7 +58,7 @@ function ChatCommand:OnPlayerChat(keys)
 	  
 	  -- Test command to quickly test anything
 	  if string.find(text, "-list") or string.find(text, "-help") then
-	    GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots -add -give x y", 0, 0)
+	    GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots, -add x, -give x y, -fixspawn", 0, 0)
 
 	    -- Add bots to both teams
 	  elseif string.find(text, "-addbots") then
@@ -120,11 +120,20 @@ function ChatCommand:OnPlayerChat(keys)
 
 	  -- Remove fog of war on the map, revealing everything
 	  elseif string.find(text, "-nofog") then
-	    mode:SetFogOfWarDisabled(true)
+	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)
 
 	  -- Bring back the fog of war
 	  elseif string.find(text, "-fog") then
-	    mode:SetFogOfWarDisabled(false)
+	    GameRules:GetGameModeEntity():SetFogOfWarDisabled(false)
+
+	  -- Bring back the fog of war
+	  elseif string.find(text, "-fixspawn") then
+	     for playerID=0,24-1 do
+	      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+	      if hero ~= nil and IsValidEntity(hero) then
+	      	hero:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 1})
+	      end
+	    end
 
 
 	  -- Force start of a duel
@@ -134,6 +143,11 @@ function ChatCommand:OnPlayerChat(keys)
 	  -- Force end of a duel
 	  elseif string.find(text, "-endduel") then
 	    Duels:EndDuel()
+
+    -- Prints vector of current position of hero to console
+    elseif string.find(text, "-getpos") then
+      print(hero:GetAbsOrigin())
+      GameRules:SendCustomMessage(tostring(hero:GetAbsOrigin()), 0, 0)
 
 	  -- Give Invulnerability
 	  elseif string.find(text, "-god") then
