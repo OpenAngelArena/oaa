@@ -159,7 +159,6 @@ function GameMode:OnGameInProgress()
   InitModule(NGP)
   InitModule(HeroProgression)
   InitModule(SellBlackList)
-  InitModule(Courier)
 
 end
 
@@ -176,6 +175,7 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(GameLengthVotes)
+  InitModule(Courier)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
