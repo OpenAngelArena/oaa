@@ -189,11 +189,27 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Added Postactive Reflex Core
 * Fixed Shroud Level 2 Targeting
 * Fixed Phase Boots Level 1 Recipe
+* Fixed Tranquil Boots Level 1 Recipe
 * Added Shivas Cuirass Level 1 and 2
   * A Mix between Shivas Guard and Assault Cuirass
+* Balanced Charge BKB
+  * Increased Base Cooldown from `10` to `20`
+  * Increased Max Charges from `17` to `99`
+  * Decreased Immunity per Instances from `2` to `1`
 
 ### Heroes
 * Fixed Talents
+* Buffed Juggernaut
+  * Buffed Omni Slash
+    * Decreased Time per Bounce from `0.4` to `0.4 0.4 0.4 0.4 0.3 0.1`
+* Balanced Templare Assassin
+  * Balanced Refraction
+    * Decreased Instances from `3 4 5 6 8 12` to `3 4 5 6 7 8`
+    * Increased Damage from `20 40 60 80 120 280` to `20 40 60 80 160 480`
+
+### Bosses
+* Nerfed Tier 1 Boss
+  * Decreased Damage from `1000` to `500-600`
 
 ### Misc
 * Added Automatic Courier Spawning before Game Start
