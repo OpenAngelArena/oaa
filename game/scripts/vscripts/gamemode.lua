@@ -13,6 +13,8 @@ end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
 require('libraries/functional')
+-- Lua Fun(ctional) library
+require('libraries/fun')()
 -- functional event implementation
 require('libraries/event')
 
@@ -42,6 +44,8 @@ require('libraries/selection')
 require('libraries/math')
 -- chat command registry made easy
 require('libraries/chatcommand')
+-- extension functions to PlayerResource
+require('libraries/playerresource')
 -- Extensions to CDOTA_BaseNPC
 require('libraries/basenpc')
 
