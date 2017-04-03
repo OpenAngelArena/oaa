@@ -211,6 +211,9 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Nerfed Tier 1 Boss
   * Decreased Damage from `1000` to `500-600`
 
+### Bots
+* [Update 2.0](game/scripts/vscripts/bots/docs/AAO Bot.txt)
+
 ### Misc
 * Added Automatic Courier Spawning before Game Start
 
@@ -227,6 +230,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 ### Bosses
 ### Duels
 ### UI
+### Bots
 ### Misc
 ```
 ```Markdown
