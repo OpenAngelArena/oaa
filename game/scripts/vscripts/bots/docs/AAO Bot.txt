@@ -1,0 +1,20 @@
+Version 2.0
+
+This is the second version of my OAA bot. It is a complete (hopefully very functional) rewrite of my first bot.
+
+Improvements:
+Hero vs Hero fighting is taken over by default AI - I could never write better code than that. I just tell them to walk towards the enemy and fighting AI takes over
+The bot knows when it's in a duel and fights almost to the death now since it can't retreat
+The Farming is completely taken over by my code and is far more efficient.
+A thousand little tweaks and bug fixes.
+
+Bugs:
+Some heros will buy 2 shields.
+Other unexpected bugs I haven't seen yet.
+
+Lacks:
+Boss fighting.
+Boss items.
+Level ups beyond 25.
+AI deciding whether a Hero vs Hero fight is a good idea or not.
+They don't pick up items yet.
