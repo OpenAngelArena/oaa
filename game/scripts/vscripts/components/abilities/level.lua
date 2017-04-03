@@ -6,7 +6,7 @@ if AbilityLevels == nil then
 end
 
 function AbilityLevels:Init ()
-  GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"), nil)
+  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"))
 end
 
 function AbilityLevels:FilterAbilityUpgradeOrder (keys)

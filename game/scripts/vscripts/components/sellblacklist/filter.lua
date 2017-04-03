@@ -5,7 +5,7 @@ if SellBlackList == nil then
 end
 
 function SellBlackList:Init ()
-  GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( SellBlackList, 'OrderFilter' ), self )
+  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(SellBlackList, "OrderFilter"))
 
   ItemSellBlackList = {
     "item_upgrade_core",
