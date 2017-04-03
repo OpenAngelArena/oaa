@@ -1,16 +1,16 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-03-27 22:47 UTC+0200`
+Last Update: `2017-04-03 18:52 UTC+0200`
 
-### Translation Progress
+## Translation Progress
 * Chinese: 0%
 * German: 27%
 * Portuguese: 77%
 * Russian: 65%
 * Spanish: 0%
 
-### Changes until now
+## Changes until now
 * Added new Map
 * Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heros
 * Added new Items
@@ -24,15 +24,15 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Added a Duel System
 * Added Level Requirements for Abilities
 
-### Update 0.0.1 2017-03-24 
+## Update 0.0.1 2017-03-24 
 `07a33e56577acdf503c608b4a5a966b5e4d3a403`
-#### Items
+### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
 
-### Update 0.1.0
+## Update 0.1.0 2017-03-27
 `b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
-#### Items
+### Items
 * Buffed Echo Sabre 
   * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
 * Added Reverse Compatibility of Upgrade Cores to Reflex Cores
@@ -40,7 +40,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Added 1.5 second delay to Toggle
   * Fixed Toggle not respecting Cooldown
 * Added Preemptive Purge Item
-* Removed Combiner Core from all Recipies and replaced them with Upgrade Cores
+* Removed Combiner Core from all Recipes and replaced them with Upgrade Cores
 * Nerfed Octarine Core
   * Nerfed Cooldown from `25 35` to `25 30`
 * Nerfed Refresher Core
@@ -86,7 +86,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
   * Increased Attack Damage from `200 300 450` to `200 400 600`
   
 
-#### Heroes
+### Heroes
 * Fixed Zeus Nimbus Cloud attacking too fast
 * Fixed Talents for Additional Treants and Eidolons
 * Tweaked Spawn Location of Beastmasters Hawk
@@ -138,7 +138,7 @@ Last Update: `2017-03-27 22:47 UTC+0200`
     * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
 
-#### Bosses
+### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
   * Reduced Damage from `3750` to `255`
@@ -146,14 +146,98 @@ Last Update: `2017-03-27 22:47 UTC+0200`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
   
-#### Duels
+### Duels
 * Fixed Item Cooldown not saved in Duels
 
-#### UI
+### UI
 * Fixed Level Dots not showing for Level 5 and 6 Abilities
 * Added Icons to Stoneskin Armour, Dashstaff, Demon Blood and Metal Armour
 * Added Minimap with Trees
 
-#### Misc
+### Misc
 * Changed Strategy and Showcase time to `0`
 * Decreased Respawn Time when killed by Creeps from `25` to `10`
+
+## Hotfix 0.1.1 2017-03-27
+`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
+### Items
+* Fixed Greater Travel Boots not working
+
+## Update 0.2.0 2017-03-27
+`ac9347374cde1186dc45dc9f282f8de5f7be84a7`
+### Items
+* Added Matyr's Mail
+* Fixed Charge BKB Recipe
+* Added Preemptive Core 3B
+
+### Creeps
+* Decreased XP for all Camps
+  * Decreased Easy Camp XP from `25` to `20`
+  * Decreased Medium Camp XP from `35` to `25`
+  * Decreased Hard Camp XP from `40` to `30`
+
+## Update 0.3.0 2017-04-03
+`67397b7a2a648bdafecf645ebb9b6193183eb970`
+### Creeps
+* Changed Creep XP
+  * XP now also depends on Player Count
+
+### Items
+* Added Shroud of Shadows 
+  * Make self/ally invisible + Not attackable
+* Fixed Damage Reduction Tooltip of Preemptive Reflex Core
+* Added Postactive Reflex Core
+* Fixed Shroud Level 2 Targeting
+* Fixed Phase Boots Level 1 Recipe
+* Fixed Tranquil Boots Level 1 Recipe
+* Added Shivas Cuirass Level 1 and 2
+  * A Mix between Shivas Guard and Assault Cuirass
+* Balanced Charge BKB
+  * Increased Base Cooldown from `10` to `20`
+  * Increased Max Charges from `17` to `99`
+  * Decreased Immunity per Instances from `2` to `1`
+
+### Heroes
+* Fixed Talents
+* Buffed Juggernaut
+  * Buffed Omni Slash
+    * Decreased Time per Bounce from `0.4` to `0.4 0.4 0.4 0.4 0.3 0.1`
+* Balanced Templare Assassin
+  * Balanced Refraction
+    * Decreased Instances from `3 4 5 6 8 12` to `3 4 5 6 7 8`
+    * Increased Damage from `20 40 60 80 120 280` to `20 40 60 80 160 480`
+
+### Bosses
+* Nerfed Tier 1 Boss
+  * Decreased Damage from `1000` to `500-600`
+
+### Bots
+* Hero vs Hero fighting is taken over by default AI
+* Bots knows when they're in a duel and fight almost to the death
+* Farming is more efficient
+* A thousand little Tweaks and Bug fixes
+
+### Misc
+* Added Automatic Courier Spawning before Game Start
+
+
+
+
+## Template
+```Markdown
+## <Name> <Tag>
+`<commit>`
+### Creeps
+### Items
+### Heroes
+### Bosses
+### Duels
+### UI
+### Bots
+### Misc
+```
+```Markdown
+* 'what' changed
+  * explicit change
+    * detailed description
+```
