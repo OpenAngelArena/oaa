@@ -111,22 +111,24 @@ function Duels:ActuallyStartDuel ()
     local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil then
       DebugPrint ('Players team ' .. player:GetTeam())
-      if player:GetTeam() == 3 then
-        badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
-        badPlayers[badPlayerIndex].id = playerId
-        -- used to generate keynames like badEnd1
-        -- not used in dota apis
-        badPlayers[badPlayerIndex].team = 'bad'
-        badPlayerIndex = badPlayerIndex + 1
+      if player:GetAssignedHero() then
+        if player:GetTeam() == 3 then
+          badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
+          badPlayers[badPlayerIndex].id = playerId
+          -- used to generate keynames like badEnd1
+          -- not used in dota apis
+          badPlayers[badPlayerIndex].team = 'bad'
+          badPlayerIndex = badPlayerIndex + 1
 
-      elseif player:GetTeam() == 2 then
-        goodPlayers[goodPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
-        goodPlayers[goodPlayerIndex].id = playerId
-        goodPlayers[goodPlayerIndex].team = 'good'
-        goodPlayerIndex = goodPlayerIndex + 1
+        elseif player:GetTeam() == 2 then
+          goodPlayers[goodPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
+          goodPlayers[goodPlayerIndex].id = playerId
+          goodPlayers[goodPlayerIndex].team = 'good'
+          goodPlayerIndex = goodPlayerIndex + 1
+        end
+
+        Duels:ResetPlayerState(player:GetAssignedHero())
       end
-
-      Duels:ResetPlayerState(player:GetAssignedHero())
     end
   end
 
@@ -270,8 +272,14 @@ function Duels:EndDuel ()
     Duels.zone1.removePlayer(playerId)
     Duels.zone2.removePlayer(playerId)
     local player = PlayerResource:GetPlayer(playerId)
-    if player ~= nil then
-      player:GetAssignedHero():SetRespawnsDisabled(false)
+    if player ~= nil and player:GetAssignedHero() then
+      local hero = player:GetAssignedHero()
+      if hero then
+        hero:SetRespawnsDisabled(false)
+        if not hero:IsAlive() then
+          hero:RespawnHero(false,false,false)
+        end
+      end
     end
   end
 
@@ -304,7 +312,7 @@ function Duels:ResetPlayerState (hero)
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
-  for abilityIndex = 0,hero:GetAbilityCount() do
+  for abilityIndex = 0,hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:EndCooldown()
