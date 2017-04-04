@@ -18,7 +18,7 @@
         // Abilities
         //----------------------------------------------------------------
 
-        "Ability1"                  ""          // Ability 1.
+        "Ability1"                  "boss_resistance"          // Ability 1.
         "Ability2"                  ""          // Ability 2.
         "Ability3"                  ""          // Ability 3.
         "Ability4"                  ""          // Ability 4.
@@ -64,8 +64,8 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"              "75000"        // Base health.
-        "StatusHealthRegen"         "50"        // Health regeneration rate.
+        "StatusHealth"              "7500"        // Base health.
+        "StatusHealthRegen"         "5"        // Health regeneration rate.
         "StatusMana"                "0"           // Base mana.
         "StatusManaRegen"           "0"         // Mana regeneration rate.
 
