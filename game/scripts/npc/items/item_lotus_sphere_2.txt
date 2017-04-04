@@ -61,17 +61,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20 25"
+				"bonus_damage"			"30 40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"18 20"
+				"bonus_armor"			"20 25"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"10 12"
+				"bonus_health_regen"	"15 21"
 			}
 			"04"
 			{
@@ -86,29 +86,29 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"9 10"
+				"active_duration"		"6 7"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_range_tooltip"		"900"
+				"cast_range_tooltip"		"1200 1200"
 			}
 
 			// Linkens Parameters
 			"08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "23 24"
+                "bonus_all_stats"       "30 40"
             }
             "09"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "150 225"
+                "bonus_mana_regen"      "300 375"
             }
             "10"
             {
                 "var_type"              "FIELD_FLOAT"
-                "block_cooldown"        "13.0"
+                "block_cooldown"        "9.0 7.0"
             }
 
 
