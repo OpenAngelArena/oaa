@@ -63,7 +63,7 @@ function ZoneControl:CreateEmptyState (options)
   }
 end
 
-function ZoneControl:onTrigger (state, eventName, zoneHandle, event)
+function ZoneControl.onTrigger (state, eventName, zoneHandle, event)
   DebugPrint('Trigger is firing! ' .. eventName)
   DebugPrintTable(event)
   --[[
@@ -129,7 +129,7 @@ end
 
 -- API methods
 
-function ZoneControl:EnableZone (state)
+function ZoneControl.EnableZone (state)
   if ZoneControl:SpreadZoneGroup(state, 'EnableZone') then
     return
   end
@@ -138,7 +138,7 @@ function ZoneControl:EnableZone (state)
   ZoneControl:EnforceRules(state)
 end
 
-function ZoneControl:DisableZone (state)
+function ZoneControl.DisableZone (state)
   if ZoneControl:SpreadZoneGroup(state, 'DisableZone') then
     return
   end
@@ -154,7 +154,7 @@ function ZoneControl:SetMode (state, mode)
   ZoneControl:EnforceRules(state)
 end
 
-function ZoneControl:AddPlayer (state, playerId)
+function ZoneControl.AddPlayer (state, playerId)
   if ZoneControl:SpreadZoneGroup(state, 'AddPlayer') then
     return
   end
@@ -163,7 +163,7 @@ function ZoneControl:AddPlayer (state, playerId)
   ZoneControl:EnforceRulesOnPlayerId(state, playerId)
 end
 
-function ZoneControl:RemovePlayer (state, playerId)
+function ZoneControl.RemovePlayer (state, playerId)
   if ZoneControl:SpreadZoneGroup(state, 'RemovePlayer') then
     return
   end
