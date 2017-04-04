@@ -91,7 +91,5 @@ function modifier_boss_charger_charge:OnCreated(keys)
   self.max_distance = ability:GetSpecialValueFor( "distance" )
   self.debuff_duration = ability:GetSpecialValueFor( "debuff_duration" )
 
-  print('starting charge')
-
   self:StartIntervalThink(0.01)
 end
