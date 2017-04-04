@@ -303,10 +303,19 @@ function Duels:ResetPlayerState (hero)
   hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
+  -- Reset cooldown for abilities
   for abilityIndex = 0,hero:GetAbilityCount() do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:EndCooldown()
+    end
+  end
+
+  -- Reset cooldown for items
+  for i = 0, 5 do
+    local item = hero:GetItemInSlot(i)
+    if item  then
+      item:EndCooldown()
     end
   end
 end
@@ -317,9 +326,19 @@ function Duels:SavePlayerState (hero)
     abilityCount = hero:GetAbilityCount(),
     maxAbility = 0,
     abilities = {},
+    items = {},
     hp = hero:GetHealth(),
     mana = hero:GetMana()
   }
+
+  -- If hero is dead during start of the duel, make his saved location his foutain area
+  if hero:IsAlive() == false then
+    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+        state.location = Vector(-5221.958496, -139.014923, 387.999023)
+    else
+        state.location = Vector(4908.748047, -91.460907, 392.000000)
+    end
+  end
 
   for abilityIndex = 0,state.abilityCount-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
@@ -327,6 +346,15 @@ function Duels:SavePlayerState (hero)
       state.maxAbility = abilityIndex
       state.abilities[abilityIndex] = {
         cooldown = ability:GetCooldownTimeRemaining()
+      }
+    end
+  end
+
+  for itemIndex = 0,5 do
+    local item = hero:GetItemInSlot(itemIndex)
+    if item ~= nil then
+      state.items[itemIndex] = {
+        cooldown = item:GetCooldownTimeRemaining()
       }
     end
   end
@@ -345,6 +373,13 @@ function Duels:RestorePlayerState (hero, state)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+    end
+  end
+
+  for itemIndex = 0,5 do
+    local item = hero:GetItemInSlot(itemIndex)
+    if item ~= nil then
+      item:StartCooldown(state.items[itemIndex].cooldown)
     end
   end
 end

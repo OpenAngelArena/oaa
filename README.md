@@ -1,4 +1,4 @@
-# Open Angel Arena
+# Open Angel Arena ![travis-ci](https://api.travis-ci.org/OpenAngelArena/oaa.svg?branch=master)
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
 # Installation
@@ -15,9 +15,6 @@ Music can be found at [Soundcloud][soundcloud-link]
 
 ### Suggestions?
 Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
-
-### Building npc custom files
-From within the addon directory, run `gulp`.
 
 # License
 MIT
