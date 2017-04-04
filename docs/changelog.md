@@ -24,11 +24,13 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Added a Duel System
 * Added Level Requirements for Abilities
 
+
 ## Update 0.0.1 2017-03-24 
 `07a33e56577acdf503c608b4a5a966b5e4d3a403`
 ### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
+
 
 ## Update 0.1.0 2017-03-27
 `b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
@@ -84,7 +86,6 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Increased Bonus Armour from `15 30 45` to `15 40 70`
   * Decreased Aura Attack Speed from `-45 -50 -55` to `-45 -70 -110`
   * Increased Attack Damage from `200 300 450` to `200 400 600`
-  
 
 ### Heroes
 * Fixed Zeus Nimbus Cloud attacking too fast
@@ -158,10 +159,12 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Changed Strategy and Showcase time to `0`
 * Decreased Respawn Time when killed by Creeps from `25` to `10`
 
+
 ## Hotfix 0.1.1 2017-03-27
 `d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
 ### Items
 * Fixed Greater Travel Boots not working
+
 
 ## Update 0.2.0 2017-03-27
 `ac9347374cde1186dc45dc9f282f8de5f7be84a7`
@@ -175,6 +178,7 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Decreased Easy Camp XP from `25` to `20`
   * Decreased Medium Camp XP from `35` to `25`
   * Decreased Hard Camp XP from `40` to `30`
+
 
 ## Update 0.3.0 2017-04-03
 `67397b7a2a648bdafecf645ebb9b6193183eb970`
@@ -221,6 +225,10 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Added Automatic Courier Spawning before Game Start
 
 
+## Hotfix 0.3.1
+``
+### Duels
+* Fixed Major Bug in Duels
 
 
 ## Template
