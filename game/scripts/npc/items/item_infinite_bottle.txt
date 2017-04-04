@@ -3,7 +3,7 @@
 	//=================================================================================================================
 	// Bottle
 	//=================================================================================================================
-	"item_bottle"
+	"item_infinite_bottle"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -11,14 +11,17 @@
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_bottle"
 		"ScriptFile"					"items/bottle"
-		
+
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		
+
+    "Model"                         "models/props_gameplay/bottle_blue.vmdl"
+    "ModelAlternate"                "models/props_gameplay/bottle_empty.vmdl"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0.5"
 		"AbilityCastPoint"				"0.0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"660"
@@ -29,8 +32,8 @@
 		"IsTempestDoubleClonable"		"0"
 		"ItemRequiresCharges"			"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
