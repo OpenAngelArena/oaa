@@ -20,12 +20,6 @@ function modifier_boss_resistance:IsPurgable()
   return false
 end
 
-function modifier_boss_resistance:OnCreated()
-  if IsServer() then
-    self:StartIntervalThink(0.1)
-  end
-end
-
 function modifier_boss_resistance:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
