@@ -145,7 +145,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Reduced Health from `100000` to `75000`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
-  
+
 ### Duels
 * Fixed Item Cooldown not saved in Duels
 
@@ -290,6 +290,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 * Custom Bottle is now known as Infinity Bottle
 * Changed Infinity Bottle
   * Remove Infinity Bottle when reaching zero Charges
+
 
 ## Template
 ```Markdown

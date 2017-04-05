@@ -7,7 +7,7 @@
 		"ID"					"5113"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"MaxLevel"						"5"
@@ -16,14 +16,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"90.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"225 325 450 650 1450"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -56,7 +56,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"225 325 425 625 1425"
+				"damage"				"225 325 425 625 1025"
 			}
 		}
 	}
