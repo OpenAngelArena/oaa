@@ -17,7 +17,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""
+		"Ability1"					"boss_resistance"
 		"Ability2"					""
 		"Ability3"					""
 		"Ability4"					""
@@ -25,7 +25,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"25"			// Physical protection.
-		"MagicalResistance"				"15"									// Magical protection (percentage).
+		"MagicalResistance"				"25"									// Magical protection (percentage).
 
 		// Attack
 		//----------------------------------------------------------------
@@ -58,8 +58,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"10000"		// Base health
-		"StatusHealthRegen"			"35"		// Health regeneration rate.
+		"StatusHealth"				"1000"		// Base health
+		"StatusHealthRegen"			"3.5"		// Health regeneration rate.
 		"StatusMana"				"0"		// Base mana.
 		"StatusManaRegen"			"0"		// Mana regeneration rate.
 
