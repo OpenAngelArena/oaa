@@ -215,7 +215,7 @@ Last Update: `2017-04-04 10:59 UTC+0200`
   * Decreased Damage from `1000` to `500-600`
 
 ### Bots
-* Hero vs Hero fighting is taken over by default AI
+* default AI now takes Hero vs Hero fighting over
 * Bots knows when they're in a duel and fight almost to the death
 * Farming is more efficient
 * A thousand little Tweaks and Bug fixes
@@ -279,17 +279,17 @@ Last Update: `2017-04-04 10:59 UTC+0200`
   * Reduced Damage from `1000` to `500-600`
 
 
-### Patch 0.4.1 2017-04-04
+## Hotfix 0.4.1 2017-04-04
 `c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`
 ### Duels
 * Made Duels generally more stable
 
-### Patch 0.4.2 2017-04-04
-``
+## Hotfix 0.4.2 2017-04-04
+`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`
 ### Items
 * Custom Bottle is now known as Infinity Bottle
 * Changed Infinity Bottle
-  * Remove Infinity Bottle when no Charges are left
+  * Remove Infinity Bottle when reaching zero Charges
 
 ## Template
 ```Markdown
