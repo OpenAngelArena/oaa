@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1600"	
+		"ItemCost"						"1600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +23,9 @@
 		"ItemResult"					"item_lotus_sphere"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere_2;item_lotus_orb_2;item_combiner"
+      "01"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_2"
+      "02"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_3"
+      "03"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_4"
 		}
 	}
 
