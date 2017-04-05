@@ -16,7 +16,7 @@ getDuplicateStrings();
 function getDuplicateStrings () {
   var englishData = parseTranslation();
   var foundStrings = {};
-  var duplicateStrings = {}
+  var duplicateStrings = {};
 
   Object.keys(englishData.lang.Tokens.values).forEach(function (key) {
     var str = englishData.lang.Tokens.values[key];
@@ -47,7 +47,7 @@ function getTranslationsForLanguage (lang, cb) {
     },
     json: true
   }, function (err, data) {
-    var data = JSON.parse(data.body.content);
+    data = JSON.parse(data.body.content);
     cb(err, data);
   });
 }
@@ -92,6 +92,10 @@ function generateFileForTranslations (languageName, translations) {
 
 function generateTranslations (lang) {
   getTranslationsForLanguage(languageShortNames[lang], function (err, data) {
+    if (err) {
+      throw err;
+    }
+
     // translations
     var lines = generateFileForTranslations(lang, data);
     fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), lines.join('\n'), {

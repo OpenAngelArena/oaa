@@ -1,3 +1,4 @@
+/* global FindDotaHudElement, Game, PlayerTables */
 /*
   Author:
     Chronophylos
@@ -7,10 +8,6 @@
 */
 'use strict';
 
-var console = {
-  log: $.Msg.bind($)
-};
-
 // settings
 var useFormatting = 'half';
 
@@ -18,9 +15,7 @@ var useFormatting = 'half';
   PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
 }());
 
-
 function onGoldChange (table, data) {
-  var unit = Players.GetLocalPlayerPortraitUnit();
   var playerID = Game.GetLocalPlayerID();
   var gold = data.gold[playerID];
 
@@ -31,9 +26,9 @@ function onGoldChange (table, data) {
 function UpdateGoldHud (gold) {
   var GoldLabel = FindDotaHudElement('ShopButton').FindChildTraverse('GoldLabel');
 
-  if (useFormatting == 'full'){
+  if (useFormatting === 'full') {
     GoldLabel.text = FormatGold(gold);
-  } else if (useFormatting == 'half') {
+  } else if (useFormatting === 'half') {
     GoldLabel.text = FormatComma(gold);
   } else {
     GoldLabel.text = gold;
@@ -48,7 +43,7 @@ function UpdateGoldTooltip (gold) {
     var label = tooltipLabels.GetChild(0);
     label.text = label.text.replace(/: [0-9]+/, ': ' + gold);
 
-    var label = tooltipLabels.GetChild(1);
+    label = tooltipLabels.GetChild(1);
     label.style.visibility = 'collapse';
   } catch (e) {}
 }
@@ -62,11 +57,11 @@ function UpdateGoldTooltip (gold) {
     Returns gold with commas and k
 */
 function FormatGold (gold) {
-  var formatted = FormatComma(gold)
+  var formatted = FormatComma(gold);
   if (gold.toString().length > 6) {
-    return FormatGold(gold.toString().substring(0, gold.toString().length - 5)/10) + "M";
+    return FormatGold(gold.toString().substring(0, gold.toString().length - 5) / 10) + 'M';
   } else if (gold.toString().length > 4) {
-    return FormatGold(gold.toString().substring(0, gold.toString().length - 3)) + "k";
+    return FormatGold(gold.toString().substring(0, gold.toString().length - 3)) + 'k';
   } else {
     return formatted;
   }
@@ -83,6 +78,6 @@ function FormatGold (gold) {
 */
 function FormatComma (value) {
   try {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   } catch (e) {}
 }

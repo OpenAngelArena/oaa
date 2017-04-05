@@ -1,11 +1,16 @@
+/* global Players, $, GameEvents, CustomNetTables, Game */
+
 var console = {
   log: $.Msg.bind($)
 };
 
-var itemIdIndex = 0;
+if (module && module.exports) {
+  module.exports = SelectNGP;
+}
+
 function onNGPChange () {
   var playerID = Game.GetLocalPlayerID();
-  var teamID = Players.GetTeam(playerID)
+  var teamID = Players.GetTeam(playerID);
   var teamName = teamID === 2 ? 'good' : 'bad';
   var data = CustomNetTables.GetTableValue('ngp', teamName);
 
@@ -33,7 +38,7 @@ function SelectNGP (option) {
     return;
   }
   id = id[1];
-  var needsSchedule = !NGPOption[id];
+  // var needsSchedule = !NGPOption[id];
 
   NGPOption[id] = option;
   $.Schedule(0.5, function () {
@@ -54,7 +59,7 @@ function RemoveNeedGreedPass (data) {
   var activePanel = getPanelForId(data.id);
   activePanel.style['animation-direction'] = 'reverse';
 
-  $.Schedule(0.2, function() {
+  $.Schedule(0.2, function () {
     activePanel.RemoveAndDeleteChildren();
     activePanel.DeleteAsync(0);
   });
@@ -68,19 +73,18 @@ function idNameForId (id) {
   return 'ItemPanel_' + id;
 }
 
-
 // group id doesn't work
 var ngpGroupIndex = 0;
 var existingPanels = {};
 function generateNGPPanel (id, item, title, description, buildsInto) {
-  console.log('Generating panel for item id ', id)
+  console.log('Generating panel for item id ', id);
   if (existingPanels[id]) {
     return;
   }
 
   existingPanels[id] = true;
   var panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
-  panel.BLoadLayout( "file://{resources}/layout/custom_game/need_greed_pass/panel.xml", false, false );
+  panel.BLoadLayout('file://{resources}/layout/custom_game/need_greed_pass/panel.xml', false, false);
 
   panel.FindChildrenWithClassTraverse('DataItemId').forEach(function (elem) {
     elem.itemname = item;
@@ -105,7 +109,7 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
     elem.group = 'NGP' + ngpId;
   });
 
-  $("#NeedGreedPassSlider").SetHasClass('Expanded', true)
+  $('#NeedGreedPassSlider').SetHasClass('Expanded', true);
 
   return panel;
 }
@@ -115,4 +119,3 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
   CustomNetTables.SubscribeNetTableListener('ngp', onNGPChange);
   onNGPChange();
 }());
-
