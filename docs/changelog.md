@@ -1,7 +1,7 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-04-03 18:52 UTC+0200`
+Last Update: `2017-04-04 10:59 UTC+0200`
 
 ## Translation Progress
 * Chinese: 0%
@@ -138,7 +138,6 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Enrage
     * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
-
 ### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
@@ -259,7 +258,6 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Buffed Linkes Sphere
   * Decreased Block Cooldown from `13.0` to `13.0 11.0`
 
-
 ### Heroes
 * Nerfed Zeus
   * Nerfed Lightning Bolt
@@ -273,8 +271,25 @@ Last Update: `2017-04-03 18:52 UTC+0200`
     * Reduced Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
 
 ### Bosses
-* Buffed by reducing all incoming Percentage Based Damage 90%
+* Buffed All Bosses
+  * Added Percentage-Based-Damage-Reduction of 90%
+  * Set Armour to `25`
+  * Set Magical Resistance to `25`
+* Nerfed Tier 1
+  * Reduced Damage from `1000` to `500-600`
 
+
+### Patch 0.4.1 2017-04-04
+`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`
+### Duels
+* Made Duels generally more stable
+
+### Patch 0.4.2 2017-04-04
+``
+### Items
+* Custom Bottle is now known as Infinity Bottle
+* Changed Infinity Bottle
+  * Remove Infinity Bottle when no Charges are left
 
 ## Template
 ```Markdown
