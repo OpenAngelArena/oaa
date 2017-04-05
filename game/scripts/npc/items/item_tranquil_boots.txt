@@ -8,10 +8,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"213"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -34,11 +34,11 @@
 		"ID"							"214"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"            "item_tranquil_boots"
-		// Stats		
+		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
 		"AbilityManaCost"				"0"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"
@@ -47,12 +47,12 @@
 		"ItemAliases"					"tranquil boots"
 		"ItemHideCharges"		     	"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-  
+
   		"MaxUpgradeLevel"               "1"
-		"ItemBaseLevel"                 "1"            
+		"ItemBaseLevel"                 "1"
 // TO BE REMOVED		"UpgradesItems"                 "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
-// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_tranquil_boots"       		
-		// Special	
+// TO BE REMOVED		"UpgradeRecipe"                 "item_recipe_tranquil_boots"
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

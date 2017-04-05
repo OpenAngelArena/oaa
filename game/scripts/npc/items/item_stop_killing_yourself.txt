@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +23,8 @@
 		"ItemResult"					"item_stop_killing_yourself"
 		"ItemRequirements"
 		{
-			"01"						"item_lotus_sphere;item_bloodthorn_3;item_combiner"
+			"01"						"item_lotus_sphere;item_bloodthorn_3;upgrade_core_3"
+      "02"            "item_lotus_sphere;item_bloodthorn_3;upgrade_core_4"
 		}
 	}
 

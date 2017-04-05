@@ -23,10 +23,8 @@
 		"ItemResult"					"item_shivas_guard_2"
 		"ItemRequirements"
 		{
-			"01"						"item_shivas_guard;item_upgrade_core"
-			"02"						"item_shivas_guard;item_upgrade_core_2"
-			"03"						"item_shivas_guard;item_upgrade_core_3"
-			"04"						"item_shivas_guard;item_upgrade_core_4"
+			"01"						"item_shivas_guard;item_upgrade_core_3"
+			"02"						"item_shivas_guard;item_upgrade_core_4"
 		}
 	}
 
@@ -74,7 +72,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15 30 45"
+				"bonus_armor"			"15 20 25"
 			}
 			"03"
 			{
@@ -84,7 +82,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-45 -50 -55"
+				"aura_attack_speed"		"-45 -65 -85"
 			}
 			"05"
 			{

@@ -44,6 +44,12 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
 
   bossHandle:AddItem(heart)
 
+  local resistance = bossHandle:FindAbilityByName("boss_resistance")
+  if resistance then
+    DebugPrint('Leveling up the boss resistance manager')
+    resistance:SetLevel(1)
+  end
+
   local bossAI = BossAI:Create(bossHandle, {
     tier = bossTier
   })
