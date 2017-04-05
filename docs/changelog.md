@@ -1,14 +1,14 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-04-03 18:52 UTC+0200`
+Last Update: `2017-04-04 11:08 UTC+0200`
 
 ## Translation Progress
 * Chinese: 0%
-* German: 27%
-* Portuguese: 77%
-* Russian: 65%
-* Spanish: 0%
+* German: 93%
+* Portuguese: 94%
+* Russian: 100%
+* Spanish: 1%
 
 ## Changes until now
 * Added new Map
@@ -24,11 +24,13 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Added a Duel System
 * Added Level Requirements for Abilities
 
+
 ## Update 0.0.1 2017-03-24 
 `07a33e56577acdf503c608b4a5a966b5e4d3a403`
 ### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
+
 
 ## Update 0.1.0 2017-03-27
 `b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
@@ -84,7 +86,6 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Increased Bonus Armour from `15 30 45` to `15 40 70`
   * Decreased Aura Attack Speed from `-45 -50 -55` to `-45 -70 -110`
   * Increased Attack Damage from `200 300 450` to `200 400 600`
-  
 
 ### Heroes
 * Fixed Zeus Nimbus Cloud attacking too fast
@@ -137,7 +138,6 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Enrage
     * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
-
 ### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
@@ -145,7 +145,7 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Reduced Health from `100000` to `75000`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
-  
+
 ### Duels
 * Fixed Item Cooldown not saved in Duels
 
@@ -158,10 +158,12 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Changed Strategy and Showcase time to `0`
 * Decreased Respawn Time when killed by Creeps from `25` to `10`
 
+
 ## Hotfix 0.1.1 2017-03-27
 `d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
 ### Items
 * Fixed Greater Travel Boots not working
+
 
 ## Update 0.2.0 2017-03-27
 `ac9347374cde1186dc45dc9f282f8de5f7be84a7`
@@ -175,6 +177,7 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Decreased Easy Camp XP from `25` to `20`
   * Decreased Medium Camp XP from `35` to `25`
   * Decreased Hard Camp XP from `40` to `30`
+
 
 ## Update 0.3.0 2017-04-03
 `67397b7a2a648bdafecf645ebb9b6193183eb970`
@@ -212,7 +215,7 @@ Last Update: `2017-04-03 18:52 UTC+0200`
   * Decreased Damage from `1000` to `500-600`
 
 ### Bots
-* Hero vs Hero fighting is taken over by default AI
+* default AI now takes Hero vs Hero fighting over
 * Bots knows when they're in a duel and fight almost to the death
 * Farming is more efficient
 * A thousand little Tweaks and Bug fixes
@@ -221,6 +224,72 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Added Automatic Courier Spawning before Game Start
 
 
+## Hotfix 0.3.1 2017-04-04
+`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`
+### Duels
+* Fixed Major Bug in Duels
+
+
+## Update 0.4.0 2017-04-04
+`d064f0f294f395eb84f0e759fe4a6e178ac7078e`
+### Items
+* Nerfed Assault Cuirass
+  * Reduced Bonus Armour from `10 20 40` to `0 15 20`
+  * Reduced Aura Armour Buff from `5 10 20` to `5 6 7`
+  * Reduced Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
+* Buffed Lotus Orb
+  * Increased Damage from `10 15` to `10 20`
+  * Increased Armour from `10 15` to `10 20`
+  * Decreased Duration from `6 8` to `6`
+  * Increased Cast Range from `900` to `900 1200`
+* Buffed Lotus Sphere
+  * Increased Damage from `20 25` to `30 40`
+  * Increased Armour from `18 20` to `20 25`
+  * Increased Health Regeneration from `10 12` to `15 21`
+  * Decreased Duration from `9 10` to `6 7`
+  * Increased Range from `900` to `1200 1200`
+  * Increased All Stats from `23 24` to `30 40`
+  * Increased Mana Regeneration from `150 225` to `300 375`
+  * Decreased Block Cooldown from `13.0` to `9.0 7.0`
+* Nerfed Shivas Guard
+  * Reduced Bonus Armour from `15 40 70` to `15 20 25`
+  * Reduced Attack Speed from `-45 -70 -110` to `-45 -65 -85`
+  * Reduced Blast Damage from `200 400 600` to `200 300 450`
+* Buffed Linkes Sphere
+  * Decreased Block Cooldown from `13.0` to `13.0 11.0`
+
+### Heroes
+* Nerfed Zeus
+  * Nerfed Lightning Bolt
+    * Reduced Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
+    * Increased Mana Cost from `75 95 115 135 175 335` to `75 95 115 135 275 500`
+  * Nerfed Static Field
+    * Reduced Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
+    * Reduced Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
+    * Reduced Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
+  * Nerfed Tundergods Wrath
+    * Reduced Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
+
+### Bosses
+* Buffed All Bosses
+  * Added Percentage-Based-Damage-Reduction of 90%
+  * Set Armour to `25`
+  * Set Magical Resistance to `25`
+* Nerfed Tier 1
+  * Reduced Damage from `1000` to `500-600`
+
+
+## Hotfix 0.4.1 2017-04-04
+`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`
+### Duels
+* Made Duels generally more stable
+
+## Hotfix 0.4.2 2017-04-04
+`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`
+### Items
+* Custom Bottle is now known as Infinity Bottle
+* Changed Infinity Bottle
+  * Remove Infinity Bottle when reaching zero Charges
 
 
 ## Template
