@@ -17,7 +17,6 @@ function modifier_charge_bkb_on_spell_start(keys)
 	keys.caster:GiveMana(amount_to_restore)
 --RamonNZ: BKB Effect:
 	local modifier_duration = keys.ChargeImmunityTime*keys.ability:GetCurrentCharges()
-	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
 -- Basic Purge:
 	local RemovePositiveBuffs = false
 	local RemoveDebuffs = true
@@ -28,8 +27,11 @@ function modifier_charge_bkb_on_spell_start(keys)
 
 	print ("--> bkb spell immunity length = ", modifier_duration)
 	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration})
+	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_charge_bkb_spell_immunity", {duration = modifier_duration}) -- why did I do this twice? I'll figure it out later
 
-	keys.ability:SetCurrentCharges(0)	--or use code keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) if we want to just remove 1 charge
+	local modified_cooldown = keys.ChargeCooldownTime*keys.ability:GetCurrentCharges() + keys.ability:GetCooldownTime()
+	keys.ability:SetCurrentCharges(0)
+	keys.ability:StartCooldown( modified_cooldown )
 end
 
 
@@ -89,4 +91,9 @@ function modifier_charge_bkb_on_created(keys)
 	for i=1, keys.ability:GetCurrentCharges() do
 		create_decay_timer(keys)
 	end
+	--Removed test timer to allow you to test in single game
+--	  Timers:CreateTimer(function()
+--     keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()+1)
+--      return 10.0
+--   end)
 end

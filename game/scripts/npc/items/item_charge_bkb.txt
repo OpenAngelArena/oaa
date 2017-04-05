@@ -46,7 +46,7 @@
     "AbilityTextureName"            "custom/charge_bkb"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"		//RamonNZ: wand cooldown seems fair. You can't use this item without charges, but it's an epic item so needs something to compensate for the fact that it's less functional than a normal new 11 second BKB.
+		"AbilityCooldown"				"20.0"		//RamonNZ: Baumi changed this from 10.0 to 20.0
     "AbilitySharedCooldown"			"item_black_king_bar"
 		"AbilityCastRange"				"1200"
 
@@ -66,7 +66,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"99"		//RamonNZ: Based on wand, seems fair.
+				"max_charges"			"99"		//RamonNZ: Baumi changed this from 17 to 99.
 			}
 			"02"
 			{
@@ -111,7 +111,12 @@
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"immunity_time_per_charge"	"1"		//RamonNZ: New KV - How many seconds of spell immunity you get per charge when activated.
+				"immunity_time_per_charge"	"1"		//RamonNZ: New KV - Baumi wanted this nerfed hard
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_time_per_charge"	"5"		//RamonNZ: New KV requested by Baumi to increase the cooldown this much extra per charge
 			}
 		}
 		"OnSpellStart"
@@ -127,6 +132,7 @@
 				"Function"				"modifier_charge_bkb_on_spell_start"
 				"RestorePerCharge"		"%restore_per_charge"
 				"ChargeImmunityTime"	"%immunity_time_per_charge"
+				"ChargeCooldownTime"	"%cooldown_time_per_charge"
 			}
 
 			"FireSound"
