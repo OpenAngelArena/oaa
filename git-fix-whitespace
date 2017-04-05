@@ -1,0 +1,88 @@
+#!/bin/bash
+
+me="$(basename $0)"
+
+usage() {
+    cat << EOF
+git-fix-whitespace - Fixes the whitespace issues that 'git-diff --check'
+                     complains about.
+
+Usage:
+    $me --cached
+    $me tree-ish tree-ish
+
+Synopsis:
+    In its first form the index is modified to correct the whitespace issues
+    found in the files added to the index.
+
+    In its second form the index is modified to correct the whitespace issues
+    found in the files that changed between the 2 hashes given.
+
+Notes:
+  1. In git terminology "tree-sh" refers to anything that can be resolved to a
+     tree, including a hash, tag, branch, or something like HEAD~3 (meaning 3
+     commits prior to HEAD).
+
+  2. This script does not use perl/awk/sed/etc. to do is modifications. It uses
+     git's own functionality. For this reason it should be very future-proof.
+
+Acknowledgments:
+    Copyright (c) 2010 Richard Bronosky
+    Offered under the terms of the MIT License.
+    http://www.opensource.org/licenses/mit-license.php
+    Created while employed by CMGdigital
+EOF
+exit
+}
+
+apply_fail(){
+    echo "Failed to apply patch $PATCH"
+    echo
+    echo "Perhaps you tried to do a hash comparison with uncommitted changes in your"
+    echo "working tree."
+    exit $1
+}
+
+err_files(){
+    git diff $ARG1 $ARG2 --check | sed -E '/^(\+|-)/d;s/:.*//' | sort | uniq
+}
+
+case "$#" in
+    1)
+        test "$1" = "--cached" && ARG1=$1 || {
+            echo
+            echo "Inavlid arguments"
+            echo
+            echo
+            usage
+        }
+        ARG1=$1
+        ARG2=HEAD
+        ;;
+    2)
+        ARG1=$1
+        ARG2=$2
+        ;;
+    *)
+        test $# > 3 && {
+            echo
+            echo "Invalid arguments"
+            echo
+            echo
+        }
+        usage
+        ;;
+esac
+
+PATCH=$(mktemp -p $(pwd -P) ${me}.patch.XXXXXX)
+git diff $ARG1 $ARG2 > $PATCH
+FILES=$(sed '/^+++ /!d;s?^+++ b/??' $PATCH)
+echo -e "Files in index with whitespace errors:\n$(err_files 1)"
+git apply --whitespace=fix -R $PATCH || apply_fail 1
+git apply --whitespace=fix $PATCH || apply_fail 2
+git reset HEAD $FILES
+git add $FILES
+rm $PATCH
+if [[ $(err_files 2 | wc -l) -gt 0 ]]; then
+    echo -e "Remaining files in index with whitespace errors:\n$(err_files 3)"
+fi

@@ -28,7 +28,7 @@
     "ID"                    "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"             "item_lua"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "item_sphere"
+    "AbilityTextureName"    "custom/item_preemptive"
     "ScriptFile"            "items/reflex/preemptive.lua"
     "FightRecapLevel"       "1"
 
