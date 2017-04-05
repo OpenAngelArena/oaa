@@ -1,14 +1,14 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-04-04 10:59 UTC+0200`
+Last Update: `2017-04-04 11:08 UTC+0200`
 
 ## Translation Progress
 * Chinese: 0%
-* German: 27%
-* Portuguese: 77%
-* Russian: 65%
-* Spanish: 0%
+* German: 93%
+* Portuguese: 94%
+* Russian: 100%
+* Spanish: 1%
 
 ## Changes until now
 * Added new Map
