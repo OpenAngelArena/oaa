@@ -225,10 +225,55 @@ Last Update: `2017-04-03 18:52 UTC+0200`
 * Added Automatic Courier Spawning before Game Start
 
 
-## Hotfix 0.3.1
-``
+## Hotfix 0.3.1 2017-04-04
+`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`
 ### Duels
 * Fixed Major Bug in Duels
+
+
+## Update 0.4.0 2017-04-04
+`d064f0f294f395eb84f0e759fe4a6e178ac7078e`
+### Items
+* Nerfed Assault Cuirass
+  * Reduced Bonus Armour from `10 20 40` to `0 15 20`
+  * Reduced Aura Armour Buff from `5 10 20` to `5 6 7`
+  * Reduced Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
+* Buffed Lotus Orb
+  * Increased Damage from `10 15` to `10 20`
+  * Increased Armour from `10 15` to `10 20`
+  * Decreased Duration from `6 8` to `6`
+  * Increased Cast Range from `900` to `900 1200`
+* Buffed Lotus Sphere
+  * Increased Damage from `20 25` to `30 40`
+  * Increased Armour from `18 20` to `20 25`
+  * Increased Health Regeneration from `10 12` to `15 21`
+  * Decreased Duration from `9 10` to `6 7`
+  * Increased Range from `900` to `1200 1200`
+  * Increased All Stats from `23 24` to `30 40`
+  * Increased Mana Regeneration from `150 225` to `300 375`
+  * Decreased Block Cooldown from `13.0` to `9.0 7.0`
+* Nerfed Shivas Guard
+  * Reduced Bonus Armour from `15 40 70` to `15 20 25`
+  * Reduced Attack Speed from `-45 -70 -110` to `-45 -65 -85`
+  * Reduced Blast Damage from `200 400 600` to `200 300 450`
+* Buffed Linkes Sphere
+  * Decreased Block Cooldown from `13.0` to `13.0 11.0`
+
+
+### Heroes
+* Nerfed Zeus
+  * Nerfed Lightning Bolt
+    * Reduced Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
+    * Increased Mana Cost from `75 95 115 135 175 335` to `75 95 115 135 275 500`
+  * Nerfed Static Field
+    * Reduced Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
+    * Reduced Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
+    * Reduced Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
+  * Nerfed Tundergods Wrath
+    * Reduced Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
+
+### Bosses
+* Buffed by reducing all incoming Percentage Based Damage 90%
 
 
 ## Template
