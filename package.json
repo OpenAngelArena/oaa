@@ -4,7 +4,7 @@
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'no tests'"
+    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape './scripts/test/*test.js' | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
   "homepage": "https://github.com/OpenAngelArena/oaa#readme",
   "devDependencies": {
     "parse-kv": "^0.1.0",
-    "semistandard": "^9.2.1"
+    "semistandard": "^9.2.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
   },
   "dependencies": {
     "request": "^2.81.0",
