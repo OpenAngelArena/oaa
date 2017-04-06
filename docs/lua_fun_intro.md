@@ -19,16 +19,19 @@ A reference for the functions available in Lua Fun can be found [here](https://l
 ## Special Notes
 
 ### Iterators
-Lua Fun functions don't technically take or return tables, they return iterators instead, which are actually a set of 3 different values. Details can be found [here](https://luafun.github.io/under_the_hood.html) if you're interested. All you really need to know though, is that because of this detail:
+Lua Fun functions don't technically take or return tables, they return iterators instead, which are actually a set of 3 values. Details can be found [here](https://luafun.github.io/under_the_hood.html) if you're interested. All you really need to know though, is that because of this detail:
 
-1. Whenever you want to treat the return value of a non-reducing function (functions not on [this page](https://luafun.github.io/reducing.html)) as a single value for storing in variables or as a return value from a function, you need to put the whole function chain in `wrap(...)`, e.g. `wrap(map(...))`.
+1. Whenever you want to pass in a table to Lua Fun functions, you should almost always call `iter` on that table to create an iterator from the table, e.g. `map(..., iter(table))`.
 
-2. Whenever you want to pass in a table to Lua Fun functions, you should almost always call `iter` on that table to create an iterator from the table, e.g. `map(..., iter(table))`.
+2. If you need to produce an actual table to interop with code not using Lua Fun, or for some other reason, you can use the `totable` or `tomap` functions. Documentation for those functions is available [here](https://luafun.github.io/reducing.html).
 
-3. If you need to produce an actual table to interop with code not using Lua Fun, or for some other reason, you can use the `totable` or `tomap` functions. Documentation for those functions is available [here](https://luafun.github.io/reducing.html).
+3. Iterators can be used in for ... in ... loops if you prefer that syntax to Lua Fun's `foreach` function. For example, you can do `for i in range(5) do ...`
 
 ### Parameter Order
 If you've not dealt much with functional programming before, you might have gotten used to having callback functions as the last parameter of functions. Keep in mind that pretty much all Lua Fun functions that take functions as parameters have it as the *first* parameter. The reason for this is that it's convention, and makes more sense for functions like `map`, `reduce`, and `filter`, particularly when chaining them together. In particular though, keep in mind that even `foreach` takes the function as the first parameter rather than the data.
 
 ### Reduce
 If you've used other languages with functional primitives before, you may be used to `reduce` starting by calling the given function with the first 2 items in the given list. Keep in mind that Lua Fun's `reduce` has an initial value as a parameter instead. You can replicate the above mentioned behaviour of `reduce` by doing `reduce(func, head(list), tail(list))` if necessary, though this causes an error if `list` is empty. Alternatively, `reduce(func, nth(1, list), tail(list))` returns `nil` when `list` is empty.
+
+### Partial
+While Lua Fun doesn't have `partial`, the OAA project has an implemetation that can be found in `game/scripts/vscripts/libraries/functional.lua` ([file on GitHub](https://github.com/OpenAngelArena/oaa/blob/master/game/scripts/vscripts/libraries/functional.lua)). Usage should be similar to `partial` in other languages. The first parameter is the function to curry, followed by the parameters to pass to the curried function.
