@@ -6,6 +6,20 @@
   ],
   "imageSize": 100,
   "commit": true,
+  "types": {
+    "design": {
+      "symbol": ":thinking:"
+    },
+    "balance": {
+      "symbol": ":chart_with_upwards_trend:"
+    },
+    "art": {
+      "symbol": ":art:"
+    },
+    "music": {
+      "symbol": ":musical_note:"
+    }
+  },
   "contributors": [
     {
       "login": "chrisinajar",
@@ -124,7 +138,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/25013178?v=3",
       "profile": "https://github.com/Haganeko",
       "contributions": [
-        "design"
+        "design",
+        "balance"
       ]
     },
     {
@@ -133,7 +148,17 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/24721342?v=3",
       "profile": "https://github.com/Melongod",
       "contributions": [
-        "design"
+        "design",
+        "balance"
+      ]
+    },
+    {
+      "login": "Sai",
+      "name": "Sai",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13468?v=3",
+      "profile": "http://saicn.com/me",
+      "contributions": [
+        "music"
       ]
     }
   ]
