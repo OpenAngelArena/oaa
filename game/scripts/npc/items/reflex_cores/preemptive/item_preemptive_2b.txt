@@ -14,10 +14,9 @@
     "AbilityTextureName"      "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_preemptive;item_upgrade_core"
-      "02"            "item_preemptive;item_upgrade_core_2"
-      "03"            "item_preemptive;item_upgrade_core_3"
-      "04"            "item_preemptive;item_upgrade_core_4"
+      "01"            "item_preemptive;item_upgrade_core_2"
+      "02"            "item_preemptive;item_upgrade_core_3"
+      "03"            "item_preemptive;item_upgrade_core_4"
     }
   }
 
@@ -76,6 +75,21 @@
       {
         "var_type"        "FIELD_FLOAT"
         "cooldown"        "20.0"
+      }
+       "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"        "1000"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_armor"     "10"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "magic_resistance"    "10"
       }
     }
   }

@@ -81,6 +81,21 @@
         "var_type"        "FIELD_FLOAT"
         "cooldown"        "20.0"
       }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"        "4000"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_armor"     "20"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "magic_resistance"    "20"
+      }
     }
   }
 }
