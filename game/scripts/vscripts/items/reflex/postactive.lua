@@ -1,6 +1,6 @@
-if not item_postactive then
-  item_postactive = class({})
-end
+LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetetser.lua", LUA_MODIFIER_MOTION_NONE)
+
+item_postactive = class({})
 
 function item_postactive:OnSpellStart()
   local caster = self:GetCaster()
@@ -11,6 +11,7 @@ function item_postactive:OnSpellStart()
   --for built-in modifiers)
   function IsPurgableDebuff(modifier)
     local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
+    testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
     testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
     testUnit:Purge(false, true, true, false, false)
     local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
