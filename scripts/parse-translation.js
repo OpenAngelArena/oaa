@@ -4,7 +4,7 @@ var path = require('path');
 
 var basePath = path.join(__dirname, '../');
 
-module.exports = function () {
+module.exports = function (shouldParse) {
   var fileData = readdir(path.join(basePath, 'game/resource/English/'));
 
   fileData = [
@@ -18,7 +18,7 @@ module.exports = function () {
     '}'
   ].join('\n');
 
-  return parseKV(fileData);
+  return shouldParse === false ? fileData : parseKV(fileData);
 
   function readdir (dir) {
     var fileList = fs.readdirSync(dir);

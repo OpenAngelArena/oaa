@@ -2,6 +2,7 @@ var request = require('request');
 var parseTranslation = require('./parse-translation');
 var fs = require('fs');
 var path = require('path');
+var parseKV = require('parse-kv');
 
 var languageShortNames = {
   german: 'de',
@@ -10,11 +11,20 @@ var languageShortNames = {
   portuguese: 'pt',
   spanish: 'es'
 };
+var englishFileString = parseTranslation(false);
+var englishData = parseKV(englishFileString);
 
 getDuplicateStrings();
 
+fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), englishFileString, {
+  encoding: 'ucs2'
+});
+
+Object.keys(languageShortNames).map(generateTranslations);
+
+// functions
+
 function getDuplicateStrings () {
-  var englishData = parseTranslation();
   var foundStrings = {};
   var duplicateStrings = {};
 
@@ -103,5 +113,3 @@ function generateTranslations (lang) {
     });
   });
 }
-
-Object.keys(languageShortNames).map(generateTranslations);
