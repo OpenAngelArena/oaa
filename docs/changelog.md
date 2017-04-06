@@ -296,7 +296,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ``
 ### Items
 * Changed Postactive Reflex Core
-  * Now grant complete Damage Immunity instead of 500% Damage Reduction
+  * Now works better
 * Balanced Refresher Core
   * Decreased Cooldown from `195.0` to `150.0 105.0 60.0`
   * Decreased Bonus Cooldown from `35 40 45` to `27 30 33`
