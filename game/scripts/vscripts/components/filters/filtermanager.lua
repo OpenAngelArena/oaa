@@ -61,12 +61,12 @@ end
 
 function FilterManager:CreateFilterIterator(filterType)
   -- create iterator on table and then unpack each entry
-  return wrap(map(unpack, iter(self.Filters[filterType])))
+  return map(unpack, iter(self.Filters[filterType]))
 end
 
 function FilterManager:ApplyFiltersToIterator(keys, filterIter)
   -- ApplyFilter(keys, entry) for each entry and return the results
-  return wrap(map(partial(self.ApplyFilter, keys), filterIter))
+  return map(partial(self.ApplyFilter, keys), filterIter)
 end
 
 function FilterManager:RunFilterForType(keys, type)
