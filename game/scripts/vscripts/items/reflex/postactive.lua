@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetetser.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_postactive = class({})
 
