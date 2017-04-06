@@ -28,7 +28,7 @@ function item_postactive:OnSpellStart()
   end
 
   local modifiers = caster:FindAllModifiers()
-  local purgableDebuffs = wrap(filter(IsPurgableDebuff, iter(modifiers)))
+  local purgableDebuffs = filter(IsPurgableDebuff, iter(modifiers))
 
   if is_null(purgableDebuffs) then
     return
