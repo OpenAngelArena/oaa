@@ -16,6 +16,14 @@ var englishData = parseKV(englishFileString);
 
 getDuplicateStrings();
 
+englishFileString = [
+  '//---------------------------------------------------------------------------',
+  '// This file is generated from a script. Do not edit it directly other than for testing. Your edits will be deleted.',
+  '//---------------------------------------------------------------------------',
+  '',
+  englishFileString
+].join('\n');
+
 fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), englishFileString, {
   encoding: 'ucs2'
 });
