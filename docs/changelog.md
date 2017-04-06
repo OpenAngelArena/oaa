@@ -292,6 +292,32 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Remove Infinity Bottle when reaching zero Charges
 
 
+## Update 0.5.0
+``
+### Items
+* Changed Postactive Reflex Core
+  * Now grant complete Damage Immunity instead of 500% Damage Reduction
+* Balanced Refresher Core
+  * Decreased Cooldown from `195.0` to `150.0 105.0 60.0`
+  * Decreased Bonus Cooldown from `35 40 45` to `27 30 33`
+  * Decreased Hero Lifesteal from `40` to `25`
+  * Decreased Creep Lifesteal from `10` to `5`
+* Buffed Preemptive Reflex Core
+  * Added `250` Health
+  * Added `5` Armour
+  * Added `5` Magical Resistance
+* Buffed Preemptive Reflex Core 2 A/B
+  * Changed Recipe to need a Upgrade Core Level 2 or higher
+  * Added `1000` Health
+  * Added `10` Armour
+  * Added `10` Magical Resistance
+* Buffed Preemptive Core 3 A/B
+  * Changed Recipe to need a Upgrade Core Level 4 or higher
+  * Added `4000` Health
+  * Added `20` Armour
+  * Added `20` Magical Resistanc
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
