@@ -48,7 +48,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "195.0"
+    "AbilityCooldown"       "150.0 105.0 60.0"
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"1"
@@ -102,17 +102,17 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"35 40 45"
+				"bonus_cooldown"		"27 30 33"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"40"
+				"hero_lifesteal"		"25"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"10"
+				"creep_lifesteal"		"5"
 			}
 		}
 	}
