@@ -1,4 +1,6 @@
-
+--[[ This file provides the DebugPrint and DebugPrintTable functions, which are wrappers for print
+with some added functionality useful for debugging. Documentation available in docs/debug_print_lua.md
+]]
 Debug = Debug or {
   EnabledModules = {
     ['internal:*'] = true,
