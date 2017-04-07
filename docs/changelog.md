@@ -295,6 +295,15 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ## Update 0.5.0
 ``
 ### Items
+* Added Icons to Items [Images in darklord's PR](https://github.com/OpenAngelArena/oaa/pull/390)
+  * Added Icons to Radiance Level 2 to 5
+  * ~Added Icons to All Preemptive Cores~
+  * ~Added Icons to All Postactive Cores~
+  * ~Added Icons to All Reactice Cores~
+* Buffed All Level 1 Farming Boots
+  * Changed Gold Cost to `100`
+* Nerfed Charge BKB
+  * Every Charge increases Cooldown by `5`
 * Changed Postactive Reflex Core
   * Now works better
 * Balanced Refresher Core
@@ -317,6 +326,9 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Added `20` Armour
   * Added `20` Magical Resistance
 * Added missing Tooltip to Infinity Bottle
+
+### Misc
+* Pulled Translation
 
 
 ## Template
