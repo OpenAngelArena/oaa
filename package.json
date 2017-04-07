@@ -4,7 +4,7 @@
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
-    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape './scripts/test/*test.js' | tap-spec"
+    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape './scripts/test/*test.js' | tap-spec && lua './contrib/test_oaa.lua'"
   },
   "repository": {
     "type": "git",

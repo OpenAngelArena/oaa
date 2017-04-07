@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "7"
+install:
+  - luarocks install luacheck
+script:
+  - luacheck game/scripts/vscripts
 deploy:
 - provider: script
   skip_cleanup: true
