@@ -300,7 +300,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ## Update 0.5.0
 ``
 ### Items
-* Added Icons to Items [Images in darklord's PR](https://github.com/OpenAngelArena/oaa/pull/390)
+* Added Icons to Items ([images](https://github.com/OpenAngelArena/oaa/pull/390))
   * Added Icons to Radiance Level 2 to 5
   * ~Added Icons to All Preemptive Cores~
   * ~Added Icons to All Postactive Cores~
