@@ -4,7 +4,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 Last Update: `2017-04-04 11:08 UTC+0200`
 
 ## Translation Progress
-| Language | Progress |
+| Language   | Progress |
 | :------------- | :--- |
 | Chinese        | 0%   |
 | German         | 87%  |
@@ -340,6 +340,10 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 
 ### Heroes
 * Added Sound to Abaddon's Aphotic Shield 
+
+### UI
+* Updated the Loading Screen
+
 
 ### Misc
 * Pulled Translation
