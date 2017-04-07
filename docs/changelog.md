@@ -326,6 +326,15 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Added `20` Armour
   * Added `20` Magical Resistance
 * Added missing Tooltip to Infinity Bottle
+* Changed Greater Power Treads
+  * Changed Scatter Shot to Splash
+    * This means Effects like Crits apply to Enemies
+    * Also added fany particles
+* Added Audio-Visual Effects to Postactive Reflex Core 1
+* Fixed Cast Glow of Lotus Orb Level 2 and higher
+
+### Heroes
+* Added Sound to Abaddon's Aphotic Shield 
 
 ### Misc
 * Pulled Translation
