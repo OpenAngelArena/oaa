@@ -1,7 +1,7 @@
 # Open Angel Arena ![travis-ci](https://api.travis-ci.org/OpenAngelArena/oaa.svg?branch=master)
 A really great Dota 2 game mode built by [really great people](/contributors.md).
 
-# Installation
+# Installation1
 This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
 
 For detailed instructions, check [here](docs/install.md)
