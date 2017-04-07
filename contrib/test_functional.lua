@@ -17,12 +17,3 @@ function TestPartial:test1 ()
   assertEquals(addToFive(-5), 0)
   assertEquals(addToFive(-10), -5)
 end
-
-function TestPartial:test2 ()
-  print("same as before but now with recursion")
-  local addToFive = partial(add, 5)
-  local addToMinusFive = partial(addToFive, -10)
-  assertEquals(addToMinusFive(5), 0)
-  assertEquals(addToMinusFive(-5), -10)
-  assertEquals(addToMinusFive(10), 5)
-end
