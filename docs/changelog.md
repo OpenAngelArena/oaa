@@ -4,11 +4,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 Last Update: `2017-04-04 11:08 UTC+0200`
 
 ## Translation Progress
-* Chinese: 0%
-* German: 93%
-* Portuguese: 94%
-* Russian: 100%
-* Spanish: 1%
+| Language | Progress |
+| :------------- | :--- |
+| Chinese        | 0%   |
+| German         | 87%  |
+| Hungarian      | 0%   |
+| Polish         | 0%   |
+| Portuguese     | 93%  |
+| Russian        | 99%  |
+| Spanish        | 2%   |
+| Turkish        | 0%   |
 
 ## Changes until now
 * Added new Map
