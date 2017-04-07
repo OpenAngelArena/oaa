@@ -349,6 +349,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 
 ### Misc
 * Pulled Translation
+* Decreased ~Increased~ Loading Times
 
 
 ## Template
