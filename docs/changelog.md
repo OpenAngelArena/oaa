@@ -337,6 +337,8 @@ Last Update: `2017-04-04 11:08 UTC+0200`
     * Also added fany particles
 * Added Audio-Visual Effects to Postactive Reflex Core 1
 * Fixed Cast Glow of Lotus Orb Level 2 and higher
+* Added Greater Phase Boots
+  * Active now additionaly attacks all Creeps the user collides with
 
 ### Heroes
 * Added Sound to Abaddon's Aphotic Shield 
