@@ -315,7 +315,8 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Changed Recipe to need a Upgrade Core Level 4 or higher
   * Added `4000` Health
   * Added `20` Armour
-  * Added `20` Magical Resistanc
+  * Added `20` Magical Resistance
+* Added missing Tooltip to Infinity Bottle
 
 
 ## Template
