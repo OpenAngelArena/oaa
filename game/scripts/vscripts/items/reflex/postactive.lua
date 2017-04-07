@@ -31,6 +31,12 @@ function item_postactive:OnSpellStart()
   local modifiers = caster:FindAllModifiers()
   local purgableDebuffs = filter(IsPurgableDebuff, iter(modifiers))
 
+  -- Audiovisual effects
+  EmitSoundOn("Hero_Abaddon.AphoticShield.Cast", caster)
+  local particleName1 = "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+  local particle1 = ParticleManager:CreateParticle(particleName1, PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:ReleaseParticleIndex(particle1)
+
   if is_null(purgableDebuffs) then
     return
   end
