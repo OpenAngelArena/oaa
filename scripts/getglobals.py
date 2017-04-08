@@ -5,6 +5,7 @@ import requests
 import sys
 import codecs
 from collections import OrderedDict
+from functools import partial
 
 
 ENCODING = "utf-8"
@@ -24,35 +25,26 @@ def getHTML(url):
     r = requests.get(url)
     if r.ok:
         return r.content.decode(ENCODING)
-    else:
-        return None
+    return None
 
 
 def getBlock(span):
-    name = span.string
-    block = span.find_next('table')
-    return (name, block)
+    """Return a unpacked block."""
+    return (span.string, span.find_next('table'))
 
 
-def cleanFuncBlock(table):
+def cleanBlock(elem, table):
+    """Return a clean block."""
     block = dict()
     for row in table('tr'):
         key = row.find_next('td').a
-        value = key.find_next('code')
-        block[key.string.strip()] = value.string.strip()
-    return block
-
-
-def cleanConstBlock(table):
-    block = dict()
-    for row in table('tr'):
-        key = row.find_next('td')
-        value = key.find_next('td')
+        value = key.find_next(elem)
         block[key.string.strip()] = value.string.strip()
     return block
 
 
 def display(output, blocks):
+    """Format and print blocks to output."""
     for k, vs in blocks.items():
         output.write('-- ' + k + '\n')
         for v in vs:
@@ -61,22 +53,28 @@ def display(output, blocks):
 
 def main():
     """Main Function."""
+    cleanConstBlock = partial(cleanBlock, 'td')
+    cleanFuncBlock = partial(cleanBlock, 'code')
+
     page = getHTML(URL)
     if not page:
         print("Error Page not found.")
         exit(127)
+
     soup = BeautifulSoup(page, 'html.parser')
     blocks = OrderedDict()
+
     for span in soup('span', {'class': 'mw-headline'}):
-        if span.parent.next_sibling:
-            name, table = getBlock(span)
-            header = table.find_next('th').string.strip()
-            if "Name" in header:
-                blocks[name] = cleanConstBlock(table)
-            elif "Function" in header:
-                blocks[name] = cleanFuncBlock(table)
-    with open('dump', 'w', encoding=ENCODING) as dump:
-        display(dump, blocks)
+        if not span.parent.next_sibling:
+            continue
+        name, table = getBlock(span)
+        header = table.find_next('th').string.strip()
+        if "Name" in header:
+            blocks[name] = cleanConstBlock(table)
+        elif "Function" in header:
+            blocks[name] = cleanFuncBlock(table)
+
+    display(sys.stdout, blocks)
 
 
 if __name__ == '__main__':
