@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get -qq install -y luarocks
   - sudo luarocks install luacheck
 script:
-  - luacheck --codes -q game/scripts/vscripts
+  - luacheck --codes --ranges -q game/scripts/vscripts
 deploy:
 - provider: script
   skip_cleanup: true
