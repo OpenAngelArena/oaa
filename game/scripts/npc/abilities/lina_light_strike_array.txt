@@ -9,18 +9,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5041"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"6"
 		"AbilityCastRange"				"625"
 		"AbilityCastPoint"				"0.45 0.45 0.45 0.45 0.45 0.45"
-		
-		// Time		
+
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7.0 7.0 7.0 7.0 7.0 7.0"
-		"AbilityDuration"				"1.6 1.9 2.2 2.5 3.0 4.0"
+		"AbilityDuration"				"1.6 1.9 2.2 2.5 2.8 3.1"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -39,13 +39,13 @@
 				"var_type"					"FIELD_INTEGER"
 				"light_strike_array_aoe"	"225"
 			}
-			
+
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"light_strike_array_delay_time"	"0.5"
 			}
-						
+
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
@@ -53,5 +53,5 @@
 			}
 		}
 	}
-	
+
 }
