@@ -5,6 +5,13 @@
     ---- Other
     "require",
     "class",
+    "DebugPrint",
+    "DebugPrintTable",
+    "print",
+    "PrintTable",
+    "Dynamic_Wrap",
+    "GameMode",
+    "GameRules",
     -- Accessor
     "Global",
     "CBaseEntity",
@@ -2560,7 +2567,18 @@
     "DOTA_CONNECTION_STATE_DISCONNECTED",
   }
 
+-- file specific settings
+files["game/scripts/vscripts/items/"] = {
+  ignore = {"111"} -- setting non-standard global variable
+}
+
+-- enable warnings to make sure they're alway checked
+enable = {
+  "631", -- line is too long (120)
+}
+
 exclude_files = {
   "game/scripts/vscripts/statcollection", -- we just ignore getdotastats
-  "game/scripts/vscripts/settings.lua",
+  "game/scripts/vscripts/settings.lua", -- this spews so may warnings
+  "game/scripts/vscripts/internal", -- like settings.lua and it's not needed
 }
