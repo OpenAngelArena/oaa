@@ -3,7 +3,7 @@ node_js:
   - "7"
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y luarocks
+  - sudo apt-get -qq install -y luarocks
   - sudo luarocks install luacheck
 script:
   - luacheck game/scripts/vscripts
