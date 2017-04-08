@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - "7"
-install:
-  - apt-get install luarocks
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y luarocks
   - luarocks install luacheck
 script:
   - luacheck game/scripts/vscripts
