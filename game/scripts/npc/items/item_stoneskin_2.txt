@@ -3,18 +3,18 @@
    "item_recipe_stoneskin_2"
     {
 
-        "ID"                            "3245"      // unique ID
-		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"			"item_recipe"
-        "ItemCost"                      "1500"
-        "ItemShopTags"                  ""
-        "ItemRecipe"                    "1"
-        "ItemResult"                    "item_stoneskin_2"
+        "ID"                                "3245"      // unique ID
+		"BaseClass"                         "item_datadriven"
+        "Model"                             "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"			    "item_recipe"
+        "ItemCost"                          "1500"
+        "ItemShopTags"                      ""
+        "ItemRecipe"                        "1"
+        "ItemResult"                        "item_stoneskin_2"
         "ItemRequirements"
         {
-            "01"                        "item_stoneskin;item_upgrade_core_3"
-            "02"                        "item_stoneskin;item_upgrade_core_4"
+            "01"                            "item_stoneskin;item_upgrade_core_3"
+            "02"                            "item_stoneskin;item_upgrade_core_4"
         }
     }
 
@@ -22,35 +22,35 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3247"      // unique ID
+        "ID"                                "3247"      // unique ID
 		    "BaseClass"                     "item_datadriven"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"            "custom/stoneskin_2"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+        "AbilityTextureName"                "custom/stoneskin_2"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "50"
+        "AbilityManaCost"                   "50"
 
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
-        "AbilitySharedCooldown"         "stoneskin"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+        "AbilitySharedCooldown"             "stoneskin"
+        "MaxUpgradeLevel"                   "2"
+        "ItemBaseLevel"                     "2"
 
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "20000"
-        "ItemShopTags"                  "damage;attack_speed;armor;regen_health;hard_to_tag"
-        "ItemQuality"                   "epic"
-        "ItemAliases"                   "stoneskin of mordiggian"
-        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        "ItemCost"                          "20000"
+        "ItemShopTags"                      "damage;attack_speed;armor;regen_health;hard_to_tag"
+        "ItemQuality"                       "epic"
+        "ItemAliases"                       "stoneskin of mordiggian"
+        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "precache"
         {
-            "particle"                  "particles/status_fx/status_effect_frost_lich.vpcf"
+            "particle"                      "particles/status_fx/status_effect_frost_lich.vpcf"
         }
         "OnToggleOn"
         {
@@ -58,8 +58,8 @@
         		{
         			"ScriptFile"			"items/item_stoneskin.lua"
         			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"           "%start_delay"
-              "Cooldown"        "%cooldown_after_delay"
+        			"Delay"                 "%start_delay"
+                    "Cooldown"              "%cooldown_after_delay"
         		}
         }
         "OnToggleOff"
@@ -68,8 +68,8 @@
         		{
         			"ScriptFile"			"items/item_stoneskin.lua"
         			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"           "%start_delay"
-              "Cooldown"        "%cooldown_after_delay"
+        			"Delay"                 "%start_delay"
+                    "Cooldown"              "%cooldown_after_delay"
         		}
         }
 
@@ -78,8 +78,8 @@
             // PASSIVE
             "modifier_item_stoneskin_properties"
             {
-                "Passive"   "1"
-                "IsHidden"    "1"
+                "Passive"                   "1"
+                "IsHidden"                  "1"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
@@ -93,8 +93,8 @@
             // STONESKIN
             "modifier_item_stoneskin_stone_armor"
             {
-                "StatusEffectName"     "particles/status_fx/status_effect_frost_lich.vpcf"
-                "StatusEffectPriority" "10"
+                "StatusEffectName"          "particles/status_fx/status_effect_frost_lich.vpcf"
+                "StatusEffectPriority"      "10"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%stone_armor"
