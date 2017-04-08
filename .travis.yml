@@ -4,7 +4,7 @@ node_js:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y luarocks
-  - luarocks install luacheck
+  - luarocks install --local luacheck
 script:
   - luacheck game/scripts/vscripts
 deploy:
