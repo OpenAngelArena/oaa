@@ -12,6 +12,12 @@
     "Dynamic_Wrap",
     "GameMode",
     "GameRules",
+    "ParticleManager",
+    "FilterManager",
+    "CustomGameEventManager",
+    "PlayerResource",
+    "CustomNetTables",
+    "Timers",
     -- Accessor
     "Global",
     "CBaseEntity",
