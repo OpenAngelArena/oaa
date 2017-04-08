@@ -16,9 +16,9 @@
         "ItemResult"                    "item_stoneskin"
         "ItemRequirements"
         {
-          "01"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_2"
-          "02"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_3"
-          "03"                        "item_shivas_guard_3;item_armlet_2;item_upgrade_core_4"
+          "01"                          "item_shivas_guard_3;item_armlet_2;item_upgrade_core_2"
+          "02"                          "item_shivas_guard_3;item_armlet_2;item_upgrade_core_3"
+          "03"                          "item_shivas_guard_3;item_armlet_2;item_upgrade_core_4"
       	}
 
     }
@@ -63,20 +63,20 @@
         {
         		"RunScript"
         		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"           "%start_delay"
-              "Cooldown"        "%cooldown_after_delay"
+        			"ScriptFile"		"items/item_stoneskin.lua"
+        			"Function"			"modifier_stoneskin_toggle"
+        			"Delay"             "%start_delay"
+              "Cooldown"                "%cooldown_after_delay"
         		}
         }
         "OnToggleOff"
         {
         		"RunScript"
         		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"           "%start_delay"
-              "Cooldown"        "%cooldown_after_delay"
+        			"ScriptFile"		"items/item_stoneskin.lua"
+        			"Function"			"modifier_stoneskin_toggle"
+        			"Delay"             "%start_delay"
+              "Cooldown"                "%cooldown_after_delay"
         		}
         }
 
@@ -86,8 +86,8 @@
             // PASSIVE
             "modifier_item_stoneskin_properties"
             {
-                "Passive"   "1"
-                "IsHidden"    "1"
+                "Passive"               "1"
+                "IsHidden"              "1"
                 "Properties"
                 {
                     "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
