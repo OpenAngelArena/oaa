@@ -366,6 +366,21 @@ Last Update: `2017-04-04 11:08 UTC+0200`
     * Reduced Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
 
 
+## Update 0.6.0
+``
+### Heroes
+* Updated Talents of all Heroes
+
+### Items
+* Better Tooltips
+* Added Icon to Shivas Cuirass
+* Added Icon to Postactive Reflex Core
+* Addde Icon to Reactive Reflex Core
+
+### UI
+* Fixed Bug where blacklisted Items could be sold via Drag'n'Drop
+* Made Error Message when trying to sell blacklisted Items better
+
 
 ## Template
 ```Markdown
