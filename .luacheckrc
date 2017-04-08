@@ -2493,6 +2493,6 @@
   }
 --}
 exclude_files = {
-  "game/scripts/vscripts/statcollection" -- we just ignore getdotastats
-  "game/scripts/vscripts/settings.lua"
+  "game/scripts/vscripts/statcollection", -- we just ignore getdotastats
+  "game/scripts/vscripts/settings.lua",
 }
