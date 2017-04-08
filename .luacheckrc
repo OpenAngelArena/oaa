@@ -2568,9 +2568,13 @@
   }
 
 -- file specific settings
-files["game/scripts/vscripts/items/"] = {
+files["game/scripts/vscripts/items"] = {
   ignore = {"111"} -- setting non-standard global variable
 }
+files["game/scripts/vscripts/modifiers"] = {
+  ignore = {"111"} -- setting non-standard global variable
+}
+
 
 -- enable warnings to make sure they're alway checked
 enable = {
