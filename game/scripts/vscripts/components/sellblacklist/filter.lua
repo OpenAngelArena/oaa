@@ -17,8 +17,10 @@ function SellBlackList:OrderFilter (filterTable)
   local abilityEID = filterTable.entindex_ability
   local ability = EntIndexToHScript(abilityEID)
   local issuerID = filterTable.issuer_player_id_const
+  local target = EntIndexToHScript(filterTable.entindex_target)
+  local targetIsShop = string.find(target:GetName(), "shop") ~= nil
 
-  if order == DOTA_UNIT_ORDER_SELL_ITEM then
+  if order == DOTA_UNIT_ORDER_SELL_ITEM or (targetIsShop and order == DOTA_UNIT_ORDER_GIVE_ITEM) then
     for _,v in ipairs(ItemSellBlackList) do
       if string.find(ability:GetName(), v) ~= nil then
         DebugPrint('Someone is trying to sell an item (' .. ability:GetName() .. ') on the blacklist(' .. v .. ').')
