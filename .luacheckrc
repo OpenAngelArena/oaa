@@ -1,6 +1,6 @@
-std = {
+--std = {
   globals = { -- these globals can be set and accessed.
-  },
+}--,
   read_globals = { -- these globals can only be accessed.
     ---- Other
     "require",
@@ -2491,7 +2491,7 @@ std = {
     "DOTA_CONNECTION_STATE_CONNECTED",
     "DOTA_CONNECTION_STATE_NOT_YET_CONNECTED",
   }
-}
+--}
 exclude_files = {
   "game/scripts/vscripts/statcollection" -- we just ignore getdotastats
   "game/scripts/vscripts/settings.lua"
