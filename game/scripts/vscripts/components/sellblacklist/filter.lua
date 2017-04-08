@@ -22,14 +22,7 @@ function SellBlackList:OrderFilter (filterTable)
     for _,v in ipairs(ItemSellBlackList) do
       if string.find(ability:GetName(), v) ~= nil then
         DebugPrint('Someone is trying to sell an item (' .. ability:GetName() .. ') on the blacklist(' .. v .. ').')
-        Notifications:Bottom(PlayerResource:GetPlayer(issuerID), {
-          text="You can't sell this Item!",
-          duration=1.5,
-          style={
-            color="#b71c1c",
-            ["font-size"]="28px"
-          }
-        })
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(issuerID), "custom_dota_hud_error_message", {reason=70, message=""})
         return false
       end
     end
