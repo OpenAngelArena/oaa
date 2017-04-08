@@ -2567,19 +2567,10 @@
     "DOTA_CONNECTION_STATE_DISCONNECTED",
   }
 
--- file specific settings
-files["game/scripts/vscripts/items"] = {
-  ignore = {
-    "111", -- setting non-standard global variable
-  }
+ignore = {
+  "111", -- setting non-standard global variable
+  "112", -- mutating non-standard global variable
 }
-files["game/scripts/vscripts/modifiers"] = {
-  ignore = {
-    "111", -- setting non-standard global variable
-    "112", -- mutating non-standard global variable
-  }
-}
-
 
 -- enable warnings to make sure they're alway checked
 enable = {
