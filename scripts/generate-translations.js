@@ -24,7 +24,7 @@ englishFileString = [
   englishFileString
 ].join('\n');
 
-fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), englishFileString, {
+fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), '\ufeff' + englishFileString, {
   encoding: 'ucs2'
 });
 
@@ -116,7 +116,7 @@ function generateTranslations (lang) {
 
     // translations
     var lines = generateFileForTranslations(lang, data);
-    fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), lines.join('\n'), {
+    fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
       encoding: 'ucs2'
     });
   });
