@@ -298,7 +298,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 
 
 ## Update 0.5.0
-``
+`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`
 ### Items
 * Added Icons to Items ([images](https://github.com/OpenAngelArena/oaa/pull/390))
   * Added Icons to Radiance Level 2 to 5
@@ -346,10 +346,25 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ### UI
 * Updated the Loading Screen
 
-
 ### Misc
 * Pulled Translation
 * Decreased ~Increased~ Loading Times
+
+
+## Update 0.5.1
+`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`
+### Misc
+* Updated Tooltips
+* Updated Translations
+
+
+## Hotfix 0.5.2
+`4e162af2dab16a81759330dcedcca1a21280641c`
+### Heroes
+* Nerfed Luna
+  * Nerfed Eclipse
+    * Reduced Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
+
 
 
 ## Template
