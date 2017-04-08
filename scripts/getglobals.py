@@ -33,11 +33,14 @@ def getBlock(span):
     return (span.string, span.find_next('table'))
 
 
-def cleanBlock(elem, table):
+def cleanBlock(table, elem, nested):
     """Return a clean block."""
     block = dict()
+    print(elem)
     for row in table('tr'):
-        key = row.find_next('td').a
+        key = row.find_next('td')
+        if nested:
+            key = key.a
         value = key.find_next(elem)
         block[key.string.strip()] = value.string.strip()
     return block
@@ -53,8 +56,8 @@ def display(output, blocks):
 
 def main():
     """Main Function."""
-    cleanConstBlock = partial(cleanBlock, 'td')
-    cleanFuncBlock = partial(cleanBlock, 'code')
+    cleanConstBlock = partial(cleanBlock, elem='td', nested=False)
+    cleanFuncBlock = partial(cleanBlock, elem='code', nested=True)
 
     page = getHTML(URL)
     if not page:
@@ -63,6 +66,7 @@ def main():
 
     soup = BeautifulSoup(page, 'html.parser')
     blocks = OrderedDict()
+    blocks['Accessor'] = list()
 
     for span in soup('span', {'class': 'mw-headline'}):
         if not span.parent.next_sibling:
@@ -73,8 +77,9 @@ def main():
             blocks[name] = cleanConstBlock(table)
         elif "Function" in header:
             blocks[name] = cleanFuncBlock(table)
-
-    display(sys.stdout, blocks)
+            blocks['Accessor'].append(name)
+    with open('dump', 'w') as dump:
+      display(dump, blocks)
 
 
 if __name__ == '__main__':
