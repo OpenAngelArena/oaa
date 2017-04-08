@@ -51,6 +51,42 @@
         "var_type"         "FIELD_INTEGER"
         "debuff_armor"     "-240"
       }
+      //----------------------------
+      // hero is dragged into a pillar
+      //----------------------------
+      "08"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "hero_stun_duration"  "2.0 2.75 3.5"
+      }
+      "09"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "hero_pillar_damage"  "800"
+      }
+      //----------------------------------
+      // Glacing blow, when the charger strikes a hero indirectly and pushes them away
+      //----------------------------------
+      "09"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "glacing_damage"  "75 100 150"
+      }
+      "10"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "glacing_slow"  "10 30 50"
+      }
+      "11"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "glacing_duration"  "1 2 3"
+      }
+      "12"
+      {
+        "var_type"         "FIELD_FLOAT"
+        "glacing_knockback"  "200 250 300"
+      }
     }
   }
 }

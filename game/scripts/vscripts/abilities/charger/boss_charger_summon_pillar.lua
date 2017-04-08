@@ -4,7 +4,6 @@ boss_charger_summon_pillar = class({})
 function boss_charger_summon_pillar:OnSpellStart()
   local cursorPosition = self:GetCursorPosition()
   local caster = self:GetCaster()
-  local playerID = caster:GetPlayerID()
 
   print(cursorPosition)
 
@@ -12,8 +11,9 @@ function boss_charger_summon_pillar:OnSpellStart()
 
   tower:AddNewModifier(caster, self, "modifier_invulnerable", {})
 
-  if playerID then
-    tower:SetControllableByPlayer(playerID, false)
+
+  if caster.GetPlayerID then
+    tower:SetControllableByPlayer(caster:GetPlayerID(), false)
   end
   tower:SetOwner(caster)
 

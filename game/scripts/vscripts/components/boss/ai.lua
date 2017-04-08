@@ -24,6 +24,7 @@ function BossAI:Create (unit, options)
     tier = options.tier,
     currentDamage = 0,
     state = BossAI.IDLE,
+    customAgro = options.customAgro or false,
 
     deathEvent = Event()
   }
@@ -131,6 +132,11 @@ function BossAI:DeathHandler (state, keys)
 end
 
 function BossAI:Agro (state, target)
+  if state.customAgro then
+    DebugPrint('Running custom agro ai')
+    return
+  end
+
   Timers:CreateTimer(1, function ()
     if state.state == BossAI.DEAD then
       return

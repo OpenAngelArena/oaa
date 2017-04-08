@@ -51,7 +51,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
   end
 
   local bossAI = BossAI:Create(bossHandle, {
-    tier = bossTier
+    tier = bossTier,
+    customAgro = true
   })
 
   local newBossTier = math.min(6, bossTier + 1)
