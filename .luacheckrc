@@ -191,8 +191,6 @@ std = {
     "VectorToAngles",
     "Warning",
     "CDOTA_PlayerResource",
-    "
-    "
     ---- Constants
     -- AbilityLearnResult_t
     "ABILITY_CAN_BE_UPGRADED",
