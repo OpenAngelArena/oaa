@@ -81,7 +81,7 @@
 	}
 
 	// Level 1 - Green Recipes
-	"basics"
+	"basics_off"
 	{
 		"item"		"item_magic_wand"
 		"item"		"item_null_talisman"
@@ -96,6 +96,24 @@
 		"item"		"item_hand_of_midas"
 		"item"		"item_travel_boots"
 		"item"		"item_moon_shard"
+	}
+
+	"basics"
+	{
+		"item"		"item_trumps_fists"
+		"item"		"item_stoneskin"
+		"item"		"item_shroud"
+		"item"		"item_shivas_cuirass"
+		"item"		"item_refresher_core"
+		"item"		"item_martyrs_mail"
+		"item"		"item_lucience"
+
+		"item"		"item_force_staff"
+		"item"		"item_pull_staff"
+
+		"item"    "item_postactive"
+		"item"    "item_preemptive"
+		"item"    "item_reactive"
 	}
 
 	// Level 2 - Blue Recipes
@@ -120,8 +138,6 @@
 	"magics"
 	{
 		"item"		"item_glimmer_cape"
-		"item"		"item_force_staff"
-		"item"		"item_pull_staff"
 		"item"		"item_veil_of_discord"
 		"item"		"item_aether_lens"
 		"item"		"item_necronomicon"
@@ -191,17 +207,6 @@
 		"item"		"item_skadi"
 		"item"		"item_mjollnir"
 		"item"		"item_satanic"
-		"item"		"item_trumps_fists"
-		"item"		"item_stoneskin"
-		"item"		"item_shroud"
-		"item"		"item_shivas_cuirass"
-		"item"		"item_refresher_core"
-		"item"		"item_martyrs_mail"
-		"item"		"item_lucience"
-
-    "item"    "item_postactive"
-    "item"    "item_preemptive"
-    "item"    "item_reactive"
 	}
 
 	"secretshop"
