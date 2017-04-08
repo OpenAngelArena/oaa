@@ -2586,8 +2586,6 @@ enable = {
   "631", -- line is too long (120)
 }
 
-formatter = "JUnit"
-
 exclude_files = {
   "game/scripts/vscripts/statcollection", -- we just ignore getdotastats
   "game/scripts/vscripts/settings.lua", -- this spews so may warnings
