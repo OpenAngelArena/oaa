@@ -10,7 +10,7 @@
     "MaxLevel"                "3"
     "RequiredLevel"           "1"
     "LevelsBetweenUpgrades"   "1"
-    "AbilityChannelTime"      "2.0 1.2 0.8"
+    "AbilityChannelTime"      "1.6 1.2 0.8"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"          "FIELD_INTEGER"
-        "cooldown"          "10 5 0"
+        "cooldown"          "6 4 0"
       }
       "02"
       {
@@ -29,12 +29,12 @@
       "03"
       {
         "var_type"         "FIELD_FLOAT"
-        "charge_duration"     "1.0"
+        "charge_duration"     "2.0"
       }
       "04"
       {
         "var_type"         "FIELD_INTEGER"
-        "speed"            "20 25 30"
+        "speed"            "10 25 35"
       }
 
       //----------------------------
@@ -66,7 +66,7 @@
       "09"
       {
         "var_type"         "FIELD_FLOAT"
-        "hero_pillar_damage"  "800"
+        "hero_pillar_damage"  "800 1000 1200"
       }
       //----------------------------------
       // Glacing blow, when the charger strikes a hero indirectly and pushes them away
