@@ -10,10 +10,7 @@ local funcs = {
 end
 
 function modifier_octarine_vampirism_buff:IsHidden()
-  if self:GetAbility():GetLevel() == 0 then
-    return true
-  end
-  return false
+  return true
 end
 
 function modifier_octarine_vampirism_buff:IsBuff()

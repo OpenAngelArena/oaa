@@ -22,12 +22,15 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3223"		// unique ID
-		"BaseClass"                     "item_octarine_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"					"items/satanic_core"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"            "item_octarine_core"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35.0"
+
 		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -46,43 +49,58 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-//			"01"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_strength"		"32 33 34"
-//			}
-//			"02"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_damage"			"100 150 200"
-//			}
-			// Octarine Core Parameters
-			"03"
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"32 33 34"
+			}
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_intelligence"	"25 35 45"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_health"			"500"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana"			"500"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"100 150 200"
+			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lifesteal_percent"		"25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"unholy_lifesteal_percent"	"200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"unholy_duration"		"4.5"
+			}
+			// Octarine Core Parameters
+			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_cooldown"		"35 40 45"
 			}
-			"07"
+			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"50 65 80"
 			}
-			"08"
+			"11"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10 20 30"
