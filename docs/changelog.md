@@ -15,7 +15,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Changes until now
 * Added new Map
-* Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heros
+* Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heroes
 * Added new Items
 * Added Upgrades to Items
 * Added Upgrade Cores
