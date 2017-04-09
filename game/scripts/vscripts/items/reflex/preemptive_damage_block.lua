@@ -2,6 +2,7 @@
 -- defines item_preemptive_3b
 -- defines modifier_item_preemptive_damage_reduction
 LinkLuaModifier( "modifier_item_preemptive_damage_reduction", "items/reflex/preemptive_damage_block.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 require('libraries/timers')
 
