@@ -398,7 +398,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.7.0 Public Testing
-``
+`ba6d6884b995fc79fc5537c35c887e8128fd235a`
 ### Items
 * Nerfed Abyssal Blade
   * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
