@@ -97,6 +97,8 @@ function Duels:StartDuel ()
 
   Timers:CreateTimer(10, function ()
     Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    ZoneCleaner:CleanZone(Duels.zone1)
+    ZoneCleaner:CleanZone(Duels.zone2)
     Duels:ActuallyStartDuel()
   end)
 end

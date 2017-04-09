@@ -4,7 +4,7 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
-  Debug.EnabledModules['boss:*'] = true
+  Debug.EnabledModules['boss:*'] = false
 end
 
 function BossSpawner:Init ()
