@@ -55,41 +55,6 @@ end
 
 --------------------------------------------------------------------------------
 
-function item_greater_power_treads:OnProjectileHit( target, loc )
-	-- only bother with this if it hit its target
-	if target then
-		local caster = self:GetCaster()
-	
-		-- get the wearer's damage
-		local damage = caster:GetAverageTrueAttackDamage( target )
-		
-		-- get the damage modifier
-		local damageMod = self:GetSpecialValueFor( "split_damage" )
-			
-		if caster:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
-			damageMod = self:GetSpecialValueFor( "split_damage_ranged" )
-		end
-		
-		damageMod = damageMod * 0.01
-		
-		-- apply the damage modifier
-		damage = damage * damageMod
-	
-		-- inflict damage
-		-- DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS prevents spell amp and spell lifesteal
-		ApplyDamage( {
-			victim = target,
-			attacker = self:GetCaster(),
-			damage = damage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,
-			damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
-			ability = self,
-		} )
-	end
-end
-
---------------------------------------------------------------------------------
-
 modifier_item_greater_power_treads = class({})
 
 --------------------------------------------------------------------------------
@@ -180,21 +145,6 @@ if IsServer() then
 			-- get the radius
 			local radius = spell:GetSpecialValueFor( "split_radius" )
 			
-			-- grab the hero's projectile attributes
-			local projSpeed = parent:GetProjectileSpeed()
-			local projName = parent:GetRangedProjectileName()
-			
-			if projName == "particles/base_attacks/ranged_hero.vpcf" then
-				-- this is the default projectile for heroes, which doesn't seem to actually be finished
-				-- so we'll replace it with another
-				projName = "particles/base_attacks/ranged_goodguy.vpcf"
-				
-				-- melee heroes seem like they have infinite projectile speed
-				-- if that's preferable, you can comment out this line
-				projSpeed = 950
-			end
-			
-			--
 			-- find all appropriate targets around the initial target
 			local units = FindUnitsInRadius(
 				parentTeam,
@@ -216,21 +166,45 @@ if IsServer() then
 				end
 			end
 			
-			-- fire a projectile at all targets
+			-- only play the particle if it actually damages something
+			local doParticle = false
+			
+			-- get the wearer's damage
+			local damage = event.original_damage
+			
+			-- get the damage modifier
+			local damageMod = spell:GetSpecialValueFor( "split_damage" )
+				
+			if parent:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
+				damageMod = spell:GetSpecialValueFor( "split_damage_ranged" )
+			end
+			
+			damageMod = damageMod * 0.01
+			
+			-- apply the damage modifier
+			damage = damage * damageMod
+		
+			-- iterate through all targets
 			for k, unit in pairs( units ) do
-				ProjectileManager:CreateTrackingProjectile( {
-					Target = unit,
-					Source = target,
-					Ability = spell,
-					EffectName = projName,
-					iMoveSpeed = projSpeed,
-					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-					bProvidesVision = false,
-					
-					ExtraData = {
-						damage = damage,
-					},
-				} )
+				-- inflict damage
+				-- DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS prevents spell amp and spell lifesteal
+				if ApplyDamage( {
+					victim = unit,
+					attacker = self:GetCaster(),
+					damage = damage,
+					damage_type = DAMAGE_TYPE_PHYSICAL,
+					damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
+					ability = self,
+				} ) then
+					doParticle = true
+				end
+			end
+			
+			if doParticle == true then
+				-- play the particle
+				local part = ParticleManager:CreateParticle( "particles/items/powertreads_splash.vpcf", PATTACH_POINT, target )
+				ParticleManager:SetParticleControl( part, 5, Vector( 1, 0, radius ) )
+				ParticleManager:ReleaseParticleIndex( part )
 			end
 		end
 	end

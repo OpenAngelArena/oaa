@@ -89,5 +89,12 @@
 				"split_damage_ranged"	"10 20 30 40 50"
 			}
 		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/items/powertreads_splash.vpcf"
+		}
 	}
 }

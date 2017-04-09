@@ -396,7 +396,6 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Items
 * Added Stats to Preemptive Reflex Items
 
-
 ## Template
 ```Markdown
 ## <Name> <Tag>

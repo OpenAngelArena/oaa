@@ -34,7 +34,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3005"													// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_phase_boots"
+		"BaseClass"                    	"item_lua"
+		"ScriptFile"                   	"items/item_greater_phase_boots.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"            "item_phase_boots"
 		// Stats
@@ -123,6 +124,18 @@
 				"var_type"				"FIELD_INTEGER"
 				"projectile_range"		"700"
 			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"phase_radius"			"200"
+			}
+		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/items/phase_divehit.vpcf"
 		}
 	}
 }

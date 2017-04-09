@@ -1,6 +1,6 @@
 {
   "name": "open_angel_arena",
-  "version": "0.4.2",
+  "version": "0.6.1",
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
+    "all-contributors-cli": "^4.0.1",
     "request": "^2.81.0",
     "transifex": "^1.4.6"
   }

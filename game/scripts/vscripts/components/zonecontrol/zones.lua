@@ -156,22 +156,26 @@ function ZoneControl:SetMode (state, mode)
   ZoneControl:EnforceRules(state)
 end
 
-function ZoneControl.AddPlayer (state, playerId)
+function ZoneControl.AddPlayer (state, playerId, shouldEnforceRules)
   if ZoneControl:SpreadZoneGroup(state, 'AddPlayer') then
     return
   end
   state.players[playerId] = true
 
-  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  if shouldEnforceRules ~= false then
+    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  end
 end
 
-function ZoneControl.RemovePlayer (state, playerId)
+function ZoneControl.RemovePlayer (state, playerId, shouldEnforceRules)
   if ZoneControl:SpreadZoneGroup(state, 'RemovePlayer') then
     return
   end
   state.players[playerId] = false
 
-  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  if shouldEnforceRules ~= false then
+    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  end
 end
 
 -- rules enforcement

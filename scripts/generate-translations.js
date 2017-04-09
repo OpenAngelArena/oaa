@@ -24,11 +24,16 @@ englishFileString = [
   englishFileString
 ].join('\n');
 
-fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), englishFileString, {
+fs.writeFileSync(path.join(__dirname, '../game/resource/addon_english.txt'), '\ufeff' + englishFileString, {
   encoding: 'ucs2'
 });
 
-Object.keys(languageShortNames).map(generateTranslations);
+if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
+  console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
+  process.exit(0);
+} else {
+  Object.keys(languageShortNames).map(generateTranslations);
+}
 
 // functions
 
@@ -65,6 +70,10 @@ function getTranslationsForLanguage (lang, cb) {
     },
     json: true
   }, function (err, data) {
+    if (typeof data.body !== 'object') {
+      console.error('Unexpected output: ', data.body);
+      return cb(new Error('Unexpected output from transifex server. Check user / password'));
+    }
     data = JSON.parse(data.body.content);
     cb(err, data);
   });
@@ -116,7 +125,7 @@ function generateTranslations (lang) {
 
     // translations
     var lines = generateFileForTranslations(lang, data);
-    fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), lines.join('\n'), {
+    fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
       encoding: 'ucs2'
     });
   });

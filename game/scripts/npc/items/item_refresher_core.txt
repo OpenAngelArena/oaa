@@ -53,7 +53,6 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_refresher_core;item_refresher_core_2"
-		"UpgradeRecipe"					"item_recipe_refresher_core"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -67,23 +66,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-//			"01"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_health_regen"	"18"
-//			}
-//			"02"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_mana_regen"		"400 450 500"
-//			}
-//			"03"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_damage"			"30"
-//			}
-
-			// Octarine Core Parameters
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"18"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"400 450 500"
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"

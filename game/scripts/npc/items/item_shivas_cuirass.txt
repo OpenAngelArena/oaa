@@ -24,8 +24,8 @@
 		"ItemRequirements"
 		{
 			"01"						"item_assault_3;item_shivas_guard_3;item_upgrade_core_2"
-      "02"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
-      "03"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
+            "02"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
+            "03"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
 
 		}
 	}
@@ -44,7 +44,7 @@
 		"ScriptFile"					"items/shivas_cuirass"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_assault"
+        "AbilityTextureName"            "custom/shivas_cuirass"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
@@ -63,7 +63,6 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"UpgradesItems"					"item_shivas_cuirass;item_shivas_cuirass_2;item_shivas_cuirass_3"
-		"UpgradeRecipe"					"item_recipe_shivas_cuirass"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

@@ -9,6 +9,10 @@ require('libraries/timers')
 
 item_preemptive_2b = class({})
 
+function item_preemptive_2b:GetIntrinsicModifierName()
+  return 'modifier_generic_bonus'
+end
+
 function item_preemptive_2b:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")

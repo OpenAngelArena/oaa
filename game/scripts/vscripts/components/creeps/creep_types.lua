@@ -34,5 +34,4 @@ CreepTypes = {
     }
       -- {"npc_dota_neutral_jungle_stalker",       1600, 400,  55,   2,    61,   40},
   }
-  -- ...
 }

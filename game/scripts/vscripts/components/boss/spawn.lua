@@ -36,6 +36,9 @@ end
 function BossSpawner:SpawnBoss (pit, boss, bossTier)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
+  local bossPrefix = string.sub(boss, 0, 19)
+  DebugPrint('boss name ' .. bossPrefix)
+
   if bossHandle == nil then
     return
   end
@@ -51,7 +54,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
   end
 
   local bossAI = BossAI:Create(bossHandle, {
-    tier = bossTier
+    tier = bossTier,
+    customAgro = bossPrefix ~= 'npc_dota_boss_tier_'
   })
 
   local newBossTier = math.min(6, bossTier + 1)
