@@ -18,6 +18,10 @@ function SellBlackList:OrderFilter (filterTable)
   local ability = EntIndexToHScript(abilityEID)
   local issuerID = filterTable.issuer_player_id_const
   local target = EntIndexToHScript(filterTable.entindex_target)
+  if not target then
+    -- fuck it
+    return true
+  end
   local targetIsShop = string.find(target:GetName(), "shop") ~= nil
 
   if order == DOTA_UNIT_ORDER_SELL_ITEM or (targetIsShop and order == DOTA_UNIT_ORDER_GIVE_ITEM) then
