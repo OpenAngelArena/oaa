@@ -438,10 +438,20 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Reduced Zombification of People
 
 
-## Hotfix 0.7.1 Public Testing #1
+## Hotfix 0.7.2 Public Testing #1
 `f904de21df2699943df5b1079a750f36f6fb62e4`
 ### Items
 * Added Icons to Trumps Fists
+
+
+## Hotfix 0.7.3
+`1d6919a30aac21c47720fb68c1b7e87c5166f671`
+### Items
+* Added Items to Shroud of Shadows
+
+### Creeps
+* Adapting a Bottle Only Creep Drop Policy
+  * Creeps now only drop Bottles :bottle:
 
 
 ## Template
