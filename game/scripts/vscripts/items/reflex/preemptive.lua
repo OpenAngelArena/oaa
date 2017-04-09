@@ -1,10 +1,15 @@
 -- defines item_preemptive
 -- defines modifier_item_preemptive
 LinkLuaModifier( "modifier_item_preemptive", "items/reflex/preemptive.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 ------------------------------------------------------------------------
 
 item_preemptive = class({})
+
+function item_preemptive:GetIntrinsicModifierName()
+  return 'modifier_generic_bonus'
+end
 
 function item_preemptive:OnSpellStart()
   local caster = self:GetCaster()

@@ -61,12 +61,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-20 -25"
+				"corruption_armor"		"0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"15.0"
+				"corruption_duration"	"0"
 			}
 			"04"
             {
@@ -86,22 +86,22 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_movement_speed"   "-40"
+                "cold_movement_speed"   "0"
             }
             "08"
             {
                 "var_type"              "FIELD_INTEGER"
-                "cold_attack_speed"     "-50"
+                "cold_attack_speed"     "0"
             }
             "09"
             {
                 "var_type"              "FIELD_FLOAT"
-                "cold_duration_melee"   "5.0"
+                "cold_duration_melee"   "0"
             }
             "10"
             {
                 "var_type"              "FIELD_FLOAT"
-                "cold_duration_ranged"  "2.5"
+                "cold_duration_ranged"  "0"
             }
        		"11"
             {
