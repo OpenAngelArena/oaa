@@ -9,7 +9,7 @@ function modifier_boss_charger_trampling:OnIntervalThink()
   local charger = self:GetCaster()
   local hero = self:GetParent()
 
-  if not hero then
+  if not hero or not hero.SetAbsOrigin then
     return
   end
 
