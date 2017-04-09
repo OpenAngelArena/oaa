@@ -397,8 +397,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Stats to Preemptive Reflex Items
 
 
-## Update 0.7.0 Public Testing
-`ba6d6884b995fc79fc5537c35c887e8128fd235a`
+## Update 0.7.0 Public Testing #1
+``
 ### Items
 * Nerfed Abyssal Blade
   * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
@@ -429,6 +429,19 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Made Sell Blacklist wörk better
 
 
+## Hotfix 0.7.1 Public Testing #1
+`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`
+### Creeps
+* After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
+### Items
+* Trumps Fists
+  * Reduced Zombification of People
+
+
+## Hotfix 0.7.1 Public Testing #1
+`f904de21df2699943df5b1079a750f36f6fb62e4`
+### Items
+* Added Icons to Trumps Fists
 
 
 ## Template
