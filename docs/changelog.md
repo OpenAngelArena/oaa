@@ -1,23 +1,21 @@
 # OAA Changelog
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
-Last Update: `2017-04-04 11:08 UTC+0200`
-
 ## Translation Progress
 | Language   | Progress |
 | :------------- | :--- |
 | Chinese        | 0%   |
-| German         | 87%  |
+| German         | 83%  |
 | Hungarian      | 0%   |
 | Polish         | 0%   |
-| Portuguese     | 93%  |
+| Portuguese     | 92%  |
 | Russian        | 99%  |
-| Spanish        | 2%   |
+| Spanish        | 5%   |
 | Turkish        | 0%   |
 
 ## Changes until now
 * Added new Map
-* Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heros
+* Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heroes
 * Added new Items
 * Added Upgrades to Items
 * Added Upgrade Cores
@@ -193,7 +191,7 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ### Items
 * Added Shroud of Shadows 
   * Make self/ally invisible + Not attackable
-* Fixed Damage Reduction Tooltip of Preemptive Reflex Core
+* Fixed Damage Reduction Tooltip of Preemptive Reflex Item
 * Added Postactive Reflex Core
 * Fixed Shroud Level 2 Targeting
 * Fixed Phase Boots Level 1 Recipe
@@ -298,13 +296,12 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 
 
 ## Update 0.5.0
-``
+`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`
+* Updated Translations
+
 ### Items
 * Added Icons to Items ([images](https://github.com/OpenAngelArena/oaa/pull/390))
   * Added Icons to Radiance Level 2 to 5
-  * ~Added Icons to All Preemptive Cores~
-  * ~Added Icons to All Postactive Cores~
-  * ~Added Icons to All Reactice Cores~
 * Buffed All Level 1 Farming Boots
   * Changed Gold Cost to `100`
 * Nerfed Charge BKB
@@ -316,11 +313,11 @@ Last Update: `2017-04-04 11:08 UTC+0200`
   * Decreased Bonus Cooldown from `35 40 45` to `27 30 33`
   * Decreased Hero Lifesteal from `40` to `25`
   * Decreased Creep Lifesteal from `10` to `5`
-* Buffed Preemptive Reflex Core
+* Buffed Preemptive Reflex Item
   * Added `250` Health
   * Added `5` Armour
   * Added `5` Magical Resistance
-* Buffed Preemptive Reflex Core 2 A/B
+* Buffed Preemptive Reflex Item 2 A/B
   * Changed Recipe to need a Upgrade Core Level 2 or higher
   * Added `1000` Health
   * Added `10` Armour
@@ -346,11 +343,58 @@ Last Update: `2017-04-04 11:08 UTC+0200`
 ### UI
 * Updated the Loading Screen
 
-
 ### Misc
-* Pulled Translation
 * Decreased ~Increased~ Loading Times
 
+
+## Update 0.5.1
+`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`
+* Updated Tooltips
+* Updated Translations
+
+
+## Hotfix 0.5.2
+`4e162af2dab16a81759330dcedcca1a21280641c`
+### Heroes
+* Nerfed Luna
+  * Nerfed Eclipse
+    * Reduced Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
+
+
+## Update 0.6.0
+`22ed9cc2d9f6cd11589b967be9c7dcdd24914234`
+### Heroes
+* Updated Talents of all Heroes
+
+### Items
+* Better Tooltips
+* Added Icon to Shivas Cuirass
+* Added Icon to Postactive Reflex Core
+* Added Icon to Reactive Reflex Core
+
+### Bosses
+* Added Charger Boss as Tier 4 Boss replacing the Placeholder Boss
+  * 3 Phases
+  * Hates Pillars
+
+### Duels
+* Fixed Problems with Teleportation
+
+### UI
+* Fixed Bug where blacklisted Items could be sold via Drag'n'Drop
+* Made Error Message when trying to sell blacklisted Items better
+* Added Custom Items to Shop
+
+### Bots
+* Fixed Bots trying to sell blacklisted Items
+
+
+## Update 0.6.1
+`5fa599290f06e0b0be07c514d5b4fbe668354dc7`
+* Updated Translations
+
+### Items
+* Added Stats to Preemptive Reflex Items
 
 ## Template
 ```Markdown
