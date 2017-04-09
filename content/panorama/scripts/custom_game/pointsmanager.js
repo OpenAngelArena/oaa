@@ -1,39 +1,29 @@
-'use strict';
+/* global $, FindDotaHudElement, CustomNetTables */
 
-var console = {
-  log: $.Msg.bind($)
-};
+'use strict';
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('team_scores', onScoreChange);
 }());
 
-function onScoreChange(table, key, data) {
-  //console.log('[PointsManager] onScoreChange');
+function onScoreChange (table, key, data) {
+  // console.log('[PointsManager] onScoreChange')
+  var limit;
 
   if (key === 'score') {
-    var limit = CustomNetTables.GetTableValue('team_scores', 'limit')['value'];
+    limit = CustomNetTables.GetTableValue('team_scores', 'limit')['value'];
     var goodguys = data['goodguys'];
     var badguys = data['badguys'];
   } else if (key === 'limit') {
     // assuming this only happens on gamestart
-    var limit = data['value'];
+    limit = data['value'];
     var length = data['name'];
-    var score = CustomNetTables.GetTableValue('team_scores', 'score');
-    FindDotaHudElement('PreGame').FindChildTraverse( 'GameModeLabel' ).text = $.Localize(("#oaa_game_length_" + length + "_title").toLowerCase());
-    var goodguys = 0;
-    var badguys = 0;
-  } 
-
-/*
-  console.log('limit: ' + limit);
-  console.log('goodguys: ' + goodguys);
-  console.log('badguys: ' + badguys);
-*/
+    FindDotaHudElement('PreGame').FindChildTraverse('GameModeLabel').text = $.Localize(('#oaa_game_length_' + length + '_title').toLowerCase());
+  }
   UpdatePointsHud(limit, goodguys, badguys);
 }
 
-function UpdatePointsHud(limit, goodguys, badguys) {
+function UpdatePointsHud (limit, goodguys, badguys) {
   var goodguysLabel = FindDotaHudElement('TopBarRadiantScore');
   var badguysLabel = FindDotaHudElement('TopBarDireScore');
 

@@ -2,6 +2,8 @@
 
 require('internal/util')
 require('gamemode')
+-- DotaStats
+require("statcollection/init")
 
 function Precache( context )
 --[[
@@ -15,6 +17,8 @@ function Precache( context )
   ]]
 
   DebugPrint("[BAREBONES] Performing pre-load precache")
+
+  PrecacheItemByNameSync("item_postactive", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed

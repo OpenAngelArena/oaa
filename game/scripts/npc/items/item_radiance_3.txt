@@ -39,7 +39,7 @@
 		"ID"							"4005"
 		"BaseClass"                     "item_radiance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_radiance"
+		"AbilityTextureName"            "custom/item_radiance3"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"5"
@@ -52,7 +52,6 @@
 		"ItemAliases"					"radiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"UpgradesItems"					"item_radiance_3;item_radiance_4"
-		"UpgradeRecipe"					"item_recipe_radiance"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -66,7 +65,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"50 75 110 170 225"
+				"aura_damage"			"50 100 200 350 550"
 			}
 			"03"
 			{

@@ -29,7 +29,7 @@ BUYBACK_ENABLED = false                 -- Should we allow people to buyback whe
 DISABLE_FOG_OF_WAR_ENTIRELY = false     -- Should we disable fog of war entirely for both teams?
 USE_UNSEEN_FOG_OF_WAR = false           -- Should we make unseen and fogged areas of the map completely black until uncovered by each team?
                                             -- Note: DISABLE_FOG_OF_WAR_ENTIRELY must be false for USE_UNSEEN_FOG_OF_WAR to work
-USE_STANDARD_DOTA_BOT_THINKING = false  -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
+USE_STANDARD_DOTA_BOT_THINKING = true  -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
@@ -50,30 +50,30 @@ USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to lev
 -- Fill this table up with the required XP per level if you want to change it
 XP_PER_LEVEL_TABLE = {
 	0,
-	200,
-	500,
-	900,
-	1400,
-	2000,
-	2640,
-	3300,
-	3980,
-	4680,
-	5400,
-	6140,
-	7340,
-	8565,
-	9815,
-	11090,
-	12390,
-	13715,
-	15115,
-	16605,
-	18205,
-	20105,
-	22305,
-	24805,
-	27500,
+	240,
+	600,
+	1080,
+	1680,
+	2300,
+	2940,
+	3600,
+	4280,
+	5080,
+	5900,
+	6740,
+	7640,
+	8865,
+	10115,
+	11390,
+	12690,
+	14015,
+	15415,
+	16905,
+	18505,
+	20405,
+	22605,
+	25105,
+	27800,
 }
 for i = #XP_PER_LEVEL_TABLE + 1, MAX_LEVEL do
   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (300 * ( i - 15 ))

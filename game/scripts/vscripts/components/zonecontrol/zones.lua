@@ -59,11 +59,13 @@ function ZoneControl:CreateEmptyState (options)
   return {
     isZoneControlState = true,
     mode = options.mode,
-    players = options.players
+    players = options.players,
+    padding = options.padding or 100,
+    margin = options.margin or 100
   }
 end
 
-function ZoneControl:onTrigger (state, eventName, zoneHandle, event)
+function ZoneControl.onTrigger (state, eventName, zoneHandle, event)
   DebugPrint('Trigger is firing! ' .. eventName)
   DebugPrintTable(event)
   --[[
@@ -129,7 +131,7 @@ end
 
 -- API methods
 
-function ZoneControl:EnableZone (state)
+function ZoneControl.EnableZone (state)
   if ZoneControl:SpreadZoneGroup(state, 'EnableZone') then
     return
   end
@@ -138,7 +140,7 @@ function ZoneControl:EnableZone (state)
   ZoneControl:EnforceRules(state)
 end
 
-function ZoneControl:DisableZone (state)
+function ZoneControl.DisableZone (state)
   if ZoneControl:SpreadZoneGroup(state, 'DisableZone') then
     return
   end
@@ -154,22 +156,26 @@ function ZoneControl:SetMode (state, mode)
   ZoneControl:EnforceRules(state)
 end
 
-function ZoneControl:AddPlayer (state, playerId)
+function ZoneControl.AddPlayer (state, playerId, shouldEnforceRules)
   if ZoneControl:SpreadZoneGroup(state, 'AddPlayer') then
     return
   end
   state.players[playerId] = true
 
-  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  if shouldEnforceRules ~= false then
+    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  end
 end
 
-function ZoneControl:RemovePlayer (state, playerId)
+function ZoneControl.RemovePlayer (state, playerId, shouldEnforceRules)
   if ZoneControl:SpreadZoneGroup(state, 'RemovePlayer') then
     return
   end
   state.players[playerId] = false
 
-  ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  if shouldEnforceRules ~= false then
+    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  end
 end
 
 -- rules enforcement
@@ -272,19 +278,19 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
         -- we're snapping to an X wall
         if xDistance > 0 then
           -- we're snapping to the right wall
-          origin = Vector(state.bounds.Maxs.x + bounds.Maxs.x + 20 + state.origin.x, origin.y, origin.z)
+          origin = Vector(state.bounds.Maxs.x + bounds.Maxs.x + state.margin + state.origin.x, origin.y, origin.z)
         else
           -- we're snapping to the left wall
-          origin = Vector(state.bounds.Mins.x + bounds.Mins.x - 20 + state.origin.x, origin.y, origin.z)
+          origin = Vector(state.bounds.Mins.x + bounds.Mins.x - state.margin + state.origin.x, origin.y, origin.z)
         end
       else
         -- we're snapping to a Y wall
         if yDistance > 0 then
           -- we're snapping to the top wall
-          origin = Vector(origin.x, state.bounds.Maxs.y + bounds.Maxs.y + 20 + state.origin.y, origin.z)
+          origin = Vector(origin.x, state.bounds.Maxs.y + bounds.Maxs.y + state.margin + state.origin.y, origin.z)
         else
           -- we're snapping to the bottom wall
-          origin = Vector(origin.x, state.bounds.Mins.y + bounds.Mins.y - 20 + state.origin.y, origin.z)
+          origin = Vector(origin.x, state.bounds.Mins.y + bounds.Mins.y - state.margin + state.origin.y, origin.z)
         end
       end
     end
@@ -293,10 +299,10 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
       DebugPrint('Player is not touching, but should be!')
       local x = origin.x
       local y = origin.y
-      local topWall = state.origin.y + state.bounds.Maxs.y
-      local rightWall = state.origin.x + state.bounds.Maxs.x
-      local bottomWall = state.origin.y + state.bounds.Mins.y
-      local leftWall = state.origin.x + state.bounds.Mins.x
+      local topWall = state.origin.y + state.bounds.Maxs.y - state.padding
+      local rightWall = state.origin.x + state.bounds.Maxs.x + state.padding
+      local bottomWall = state.origin.y + state.bounds.Mins.y + state.padding
+      local leftWall = state.origin.x + state.bounds.Mins.x - state.padding
 
       if x > rightWall then
         x = rightWall

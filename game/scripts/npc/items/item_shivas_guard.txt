@@ -55,7 +55,6 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 		"UpgradesItems"					"item_shivas_guard;item_shivas_guard_2;item_shivas_guard_3"
-		"UpgradeRecipe"					"item_recipe_shivas_guard"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -69,7 +68,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15 30 45"
+				"bonus_armor"			"15 20 25"
 			}
 			"03"
 			{
@@ -79,7 +78,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-45 -50 -55"
+				"aura_attack_speed"		"-45 -65 -85"
 			}
 			"05"
 			{

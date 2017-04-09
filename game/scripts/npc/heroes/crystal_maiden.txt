@@ -1,0 +1,19 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Crystal Maiden
+  //=================================================================================================================
+  "npc_dota_hero_crystal_maiden"
+  {
+    // Abilities
+    //-------------------------------------------------------------------------------------------------------------
+    "Ability10"   "special_bonus_magic_resistance_15"
+    "Ability11"   "special_bonus_attack_damage_60"
+    "Ability12"   "special_bonus_cast_range_125"
+    "Ability13"   "special_bonus_hp_250"
+    "Ability14"   "special_bonus_gold_income_20"
+    "Ability15"   "special_bonus_spell_amplify_10"
+    "Ability16"   "special_bonus_unique_crystal_maiden_1" // +1.5s Frotbite Duration
+    "Ability17"   "special_bonus_unique_crystal_maiden_2" // +300 Crystal Nova Damage
+  }
+}

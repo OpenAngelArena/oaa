@@ -39,9 +39,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3336"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_blade_mail"
+		"BaseClass"                     "item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_blade_mail"
+		"ScriptFile"					"items/martyrs_mail"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"18.0"
@@ -50,8 +52,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
-//		"UpgradesItems"					"item_martyrs_mail"
-//		"UpgradeRecipe"					"item_recipe_martyrs_mail"
+		"UpgradesItems"					"item_martyrs_mail"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"
@@ -83,20 +84,18 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.5"
+				"martyr_duration"		"4.5"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_aoe"				"700"
+				"martyr_heal_aoe"		"700"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_percent"				"50 80"
+				"martyr_heal_percent"	"50 80"
 			}
-
-
 		}
 	}
 }

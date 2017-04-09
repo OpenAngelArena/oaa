@@ -1,6 +1,4 @@
-var console = {
-  log: $.Msg.bind($)
-};
+/* global $, GameEvents, Game, DOTA_GameState */
 
 (function () {
   hideShowUI(Game.GetState());
@@ -32,23 +30,24 @@ function showPregameUI () {
   FindDotaHudElement('PreGame').style.visibility = 'visible';
 }
 
-function FindDotaHudElement(id) {
-  return GetDotaHud().FindChildTraverse(id)
+function FindDotaHudElement (id) {
+  return GetDotaHud().FindChildTraverse(id);
 }
 
-function GetDotaHud() {
-  var p = $.GetContextPanel()
+function GetDotaHud () {
+  var p = $.GetContextPanel();
   try {
     while (true) {
-      if (p.id === "Hud")
-        return p
-      else
-        p = p.GetParent()
+      if (p.id === 'Hud') {
+        return p;
+      } else {
+        p = p.GetParent();
+      }
     }
   } catch (e) {}
 }
 
-function listenToGameEvent (event, handler ) {
+function listenToGameEvent (event, handler) {
   var handle = GameEvents.Subscribe(event, handleWrapper);
   var doneListening = false;
 

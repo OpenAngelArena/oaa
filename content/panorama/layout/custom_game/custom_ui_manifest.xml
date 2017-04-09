@@ -5,6 +5,8 @@
     <include src="file://{resources}/scripts/custom_game/pointsmanager.js" />
     <include src="file://{resources}/scripts/custom_game/abilitylevels.js" />
     <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/leveldots.js" />
+    <include src="file://{resources}/scripts/custom_game/huderrors.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI

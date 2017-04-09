@@ -39,7 +39,6 @@
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_octarine_core"
-		"UpgradeRecipe"					"item_recipe_octarine_core"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -63,7 +62,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"25 35"
+				"bonus_cooldown"		"25 30"
 			}
 			"05"
 			{

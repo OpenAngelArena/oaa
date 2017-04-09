@@ -43,7 +43,6 @@
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
 		"UpgradesItems"					"item_bfury_2;item_bfury_3"
-		"UpgradeRecipe"					"item_recipe_bfury"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -75,7 +74,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"35"
+				"cleave_damage_percent"	"35 45 55 65 75"
 			}
 			"05"
 			{

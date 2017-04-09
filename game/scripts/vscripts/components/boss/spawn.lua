@@ -25,21 +25,19 @@ function BossSpawner:SpawnAllBosses ()
 end
 
 function BossSpawner:SpawnBossAtPit (pit, tieroverride)
-  DebugPrint(pit:GetIntAttr('version'))
   local bossTier = tieroverride or pit:GetIntAttr('tier')
   local options = Bosses[bossTier]
-  local bossVariant = pit:GetIntAttr('version')
-  if options[bossVariant] == nil then
-    bossVariant = math.random(#options)
-  end
-  local bossName = options[bossVariant]
+  local bossName = options[math.random(#options)]
 
   DebugPrint('Spawning ' .. bossName)
-  BossSpawner:SpawnBoss(pit, bossName, bossTier, bossVariant)
+  BossSpawner:SpawnBoss(pit, bossName, bossTier)
 end
 
-function BossSpawner:SpawnBoss (pit, boss, bossTier, bossVariant)
+function BossSpawner:SpawnBoss (pit, boss, bossTier)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+
+  local bossPrefix = string.sub(boss, 0, 19)
+  DebugPrint('boss name ' .. bossPrefix)
 
   if bossHandle == nil then
     return
@@ -49,9 +47,15 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, bossVariant)
 
   bossHandle:AddItem(heart)
 
+  local resistance = bossHandle:FindAbilityByName("boss_resistance")
+  if resistance then
+    DebugPrint('Leveling up the boss resistance manager')
+    resistance:SetLevel(1)
+  end
+
   local bossAI = BossAI:Create(bossHandle, {
     tier = bossTier,
-    variant = bossVariant
+    customAgro = bossPrefix ~= 'npc_dota_boss_tier_'
   })
 
   local newBossTier = math.min(6, bossTier + 1)

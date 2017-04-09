@@ -49,7 +49,6 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_hand_of_midas;item_hand_of_midas_2"
-		"UpgradeRecipe"					"item_recipe_hand_of_midas"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -72,12 +71,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"xp_multiplier"			"2.5 2.7 3.0"
+				"xp_multiplier"			"2.5 3.5 4.5"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"190 230 275"
+				"bonus_gold"			"190 380 760"
 			}
 			"04"
 			{

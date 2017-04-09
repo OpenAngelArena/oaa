@@ -1,9 +1,15 @@
+/* global Players, $, GameEvents */
+
 var console = {
   log: $.Msg.bind($)
 };
 
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SetPlayerVote;
+}
+
 function SetPlayerVote (vote) {
-  // return;
+  // return
 
   var options = [
     'short',
@@ -16,7 +22,7 @@ function SetPlayerVote (vote) {
     return;
   }
 
-  console.log(Players.GetLocalPlayer() + ' votes for ' + vote)
+  console.log(Players.GetLocalPlayer() + ' votes for ' + vote);
   GameEvents.SendCustomGameEventToServer('gamelength_vote', {
     playerId: Players.GetLocalPlayer(),
     vote: vote

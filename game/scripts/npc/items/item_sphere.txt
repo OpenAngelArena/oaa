@@ -54,7 +54,6 @@
 		"ItemBaseLevel"                 "1"
 
 		"UpgradesItems"                 "item_sphere;item_sphere_2"
-		"UpgradeRecipe"                 "item_recipe_sphere"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -83,7 +82,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"block_cooldown"		"13.0"
+				"block_cooldown"		"13.0 11.0"
 			}
 		}
 	}

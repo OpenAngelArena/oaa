@@ -14,7 +14,7 @@ Bosses = {
   },
   -- tier 4
   {
-    "npc_dota_boss_tier_4"
+    "npc_dota_boss_charger"
   },
   -- tier 5
   {

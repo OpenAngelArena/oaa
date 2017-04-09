@@ -23,7 +23,10 @@
 		"ItemResult"					"item_vlads_helm"
 		"ItemRequirements"
 		{
-			"01"						"item_vladmir;item_helm_of_the_dominator;item_combiner"
+			"01"						"item_vladmir;item_helm_of_the_dominator;item_upgrade_core"
+      "02"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_2"
+      "03"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_3"
+      "04"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_4"
 		}
 	}
 
@@ -60,7 +63,6 @@
 		"MaxUpgradeLevels"				"2"
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_vlads_helm"
-		"UpgradeRecipe"					"item_recipe_vlads_helm"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

@@ -11,13 +11,13 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_turret"
 		"ItemRequirements"
 		{
-			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_combiner"
+			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_upgrade_core_4"
 		}
 	}
 

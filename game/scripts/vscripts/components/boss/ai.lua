@@ -22,9 +22,9 @@ function BossAI:Create (unit, options)
     leash = options.leash or 1500,
     agroDamage = options.agroDamage or 100 * options.tier,
     tier = options.tier,
-    variant = options.variant,
     currentDamage = 0,
     state = BossAI.IDLE,
+    customAgro = options.customAgro or false,
 
     deathEvent = Event()
   }
@@ -89,39 +89,57 @@ function BossAI:DeathHandler (state, keys)
   end
 
   if state.tier == 1 then
+    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
+
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
         local player = PlayerResource:GetPlayer(playerId)
         local hero = player:GetAssignedHero()
-        if state.variant == 1 and hero and not hero.hasFarmingCore then
-          hero:AddItemByName("item_farming_core")
-          hero.hasFarmingCore = true
-        elseif state.variant == 2 and hero and not hero.hasReflexCore then
-          hero:AddItemByName("item_reflex_core")
-          hero.hasReflexCore = true        
+
+        if hero then
+          if not hero.hasFarmingCore then
+            hero:AddItemByName("item_farming_core")
+            hero.hasFarmingCore = true
+          elseif not hero.hasReflexCore then
+            hero:AddItemByName("item_reflex_core")
+            hero.hasReflexCore = true
+          end
         end
       end
     end
   elseif state.tier == 2 then
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+
   elseif state.tier == 3 then
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif state.tier == 4 then
+
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
   elseif state.tier == 5 then
+
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif state.tier == 6 then
     PointsManager:AddPoints(teamId)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end
 
 function BossAI:Agro (state, target)
+  if state.customAgro then
+    DebugPrint('Running custom agro ai')
+    return
+  end
+
   Timers:CreateTimer(1, function ()
     if state.state == BossAI.DEAD then
       return

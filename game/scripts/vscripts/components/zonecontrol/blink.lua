@@ -37,14 +37,18 @@ end
 -- An ability was used by a player
 function BlinkBlock:OnAbilityUsed(keys)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local hero = player:GetAssignedHero()
   local abilityname = keys.abilityname
 
-  local startPos = AbilityMovementMap[keys.PlayerID].start or player:GetAssignedHero():GetAbsOrigin()
+  local startPos = player:GetAssignedHero():GetAbsOrigin()
 
   -- todo: Meepo will break this
   -- todo: allow things like natures profit
-  Timers:CreateTimer(0, function ()
-    local endPos = player:GetAssignedHero():GetAbsOrigin()
+  function checkHeroPosition ()
+    if hero:IsInvulnerable() then
+      Timers:CreateTimer(0.01, checkHeroPosition)
+    end
+    local endPos = hero:GetAbsOrigin()
     AbilityMovementMap[keys.PlayerID].start = nil
 
     local shouldMoveUnit, moveLocaiton = BlinkBlock:CheckBlink(startPos, endPos)
@@ -52,7 +56,9 @@ function BlinkBlock:OnAbilityUsed(keys)
     if shouldMoveUnit then
       FindClearSpaceForUnit(player:GetAssignedHero(), moveLocaiton, false)
     end
-  end)
+  end
+
+  Timers:CreateTimer(0.01, checkHeroPosition)
 end
 
 function BlinkBlock:CheckBlink(startLoc, endLoc)

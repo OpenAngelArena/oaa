@@ -1,6 +1,12 @@
+/* global Players, $, GameEvents, CustomNetTables, Game */
+
 var console = {
   log: $.Msg.bind($)
 };
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SelectNGP;
+}
 
 var idToRemove = [];
 
@@ -9,6 +15,7 @@ function onNGPChange (table_name, key, data) {
   var playerID = Game.GetLocalPlayerID();
   var teamID = Players.GetTeam(playerID)
   var teamName = teamID === 2 ? 'good' : 'bad';
+
   console.log(data);
   console.log(key);
 
@@ -19,8 +26,8 @@ function onNGPChange (table_name, key, data) {
       idToRemove.push(data.id);
     }
   }
-}
 
+}
 
 var NGPOption = {
 };
@@ -70,7 +77,6 @@ function getPanelForId (id) {
 function idNameForId (id) {
   return 'ItemPanel_' + id;
 }
-
 
 // group id doesn't work
 var ngpGroupIndex = 0;

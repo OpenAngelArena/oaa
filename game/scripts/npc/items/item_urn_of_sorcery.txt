@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,7 +23,11 @@
 		"ItemResult"					"item_urn_of_sorcery"
 		"ItemRequirements"
 		{
-			"01"						"item_urn_of_shadows;item_mekansm;item_magic_wand;item_combiner"
+			"01"						"item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core"
+      "02"            "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_2"
+      "03"            "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_3"
+      "04"            "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_4"
+
 		}
 	}
 

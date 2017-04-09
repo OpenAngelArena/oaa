@@ -22,12 +22,14 @@ function Duels:Init ()
   Duels.currentDuel = nil
   Duels.zone1 = ZoneControl:CreateZone('duel_1', {
     mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 200,
     players = {
     }
   })
 
   Duels.zone2 = ZoneControl:CreateZone('duel_2', {
     mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 200,
     players = {
     }
   })
@@ -111,22 +113,24 @@ function Duels:ActuallyStartDuel ()
     local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil then
       DebugPrint ('Players team ' .. player:GetTeam())
-      if player:GetTeam() == 3 then
-        badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
-        badPlayers[badPlayerIndex].id = playerId
-        -- used to generate keynames like badEnd1
-        -- not used in dota apis
-        badPlayers[badPlayerIndex].team = 'bad'
-        badPlayerIndex = badPlayerIndex + 1
+      if player:GetAssignedHero() then
+        if player:GetTeam() == 3 then
+          badPlayers[badPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
+          badPlayers[badPlayerIndex].id = playerId
+          -- used to generate keynames like badEnd1
+          -- not used in dota apis
+          badPlayers[badPlayerIndex].team = 'bad'
+          badPlayerIndex = badPlayerIndex + 1
 
-      elseif player:GetTeam() == 2 then
-        goodPlayers[goodPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
-        goodPlayers[goodPlayerIndex].id = playerId
-        goodPlayers[goodPlayerIndex].team = 'good'
-        goodPlayerIndex = goodPlayerIndex + 1
+        elseif player:GetTeam() == 2 then
+          goodPlayers[goodPlayerIndex] = Duels:SavePlayerState(player:GetAssignedHero())
+          goodPlayers[goodPlayerIndex].id = playerId
+          goodPlayers[goodPlayerIndex].team = 'good'
+          goodPlayerIndex = goodPlayerIndex + 1
+        end
+
+        Duels:ResetPlayerState(player:GetAssignedHero())
       end
-
-      Duels:ResetPlayerState(player:GetAssignedHero())
     end
   end
 
@@ -267,18 +271,24 @@ function Duels:EndDuel ()
   end)
 
   for playerId = 0,19 do
-    Duels.zone1.removePlayer(playerId)
-    Duels.zone2.removePlayer(playerId)
+    Duels.zone1.removePlayer(playerId, false)
+    Duels.zone2.removePlayer(playerId, false)
     local player = PlayerResource:GetPlayer(playerId)
-    if player ~= nil then
-      player:GetAssignedHero():SetRespawnsDisabled(false)
+    if player ~= nil and player:GetAssignedHero() then
+      local hero = player:GetAssignedHero()
+      if hero then
+        hero:SetRespawnsDisabled(false)
+        if not hero:IsAlive() then
+          hero:RespawnHero(false,false,false)
+        end
+      end
     end
   end
 
   local currentDuel = Duels.currentDuel
   Duels.currentDuel = nil
 
-  Timers:CreateTimer(function ()
+  Timers:CreateTimer(0.1, function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
@@ -300,13 +310,22 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-  hero:SetHealth(hero:GetMaxHealth())
+hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
-  for abilityIndex = 0,hero:GetAbilityCount() do
+  -- Reset cooldown for abilities
+  for abilityIndex = 0,hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:EndCooldown()
+    end
+  end
+
+  -- Reset cooldown for items
+  for i = 0, 5 do
+    local item = hero:GetItemInSlot(i)
+    if item  then
+      item:EndCooldown()
     end
   end
 end
@@ -317,9 +336,19 @@ function Duels:SavePlayerState (hero)
     abilityCount = hero:GetAbilityCount(),
     maxAbility = 0,
     abilities = {},
+    items = {},
     hp = hero:GetHealth(),
     mana = hero:GetMana()
   }
+
+  -- If hero is dead during start of the duel, make his saved location his foutain area
+  if hero:IsAlive() == false then
+    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+        state.location = Vector(-5221.958496, -139.014923, 387.999023)
+    else
+        state.location = Vector(4908.748047, -91.460907, 392.000000)
+    end
+  end
 
   for abilityIndex = 0,state.abilityCount-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
@@ -327,6 +356,15 @@ function Duels:SavePlayerState (hero)
       state.maxAbility = abilityIndex
       state.abilities[abilityIndex] = {
         cooldown = ability:GetCooldownTimeRemaining()
+      }
+    end
+  end
+
+  for itemIndex = 0,5 do
+    local item = hero:GetItemInSlot(itemIndex)
+    if item ~= nil then
+      state.items[itemIndex] = {
+        cooldown = item:GetCooldownTimeRemaining()
       }
     end
   end
@@ -345,6 +383,13 @@ function Duels:RestorePlayerState (hero, state)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+    end
+  end
+
+  for itemIndex = 0,5 do
+    local item = hero:GetItemInSlot(itemIndex)
+    if item ~= nil and state.items[itemIndex] then
+      item:StartCooldown(state.items[itemIndex].cooldown)
     end
   end
 end

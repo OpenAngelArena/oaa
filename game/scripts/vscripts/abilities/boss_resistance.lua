@@ -1,0 +1,84 @@
+LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
+
+boss_resistance = class({})
+
+function boss_resistance:GetIntrinsicModifierName()
+  return "modifier_boss_resistance"
+end
+
+function boss_resistance:GetBehavior ()
+  return DOTA_ABILITY_BEHAVIOR_PASSIVE
+end
+
+modifier_boss_resistance = class({})
+
+function modifier_boss_resistance:IsHidden()
+  return true
+end
+
+function modifier_boss_resistance:IsPurgable()
+  return false
+end
+
+function modifier_boss_resistance:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  }
+end
+
+function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
+  --[[
+[   VScript              ]: process_procs: true
+[   VScript              ]: order_type: 0
+[   VScript              ]: issuer_player_index: 1982289334
+[   VScript              ]: fail_type: 0
+[   VScript              ]: damage_category: 0
+[   VScript              ]: reincarnate: false
+[   VScript              ]: distance: 0
+[   VScript              ]: gain: 98.332176208496
+[   VScript              ]: attacker: table: 0x00636d38
+[   VScript              ]: ranged_attack: false
+[   VScript              ]: record: 5
+[   VScript              ]: activity: -1
+[   VScript              ]: do_not_consume: false
+[   VScript              ]: damage_type: 4
+[   VScript              ]: heart_regen_applied: false
+[   VScript              ]: diffusal_applied: false
+[   VScript              ]: no_attack_cooldown: false
+[   VScript              ]: cost: 0
+[   VScript              ]: inflictor: table: 0x004bfe30
+[   VScript              ]: damage_flags: 0
+[   VScript              ]: original_damage: 650
+[   VScript              ]: ignore_invis: false
+[   VScript              ]: damage: 650
+[   VScript              ]: basher_tested: false
+[   VScript              ]: target: table: 0x00524320
+
+  local percentBaseSpells = {
+    death_prophet_spirit_siphon = true,
+    life_stealer_feast = true
+  }
+
+  print('--')
+  for k,v in pairs(keys) do
+    print(k .. ': ' .. tostring(v))
+  end
+  print('--')
+
+  local hero = keys.attacker
+
+  if hero and hero:IsRealHero and hero:IsRealHero() then
+    hero:
+  end
+  if not keys.inflictor then
+    return 0
+  end
+
+  local name = keys.inflictor:GetAbilityName()
+  if percentBaseSpells[name] then
+    print('Reducing incoming damage')
+    return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+  end
+]]
+  return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+end

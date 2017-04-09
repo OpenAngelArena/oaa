@@ -4,7 +4,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3213"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"3213" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
@@ -32,16 +32,18 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3216"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_octarine_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/refresher_core.lua"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_octarine_core"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"        "0.0"
+        "AbilityCooldown"       "150.0 105.0 60.0"
 
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"2"
 		"UpgradesItems"					"item_refresher_core_2"
-		"UpgradeRecipe"					"item_recipe_refresher_core"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,23 +57,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-//			"01"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_health_regen"	"18"
-//			}
-//			"02"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_mana_regen"		"400 450 500"
-//			}
-//			"03"
-//			{
-//				"var_type"				"FIELD_INTEGER"
-//				"bonus_damage"			"30"
-//			}
-
-			// Octarine Core Parameters
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"18"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"400 450 500"
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -90,17 +85,17 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"40 50 60"
+				"bonus_cooldown"		"27 30 33"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"40"
+				"hero_lifesteal"		"25"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"10"
+				"creep_lifesteal"		"5"
 			}
 		}
 	}

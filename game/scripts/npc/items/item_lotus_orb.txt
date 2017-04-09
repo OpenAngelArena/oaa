@@ -46,7 +46,6 @@
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"1"
 		"UpgradesItems"					"item_lotus_orb"
-		"UpgradeRecipe"					"item_recipe_lotus_orb"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -64,12 +63,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10 15"
+				"bonus_damage"			"10 20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"		"10 15"
+				"bonus_armor"		"10 20"
 			}
 			"03"
 			{
@@ -89,12 +88,12 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"6 8"
+				"active_duration"		"6"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_range_tooltip"		"900"
+				"cast_range_tooltip"		"900 1200"
 			}
 		}
 	}

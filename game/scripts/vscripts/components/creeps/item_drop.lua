@@ -29,7 +29,7 @@ ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
   { "item_clarity",             -1,      -1,      5},
   { "item_enchanted_mango",     -1,      -1,      13},
-  { "item_bottle",              12,      -1,      1},
+  { "item_infinite_bottle",     12,      -1,      1},
   { "item_tango_single",        -1,      18,      2}
 }
 
@@ -58,8 +58,12 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
   Timers:CreateTimer(60, function ()
-    --newItem:GetContainer():Destroy()
-    newItem:GetContainer():RemoveSelf()
+    -- check if safe to destroy
+    if IsValidEntity(newItem) then
+      if newItem:GetContainer() ~= nil then
+        newItem:GetContainer():RemoveSelf()
+      end
+    end
   end)
 end
 

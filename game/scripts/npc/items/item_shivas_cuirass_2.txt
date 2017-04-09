@@ -30,10 +30,11 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3227"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_assault"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"					"items/shivas_cuirass"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_assault"
+        "AbilityTextureName"            "custom/shivas_cuirass"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30"
@@ -68,12 +69,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
+				"bonus_attack_speed"	"30 40"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-55"
+				"aura_radius"			"900"
 			}
 			"05"
 			{
@@ -100,26 +101,26 @@
 				"var_type"				"FIELD_INTEGER"
 				"blast_speed"			"350"
 			}
-			// Assault Cuirass Parameters
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40 50"
+				"aura_attack_speed"		"-55"
+			}
+			// Assault Cuirass Parameters
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_negative_armor"	"-5"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_attack_speed_bonus"		"25 30"
 			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed_bonus"		"25 30 35"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"aura_positive_armor"	"10"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_negative_armor"	"-5"
 			}
 		}
 	}

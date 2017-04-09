@@ -109,7 +109,7 @@ end
 
 function modifier_tiny_grow_oaa:OnCreated()
   if IsServer() then
-  self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.1)
   end
 end
 
