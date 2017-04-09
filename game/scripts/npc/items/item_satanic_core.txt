@@ -41,6 +41,7 @@
 		"AbilityTextureName"            "item_octarine_core"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35.0"
 
 		// Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
@@ -84,29 +85,29 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"35 40 45"
+				"bonus_damage"			"100 150 200"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100 150 200"
+				"lifesteal_percent"		"25"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"lifesteal_percent"		"25"
+				"unholy_lifesteal_percent"	"200"
 			}
 			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"unholy_lifesteal_percent"	"175"
-			}
-			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"unholy_duration"		"4.5"
 			}
 			// Octarine Core Parameters
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_cooldown"		"35 40 45"
+			}
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"

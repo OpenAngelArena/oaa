@@ -20,6 +20,14 @@ end
 
 --------------------------------------------------------------------------------
 
+item_satanic_core_2 = item_satanic_core
+
+--------------------------------------------------------------------------------
+
+item_satanic_core_3 = item_satanic_core
+
+--------------------------------------------------------------------------------
+
 modifier_item_satanic_core = class({})
 
 function modifier_item_satanic_core:IsHidden()
@@ -98,7 +106,7 @@ function modifier_item_satanic_core:OnAttackLanded( kv )
 		if kv.attacker == hCaster then
 			local heal_percent = self.lifesteal_percent;
 			if hCaster:HasModifier("modifier_item_satanic_unholy") then
-				heal_percent = heal_percent + self.unholy_lifesteal_percent
+				heal_percent = self.unholy_lifesteal_percent
 			end
 			ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster )
 			hCaster:Heal( kv.damage * heal_percent / 100, hCaster)
