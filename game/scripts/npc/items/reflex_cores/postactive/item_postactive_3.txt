@@ -3,7 +3,7 @@
 	//=================================================================================================================
 	// Recipe: postactive Reflex
 	//=================================================================================================================
-	"item_recipe_postact_3"
+	"item_recipe_postactive_3"
 	{
 		"ID"							"3566"		// unique ID
 		"BaseClass"                     "item_datadriven"
@@ -13,19 +13,19 @@
 		"ItemCost"						"3300"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_postact_3"
+		"ItemResult"					"item_postactive_3"
 		"ItemRequirements"
 		{
-			"01"						"item_postact_2;item_upgrade_core_2"
-			"02"						"item_postact_2;item_upgrade_core_3"
-			"03"						"item_postact_2;item_upgrade_core_4"
+			"01"						"item_postactive_2;item_upgrade_core_2"
+			"02"						"item_postactive_2;item_upgrade_core_3"
+			"03"						"item_postactive_2;item_upgrade_core_4"
 		}
 	}
 
 	//=================================================================================================================
 	// postactive Reflex
 	//=================================================================================================================
-	"item_postact_3"
+	"item_postactive_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -58,12 +58,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"postact_duration"	"5.0"
+				"postactive_duration"	"5.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"postact_regen"		"50"
+				"postactive_regen"		"50"
 			}
 		}
 	}
