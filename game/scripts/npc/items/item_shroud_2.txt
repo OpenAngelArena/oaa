@@ -38,7 +38,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_glimmer_cape"
+		"AbilityTextureName"            "custom/item_shroud_2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20.0"
@@ -63,26 +63,26 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_all_stats"		"8 10"
 			}
-			"02"
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_attack_speed"  "25 28"
+      }
+      // Glimmer Cape Parameters
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_magical_armor" "15 20"
+      }
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"4.0"
 			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
-			}
-			// Glimmer Cape Parameters
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25 28"
-			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"15 20"
+				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
 			}
 			"06"
 			{
