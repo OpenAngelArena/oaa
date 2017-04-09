@@ -4,6 +4,13 @@ if CreepPower == nil then
 end
 
 function CreepPower:AddScaleValue (minute)
+
+  local multFactor = 1
+
+  if minute > 60 then
+    multFactor = 1.5 ^ (minute - 60)
+  end
+
   table.insert(self.PowerTable, {
     minute,                                   -- minute
     ((minute / 8) ^ 2 / 75) + 1,              -- hp
@@ -11,7 +18,7 @@ function CreepPower:AddScaleValue (minute)
     (minute / 20) + 1,                        -- damage
     minute ^ 0.5,                             -- armor
     (minute / 2) + 1,                         -- gold
-    ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor -- xp
+    ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor * multFactor -- xp
   })
 end
 
