@@ -42,7 +42,7 @@
 		"ID"							"3264"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_halloween_rapier"
+		"AbilityTextureName"            "custom/trump"
 		"ScriptFile"					"items/trumps_fists"
 
         // Stats
