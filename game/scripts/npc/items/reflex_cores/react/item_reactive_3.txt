@@ -3,7 +3,7 @@
 	//=================================================================================================================
 	// Recipe: reactive Reflex
 	//=================================================================================================================
-	"item_recipe_react_3"
+	"item_recipe_reactive_3"
 	{
 		"ID"							"3560"		// unique ID
 		"BaseClass"                     "item_datadriven"
@@ -13,19 +13,19 @@
 		"ItemCost"						"3300"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_react_3"
+		"ItemResult"					"item_reactive_3"
 		"ItemRequirements"
 		{
-			"01"						"item_react_2;item_upgrade_core_2"
-			"02"						"item_react_2;item_upgrade_core_3"
-			"03"						"item_react_2;item_upgrade_core_4"
+			"01"						"item_reactive_2;item_upgrade_core_2"
+			"02"						"item_reactive_2;item_upgrade_core_3"
+			"03"						"item_reactive_2;item_upgrade_core_4"
 		}
 	}
 
 	//=================================================================================================================
 	// reactive Reflex
 	//=================================================================================================================
-	"item_react_3"
+	"item_reactive_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"react_duration"	"0.5"
+				"reactive_duration"	"0.5"
 			}
 		}
 	}
