@@ -406,6 +406,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Shivas Guard Level 2 needing Upgrade Core Level 3 or higher to build
   * Now needs Upgrade Core Level 1 or higher
 * Added Infinity Bottle to Selling Blacklist
+* Changed Trumps Fists
+  * Disabled Frostbite Debuff
+  * Disabled Corruption
+* Changed Charge BKB
+  * Recipe now costs `60`
+* Changed Dragon Lancer
+  * Removed Recipe
 
 ### Heroes
 * Nerfed Storm Spirit
@@ -417,6 +424,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Decreased Armour Debuff from `-240` to `-225`
   * Increased Pillar Damage from `800 1000 1200` to `8000 10000 12000`
 
+### Misc
+* Made Sell Blacklist wörk better
 
 
 
