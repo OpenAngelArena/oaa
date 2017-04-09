@@ -9,6 +9,7 @@ function SellBlackList:Init ()
 
   ItemSellBlackList = {
     "item_upgrade_core",
+    "item_infinite_bottle"
   }
 end
 
