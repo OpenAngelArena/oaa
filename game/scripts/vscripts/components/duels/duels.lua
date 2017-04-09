@@ -22,12 +22,14 @@ function Duels:Init ()
   Duels.currentDuel = nil
   Duels.zone1 = ZoneControl:CreateZone('duel_1', {
     mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 200,
     players = {
     }
   })
 
   Duels.zone2 = ZoneControl:CreateZone('duel_2', {
     mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 200,
     players = {
     }
   })
@@ -269,8 +271,8 @@ function Duels:EndDuel ()
   end)
 
   for playerId = 0,19 do
-    Duels.zone1.removePlayer(playerId)
-    Duels.zone2.removePlayer(playerId)
+    Duels.zone1.removePlayer(playerId, false)
+    Duels.zone2.removePlayer(playerId, false)
     local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil and player:GetAssignedHero() then
       local hero = player:GetAssignedHero()
@@ -286,7 +288,7 @@ function Duels:EndDuel ()
   local currentDuel = Duels.currentDuel
   Duels.currentDuel = nil
 
-  Timers:CreateTimer(function ()
+  Timers:CreateTimer(0.1, function ()
     Duels:AllPlayers(currentDuel, function (state)
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
@@ -308,7 +310,7 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-  hero:SetHealth(hero:GetMaxHealth())
+hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
@@ -386,7 +388,7 @@ function Duels:RestorePlayerState (hero, state)
 
   for itemIndex = 0,5 do
     local item = hero:GetItemInSlot(itemIndex)
-    if item ~= nil then
+    if item ~= nil and state.items[itemIndex] then
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
   end
