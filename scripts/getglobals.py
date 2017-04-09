@@ -47,7 +47,7 @@ def cleanBlock(table, elem, nested):
 
 
 def getAPIRefs():
-    """Get API Refs from valve and return a block"""
+    """Get API Refs from valve and return a block."""
     cleanConstBlock = partial(cleanBlock, elem='td', nested=False)
     cleanFuncBlock = partial(cleanBlock, elem='code', nested=True)
 
@@ -74,58 +74,6 @@ def getAPIRefs():
     return blocks
 
 
-def getRequirePath(line):
-    for item in line.split('require'):
-        item = item.strip()
-        if not item:
-            continue
-        if item.startswith('(') and item.endswith(')'):
-            return item.strip('()"\'')
-
-
-def getRequired(filename):
-    result = list()
-    if not filename.endswith('.lua'):
-        return
-    with open(filename, 'r') as luafile:
-        for line in luafile:
-            if "require" not in line:
-                continue
-            required = getRequirePath(line)
-            if not required:
-                continue
-            required = os.path.join("game/scripts/vscripts/", required)
-            result.append(required)
-    return result
-
-
-def getVScriptGlobals():
-    """Go through game/scripts/vscripts and follow require."""
-    blocks = dict()
-    filestoadd = list()
-    filestocheck = list()
-    for _, _, filenames in os.walk("game/scripts/vscripts/"):
-        for filename in filenames:
-            filename = os.path.join("game/scripts/vscripts/", filename)
-            required = getRequired(filename)
-            filestoadd += required
-            filestocheck += required
-        break
-    while filestoadd:
-        for entry in filestoadd:
-            print(entry)
-            entry = os.path.join("game/scripts/vscripts/", entry)
-            required = getRequired(entry)
-            if not required:
-                continue
-            filestoadd += required
-            filestocheck += required
-            filestoadd.remove(entry)
-    print(repr(filestoadd))
-    print(repr(filestocheck))
-    return blocks
-
-
 def display(output, blocks):
     """Format and print blocks to output."""
     for k, vs in blocks.items():
@@ -136,14 +84,9 @@ def display(output, blocks):
 
 def main():
     """Main Function."""
-    blocks = OrderedDict()
-    blocks = OrderedDict(blocks, **getAPIRefs())
-    blocks = OrderedDict(blocks, **getVScriptGlobals())
-
+    blocks = getAPIRefs()
     with open('dump', 'w') as dump:
-        # display(dump, blocks)
-        pass
-
+        display(dump, blocks)
     return 0
 
 
