@@ -54,13 +54,13 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-    "MovementSpeed"             "420"       // Speed
+    "MovementSpeed"             "520"       // Speed
     "MovementTurnRate"          "0.8"       // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "10000"     // Base health
-    "StatusHealthRegen"         "5"        // Health regeneration rate.
+    "StatusHealth"              "30000"     // Base health
+    "StatusHealthRegen"         "15"        // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "0"     // Mana regeneration rate.
 
@@ -68,8 +68,8 @@
 
    "Creature"
     {
-    //Makes it only have 25% remaining of applied crowd control
-    // "DisableResistance"            "75.0"
+    //Makes it only have 75% remaining of applied crowd control
+     "DisableResistance"            "25.0"
     }
 
 
