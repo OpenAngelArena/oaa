@@ -1,4 +1,6 @@
 
+LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
+
 function Spawn (entityKeyValues)
   thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
@@ -8,11 +10,15 @@ function Spawn (entityKeyValues)
   ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
   ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
-  ABILITY_charge:SetLevel(1)
-  ABILITY_summon_pillar:SetLevel(1)
+  thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {
+    abilities = {
+      "boss_charger_charge"
+    },
+    phases = { 66, 33 }
+  })
 end
 
-function CheckPillars ()
+function GetAllPillars ()
   local towers = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
     GLOBAL_origin,
@@ -29,15 +35,23 @@ function CheckPillars ()
     return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
   end
 
-  towers = filter(isTower, iter(towers))
+  return filter(isTower, iter(towers))
+end
 
-  print('Found ' .. towers:length() .. ' towers!')
+function CheckPillars ()
+  local towers = GetAllPillars()
 
-  if towers:length() > 5 then
+  -- print('Found ' .. towers:length() .. ' towers!')
+
+  if towers:length() > 7 then
     return false
   end
 
-  local towerLocation = Vector(math.random(-1,1), math.random(-1,1), 0):Normalized() * 500
+  local towerLocation = Vector(0,0,0)
+  while towerLocation:Length() < 700 do
+    -- sometimes rng fails us
+    towerLocation = Vector(math.random(-1,1), math.random(-1,1), 0):Normalized() * 800
+  end
 
   towerLocation = towerLocation + GLOBAL_origin
 
@@ -53,6 +67,12 @@ function CheckPillars ()
 end
 
 function ChargerThink (state, target)
+  if not thisEntity:IsAlive() then
+    GetAllPillars():each(function (pillar)
+      pillar:Kill(thisEntity, ABILITY_charge)
+    end)
+    return 0
+  end
   if not GLOBAL_origin then
     GLOBAL_origin = thisEntity:GetAbsOrigin()
   else
@@ -74,6 +94,25 @@ function ChargerThink (state, target)
   if CheckPillars() then
     return 0.5
   end
+  if ChargeHero() then
+    return 1
+  end
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = GLOBAL_origin, --Optional.  Only used when targeting the ground
+    Queue = 0 --Optional.  Used for queueing up abilities
+  })
+
+  return 0.1
+
+end
+
+function ChargeHero ()
+  if not ABILITY_charge:IsCooldownReady() then
+    return false
+  end
   local units = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
     thisEntity:GetAbsOrigin(),
@@ -86,10 +125,8 @@ function ChargerThink (state, target)
     false
   )
 
-  print('Trying to aggro against ' .. #units .. ' heroes')
-
   if #units == 0 then
-    return 5
+    return false
   end
   local hero = units[1]
 
@@ -102,5 +139,5 @@ function ChargerThink (state, target)
     Queue = 0 --Optional.  Used for queueing up abilities
   })
 
-  return 1
+  return true
 end

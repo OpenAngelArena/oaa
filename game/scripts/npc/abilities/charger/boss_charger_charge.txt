@@ -10,7 +10,7 @@
     "MaxLevel"                "3"
     "RequiredLevel"           "1"
     "LevelsBetweenUpgrades"   "1"
-    "AbilityChannelTime"      "1.0 0.6 0.4"
+    "AbilityChannelTime"      "2.0 1.2 0.8"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,10 +36,14 @@
         "var_type"         "FIELD_INTEGER"
         "speed"            "20 25 30"
       }
+
+      //----------------------------
+      // boss hits pillar without striking a hero
+      //----------------------------
       "05"
       {
         "var_type"         "FIELD_FLOAT"
-        "debuff_duration"     "5.0 3.0 2.0"
+        "debuff_duration"     "5.0 4.0 3.0"
       }
       "06"
       {
