@@ -9,7 +9,7 @@ end
 local ItemPowerLevel = 1.0
 
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
-local DROP_CHANCE = 0.35
+local DROP_CHANCE = 0.25
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -18,7 +18,9 @@ local TO_ENUM = 3
 local RARITY_ENUM = 4
 
 --defines items drop levels.
---item will start dropping, between FROM and TO itemPowerLevel. RARITY is used to define how likely the item is to drop in comparison with other items. the higher the value, the less likely the item is to drop
+--item will start dropping, between FROM and TO itemPowerLevel.
+-- RARITY is used to define how likely the item is to drop in comparison with other items.
+-- the higher the value, the less likely the item is to drop
 --for negative values:
 --  *FROM -> any level smaller or equal than TO will have a chance to drop the item.
 --  *TO   -> any level larger or equal than FROM will have  a chance to drop the item.
@@ -27,10 +29,7 @@ local RARITY_ENUM = 4
 --it is possible to define the same item twice, for maximum flexibility
 ItemPowerTable = {
   --NAME                        FROM    TO        RARITY
-  { "item_clarity",             -1,      -1,      5},
-  { "item_enchanted_mango",     -1,      -1,      13},
-  { "item_infinite_bottle",     12,      -1,      1},
-  { "item_tango_single",        -1,      18,      2}
+  { "item_infinite_bottle",      3,      -1,      1},
 }
 
 function CreepItemDrop:Init ()
