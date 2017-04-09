@@ -448,6 +448,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 `1d6919a30aac21c47720fb68c1b7e87c5166f671`
 ### Items
 * Added Items to Shroud of Shadows
+* Changed Trumps Fists
+  * Fix Trump's Fists heal reduction disabling passive health regen
 
 ### Creeps
 * Adapting a Bottle Only Creep Drop Policy
