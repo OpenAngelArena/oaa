@@ -413,6 +413,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Recipe now costs `60`
 * Changed Dragon Lancer
   * Removed Recipe
+* Fixed Reflex Item Stats
 
 ### Heroes
 * Nerfed Storm Spirit
