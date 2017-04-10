@@ -1,6 +1,6 @@
 # Tooltips Guide
 
-Tooltips are used in the Dota 2 user interface to communicate information about 
+Tooltips are used in the Dota 2 user interface to communicate information about units, abilities, debuffs, almost everything.
 
 ## General Information
 
