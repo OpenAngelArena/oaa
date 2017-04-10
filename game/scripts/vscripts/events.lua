@@ -54,9 +54,6 @@ function GameMode:OnNPCSpawned(keys)
     local nearbyUnits = Entities:FindAllInSphere(npc:GetAbsOrigin(), 1000)
 
     for _, unit in pairs(nearbyUnits) do
-      if unit.IsRealHero and unit:IsIllusion() then
-        print(unit:GetLevel())
-      end
       -- We have found the real hero if: Hero is Real and Not Illusion and has same gold amount as the illusion that spawned
       if unit.IsRealHero and unit:IsRealHero() and not unit:IsIllusion() and unit:GetName() == npc:GetName() then
         realHero = unit
