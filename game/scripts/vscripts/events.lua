@@ -47,27 +47,35 @@ function GameMode:OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
 
-  -- ILLUSION HAVING WRONG STATS FIX START --
-  local owner = npc:GetOwner()
-  -- If spawned entity has an owner, and the owner is a player
-  if owner and owner:IsPlayer() then
-    -- Get Hero entity
-    ownerHero = PlayerResource:GetSelectedHeroEntity(owner:GetPlayerID())
-    -- If Hero entity was found and hero is alive
-    if ownerHero and owner:IsAlive() then
-      -- If the entity that spawned is illusion and a hero, and the hero is the same as the owners hero
-      if npc:IsIllusion() and npc:IsHero() and npc:GetModelName() == ownerHero:GetModelName() then
-        Timers:CreateTimer(.1, function ()
-          -- Modify illusions stats so that they are the same as the owning hero
-          npc:ModifyAgility((npc:GetAgility() - ownerHero:GetAgility()) * -1)
-          npc:ModifyStrength((npc:GetStrength() - ownerHero:GetStrength()) * -1)
-          npc:ModifyIntellect((npc:GetIntellect() - ownerHero:GetIntellect()) * -1)
-          npc:SetHealth(ownerHero:GetHealth())
-          npc:SetMana(ownerHero:GetMana())
-        end)
+  local realHero = nil
+  if npc.IsIllusion and npc:IsIllusion() and npc:IsHero() then
+    -- Search nearby radius to find the real hero
+    local nearbyUnits = Entities:FindAllInSphere(npc:GetAbsOrigin(), 1000)
+
+    for _, unit in pairs(nearbyUnits) do
+      if unit.IsRealHero and unit:IsIllusion() then
+        print(unit:GetLevel())
+      end
+      -- We have found the real hero if: Hero is Real and Not Illusion and has same gold amount as the illusion that spawned
+      if unit.IsRealHero and unit:IsRealHero() and not unit:IsIllusion() and unit:GetName() == npc:GetName() then
+        realHero = unit
       end
     end
+
+    -- If we found the real hero, make illusion have same stats as original
+    if realHero then
+      Timers:CreateTimer(.1, function ()
+          -- Modify illusions stats so that they are the same as the owning hero
+          npc:ModifyAgility((npc:GetAgility() - realHero:GetAgility()) * -1)
+          npc:ModifyStrength((npc:GetStrength() - realHero:GetStrength()) * -1)
+          npc:ModifyIntellect((npc:GetIntellect() - realHero:GetIntellect()) * -1)
+          npc:SetHealth(realHero:GetHealth())
+          npc:SetMana(realHero:GetMana())
+        end)
+    end
+
   end
+
   -- ILLUSION HAVING WRONG STATS FIX END --
 
   npc.deathEvent = Event()
