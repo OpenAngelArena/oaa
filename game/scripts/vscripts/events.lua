@@ -38,6 +38,9 @@ function GameMode:OnGameRulesStateChange(keys)
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
     GameMode:OnStrategyTime()
+  -- Pre-Game started
+  elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
+    GameMode:OnPreGame()
   end
 end
 
