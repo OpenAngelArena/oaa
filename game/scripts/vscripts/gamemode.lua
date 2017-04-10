@@ -137,6 +137,11 @@ function GameMode:OnHeroInGame(hero)
   hero:AddAbility("example_ability")]]
 end
 
+function GameMode:OnStrategyTime()
+  -- Force random hero for players that have not picked
+  PlayerResource:RandomHeroForPlayersWithoutHero()
+end
+
 --[[
   This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,
   gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc.  This function
