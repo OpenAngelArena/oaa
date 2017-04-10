@@ -55,8 +55,8 @@ function GameMode:OnNPCSpawned(keys)
     ownerHero = PlayerResource:GetSelectedHeroEntity(owner:GetPlayerID())
     -- If Hero entity was found and hero is alive
     if ownerHero and owner:IsAlive() then
-      -- If the entity that spawned is illusion and a hero
-      if npc:IsIllusion() and npc:IsHero() then
+      -- If the entity that spawned is illusion and a hero, and the hero is the same as the owners hero
+      if npc:IsIllusion() and npc:IsHero() and npc:GetModelName() == ownerHero:GetModelName() then
         Timers:CreateTimer(.1, function ()
           -- Modify illusions stats so that they are the same as the owning hero
           npc:ModifyAgility((npc:GetAgility() - ownerHero:GetAgility()) * -1)
