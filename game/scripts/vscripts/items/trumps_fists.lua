@@ -86,8 +86,8 @@ end
 function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
     if kv.attacker == self:GetParent() then
-      kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_cold", { duration = self.cold_duration } )
-      kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_corruption", { duration = self.corruption_duration } )
+      -- kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_cold", { duration = self.cold_duration } )
+      -- kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_corruption", { duration = self.corruption_duration } )
       kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
     end
   end
