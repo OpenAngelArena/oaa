@@ -47,6 +47,7 @@ function GameMode:OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
 
+  -- ILLUSION HAVING WRONG STATS FIX START --
   local realHero = nil
   if npc.IsIllusion and npc:IsIllusion() and npc:IsHero() then
     -- Search nearby radius to find the real hero
