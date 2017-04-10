@@ -151,19 +151,11 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(PointsManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
-  InitModule(Gold)
-  InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
-  InitModule(ZoneControl)
   InitModule(Duels)
-  InitModule(AbilityLevels)
   InitModule(BossSpawner)
-  InitModule(NGP)
-  InitModule(HeroProgression)
-  InitModule(SellBlackList)
 
 end
 

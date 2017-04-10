@@ -38,6 +38,18 @@ function GameMode:OnGameRulesStateChange(keys)
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
     GameMode:OnStrategyTime()
+  -- Pre-Game started
+  elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
+    print("Pre-game started")
+    -- initialize modules
+    InitModule(PointsManager)
+    InitModule(Gold)
+    InitModule(BlinkBlock)
+    InitModule(ZoneControl)
+    InitModule(AbilityLevels)
+    InitModule(HeroProgression)
+    InitModule(SellBlackList)
+    InitModule(NGP)
   end
 end
 
