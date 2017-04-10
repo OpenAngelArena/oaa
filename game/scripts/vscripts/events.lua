@@ -47,6 +47,29 @@ function GameMode:OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
 
+  -- ILLUSION HAVING WRONG STATS FIX START --
+  local owner = npc:GetOwner()
+  -- If spawned entity has an owner, and the owner is a player
+  if owner and owner:IsPlayer() then
+    -- Get Hero entity
+    ownerHero = PlayerResource:GetSelectedHeroEntity(owner:GetPlayerID())
+    -- If Hero entity was found and hero is alive
+    if ownerHero and owner:IsAlive() then
+      -- If the entity that spawned is illusion and a hero
+      if npc:IsIllusion() and npc:IsHero() then
+        Timers:CreateTimer(.1, function ()
+          -- Modify illusions stats so that they are the same as the owning hero
+          npc:ModifyAgility((npc:GetAgility() - ownerHero:GetAgility()) * -1)
+          npc:ModifyStrength((npc:GetStrength() - ownerHero:GetStrength()) * -1)
+          npc:ModifyIntellect((npc:GetIntellect() - ownerHero:GetIntellect()) * -1)
+          npc:SetHealth(ownerHero:GetHealth())
+          npc:SetMana(ownerHero:GetMana())
+        end)
+      end
+    end
+  end
+  -- ILLUSION HAVING WRONG STATS FIX END --
+
   npc.deathEvent = Event()
   function npc:OnDeath(fn)
     return npc.deathEvent.listen(fn)
