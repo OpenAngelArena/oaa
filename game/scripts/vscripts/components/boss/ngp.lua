@@ -5,8 +5,11 @@ if NGP == nil then
     NGP = class({})
 end
 
-NGP.itemIndex = 0
+NGP.itemIndex = 1
 NGP.activeItems = {}
+NGP.activeTimers = {}
+local totalgoodplayers = 0
+local totalbadplayers = 0
 
 function NGP:Init ()
 
@@ -17,50 +20,86 @@ function NGP:Init ()
   })
 
   CustomGameEventManager:RegisterListener('ngp_selection', Dynamic_Wrap(NGP, 'PlayerVote'))
+
+
+  for playerId = 0,19 do
+    local player = PlayerResource:GetPlayer(playerId)
+    if player ~= nil then
+      if player:GetTeam() == 3 then
+        totalbadplayers = totalbadplayers + 1
+      elseif player:GetTeam() == 2 then
+        totalgoodplayers = totalgoodplayers + 1
+      end
+    end
+  end
+
 end
 
 function NGP:PlayerVote (eventSourceIndex, args)
-  DebugPrintTable(eventSourceIndex)
-  -- DebugPrintTable(args)
   local playerID = eventSourceIndex.PlayerID
   local id = eventSourceIndex.id
   local option = eventSourceIndex.option
   local team = ShortTeamName(PlayerResource:GetTeam(playerID))
   local item = NGP.activeItems[tonumber(id)]
-
+  local heroname = PlayerResource:GetSelectedHeroName(playerID)
   if item.team ~= team then
     Notifications:TopToAll({text="NGP mismatch " .. item.team .. " vs " .. team, duration=2.0})
     return
   end
-
-  DebugPrint(team)
   item.votes[playerID] = option
+  item.heroname[playerID] = heroname
+
+  
+  if item.finished == false then
+    NGP:setTableItem(item)
+    local totalvoted = 0
+    for i = 0,19 do
+      if item.votes[i] then
+        totalvoted = totalvoted + 1
+      end
+    end
+    if totalvoted > (totalbadplayers-1) and team == "bad" then
+      Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
+      NGP:FinishVoting(tonumber(id), team)
+    elseif totalvoted > (totalgoodplayers-1) and team == "good" then
+      Timers:RemoveTimer(NGP.activeTimers[tonumber(id)])
+      NGP:FinishVoting(tonumber(id), team)
+    end
+  end
 end
 
 function NGP:GiveItemToTeam (item, team)
-  local ngpItems = CustomNetTables:GetTableValue('ngp', team)
 
   DebugPrint('item index will be ' .. NGP.itemIndex)
-  DebugPrintTable(ngpItems)
   item.id = NGP.itemIndex
+  item.finished = false
   NGP.itemIndex = NGP.itemIndex + 1
-
   item.team = team
   NGP.activeItems[item.id] = item
-
   NGP.activeItems[item.id].votes = {}
+  NGP.activeItems[item.id].heroname = {}
 
+  NGP:setTableItem(item)
 
-  ngpItems[item.id] = item
-
-  CustomNetTables:SetTableValue('ngp', team, ngpItems)
-
-  Timers:CreateTimer(60, function ()
-    NGP:FinishVoting(NGP.activeItems[item.id])
+  NGP.activeTimers[item.id] = Timers:CreateTimer(60, function ()
+    NGP:FinishVoting(item.id)
   end)
 end
 
-function NGP:FinishVoting (item)
+
+function NGP:setTableItem(item)
+  CustomNetTables:SetTableValue('ngp', "key_" .. item.id, item)
+end
+
+
+
+function NGP:FinishVoting (id)
+
+  local item = NGP.activeItems[id]
+  item.finished = true
+  NGP:setTableItem(item)
+
+
   local needVotes = {}
   local greedVotes = {}
   local passVotes = {}
@@ -79,17 +118,18 @@ function NGP:FinishVoting (item)
   if #needVotes > 0 then
     -- someone voted need! decide between them...
     local winningPlayer = needVotes[math.random(1, #needVotes)]
-    DebugPrint(winningPlayer .. ' won!!')
+    DebugPrint(winningPlayer .. ' won by need!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return
   end
   if #greedVotes > 0 then
     -- someone voted need! decide between them...
     local winningPlayer = greedVotes[math.random(1, #greedVotes)]
-    DebugPrint(winningPlayer .. ' won!!')
+    DebugPrint(winningPlayer .. ' won by greed!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return
   end
+  DebugPrint('Everyone Passed!')
 end
 
 function NGP:GiveItemToPlayer (item, playerId)
@@ -108,7 +148,7 @@ function NGP:GiveItemToPlayer (item, playerId)
 end
 
 function ShortTeamName(teamId)
-  DebugPrint(teamId)
+  -- DebugPrint(teamId)
   if teamId == 2 then
     return 'good'
   else

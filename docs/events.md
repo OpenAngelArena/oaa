@@ -22,10 +22,6 @@ The pre-translated name of the item to display.
 Type: `string`  
 Short description of item purpose to display.
 
-**buildsInto**  
-Type: `string[]`  
-Array of string names of items to show in the hint box.
-
 ### ngp_expire_item
 Remove a given Need/Greed/Pass UI instance for a player's screen. Used when the choice expires and the item is no longer available.
 

@@ -11,13 +11,13 @@
   flow-children: right;
   transition: transform 0.2s ease-out 0s;
 
-  transform: translateX(-340px);
+  transform: translateX(-370px);
   padding-right: 10px;
   padding-bottom: 10px;
 }
 #NeedGreedPassSlider.Expanded
 {
-  width: 100%;
+  width: 370px;
   transform: translateX(0px);
   transition: transform 0.1s linear 0s;
 }
@@ -56,7 +56,7 @@
 {
   horizontal-align: left;
   height: 83px;
-  width: 340px;
+  width: 370px;
   background-image: url("s2r://panorama/images/hud/reborn/bg_minimap_psd.vtex");
   background-size: 100% auto;
   flow-children: right;
@@ -71,15 +71,15 @@
 /*
  * PREVIEW
  */
-.NeedGreedPass .ItemPanel .ItemPeview
+.NeedGreedPass .ItemPanel .ItemPreview
 {
   width: 86px;
   height: 100%;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   flow-children: down;
 }
 
-.NeedGreedPass .ItemPanel .ItemPeview Label
+.NeedGreedPass .ItemPanel .ItemPreview Label
 {
   text-transform: uppercase;
   font-size: 10px;
@@ -98,8 +98,16 @@
 {
   width: fill-parent-flow (1);
   flow-children: down;
-  padding: 5px 0 10px 0;
+  padding: 5px 0 0 0;
+  margin-left: 5px;
 }
+
+.TopLine {
+  margin-bottom: 2px;
+  margin-left: 5px;
+  flow-children: right;
+}
+
 .NeedGreedPass .ItemPanel .DescriptionArea Label.ItemTitle
 {
   height: 20px;
@@ -107,77 +115,100 @@
 }
 .NeedGreedPass .ItemPanel .DescriptionArea Label.Description
 {
-  font-size: 12px;
+  font-size: 13px;
   white-space: normal;
   height: fill-parent-flow (1);
-  line-height: 10px;
-}
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto
-{
-  margin-top: 14px;
-  height: 20px;
-  flow-children: right;
-}
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto Label
-{
-  text-transform: uppercase;
-  font-size: 10px;
-  width: 30px;
-  height: 25px;
-  line-height: 10px;
-}
-.NeedGreedPass .ItemPanel .DescriptionArea .UpgradesInto DOTAItemImage
-{
-  margin-right: 5px;
+  line-height: 13px;
+  margin-left: 5px;
 }
 
 /*
- * BUTTONS
+ * NGP BUTTONS
  */
-.NeedGreedPass .ItemPanel .Buttons
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons
 {
-  margin: 5px;
-  flow-children: down;
-  border-left: 1px solid #555;
-  padding-left: 5px;
-}
-.NeedGreedPass .ItemPanel .Buttons RadioButton
-{
-  vertical-align: top;
+  /*margin-top: 14px;*/
+  height: 25px;
   flow-children: right;
-  horizontal-align: right;
+  margin-top: 3px;
 }
-.NeedGreedPass .ItemPanel .Buttons .RadioBox
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons RadioButton
+{
+  vertical-align: middle;
+  flow-children: right;
+  horizontal-align: center;
+  text-align: center;
+  padding: 0 7px 0 7px ;
+  /*border-top: 1px solid #555;*/
+  border-left: 1px solid #555;
+}
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .RadioBox
 {
   opacity: 0;
   visibility: collapse;
 }
-.NeedGreedPass .ItemPanel .Buttons Button
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons Button
 {
   width: 24px;
   height: 24px;
   background-size: 100% 100%;
-}
-.NeedGreedPass .ItemPanel .Buttons RadioButton Label
-{
-  /*visibility: collapse;*/
-}
-.NeedGreedPass .ItemPanel .Buttons RadioButton Label, .NeedGreedPass .ItemPanel .Buttons RadioButton Button
-{
-  horizontal-align: center;
+  vertical-align: middle;
 }
 
-.NeedGreedPass .ItemPanel .Buttons .Need Button
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .ItemTimer
 {
-  background-image: url("s2r://panorama/images/hud/reborn/icon_courier_upgrade_on_psd.vtex");
+  text-transform: uppercase;
+  margin: 0 5px;
+  text-align: center;  
+  width: 20px;
 }
-.NeedGreedPass .ItemPanel .Buttons .Greed Button
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .NGPRadio Label
 {
-  background-image: url("s2r://panorama/images/hud/reborn/gold_small_psd.vtex");
+  margin-left: 0;
+  vertical-align: middle;
 }
-.NeedGreedPass .ItemPanel .Buttons .Pass Button
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .pass
 {
-  background-image: url("s2r://panorama/images/hud/reborn/icon_courier_boost_on_psd.vtex");
+  width: fill-parent-flow (1);
+  padding: 0 0 0 10px ;
+}
+
+.bold
+{
+  color: #ffffff;
+}
+
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .need Button
+{
+  background-image: url("file://{images}/custom_game/ngp_need.png");
+}
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .greed Button
+{
+  background-image: url("file://{images}/custom_game/ngp_greed.png");
+}
+.NeedGreedPass .ItemPanel .DescriptionArea .NGPButtons .pass Button
+{
+  background-image: url("file://{images}/custom_game/ngp_pass.png");
+}
+
+
+.HeroImage
+{
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  horizontal-align: right;
+  margin-right: 5px;
+}
+
+.spacefiller {
+  width: fill-parent-flow (1);
 }
 
 @keyframes 'slidein' {
@@ -195,7 +226,7 @@
 @keyframes 'slideitallin' {
   from {
     opacity:1;
-    transform: translateX(-340px);
+    transform: translateX(-370px);
   }
 
   to {

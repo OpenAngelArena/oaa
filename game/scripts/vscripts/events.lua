@@ -472,8 +472,7 @@ function GameMode:OnPlayerChat(keys)
       id =splitted[2],
       item =splitted[3],
       title = splitted[4],
-      description = splitted[5],
-      buildsInto =splitted[6]
+      description = splitted[5]
     }
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
   end
