@@ -464,6 +464,11 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Satanic Core - Octarine with Satanic
 
 
+## Update 0.9.0
+``
+### Items
+* Added Icon to Satanic Core
+
 
 ## Template
 ```Markdown
