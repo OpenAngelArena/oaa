@@ -142,6 +142,18 @@ function GameMode:OnStrategyTime()
   PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
+function GameMode:OnPreGame()
+  -- initialize modules
+  InitModule(PointsManager)
+  InitModule(Gold)
+  InitModule(BlinkBlock)
+  InitModule(ZoneControl)
+  InitModule(AbilityLevels)
+  InitModule(HeroProgression)
+  InitModule(SellBlackList)
+  InitModule(NGP)
+end
+
 --[[
   This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,
   gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc.  This function
