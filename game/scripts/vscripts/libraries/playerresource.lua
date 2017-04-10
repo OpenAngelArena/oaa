@@ -11,6 +11,9 @@
 
 -PlayerResource:GetConnectedPlayerIDsForTeam(int team)
   Returns an iterator for all connected player IDs in the given team
+
+-PlayerResource:RandomHeroForPlayersWithoutHero()
+  Forcibly randoms a hero for any player that has not yet picked a hero
 ]]
 function CDOTA_PlayerResource:GetAllTeamPlayerIDs()
   return filter(partial(self.IsValidPlayerID, self), range(0, self:GetPlayerCount()))
@@ -26,4 +29,15 @@ end
 
 function CDOTA_PlayerResource:GetConnectedTeamPlayerIDsForTeam(team)
   return filter(function(id) return self:GetConnectionState(id) == 2 end, self:GetPlayerIDsForTeam(team))
+end
+
+function CDOTA_PlayerResource:RandomHeroForPlayersWithoutHero()
+  function HasNotSelectedHero(playerID)
+    return not self:HasSelectedHero(playerID)
+  end
+  function ForceRandomHero(playerID)
+    self:GetPlayer(playerID):MakeRandomHeroSelection()
+  end
+  local playerIDsWithoutHero = filter(HasNotSelectedHero, self:GetAllTeamPlayerIDs())
+  foreach(ForceRandomHero, playerIDsWithoutHero)
 end

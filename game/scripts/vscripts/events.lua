@@ -35,6 +35,10 @@ function GameMode:OnGameRulesStateChange(keys)
   DebugPrintTable(keys)
 
   local newState = GameRules:State_Get()
+  -- Strategy time started
+  if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    GameMode:OnStrategyTime()
+  end
 end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
