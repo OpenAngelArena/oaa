@@ -469,6 +469,12 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Items
 * Added Icon to Satanic Core
 
+### Heroes
+* Fixed Illusion Stats
+
+### Duels
+* Fixed Permadeath when a Player Disconnects and reconnects after the duel #522
+
 
 ## Template
 ```Markdown
