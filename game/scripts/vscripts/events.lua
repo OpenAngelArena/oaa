@@ -120,6 +120,19 @@ function GameMode:OnPlayerReconnect(keys)
   OnPlayerReconnectEvent(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
   DebugPrintTable(keys)
+
+  local playID = keys.PlayerID
+  if not playID then 
+    return 
+  end
+
+  local hero = PlayerResource:GetSelectedHeroEntity(playID)
+  if not Duels.currentDuel then
+    hero:SetRespawnsDisabled(false)
+    if not hero:IsAlive() then
+     hero:RespawnHero(false,false,false)
+    end
+  end
 end
 
 -- An item was purchased by a player
