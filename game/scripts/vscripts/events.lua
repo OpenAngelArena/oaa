@@ -115,13 +115,16 @@ function GameMode:OnPlayerReconnect(keys)
   DebugPrintTable(keys)
 
   local playID = keys.PlayerID
-  if not playID then return end
+  if not playID then 
+    return 
+  end
 
   local hero = PlayerResource:GetSelectedHeroEntity(playID)
-
-  hero:SetRespawnsDisabled(false)
-  if not hero:IsAlive() then
-    hero:RespawnHero(false,false,false)
+  if not Duels.currentDuel then
+    hero:SetRespawnsDisabled(false)
+    if not hero:IsAlive() then
+     hero:RespawnHero(false,false,false)
+    end
   end
 end
 
