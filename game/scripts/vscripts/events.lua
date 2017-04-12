@@ -35,6 +35,13 @@ function GameMode:OnGameRulesStateChange(keys)
   DebugPrintTable(keys)
 
   local newState = GameRules:State_Get()
+  -- Strategy time started
+  if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    GameMode:OnStrategyTime()
+  -- Pre-Game started
+  elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
+    GameMode:OnPreGame()
+  end
 end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
@@ -46,6 +53,35 @@ function GameMode:OnNPCSpawned(keys)
   DebugPrintTable(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
+
+  -- ILLUSION HAVING WRONG STATS FIX START --
+  local realHero = nil
+  if npc.IsIllusion and npc:IsIllusion() and npc:IsHero() then
+    -- Search nearby radius to find the real hero
+    local nearbyUnits = Entities:FindAllInSphere(npc:GetAbsOrigin(), 1000)
+
+    for _, unit in pairs(nearbyUnits) do
+      -- We have found the real hero if: Hero is Real and Not Illusion and unit has same name as the spawned illusion
+      if unit.IsRealHero and unit:IsRealHero() and not unit:IsIllusion() and unit:GetName() == npc:GetName() then
+        realHero = unit
+      end
+    end
+
+    -- If we found the real hero, make illusion have same stats as original
+    if realHero then
+      Timers:CreateTimer(.1, function ()
+          -- Modify illusions stats so that they are the same as the owning hero
+          npc:ModifyAgility((npc:GetAgility() - realHero:GetAgility()) * -1)
+          npc:ModifyStrength((npc:GetStrength() - realHero:GetStrength()) * -1)
+          npc:ModifyIntellect((npc:GetIntellect() - realHero:GetIntellect()) * -1)
+          npc:SetHealth(realHero:GetHealth())
+          npc:SetMana(realHero:GetMana())
+        end)
+    end
+
+  end
+
+  -- ILLUSION HAVING WRONG STATS FIX END --
 
   npc.deathEvent = Event()
   function npc:OnDeath(fn)
@@ -113,6 +149,19 @@ function GameMode:OnPlayerReconnect(keys)
   OnPlayerReconnectEvent(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
   DebugPrintTable(keys)
+
+  local playID = keys.PlayerID
+  if not playID then 
+    return 
+  end
+
+  local hero = PlayerResource:GetSelectedHeroEntity(playID)
+  if not Duels.currentDuel then
+    hero:SetRespawnsDisabled(false)
+    if not hero:IsAlive() then
+     hero:RespawnHero(false,false,false)
+    end
+  end
 end
 
 -- An item was purchased by a player

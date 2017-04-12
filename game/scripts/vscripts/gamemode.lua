@@ -137,6 +137,23 @@ function GameMode:OnHeroInGame(hero)
   hero:AddAbility("example_ability")]]
 end
 
+function GameMode:OnStrategyTime()
+  -- Force random hero for players that have not picked
+  PlayerResource:RandomHeroForPlayersWithoutHero()
+end
+
+function GameMode:OnPreGame()
+  -- initialize modules
+  InitModule(PointsManager)
+  InitModule(Gold)
+  InitModule(BlinkBlock)
+  InitModule(ZoneControl)
+  InitModule(AbilityLevels)
+  InitModule(HeroProgression)
+  InitModule(SellBlackList)
+  InitModule(NGP)
+end
+
 --[[
   This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,
   gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc.  This function
@@ -146,19 +163,11 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(PointsManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
-  InitModule(Gold)
-  InitModule(BlinkBlock)
   InitModule(CreepItemDrop)
-  InitModule(ZoneControl)
   InitModule(Duels)
-  InitModule(AbilityLevels)
   InitModule(BossSpawner)
-  InitModule(NGP)
-  InitModule(HeroProgression)
-  InitModule(SellBlackList)
 
 end
 

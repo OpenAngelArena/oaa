@@ -20,14 +20,17 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
+    bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
     BossSpawner:SpawnBossAtPit(bossPit)
   end
 end
 
-function BossSpawner:SpawnBossAtPit (pit, tieroverride)
-  local bossTier = tieroverride or pit:GetIntAttr('tier')
-  local options = Bosses[bossTier]
-  local bossName = options[math.random(#options)]
+function BossSpawner:SpawnBossAtPit (pit)
+  local startTier = pit:GetIntAttr('tier')
+  local options = Bosses[startTier]
+  local tierIndex = math.min(#options, pit.killCount)
+  local bossTier = tierIndex - 1 + startTier
+  local bossName = options[tierIndex]
 
   DebugPrint('Spawning ' .. bossName)
   BossSpawner:SpawnBoss(pit, bossName, bossTier)
@@ -61,8 +64,10 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
   local newBossTier = math.min(6, bossTier + 1)
 
   bossAI.onDeath(function ()
+    DebugPrint('Boss has died ' .. pit.killCount .. 'times')
+    pit.killCount = pit.killCount + 1
     Timers:CreateTimer(60, function()
-      BossSpawner:SpawnBossAtPit(pit, newBossTier)
+      BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)
   end)
 end

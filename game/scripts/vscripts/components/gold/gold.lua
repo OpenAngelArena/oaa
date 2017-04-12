@@ -54,7 +54,8 @@ end
 function Gold:Think()
   foreach(function(i)
     if PlayerResource:IsValidPlayerID(i) then
-      if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+      local gameState = GameRules:State_Get()
+      if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
 
         local currentGold = Gold:GetGold(i)
         local currentDotaGold = PlayerResource:GetGold(i)
