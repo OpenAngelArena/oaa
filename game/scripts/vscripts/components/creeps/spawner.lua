@@ -116,14 +116,15 @@ end
 
 function CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, powerLevel )
   local adjustedCreepProperties = {}
+  local creepPowerTable = CreepPower:GetPowerForMinute(powerLevel)
 
   adjustedCreepProperties[NAME_ENUM] = creepProperties[NAME_ENUM]
-  adjustedCreepProperties[HEALTH_ENUM] = creepProperties[HEALTH_ENUM] * GetPowerLevelPropertyMultiplier(HEALTH_ENUM, powerLevel)
-  adjustedCreepProperties[MANA_ENUM] = creepProperties[MANA_ENUM] * GetPowerLevelPropertyMultiplier(MANA_ENUM, powerLevel)
-  adjustedCreepProperties[DAMAGE_ENUM] = creepProperties[DAMAGE_ENUM] * GetPowerLevelPropertyMultiplier(DAMAGE_ENUM, powerLevel)
-  adjustedCreepProperties[ARMOR_ENUM] = creepProperties[ARMOR_ENUM] * GetPowerLevelPropertyMultiplier(ARMOR_ENUM, powerLevel)
-  adjustedCreepProperties[GOLD_BOUNTY_ENUM] = creepProperties[GOLD_BOUNTY_ENUM] * GetPowerLevelPropertyMultiplier(GOLD_BOUNTY_ENUM, powerLevel)
-  adjustedCreepProperties[EXP_BOUNTY_ENUM] = creepProperties[EXP_BOUNTY_ENUM] * GetPowerLevelPropertyMultiplier(EXP_BOUNTY_ENUM, powerLevel)
+  adjustedCreepProperties[HEALTH_ENUM] = creepProperties[HEALTH_ENUM] * creepPowerTable[HEALTH_ENUM]
+  adjustedCreepProperties[MANA_ENUM] = creepProperties[MANA_ENUM] * creepPowerTable[MANA_ENUM]
+  adjustedCreepProperties[DAMAGE_ENUM] = creepProperties[DAMAGE_ENUM] * creepPowerTable[DAMAGE_ENUM]
+  adjustedCreepProperties[ARMOR_ENUM] = creepProperties[ARMOR_ENUM] * creepPowerTable[ARMOR_ENUM]
+  adjustedCreepProperties[GOLD_BOUNTY_ENUM] = creepProperties[GOLD_BOUNTY_ENUM] * creepPowerTable[GOLD_BOUNTY_ENUM]
+  adjustedCreepProperties[EXP_BOUNTY_ENUM] = creepProperties[EXP_BOUNTY_ENUM] * creepPowerTable[EXP_BOUNTY_ENUM]
 
   return adjustedCreepProperties
 end
@@ -170,37 +171,4 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
 
   --EXP BOUNTY
   creepHandle:SetDeathXP(math.ceil(creepProperties[EXP_BOUNTY_ENUM]))
-end
-
-function GetPowerLevelPropertyMultiplier( property_enum, powerLevel )
-  local powerLevelPropertyMultiplier = 1
-  local lowerIndex = 1
-  local CreepPowerTable = CreepPower.PowerTable
-  local higherIndex = #CreepPowerTable
-
-  for i=1, #CreepPowerTable do
-    if CreepPowerTable[i][1] <= powerLevel then
-      lowerIndex = i
-    end
-    if CreepPowerTable[i][1] >= powerLevel then
-      higherIndex = i
-      break
-    end
-  end
-
-  if lowerIndex == higherIndex then
-    powerLevelPropertyMultiplier = CreepPowerTable[lowerIndex][property_enum]
-  else
-    local lowerIndexLevel = CreepPowerTable[lowerIndex][1]
-    local higherIndexLevel = CreepPowerTable[higherIndex][1]
-
-    local levelRatio = (powerLevel - lowerIndexLevel) / (higherIndexLevel - lowerIndexLevel)
-
-    local lowerIndexValue = CreepPowerTable[lowerIndex][property_enum]
-    local higherIndexValue = CreepPowerTable[higherIndex][property_enum]
-
-    powerLevelPropertyMultiplier = lowerIndexValue + levelRatio * (higherIndexValue - lowerIndexValue)
-  end
-
-  return powerLevelPropertyMultiplier
 end
