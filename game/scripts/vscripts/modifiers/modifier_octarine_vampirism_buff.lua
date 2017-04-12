@@ -59,7 +59,7 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
   local nHeroHeal = self.hero_lifesteal / 100
   local nCreepHeal = self.creep_lifesteal / 100
 
-  if hero:HasModifier("modifier_item_satanic_unholy") and hero:HasModifier("modifier_item_satanic_core") then
+  if self.hero_spellsteal_unholy and hero:HasModifier("modifier_item_satanic_unholy") and hero:HasModifier("modifier_item_satanic_core") then
     nHeroHeal = self.hero_spellsteal_unholy / 100
     nCreepHeal = self.creep_spellsteal_unholy / 100
   end
