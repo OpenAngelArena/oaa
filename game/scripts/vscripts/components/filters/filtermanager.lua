@@ -11,7 +11,7 @@ if not FilterManager then
   FilterManager.BountyRunePickup = 2
   FilterManager.Damage = 3
   FilterManager.ExecuteOrder = 4
-  FilterManager.ItemAddedtoInventory = 5
+  FilterManager.ItemAddedToInventory = 5
   FilterManager.ModifierGained = 6
   FilterManager.ModifyExperience = 7
   FilterManager.ModifyGold = 8
