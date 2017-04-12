@@ -31,7 +31,7 @@ item_satanic_core_3 = item_satanic_core
 modifier_item_satanic_core = class({})
 
 function modifier_item_satanic_core:IsHidden()
-	return false
+	return true
 end
 
 function modifier_item_satanic_core:OnCreated()

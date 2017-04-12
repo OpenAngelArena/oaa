@@ -10,7 +10,7 @@ local funcs = {
 end
 
 function modifier_octarine_vampirism_buff:IsHidden()
-  return false
+  return true
 end
 
 function modifier_octarine_vampirism_buff:IsBuff()
