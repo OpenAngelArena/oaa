@@ -496,6 +496,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Fixed Unholy Spellsteal not working
   * Increased Strength from `32 33 34` to `38 55 75`
   * Reduced Bonus Cooldown from `35 40 45` to `25 25 25`
+* Nerfed Dark Seer
+  * Ion Shell now only targets Heros - not Creeps
 
 
 ## Template
