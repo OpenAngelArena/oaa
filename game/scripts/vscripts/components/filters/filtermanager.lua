@@ -11,7 +11,7 @@ if not FilterManager then
   FilterManager.BountyRunePickup = 2
   FilterManager.Damage = 3
   FilterManager.ExecuteOrder = 4
-  FilterManager.ItemAddedtoInventory = 5
+  FilterManager.ItemAddedToInventory = 5
   FilterManager.ModifierGained = 6
   FilterManager.ModifyExperience = 7
   FilterManager.ModifyGold = 8
@@ -43,7 +43,7 @@ function FilterManager:Init()
   gameMode:SetBountyRunePickupFilter(Dynamic_Wrap(self.MasterFilters, self.BountyRunePickup), self)
   gameMode:SetDamageFilter(Dynamic_Wrap(self.MasterFilters, self.Damage), self)
   gameMode:SetExecuteOrderFilter(Dynamic_Wrap(self.MasterFilters, self.ExecuteOrder), self)
-  gameMode:SetItemAddedToInventoryFilter(Dynamic_Wrap(self.MasterFilters, self.ItemAddedtoInventory), self)
+  gameMode:SetItemAddedToInventoryFilter(Dynamic_Wrap(self.MasterFilters, self.ItemAddedToInventory), self)
   gameMode:SetModifierGainedFilter(Dynamic_Wrap(self.MasterFilters, self.ModifierGained), self)
   gameMode:SetModifyExperienceFilter(Dynamic_Wrap(self.MasterFilters, self.ModifyExperience), self)
   gameMode:SetModifyGoldFilter(Dynamic_Wrap(self.MasterFilters, self.ModifyGold), self)
