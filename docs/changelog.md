@@ -434,7 +434,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Creeps
 * After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
 ### Items
-* Trumps Fists
+* Fixed Trumps Fists
   * Reduced Zombification of People
 
 
