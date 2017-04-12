@@ -465,7 +465,10 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.9.0
-``
+`be69ee79cec319513320d915f90241e18bcfff13`
+### Creeps
+* Fixed 61 Minute Bug where Creep Power get scaled wrong at Minute 61
+
 ### Items
 * Added Icon to Satanic Core
 
@@ -474,6 +477,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ### Duels
 * Fixed Permadeath when a Player Disconnects and reconnects after the duel #522
+* Now cleaning Duel Arenas of crap
 
 
 ## Template
