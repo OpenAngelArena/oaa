@@ -31,12 +31,19 @@ item_satanic_core_3 = item_satanic_core
 modifier_item_satanic_core = class({})
 
 function modifier_item_satanic_core:IsHidden()
-	return true
+	return false
 end
 
 function modifier_item_satanic_core:OnCreated()
-	self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
-	self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
+  self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
+  self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
+  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
+end
+
+function modifier_item_satanic_core:OnRefresh()
+  self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
+  self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
+  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
 function modifier_item_satanic_core:IsAura()
@@ -57,6 +64,10 @@ end
 
 function modifier_item_satanic_core:GetAuraSearchFlags()
 	return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+end
+
+function modifier_item_satanic_core:GetAuraRadius()
+  return self.aura_radius
 end
 
 function modifier_item_satanic_core:IsPurgable()
