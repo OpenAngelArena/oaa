@@ -4,7 +4,7 @@ if BossAI == nil then
   DebugPrint ( 'creating new BossAI object' )
   BossAI = class({})
 
-  Debug.EnabledModules['boss:*'] = true
+  Debug.EnabledModules['boss:*'] = false
 end
 
 BossAI.IDLE = 1

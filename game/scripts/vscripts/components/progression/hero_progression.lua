@@ -1,6 +1,6 @@
 if HeroProgression == nil then
     HeroProgression = class({})
-    Debug.EnabledModules['progression:*'] = true
+    Debug.EnabledModules['progression:*'] = false
 
     ChatCommand:LinkCommand("-levelup", "OnLevelUpChatCmd", HeroProgression)
 end
