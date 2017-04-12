@@ -21,6 +21,6 @@ Anything any team feels would be necessary to publish in case new members need a
 1. Open an issue at http://github.com/OpenAngelArena/oaa/issues. Tag your issue [Links], [Tables], [Instructionals], [Resource], etc please.
 2.  Create your own development branch (preferred method) and send a pull request to OpenAngelArena/oaa
 
-## Questions about Moar-docs?
+## Questions?
 
 Don't open an issue, just ask!
