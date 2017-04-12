@@ -11,9 +11,10 @@
 8. Players should understand Bosses' abilities without having to read them.
 
 ## Game Design
-1. does this increase or decrease the number of viable builds/strategies?
-We wish the meta to be as healthy as possible, and this means a diverse ecosystem of strategies and builds. Something which completely neuters a currently viable strategy at negligible cost, or is so good nothing else is viable, is bad design.
-2. What does this incentive players to do?
-Assume people will go for the optimal play. If a mechanic stimulates players to do something which is against how we intend the game to function (say, it makes fountain camping an optimal late game strat), then it is bad design.
-3. Does this promote our core gameplay?
-This goes hand in hand with the previous point. Each game has a draw, something players get out of it. In our case, it's a combination of ridiculous teamfights, challenging bosses, and the power trip value of heroes way more powerful than they are in Dota (Baumi can/should add to this). Designs which reinforce these feelings are good designs. Designs which go against these - say, by reducing player agency, or making a boss fight boring or repetitive, are bad designs.
+
+1. Design should aim to increase the number of viable builds/strategies.
+  We wish the meta to be as healthy as possible, and this means a diverse ecosystem of strategies and builds. Something which completely neuters a currently viable strategy at negligible cost, or is so good nothing else is viable, is bad design.
+2. Designs should provide incentive for players to act as intended
+  Assume people will go for the optimal play. If a mechanic stimulates players to do something which is against how we intend the game to function (say, it makes fountain camping an optimal late game strat), then it is bad design.
+3. Design should promote the core gameplay.
+  This goes hand in hand with the previous point. Each game has a draw, something players get out of it. In our case, it's a combination of ridiculous teamfights, challenging bosses, and the power trip value of heroes way more powerful than they are in Dota. Designs which reinforce these feelings are good designs. Designs which go against these - say, by reducing player agency, or making a boss fight boring or repetitive, are bad designs.
