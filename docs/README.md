@@ -8,9 +8,9 @@ It's fine to refer new contributors to http://warpdragon.github.io (The Document
 
 ## The /docs/ folder
 
-These documents should only be "official" information directly related to the development, release, and support of the OAA project. Think of it this branch as a Library, ensuring that everyone has easy access to the most current information available. To that end, those who contribute are also asked to seek out and make contacts on the various teams, and work with key members to ensure that notes are taken and reported to Moar-docs whenever ideas or designs become "official".
+These documents should only be "official" information directly related to the development, release, and support of the OAA project. Think of it this folder as a Library, ensuring that everyone has easy access to the most current information available. To that end, those who contribute are also asked to seek out and make contacts on the various teams, and work with key members to ensure that notes are taken and reported whenever ideas or designs become "official".
 
-There's a lot of ideas floating around. But most aren't official. If you're not sure whether something is official, first check /docs. If the document is not there, click "Search" in discord to see if a similar question has already been asked. If you're positive it has not been asked & answered, and assuming you've followed each of the preceding steps thoroughly, the next step is to ask in the appropriate help channel with "@username" to a Core Member in the Discord.
+There's a lot of ideas floating around. But most aren't official. If you're not sure whether something is official, first check the Documentation Hub, the OAA github Issues, and the /docs/ folder. If the document is not there, click "Search" in discord to see if a similar question has already been asked. If you're positive it has not been asked & answered, and assuming you've followed each of the preceding steps thoroughly, the next step is to ask in the appropriate help channel with "@username" to a Core Member in the Discord.
 
 ## Things you can contribute
 
