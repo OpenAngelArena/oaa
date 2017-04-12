@@ -113,11 +113,22 @@
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"50 65 80"
 			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"10 20 30"
-			}
+      "11"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "creep_lifesteal"   "10 20 30"
+      }
+      // unholy spellsteal
+      "12"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "hero_spellsteal_unholy"   "200"
+      }
+      "13"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "creep_spellsteal_unholy"   "200"
+      }
 		}
 	}
 }
