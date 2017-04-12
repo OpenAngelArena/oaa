@@ -480,6 +480,24 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Now cleaning Duel Arenas of crap
 
 
+## Update 0.9.1
+`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`
+### Items
+* Nerfed Deadalus
+  * Reduced Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
+* Nerfed Octarine Core
+  * Reduced Bonus Cooldown from `25 30` to `25 25`
+  * Reduced Creep Lifesteal from `5 7` to `5 10`
+  * Reduced Hero Lifesteal from `25 35` to `25 30`
+* Nerfed Refresher Core
+  * Increased Hero Lifesteal from `25` to `30`
+  * Increased Creep Lifesteal from `5` to `10`
+* Buffed Satanic Core
+  * Fixed Unholy Spellsteal not working
+  * Increased Strength from `32 33 34` to `38 55 75`
+  * Reduced Bonus Cooldown from `35 40 45` to `25 25 25`
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
