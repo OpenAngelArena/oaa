@@ -31,8 +31,8 @@ ZoneCleaner.ForbiddenEntities = {
 }
 
 function ZoneCleaner:CleanZone(state)
-  DebugDrawBox(state.origin, state.bounds.Mins, state.bounds.Maxs, 255, 100, 0, 0, 30)
-  DebugDrawSphere(state.origin, Vector(255, 100, 0), 0, max(state.bounds.Maxs.x + state.bounds.Maxs.y, state.bounds.Mins.x + state.bounds.Mins.y), true, 30)
+  --DebugDrawBox(state.origin, state.bounds.Mins, state.bounds.Maxs, 255, 100, 0, 0, 30)
+  --DebugDrawSphere(state.origin, Vector(255, 100, 0), 0, max(state.bounds.Maxs.x + state.bounds.Maxs.y, state.bounds.Mins.x + state.bounds.Mins.y), true, 30)
 
   local entities = Entities:FindAllInSphere(state.origin, max(max(state.bounds.Mins.x, state.bounds.Maxs.x),max(state.bounds.Mins.y, state.bounds.Maxs.y)))
 
