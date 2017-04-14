@@ -500,40 +500,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Ion Shell now only targets Heros - not Creeps
 
 
-
-## Update 0.7.0 Public Testing
+## Udpate 0.10.0
 ``
-### Items
-* Nerfed Abyssal Blade
-  * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
-  * Decreased Melee Damage Block from `70 100 140 200 280` to `70 100 130 160 190`
-* Fixed Shivas Guard Level 2 needing Upgrade Core Level 3 or higher to build
-  * Now needs Upgrade Core Level 1 or higher
-* Added Infinity Bottle to Selling Blacklist
-* Changed Trumps Fists
-  * Disabled Frostbite Debuff
-  * Disabled Corruption
-* Changed Charge BKB
-  * Recipe now costs `60`
-* Changed Dragon Lancer
-  * Removed Recipe
-* Fixed Reflex Item Stats
+* Updated Translation
 
-### Heroes
-* Nerfed Storm Spirit
-  * Decreased Damage from `8 12 16 24 56` to `8 12 16 20 24`
-
-### Bosses
-* Buffed Charger
-  * Increased Magical Resistance Debuff from `-180` to `-280`
-  * Decreased Armour Debuff from `-240` to `-225`
-  * Increased Pillar Damage from `800 1000 1200` to `8000 10000 12000`
-
-### Misc
-* Made Sell Blacklist wörk better
-
-
-
+### Map
+* Moved Boss Arena Entrance closer to Team Spawn
+* Moved Central Camps further away
+* Fixed Camp Neutral Ground Overlays
+* Illustrated the Paths between Camps better
+* Switched Mid Level 3 Camps and First Level 2 Camps on each Side
 
 ## Template
 ```Markdown
@@ -546,6 +522,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Duels
 ### UI
 ### Bots
+### Map
 ### Misc
 ```
 ```Markdown
