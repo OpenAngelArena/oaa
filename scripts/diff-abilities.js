@@ -1,6 +1,6 @@
 /**
  * This script checks for diff on abilitiy stats between OAA and original dota.
- * 
+ *
  * Requirements: `deep-diff` from npm
  *
  * Usage: node diff-abilities.js
@@ -9,7 +9,7 @@
  * https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/npc/npc_abilities.txt
  *
  * This file is not well-formatted!
- * There are two lines which should be a comment, but they are only containing 
+ * There are two lines which should be a comment, but they are only containing
  * one slash.
  * Use: `ag '\t\/ Damage.' npc_abilities.txt`
  * To find this lines. (5565, 5623)
@@ -37,20 +37,17 @@ const filteredElements = ['MaxLevel', 'RequiredLevel', 'LevelsBetweenUpgrades'];
  * Check, of this diff-element should be ignored, since OAA is not using this
  * property.
  */
-function isOriginalDotaOnly(element) {
-
-  if(element['path']) {
-
+function isOriginalDotaOnly (element) {
+  if (element['path']) {
     return !filteredElements.includes(element['path'][1]);
   }
   return true;
 }
 
-function hasNewValues(diff) {
-
+function hasNewValues (diff) {
   // TODO There is an object which has no includes in the diff...
   if (typeof diff.oaaStats === 'string' || diff.oaaStats instanceof String ||
-      typeof diff.oaaStats === 'array' || diff.oaaStats instanceof Array) {
+      diff.oaaStats instanceof Array) {
     return !diff.oaaStats.includes(diff.dotaStats);
   }
 
@@ -61,8 +58,7 @@ function hasNewValues(diff) {
  * Print the diff for one abilitiy.
  * This method should write the changes to OAA files.
  */
-function printDifferences(diff, abilityName) {
-
+function printDifferences (diff, abilityName) {
   diff = diff.filter(isOriginalDotaOnly);
 
   // rename keys to be more readable
@@ -83,8 +79,7 @@ function printDifferences(diff, abilityName) {
 /**
  * Parse the original dota file.
  */
-function parseOriginal(err, origContent) {
-
+function parseOriginal (err, origContent) {
   if (err) {
     throw err;
   }
@@ -96,9 +91,11 @@ function parseOriginal(err, origContent) {
 
   // Walk the directory with files for all abilities in OAA
   fs.readdir(abilitiesPath, 'utf8', (err, files) => {
+    if (err) {
+      throw err;
+    }
 
     files.forEach((file) => {
-
       // Absolute path of the current KV file
       var absoluteKVFilePath = path.join(abilitiesPath, file);
       // Name of the current abilitiy
@@ -106,12 +103,15 @@ function parseOriginal(err, origContent) {
 
       // If the current file has no corresponding section in the original dota
       // KV file, skip
-      if(!abilityList.includes(abilityName)) {
+      if (!abilityList.includes(abilityName)) {
         return;
       }
 
       // Read one file in the OAA directory.
       fs.readFile(absoluteKVFilePath, (err, oaaContent) => {
+        if (err) {
+          throw err;
+        }
 
         var oaaKVData = parseKV(oaaContent);
 
@@ -122,7 +122,7 @@ function parseOriginal(err, origContent) {
         var differences = diff(oaaAbil, origAbil);
 
         // If there are differences, print them
-        if(differences) {
+        if (differences) {
           printDifferences(differences, abilityName);
         }
       });
