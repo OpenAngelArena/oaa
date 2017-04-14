@@ -39,10 +39,21 @@ const filteredElements = ['MaxLevel', 'RequiredLevel', 'LevelsBetweenUpgrades'];
  */
 function isOriginalDotaOnly(element) {
 
-  if(element[path]) {
+  if(element['path']) {
 
     return !filteredElements.includes(element['path'][1]);
   }
+  return true;
+}
+
+function hasNewValues(diff) {
+
+  // TODO There is an object which has no includes in the diff...
+  if (typeof diff.oaaStats === 'string' || diff.oaaStats instanceof String ||
+      typeof diff.oaaStats === 'array' || diff.oaaStats instanceof Array) {
+    return !diff.oaaStats.includes(diff.dotaStats);
+  }
+
   return true;
 }
 
@@ -59,6 +70,8 @@ function printDifferences(diff, abilityName) {
   // and generate a valid (merged) KV
   diff = JSON.parse(JSON.stringify(diff).split('rhs').join('dotaStats'));
   diff = JSON.parse(JSON.stringify(diff).split('lhs').join('oaaStats'));
+
+  diff = diff.filter(hasNewValues);
 
   console.log('=====================');
   console.log(' Diff for: ' + abilityName);
