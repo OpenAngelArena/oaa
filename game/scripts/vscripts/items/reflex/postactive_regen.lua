@@ -2,13 +2,24 @@ LinkLuaModifier( "modifier_item_postactive_regen", "items/reflex/postactive_rege
 
 item_postactive_3c = class({})
 
-function item_postactive_3c:OnSpellStart()
+function item_postactive_3c:ResetToggleOnRespawn()
+  return true
+end
+
+function item_postactive_3c:OnToggle(keys)
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, 'modifier_item_postactive_regen', {
     duration = self:GetSpecialValueFor( "duration" )
   })
 
-  return true
+  -- important else you can use while on CD every other time
+  if self:GetToggleState() then
+    self:ToggleAbility()
+  end
+
+  self:StartCooldown(self:GetCooldownTime())
+
+  return false
 end
 
 modifier_item_postactive_regen = class({})
