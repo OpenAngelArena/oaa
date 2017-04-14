@@ -500,7 +500,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Ion Shell now only targets Heros - not Creeps
 
 
-## Udpate 0.10.0
+## Map Update 0.10.0
 `a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
 * Updated Translation
 
