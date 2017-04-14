@@ -511,6 +511,12 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Illustrated the Paths between Camps better
 * Switched Mid Level 3 Camps and First Level 2 Camps on each Side
 
+
+## Hotfix 0.10.1
+``
+### Map
+* Generated new Minimap
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
