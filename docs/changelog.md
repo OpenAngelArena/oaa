@@ -501,7 +501,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Udpate 0.10.0
-``
+`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
 * Updated Translation
 
 ### Map
@@ -513,7 +513,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.10.1
-``
+`452dfb2215887ed24705169a3b560b49bdd5e905`
 ### Map
 * Generated new Minimap
 
