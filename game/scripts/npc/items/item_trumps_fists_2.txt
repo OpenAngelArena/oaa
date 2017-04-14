@@ -59,56 +59,26 @@
 				"bonus_damage"			"125 150"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"0"
-			}
-			"04"
             {
                 "var_type"              "FIELD_INTEGER"
                 "bonus_all_stats"       "32 34"
             }
-            "05"
+            "03"
             {
                 "var_type"              "FIELD_INTEGER"
                 "bonus_health"          "450 550"
             }
-            "06"
+            "04"
             {
                 "var_type"              "FIELD_INTEGER"
                 "bonus_mana"            "475 575"
             }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "cold_movement_speed"   "0"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "cold_attack_speed"     "0"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "cold_duration_melee"   "0"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "cold_duration_ranged"  "0"
-            }
-       		"11"
+       		"05"
             {
                 "var_type"              "FIELD_INTEGER"
                 "heal_prevent_percent"  "-15 -75"
             }
-            "12"
+            "06"
             {
                 "var_type"              "FIELD_INTEGER"
                 "heal_prevent_duration"  "5"
