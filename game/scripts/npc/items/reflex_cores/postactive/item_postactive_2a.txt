@@ -3,9 +3,9 @@
   //=================================================================================================================
   // Recipe: postactive Reflex
   //=================================================================================================================
-  "item_recipe_postactive_2b"
+  "item_recipe_postactive_2a"
   {
-    "ID"                    "3829"    // unique ID
+    "ID"                    "3827"    // unique ID
     "BaseClass"             "item_datadriven"
     "AbilityTextureName"    "item_recipe"
     "Model"                 "models/props_gameplay/recipe.mdl"
@@ -13,7 +13,7 @@
     "ItemCost"              "2300"
     "ItemShopTags"          ""
     "ItemRecipe"            "1"
-    "ItemResult"            "item_postactive_2b"
+    "ItemResult"            "item_postactive_2a"
     "ItemRequirements"
     {
       "01"            "item_postactive;item_upgrade_core"
@@ -26,22 +26,22 @@
   //=================================================================================================================
   // postactive Reflex
   //=================================================================================================================
-  "item_postactive_2b"
+  "item_postactive_2a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                    "3830"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                    "3828"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"             "item_lua"
-    "ScriptFile"            "items/reflex/postactive_soft_dispell.lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"    "custom/item_postactive_2b"
+    "ScriptFile"            "items/reflex/postactive_invisibility.lua"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityTextureName"    "custom/item_postactive_2a"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"       "10.0"
     "AbilityCastPoint"      "0.0"
 
-    "MaxUpgradeLevel"       "1"
-    "ItemBaseLevel"         "1"
+    "MaxUpgradeLevel"       "3"
+    "ItemBaseLevel"         "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "duration"        "5"
+      }
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
