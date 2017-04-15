@@ -275,16 +275,6 @@ function Duels:EndDuel ()
   for playerId = 0,19 do
     Duels.zone1.removePlayer(playerId, false)
     Duels.zone2.removePlayer(playerId, false)
-    local player = PlayerResource:GetPlayer(playerId)
-    if player ~= nil and player:GetAssignedHero() then
-      local hero = player:GetAssignedHero()
-      if hero then
-        hero:SetRespawnsDisabled(false)
-        if not hero:IsAlive() then
-          hero:RespawnHero(false,false,false)
-        end
-      end
-    end
   end
 
   local currentDuel = Duels.currentDuel
@@ -296,9 +286,13 @@ function Duels:EndDuel ()
       DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
       local hero = player:GetAssignedHero()
-      hero:SetRespawnsDisabled(false)
       if not hero:IsAlive() then
+        hero:SetRespawnsDisabled(false)
         hero:RespawnHero(false,false,false)
+      end
+
+      if not state.assigned then
+        return
       end
 
       Duels:RestorePlayerState (hero, state)
@@ -336,7 +330,6 @@ function Duels:SavePlayerState (hero)
   local state = {
     location = hero:GetAbsOrigin(),
     abilityCount = hero:GetAbilityCount(),
-    maxAbility = 0,
     abilities = {},
     items = {},
     hp = hero:GetHealth(),
@@ -352,10 +345,9 @@ function Duels:SavePlayerState (hero)
     end
   end
 
-  for abilityIndex = 0,state.abilityCount-1 do
+  for abilityIndex = 0,hero:GetAbilityCount()-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
-      state.maxAbility = abilityIndex
       state.abilities[abilityIndex] = {
         cooldown = ability:GetCooldownTimeRemaining()
       }
@@ -381,7 +373,7 @@ function Duels:RestorePlayerState (hero, state)
   end
   hero:SetMana(state.mana)
 
-  for abilityIndex = 0,state.maxAbility-1 do
+  for abilityIndex = 0,hero:GetAbilityCount()-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:StartCooldown(state.abilities[abilityIndex].cooldown)

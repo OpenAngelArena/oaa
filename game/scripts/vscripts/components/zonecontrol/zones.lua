@@ -107,6 +107,11 @@ function ZoneControl:CreateStateFromHandle (handle, options)
   handle:RedirectOutput('OnStartTouch', 'startTouchHandler', handle)
   handle:RedirectOutput('OnEndTouch', 'endTouchHandler', handle)
 
+  Timers:CreateTimer(5, function ()
+    ZoneControl:EnforceRules(state)
+    return 5
+  end)
+
   return state;
 end
 
