@@ -119,6 +119,10 @@ function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
   creep:SetMaximumGoldBounty(properties.gold)
 
   --EXP BOUNTY
+  local minutes = math.floor(GameRules:GetGameTime() / 60)
+  if minutes > 60 then
+    properties.exp = properties.exp * 1.5^(minutes - 60)
+  end
   creep:SetDeathXP(properties.exp)
 
   return creep
