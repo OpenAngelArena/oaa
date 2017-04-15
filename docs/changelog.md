@@ -527,6 +527,24 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Divine Enrage Crystal
 * Added Regeneration Crystal
 
+
+## Update 0.12.0
+`f19a269e32c9e246883969a8bf6b68b791837fbc`
+### Creeps
+* Added Farming Cave
+
+### Items
+* Added Audio-Visual Effects for Greater Boots of Travel
+
+### Heroes
+* Fixed Shadow Shaman
+  * Added Level 4 and 5 to Serpend Ward
+
+### Bosses
+* Added Cliff Walking to all Bosses
+
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
