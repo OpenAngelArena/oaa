@@ -33,7 +33,7 @@
     "ID"                    "3828"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"             "item_lua"
     "ScriptFile"            "items/reflex/postactive_invisibility.lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"    "custom/item_postactive_2a"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
