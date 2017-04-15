@@ -4,10 +4,10 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_roshan"	// Class of entity of link to.
+    "BaseClass"					"npc_dota_creature"
 		"Model"						"models/creeps/roshan/roshan.vmdl"	// Model.
 		"SoundSet"					"Roshan"					// Name of sound set.
-		"ModelScale"				"0.5"
+		"ModelScale"				"0.25"
 		"Level"						"30"
 		"IsAncient"					"1"
 
@@ -49,8 +49,8 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
-		"RingRadius"				"110"
-		"HealthBarOffset"			"400"
+		"RingRadius"				"80"
+		"HealthBarOffset"			"100"
 
 		// Movement
 		//----------------------------------------------------------------
