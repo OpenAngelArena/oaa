@@ -33,6 +33,28 @@ function item_greater_travel_boots:OnSpellStart()
   end
 
   self.targetEntity = hTarget
+
+  -- Teleport animation
+  hCaster:StartGesture(ACT_DOTA_TELEPORT)
+
+  -- Teleport sounds
+  EmitSoundOn("Portal.Loop_Disappear", hCaster)
+  EmitSoundOn("Portal.Loop_Appear", hTarget)
+
+  -- Particle effects
+  local teleportFromEffectName = "particles/items2_fx/teleport_start.vpcf"
+  local teleportToEffectName = "particles/items2_fx/teleport_end.vpcf"
+  self.teleportFromEffect = ParticleManager:CreateParticle(teleportFromEffectName, PATTACH_ABSORIGIN, hCaster)
+  self.teleportToEffect = ParticleManager:CreateParticle(teleportToEffectName, PATTACH_ABSORIGIN_FOLLOW, hTarget)
+
+  --ParticleManager:SetParticleControl(self.teleportFromEffect, 0, hCaster:GetOrigin())
+  ParticleManager:SetParticleControl(self.teleportFromEffect, 2, Vector(255, 255, 255))
+
+  --ParticleManager:SetParticleControlEnt(self.teleportToEffect, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(self.teleportToEffect, 1, hTarget, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(self.teleportToEffect, 3, hCaster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControl(self.teleportToEffect, 4, Vector(0.9, 0, 0))
+  ParticleManager:SetParticleControlEnt(self.teleportToEffect, 5, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 end
 
 function item_greater_travel_boots:OnChannelThink (delta)
@@ -42,9 +64,27 @@ function item_greater_travel_boots:OnChannelThink (delta)
 end
 -- IsAlive
 function item_greater_travel_boots:OnChannelFinish(wasInterupted)
+  local hCaster = self:GetCaster()
+
+  -- End animation
+  hCaster:RemoveGesture(ACT_DOTA_TELEPORT)
+  -- End particle effects
+  ParticleManager:DestroyParticle(self.teleportFromEffect, false)
+  ParticleManager:DestroyParticle(self.teleportToEffect, false)
+  ParticleManager:ReleaseParticleIndex(self.teleportFromEffect)
+  ParticleManager:ReleaseParticleIndex(self.teleportToEffect)
+  -- End sounds
+  hCaster:StopSound("Portal.Loop_Disappear")
+  self.targetEntity:StopSound("Portal.Loop_Appear")
+
   if wasInterupted then
     return -- do nothing
   end
+
+  hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
+
+  EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
+  EmitSoundOn("Portal.Hero_Appear", self.targetEntity)
 
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
