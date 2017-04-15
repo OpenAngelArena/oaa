@@ -40,7 +40,7 @@ First, follow the [Installation Process](/docs/install.md) in order to create a 
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
-As described in the Installation Process, forking creates a simultaneous instance of oaa within your own GitHub repository. YDuring the Installation Process, you should have already done the following:
+As described in the Installation Process, forking creates a simultaneous instance of oaa within your own GitHub repository. During the Installation Process, you should have already done the following:
 - Goto OpenAngelArena/oaa.
 - Click Fork
 - Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
