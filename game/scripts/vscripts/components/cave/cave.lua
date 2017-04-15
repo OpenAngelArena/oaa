@@ -65,7 +65,7 @@ function CaveHandler:SpawnRoom (teamID, roomID)
     local creepHandle = CaveHandler:SpawnCreepInRoom(room.handle, creepProperties)
 
     if roomID == 4 then
-      creepHandle:SetModelScale(creepHandle:GetModelScale() * (0.01 * (cave.timescleared + 1)))
+      creepHandle:SetModelScale( creepHandle:GetModelScale() / (0.5  * (cave.timescleared + 1)) )
     end
 
     creepHandle:OnDeath(function(keys)
