@@ -166,6 +166,7 @@ function GameMode:OnGameInProgress()
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
+  InitModule(CaveHandler)
   InitModule(Duels)
   InitModule(BossSpawner)
 

@@ -1,7 +1,8 @@
 
 -- Taken from bb template
 if CreepCamps == nil then
-    DebugPrint ( '[creeps/spawner] creating new CreepCamps object' )
+    Debug.EnabledModules['creeps:*'] = false
+    DebugPrint ( 'creating new CreepCamps object.' )
     CreepCamps = class({})
 end
 
@@ -25,7 +26,7 @@ local EXP_BOUNTY_ENUM = 7
 -- profit
 
 function CreepCamps:Init ()
-  DebugPrint ( '[creeps/spawner] Initialize' )
+  DebugPrint ( 'Initializing.' )
   CreepCamps = self
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
 end

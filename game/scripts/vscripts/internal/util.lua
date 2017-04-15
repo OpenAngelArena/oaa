@@ -251,3 +251,21 @@ function ShowWearables( unit )
     v:RemoveEffects(EF_NODRAW)
   end
 end
+
+
+function GetShortTeamName (teamID)
+  local teamNames = {
+    [DOTA_TEAM_GOODGUYS] = "good",
+    [DOTA_TEAM_BADGUYS] = "bad",
+    [DOTA_TEAM_NEUTRALS] = "neutral",
+    [DOTA_TEAM_CUSTOM_1] = "custom1",
+    [DOTA_TEAM_CUSTOM_2] = "custom2",
+    [DOTA_TEAM_CUSTOM_3] = "custom3",
+    [DOTA_TEAM_CUSTOM_4] = "custom4",
+    [DOTA_TEAM_CUSTOM_5] = "custom5",
+    [DOTA_TEAM_CUSTOM_6] = "custom6",
+    [DOTA_TEAM_CUSTOM_7] = "custom7",
+    [DOTA_TEAM_CUSTOM_8] = "custom8",
+  }
+  return teamNames[teamID]
+end
