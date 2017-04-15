@@ -1,7 +1,7 @@
 
 -- Taken from bb template
 if CreepItemDrop == nil then
-    DebugPrint ( '[creeps/item_drop] creating new CreepItemDrop object' )
+    DebugPrint ( 'creating new CreepItemDrop object' )
     CreepItemDrop = class({})
 end
 
@@ -33,7 +33,7 @@ ItemPowerTable = {
 }
 
 function CreepItemDrop:Init ()
-  DebugPrint ( '[creeps/item_drop] Initialize' )
+  DebugPrint ( 'Initialize' )
   CreepItemDrop = self
 
   ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
