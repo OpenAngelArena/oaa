@@ -517,6 +517,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Map
 * Generated new Minimap
 
+
+## Update 0.11.0
+`08c17310913a88e9a73b49aebf1c5285760e2efa`
+### Items
+* Added Invisibility Crystal
+* Added Greater Enrage Crystal
+* Added Doppelganger Crystal
+* Added Divine Enrage Crystal
+* Added Regeneration Crystal
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
