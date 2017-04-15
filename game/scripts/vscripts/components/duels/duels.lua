@@ -22,14 +22,16 @@ function Duels:Init ()
   Duels.currentDuel = nil
   Duels.zone1 = ZoneControl:CreateZone('duel_1', {
     mode = ZONE_CONTROL_INCLUSIVE,
-    margin = 200,
+    margin = 500,
+    padding = 200,
     players = {
     }
   })
 
   Duels.zone2 = ZoneControl:CreateZone('duel_2', {
     mode = ZONE_CONTROL_INCLUSIVE,
-    margin = 200,
+    margin = 500,
+    padding = 200,
     players = {
     }
   })

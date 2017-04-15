@@ -219,7 +219,7 @@ end
 function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
   local player = PlayerResource:GetPlayer(playerId)
 
-  if player then
+  if player and player:GetAssignedHero() then
     ZoneControl:EnforceRulesOnEntity(state, playerId, player:GetAssignedHero())
   end
 end
@@ -305,9 +305,9 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
       local x = origin.x
       local y = origin.y
       local topWall = state.origin.y + state.bounds.Maxs.y - state.padding
-      local rightWall = state.origin.x + state.bounds.Maxs.x + state.padding
+      local rightWall = state.origin.x + state.bounds.Maxs.x - state.padding
       local bottomWall = state.origin.y + state.bounds.Mins.y + state.padding
-      local leftWall = state.origin.x + state.bounds.Mins.x - state.padding
+      local leftWall = state.origin.x + state.bounds.Mins.x + state.padding
 
       if x > rightWall then
         x = rightWall
