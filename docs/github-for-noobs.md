@@ -36,18 +36,18 @@ At this point just familiarize yourself with the following terminology:
 
 ## Setup
 
-First, follow the [Installation Process](/docs/install.md) but stop when you get to the part that says "Get the Addon". Now, instead of just Cloning (copying the OpenAngelArena/oaa repository) you'll create a Fork of it and work from there.
+First, follow the [Installation Process](/docs/install.md) in order to create a Fork of openangelarena/oaa to work from.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
-Forking creates a simultaneous instance of oaa within your own GitHub repository.
+As described in the Installation Process, forking creates a simultaneous instance of oaa within your own GitHub repository. During the Installation Process, you should have already done the following:
 - Goto OpenAngelArena/oaa.
 - Click Fork
 - Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
 - Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
 
 ## Cloning
-Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
+Also described in the Installation Process, cloning copies your fork to your computer with the GitHub client (or by clicking "Clone or Download" on the main page of `GitHub.com/openangelarena/oaa`. As mentioned, you can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). You should have already done the following during the Installation Process:
 
 - Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
 - Click settings.

@@ -500,38 +500,48 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Ion Shell now only targets Heros - not Creeps
 
 
+## Map Update 0.10.0
+`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
+* Updated Translation
 
-## Update 0.7.0 Public Testing
-``
+### Map
+* Moved Boss Arena Entrance closer to Team Spawn
+* Moved Central Camps further away
+* Fixed Camp Neutral Ground Overlays
+* Illustrated the Paths between Camps better
+* Switched Mid Level 3 Camps and First Level 2 Camps on each Side
+
+
+## Hotfix 0.10.1
+`452dfb2215887ed24705169a3b560b49bdd5e905`
+### Map
+* Generated new Minimap
+
+
+## Update 0.11.0
+`08c17310913a88e9a73b49aebf1c5285760e2efa`
 ### Items
-* Nerfed Abyssal Blade
-  * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
-  * Decreased Melee Damage Block from `70 100 140 200 280` to `70 100 130 160 190`
-* Fixed Shivas Guard Level 2 needing Upgrade Core Level 3 or higher to build
-  * Now needs Upgrade Core Level 1 or higher
-* Added Infinity Bottle to Selling Blacklist
-* Changed Trumps Fists
-  * Disabled Frostbite Debuff
-  * Disabled Corruption
-* Changed Charge BKB
-  * Recipe now costs `60`
-* Changed Dragon Lancer
-  * Removed Recipe
-* Fixed Reflex Item Stats
+* Added Invisibility Crystal
+* Added Greater Enrage Crystal
+* Added Doppelganger Crystal
+* Added Divine Enrage Crystal
+* Added Regeneration Crystal
+
+
+## Update 0.12.0
+`f19a269e32c9e246883969a8bf6b68b791837fbc`
+### Creeps
+* Added Farming Cave
+
+### Items
+* Added Audio-Visual Effects for Greater Boots of Travel
 
 ### Heroes
-* Nerfed Storm Spirit
-  * Decreased Damage from `8 12 16 24 56` to `8 12 16 20 24`
+* Fixed Shadow Shaman
+  * Added Level 4 and 5 to Serpend Ward
 
 ### Bosses
-* Buffed Charger
-  * Increased Magical Resistance Debuff from `-180` to `-280`
-  * Decreased Armour Debuff from `-240` to `-225`
-  * Increased Pillar Damage from `800 1000 1200` to `8000 10000 12000`
-
-### Misc
-* Made Sell Blacklist wörk better
-
+* Added Cliff Walking to all Bosses
 
 
 
@@ -546,6 +556,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Duels
 ### UI
 ### Bots
+### Map
 ### Misc
 ```
 ```Markdown

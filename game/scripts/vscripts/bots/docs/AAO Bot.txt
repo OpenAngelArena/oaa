@@ -1,20 +1,34 @@
-Version 2.0
+Version 3.0
 
-This is the second version of my OAA bot. It is a complete (hopefully very functional) rewrite of my first bot.
+This is the third version of my OAA bot. It is a complete (and infinitely more functional) rewrite of my first and second bots.
 
-Improvements:
-Hero vs Hero fighting is taken over by default AI - I could never write better code than that. I just tell them to walk towards the enemy and fighting AI takes over
-The bot knows when it's in a duel and fights almost to the death now since it can't retreat
-The Farming is completely taken over by my code and is far more efficient.
-A thousand little tweaks and bug fixes.
+V3 New Features:
+-Bots will now pick up and use infinity bottles. They won't ever use the last charge because - due to a bug in infinity bottle - it will crash the game if they do.
+-Bots now correctly use almost all their spells against neutrals.
+-Bots now level up all talents and skills as much as they are able. They will prioritize their best farming skills first.
+-When a bot gets beaten up by a neutral camp (or hero), the bot will invisibly ping to the other bots, who will come and throw bodies at the camp (or hero) until it has been culled.
+-If you hold a smoke in the first slot of your backpack, all your bots will follow you, and fight heroes and creeps as they go.
+-If you hold a smoke in the second slot of your backpack, they will follow you, but won't fight creeps, only heroes. Good for ganking as a team.
+-Smoke in any other slot won't have any effect.
+-The bots do basic warding (if only to empty their inventry of junk)
+-I can't claim this, but Dota now has an improvement where bots will drop what they are doing and respond to pings now, albeit badly. I put in the "smoke follow code" because they didn't do that initially.
+
+V2 Improvements:
+-All of the code is split up and controlled by desires.
+-Hero vs Hero fighting is taken over by default AI. It does the best job.
+-The bot knows when it's in a duel and fights almost to the death now since it can't retreat.
+-The Farming is completely taken over, and bots uses more spells which makes farming large camps a lot easier.
+-Changed main file to mode_laning_generic to stop bots running in a random direction during duel
+-I have the bots five man a couple of medium camps at the beginning for the xp.
+-A thousand little tweaks and bug fixes.
 
 Bugs:
-Some heros will buy 2 shields.
-Other unexpected bugs I haven't seen yet.
+They will get their pathing messed up occasionally
+Theoretically the bots could keep throwing themselves at an impossible camp (or boss), but they tend to get there in the end.
+It's not a bug, but some of the heros are just plain shitty at farming, and I can't filter them out of the hero pool unfortunately.
+Any unexpected bugs I haven't seen yet.
 
-Lacks:
-Boss fighting.
-Boss items.
-Level ups beyond 25.
-AI deciding whether a Hero vs Hero fight is a good idea or not.
-They don't pick up items yet.
+Finishing touches to come:
+Upgrading items (needs to happen soon)
+Deciding when to fight bosses.
+AI deciding whether taking a Hero vs Hero fight is a good idea or not.

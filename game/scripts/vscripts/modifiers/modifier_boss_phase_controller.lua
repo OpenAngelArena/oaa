@@ -1,30 +1,37 @@
 
 modifier_boss_phase_controller = class({})
 
+function modifier_boss_phase_controller:OnRefresh ()
+  if not IsServer() then
+    return
+  end
+
+  self:StartIntervalThink( 0.5 )
+end
+
 function modifier_boss_phase_controller:OnCreated (keys)
   if not IsServer() then
     return
   end
 
+  self.phases = iter({ 66, 33 })
+  self.abilities = nil
+
+  self:StartIntervalThink( 0.5 )
+end
+
+function modifier_boss_phase_controller:SetPhases (phases)
+  self.phases = iter(phases)
+end
+
+function modifier_boss_phase_controller:SetAbilities (abilities)
   local caster = self:GetCaster()
-
-  print(keys)
-  for k,v in pairs(keys) do
-    print(k .. ': ' .. tostring(v))
-  end
-
-  keys.phases = keys.phases or { 66, 33 }
-  keys.abilities = keys.abilities or { 'boss_charger_charge' }
-
-  self.phases = iter(keys.phases)
 
   function getAbilityByName (name)
     return caster:FindAbilityByName(name)
   end
 
-  self.abilities = map(getAbilityByName, iter(keys.abilities))
-
-  self:StartIntervalThink( 0.5 )
+  self.abilities = map(getAbilityByName, iter(abilities))
 end
 
 function modifier_boss_phase_controller:OnIntervalThink ()
