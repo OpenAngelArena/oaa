@@ -530,7 +530,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Update 0.12.0
 `f19a269e32c9e246883969a8bf6b68b791837fbc`
-### Creeps
+### Cave
 * Added Farming Cave
 
 ### Items
@@ -544,12 +544,36 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Cliff Walking to all Bosses
 
 
+## Hotfix 0.12.1
+`5c14ce2cc1bc607a002f11eb7e923df564d7a087`
+* Updated Translations
+
+### Duels
+* Fixed Various Bugs
+
+
+## Update 0.13.0
+`b9b2ef229d71bfd736c74513236878e6331c7612`
+* Updated Tooltips
+
+## Cave
+* Fixed Baby Rosh size
+* Now using creep scaling
+
+## Items
+* Fixed Greater Travel Boots
+
+## Heroes
+* Added more Talents
+
+
 
 ## Template
 ```Markdown
 ## <Name> <Tag>
 `<commit>`
 ### Creeps
+### Cave
 ### Items
 ### Heroes
 ### Bosses
