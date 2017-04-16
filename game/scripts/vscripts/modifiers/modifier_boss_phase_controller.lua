@@ -14,9 +14,7 @@ function modifier_boss_phase_controller:OnCreated (keys)
     return
   end
 
-  keys.phases = keys.phases or { 66, 33 }
-
-  self.phases = iter(keys.phases)
+  self.phases = iter({ 66, 33 })
   self.abilities = nil
 
   self:StartIntervalThink( 0.5 )
