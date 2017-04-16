@@ -86,6 +86,7 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
     armour = round(multiplier.armour(k) * creep[5]),
     gold   = round(multiplier.gold(k)   * creep[6]),
     exp    = round(multiplier.exp(k)    * creep[7]),
+    magicResist    = round(multiplier.magicResist(k)    * creep[8]),
   }
 end
 
@@ -117,6 +118,10 @@ function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
   --GOLD BOUNTY
   creep:SetMinimumGoldBounty(properties.gold)
   creep:SetMaximumGoldBounty(properties.gold)
+
+  if properties.magicResist ~= nil then
+    creep:SetBaseMagicalResistanceValue(properties.magicResist)
+  end
 
   --EXP BOUNTY
   local minutes = math.floor(GameRules:GetGameTime() / 60)
