@@ -81,7 +81,7 @@ function GameMode:_OnEntityKilled( keys )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
     end
 
-    if killerTeam ~= DOTA_TEAM_BADGUYS and killerTeam ~= DOTA_TEAM_GOODGUYS then
+    if killerTeam ~= DOTA_TEAM_BADGUYS and killerTeam ~= DOTA_TEAM_GOODGUYS and not killedUnit:IsReincarnating() then
       killedUnit:SetTimeUntilRespawn(10)
     else
       keys.killer = killerEntity
