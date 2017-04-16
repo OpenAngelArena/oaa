@@ -19,24 +19,54 @@ function item_greater_travel_boots:IsPurgable()
   return false
 end
 
+function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
+  if IsServer() then
+    local hCaster = self:GetCaster()
+    -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
+    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, 2000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+
+    function IsNotCaster(entity)
+      return not (entity == hCaster)
+    end
+    local hTarget = nth(1, filter(IsNotCaster, iter(units)))
+
+    if not hTarget then
+      return UF_FAIL_CUSTOM
+    end
+
+    self.targetEntity = hTarget
+    return UF_SUCCESS
+  end
+end
+
+function item_greater_travel_boots:GetCustomCastErrorLocation()
+  -- "Cannot find nearby valid target" error
+  return "#dota_hud_error_target_no_dark_rift"
+end
+
 function item_greater_travel_boots:OnSpellStart()
   local hCaster = self:GetCaster()
   local hTarget = self:GetCursorTarget()
+  local casterTeam = hCaster:GetTeamNumber()
+
+  function IsAlly(entity)
+    return entity:GetTeamNumber() == casterTeam
+  end
+
+  if hTarget then
+    if hTarget == hCaster then
+      local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+      hTarget = head(filter(IsAlly, iter(fountains)))
+    end
+    self.targetEntity = hTarget
+  else
+    hTarget = self.targetEntity
+  end
+
   local targetOrigin = hTarget:GetOrigin()
 
-  if not hTarget then
-    -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
-    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), self:GetCursorPosition(), nil, 2000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
-    hTarget = units[1]
-  end
-  if not hTarget or hTarget == hCaster then
-    return false
-  end
-
-  self.targetEntity = hTarget
-
   -- Minimap teleport display
-  MinimapEvent(hCaster:GetTeamNumber(), hCaster, targetOrigin.x, targetOrigin.y, DOTA_MINIMAP_EVENT_TEAMMATE_TELEPORTING, self:GetChannelTime() + 1)
+  MinimapEvent(casterTeam, hCaster, targetOrigin.x, targetOrigin.y, DOTA_MINIMAP_EVENT_TEAMMATE_TELEPORTING, self:GetChannelTime() + 0.5)
 
   -- Teleport animation
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
@@ -52,6 +82,7 @@ function item_greater_travel_boots:OnSpellStart()
   self.teleportToEffect = ParticleManager:CreateParticle(teleportToEffectName, PATTACH_ABSORIGIN_FOLLOW, hTarget)
 
   --ParticleManager:SetParticleControl(self.teleportFromEffect, 0, hCaster:GetOrigin())
+  -- Teleport effect color
   ParticleManager:SetParticleControl(self.teleportFromEffect, 2, Vector(255, 255, 255))
 
   --ParticleManager:SetParticleControlEnt(self.teleportToEffect, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
