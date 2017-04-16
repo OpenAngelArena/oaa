@@ -17,16 +17,15 @@ end
 
 function modifier_item_reactive_2a:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_REFLECT_SPELL
+    MODIFIER_PROPERTY_REFLECT_SPELL,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
   }
+end
+
+function modifier_item_reactive_2b:GetModifierIncomingDamage_Percentage()
+  return -100
 end
 
 function modifier_item_reactive_2a:GetReflectSpell()
   return true
-end
-
-function modifier_item_reactive_2a:CheckState()
-  return {
-    [MODIFIER_STATE_INVULNERABLE] = true
-  }
 end
