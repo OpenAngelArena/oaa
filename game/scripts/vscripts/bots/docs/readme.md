@@ -1,4 +1,5 @@
-﻿# Instructions on making the bots work:
+﻿
+# Instructions on making the bots work:
 
 <br>
 
@@ -42,4 +43,6 @@ I’ll probably update them and fix them some, but they’re not the main event 
 
 Feel free to send me any suggestions/code improvements.
 
-Enjoy.
+Enjoy.
+
+<br>

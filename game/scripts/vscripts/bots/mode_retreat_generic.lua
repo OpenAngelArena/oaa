@@ -9,8 +9,8 @@ local freakoutpercentage=0.225
 local freakoutvalue=190
 
 
-local DuelLocation1 = Vector(4600,-4200)
-local DuelLocation2 = Vector(-4900,4400)
+local DuelLocation2 = Vector(-5150,4650) 	--Radiant Side
+local DuelLocation1 = Vector(4850,-4350) 	--Dire Side
 local DuelMidLocation1 = Vector(6300,-6100)
 local DuelMidLocation2 = Vector(-6400,6200)
 
@@ -18,8 +18,8 @@ local DuelLocation = Vector(0,0)
 local DuelMidLocation = Vector(0,0)
 
 
-local DireBase = Vector(5000,-300)
-local RadiantBase = Vector(-5000,-300)
+local RadiantBase = Vector(-5200,-150)		--perfected
+local DireBase = Vector(5000,-50)			--perfected
 local myBase = Vector(0,0)
 
 local currentduel = false
@@ -33,7 +33,7 @@ local ClosestHero = nil
 local EnemyHeroes = {}
 
 local AISwitchOffDistance = 1400 -- must not be greater than 1600
-
+local bottleUseTime = -100
 
 
 
@@ -64,20 +64,30 @@ local function GetClosestHero( searchradius,bEnemies )
 	end
 end
 
+
+
+
 local function DuelStuff()
 	local npcBot=GetBot()
-
+	
 	if npcBot.IsDuelRetreating == true then
 --		if npcBot:GetHealth()/npcBot:GetMaxHealth()>0.10 then
 --			npcBot.IsDuelRetreating = false
 --			print ("--> ",npcBot:GetUnitName()," decided not to Duel Retreat")
 --		else
+
 		if npcBot:GetTeam() == TEAM_RADIANT then
 			myBase = RadiantBase
 		else
 			myBase = DireBase
 		end
-		npcBot:Action_MoveToLocation(myBase)
+		if GetUnitToLocationDistance( npcBot, myBase ) < 400 then
+			npcBot:Action_AttackMove( myBase )
+--			print ("--> ",npcBot:GetUnitName()," Action_AttackMove")
+		else
+			npcBot:Action_MoveToLocation( myBase )
+--			print ("--> ",npcBot:GetUnitName()," Action_MoveToLocation")
+		end
 --		print ("--> ",npcBot:GetUnitName()," is Duel Retreating")
 		return
 	end
@@ -117,16 +127,6 @@ local function DuelStuff()
 			local halfWayLocation = DuelMidLocation + DuelMidLocation + npcBot:GetLocation()
 			halfWayLocation = halfWayLocation/3
 			npcBot:Action_AttackMove( DuelMidLocation )
---				npcBot:ActionPush_AttackMove( DuelMidLocation )
---				npcBot:ActionQueue_AttackMove( DuelMidLocation ) 
---				npcBot:Action_MoveToLocation( DuelMidLocation )
---				npcBot:ActionPush_MoveToLocation( DuelMidLocation )
---				npcBot:ActionQueue_MoveToLocation( DuelMidLocation ) 
---				print("--> ",npcBot:GetUnitName()," Duellocation...: ",DuelLocation)
---				print("--> ",npcBot:GetUnitName()," location.......: ",npcBot:GetLocation())
---				print("--> ",npcBot:GetUnitName()," halfWayLocation: ",halfWayLocation)
---				print("--> ",npcBot:GetUnitName()," DuelMidLocation: ",DuelMidLocation)
---			print(npcBot:GetUnitName(),"moved to duel mid")
 			return
 		end
 	end
@@ -180,24 +180,24 @@ function GetDesire()
 --		print("--> Duel Location #1b",DuelLocation1,npcBot:GetUnitName(),npcBotLocation)
 		if npcBot:GetHealth()/npcBot:GetMaxHealth() < 0.04 then
 			npcBot.IsDuelRetreating = true
-			return 0.6 -- high
+			return 0.9 -- high
 		elseif npcBot:GetHealth()/npcBot:GetMaxHealth() > 0.08 then
 			npcBot.IsDuelRetreating = false
-			return 0.6
+			return 0.9
 --			return 0.6 -- not too high, so that default fight AI can take over and choose targets
 		end
 		if ClosestHero ~= nil then
 			if GetUnitToUnitDistance( ClosestHero, npcBot ) < AISwitchOffDistance then
-				return 0.6 -- not too high, so that default fight AI can take over and choose targets
+				return 0.65 -- not too high, so that default fight AI can take over and choose targets
 			end
 		else
-			return 0.6
+			return 0.9
 		end
 	end
 
 	if npcBot.IsRetreating == true then
 --		print ("---------------------> ",npcBot:GetUnitName()," is retreating")
-		if npcBot:GetHealth()/npcBot:GetMaxHealth()>0.75 and npcBot:GetMana()/npcBot:GetMaxMana()>0.75 then
+		if npcBot:GetHealth()/npcBot:GetMaxHealth()>0.72 and npcBot:GetMana()/npcBot:GetMaxMana()>0.72 then
 			npcBot.IsRetreating = false
 --			print("---------------------> ",npcBot:GetUnitName()," is not Retreating any more")
 			return 0.0
@@ -208,9 +208,16 @@ function GetDesire()
 --		retreattime = DotaTime()+6
 	end
 	if npcBot:GetHealth()/npcBot:GetMaxHealth()<freakoutpercentage or npcBot:GetHealth()<freakoutvalue then
+--		if npcBot.IsRetreating ~= true and npcBot:WasRecentlyDamagedByCreep( 0.5 ) then
+		npcBot.Ping = npcBot:GetLocation()
+--			print("---> PING! ",npcBot:GetUnitName(),npcBot.Ping)
+
+--			Ping ruins everything
+--			npcBot:ActionImmediate_Ping( npcBot.Ping.x, npcBot.Ping.y, false )
+--		end
 		npcBot.Target = nil
 		npcBot.IsRetreating = true
-		npcBot.IsFarming = false
+		npcBot.SwitchCamp = true
 		return 1.0
 --		retreattime = DotaTime()+6
 	end
@@ -232,6 +239,24 @@ function Think()
 --		print("---------------------> ",npcBot:GetUnitName()," Attempted teleport intercepted.")
 	end
 	
+	-- Use bottle:
+	if DotaTime() > bottleUseTime then
+		
+		local itemNumber = npcBot:FindItemSlot("item_infinite_bottle")
+		if itemNumber ~= -1 then
+			if npcBot:GetMaxHealth()-npcBot:GetHealth() >= 100 or npcBot:GetMana()/npcBot:GetMaxMana() < 0.25 then
+				local hItem = npcBot:GetItemInSlot( itemNumber )
+				if hItem:IsFullyCastable() and hItem:GetCurrentCharges() > 1 then
+--					print("->  ",npcBot:GetUnitName()," used: ",hItem:GetName())
+					npcBot:Action_UseAbility( hItem )
+					bottleUseTime = DotaTime() + 22.55
+					return
+				end
+--				npcBot:Action_UseAbilityOnEntity( hItem, npcBot )
+			end
+		end
+	end
+	
 	if currentduel == true then
 		DuelStuff()
 		return
@@ -247,13 +272,18 @@ function Think()
 	else
 		myBase = DireBase
 	end
-	if npcBot.IsRetreating == true and npcBot:GetHealth()/npcBot:GetMaxHealth()>0.75 then
-		npcBot.IsRetreating = false
---		print ("--> ",npcBot:GetUnitName()," decided not to retreat")
-	else
-		npcBot:Action_MoveToLocation(myBase)
+	if npcBot.IsRetreating == true then
+		if GetUnitToLocationDistance( npcBot, myBase ) < 400 then
+			npcBot:Action_AttackMove( myBase )
+--			print ("--> ",npcBot:GetUnitName()," Action_AttackMove")
+		else
+			npcBot:Action_MoveToLocation( myBase )
+--			print ("--> ",npcBot:GetUnitName()," Action_MoveToLocation")
+		end
 	end
 end
+
+
 
 
 --------
