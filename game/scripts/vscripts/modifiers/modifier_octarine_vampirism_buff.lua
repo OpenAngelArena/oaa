@@ -30,6 +30,9 @@ end
 function modifier_octarine_vampirism_buff:OnCreated( kv )
   self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
   self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
+
+  self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "hero_spellsteal_unholy" )
+  self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "creep_spellsteal_unholy" )
 end
 
 --------------------------------------------------------------------------------
@@ -37,7 +40,11 @@ end
 function modifier_octarine_vampirism_buff:OnRefresh( kv )
   self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
   self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
+
+  self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "hero_spellsteal_unholy" )
+  self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "creep_spellsteal_unholy" )
 end
+
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_buff:OnTooltip( params )
@@ -45,13 +52,18 @@ function modifier_octarine_vampirism_buff:OnTooltip( params )
 end
 
 --------------------------------------------------------------------------------
-
 function modifier_octarine_vampirism_buff:OnTakeDamage(params)
   local hero = self:GetParent()
   if hero:PassivesDisabled() then return end
   local dmg = params.damage
   local nHeroHeal = self.hero_lifesteal / 100
   local nCreepHeal = self.creep_lifesteal / 100
+
+  if self.hero_spellsteal_unholy and hero:HasModifier("modifier_item_satanic_unholy") and hero:HasModifier("modifier_item_satanic_core") then
+    nHeroHeal = self.hero_spellsteal_unholy / 100
+    nCreepHeal = self.creep_spellsteal_unholy / 100
+  end
+
   if params.inflictor then
     if params.attacker == hero then
       local heal_amount = 0

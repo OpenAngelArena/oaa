@@ -37,7 +37,29 @@ d2am list
 leave the command prompt open, we'll come back to it. Join us on iscordDay, the URL ends in WNFBB4d. You found the easter egg!
 
 ## Get The Addon
-Use the Github client to check out this addon into the addons directory. You can use the "Clone or Download" button right on the main page to open it using the desktop tool. Make sure it ends up in addons, the path should end in `dota 2 beta\addons\oaa\`.
+Instead of just Cloning (copying the OpenAngelArena/oaa repository) you'll create a Fork of it and work from there.
+If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
+
+## Forking
+Forking creates a simultaneous instance of oaa within your own GitHub repository.
+- Goto OpenAngelArena/oaa.
+- Click Fork
+- Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
+- Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
+
+## Cloning
+Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
+
+- Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
+- Click settings.
+- Change the settings how you like it (e.g. Change to Dark mode).
+- While in settings, changing the default shell to PowerShell.
+- Click Save.
+- Click on the "+" in the upper left corner.
+- Select Clone.
+- Select your Account and the forked `oaa` repository.
+- Verify Clone to your repo.
+Now we should have a local copy of your fork of [OpenAngelArena/oaa]
 
 **You must link the addon before it will work**. You can do this from that same node.js window you had open by running
 ```

@@ -10,12 +10,12 @@ function Spawn (entityKeyValues)
   ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
   ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
-  thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {
-    abilities = {
-      "boss_charger_charge"
-    },
-    phases = { 66, 33 }
+  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
+  phaseController:SetPhases({ 66, 33 })
+  phaseController:SetAbilities({
+    "boss_charger_charge"
   })
+
 end
 
 function GetAllPillars ()

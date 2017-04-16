@@ -54,3 +54,11 @@ end
   end taken from https://gist.github.com/Xeoncross/9511295
 
 ]]
+
+math.increase = function(x)
+  x = x + 1
+end
+
+math.decrease = function(x)
+  x = x - 1
+end

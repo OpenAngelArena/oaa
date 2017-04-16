@@ -44,7 +44,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Changed Stoneskin Armour
   * Added 1.5 second delay to Toggle
   * Fixed Toggle not respecting Cooldown
-* Added Preemptive Purge Item
+* Added Dispel Orb
 * Removed Combiner Core from all Recipes and replaced them with Upgrade Cores
 * Nerfed Octarine Core
   * Nerfed Cooldown from `25 35` to `25 30`
@@ -173,7 +173,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Items
 * Added Matyr's Mail
 * Fixed Charge BKB Recipe
-* Added Preemptive Core 3B
+* Added Divine Reduction Orb
 
 ### Creeps
 * Decreased XP for all Camps
@@ -192,7 +192,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Shroud of Shadows 
   * Make self/ally invisible + Not attackable
 * Fixed Damage Reduction Tooltip of Preemptive Reflex Item
-* Added Postactive Reflex Core
+* Added Enrage Crystal
 * Fixed Shroud Level 2 Targeting
 * Fixed Phase Boots Level 1 Recipe
 * Fixed Tranquil Boots Level 1 Recipe
@@ -306,23 +306,23 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Changed Gold Cost to `100`
 * Nerfed Charge BKB
   * Every Charge increases Cooldown by `5`
-* Changed Postactive Reflex Core
+* Changed Enrage Crystal
   * Now works better
 * Balanced Refresher Core
   * Decreased Cooldown from `195.0` to `150.0 105.0 60.0`
   * Decreased Bonus Cooldown from `35 40 45` to `27 30 33`
   * Decreased Hero Lifesteal from `40` to `25`
   * Decreased Creep Lifesteal from `10` to `5`
-* Buffed Preemptive Reflex Item
+* Buffed Reduction Orb
   * Added `250` Health
   * Added `5` Armour
   * Added `5` Magical Resistance
-* Buffed Preemptive Reflex Item 2 A/B
+* Buffed Dispel Orb and Greater Reduction Orb
   * Changed Recipe to need a Upgrade Core Level 2 or higher
   * Added `1000` Health
   * Added `10` Armour
   * Added `10` Magical Resistance
-* Buffed Preemptive Core 3 A/B
+* Buffed Divine Dispel Orb and Divine Reduction Orb
   * Changed Recipe to need a Upgrade Core Level 4 or higher
   * Added `4000` Health
   * Added `20` Armour
@@ -332,7 +332,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Changed Scatter Shot to Splash
     * This means Effects like Crits apply to Enemies
     * Also added fany particles
-* Added Audio-Visual Effects to Postactive Reflex Core 1
+* Added Audio-Visual Effects to Enrage Crystal
 * Fixed Cast Glow of Lotus Orb Level 2 and higher
 * Added Greater Phase Boots
   * Active now additionaly attacks all Creeps the user collides with
@@ -369,8 +369,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Items
 * Better Tooltips
 * Added Icon to Shivas Cuirass
-* Added Icon to Postactive Reflex Core
-* Added Icon to Reactive Reflex Core
+* Added Icon to Reflex Orbs
+* Added Icon to Reflex Shards
 
 ### Bosses
 * Added Charger Boss as Tier 4 Boss replacing the Placeholder Boss
@@ -394,11 +394,11 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Updated Translations
 
 ### Items
-* Added Stats to Preemptive Reflex Items
+* Added Stats to Reflex Orbs
 
 
-## Update 0.7.0 Public Testing
-``
+## Update 0.7.0 Public Testing #1
+`fe37f7c42eccb83ac42aad89d7284d5254eea9c7`
 ### Items
 * Nerfed Abyssal Blade
   * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
@@ -429,6 +429,120 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Made Sell Blacklist wörk better
 
 
+## Hotfix 0.7.1 Public Testing #1
+`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`
+### Creeps
+* After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
+### Items
+* Fixed Trumps Fists
+  * Reduced Zombification of People
+
+
+## Update 0.7.2 Public Testing #1
+`f904de21df2699943df5b1079a750f36f6fb62e4`
+### Items
+* Added Icons to Trumps Fists
+
+
+## Update 0.7.3
+`1d6919a30aac21c47720fb68c1b7e87c5166f671`
+### Items
+* Added Items to Shroud of Shadows
+* Changed Trumps Fists
+  * Fix Trump's Fists heal reduction disabling passive health regen
+
+### Creeps
+* Adapting a Bottle Only Creep Drop Policy
+  * Creeps now only drop Bottles :bottle:
+
+
+## Update 0.8.0
+`6d6205dce3d7d45776199d0d1d11b71cc14a88e3`
+### Items
+* Fixed Divine Dispel Orb Recipe
+* Fixed Divine Reduction Orb Recipe
+* Added Satanic Core - Octarine with Satanic
+
+
+## Update 0.9.0
+`be69ee79cec319513320d915f90241e18bcfff13`
+### Creeps
+* Fixed 61 Minute Bug where Creep Power get scaled wrong at Minute 61
+
+### Items
+* Added Icon to Satanic Core
+
+### Heroes
+* Fixed Illusion Stats
+
+### Duels
+* Fixed Permadeath when a Player Disconnects and reconnects after the duel #522
+* Now cleaning Duel Arenas of crap
+
+
+## Update 0.9.1
+`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`
+### Items
+* Nerfed Deadalus
+  * Reduced Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
+* Nerfed Octarine Core
+  * Reduced Bonus Cooldown from `25 30` to `25 25`
+  * Reduced Creep Lifesteal from `5 7` to `5 10`
+  * Reduced Hero Lifesteal from `25 35` to `25 30`
+* Nerfed Refresher Core
+  * Increased Hero Lifesteal from `25` to `30`
+  * Increased Creep Lifesteal from `5` to `10`
+* Buffed Satanic Core
+  * Fixed Unholy Spellsteal not working
+  * Increased Strength from `32 33 34` to `38 55 75`
+  * Reduced Bonus Cooldown from `35 40 45` to `25 25 25`
+* Nerfed Dark Seer
+  * Ion Shell now only targets Heros - not Creeps
+
+
+## Map Update 0.10.0
+`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
+* Updated Translation
+
+### Map
+* Moved Boss Arena Entrance closer to Team Spawn
+* Moved Central Camps further away
+* Fixed Camp Neutral Ground Overlays
+* Illustrated the Paths between Camps better
+* Switched Mid Level 3 Camps and First Level 2 Camps on each Side
+
+
+## Hotfix 0.10.1
+`452dfb2215887ed24705169a3b560b49bdd5e905`
+### Map
+* Generated new Minimap
+
+
+## Update 0.11.0
+`08c17310913a88e9a73b49aebf1c5285760e2efa`
+### Items
+* Added Invisibility Crystal
+* Added Greater Enrage Crystal
+* Added Doppelganger Crystal
+* Added Divine Enrage Crystal
+* Added Regeneration Crystal
+
+
+## Update 0.12.0
+`f19a269e32c9e246883969a8bf6b68b791837fbc`
+### Creeps
+* Added Farming Cave
+
+### Items
+* Added Audio-Visual Effects for Greater Boots of Travel
+
+### Heroes
+* Fixed Shadow Shaman
+  * Added Level 4 and 5 to Serpend Ward
+
+### Bosses
+* Added Cliff Walking to all Bosses
+
 
 
 ## Template
@@ -442,6 +556,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Duels
 ### UI
 ### Bots
+### Map
 ### Misc
 ```
 ```Markdown
