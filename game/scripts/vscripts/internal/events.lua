@@ -83,7 +83,9 @@ function GameMode:_OnEntityKilled( keys )
 
     if not Duels.currentDuel and killedUnit:GetRespawnsDisabled() then
       killedUnit:SetRespawnsDisabled(false)
-      killedUnit:SetTimeUntilRespawn(5)
+      if not killedUnit:IsReincarnating() then
+        killedUnit:SetTimeUntilRespawn(5)
+      end
     end
 
     if killerTeam ~= DOTA_TEAM_BADGUYS and killerTeam ~= DOTA_TEAM_GOODGUYS and not killedUnit:IsReincarnating() then
