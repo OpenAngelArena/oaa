@@ -20,10 +20,6 @@ function item_preemptive:OnSpellStart()
   return true
 end
 
-function item_preemptive:GetCooldown( nLevel )
-  return self:GetSpecialValueFor( "cooldown" )
-end
-
 function item_preemptive:ProcsMagicStick ()
   return false
 end

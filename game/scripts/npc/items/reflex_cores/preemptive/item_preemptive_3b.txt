@@ -43,6 +43,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
+    "AbilityCooldown"       "20"
     "AbilitySharedCooldown" "reflex"
     "AbilityCastPoint"      "0.0"
 
@@ -69,27 +70,22 @@
         "var_type"          "FIELD_INTEGER"
         "damage_as_healing"  "50"
       }
-      "04"
+      "03"
       {
         "var_type"        "FIELD_FLOAT"
         "duration"        "4.0"
       }
-      "05"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "cooldown"        "20.0"
-      }
-      "06"
+      "04"
       {
         "var_type"        "FIELD_INTEGER"
         "bonus_health"        "4000"
       }
-      "07"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "bonus_armor"     "20"
       }
-      "08"
+      "06"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "20"
