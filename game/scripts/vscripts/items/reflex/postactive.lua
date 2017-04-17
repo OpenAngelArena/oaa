@@ -15,7 +15,7 @@ function item_postactive:OnSpellStart()
     testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
     testUnit:Purge(false, true, true, false, false)
     local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
-    testUnit:ForceKill(false)
+    testUnit:RemoveSelf()
     return modifierIsPurgableDebuff
   end
 
