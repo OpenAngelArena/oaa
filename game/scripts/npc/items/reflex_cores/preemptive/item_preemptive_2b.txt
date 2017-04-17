@@ -7,7 +7,7 @@
   {
     "ID"            "3806"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "1550"
+    "ItemCost"          "2300"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_2b"
@@ -34,8 +34,8 @@
     "ScriptFile"            "items/reflex/preemptive_damage_block.lua"
     "FightRecapLevel"       "1"
 
-    "MaxUpgradeLevel"       "3"
-    "ItemBaseLevel"         "2"
+    "MaxUpgradeLevel"       "1"
+    "ItemBaseLevel"         "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "6200"
+    "ItemCost"          "7100"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "reflex;preemptive_2b"
