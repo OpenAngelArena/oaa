@@ -5,16 +5,17 @@ function Spawn(entityKeyValues)
   if disabled then
     return
   end
-  thisEntity:SetContextThink('MirrorThink', partial(ChargerThink, thisEntity), 1)
+  thisEntity:SetContextThink('MirrorThink', partial(MirrorThink, thisEntity), 1)
 end
 
 function MirrorThink(state, target)
   if not thisEntity:IsAlive() then
     if thisEntity.illusions then
-      each(function(illusion)
+      for i,illusion in ipairs(thisEntity.illusions) do
         illusion:ForceKill(false)
         illusion:RemoveSelf()
-      end, thisEntity.illusions)
+        thisEntity.illusions[i] = nil
+      end
     end
     return 0
   end
@@ -29,13 +30,22 @@ function MirrorThink(state, target)
     end
   end
   --IllusionsCast()
+
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    TargetIndex = thisEntity:GetAbsOrigin(),
+    Queue = 0
+  })
   return 0.1
 end
 
 function UseItems()
   for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = thisEntity:GetItemInSlot(slot)
-    if item:IsItem() then
+    if item:IsItem() and not item:IsRecipe() then
+      print('Using ' .. item:GetName())
       ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
