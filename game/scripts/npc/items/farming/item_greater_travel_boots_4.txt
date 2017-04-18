@@ -41,7 +41,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityTextureName"            "item_travel_boots"
+		"AbilityTextureName"            "item_travel_boots_2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"45.0"
@@ -51,15 +51,15 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75"
-		"ItemCost"						"15400"
+		"ItemCost"						"18000"
 		"ItemShopTags"					"teleport;move_speed"
 		"ItemQuality"					"common"
 		"ItemAliases"					"bot;boots of travel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"				"5"
 		"ItemBaseLevel"					"4"
-		"UpgradesItems"					"item_greater_travel_boots_4"
-		"UpgradeRecipe"					"item_recipe_greater_travel_boots"
+		//"UpgradesItems"					"item_greater_travel_boots_4"
+		//"UpgradeRecipe"					"item_recipe_greater_travel_boots"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
