@@ -66,7 +66,7 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
   local parentFacing = (parent:GetForwardVector()):Normalized()
   angleCos = parentFacing:Dot(attackDirection)
   --end
-  DebugPrint(angleCos .. ' : ' .. self:GetAbility():GetSpecialValueFor("sheild_width"))
+  --DebugPrint(angleCos .. ' : ' .. self:GetAbility():GetSpecialValueFor("sheild_width"))
   if (angleCos > (self:GetAbility():GetSpecialValueFor("sheild_width"))) then
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   end
