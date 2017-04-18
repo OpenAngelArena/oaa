@@ -44,7 +44,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"					"100"
-		"ItemCost"								"5000"
+		"ItemCost"								"2300"
 		"ItemShopTags"						"agi;str;int;attack_speed;move_speed;hard_to_tag"
 		"ItemQuality"							"epic"
 		"ItemAliases"							"wing chun"
@@ -59,6 +59,21 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"reactive_duration"	".5"
+			}
+			"02"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"bonus_health"        "250"
+			}
+			"03"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"bonus_armor"     "5"
+			}
+			"04"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"magic_resistance"    "5"
 			}
 		}
 
@@ -88,6 +103,6 @@
 						"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
 					}
 			}
-	  }
-  }
+		}
+	}
 }
