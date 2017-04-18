@@ -20,10 +20,7 @@
 		"ItemResult"					"item_trumps_fists_2"
 		"ItemRequirements"
 		{
-			"01"						"item_trumps_fists;item_upgrade_core"
-			"02"						"item_trumps_fists;item_upgrade_core_2"
-			"03"						"item_trumps_fists;item_upgrade_core_3"
-			"04"						"item_trumps_fists;item_upgrade_core_4"
+			"01"						"item_trumps_fists;item_upgrade_core_4"
 		}
 	}
 
@@ -61,27 +58,27 @@
 			"02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "32 34"
+                "bonus_all_stats"       "35 40"
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "450 550"
+                "bonus_health"          "500 750"
             }
             "04"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_mana"            "475 575"
+                "bonus_mana"            "600 800"
             }
        		"05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "heal_prevent_percent"  "-15 -75"
+                "heal_prevent_percent"  "-50 -100"
             }
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "5"
+                "heal_prevent_duration"  "2"
             }
 		}
 	}
