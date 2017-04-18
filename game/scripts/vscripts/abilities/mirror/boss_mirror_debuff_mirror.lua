@@ -79,23 +79,23 @@ function modifier_boss_mirror_debuff_mirror:OnAttackLanded(keys)
     return IsPurgableDebuff(modifier)
   end
 
-  print('-------')
+  --print('-------')
   local modifiers = caster:FindAllModifiers()
-  each(function(x) print(x:GetName()) end, iter(modifiers))
+  --each(function(x) print(x:GetName()) end, iter(modifiers))
   local purgableDebuffs = filter(IsDebuff, iter(modifiers))
-  print('--')
-  each(function(x) print(x:GetName()) end, iter(purgableDebuffs))
-  print('--')
+  --print('--')
+  --each(function(x) print(x:GetName()) end, iter(purgableDebuffs))
+  --print('--')
 
-  --[[if is_null(purgableDebuffs) then
+  if is_null(purgableDebuffs) then
     return
-  end]]
+  end
 
   each(function(modifier)
-    print(modifier:GetName())
-    print(modifier:GetAbility():GetAbilityName())
-    print(modifier:GetCaster():GetName())
-    print('--')
+    --print(modifier:GetName())
+    --print(modifier:GetAbility():GetAbilityName())
+    --print(modifier:GetCaster():GetName())
+    --print('--')
     local duration = modifier:GetDuration() * self:GetAbility():GetSpecialValueFor('duration_multiplier')
     target:AddNewModifier(attacker, modifier:GetAbility(), modifier:GetName(), {
       duration = duration,
@@ -103,7 +103,4 @@ function modifier_boss_mirror_debuff_mirror:OnAttackLanded(keys)
       duration_melee = duration,
     })
   end, purgableDebuffs)
-  --[[for modifier,_ in pairs(purgableDebuffs) do
-    target:AddNewModifier(attacker, self, modifier, {})
-  end]]
 end
