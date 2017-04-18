@@ -2,7 +2,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors)
 A really great Dota 2 game mode built by [really great people](#contributors).
 
-# Installation
+# Installation1
 This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
 
 For detailed instructions, check [here](docs/install.md)
