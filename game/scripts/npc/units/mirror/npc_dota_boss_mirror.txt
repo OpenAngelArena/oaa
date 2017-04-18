@@ -28,14 +28,16 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"              "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"              "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                 "1000"              // Damage range min.
     "AttackDamageMax"                 "1000"              // Damage range max.
     "AttackDamageType"                "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                      "1.0"               // Speed of attack.
+    "AttackRate"                      "0.5"               // Speed of attack.
     "AttackAnimationPoint"            "0.0"               // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"          "850"               // Range within a target can be acquired.
     "AttackRange"                     "800"               // Range within a target can be attacked.
+    "ProjectileModel"                 "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                 "800"              // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
@@ -53,7 +55,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"            "DOTA_UNIT_CAP_MOVE_FLY"  // Type of locomotion - ground, air
     "MovementSpeed"                   "300"               // Speed
-    "MovementTurnRate"                "0.0"               // Turning rate.
+    "MovementTurnRate"                "2.0"               // Turning rate.
 
     // Status
     //----------------------------------------------------------------
@@ -93,6 +95,7 @@
     "precache"
     {
       "model"                         "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"
+      "particle"                      "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf"
     }
   }
 }
