@@ -1,7 +1,8 @@
 Bosses = {
   -- tier 1
   {
-    "npc_dota_boss_shielder",
+    --"npc_dota_boss_shielder",
+    "npc_dota_boss_stopfightingyourself", -- testing only
     "npc_dota_boss_twin",
     "npc_dota_boss_tier_3",
     "npc_dota_boss_tier_4",
@@ -10,7 +11,7 @@ Bosses = {
   },
   -- tier 2
   {
-    "npc_dota_boss_twin",
+    "npc_dota_boss_tier_2",
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
@@ -37,6 +38,6 @@ Bosses = {
   },
   -- tier 6
   {
-    "npc_dota_boss_tier_6"
+    "npc_dota_boss_stopfightingyourself"
   }
 }
