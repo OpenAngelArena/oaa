@@ -13,7 +13,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 | Spanish        | 5%   |
 | Turkish        | 0%   |
 
-## Changes until now
+## Changes before 0.0.1
 * Added new Map
 * Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heroes
 * Added new Items
