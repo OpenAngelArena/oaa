@@ -38,8 +38,8 @@
 		"AbilityCooldown"       "10.0"
 		"AbilityCastPoint"      "0.0"
 
-		"MaxUpgradeLevel"       "1"
-		"ItemBaseLevel"         "1"
+		"MaxUpgradeLevel"       "3"
+		"ItemBaseLevel"         "3"
 
 		"ItemPermanent"         "1"
 		"ItemInitialCharges"      "3"
@@ -78,19 +78,14 @@
 			"04"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"distance"        "1000"
+				"bonus_health"        "4000"
 			}
 			"05"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"bonus_health"        "4000"
-			}
-			"06"
-			{
-				"var_type"        "FIELD_INTEGER"
 				"bonus_armor"     "20"
 			}
-			"07"
+			"06"
 			{
 				"var_type"        "FIELD_INTEGER"
 				"magic_resistance"    "20"
