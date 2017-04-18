@@ -12,7 +12,7 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 function Spawn (entityKeyValues)
   thisEntity:FindAbilityByName("boss_shielder_shield")
 
-  thisEntity:SetContextThink( "ShielderThink", partial(ShielderThink, thisEntity) , 1)
+  Create(thisEntity, nil)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
