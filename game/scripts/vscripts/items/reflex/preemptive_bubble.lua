@@ -117,15 +117,10 @@ function modifier_item_preemptive_bubble_block:DeclareFunctions()
 end
 
 function modifier_item_preemptive_bubble_block:GetAbsorbSpell(keys)
-  Debug.EnabledModules["items:reflex:preemptive_bubble"] = true
   local caster = keys.ability:GetCaster()
-  local casterTeam = caster:GetTeamNumber()
-  local casterIsAlly = casterTeam == self:GetParent():GetTeamNumber()
-  local radius = self:GetAbility():GetSpecialValueFor("radius")
-  local unitsInBubble = FindUnitsInRadius(casterTeam, self.bubbleCenter, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-  local casterIsInBubble = index(caster, unitsInBubble)
+  local casterIsAlly = caster:GetTeamNumber() == self:GetParent():GetTeamNumber()
 
-  if casterIsAlly or casterIsInBubble then
+  if casterIsAlly or self:UnitIsInBubble(caster) then
     return 0
   else
     self:PlayBlockEffect()
@@ -135,19 +130,24 @@ end
 
 function modifier_item_preemptive_bubble_block:GetModifierAvoidDamage(keys)
   local attacker = keys.attacker
-  local attackerTeam = attacker:GetTeamNumber()
   local attackerIsAlly = attacker:GetTeamNumber() == self:GetParent():GetTeamNumber()
-  local radius = self:GetAbility():GetSpecialValueFor("radius")
-  local unitsInBubble = FindUnitsInRadius(attackerTeam, self.bubbleCenter, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-  local attackerIsInBubble = index(attacker, unitsInBubble)
-  --DebugPrintTable(keys)
+  local parent = self:GetParent()
+
   -- Assume that the existence of the inflictor key means the
   -- damage came from a hero or item ability
-  if not keys.inflictor or attackerIsAlly or attackerIsInBubble then
+  if not keys.inflictor or attackerIsAlly or self:UnitIsInBubble(attacker) then
     return 0
   else
+    --self:PlayBlockEffect()
     return 1
   end
+end
+
+function modifier_item_preemptive_bubble_block:UnitIsInBubble(unit)
+  local radius = self:GetAbility():GetSpecialValueFor("radius")
+  local unitsInBubble = FindUnitsInRadius(unit:GetTeamNumber(), self.bubbleCenter, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+
+  return index(unit, unitsInBubble)
 end
 
 function modifier_item_preemptive_bubble_block:PlayBlockEffect()
