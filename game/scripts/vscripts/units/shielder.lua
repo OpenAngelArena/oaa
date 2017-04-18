@@ -12,7 +12,7 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 function Spawn (entityKeyValues)
   thisEntity:FindAbilityByName("boss_shielder_shield")
 
-  Create(thisEntity, nil)
+  thisEntity:SetContextThink( "ShielderThink", partial(ShielderThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
@@ -164,6 +164,10 @@ function Agro (state, target)
     Position = state.origin,
     Queue = 1,
   })
+end
+
+function ShielderThink (state, target)
+  Think(state)
 end
 
 function Think (state)
