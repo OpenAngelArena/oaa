@@ -567,6 +567,76 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added more Talents
 
 
+## Update 0.13.1
+`3d2e92c05c24777005e73bab82b7d11a2cd51032`
+### Bosses
+* Reduced Toilet Boss Modelsize
+
+### Heroes
+* Fixed Illusion Stats for Illusions created by a different Hero
+
+### UI
+* Fixed Level Dot Styling for Heroes with 5 or 6 Abilities
+
+### Bots
+* Bots will now pick up and use Infinity Bottle
+* Bots now use their spells against Creeps
+* Bots now level talents and skills correctly with Priority on Farming Skills
+* "When a bot gets beaten up by a neutral camp (or hero), the bot will invisibly ping to the other bots, who will come and throw bodies at the camp (or hero) until it has been culled." RamonNZ
+* If you hold a smoke in the first slot of your backpack, all bots will follow you, and fight Heroes and Creeps
+* If you hold a smoke in the second slot of your backpack, they will follow you, but won't fight Creeps, only Heroes
+* Bots now do basic warding
+
+### Farmingcave
+* Added Magical Resistance for Creeps
+* Rebalanced Creeps
+
+### Misc
+* Fixed too high Reincarnation Time when killed by Creeps
+
+
+## Update 0.14.0
+`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`
+* Updated Tooltips
+### Map
+* [Video with Changes by Warpdragon](https://youtu.be/127ejnO1iIM)
+* Switched 2 Camps
+* Changed the Boss Arena Layout to go Counter-Clockwise not Clockwise
+* Updated Texturing for Sharpness
+* Enhanced Mini-Boss Room Entrance in Farmingcave
+
+
+## Update 0.14.1
+`56de08ec510e9e480f666276f071f7f1428169f0`
+* Update Tooltips
+
+### Items
+* Shroud of Shadow
+  * Added Lore
+  * Fixed Tooltip
+  
+### Duels
+* Fixed Permadeath after Duels, again
+
+
+## Unreleased
+``
+### Heroes
+* Fixed Zeus Cloud
+
+### Items
+* Reflex Cores
+  * Fixed undocumented stuff
+* Added Bubble Orb
+* Added Tooltips for Refresher Core, Power Treads and Phase Boots
+* Boots of Travek
+  * Fixed Level 1 Recipe
+  * Reduced Level 2 Recipe Cost to 500
+
+### Bosses
+* Added Tooltips to various Abilities
+
+
 
 ## Template
 ```Markdown
