@@ -5,7 +5,7 @@ if not BubbleOrbFilter then
   DebugPrint("Creating filter for Preemptive 3c (Bubble Orb)")
   BubbleOrbFilter = class({})
 
-  Debug.EnabledModules["reflexfilters:bubble"] = true
+  Debug.EnabledModules["reflexfilters:bubble"] = false
 end
 
 function BubbleOrbFilter:Init()
@@ -30,10 +30,6 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   end
 
   if not parentHasBubbleModifier or casterIsAlly or casterIsInBubbles then
-    if parentHasBubbleModifier and caster ~= parent then
-      DebugPrint(tostring(casterIsAlly))
-      DebugPrint(tostring(casterIsInBubbles))
-    end
     return true
   else
     return false
