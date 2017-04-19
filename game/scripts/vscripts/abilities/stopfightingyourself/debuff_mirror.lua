@@ -46,6 +46,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
       "modifier_cold_feet",
       "modifier_ice_vortex",
       "modifier_ice_blast",
+      "modifier_ursa_fury_swipes_damage_increase",
     }
     if whitelist[modifier:GetName()] then
       return true
