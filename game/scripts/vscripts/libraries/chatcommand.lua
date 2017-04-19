@@ -7,7 +7,7 @@ Usage:
     keys are those delivered from the 'player_chat' event
   -Use ChatCommand:LinkCommand("-MyTrigger", "MyFunction")   OR     ChatCommand:LinkCommand("-MyTrigger", "SomeFunction", SomeClass)
     Use this to call this function everytime someone's chat starts with -MyTrigger
-created by Zarnotox with a lot of constructive help from the mod data guys https://discord.gg/Z7eCcGT (THIS IS NOT THE AAA DISCORD, THIS IS THE MODDATA DISCORD. YOU DID NOT FIND THE SECRET. check it out!)
+created by Zarnotox with a lot of constructive help from the mod data guys https://discord.gg/Z7eCcGT (THIS IS NOT THE OAA DISCORD, THIS IS THE MODDATA DISCORD. YOU DID NOT FIND THE SECRET. check it out!)
 ]]
 
 ChatCommand = ChatCommand or {}
@@ -244,8 +244,8 @@ function ChatCommand:OnPlayerChat(keys)
       if splitted[2] then
         local herolist = LoadKeyValues('scripts/npc/herolist.txt')
         for hero,_ in pairs(herolist) do
-          print(hero)
           if string.find(hero, splitted[2]) then
+            PrecacheUnitByNameSync(hero)
             PlayerResource:ReplaceHeroWith(playerID, hero, Gold:GetGold(playerID), PlayerResource:GetTotalEarnedXP(playerID))
           end
         end
