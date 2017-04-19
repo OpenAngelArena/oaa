@@ -1,36 +1,36 @@
 
 require('internal/util')
 
-LinkLuaModifier("modifier_boss_mirror_debuff_mirror", "abilities/mirror/boss_mirror_debuff_mirror.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_stopfightingyourself_debuff_mirror", "abilities/stopfightingyourself/debuff_mirror.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 
 
 
-boss_mirror_debuff_mirror = class({})
+boss_stopfightingyourself_debuff_mirror = class({})
 
-function boss_mirror_debuff_mirror:GetIntrinsicModifierName()
-  return "modifier_boss_mirror_debuff_mirror"
+function boss_stopfightingyourself_debuff_mirror:GetIntrinsicModifierName()
+  return "modifier_boss_stopfightingyourself_debuff_mirror"
 end
 
-function boss_mirror_debuff_mirror:GetBehavior()
+function boss_stopfightingyourself_debuff_mirror:GetBehavior()
   return DOTA_ABILITY_BEHAVIOR_PASSIVE
 end
 
 
 
-modifier_boss_mirror_debuff_mirror = class({})
+modifier_boss_stopfightingyourself_debuff_mirror = class({})
 
-function modifier_boss_mirror_debuff_mirror:DeclareFunctions()
+function modifier_boss_stopfightingyourself_debuff_mirror:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
-function modifier_boss_mirror_debuff_mirror:IsPurgable()
+function modifier_boss_stopfightingyourself_debuff_mirror:IsPurgable()
   return false
 end
 
-function modifier_boss_mirror_debuff_mirror:OnAttackLanded(keys)
+function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
   local attacker = keys.attacker
   local target = keys.target
   local caster = self:GetCaster()

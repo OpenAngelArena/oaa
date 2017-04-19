@@ -1,12 +1,12 @@
 
 "DOTAAbilities"
 {
-  "boss_mirror_dupe_items"
+  "boss_stopfightingyourself_dupe_items"
   {
     "ID"                              "9913"
     "BaseClass"                       "ability_lua"
-    "ScriptFile"                      "abilities/mirror/boss_mirror_dupe_items.lua"
-    "AbilityTextureName"              "mirror_dupe_items"
+    "ScriptFile"                      "abilities/stopfightingyourself/dupe_items.lua"
+    "AbilityTextureName"              "stopfightingyourself_dupe_items"
     "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                     "DOTA_ABILITY_TYPE_BASIC"
 

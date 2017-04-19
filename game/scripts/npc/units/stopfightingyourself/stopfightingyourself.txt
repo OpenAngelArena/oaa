@@ -1,12 +1,12 @@
 "DOTAUnits"
 {
-  "npc_dota_boss_mirror"
+  "npc_dota_boss_stopfightingyourself"
   {
     // General
     //
     "BaseClass"                       "npc_dota_creature" // Class of entity of link to.
     "Model"                           "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"  // Model.
-    "vscripts"                        "units/mirror.lua"
+    "vscripts"                        "units/stopfightingyourself.lua"
     "SoundSet"                        "wisp"              // Name of sound set.
     "ModelScale"                      "0.5"
     "Level"                           "30"
@@ -15,11 +15,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                        "boss_mirror_debuff_mirror"
-    "Ability2"                        "boss_mirror_dupe_items"
-    "Ability3"                        "boss_mirror_dupe_heroes"
-    "Ability4"                        "boss_mirror"
-    "Ability5"                        "boss_resistance"
+    "Ability1"                        "boss_stopfightingyourself_debuff_mirror"
+    "Ability2"                        "boss_stopfightingyourself_dupe_items"
+    "Ability3"                        "boss_resistance"
+    "Ability4"                        "boss_stopfightingyourself_dupe_heroes"
 
     // Armor
     //----------------------------------------------------------------

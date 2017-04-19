@@ -1,19 +1,19 @@
 
 require('internal/util')
 
-LinkLuaModifier("modifier_boss_mirror_illusion", "abilities/mirror/boss_mirror_dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfightingyourself/dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
 
 
-boss_mirror_dupe_heroes = class({})
+boss_stopfightingyourself_dupe_heroes = class({})
 
-function boss_mirror_dupe_heroes:GetAOERadius()
+function boss_stopfightingyourself_dupe_heroes:GetAOERadius()
   	return self:GetSpecialValueFor('radius')
 end
 
 --[[
 Credits: Pizzalol
 ]]
-function boss_mirror_dupe_heroes:OnSpellStart()
+function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
   local caster = self:GetCaster()
   local target = caster:GetAbsOrigin()
 
@@ -92,7 +92,7 @@ function boss_mirror_dupe_heroes:OnSpellStart()
       illusion:AddNewModifier(
         caster,
         self,
-        "modifier_boss_mirror_illusion",
+        "modifier_boss_stopfightingyourself_illusion",
         {
           OutgoingDamage = self:GetSpecialValueFor('illusion_outgoing_damage'),
           IncomingDamage = self:GetSpecialValueFor('illusion_incoming_damage'),
@@ -122,9 +122,9 @@ end
 
 
 
-modifier_boss_mirror_illusion = class({})
+modifier_boss_stopfightingyourself_illusion = class({})
 
-function modifier_boss_mirror_illusion:DeclareFunctions()
+function modifier_boss_stopfightingyourself_illusion:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
@@ -132,29 +132,29 @@ function modifier_boss_mirror_illusion:DeclareFunctions()
   }
 end
 
-function modifier_boss_mirror_illusion:OnCreated(kv)
+function modifier_boss_stopfightingyourself_illusion:OnCreated(kv)
   local caster = self:GetCaster()
 
   self.OutgoingDamage = kv.OutgoingDamage
   self.IncomingDamage = kv.IncomingDamage
 end
 
-function modifier_boss_mirror_illusion:GetModifierDamageOutgoing_Percentage()
+function modifier_boss_stopfightingyourself_illusion:GetModifierDamageOutgoing_Percentage()
   return self.OutgoingDamage
 end
 
-function modifier_boss_mirror_illusion:GetModifierIncomingDamage_Percentage()
+function modifier_boss_stopfightingyourself_illusion:GetModifierIncomingDamage_Percentage()
   return self.IncomingDamage
 end
 
-function modifier_boss_mirror_illusion:IsDebuff()
+function modifier_boss_stopfightingyourself_illusion:IsDebuff()
   return true
 end
 
-function modifier_boss_mirror_illusion:IsHidden()
+function modifier_boss_stopfightingyourself_illusion:IsHidden()
   return false
 end
 
-function modifier_boss_mirror_illusion:GetIsIllusion()
+function modifier_boss_stopfightingyourself_illusion:GetIsIllusion()
   return true
 end

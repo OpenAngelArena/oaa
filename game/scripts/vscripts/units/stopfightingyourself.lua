@@ -6,11 +6,11 @@ function Spawn(entityKeyValues)
     return
   end
 
-  thisEntity:SetContextThink('MirrorThink', partial(MirrorThink, thisEntity), 1)
+  thisEntity:SetContextThink('StopFightingYourselfThink', partial(Think, thisEntity), 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 end
 
-function MirrorThink(state, target)
+function Think(state, target)
   if not thisEntity:IsAlive() then
     if thisEntity.illusions then
       for i,illusion in ipairs(thisEntity.illusions) do
@@ -49,7 +49,7 @@ function MirrorThink(state, target)
 
   if IsHeroInRange(thisEntity:GetAbsOrigin(), 1000) then
     if UseRandomItem() then
-      return 0.1
+      return 0.5
     end
   end
   --IllusionsCast()

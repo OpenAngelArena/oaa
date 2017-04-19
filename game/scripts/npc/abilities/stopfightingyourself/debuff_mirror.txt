@@ -1,12 +1,12 @@
 
 "DOTAAbilities"
 {
-  "boss_mirror_debuff_mirror"
+  "boss_stopfightingyourself_debuff_mirror"
   {
     "ID"                              "9911"
     "BaseClass"                       "ability_lua"
-    "ScriptFile"                      "abilities/mirror/boss_mirror_debuff_mirror.lua"
-    "AbilityTextureName"              "mirror_debuff_mirror"
+    "ScriptFile"                      "abilities/stopfightingyourself/debuff_mirror.lua"
+    "AbilityTextureName"              "stopfightingyourself_debuff_mirror"
     "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                     "DOTA_ABILITY_TYPE_BASIC"
 
