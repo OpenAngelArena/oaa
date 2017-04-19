@@ -250,7 +250,20 @@ function ChatCommand:OnPlayerChat(keys)
           end
         end
       end
-
+    elseif string.find(text, "-loadout") then
+      local loadouts = {
+        ['tank']={"item_heart_5", "item_stoneskin_2", "item_satanic_core_3"},
+      }
+      local splitted = split(text, " ")
+      if splitted[2] then
+        if loadouts[splitted[2]] then
+          local RemoveItem = function(handle) hero:RemoveItem(handle) end
+          local GetItemInSlot = function(slot) hero:GetItemInSlot(slot) end
+          local AddItemByName = function(item) hero:AddItemByName(item) end
+          each(RemoveItem, map(GetItemInSlot, range(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6)))
+          each(AddItemByName, iter(loadouts[splitted[2]]))
+        end
+      end
     end
   end
 
