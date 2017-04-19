@@ -27,23 +27,21 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
   end
 
   if caster == target then
-    return
-  end
+    for slot=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
+      local theirItem = attacker:GetItemInSlot(slot)
+      local oldItem = caster:GetItemInSlot(slot)
 
-  for slot=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
-    local theirItem = attacker:GetItemInSlot(slot)
-    local oldItem = caster:GetItemInSlot(slot)
+      if oldItem then
+        caster:RemoveItem(oldItem)
+      end
 
-    if oldItem then
-      caster:RemoveItem(oldItem)
-    end
+      if theirItem then
+        local ourItem = caster:AddItemByName(theirItem:GetAbilityName())
 
-    if theirItem then
-      local ourItem = caster:AddItemByName(theirItem:GetAbilityName())
-
-      if ourItem:RequiresCharges() then
-        local charges = theirItem:GetCurrentCharges()
-        ourItem:SetCurrentCharges(charges)
+        if ourItem:RequiresCharges() then
+          local charges = theirItem:GetCurrentCharges()
+          ourItem:SetCurrentCharges(charges)
+        end
       end
     end
   end
