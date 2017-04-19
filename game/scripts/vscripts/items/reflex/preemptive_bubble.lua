@@ -73,7 +73,9 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
     self.casterTeam = self.caster:GetTeamNumber()
     self.ability = self:GetAbility()
     self.radius = self.ability:GetSpecialValueFor("radius")
-    self:StartIntervalThink(0.1)
+    self.aura_stickiness = self.ability:GetSpecialValueFor("aura_stickiness")
+    self:StartIntervalThink(self.aura_stickiness)
+    self:OnIntervalThink()
   end
 end
 
@@ -82,7 +84,7 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
 
   function ApplyBlockModifier(unit)
     unit:AddNewModifier(self.caster, self.ability, "modifier_item_preemptive_bubble_block", {
-      duration = 0.1,
+      aura_stickiness = self.aura_stickiness,
       aura_origin_x = self.bubbleCenter.x,
       aura_origin_y = self.bubbleCenter.y
     })
@@ -137,6 +139,13 @@ end
 
 function modifier_item_preemptive_bubble_block:OnCreated(keys)
   self.bubbleCenter = Vector(keys.aura_origin_x, keys.aura_origin_y, 0)
+  -- Timer to self-destruct
+  -- Used in place of a duration parameter for the modifier because it is potentially less buggy
+  if IsServer() then
+    Timers:CreateTimer(keys.aura_stickiness, function()
+      self:Destroy()
+    end)
+  end
 end
 
 function modifier_item_preemptive_bubble_block:DeclareFunctions()
