@@ -22,14 +22,16 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
   local target = keys.target
   local caster = self:GetCaster()
 
-  if caster ~= target then
+  if not self:GetAbility():IsCooldownReady() then
     return
   end
 
-  self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor('cooldown'))
+  if caster == target then
+    return
+  end
 
   for slot=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
-    local theirItem = target:GetItemInSlot(slot)
+    local theirItem = attacker:GetItemInSlot(slot)
     local oldItem = caster:GetItemInSlot(slot)
 
     if oldItem then
@@ -45,4 +47,6 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
       end
     end
   end
+
+  self:GetAbility():StartCooldown(self:GetAbility():GetSpecialValueFor('cooldown'))
 end
