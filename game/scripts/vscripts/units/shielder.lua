@@ -6,7 +6,7 @@ function Spawn (entityKeyValues)
 
   thisEntity:SetContextThink( "ShielderThink", partial(ShielderThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
-  Timers:CreateTimer(1, thisEntity:OnHurt(HurtHandler(keys)))
+  --Timers:CreateTimer(1, thisEntity:OnHurt(HurtHandler(keys)))
   
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
 
@@ -16,15 +16,51 @@ function Spawn (entityKeyValues)
     "boss_shielder_shield"
   })
 
-  thisEntity:OnHurt(function (keys)
-    HurtHandler(keys)
-  end)
+
 end
 
 function ShielderThink (thisEntity)
-
+  thisEntity:OnHurt(function (keys)
+  HurtHandler(keys)
+  end)
 end
 
 function HurtHandler (keys)
-  print("Ow that hurt")
+  --for k,v in pairs(keys) do print(k,v) end
+  --[[
+  [   VScript              ]: damagebits  0             --??
+  [   VScript              ]: entindex_killed 499       --This units entity ID
+  [   VScript              ]: damage  16.359998703003   --Amount of damage
+  [   VScript              ]: entindex_attacker 438     --Attacker's Entity ID
+  [   VScript              ]: splitscreenplayer -1      --??
+  ]]
+  local playerIndex = keys.entindex_attacker
+  local damage = keys.damage
+  local decayTime = 10
+  local bossIndex = keys.entindex_killed
+
+  -- add damage
+  if not thisEntity.currentDamage then
+    thisEntity.currentDamage = {}
+  end
+  if not thisEntity.currentDamage[playerIndex] then
+    thisEntity.currentDamage[playerIndex] = damage
+  else
+    thisEntity.currentDamage[playerIndex] = thisEntity.currentDamage[playerIndex] + damage
+  end
+  Timers:CreateTimer(decayTime, function ()
+    thisEntity.currentDamage[playerIndex] = thisEntity.currentDamage[playerIndex] - damage
+  end)
+
+  print(thisEntity.currentDamage[playerIndex])
+
+  if thisEntity.currentDamage[playerIndex] == max(pairs(thisEntity.currentDamage)) then
+    ExecuteOrderFromTable({
+      UnitIndex = bossIndex,
+      -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      Position = EntIndexToHScript(playerIndex):GetAbsOrigin(),
+      Queue = 0,
+    })
+  end
 end
