@@ -60,7 +60,7 @@ function Think(state, target)
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
     Position = GLOBAL_origin + RandomVector(400),
-    Queue = true
+    Queue = 0
   })
 
   return 0.1
