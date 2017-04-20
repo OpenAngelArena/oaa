@@ -14,6 +14,7 @@ end
 
 function Think(state, target)
   -- NOTE: I'm thinking too long
+  -- BUG: Not attacking
   if not thisEntity:IsAlive() then
     if thisEntity.illusions then
       for i, illusion in ipairs(thisEntity.illusions) do

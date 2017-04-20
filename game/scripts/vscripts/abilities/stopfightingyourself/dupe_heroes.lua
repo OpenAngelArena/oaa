@@ -48,6 +48,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       )
 
       -- Stats
+      -- BUG: Gold bounty does not work
       illusion:SetMaximumGoldBounty(0)
       illusion:SetMinimumGoldBounty(0)
       illusion:SetDeathXP(0)
