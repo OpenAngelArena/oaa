@@ -113,7 +113,13 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       if caster.illusions == nil then
         caster.illusions = {}
       end
-      table.insert(caster.illusions, illusion)
+      local index = #caster.illusions + 1
+      caster.illusions[index] = illusion
+
+      illusion:OnDeath(function()
+        illusion:RemoveSelf()
+        caster.illusions[index] = nil
+      end)
 
 
       --illusion:SetContextThink('IllusionThink')
