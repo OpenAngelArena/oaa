@@ -96,8 +96,9 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         self,
         "modifier_illusion",
         {
-          OutgoingDamage = self:GetSpecialValueFor('illusion_outgoing_damage'),
-          IncomingDamage = self:GetSpecialValueFor('illusion_incoming_damage'),
+          duration = -1,
+          outgoing_damage = self:GetSpecialValueFor('illusion_outgoing_damage'),
+          incoming_damage = self:GetSpecialValueFor('illusion_incoming_damage'),
         }
       )
 
