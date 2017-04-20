@@ -8,7 +8,7 @@
     "Model"                           "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"  // Model.
     "vscripts"                        "units/stopfightingyourself.lua"
     "SoundSet"                        "wisp"              // Name of sound set.
-    "ModelScale"                      "0.5"
+    "ModelScale"                      "1"
     "Level"                           "30"
     "IsAncient"                       "0"
     "ConsideredHero"                  "1"
@@ -33,8 +33,8 @@
     "AttackDamageType"                "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                      "0.5"               // Speed of attack.
     "AttackAnimationPoint"            "0.0"               // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"          "850"               // Range within a target can be acquired.
-    "AttackRange"                     "800"               // Range within a target can be attacked.
+    "AttackAcquisitionRange"          "650"               // Range within a target can be acquired.
+    "AttackRange"                     "600"               // Range within a target can be attacked.
     "ProjectileModel"                 "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                 "800"              // Speed of projectile.
 
