@@ -59,7 +59,7 @@ function ChatCommand:OnPlayerChat(keys)
     -- Test command to quickly test anything
     if string.find(text, "-list") or string.find(text, "-help") then
       GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots", 0, 0)
-      GameRules:SendCustomMessage("-add x, -give x y, -fixspawn, -noend, -switchhero x", 0, 0)
+      GameRules:SendCustomMessage("-add x, -give x y, -fixspawn, -noend, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
 
       -- Add bots to both teams
     elseif string.find(text, "-addbots") then
