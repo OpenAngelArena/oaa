@@ -48,20 +48,16 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
       "modifier_ice_blast",
       "modifier_ursa_fury_swipes_damage_increase",
     }
-    if whitelist[modifier:GetName()] then
+    if contains(modifier:GetName(), whitelist) then
       return true
     end
 
     local blacklist = {
       "modifier_truesight",
     }
-    if blacklist[modifier:GetName()] then
+    if contains(modifier:GetName(), blacklist) then
       return false
     end
-
-    --[[if modifier:IsDebuff ~= nil then
-      return modifier:IsDebuff()
-    end]]
 
     -- Tests if given modifier is a debuff and purgable with a basic dispel
     --  Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
@@ -86,22 +82,24 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
   local purgableDebuffs = filter(IsDebuff, iter(modifiers))
   --print('--')
   --each(function(x) print(x:GetName()) end, iter(purgableDebuffs))
-  --print('--')
+  print('--')
 
   if is_null(purgableDebuffs) then
     return
   end
 
   each(function(modifier)
-    --print(modifier:GetName())
-    --print(modifier:GetAbility():GetAbilityName())
     --print(modifier:GetCaster():GetName())
+    --print(modifier:GetAbility():GetAbilityName())
+    --print(modifier:GetName())
     --print('--')
     local duration = modifier:GetDuration() * self:GetAbility():GetSpecialValueFor('duration_multiplier')
-    target:AddNewModifier(attacker, modifier:GetAbility(), modifier:GetName(), {
+    local stacks = modifier:GetStackCount()
+    local newModifier = target:AddNewModifier(attacker, modifier:GetAbility(), modifier:GetName(), {
       duration = duration,
       duration_ranged = duration,
       duration_melee = duration,
     })
+    newModifier:SetStackCount(stacks)
   end, purgableDebuffs)
 end
