@@ -1,6 +1,4 @@
 
-require('internal/util')
-
 LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfightingyourself/dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
 
 
@@ -17,7 +15,9 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
   local caster = self:GetCaster()
   local target = caster:GetAbsOrigin()
 
-  self:StartCooldown(self:GetSpecialValueFor('cooldown'))
+  if caster.illusions and #caster.illusions >= self:GetSpecialValueFor('max_illusions') then
+    return
+  end
 
   local units = FindUnitsInRadius(
     caster:GetTeamNumber(),
@@ -34,28 +34,30 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
 
   for _,unit in ipairs(units) do
     if unit:IsRealHero() and unit ~= caster then
+      self:StartCooldown(self:GetSpecialValueFor('cooldown'))
+
       local illusion = CreateUnitByName(
         unit:GetName(),
         unit:GetAbsOrigin(),
         true,
-        nil,
-        nil,
+        caster,
+        caster,
+        --nil,
+        --nil,
         caster:GetTeamNumber()
       )
 
       -- Stats
-      illusion:SetAttackCapability(unit:GetAttackCapability())
       illusion:SetMaximumGoldBounty(0)
       illusion:SetMinimumGoldBounty(0)
       illusion:SetDeathXP(0)
       illusion:SetRespawnsDisabled(true)
 
-      -- TODO: Fix Stat Progression
-
       -- Level
       local target_level = unit:GetLevel()
       for i = 1, target_level - 1 do
         illusion:HeroLevelUp(false)
+        HeroProgression:ReduceStatGain(illusion, i)
       end
 
       illusion:SetAbilityPoints(0)
@@ -92,12 +94,14 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       illusion:AddNewModifier(
         caster,
         self,
-        "modifier_boss_stopfightingyourself_illusion",
+        "modifier_illusion",
         {
           OutgoingDamage = self:GetSpecialValueFor('illusion_outgoing_damage'),
           IncomingDamage = self:GetSpecialValueFor('illusion_incoming_damage'),
         }
       )
+
+      --illusion:MakeIllusion()
 
       -- Set Stats to original hero
       illusion:SetHealth(unit:GetHealth())
@@ -118,43 +122,4 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       })
     end
   end
-end
-
-
-
-modifier_boss_stopfightingyourself_illusion = class({})
-
-function modifier_boss_stopfightingyourself_illusion:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
-    MODIFIER_PROPERTY_IS_ILLUSION,
-  }
-end
-
-function modifier_boss_stopfightingyourself_illusion:OnCreated(kv)
-  local caster = self:GetCaster()
-
-  self.OutgoingDamage = kv.OutgoingDamage
-  self.IncomingDamage = kv.IncomingDamage
-end
-
-function modifier_boss_stopfightingyourself_illusion:GetModifierDamageOutgoing_Percentage()
-  return self.OutgoingDamage
-end
-
-function modifier_boss_stopfightingyourself_illusion:GetModifierIncomingDamage_Percentage()
-  return self.IncomingDamage
-end
-
-function modifier_boss_stopfightingyourself_illusion:IsDebuff()
-  return true
-end
-
-function modifier_boss_stopfightingyourself_illusion:IsHidden()
-  return false
-end
-
-function modifier_boss_stopfightingyourself_illusion:GetIsIllusion()
-  return true
 end
