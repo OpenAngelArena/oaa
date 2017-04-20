@@ -47,13 +47,13 @@ end
 
 function modifier_generic_bonus:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
   }
 end
 
-function modifier_generic_bonus:GetModifierExtraHealthBonus()
+function modifier_generic_bonus:GetModifierHealthBonus()
   return self.bonus_health or 0
 end
 
