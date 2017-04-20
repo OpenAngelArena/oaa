@@ -54,14 +54,14 @@ function Think(state, target)
     UseRandomItem()
 
     IllusionsCast()
-
-    ExecuteOrderFromTable({
-      UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      Position = GLOBAL_origin + RandomVector(400),
-      Queue = true
-    })
   end
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    Position = GLOBAL_origin + RandomVector(400),
+    Queue = true
+  })
 
   return 0.1
 end
