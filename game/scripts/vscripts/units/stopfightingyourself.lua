@@ -8,18 +8,30 @@ function Spawn(entityKeyValues)
 
   thisEntity:SetContextThink('StopFightingYourselfThink', partial(Think, thisEntity), 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+
+  ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
 end
 
 function Think(state, target)
-  if not thisEntity:IsAlive() then
-    if thisEntity.illusions then
-      for i,illusion in ipairs(thisEntity.illusions) do
+  -- NOTE: I'm thinking too long
+  if not thisEntity:IsAlive() and thisEntity.illusions then
+    for i, illusion in ipairs(thisEntity.illusions) do
+      illusion:ForceKill(false)
+      illusion:RemoveSelf()
+    end
+    thisEntity.illusions = nil
+    return 0
+  end
+
+  -- cleaning illusions
+  if thisEntity.illusions then
+    for i,illusion in ipairs(thisEntity.illusions) do
+      if not illusion:IsAlive() then
         illusion:ForceKill(false)
         illusion:RemoveSelf()
         thisEntity.illusions[i] = nil
       end
     end
-    return 0
   end
 
   -- Leash
@@ -38,23 +50,100 @@ function Think(state, target)
     end
   end
 
-  if thisEntity:IsIdle() then
+  if IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
+    UseRandomItem()
+
+    IllusionsCast()
+
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      TargetIndex = GLOBAL_origin,
-      Queue = 0
+      Position = GLOBAL_origin + RandomVector(400),
+      Queue = true
     })
   end
 
-  if IsHeroInRange(thisEntity:GetAbsOrigin(), 1000) then
-    if UseRandomItem() then
-      return 0.5
+  return 0.1
+end
+
+function UseRandomItem()
+  local item = thisEntity:GetItemInSlot(RandomInt(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6))
+
+  if item ~= nil and item:IsItem() and not item:IsRecipe() then
+    if item:IsFullyCastable() and item:IsOwnersManaEnough() then
+      local target = ClosestHeroInRange(thisEntity:GetAbsOrigin(), 1000)
+      --local range = item:GetCastRange(thisEntity:GetAbsOrigin(), target)
+      --local range = item:GetCastRange(nil, nil)
+
+      if target then
+        UseAbility(item, thisEntity, target, 800)
+        return true
+      end
     end
   end
-  --IllusionsCast()
+end
 
-  return 0.1
+function IllusionsCast()
+  if ABILITY_dupe_heroes:IsFullyCastable() then
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+      AbilityIndex = ABILITY_dupe_heroes:entindex(), --Optional.  Only used when casting abilities
+    })
+  end
+end
+
+function UseAbility(ability, caster, target, maxRange)
+  local randomPosition = RandomVector(maxRange) + caster:GetAbsOrigin()
+  local behavior = ability:GetBehavior()
+
+  -- Ability's behavior is
+  if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then
+    -- passive
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AUTOCAST) ~= 0 and not ability:GetAutoCastState() then
+    ExecuteOrderFromTable({
+      UnitIndex = caster:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+    -- no target
+    ExecuteOrderFromTable({
+      UnitIndex = caster:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
+    -- target
+    ExecuteOrderFromTable({
+      UnitIndex = caster:entindex(),
+      OrderType = order,
+      TargetIndex = target:entindex(), --Optional.  Only used when targeting units
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+    -- point
+    if randomPosition then
+      ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Position = randomPosition,
+        Queue = true --Optional.  Used for queueing up abilities
+      })
+    end
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 and not ability:IsActivated() then
+    -- toggle
+    ExecuteOrderFromTable({
+      UnitIndex = caster:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+  end
 end
 
 function RandomHeroInRange(position, range)
@@ -101,85 +190,4 @@ end
 
 function RandomTreeInRange(range)
   return FindByNameWithin(nil, "ent_dota_tree", thisEntity:GetAbsOrigin(), range)
-end
-
-function UseRandomItem()
-  for slot=DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = GetItemInSlot(slot)
-    if item and item:IsItem() then
-      if item:IsRecipe() then
-        return false
-      end
-      if not item:GetAbility():IsFullyCastable() then
-        return false
-      end
-      if item:GetAbility():IsCooldownReady() then
-        local range = item:GetAbility():GetCastRange()
-        local target = ClosestHeroInRange(thisEntity:GetAbsOrigin(), range)
-        if target then
-          UseAbility(item, thisEntity, target, range)
-        end
-      end
-    end
-  end
-end
-
-function UseAbility(ability, caster, target, maxRange)
-  local randomPosition = RandomVector(maxRange) + caster:GetAbsOrigin()
-  local randomTree = RandomTreeInRange(maxRange)
-
-  local targetlessOrders = {
-    DOTA_UNIT_ORDER_CAST_NO_TARGET,
-    DOTA_UNIT_ORDER_CAST_TOGGLE
-  }
-
-  -- Target
-  ExecuteOrderFromTable({
-    UnitIndex = caster:entindex(),
-    OrderType = order,
-    TargetIndex = target:entindex(), --Optional.  Only used when targeting units
-    AbilityIndex = ability, --Optional.  Only used when casting abilities
-    Queue = 0 --Optional.  Used for queueing up abilities
-  })
-
-  -- Self
-  ExecuteOrderFromTable({
-    UnitIndex = caster:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-    TargetIndex = caster:entindex(), --Optional.  Only used when targeting units
-    AbilityIndex = ability, --Optional.  Only used when casting abilities
-    Queue = 0 --Optional.  Used for queueing up abilities
-  })
-
-  -- Position
-  if randomPosition then
-    ExecuteOrderFromTable({
-      UnitIndex = caster:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-      AbilityIndex = ability, --Optional.  Only used when casting abilities
-      Position = randomPosition,
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
-  end
-
-  -- Tree
-  if randomTree then
-    ExecuteOrderFromTable({
-      UnitIndex = caster:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-      TargetIndex = randomTree:entindex(), --Optional.  Only used when targeting units
-      AbilityIndex = ability, --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
-  end
-
-  -- Toggle and no Target
-  for _,order in ipairs(targetlessOrders) do
-    ExecuteOrderFromTable({
-      UnitIndex = caster:entindex(),
-      OrderType = order,
-      AbilityIndex = ability, --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
-  end
 end
