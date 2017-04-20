@@ -13,6 +13,10 @@ function BubbleOrbFilter:Init()
 end
 
 function BubbleOrbFilter:ModifierGainedFilter(keys)
+  if not keys.entindex_caster_const then
+    return true
+  end
+
   local caster = EntIndexToHScript(keys.entindex_caster_const)
   local parent = EntIndexToHScript(keys.entindex_parent_const)
   local bubbleModifierName = "modifier_item_preemptive_bubble_block"
