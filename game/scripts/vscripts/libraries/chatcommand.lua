@@ -266,8 +266,15 @@ function ChatCommand:OnPlayerChat(keys)
           each(AddItemByName, iter(loadouts[splitted[2]]))
         end
       end
+
+    elseif string.find(text, "-scepter") then
+      local splitted = split(text, " ")
+      local name = "item_ultimate_scepter"
+      if splitted[2] then
+        name = name .. "_" .. splitted[2]
+      end
+      hero:AddItemByName(name)
+
     end
   end
-
-
 end
