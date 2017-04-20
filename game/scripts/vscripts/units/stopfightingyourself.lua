@@ -107,6 +107,17 @@ function UseAbility(ability, caster, target, maxRange)
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
       Queue = 0 --Optional.  Used for queueing up abilities
     })
+  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+    -- point
+    if randomPosition then
+      ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Position = randomPosition,
+        Queue = true --Optional.  Used for queueing up abilities
+      })
+    end
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
     -- no target
     ExecuteOrderFromTable({
@@ -124,17 +135,6 @@ function UseAbility(ability, caster, target, maxRange)
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
       Queue = 0 --Optional.  Used for queueing up abilities
     })
-  elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
-    -- point
-    if randomPosition then
-      ExecuteOrderFromTable({
-        UnitIndex = caster:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Position = randomPosition,
-        Queue = true --Optional.  Used for queueing up abilities
-      })
-    end
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 and not ability:IsActivated() then
     -- toggle
     ExecuteOrderFromTable({
