@@ -65,6 +65,10 @@ function modifier_generic_bonus:GetModifierMagicalResistanceBonus()
   return self.magic_resistance or 0
 end
 
+function modifier_generic_bonus:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_generic_bonus:IsHidden()
   return true
 end
