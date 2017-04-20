@@ -14,12 +14,14 @@ end
 
 function Think(state, target)
   -- NOTE: I'm thinking too long
-  if not thisEntity:IsAlive() and thisEntity.illusions then
-    for i, illusion in ipairs(thisEntity.illusions) do
-      illusion:ForceKill(false)
-      illusion:RemoveSelf()
+  if not thisEntity:IsAlive() then
+    if thisEntity.illusions then
+      for i, illusion in ipairs(thisEntity.illusions) do
+        illusion:ForceKill(false)
+        illusion:RemoveSelf()
+      end
+      thisEntity.illusions = nil
     end
-    thisEntity.illusions = nil
     return 0
   end
 
@@ -51,17 +53,24 @@ function Think(state, target)
   end
 
   if IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
+    -- clear queue
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_NONE,
+      Queue = 0
+    })
     UseRandomItem()
 
     IllusionsCast()
+
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      Position = GLOBAL_origin + RandomVector(400),
+      Queue = true
+    })
   end
 
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = GLOBAL_origin + RandomVector(400),
-    Queue = 0
-  })
 
   return 0.1
 end
