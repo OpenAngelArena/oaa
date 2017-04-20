@@ -83,7 +83,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
   local purgableDebuffs = filter(IsDebuff, iter(modifiers))
   --print('--')
   --each(function(x) print(x:GetName()) end, iter(purgableDebuffs))
-  print('--')
+  --print('--')
 
   if is_null(purgableDebuffs) then
     return
