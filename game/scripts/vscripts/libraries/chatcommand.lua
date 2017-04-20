@@ -250,6 +250,7 @@ function ChatCommand:OnPlayerChat(keys)
           end
         end
       end
+
     elseif string.find(text, "-loadout") then
       local loadouts = {
         ['tank']={"item_heart_5", "item_stoneskin_2", "item_satanic_core_3"},
@@ -260,6 +261,7 @@ function ChatCommand:OnPlayerChat(keys)
           local RemoveItem = function(handle) hero:RemoveItem(handle) end
           local GetItemInSlot = function(slot) hero:GetItemInSlot(slot) end
           local AddItemByName = function(item) hero:AddItemByName(item) end
+          -- BUG: Items don't get removed
           each(RemoveItem, map(GetItemInSlot, range(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6)))
           each(AddItemByName, iter(loadouts[splitted[2]]))
         end
