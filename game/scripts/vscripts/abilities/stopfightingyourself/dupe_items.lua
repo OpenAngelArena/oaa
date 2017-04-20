@@ -34,12 +34,12 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
       local theirItem = attacker:GetItemInSlot(slot)
       local oldItem = caster:GetItemInSlot(slot)
 
-      if not contains(theirItem:GetName(), blacklist) then
-        if oldItem then
-          caster:RemoveItem(oldItem)
-        end
+      if oldItem then
+        caster:RemoveItem(oldItem)
+      end
 
-        if theirItem then
+      if theirItem then
+        if not contains(theirItem:GetName(), blacklist) then
           local ourItem = caster:AddItemByName(theirItem:GetAbilityName())
 
           if ourItem:RequiresCharges() then
