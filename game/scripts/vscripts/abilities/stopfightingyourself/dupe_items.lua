@@ -21,6 +21,9 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
   local attacker = keys.attacker
   local target = keys.target
   local caster = self:GetCaster()
+  local blacklist = {
+    "item_rapier"
+  }
 
   if not self:GetAbility():IsCooldownReady() then
     return
@@ -31,16 +34,18 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
       local theirItem = attacker:GetItemInSlot(slot)
       local oldItem = caster:GetItemInSlot(slot)
 
-      if oldItem then
-        caster:RemoveItem(oldItem)
-      end
+      if not contains(theirItem:GetName(), blacklist) then
+        if oldItem then
+          caster:RemoveItem(oldItem)
+        end
 
-      if theirItem then
-        local ourItem = caster:AddItemByName(theirItem:GetAbilityName())
+        if theirItem then
+          local ourItem = caster:AddItemByName(theirItem:GetAbilityName())
 
-        if ourItem:RequiresCharges() then
-          local charges = theirItem:GetCurrentCharges()
-          ourItem:SetCurrentCharges(charges)
+          if ourItem:RequiresCharges() then
+            local charges = theirItem:GetCurrentCharges()
+            ourItem:SetCurrentCharges(charges)
+          end
         end
       end
     end
