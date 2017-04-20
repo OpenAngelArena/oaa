@@ -472,6 +472,8 @@ methods.index_of = methods.index
 exports.index_of = exports.index
 methods.elem_index = methods.index
 exports.elem_index = exports.index
+methods.contains = methods.index
+exports.contains = exports.index
 
 local indexes_gen = function(param, state)
   local x, gen_x, param_x = param[1], param[2], param[3]
