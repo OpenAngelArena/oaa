@@ -56,9 +56,10 @@ function Think(state, target)
     -- clear queue
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_NONE,
+      OrderType = DOTA_UNIT_ORDER_STOP,
       Queue = 0
     })
+
     UseRandomItem()
 
     IllusionsCast()
@@ -68,6 +69,12 @@ function Think(state, target)
       OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
       Position = GLOBAL_origin + RandomVector(400),
       Queue = true
+    })
+  else
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_TAUNT,
+      Queue = 0
     })
   end
 
