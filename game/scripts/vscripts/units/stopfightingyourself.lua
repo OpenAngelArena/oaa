@@ -15,6 +15,7 @@ end
 function Think(state, target)
   -- NOTE: I'm thinking too long
   -- BUG: Not attacking
+  -- BUG: illusions do not get deleted correctly
   if not thisEntity:IsAlive() then
     if thisEntity.illusions then
       for i, illusion in ipairs(thisEntity.illusions) do
@@ -24,17 +25,6 @@ function Think(state, target)
       thisEntity.illusions = nil
     end
     return 0
-  end
-
-  -- cleaning illusions
-  if thisEntity.illusions then
-    for i,illusion in ipairs(thisEntity.illusions) do
-      if not illusion:IsAlive() then
-        illusion:ForceKill(false)
-        illusion:RemoveSelf()
-        thisEntity.illusions[i] = nil
-      end
-    end
   end
 
   -- Leash
