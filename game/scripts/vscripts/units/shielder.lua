@@ -54,7 +54,21 @@ function HurtHandler (keys)
 
   print(thisEntity.currentDamage[playerIndex])
 
-  if thisEntity.currentDamage[playerIndex] == max(pairs(thisEntity.currentDamage)) then
+  local maxDamage, key = -math.huge
+  for k, v in pairs(thisEntity.currentDamage) do
+    if v > maxDamage then
+      maxDamage, key = v, k
+    end
+  end
+
+  if thisEntity.currentDamage[playerIndex] == maxDamage then
+    ExecuteOrderFromTable({
+      UnitIndex = bossIndex,
+      OrderType = DOTA_UNIT_ORDER_STOP,
+      Position = nul,
+      Queue = 0
+      })
+
     ExecuteOrderFromTable({
       UnitIndex = bossIndex,
       -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
