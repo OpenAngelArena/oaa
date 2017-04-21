@@ -2,13 +2,6 @@ LinkLuaModifier("modifier_boss_shielder_shield", "abilities/shielder/boss_shield
 
 modifier_boss_shielder_shielded_buff = class({})
 
-function modifier_boss_shielder_shielded_buff:OnCreated(keys)
-  if not IsServer() then
-    return
-  end
-  local ability = self:GetAbility()
-end
-
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   return 
   {
