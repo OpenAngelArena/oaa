@@ -63,5 +63,6 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
   if (angleCos > (self:GetAbility():GetSpecialValueFor("sheild_width"))) then
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   end
+  
   return 0
 end
