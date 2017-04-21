@@ -1,6 +1,11 @@
 LinkLuaModifier( "modifier_item_reactive_2b", "items/reflex/reactive_block_blink.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reactive_2b = class({})
+
+function item_reactive_2b:GetIntrinsicModifierName()
+  return "modifier_generic_bonus"
+end
 
 function item_reactive_2b:OnSpellStart()
   local caster = self:GetCaster()

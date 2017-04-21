@@ -1,6 +1,11 @@
 LinkLuaModifier( "modifier_item_postactive_regen", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_postactive_3c = class({})
+
+function item_postactive_3c:GetIntrinsicModifierName()
+  return "modifier_generic_bonus"
+end
 
 function item_postactive_3c:OnSpellStart()
   local caster = self:GetCaster()
