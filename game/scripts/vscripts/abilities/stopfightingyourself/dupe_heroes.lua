@@ -47,13 +47,6 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         caster:GetTeamNumber()
       )
 
-      -- Stats
-      -- BUG: Gold bounty does not work
-      illusion:SetMaximumGoldBounty(0)
-      illusion:SetMinimumGoldBounty(0)
-      illusion:SetDeathXP(0)
-      illusion:SetRespawnsDisabled(true)
-
       -- Level
       local target_level = unit:GetLevel()
       for i = 1, target_level - 1 do
@@ -105,10 +98,23 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
 
       --illusion:MakeIllusion()
 
+      -- Stats
+      -- BUG Gold bounty does not work
+      -- NOTE XP probably too
+      illusion:SetMaximumGoldBounty(0)
+      illusion:SetMinimumGoldBounty(0)
+      illusion:SetDeathXP(0)
+      illusion:SetRespawnsDisabled(true)
+
       -- Set Stats to original hero
       illusion:SetHealth(unit:GetHealth())
       illusion:SetMana(unit:GetMana())
 
+      -- Randomly play sound to player (10% chance)
+      -- NOTE this doesn't seem to work
+      if math.random(100) <= 10 then
+        EmitAnnouncerSoundForPlayer('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd', unit:GetPlayerID())
+      end
 
       if caster.illusions == nil then
         caster.illusions = {}
@@ -117,12 +123,14 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       caster.illusions[index] = illusion
 
       illusion:OnDeath(function()
+        -- create particle
+        -- NOTE I have yet to see those particles
+        ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
         illusion:RemoveSelf()
         caster.illusions[index] = nil
       end)
 
-
-      --illusion:SetContextThink('IllusionThink')
+      --illusion:SetContextThink('IllusionThink', ...)
       ExecuteOrderFromTable({
         UnitIndex = illusion:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,

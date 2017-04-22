@@ -21,6 +21,9 @@ function Precache( context )
   PrecacheItemByNameSync("item_postactive", context)
   PrecacheItemByNameSync("item_preemptive_3c", context)
 
+  -- stopfightingyourself
+  PrecacheResource("particle", "particles/generic_gameplay/illusion_killed.vpcf", context)
+
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
   --PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
