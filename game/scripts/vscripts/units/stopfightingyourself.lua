@@ -20,7 +20,9 @@ function Think(state, target)
     if thisEntity.illusions then
       for i, illusion in ipairs(thisEntity.illusions) do
         illusion:ForceKill(false)
-        illusion:RemoveSelf()
+        if not illusion:IsNull() then
+          illusion:RemoveSelf()
+        end
       end
       thisEntity.illusions = nil
     end
