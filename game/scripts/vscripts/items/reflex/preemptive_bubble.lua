@@ -69,9 +69,9 @@ end
 function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
   if IsServer() then
     self.bubbleCenter = self:GetParent():GetOrigin()
-    self.bubbleIdentifier = "BubbleOrbID: " .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
     self.caster = self:GetCaster()
     self.casterTeam = self.caster:GetTeamNumber()
+    self.bubbleIdentifier = "BubbleOrbID: " .. self.casterTeam .. "," .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
     self.ability = self:GetAbility()
     self.radius = self.ability:GetSpecialValueFor("radius")
     self.aura_stickiness = self.ability:GetSpecialValueFor("aura_stickiness")
