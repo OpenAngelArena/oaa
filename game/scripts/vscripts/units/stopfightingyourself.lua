@@ -45,14 +45,7 @@ function Think(state, target)
     end
   end
 
-  if IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
-    -- clear queue
-    ExecuteOrderFromTable({
-      UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_STOP,
-      Queue = 0
-    })
-
+  if thisEntity:IsIdle() and IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
     UseRandomItem()
 
     IllusionsCast()
@@ -62,12 +55,6 @@ function Think(state, target)
       OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
       Position = GLOBAL_origin + RandomVector(400),
       Queue = true
-    })
-  else
-    ExecuteOrderFromTable({
-      UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_TAUNT,
-      Queue = 0
     })
   end
 
