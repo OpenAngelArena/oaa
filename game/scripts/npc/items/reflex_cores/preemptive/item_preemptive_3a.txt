@@ -7,19 +7,15 @@
   {
     "ID"            "3807"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "1550"
+    "ItemCost"          "2300"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_3a"
     "AbilityTextureName"      "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_preemptive_2a;item_upgrade_core_2"
-      "02"            "item_preemptive_2b;item_upgrade_core_2"
-      "03"            "item_preemptive_2a;item_upgrade_core_3"
-      "04"            "item_preemptive_2b;item_upgrade_core_3"
-      "05"            "item_preemptive_2a;item_upgrade_core_4"
-      "06"            "item_preemptive_2b;item_upgrade_core_4"
+      "01"            "item_preemptive_2a;item_upgrade_core_4"
+      "02"            "item_preemptive_2b;item_upgrade_core_4"
     }
   }
 
@@ -43,12 +39,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
+    "AbilityCooldown"       "20"
     "AbilitySharedCooldown" "reflex"
     "AbilityCastPoint"      "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"              "6200"
+    "ItemCost"              "13900"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
     "ItemQuality"           "epic"
     "ItemAliases"           "reflex;preemptive_3a;purge"
@@ -71,20 +68,15 @@
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "cooldown"        "20.0"
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"        "4000"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "4000"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
         "bonus_armor"     "20"
       }
-      "06"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "20"

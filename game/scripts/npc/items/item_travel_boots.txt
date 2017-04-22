@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -48,7 +48,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75"
-		"ItemCost"						"1400"
+		"ItemCost"						"900"
 		"ItemShopTags"					"teleport;move_speed"
 		"ItemQuality"					"common"
 		"ItemAliases"					"bot;boots of travel"
@@ -57,7 +57,7 @@
 		"ItemBaseLevel"					"1"
 
 		"UpgradesItems"					"item_travel_boots"
-
+    "UpgradeRecipe"         "item_recipe_travel_boots"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

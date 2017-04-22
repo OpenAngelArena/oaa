@@ -7,7 +7,7 @@
   {
     "ID"            "3803"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "1550"
+    "ItemCost"          "2300"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_2a"
@@ -34,18 +34,19 @@
     "ScriptFile"            "items/reflex/preemptive_purge.lua"
     "FightRecapLevel"       "1"
 
-    "MaxUpgradeLevel"       "3"
+    "MaxUpgradeLevel"       "2"
     "ItemBaseLevel"         "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
+    "AbilityCooldown"       "20"
     "AbilitySharedCooldown" "reflex"
     "AbilityCastPoint"      "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"              "6200"
+    "ItemCost"              "7100"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
     "ItemQuality"           "epic"
     "ItemAliases"           "reflex;preemptive_2a;purge"
@@ -68,20 +69,15 @@
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "cooldown"        "20.0"
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"        "1000"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "1000"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
         "bonus_armor"     "10"
       }
-      "06"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "10"

@@ -7,7 +7,7 @@
   {
     "ID"            "3801"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "1550"
+    "ItemCost"          "2300"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive"
@@ -35,6 +35,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
+    "AbilityCooldown"       "20"
     "AbilitySharedCooldown" "reflex"
     "AbilityCastPoint"      "0.0"
 
@@ -46,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "1550"
+    "ItemCost"          "2300"
     "ItemShopTags"          "defense;support;mobility;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "reflex;preemptive"
@@ -69,20 +70,15 @@
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "cooldown"        "20.0"
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"        "250"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "250"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
         "bonus_armor"     "5"
       }
-      "06"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "5"

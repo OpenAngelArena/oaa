@@ -151,6 +151,7 @@ function GameMode:OnPreGame()
   InitModule(AbilityLevels)
   InitModule(HeroProgression)
   InitModule(SellBlackList)
+  InitModule(BubbleOrbFilter)
   InitModule(NGP)
 end
 
