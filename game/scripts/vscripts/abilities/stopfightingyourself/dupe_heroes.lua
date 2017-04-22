@@ -1,4 +1,6 @@
 
+require('libraries/timers')
+
 LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfightingyourself/dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
 
 
@@ -125,7 +127,9 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       illusion:OnDeath(function()
         -- create particle
         -- NOTE I have yet to see those particles
-        ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+        Timer:CreateTimer(0.8, function()
+          ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+        end)
         illusion:RemoveSelf()
         caster.illusions[index] = nil
       end)
