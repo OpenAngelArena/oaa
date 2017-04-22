@@ -62,7 +62,7 @@ function item_refresher_core:OnSpellStart()
 end
 
 function item_refresher_core:IsRefreshable()
-return false
+  return false
 end
 
 item_refresher_core_2 = item_refresher_core
