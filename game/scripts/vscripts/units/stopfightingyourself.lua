@@ -85,6 +85,7 @@ function IllusionsCast()
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
       AbilityIndex = ABILITY_dupe_heroes:entindex(), --Optional.  Only used when casting abilities
+      Queue = true
     })
   end
 end
