@@ -7,7 +7,7 @@
   {
     // General
     //
-    "BaseClass"                 "npc_dota_creature" // Class of entity of link to.
+    "BaseClass"                 "npc_dota_creep_neutral" // Class of entity of link to.
     "Model"                     "models/heroes/doom/doom.vmdl"  // Model.
     "vscripts"                  "units/shielder.lua"
     "SoundSet"                  "axe"                    // Name of sound set.
