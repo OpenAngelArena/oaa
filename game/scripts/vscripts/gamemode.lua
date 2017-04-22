@@ -170,6 +170,7 @@ function GameMode:OnGameInProgress()
   InitModule(CaveHandler)
   InitModule(Duels)
   InitModule(BossSpawner)
+  InitModule(BottleCounter)
 
 end
 

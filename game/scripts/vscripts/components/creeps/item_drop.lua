@@ -53,9 +53,13 @@ end
 
 function CreepItemDrop:CreateDrop (itemName, pos)
   local newItem = CreateItem(itemName, nil, nil)
+
   newItem:SetPurchaseTime(0)
+  newItem.firstPickedUp = false
+
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+
   Timers:CreateTimer(60, function ()
     -- check if safe to destroy
     if IsValidEntity(newItem) then
