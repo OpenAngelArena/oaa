@@ -16,6 +16,9 @@ Credits: Pizzalol
 function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
   local caster = self:GetCaster()
   local target = caster:GetAbsOrigin()
+  local blacklist = {
+    "item_rapier"
+  }
 
   if caster.illusions and #caster.illusions >= self:GetSpecialValueFor('max_illusions') then
     return
@@ -76,11 +79,13 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         local theirItem = unit:GetItemInSlot(slot)
 
         if theirItem then
-          local ourItem = illusion:AddItemByName(theirItem:GetAbilityName())
+          if not contains(theirItem:GetName(), blacklist) then
+            local ourItem = illusion:AddItemByName(theirItem:GetAbilityName())
 
-          if ourItem:RequiresCharges() then
-            local charges = theirItem:GetCurrentCharges()
-            ourItem:SetCurrentCharges(charges)
+            if ourItem:RequiresCharges() then
+              local charges = theirItem:GetCurrentCharges()
+              ourItem:SetCurrentCharges(charges)
+            end
           end
         end
       end
