@@ -739,6 +739,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Memory Leak where entities did not get deleted correctly by Purge Tester
 * Fixed Courier replacing the first two Items bought during PreGame for the first Player of every Team
 
+## Update 0.17.0
+``
+### Items
+* Fixed Bug where Bottle Counter gets increased when creating Illusions
+* Rewrite Lucience
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
