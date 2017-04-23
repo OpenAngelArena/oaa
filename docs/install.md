@@ -18,11 +18,12 @@ Install the Dota 2 Workshop Tools.
 Open the command prompt by pressing `Windows + R` and entering `cmd` in the new window. 
 
 ### Install Node Dependencies
-Run the command 
+Run the commands
 ```
 npm install -g dota2-addon-manager
+npm install
 ```
-This will install `d2am`, used to manage the addons directory.
+This will install `d2am`, used to manage the addons directory, and other tools/node modules you might need for development later.
 
 ### Prepare Addon Directory
 Next find your `dota 2 beta` folder. You must change the directory of the node.js command prompt to this folder, this can be done with the `cd` command. It should look something like this...
