@@ -45,6 +45,13 @@ function item_lucience.RemoveLucienceAuras(unit)
   unit:RemoveModifierByName(movespeedAuraName)
 end
 
+function item_lucience.RemoveLucienceEffects(ability, effectModifierName, unit)
+  local effectModifier = unit:FindModifierByName(effectModifierName)
+  if effectModifier and ability:GetLevel() > effectModifier:GetAbility():GetLevel() then
+    unit:RemoveModifierByName(effectModifierName)
+  end
+end
+
 item_lucience_2 = class(item_lucience)
 item_lucience_3 = class(item_lucience)
 
@@ -147,12 +154,11 @@ function modifier_item_lucience_regen_aura:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
     local units = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetOrigin(), nil, self:GetAbility():GetSpecialValueFor("aura_radius"), self:GetAuraSearchTeam(), self:GetAuraSearchType(), self:GetAuraSearchFlags(), FIND_ANY_ORDER, false)
+    local ability = self:GetAbility()
+    local effectModifierName = "modifier_item_lucience_regen_effect"
 
-    function RemoveLucienceEffects(unit)
-      unit:RemoveModifierByName("modifier_item_lucience_regen_effect")
-    end
     -- Force reapplication of effect modifiers so that effects update immediately when Lucience is upgraded
-    foreach(RemoveLucienceEffects, units)
+    foreach(partial(ability.RemoveLucienceEffects, ability, effectModifierName), units)
   end
 end
 
@@ -196,12 +202,11 @@ function modifier_item_lucience_movespeed_aura:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
     local units = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetOrigin(), nil, self:GetAbility():GetSpecialValueFor("aura_radius"), self:GetAuraSearchTeam(), self:GetAuraSearchType(), self:GetAuraSearchFlags(), FIND_ANY_ORDER, false)
+    local ability = self:GetAbility()
+    local effectModifierName = "modifier_item_lucience_movespeed_effect"
 
-    function RemoveLucienceEffects(unit)
-      unit:RemoveModifierByName("modifier_item_lucience_movespeed_effect")
-    end
     -- Force reapplication of effect modifiers so that effects update immediately when Lucience is upgraded
-    foreach(RemoveLucienceEffects, units)
+    foreach(partial(ability.RemoveLucienceEffects, ability, effectModifierName), units)
   end
 end
 
