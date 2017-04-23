@@ -86,11 +86,16 @@ function modifier_item_lucience_aura_handler:OnCreated()
     end
 
     item_lucience.RemoveLucienceAuras(parent)
-    if ability:GetToggleState() then
-      parent:AddNewModifier(caster, ability, movespeedAuraName, {})
-    else
-      parent:AddNewModifier(caster, ability, regenAuraName, {})
-    end
+    -- Delay adding the aura modifiers by a frame so that illusions won't always spawn with the regen aura
+    Timers:CreateTimer({
+      callback = function()
+        if ability:GetToggleState() then
+          parent:AddNewModifier(caster, ability, movespeedAuraName, {})
+        else
+          parent:AddNewModifier(caster, ability, regenAuraName, {})
+        end
+      end
+    })
   end
 end
 
