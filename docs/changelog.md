@@ -740,10 +740,11 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Courier replacing the first two Items bought during PreGame for the first Player of every Team
 
 ## Update 0.17.0
-``
+`d2f46c3790d72edbf0fa0dea44c35385fdc88908`
 ### Items
 * Fixed Bug where Bottle Counter gets increased when creating Illusions
 * Rewrite Lucience
+* Added Heart Transplant
 
 
 ## Template
