@@ -32,9 +32,9 @@ function item_lucience:GetAbilityTextureName()
   if self.auraHandler:IsNull() then
     return self.BaseClass.GetAbilityTextureName(self)
   elseif self.auraHandler:GetStackCount() == auraTypeRegen then
-    return movespeedIconName
-  elseif self.auraHandler:GetStackCount() == auraTypeMovespeed then
     return regenIconName
+  elseif self.auraHandler:GetStackCount() == auraTypeMovespeed then
+    return movespeedIconName
   else
     return self.BaseClass.GetAbilityTextureName(self)
   end
@@ -73,9 +73,9 @@ function modifier_item_lucience_aura_handler:OnCreated()
 
     -- Set stack count to update item icon
     if ability:GetToggleState() then
-      self:SetStackCount(auraTypeRegen)
-    else
       self:SetStackCount(auraTypeMovespeed)
+    else
+      self:SetStackCount(auraTypeRegen)
     end
 
     -- If the owner has a higher level Lucience Aura then don't do anything
