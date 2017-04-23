@@ -127,11 +127,11 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       illusion:OnDeath(function()
         -- create particle
         -- NOTE I have yet to see those particles
-        Timer:CreateTimer(0.8, function()
+        Timers:CreateTimer(0.8, function()
           ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
         end)
         illusion:RemoveSelf()
-        caster.illusions[index] = nil
+        table.remove(caster.illusions, index)
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)
