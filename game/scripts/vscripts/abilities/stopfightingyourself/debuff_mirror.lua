@@ -68,7 +68,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
       local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
       testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
       testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
-      testUnit:Purge(false, true, true, false, false)
+      testUnit:Purge(false, true, true, true, true)
       local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
       testUnit:RemoveSelf()
       return modifierIsPurgableDebuff
