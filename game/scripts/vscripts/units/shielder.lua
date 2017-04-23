@@ -7,7 +7,7 @@ function Spawn (entityKeyValues)
   thisEntity:SetContextThink( "ShielderThink", partial(ShielderThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
   --Timers:CreateTimer(1, thisEntity:OnHurt(HurtHandler(keys)))
-  
+
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_shield, "modifier_boss_phase_controller", {})
@@ -15,28 +15,10 @@ function Spawn (entityKeyValues)
   phaseController:SetAbilities({
     "boss_shielder_shield"
   })
-
-
 end
 
 function ShielderThink (thisEntity)
-  thisEntity:OnHurt(function (keys)
-  HurtHandler(keys)
-  end)
-  if not GLOBAL_origin then
-    GLOBAL_origin = thisEntity:GetAbsOrigin()
-  end
-  local distance = (GLOBAL_origin - thisEntity:GetAbsOrigin()):Length()
-  if distance > 1000 then
-    ExecuteOrderFromTable({
-      UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-      Position = GLOBAL_origin, --Optional.  Only used when targeting the ground
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
-    return 5
-  end
-  return 0
+  thisEntity:OnHurt(HurtHandler)
 end
 
 function HurtHandler (keys)
@@ -65,8 +47,6 @@ function HurtHandler (keys)
   Timers:CreateTimer(decayTime, function ()
     thisEntity.currentDamage[playerIndex] = thisEntity.currentDamage[playerIndex] - damage
   end)
-
-  print(thisEntity.currentDamage[playerIndex])
 
   local maxDamage, key = -math.huge
   for k, v in pairs(thisEntity.currentDamage) do
