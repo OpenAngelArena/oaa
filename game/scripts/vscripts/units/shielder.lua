@@ -37,6 +37,7 @@ function ShielderThink (thisEntity)
       return 5
     end
   end
+  return 0
 end
 
 function HurtHandler (keys)

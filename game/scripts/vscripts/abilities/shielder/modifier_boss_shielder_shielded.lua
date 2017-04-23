@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_boss_shielder_shield", "abilities/shielder/boss_shield
 
 modifier_boss_shielder_shielded_buff = class({})
 
+function modifier_boss_shielder_shielded_buff:OnCreated(keys)
+
+end
+
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   return 
   {
@@ -61,6 +65,10 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
   --end
   --DebugPrint(angleCos .. ' : ' .. self:GetAbility():GetSpecialValueFor("sheild_width"))
   if (angleCos > (self:GetAbility():GetSpecialValueFor("sheild_width"))) then
+    local target = self:GetParent()
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_POINT_FOLLOW, target)
+    ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+    ParticleManager:SetParticleControl(particle, 1, Vector(500,0,0))
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   end
   
