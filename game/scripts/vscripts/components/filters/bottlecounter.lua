@@ -26,7 +26,7 @@ function BottleCounter:Filter(filterTable)
   local parent = EntIndexToHScript(parentEntIndex)
   local player = parent:GetPlayerOwner()
 
-  if player then
+  if player and not parent:IsIllusion() and not parent:IsTempestDouble() and not parent:IsPhantom() then
     hero = player:GetAssignedHero()
 
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
