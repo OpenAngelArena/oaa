@@ -26,3 +26,4 @@ function TwinThink()
     Queue = 0 --Optional.  Used for queueing up abilities
   })
 end
+

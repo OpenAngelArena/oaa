@@ -21,3 +21,4 @@ end
 function boss_twin_twin_empathy:GetBehavior ()
   return DOTA_ABILITY_BEHAVIOR_POINT 
 end
+
