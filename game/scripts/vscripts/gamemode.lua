@@ -171,7 +171,7 @@ function GameMode:OnGameInProgress()
   InitModule(Duels)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
-
+  InitModule(DuelRunes)
 end
 
 function InitModule(myModule)
