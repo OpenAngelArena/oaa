@@ -80,16 +80,16 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
   --print('-------')
   local modifiers = caster:FindAllModifiers()
   --each(function(x) print(x:GetName()) end, iter(modifiers))
-  local purgableDebuffs = filter(IsDebuff, iter(modifiers))
+  local debuffs = filter(IsDebuff, iter(modifiers))
   --print('--')
-  --each(function(x) print(x:GetName()) end, iter(purgableDebuffs))
+  --each(function(x) print(x:GetName()) end, iter(debuffs))
   --print('--')
 
-  if is_null(purgableDebuffs) then
+  if is_null(debuffs) then
     return
   end
 
-  each(function(modifier)
+  for _,modifier in pairs(modifier) do
     --print(modifier:GetCaster():GetName())
     --print(modifier:GetAbility():GetAbilityName())
     --print(modifier:GetName())
@@ -102,5 +102,5 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
       duration_melee = duration,
     })
     newModifier:SetStackCount(stacks)
-  end, purgableDebuffs)
+  end
 end
