@@ -121,8 +121,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       if caster.illusions == nil then
         caster.illusions = {}
       end
-      local index = #caster.illusions + 1
-      caster.illusions[index] = illusion
+      table.insert(caster.illusions, illusion)
 
       illusion:OnDeath(function()
         -- create particle
@@ -131,7 +130,6 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
           ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
         end)
         illusion:RemoveSelf()
-        table.remove(caster.illusions, index)
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)

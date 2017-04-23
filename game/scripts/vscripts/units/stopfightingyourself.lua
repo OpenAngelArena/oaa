@@ -1,3 +1,4 @@
+require('libraries/garbagecollection')
 
 -- Entry Function
 function Spawn(entityKeyValues)
@@ -6,10 +7,12 @@ function Spawn(entityKeyValues)
     return
   end
 
-  thisEntity:SetContextThink('StopFightingYourselfThink', partial(Think, thisEntity), 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  thisEntity:SetContextThink('StopFightingYourselfThink', partial(Think, thisEntity), 1)
 
   ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
+
+  thisEntity.GC = GarbageCollection:Add(thisEntity.illusions, 10)
 end
 
 function Think(state, target)
@@ -17,6 +20,7 @@ function Think(state, target)
   -- BUG: Not attacking
   -- BUG: illusions do not get deleted correctly
   if not thisEntity:IsAlive() then
+    GarbageCollection:Remove(thisEntity.GC)
     if thisEntity.illusions then
       for i, illusion in ipairs(thisEntity.illusions) do
         illusion:ForceKill(false)
