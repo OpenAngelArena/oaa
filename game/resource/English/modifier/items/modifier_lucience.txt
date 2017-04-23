@@ -1,8 +1,8 @@
     //=============================================================================
     // Lucience Aura
     //=============================================================================
-            "DOTA_Tooltip_modifier_item_lucience_heal"                          "Lucio Heal Aura"
-            "DOTA_Tooltip_modifier_item_lucience_heal_Description"              "Unit is healing."
+            "DOTA_Tooltip_modifier_item_lucience_regen_effect"                          "Lucience Regeneration Aura"
+            "DOTA_Tooltip_modifier_item_lucience_regen_effect_Description"              "Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."
 
-            "DOTA_Tooltip_modifier_item_lucience_movespeed"                     "Lucio Movespeed Aura"
-            "DOTA_Tooltip_modifier_item_lucience_movespeed_Description"         "Unit is moving faster."
+            "DOTA_Tooltip_modifier_item_lucience_movespeed_effect"                     "Lucience Haste Aura"
+            "DOTA_Tooltip_modifier_item_lucience_movespeed_effect_Description"         "Moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster."
