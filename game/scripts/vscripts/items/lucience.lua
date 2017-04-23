@@ -217,6 +217,8 @@ function modifier_item_lucience_regen_effect:OnCreated()
   self.regenBonus = self:GetAbility():GetSpecialValueFor("regen_bonus")
 end
 
+modifier_item_lucience_regen_effect.OnRefresh = modifier_item_lucience_regen_effect.OnCreated
+
 function modifier_item_lucience_regen_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
@@ -242,6 +244,8 @@ modifier_item_lucience_movespeed_effect = class({})
 function modifier_item_lucience_movespeed_effect:OnCreated()
   self.movespeedBonus = self:GetAbility():GetSpecialValueFor("speed_bonus")
 end
+
+modifier_item_lucience_movespeed_effect.OnRefresh = modifier_item_lucience_movespeed_effect.OnCreated
 
 function modifier_item_lucience_movespeed_effect:DeclareFunctions()
   return {
