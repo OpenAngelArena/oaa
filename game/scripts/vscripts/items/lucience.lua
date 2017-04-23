@@ -113,16 +113,14 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     function RefreshHandler(modifier)
       modifier:OnRefresh()
     end
+
+    item_lucience.RemoveLucienceAuras(parent)
+
     -- Refresh any other handlers on the parent so that lower level Lucience will take effect when dropping a higher level
     if parent:HasModifier(self:GetName()) then
       local auraHandlers = parent:FindAllModifiersByName(self:GetName())
-      Timers:CreateTimer({
-        callback = function()
-          foreach(RefreshHandler, auraHandlers)
-        end})
+      foreach(RefreshHandler, auraHandlers)
     end
-
-    item_lucience.RemoveLucienceAuras(parent)
   end
 end
 
