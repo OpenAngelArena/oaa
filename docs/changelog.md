@@ -619,19 +619,39 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Permadeath after Duels, again
 
 
-## Unreleased
-``
-### Heroes
-* Fixed Zeus Cloud
+## Update 0.15.0
+`0461d693fecaf04328a537bd44ef75b23d01cde5`
+### Cave
+* Fixed a Bug where you could get stuck between two rooms
 
 ### Items
 * Reflex Cores
   * Fixed undocumented stuff
 * Added Bubble Orb
 * Added Tooltips for Refresher Core, Power Treads and Phase Boots
-* Boots of Travek
+* Boots of Travel
   * Fixed Level 1 Recipe
   * Reduced Level 2 Recipe Cost to 500
+* Lucience
+  * Increased Health Regen from `75 100 150` to `150 300 600`
+* Radiance
+  * Decreased Bonus Damage from `65 100 150 220 300` to `65 80 100 125 160`
+  * Decreased Aura Damage from `50 100 200 350 550` to `50 100 150 225 350`
+* Refresher Core
+  * Level 1 now needs a Upgrade Core Level 2 or higher
+  * Level 2 now needs a Upgrade Core Level 3 or higher
+  * Level 3 now needs a Upgrade Core Level 4
+* Trumps Fists
+  * Level 1 now needs a Upgrade Core Level 3
+  * Level 2 now needs a Upgrade Core Level 4
+  * Increased All Stats from `32 34` to `35 40`
+  * Increased Health from `450 550` to `500 750`
+  * Increased Mana from `475 575` to `600 800`
+  * Increased Heal Prevention Percentage from `-15 -75` to `-50 -100`
+  * Decreased Heal Prevention Duration from `5` to `2`
+
+### Heroes
+* Fixed Zeus Cloud
 
 ### Bosses
 * Added Tooltips to various Abilities
