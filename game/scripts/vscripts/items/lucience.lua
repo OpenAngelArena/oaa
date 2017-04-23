@@ -63,6 +63,7 @@ end
 function modifier_item_lucience_aura_handler:OnCreated()
   local ability = self:GetAbility()
   ability.auraHandler = self
+  self.bonusDamage = ability:GetSpecialValueFor("bonus_damage")
 
   if IsServer() then
     local parent = self:GetParent()
@@ -125,6 +126,16 @@ function modifier_item_lucience_aura_handler:OnDestroy()
   end
 end
 
+function modifier_item_lucience_aura_handler:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+  }
+end
+
+function modifier_item_lucience_aura_handler:GetModifierPreAttack_BonusDamage()
+  return self.bonusDamage
+end
+
 ------------------------------------------------------------------------
 
 modifier_item_lucience_regen_aura = class({})
@@ -140,16 +151,6 @@ function modifier_item_lucience_regen_aura:OnCreated()
     -- Force reapplication of effect modifiers so that effects update immediately when Lucience is upgraded
     foreach(RemoveLucienceEffects, units)
   end
-end
-
-function modifier_item_lucience_regen_aura:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
-  }
-end
-
-function modifier_item_lucience_regen_aura:GetModifierPreAttack_BonusDamage()
-  return self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_lucience_regen_aura:IsHidden()
