@@ -29,7 +29,7 @@ function modifier_duel_rune_hill:GetAuraSearchTeam()
 end
 
 function modifier_duel_rune_hill:GetAuraRadius()
-  return 300
+  return 800
 end
 
 function modifier_duel_rune_hill:GetModifierAura()
