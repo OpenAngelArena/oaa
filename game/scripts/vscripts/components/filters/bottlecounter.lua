@@ -31,7 +31,7 @@ function BottleCounter:Filter(filterTable)
 
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
-      player.bottleCount = player.bottleCount + 3
+      player.bottleCount = player.bottleCount + 1
       hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
     end
 
