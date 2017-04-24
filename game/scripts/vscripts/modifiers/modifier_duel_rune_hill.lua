@@ -1,4 +1,5 @@
 LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_rune_hill_tripledamage', 'modifiers/modifier_rune_hill_tripledamage.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_duel_rune_hill = class({})
 modifier_duel_rune_hill_enemy = class({})
@@ -8,7 +9,7 @@ function modifier_duel_rune_hill_enemy:IsHidden()
 end
 
 function modifier_duel_rune_hill:OnCreated()
-  self:StartIntervalThink(0.2)
+  self:StartIntervalThink(0.1)
   self:SetStackCount(0)
 end
 
@@ -28,7 +29,7 @@ function modifier_duel_rune_hill:GetAuraSearchTeam()
 end
 
 function modifier_duel_rune_hill:GetAuraRadius()
-  return 800
+  return 300
 end
 
 function modifier_duel_rune_hill:GetModifierAura()
@@ -62,9 +63,10 @@ function modifier_duel_rune_hill:OnIntervalThink()
     [30] = "modifier_rune_regen",
     [80] = "modifier_rune_haste",
     [90] = "modifier_rune_regen",
-    [100] = "modifier_rune_doubledamage",
+    [10] = "modifier_rune_doubledamage",
     [110] = "modifier_rune_invis",
     [120] = "modifier_rune_regen",
+    [50] = "modifier_rune_hill_tripledamage",
   }
 
   self:SetStackCount(stackCount)
