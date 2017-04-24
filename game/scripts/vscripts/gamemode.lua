@@ -119,9 +119,6 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-  if not Courier.hasCourier[hero:GetTeamNumber()] then
-    Courier:SpawnCourier(hero)
-  end
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   --hero:SetGold(500, false)
 
@@ -171,7 +168,7 @@ function GameMode:OnGameInProgress()
   InitModule(Duels)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
-
+  InitModule(DuelRunes)
 end
 
 function InitModule(myModule)

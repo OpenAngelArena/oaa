@@ -3,11 +3,6 @@ if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
 
-  -- debugging lines, enable logging and enable chat commands to start/stop duels
-
-  Debug.EnabledModules['duels:*'] = false
-  Debug.EnabledModules['zonecontrol:*'] = false
-
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
 end
@@ -308,7 +303,7 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-hero:SetHealth(hero:GetMaxHealth())
+  hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
