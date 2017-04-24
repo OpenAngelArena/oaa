@@ -63,10 +63,10 @@ function modifier_duel_rune_hill:OnIntervalThink()
     [30] = "modifier_rune_regen",
     [80] = "modifier_rune_haste",
     [90] = "modifier_rune_regen",
-    [10] = "modifier_rune_doubledamage",
+    [100] = "modifier_rune_doubledamage",
     [110] = "modifier_rune_invis",
     [120] = "modifier_rune_regen",
-    [50] = "modifier_rune_hill_tripledamage",
+    [130] = "modifier_rune_hill_tripledamage",
   }
 
   self:SetStackCount(stackCount)
