@@ -308,7 +308,7 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-hero:SetHealth(hero:GetMaxHealth())
+  hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
@@ -326,6 +326,9 @@ hero:SetHealth(hero:GetMaxHealth())
       item:EndCooldown()
     end
   end
+
+  -- purge modifiers
+  hero:Purge(true, true, false, true, true)
 end
 
 function Duels:SavePlayerState (hero)
