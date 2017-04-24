@@ -1,4 +1,6 @@
-LinkLuaModifier("modifier_boss_twin_twin_empathy", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_boss_twin_twin_empathy", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_boss_twin_twin_empathy_buff = class({})
 
 --This may need to be in the abil not the mod
 function modifier_boss_twin_twin_empathy_buff:OnCreate()
@@ -15,7 +17,7 @@ function modifier_boss_twin_twin_empathy_buff:IsPurgable()
   return false
 end
 
-function modifier_item_preemptive_purge:OnIntervalThink()
+function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
   if IsServer() then	
   end
 

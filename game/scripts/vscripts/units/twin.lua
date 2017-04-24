@@ -2,8 +2,8 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 
 function Spawn (entityKeyValues)
 
-  SpawnDumbTwin()
-  --thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
+  --SpawnDumbTwin()
+  thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   ABILITY_empathy = thisEntity:FindAbilityByName("boss_twin_twin_empathy")
@@ -16,7 +16,6 @@ function Spawn (entityKeyValues)
 end
 
 function SpawnDumbTwin()  
-  local twin = CreateUnitByName("npc_dota_boss_twin_dumb", self:GetAbsOrigin(), true, self, self:GetOwner(), self:GetTeam())
-  twin:AddNewModifier(self, ABILITY_empathy, "modifier_boss_twin_twin_empathy", {})
+  local twin = CreateUnitByName("npc_dota_boss_twin_dumb", thisEntity:GetAbsOrigin(), true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
+  twin:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_twin_twin_empathy_buff", {})
 end
-

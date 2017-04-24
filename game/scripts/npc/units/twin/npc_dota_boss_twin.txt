@@ -1,4 +1,4 @@
-DOTAUnits"
+"DOTAUnits"
 {
 //=================================================================================
 // Boss tier 2
@@ -9,6 +9,7 @@ DOTAUnits"
 		//
 		"BaseClass"					"npc_dota_creep_neutral" // Class of entity of link to.
 		"Model"						"models/heroes/meepo/meepo.vmdl"	// Model.
+    	"vscripts"                  "units/twin.lua"
 		"SoundSet"					"Meepo"					// Name of sound set.
 		"ModelScale"				"2"
 		"Level"						"30"
