@@ -1,13 +1,10 @@
 LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
 
 function Spawn (entityKeyValues)
-  thisEntity:FindAbilityByName("boss_twin_twin_empathy")
-  thisEntity:FindAbilityByName("boss_twin_spawn_twin")
 
-  thisEntity:SetContextThink( "TwinThink", partial(TwinThink, thisEntity) , 1)
+  thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
-  ABILITY_spawn_twin = thisEntity:FindAbilityByName("boss_twin_spawn_twin")
   ABILITY_empathy = thisEntity:FindAbilityByName("boss_twin_twin_empathy")
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_phase_controller", {})
@@ -17,13 +14,8 @@ function Spawn (entityKeyValues)
   })
 end
 
-function TwinThink()
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = ABILITY_spawn_twin:entindex(), --Optional.  Only used when casting abilities
-    Position = self:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-    Queue = 0 --Optional.  Used for queueing up abilities
-  })
+function SpawnDumbTwin()  
+  local twin = CreateUnitByName("npc_dota_boss_twin_dumb", self:GetAbsOrigin(), true, self, self:GetOwner(), self:GetTeam())
+  twin:AddNewModifier(self, ABILITY_empathy, "modifier_boss_twin_twin_empathy", {})
 end
 

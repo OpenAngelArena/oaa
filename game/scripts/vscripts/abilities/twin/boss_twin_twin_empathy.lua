@@ -2,10 +2,6 @@ LinkLuaModifier("modifier_boss_twin_twin_empathy", "abilities/twin/modifier_boss
 
 boss_twin_twin_empathy = class({})
 
-function boss_twin_twin_empathy:GetIntrinsicModifierName()
-  return "modifier_boss_twin_twin_empathy"
-end
-
 function boss_twin_twin_empathy:GetBehavior ()
   return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET 
 end
