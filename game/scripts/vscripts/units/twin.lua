@@ -2,7 +2,8 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 
 function Spawn (entityKeyValues)
 
-  thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
+  SpawnDumbTwin()
+  --thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   ABILITY_empathy = thisEntity:FindAbilityByName("boss_twin_twin_empathy")
