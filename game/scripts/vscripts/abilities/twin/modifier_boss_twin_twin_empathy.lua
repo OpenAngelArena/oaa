@@ -1,11 +1,11 @@
---LinkLuaModifier("modifier_boss_twin_twin_empathy", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_boss_twin_twin_empathy_buff", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_boss_twin_twin_empathy_buff = class({})
 
 --This may need to be in the abil not the mod
-function modifier_boss_twin_twin_empathy_buff:OnCreate()
-  local interval = self:GetSpecialValueFor( "heal_timer" )
-  mod:StartIntervalThink(interval)
+function modifier_boss_twin_twin_empathy_buff:OnCreated()
+  local interval = 2 --self:GetSpecialValueFor( "heal_timer" )
+  self:StartIntervalThink(interval)
   return true
 end
 
