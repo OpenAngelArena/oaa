@@ -38,3 +38,15 @@ test('can parse item', function (t) {
     t.end();
   });
 });
+
+test('there are no missing tooltips', function (t) {
+  findTooltips.findMissingTooltips(function (err, data) {
+    if (err) {
+      t.fail(err);
+      t.end();
+      return;
+    }
+    t.equal(data.length, 0);
+    t.end();
+  });
+});

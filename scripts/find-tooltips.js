@@ -13,7 +13,8 @@ module.exports = {
   findAllItems: findAllItems,
   parseFile: parseFile,
   getItemsFromKV: getItemsFromKV,
-  getLuaPathsFromKV: getLuaPathsFromKV
+  getLuaPathsFromKV: getLuaPathsFromKV,
+  findMissingTooltips: findMissingTooltips
 };
 
 if (require.main === module) {
@@ -229,7 +230,7 @@ function getLuaPathsFromKV (data) {
 var hiddenModifiers = {};
 function isModifierHidden (modPair, cb) {
   if (hiddenModifiers[modPair[0]] !== undefined) {
-    return hiddenModifiers[modPair[0]];
+    return cb(null, hiddenModifiers[modPair[0]]);
   }
   var functionString = ['function ', modPair[0], ':IsHidden()'].join('');
   fs.readFile(path.join(vscriptsDir, modPair[1]), {
@@ -285,12 +286,6 @@ function findLinkLuaModifiersInFile (script, cb) {
     });
 
     modifierList.forEach(function (modifier) {
-      if (hiddenModifiers[modifier[0]] !== undefined) {
-        if (hiddenModifiers[modifier[0]]) {
-          result.push(modifier[0]);
-        }
-        return;
-      }
       isModifierHidden(modifier, function (err, hidden) {
         if (!err && !hidden) {
           result.push(modifier[0]);
