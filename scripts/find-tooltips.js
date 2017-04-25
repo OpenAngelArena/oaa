@@ -17,7 +17,7 @@ module.exports = {
 };
 
 if (require.main === module) {
-  findMissingTooltips(function() {});
+  findMissingTooltips(function () { });
 }
 
 function findMissingTooltips (cb) {
@@ -29,7 +29,7 @@ function findMissingTooltips (cb) {
 
   var done = after(2, function (err) {
     cb(err, result);
-  })
+  });
 
   findAllUnits(function (err, data) {
     if (err) {
@@ -37,7 +37,7 @@ function findMissingTooltips (cb) {
       return done(err);
     }
     data.map(function (name) {
-      if (translations.indexOf(name) == -1) {
+      if (translations.indexOf(name) === -1) {
         console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + name + '"');
         result.push([name, name]);
       }
@@ -64,13 +64,13 @@ function findMissingTooltips (cb) {
       title = title.toLowerCase();
       description = description.toLowerCase();
 
-      if (translations.indexOf(title) == -1 && requiredTitle) {
+      if (translations.indexOf(title) === -1 && requiredTitle) {
         console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
         result.push([name, title]);
       } else {
         // console.log(translations.lang.Tokens.values[title]);
       }
-      if (translations.indexOf(description) == -1 && requiredDescription) {
+      if (translations.indexOf(description) === -1 && requiredDescription) {
         console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
         result.push([name, description]);
       }
@@ -80,7 +80,7 @@ function findMissingTooltips (cb) {
 }
 
 function listAllItems (cb) {
-  fs.readFile(path.join(npcDir, '/npc_items_custom.txt'), {
+  fs.readFile(path.join(npcDir, 'npc_items_custom.txt'), {
     encoding: 'utf8'
   }, function (err, data) {
     if (err) {
