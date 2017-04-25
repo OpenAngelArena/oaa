@@ -6,6 +6,7 @@ modifier_charge_replenisher = class({})
 function modifier_charge_replenisher:IsHidden()
   return true
 end
+
 function modifier_charge_replenisher:IsDebuff()
   return false
 end
@@ -63,7 +64,7 @@ end
 function modifier_charge_replenishing:OnCreated(keys)
   self:StartIntervalThink(keys.duration)
 end
-function modifier_charge_replenishing:OnRefresh()
+function modifier_charge_replenishing:OnRefresh(keys)
   self:StartIntervalThink(keys.duration)
 end
 function modifier_charge_replenishing:OnIntervalThink()
