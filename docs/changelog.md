@@ -606,10 +606,10 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Switched 2 Camps
 * Changed the Boss Arena Layout to go Counter-Clockwise not Clockwise
 * Updated Texturing for Sharpness
-* Enhanced Mini-Boss Room Entrance in Farmingcave
+* Enhanced Mini-Boss Room Entrance in Cave
 
 
-## Update 0.14.1
+## Hotfix 0.14.1
 `56de08ec510e9e480f666276f071f7f1428169f0`
 * Update Tooltips
 
