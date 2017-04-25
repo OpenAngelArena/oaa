@@ -10,7 +10,7 @@
 		"AbilityTextureName"    "item_recipe"
 		"Model"                 "models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"       "1"
-		"ItemCost"              "2300"
+		"ItemCost"              "20000"
 		"ItemShopTags"          ""
 		"ItemRecipe"            "1"
 		"ItemResult"            "item_reactive_3a"
@@ -35,7 +35,7 @@
 		"AbilityTextureName"    "custom/item_reactive_3a"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       "10.0"
+		"AbilityCooldown"       "0.5"
 		"AbilityCastPoint"      "0.0"
 
 		"MaxUpgradeLevel"       "3"
