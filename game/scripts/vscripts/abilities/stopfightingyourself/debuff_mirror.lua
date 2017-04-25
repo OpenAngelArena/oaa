@@ -89,7 +89,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
     return
   end
 
-  for _,modifier in pairs(modifier) do
+  for _,modifier in ipairs(debuffs) do
     --print(modifier:GetCaster():GetName())
     --print(modifier:GetAbility():GetAbilityName())
     --print(modifier:GetName())

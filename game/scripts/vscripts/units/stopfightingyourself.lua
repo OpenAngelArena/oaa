@@ -1,4 +1,4 @@
-require('libraries/garbagecollection')
+require('libraries/timers')
 
 -- Entry Function
 function Spawn(entityKeyValues)
@@ -12,19 +12,15 @@ function Spawn(entityKeyValues)
 
   ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
 
-  thisEntity.GC = GarbageCollection:Add(thisEntity.illusions, 10)
 end
 
 function Think(state, target)
   -- NOTE: I'm thinking too long
-  -- BUG: Not attacking
-  -- BUG: illusions do not get deleted correctly
   if not thisEntity:IsAlive() then
-    GarbageCollection:Remove(thisEntity.GC)
     if thisEntity.illusions then
-      for i, illusion in ipairs(thisEntity.illusions) do
+      for entindex, illusion in pairs(thisEntity.illusions) do
         illusion:ForceKill(false)
-        if not illusion:IsNull() then
+        if not illusion:IsNull() then -- I'm not sure if this is needed.
           illusion:RemoveSelf()
         end
       end
@@ -50,20 +46,25 @@ function Think(state, target)
   end
 
   if thisEntity:IsIdle() and IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
-    UseRandomItem()
-
-    IllusionsCast()
-
-    ExecuteOrderFromTable({
-      UnitIndex = thisEntity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      Position = GLOBAL_origin + RandomVector(400),
-      Queue = true
-    })
+    local dice = math.random(100)
+    local healthpct = thisEntity:GetMaxHealth() / thisEntity:GetHealth()
+    if dice <= 33 and healthpct <= 33 then
+      UseRandomItem()
+      return 0.5
+    elseif dice <= 66 and healthpct <= 66 then
+      IllusionsCast()
+      return 1
+    end
   end
 
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    Position = GLOBAL_origin + RandomVector(400),
+    Queue = 0
+  })
 
-  return 0.1
+  return 2
 end
 
 function UseRandomItem()

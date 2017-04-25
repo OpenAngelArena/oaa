@@ -120,21 +120,20 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       -- Randomly play sound to player (10% chance)
       -- NOTE this doesn't seem to work
       if math.random(100) <= 10 then
-        EmitAnnouncerSoundForPlayer('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd', unit:GetPlayerID())
+        --EmitAnnouncerSoundForPlayer('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd', unit:GetPlayerID())
+        illusion:EmitSound('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd')
       end
 
       if caster.illusions == nil then
         caster.illusions = {}
       end
-      table.insert(caster.illusions, illusion)
+      caster.illusions[illusion:entindex()] = illusion
 
       illusion:OnDeath(function()
         -- create particle
-        -- NOTE I have yet to see those particles
-        Timers:CreateTimer(0.8, function()
+        Timers:CreateTimer(0.1, function()
           ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
         end)
-        illusion:RemoveSelf()
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)
