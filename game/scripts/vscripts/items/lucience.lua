@@ -198,6 +198,11 @@ end
 
 modifier_item_lucience_movespeed_aura = class(modifier_item_lucience_regen_aura)
 
+-- this is effectively repeated, but it's for the tooltip parser
+
+function modifier_item_lucience_movespeed_aura:IsHidden()
+  return true
+end
 function modifier_item_lucience_movespeed_aura:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
