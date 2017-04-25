@@ -748,6 +748,24 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Heart Transplant
 
 
+## Update 0.18.0
+`a1832aaa008d71b944e415a4a1c0ae375bf85399`
+* Updated Tooltips
+  
+### Items
+* Fixed Stacking Cooldown Reduction
+* Bottle Counter
+  * Changed to count Bottles not Charges
+  * Made more stable
+
+## Duel
+* Added Rune Hill
+* Added Triple Damage Rune
+
+### Misc
+* Fixed Automatic Courier Spawn
+  * You now won't get any random Gold when spawning Couriers
+
 
 ## Template
 ```Markdown
