@@ -4,11 +4,11 @@ CreepTypes = {
   -- 1 "easy camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_kobold",               240,  0,    10,   0,    13,   48},
-      {"npc_dota_neutral_kobold",               240,  0,    10,   0,    13,   48},
-      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   1,    13,   48},
-      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   1,    13,   48},
-      {"npc_dota_neutral_kobold_tunneler",      325,  0,    14,   1,    13,   48}
+      {"npc_dota_neutral_kobold",               240,  0,    10,   1,    13,   48},
+      {"npc_dota_neutral_kobold",               240,  0,    10,   1,    13,   48},
+      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   2,    13,   48},
+      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   2,    13,   48},
+      {"npc_dota_neutral_kobold_tunneler",      325,  0,    14,   2,    13,   48}
     }
   },
     -- 2 "medium camp"
