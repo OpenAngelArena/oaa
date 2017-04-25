@@ -5,7 +5,7 @@ function MakeKFunctionForIndexPowerOffset (index, power, offset)
   end
 end
 
-local BaseCreepPowerMultiplier = 12
+local BaseCreepPowerMultiplier = 18
 local BaseCreepXPGOLDMultiplier = 8
 
 local BaseMultipliers = {
