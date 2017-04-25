@@ -5,13 +5,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 | Language   | Progress |
 | :------------- | :--- |
 | Chinese        | 0%   |
-| German         | 83%  |
+| Czech          | 5%   |
+| German         | 77%  |
 | Hungarian      | 0%   |
-| Polish         | 0%   |
-| Portuguese     | 92%  |
-| Russian        | 99%  |
-| Spanish        | 5%   |
-| Turkish        | 0%   |
+| *Polish*       | 0%   |
+| Portuguese     | 98%  |
+| Russian        | 91%  |
+| Spanish        | 4%   |
+| *Turkish*      | 0%   |
+
+*Italic*  means 'no translator'
 
 ## Changes before 0.0.1
 * Added new Map
