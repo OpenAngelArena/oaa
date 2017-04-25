@@ -28,7 +28,7 @@ function findMissingTooltips (cb) {
   });
   var result = [];
 
-  var done = after(2, function (err) {
+  var done = after(3, function (err) {
     cb(err, result);
   });
 
@@ -41,6 +41,33 @@ function findMissingTooltips (cb) {
       if (translations.indexOf(name) === -1) {
         console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + name + '"');
         result.push([name, name]);
+      }
+    });
+    done();
+  });
+
+  findAllAbilities(function (err, data) {
+    if (err) {
+      console.log(err);
+      return done(err);
+    }
+    data.map(function (name) {
+      var prefix = 'DOTA_Tooltip_Ability_';
+      var title = prefix + name;
+      var description = prefix + name + '_description';
+
+      title = title.toLowerCase();
+      description = description.toLowerCase();
+
+      if (translations.indexOf(title) === -1) {
+        console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
+        result.push([name, title]);
+      } else {
+        // console.log(translations.lang.Tokens.values[title]);
+      }
+      if (translations.indexOf(description) === -1) {
+        console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
+        result.push([name, description]);
       }
     });
     done();
@@ -117,6 +144,57 @@ function listAllUnits (cb) {
       });
 
     cb(null, lines);
+  });
+}
+
+function listAllAbilities (cb) {
+  fs.readFile(path.join(npcDir, 'npc_abilities_custom.txt'), {
+    encoding: 'utf8'
+  }, function (err, data) {
+    if (err) {
+      return cb(err);
+    }
+
+    var lines = data.split('\n')
+      .filter(function (line) {
+        return line.substr(0, 5) === '#base';
+      })
+      .map(function (line) {
+        return line.split('"')[1];
+      });
+
+    cb(null, lines);
+  });
+}
+
+function findAllAbilities (cb) {
+  var result = [];
+  listAllAbilities(function (err, lines) {
+    if (err) {
+      return cb(err);
+    }
+    var done = after(lines.length, function () {
+      var foundList = {};
+      result = result.sort().filter(function (n) {
+        if (foundList[n]) {
+          return false;
+        }
+        foundList[n] = true;
+        return true;
+      });
+      cb(null, result);
+    });
+
+    lines.forEach(function (line) {
+      parseFile(line, function (err, kvData) {
+        if (err) {
+          return done(err);
+        }
+        var unitList = getAbilitiesFromKV(kvData);
+        result = result.concat(unitList);
+        done();
+      });
+    });
   });
 }
 
@@ -204,6 +282,10 @@ function getItemsFromKV (data) {
     }
     return !(!data.DOTAItems[name].values.BaseClass || data.DOTAItems[name].values.BaseClass === name);
   });
+}
+
+function getAbilitiesFromKV (data) {
+  return Object.keys(data.DOTAAbilities).filter(n => n !== 'values');
 }
 
 function getLuaPathsFromKV (data) {
