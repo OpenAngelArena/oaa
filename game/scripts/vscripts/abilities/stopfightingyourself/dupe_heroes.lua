@@ -7,7 +7,28 @@ LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfi
 boss_stopfightingyourself_dupe_heroes = class({})
 
 function boss_stopfightingyourself_dupe_heroes:GetAOERadius()
-  	return self:GetSpecialValueFor('radius')
+  return self:GetSpecialValueFor('radius')
+end
+
+function boss_stopfightingyourself_dupe_heroes:GetCooldown(level)
+  return self:GetSpecialValueFor('cooldown')
+end
+
+function boss_stopfightingyourself_dupe_heroes:CastFilterResultLocation(location)
+  for _,unit in ipairs(FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    target,
+    nil,
+    self:GetSpecialValueFor('radius'),
+    self:GetAbilityTargetTeam(),
+    self:GetAbilityTargetType(),
+    self:GetAbilityTargetFlags(),
+    FIND_ANY_ORDER,
+    false
+  )) do
+    if unit:IsRealHero() then return true end
+  end
+  return false
 end
 
 --[[
@@ -20,9 +41,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
     "item_rapier"
   }
 
-  if caster.illusions and #caster.illusions >= self:GetSpecialValueFor('max_illusions') then
-    return
-  end
+  self:StartCooldown(self:GetSpecialValueFor('cooldown'))
 
   local units = FindUnitsInRadius(
     caster:GetTeamNumber(),
@@ -36,10 +55,12 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
     false
   )
 
-
   for _,unit in ipairs(units) do
-    if unit:IsRealHero() and unit ~= caster then
-      self:StartCooldown(self:GetSpecialValueFor('cooldown'))
+    if unit:IsRealHero() then
+      -- Check if illusion cap has been reached
+      if caster.illusions and caster.illusions.count >= self:GetSpecialValueFor('max_illusions') then
+        return
+      end
 
       local illusion = CreateUnitByName(
         unit:GetName(),
@@ -128,12 +149,16 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         caster.illusions = {}
       end
       caster.illusions[illusion:entindex()] = illusion
+      cast.illusions.count = cast.illusions.count + 1
 
       illusion:OnDeath(function()
         -- create particle
         Timers:CreateTimer(0.1, function()
           ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
         end)
+        caster.illusions[illusion:entindex()]:RemoveSelf()
+        caster.illusions[illusion:entindex()] = nil
+        cast.illusions.count = cast.illusions.count - 1
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)
