@@ -11,6 +11,12 @@ function item_bloodstone_1:OnSpellStart()
   self:GetCaster():Kill(self, self:GetCaster())
 end
 
+-- upgrades
+item_bloodstone_2 = item_bloodstone_1
+item_bloodstone_3 = item_bloodstone_1
+item_bloodstone_4 = item_bloodstone_1
+item_bloodstone_5 = item_bloodstone_1
+
 --------------------------------------------------------------------------
 -- base modifier, is an aura
 

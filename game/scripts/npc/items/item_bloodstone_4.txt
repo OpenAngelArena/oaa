@@ -29,7 +29,8 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3130"      // unique ID
-		"BaseClass"                     "item_bloodstone"
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/bloodstone.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
 
