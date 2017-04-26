@@ -14,7 +14,7 @@ function boss_stopfightingyourself_dupe_heroes:GetCooldown(level)
   return self:GetSpecialValueFor('cooldown')
 end
 
-function boss_stopfightingyourself_dupe_heroes:CastFilterResultLocation(location)
+function boss_stopfightingyourself_dupe_heroes:CastFilterResult()
   for _,unit in ipairs(FindUnitsInRadius(
     caster:GetTeamNumber(),
     target,
