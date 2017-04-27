@@ -101,8 +101,17 @@ function ZoneControl:CreateStateFromHandle (handle, options)
   state.setMode = partial(ZoneControl['SetMode'], state)
 
   -- handlers
-  handle.startTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnStartTouch')
-  handle.endTouchHandler = partial(ZoneControl['onTrigger'], state, 'OnEndTouch')
+  local startTouchEvent = Event()
+  local endTouchEvent = Event()
+
+  handle.startTouchHandler = startTouchEvent.broadcast
+  handle.endTouchHandler = endTouchEvent.broadcast
+
+  state.onStartTouch = startTouchEvent.listen
+  state.onEndTouch = endTouchEvent.listen
+
+  state.onStartTouch(partial(ZoneControl['onTrigger'], state, 'OnStartTouch'))
+  state.onEndTouch(partial(ZoneControl['onTrigger'], state, 'OnEndTouch'))
 
   handle:RedirectOutput('OnStartTouch', 'startTouchHandler', handle)
   handle:RedirectOutput('OnEndTouch', 'endTouchHandler', handle)

@@ -5,12 +5,12 @@
     //=================================================================================================================
     "item_recipe_armlet_3"
     {
- 
+
         "ID"                            "3121"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"            "item_recipe"   
-        "ItemCost"                      "0"
+        "AbilityTextureName"            "item_recipe"
+        "ItemCost"                      "3500"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_armlet_3"
@@ -33,19 +33,19 @@
 		"BaseClass"                     "item_armlet"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"				"item_armlet"
- 
-        // Stats       
+
+        // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "0.0"
- 
+
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
- 
+
         "MaxUpgradeLevel"               "3"
         "ItemBaseLevel"                 "3"
         "UpgradesItems"                 "item_armlet_3"
         "UpgradeRecipe"                 "item_recipe_armlet"
- 
+
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "4420"
@@ -53,8 +53,8 @@
         "ItemQuality"                   "epic"
         "ItemAliases"                   "armlet of mordiggian"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
+
+        // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {
@@ -102,17 +102,17 @@
             {
                 "var_type"              "FIELD_INTEGER"
                 "unholy_health_drain_per_tick"  "5 6 7"
-            }      
+            }
             "10"
             {
                 "var_type"              "FIELD_INTEGER"
                 "unholy_health_drain_per_second_tooltip"    "45 54 63"
-            }  
+            }
             "11"
             {
                 "var_type"              "FIELD_FLOAT"
                 "toggle_cooldown"       "0.036f"
-            }  
+            }
         }
     }
 }

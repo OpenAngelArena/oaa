@@ -5,13 +5,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 | Language   | Progress |
 | :------------- | :--- |
 | Chinese        | 0%   |
-| German         | 83%  |
+| Czech          | 5%   |
+| German         | 77%  |
 | Hungarian      | 0%   |
-| Polish         | 0%   |
-| Portuguese     | 92%  |
-| Russian        | 99%  |
-| Spanish        | 5%   |
-| Turkish        | 0%   |
+| *Polish*       | 0%   |
+| Portuguese     | 98%  |
+| Russian        | 91%  |
+| Spanish        | 4%   |
+| *Turkish*      | 0%   |
+
+*Italic*  means 'no translator'
 
 ## Changes before 0.0.1
 * Added new Map
@@ -603,10 +606,10 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Switched 2 Camps
 * Changed the Boss Arena Layout to go Counter-Clockwise not Clockwise
 * Updated Texturing for Sharpness
-* Enhanced Mini-Boss Room Entrance in Farmingcave
+* Enhanced Mini-Boss Room Entrance in Cave
 
 
-## Update 0.14.1
+## Hotfix 0.14.1
 `56de08ec510e9e480f666276f071f7f1428169f0`
 * Update Tooltips
 
@@ -738,6 +741,34 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Bugs around `modifier_generic_bonus`
 * Fixed Memory Leak where entities did not get deleted correctly by Purge Tester
 * Fixed Courier replacing the first two Items bought during PreGame for the first Player of every Team
+
+
+## Update 0.17.0
+`d2f46c3790d72edbf0fa0dea44c35385fdc88908`
+### Items
+* Fixed Bug where Bottle Counter gets increased when creating Illusions
+* Rewrite Lucience
+* Added Heart Transplant
+
+
+## Update 0.18.0
+`a1832aaa008d71b944e415a4a1c0ae375bf85399`
+* Updated Tooltips
+  
+### Items
+* Fixed Stacking Cooldown Reduction
+* Bottle Counter
+  * Changed to count Bottles not Charges
+  * Made more stable
+
+## Duel
+* Added Rune Hill
+* Added Triple Damage Rune
+
+### Misc
+* Fixed Automatic Courier Spawn
+  * You now won't get any random Gold when spawning Couriers
+
 
 ## Template
 ```Markdown

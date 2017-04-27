@@ -1,7 +1,6 @@
 LinkLuaModifier( "modifier_item_shivas_guard_thinker", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_shivas_cuirass", "items/shivas_cuirass.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_shivas_cuirass_aura", "items/shivas_cuirass.lua",LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_shivas_cuirass_negative", "items/shivas_cuirass.lua",LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
