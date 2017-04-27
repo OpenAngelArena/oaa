@@ -180,6 +180,10 @@ function Duels:ActuallyStartDuel ()
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
 
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
+
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
     badHero:SetRespawnsDisabled(true)
@@ -214,6 +218,10 @@ function Duels:ActuallyStartDuel ()
 
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
+
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
 
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
