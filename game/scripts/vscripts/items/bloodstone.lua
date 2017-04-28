@@ -11,10 +11,6 @@ function item_bloodstone_1:OnSpellStart()
   self:GetCaster():Kill(self, self:GetCaster())
 end
 
-function item_bloodstone_1:OnUpgrade()
-  print('caghrges: ' .. self:GetCurrentCharges())
-end
-
 -- upgrades
 item_bloodstone_2 = item_bloodstone_1
 item_bloodstone_3 = item_bloodstone_1
@@ -114,7 +110,12 @@ end
 
 function modifier_item_bloodstone_oaa:OnDestroy()
   if IsServer() then
+    local ability = self:GetAbility()
     -- store our point values for later
+    if ability:GetCurrentCharges() > self.charges then
+      print('gained ' .. (ability:GetCurrentCharges() - self.charges) .. ' charges')
+      self.charges = ability:GetCurrentCharges()
+    end
     self:GetCaster().surplusCharges = (self:GetCaster().surplusCharges or 0) + self.charges
     self:GetCaster().storedCharges = self.charges
   end
@@ -250,6 +251,10 @@ end
 
 -- charge gain
 function modifier_item_bloodstone_charge_collector:OnDeath(keys)
+  if not IsServer() then
+    return
+  end
+
   local dead = self:GetParent()
 
   if dead ~= keys.unit then
