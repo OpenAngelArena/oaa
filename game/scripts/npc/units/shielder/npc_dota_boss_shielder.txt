@@ -13,7 +13,7 @@
     "SoundSet"                  "axe"                    // Name of sound set.
     "ModelScale"                "1"
     "Level"                     "30"
-    "IsAncient"                 "0"
+    "IsAncient"                 "1"
     "ConsideredHero"            "1"
 
     // Abilities
@@ -31,10 +31,10 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "500"       // Damage range min.
-    "AttackDamageMax"           "600"       // Damage range max.
+    "AttackDamageMin"           "2300"       // Damage range min.
+    "AttackDamageMax"           "2350"       // Damage range max.
     "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                "2.0"           // Speed of attack.
+    "AttackRate"                "1.0"           // Speed of attack.
     "AttackAnimationPoint"      "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "150"       // Range within a target can be acquired.
     "AttackRange"               "128"       // Range within a target can be attacked.
@@ -59,8 +59,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "1000"     // Base health
-    "StatusHealthRegen"         "3.5"        // Health regeneration rate.
+    "StatusHealth"              "5500"     // Base health
+    "StatusHealthRegen"         "8.5"        // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "0"     // Mana regeneration rate.
 
