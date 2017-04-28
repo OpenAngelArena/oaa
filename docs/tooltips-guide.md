@@ -12,8 +12,8 @@ Once tested, this file should not be committed to Github along with the rest of 
 
 ## Directories
 
-The main English tooltip file (addon_english.txt) is located in ".../games/resource/". 
-The individual English tooltip files (ex. tooltip_item_dagon.txt) are located in ".../games/resource/English/". The individual tooltips are divided into subfolders: ability, modifier, & npc.
+The main English tooltip file (addon_english.txt) is located in ".../game/resource/". 
+The individual English tooltip files (ex. tooltip_item_dagon.txt) are located in ".../game/resource/English/". The individual tooltips are divided into subfolders: ability, modifier, & npc.
 
 ### Ability Sub-folder
 
