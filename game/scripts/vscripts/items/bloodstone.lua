@@ -245,6 +245,9 @@ function modifier_item_bloodstone_charge_collector:DeclareFunctions()
   }
 end
 
+function modifier_item_bloodstone_charge_collector:IsHidden()
+  return true
+end
 function modifier_item_bloodstone_charge_collector:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
