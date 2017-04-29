@@ -59,6 +59,10 @@ function modifier_duel_rune_hill:OnIntervalThink()
     return
   end
 
+  if self:GetStackCount() == 130 then
+    return
+  end
+
   local stackCount = self:GetStackCount() + 1
   local rewardTable = {
     [30] = "modifier_rune_regen",
@@ -82,11 +86,11 @@ function modifier_duel_rune_hill:OnIntervalThink()
 
   local particleTable = {
     [1]  = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
-    [30] = "particles/items2_fx/mekanism_recipient_b.vpcf",
-    [80] = "particles/econ/items/shadow_fiend/sf_desolation/sf_desolation_haste_ember_r.vpcf",
-    [90] = "particles/items2_fx/mekanism_b.vpcf",
+    [30] = "particles/items2_fx/mekanism.vpcf",
+    [80] = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
+    [90] = "particles/items2_fx/mekanism.vpcf",
     [100]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
-    [110]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_dust.vpcf",
+    [110]= "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
     [120]= "particles/items2_fx/mekanism.vpcf",
     [130]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
   }
