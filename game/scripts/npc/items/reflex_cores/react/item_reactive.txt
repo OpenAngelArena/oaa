@@ -11,7 +11,7 @@
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
 		"FightRecapLevel"				"1"
-		"ItemCost"						"2300"
+		"ItemCost"						"1500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_reactive"
@@ -29,7 +29,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"									 "3557"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"            "item_datadriven"
+		"BaseClass"            "item_lua"
+    "ScriptFile"           "items/reflex/reactive_invincibility.lua"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityTextureName"   "custom/item_reactive"
 		// Stats
@@ -57,51 +58,23 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"reactive_duration"	".5"
+				"var_type"        	"FIELD_INTEGER"
+				"bonus_health"      "250"
 			}
 			"02"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_health"        "250"
+				"var_type"        	"FIELD_INTEGER"
+				"bonus_armor"     	"5"
 			}
 			"03"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_armor"     "5"
+				"var_type"        	"FIELD_INTEGER"
+				"magic_resistance"  "5"
 			}
 			"04"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"magic_resistance"    "5"
-			}
-		}
-
-		"OnSpellStart"
-		{
-
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName" 	"modifier_reactive_immunity"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_reactive_immunity"
-			{
-				  "IsBuff"          "1"
-					"Duration"				"%reactive_duration"
-					"Passive"					"0"
-					"IsHidden"				"0"
-					"EffectName"			"particles/items_fx/black_king_bar_avatar.vpcf"
-					"Properties"
-					{
-						"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
-						"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
-						"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
-					}
+				"var_type"			"FIELD_FLOAT"
+				"reactive_duration"	".5"
 			}
 		}
 	}

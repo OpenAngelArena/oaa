@@ -1,8 +1,6 @@
 item_trumps_fists = class({})
 
 LinkLuaModifier( "modifier_item_trumps_fists_passive", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_trumps_fists_corruption", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_trumps_fists_cold", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_trumps_fists_frostbite", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_trumps_fists:GetIntrinsicModifierName()
@@ -86,8 +84,6 @@ end
 function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
     if kv.attacker == self:GetParent() then
-      -- kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_cold", { duration = self.cold_duration } )
-      -- kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_corruption", { duration = self.corruption_duration } )
       kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
     end
   end
@@ -138,56 +134,3 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
 		end
 	end
 end
-
---------------------------------------------------------------------------------
-
-modifier_item_trumps_fists_corruption = class({})
-
-function modifier_item_trumps_fists_corruption:OnCreated()
-  self.corruption_armor = self:GetAbility():GetSpecialValueFor( "corruption_armor" )
-end
-
-function modifier_item_trumps_fists_corruption:IsDebuff()
-  return true
-end
-
-function modifier_item_trumps_fists_corruption:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-  }
-  return funcs
-end
-
-function modifier_item_trumps_fists_corruption:GetModifierPhysicalArmorBonus()
-  return self.corruption_armor
-end
-
---------------------------------------------------------------------------------
-modifier_item_trumps_fists_cold = class({})
-
-function modifier_item_trumps_fists_cold:OnCreated()
-  self.cold_movement_speed = self:GetAbility():GetSpecialValueFor( "cold_movement_speed" )
-  self.cold_attack_speed = self:GetAbility():GetSpecialValueFor( "cold_attack_speed" )
-end
-
-function modifier_item_trumps_fists_cold:IsDebuff()
-  return true
-end
-
-function modifier_item_trumps_fists_cold:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-  }
-  return funcs
-end
-
-function modifier_item_trumps_fists_cold:GetModifierMoveSpeedBonus_Percentage()
-  return self.cold_movement_speed
-end
-
-function modifier_item_trumps_fists_cold:GetModifierAttackSpeedBonus_Constant()
-  return self.cold_attack_speed
-end
-
---------------------------------------------------------------------------------

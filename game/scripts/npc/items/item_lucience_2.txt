@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -36,7 +36,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3332"
-		"BaseClass"                     "item_datadriven"
+		"BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/lucience.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"            "custom/lucience"
 		"AbilityCooldown"               "3"
@@ -54,158 +55,37 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"UpgradesItems"					"item_lucience_2;"
 
-		// Modifiers
+		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
 		}
-		// Toggle between heal and speed auras
-		//-----------------------------------------------------------------------
-		"OnUnequip"
-		{
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_heal"
-			}
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_movespeed"
-			}
-		}
-		"OnUpgrade"
-		{
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_heal"
-			}
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_movespeed"
-			}
-		}
-		"OnEquip"
-		{
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_heal"
-			}
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_movespeed"
-			}
-		}
-		"OnToggleOn"
-		{
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_movespeed"
-			}
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_heal"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_heal"
-			}
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_item_lucience_movespeed"
-			}
-		}
-		"Modifiers"
-		{
-			// Passive Stats
-			//-----------------------------------------------------------------------
-			"modifier_item_lucience_passive_stats"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
-				}
-			}
-
-
-			// Feel the healin' beat!
-			//-----------------------------------------------------------------------
-			"modifier_item_lucience_heal"
-			{
-				"IsHidden"						"1"
-				"Aura"							"heal_aura_effect"
-				"Aura_Radius"					"%aura_radius"
-				"Aura_Teams"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_ApplyToCaster"			"1"
-			}
-			"heal_aura_effect"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen_bonus"
-				}
-			"EffectName" 						"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
-            "EffectAttachType" 					"follow_origin"
-			}
-			// Speed boost!
-			//-----------------------------------------------------------------------
-			"modifier_item_lucience_movespeed"
-			{
-				"IsHidden"						"1"
-				"Aura"							"movespeed_aura_effect"
-				"Aura_Radius"					"%aura_radius"
-				"Aura_Teams"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_ApplyToCaster"			"1"
-			}
-			"movespeed_aura_effect"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
-				}
-			"EffectName" 						"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient_glow.vpcf"
-            "EffectAttachType" 					"follow_origin"
-			}
-		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_bonus"			"75 150 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"20 40 60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"700"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"65"
-			}
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"    "65"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "regen_bonus"     "75 150 300"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "speed_bonus"     "20 40 60"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "aura_radius"     "700"
+      }
 		}
 	}
 }

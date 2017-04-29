@@ -7,7 +7,7 @@ function modifier_octarine_vampirism_applier:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING
+    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
   }
 end
 
@@ -23,7 +23,7 @@ function modifier_octarine_vampirism_applier:GetModifierManaBonus()
   return self:GetAbility():GetSpecialValueFor('bonus_mana')
 end
 
-function modifier_octarine_vampirism_applier:GetModifierPercentageCooldownStacking()
+function modifier_octarine_vampirism_applier:GetModifierPercentageCooldown()
   return self:GetAbility():GetSpecialValueFor('bonus_cooldown')
 end
 

@@ -10,7 +10,7 @@
 		"AbilityTextureName"    "item_recipe"
 		"Model"                 "models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"       "1"
-		"ItemCost"              "2300"
+		"ItemCost"              "20000"
 		"ItemShopTags"          ""
 		"ItemRecipe"            "1"
 		"ItemResult"            "item_reactive_3a"
@@ -35,7 +35,7 @@
 		"AbilityTextureName"    "custom/item_reactive_3a"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       "10.0"
+		"AbilityCooldown"       "0.5"
 		"AbilityCastPoint"      "0.0"
 
 		"MaxUpgradeLevel"       "3"
@@ -62,33 +62,33 @@
 		{
 			"01"
 			{
-				"var_type"        "FIELD_FLOAT"
-				"duration"        "0.5"
+				"var_type"        		"FIELD_INTEGER"
+				"bonus_health"        	"4000"
 			}
 			"02"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"max_charges"     "3"
+				"var_type"        		"FIELD_INTEGER"
+				"bonus_armor"     		"20"
 			}
 			"03"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"charge_restore_time" "20"
+				"var_type"        		"FIELD_INTEGER"
+				"magic_resistance"    	"20"
 			}
 			"04"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_health"        "4000"
+				"var_type"        		"FIELD_FLOAT"
+				"duration"        		"0.5"
 			}
 			"05"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_armor"     "20"
+				"var_type"        		"FIELD_INTEGER"
+				"max_charges"     		"3"
 			}
 			"06"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"magic_resistance"    "20"
+				"var_type"        		"FIELD_INTEGER"
+				"charge_restore_time" 	"20"
 			}
 		}
 

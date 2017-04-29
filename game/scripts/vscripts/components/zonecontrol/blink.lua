@@ -14,8 +14,10 @@ local AbilityMovementMap = {
 
 -- Taken from bb template
 if BlinkBlock == nil then
-    DebugPrint ( '[zonecontrol/blink] creating new blink blocker object' )
-    BlinkBlock = class({})
+  DebugPrint ( 'creating new blink blocker object' )
+  BlinkBlock = class({})
+
+  Debug.EnabledModules['zonecontrol:blink'] = false
 end
 
 -- todo: support items

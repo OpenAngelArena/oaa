@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4500"
+		"ItemCost"						"20000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -36,7 +36,7 @@
 		"ID"							"3633"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_monkey_king_bar"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_monkey_king_bar"
+		"AbilityTextureName"            "custom/Monkey_King_Bar_5"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"25400"

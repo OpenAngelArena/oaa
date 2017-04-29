@@ -3,11 +3,6 @@ if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
 
-  -- debugging lines, enable logging and enable chat commands to start/stop duels
-
-  Debug.EnabledModules['duels:*'] = false
-  Debug.EnabledModules['zonecontrol:*'] = false
-
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
 end
@@ -185,6 +180,10 @@ function Duels:ActuallyStartDuel ()
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
 
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
+
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
     badHero:SetRespawnsDisabled(true)
@@ -219,6 +218,10 @@ function Duels:ActuallyStartDuel ()
 
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
+
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
 
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
@@ -308,7 +311,7 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-hero:SetHealth(hero:GetMaxHealth())
+  hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
@@ -378,7 +381,12 @@ function Duels:RestorePlayerState (hero, state)
   for abilityIndex = 0,hero:GetAbilityCount()-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
-      ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+      if state.abilities[abilityIndex] == nil then
+        DebugPrint('Why is this ability broken?' .. abilityIndex)
+        DebugPrintTable(state)
+      else
+        ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+      end
     end
   end
 

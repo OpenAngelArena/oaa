@@ -11,7 +11,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"20000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -20,8 +20,7 @@
 		"ItemResult"					"item_shivas_cuirass_2"
 		"ItemRequirements"
 		{
-			"01"						"item_shivas_cuirass;item_upgrade_core_3"
-			"02"						"item_shivas_cuirass;item_upgrade_core_4"
+			"01"						"item_shivas_cuirass;item_upgrade_core_4"
 		}
 	}
 

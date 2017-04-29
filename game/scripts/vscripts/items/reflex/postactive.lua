@@ -1,6 +1,11 @@
 LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_postactive = class({})
+
+function item_postactive:GetIntrinsicModifierName()
+  return "modifier_generic_bonus"
+end
 
 function item_postactive:OnSpellStart()
   local caster = self:GetCaster()
@@ -15,7 +20,7 @@ function item_postactive:OnSpellStart()
     testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
     testUnit:Purge(false, true, true, false, false)
     local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
-    testUnit:ForceKill(false)
+    testUnit:RemoveSelf()
     return modifierIsPurgableDebuff
   end
 

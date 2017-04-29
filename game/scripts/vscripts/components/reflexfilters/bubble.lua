@@ -5,7 +5,7 @@ if not BubbleOrbFilter then
   DebugPrint("Creating filter for Preemptive 3c (Bubble Orb)")
   BubbleOrbFilter = class({})
 
-  Debug.EnabledModules["reflexfilters:bubble"] = true
+  Debug.EnabledModules["reflexfilters:bubble"] = false
 end
 
 function BubbleOrbFilter:Init()
@@ -13,6 +13,10 @@ function BubbleOrbFilter:Init()
 end
 
 function BubbleOrbFilter:ModifierGainedFilter(keys)
+  if not keys.entindex_caster_const then
+    return true
+  end
+
   local caster = EntIndexToHScript(keys.entindex_caster_const)
   local parent = EntIndexToHScript(keys.entindex_parent_const)
   local bubbleModifierName = "modifier_item_preemptive_bubble_block"
@@ -30,10 +34,6 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   end
 
   if not parentHasBubbleModifier or casterIsAlly or casterIsInBubbles then
-    if parentHasBubbleModifier and caster ~= parent then
-      DebugPrint(tostring(casterIsAlly))
-      DebugPrint(tostring(casterIsInBubbles))
-    end
     return true
   else
     return false

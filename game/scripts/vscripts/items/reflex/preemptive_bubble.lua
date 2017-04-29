@@ -71,9 +71,12 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
     self.bubbleCenter = self:GetParent():GetOrigin()
     self.caster = self:GetCaster()
     self.casterTeam = self.caster:GetTeamNumber()
+    self.bubbleIdentifier = "BubbleOrbID: " .. self.casterTeam .. "," .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
     self.ability = self:GetAbility()
     self.radius = self.ability:GetSpecialValueFor("radius")
-    self:StartIntervalThink(0.1)
+    self.aura_stickiness = self.ability:GetSpecialValueFor("aura_stickiness")
+    self:StartIntervalThink(self.aura_stickiness)
+    self:OnIntervalThink()
   end
 end
 
@@ -81,11 +84,36 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
   local alliedUnitsInBubble = FindUnitsInRadius(self.casterTeam, self.bubbleCenter, nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
   function ApplyBlockModifier(unit)
-    unit:AddNewModifier(self.caster, self.ability, "modifier_item_preemptive_bubble_block", {
-      duration = 0.1,
-      aura_origin_x = self.bubbleCenter.x,
-      aura_origin_y = self.bubbleCenter.y
-    })
+    local bubbleModifierName = "modifier_item_preemptive_bubble_block"
+    local bubbleModifiers = unit:FindAllModifiersByName(bubbleModifierName)
+
+    -- Checks if the given modifier comes from the bubble represented by self by comparing centers
+    function IsFromThisBubble(modifier)
+      return modifier.bubbleCenter.x == self.bubbleCenter.x and modifier.bubbleCenter.y == self.bubbleCenter.y
+    end
+
+    local duplicateModifier = nth(1, filter(IsFromThisBubble, bubbleModifiers))
+    -- If the unit already has a modifier with the same center then refresh its timer
+    if duplicateModifier then
+      Timers:RemoveTimer(self.bubbleIdentifier)
+      Timers:CreateTimer(self.bubbleIdentifier, {
+        endTime = self.aura_stickiness,
+        callback = function()
+          duplicateModifier:Destroy()
+        end
+      })
+    else -- Else create a new modifier and set a timer so that it gets destroyed if not refreshed
+      local newBubbleModifier = unit:AddNewModifier(self.caster, self.ability, bubbleModifierName, {
+        aura_origin_x = self.bubbleCenter.x,
+        aura_origin_y = self.bubbleCenter.y
+      })
+      Timers:CreateTimer(self.bubbleIdentifier, {
+        endTime = self.aura_stickiness,
+        callback = function()
+          newBubbleModifier:Destroy()
+        end
+      })
+    end
   end
 
   foreach(ApplyBlockModifier, iter(alliedUnitsInBubble))

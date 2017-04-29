@@ -7,7 +7,7 @@
   {
     "ID"            "3823"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "2300"
+    "ItemCost"          "20000"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_3c"
@@ -58,28 +58,34 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "radius"        "275"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "4.0"
-      }
-      "03"
-      {
         "var_type"        "FIELD_INTEGER"
         "bonus_health"        "4000"
       }
-      "04"
+      "02"
       {
         "var_type"        "FIELD_INTEGER"
         "bonus_armor"     "20"
       }
-      "05"
+      "03"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "20"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "4.0"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"        "275"
+      }
+      "06"
+      {
+        // The time that the buff effect lingers after exiting the bubble
+        "var_type"          "FIELD_FLOAT"
+        "aura_stickiness"   "0.1"
       }
     }
 
