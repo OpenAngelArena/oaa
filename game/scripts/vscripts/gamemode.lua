@@ -150,6 +150,7 @@ function GameMode:OnPreGame()
   InitModule(SellBlackList)
   InitModule(BubbleOrbFilter)
   InitModule(NGP)
+  InitModule(Doors)
 end
 
 --[[
