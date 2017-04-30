@@ -201,7 +201,7 @@ modifier_item_greater_tranquil_boots_sap = class({})
 --------------------------------------------------------------------------------
 
 function modifier_item_greater_tranquil_boots_sap:IsHidden()
-	return false
+	return true
 end
 
 function modifier_item_greater_tranquil_boots_sap:IsDebuff()
