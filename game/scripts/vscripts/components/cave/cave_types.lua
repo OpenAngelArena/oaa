@@ -29,18 +29,18 @@ local BaseMultipliers = {
 -- "creep name", Health, Mana, Damage, Armor, Gold Bounty, Exp Bounty
 CaveTypes = {
   [1] = { -- 1 "Howl's it Going?"
-    {                                         --HP    MANA  DMG   ARM   GOLD  EXP
+    {                                            --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
-        {"npc_dota_neutral_alpha_wolf",           240,  0,    33,   1,    19,   60, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
+        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 0), -- function (k) return 1 end,
@@ -54,18 +54,16 @@ CaveTypes = {
     }
   },
   [2] = { -- 2 "Horse Tomatina"
-    {                                                    --HP  MANA  DMG  ARM  GOLD  EXP
+    {                                                    --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  950,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  950,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  950,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  950,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  950,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_centaur_khan",               1100,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_centaur_khan",               1100,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_centaur_khan",               1100,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_centaur_khan",               1100,    0,  55,   1,  19, 60, 30},
-        {"npc_dota_neutral_centaur_khan",               1100,    0,  55,   1,  19, 60, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 2), -- function (k) return 1 end,
@@ -79,16 +77,14 @@ CaveTypes = {
     }
   },
   [3] = { -- 3 "Draggin' it Around"
-    {                                         --HP    MANA  DMG   ARM   GOLD  EXP
+    {                                        --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
-        {"npc_dota_neutral_black_drake",      1600,      0,  65,   1,  24, 75, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 4), -- function (k) return 1 end,
