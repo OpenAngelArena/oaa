@@ -1,8 +1,8 @@
 Bosses = {
   -- tier 1
   {
+    "npc_dota_boss_tier_1",
     "npc_dota_boss_shielder",
-    "npc_dota_boss_twin",
     "npc_dota_boss_tier_3",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
