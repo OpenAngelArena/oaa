@@ -21,14 +21,22 @@ CreepTypes = {
     -- 3 "hard camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_centaur_khan",         2000, 400,  62,   2,    55,   100},
-      {"npc_dota_neutral_centaur_outrunner",    1000, 400,  44,   2,    40,   100},
-      {"npc_dota_neutral_centaur_outrunner",    1000, 400,  44,   2,    40,   100},
+      {"npc_dota_neutral_centaur_khan",         2200, 400,  70,   3,    66,   120},
+      {"npc_dota_neutral_centaur_outrunner",    1500, 400,  50,   2,    46,   120},
+      {"npc_dota_neutral_centaur_outrunner",    1500, 400,  50,   2,    46,   120},
+    },
+    {                                         --HP    MANA  DMG   ARM   GOLD  EXP
+      {"npc_dota_neutral_centaur_khan",         2200, 400,  70,   3,    66,   120},
+      {"npc_dota_neutral_centaur_outrunner",    1500, 400,  50,   2,    46,   120},
     },
     {
-      {"npc_dota_neutral_giant_wolf",           800,  400,  31,   4,    30,    95},
-      {"npc_dota_neutral_giant_wolf",           800,  400,  31,   4,    30,    95},
-      {"npc_dota_neutral_alpha_wolf",           1700, 600,  82,   8,    75,   110}
+      {"npc_dota_neutral_giant_wolf",           900,  200,  35,   4,    30,   110},
+      {"npc_dota_neutral_giant_wolf",           900,  200,  35,   4,    30,   110},
+      {"npc_dota_neutral_alpha_wolf",           1800, 600,  100,   8,    90,   135}
+    },
+    {
+      {"npc_dota_neutral_giant_wolf",           900,  200,  35,   4,    30,   110},
+      {"npc_dota_neutral_alpha_wolf",           1800, 600,  100,   8,    90,   135}
     }
       -- {"npc_dota_neutral_jungle_stalker",       1600, 400,  55,   2,    61,   40},
   }
