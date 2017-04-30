@@ -4,20 +4,18 @@ CreepTypes = {
   -- 1 "easy camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_kobold",               240,  0,    10,   1,    10,   40},
-      {"npc_dota_neutral_kobold",               240,  0,    10,   1,    10,   40},
-      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   2,    16,   56},
-      {"npc_dota_neutral_kobold_taskmaster",    400,  0,    14,   2,    16,   56},
-      {"npc_dota_neutral_kobold_tunneler",      325,  0,    14,   2,    13,   48}
+      {"npc_dota_neutral_kobold",               300,  0,    10,   1,    13,   54},
+      {"npc_dota_neutral_kobold",               300,  0,    10,   1,    13,   54},
+      {"npc_dota_neutral_kobold_taskmaster",    600,  0,    18,   2,    22,   70},
+      {"npc_dota_neutral_kobold_tunneler",      425,  0,    14,   2,    17,   62}
     }
   },
     -- 2 "medium camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    18,   100},
-      {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    18,   100},
-      {"npc_dota_neutral_harpy_storm",          550,  400,  33,   2,    18,   100},
-      {"npc_dota_neutral_harpy_scout",          400,  0,    31,   1,    14,    60},
+      {"npc_dota_neutral_harpy_storm",          750,  400,  40,   2,    24,   140},
+      {"npc_dota_neutral_harpy_storm",          750,  400,  40,   2,    24,   140},
+      {"npc_dota_neutral_harpy_scout",          550,  0,    50,   1,    20,    80},
     }
   },
     -- 3 "hard camp"
