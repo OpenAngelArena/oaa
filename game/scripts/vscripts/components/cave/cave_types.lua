@@ -5,7 +5,7 @@ function MakeKFunctionForIndexPowerOffset (index, power, offset)
   end
 end
 
-local BaseCreepPowerMultiplier = 18
+local BaseCreepPowerMultiplier = 32
 local BaseCreepXPGOLDMultiplier = 8
 
 local BaseMultipliers = {
@@ -54,14 +54,14 @@ CaveTypes = {
   [2] = { -- 2 "Horse Tomatina"
     {                                                    --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",  1000,  0,    80,   1,    24,   75, 30},
-        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
-        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
-        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
-        {"npc_dota_neutral_centaur_khan",                1200,  0,    55,   2,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   250,  0,    50,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   250,  0,    50,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   250,  0,    50,   1,    24,   75, 30},
+        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   250,  0,    50,   1,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                 350,  0,    20,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                 350,  0,    20,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                 350,  0,    20,   2,    24,   75, 30},
+        {"npc_dota_neutral_centaur_khan",                 350,  0,    20,   2,    24,   75, 30},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 2), -- function (k) return 1 end,
@@ -77,12 +77,12 @@ CaveTypes = {
   [3] = { -- 3 "Draggin' it Around"
     {                                        --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
-        {"npc_dota_neutral_black_drake",      1800,  0,   90,   3,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
+        {"npc_dota_neutral_black_drake",       400,  0,   50,   1,    32,  100, 50},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 4), -- function (k) return 1 end,
@@ -96,10 +96,10 @@ CaveTypes = {
     }
   },
   [4] = { -- 4 "Roashes Everywhere"
-    {                                         --HP    MANA  DMG   ARM   GOLD  EXP
+    {                                         --HP    MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_mini_roshan",              5500,   0,    65,   15,   95,  300, 70},
-        {"npc_dota_mini_roshan",              5500,   0,    65,   15,   95,  300, 70},
+        {"npc_dota_mini_roshan",              1500,   0,    120,    4,   95,  300, 70},
+        {"npc_dota_mini_roshan",              1500,   0,    120,    4,   95,  300, 70},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 6), -- function (k) return 1 end,
