@@ -39,8 +39,6 @@ CaveTypes = {
         {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
         {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
         {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
-        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
-        {"npc_dota_neutral_alpha_wolf",           300,  0,    37,   1,    24,   75, 10},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 0), -- function (k) return 1 end,
