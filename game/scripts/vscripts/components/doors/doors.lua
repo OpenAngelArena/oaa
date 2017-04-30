@@ -15,12 +15,10 @@ DOOR_STATE_CLOSED = 4
 function Doors:Init()
   local testgate = Doors:CreateDoors(Vector(300, 0, 0), 300, {})
   DebugPrintTable(testgate)
-
-
 end
 
 function Doors:CreateDoors(position, angle, settings)
-  local gate = self:CreateEmptyGate()
+  local gate = self:CreateEmptyGate(settings)
 
   gate.props = self:SpawnDoors(position, angle, settings)
 
@@ -31,9 +29,9 @@ function Doors:CreateDoors(position, angle, settings)
 end
 
 function Doors:UseDoors(name, settings)
-  local gate = self:CreateEmptyGate()
+  local gate = self:CreateEmptyGate(settings)
 
-  gate.props = FindByName(nil, name)
+  gate.props.gate = FindByName(nil, name)
 
   gate.Open = partial(Doors['OpenDoors'], gate, settings)
   gate.Close = partial(Doors['CloseDoors'], gate, settings)
@@ -94,10 +92,10 @@ function Doors.CloseDoors(gate, settings)
   end)
 end
 
-function Doors:CreateEmptyGate()
+function Doors:CreateEmptyGate(settings)
   return {
     props = {},
-    state = DOOR_STATE_UNKOWN,
+    state = settings.state or DOOR_STATE_UNKOWN,
     Open = nil,
     Close = nil,
   }
