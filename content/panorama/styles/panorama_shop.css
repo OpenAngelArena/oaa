@@ -139,7 +139,7 @@
   width: 100%;
   margin-left: 6px;
   margin-right: 6px;
-  //background-image: url("s2r://panorama/images/custom_game/shop/tabs_panel_png.vtex");
+  /* background-image: url("s2r://panorama/images/custom_game/shop/tabs_panel_png.vtex"); */ /*TODO check if this should be commented */
   background-size: cover;
   border-radius: 3px;
   border: 1px solid #5b687277;
@@ -378,6 +378,7 @@
   transition-property: brightness;
   transition-duration: 0.15s;
 }
+
 #QuickBuyClearButtonPanel:hover
 {
   brightness: 1.0;
@@ -412,7 +413,7 @@
 
 
 
-//Standart, 16x9
+/* Standart, 16x9 */
 #QuickBuyPanel
 {
   background-image: url("s2r://panorama/images/hud/reborn/quickbuy_bg_psd.vtex");
