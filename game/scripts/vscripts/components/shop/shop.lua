@@ -93,13 +93,13 @@ function PanoramaShop:InitializeItemTable()
   local itemsBuldsInto = {}
   for name, kv in pairs(PanoramaShop._RawItemData) do
     local itemdata = {
-      id = kv.ID or -1,
+      id = kv.ID or - 1,
       purchasable = (kv.ItemPurchasable or 1) == 1 and (kv.ItemPurchasableFilter or 1) == 1,
       cost = GetTrueItemCost(name),
       names = { name:lower() },
     }
     if kv.ItemAliases then
-      for _,v in ipairs(string.split(kv.ItemAliases, ";")) do
+      for _, v in ipairs(string.split(kv.ItemAliases, ";")) do
         if not table.contains(itemdata.names, v:lower()) then
           table.insert(itemdata.names, v:lower())
         end
@@ -133,7 +133,7 @@ function PanoramaShop:InitializeItemTable()
       for key, ItemRequirements in pairsByKeys(recipeKv.ItemRequirements) do
         local itemParts = string.split(string.gsub(ItemRequirements, " ", ""), ";")
         table.insert(recipedata.items, itemParts)
-        for _,v in ipairs(itemParts) do
+        for _, v in ipairs(itemParts) do
           if not itemsBuldsInto[v] then itemsBuldsInto[v] = {} end
           if not table.contains(itemsBuldsInto[v], name) then
             table.insert(itemsBuldsInto[v], name)
@@ -144,7 +144,7 @@ function PanoramaShop:InitializeItemTable()
     end
     if kv.ItemStockMax or kv.ItemStockTime or kv.ItemInitialStockTime or kv.ItemStockInitial then
       local stocks = {
-        ItemStockMax = kv.ItemStockMax or -1,
+        ItemStockMax = kv.ItemStockMax or - 1,
         ItemStockTime = kv.ItemStockTime or 0,
         current_stock = kv.ItemStockInitial,
         current_cooldown = kv.ItemInitialStockTime or 0,
@@ -157,15 +157,15 @@ function PanoramaShop:InitializeItemTable()
           stocks.current_stock = 0
         end
       end
-      for k,_ in pairs(PanoramaShop.StocksTable) do
+      for k, _ in pairs(PanoramaShop.StocksTable) do
         PanoramaShop.StocksTable[k][name] = {}
         table.merge(PanoramaShop.StocksTable[k][name], stocks)
       end
     end
     PanoramaShop.FormattedData[name] = itemdata
   end
-  for unit,itemlist in pairs(DROP_TABLE) do
-    for _,v in ipairs(itemlist) do
+  for unit, itemlist in pairs(DROP_TABLE) do
+    for _, v in ipairs(itemlist) do
       local iteminfo = PanoramaShop.FormattedData[v.Item]
       if iteminfo.Recipe then
         print("[PanoramaShop] Item that has recipe is defined in unit drop table", itemName)
@@ -181,7 +181,7 @@ function PanoramaShop:InitializeItemTable()
       end
     end
   end
-  for name,items in pairs(itemsBuldsInto) do
+  for name, items in pairs(itemsBuldsInto) do
     if PanoramaShop.FormattedData[name] then
       PanoramaShop.FormattedData[name].BuildsInto = items
     end
@@ -206,7 +206,7 @@ function PanoramaShop:InitializeItemTable()
   table.add(allItembuilds, VALVE_ITEMBUILDS)
 
   local itembuilds = {}
-  for k,v in ipairs(allItembuilds) do
+  for k, v in ipairs(allItembuilds) do
     if not itembuilds[v.hero] then itembuilds[v.hero] = {} end
     table.insert(itembuilds[v.hero], {
       title = v.title,
@@ -223,8 +223,8 @@ function PanoramaShop:InitializeItemTable()
 end
 
 function PanoramaShop:StartItemStocks()
-  for team,v in pairs(PanoramaShop.StocksTable) do
-    for item,stocks in pairs(v) do
+  for team, v in pairs(PanoramaShop.StocksTable) do
+    for item, stocks in pairs(v) do
       if stocks.current_cooldown > 0 then
         PanoramaShop:StackStockableCooldown(team, item, stocks.current_cooldown)
       elseif stocks.ItemStockMax == -1 or stocks.current_stock < stocks.ItemStockMax then
@@ -264,7 +264,7 @@ function PanoramaShop:PushItem(playerID, unit, name, bOnlyStash)
   if not itemPushed then
     if not isInShop then SetAllItemSlotsLocked(hero, true, true) end
     FillSlotsWithDummy(hero, false)
-    for i = DOTA_STASH_SLOT_1 , DOTA_STASH_SLOT_6 do
+    for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
       local current_item = unit:GetItemInSlot(i)
       if current_item and current_item:GetAbilityName() == "item_dummy" then
         UTIL_Remove(current_item)
@@ -330,7 +330,7 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
       for _, newchilditem in ipairs(itemData.Recipe.items[1]) do
         local subitems, newCounter = GetAllPrimaryRecipeItems(newchilditem)
         table.add(primary_items, subitems)
-        for k,v in pairs(newCounter) do
+        for k, v in pairs(newCounter) do
           _tempItemCounter[k] = (_tempItemCounter[k] or 0) + v
         end
       end
@@ -347,7 +347,7 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
     local primary_items = GetAllPrimaryRecipeItems(childItemName)
     table.removeByValue(primary_items, childItemName)
 
-    for _,v in ipairs(primary_items) do
+    for _, v in ipairs(primary_items) do
       local stocks = PanoramaShop:GetItemStockCount(team, v)
       if FindItemInInventoryByName(unit, v, true) or GetKeyValue(v, "ItemPurchasableFilter") == 0 or GetKeyValue(v, "ItemPurchasable") == 0 or stocks then
         return true
@@ -395,7 +395,7 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
   local ItemsInStash = {}
   local ItemsToBuy = {}
   local wastedGold = 0
-  for name,status in pairs(ProbablyPurchasable) do
+  for name, status in pairs(ProbablyPurchasable) do
     name = string.gsub(name, "_index_%d+", "")
     if status == SHOP_LIST_STATUS_NO_BOSS then
       Containers:DisplayError(playerID, "dota_hud_error_item_from_bosses")
@@ -418,12 +418,12 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
     Gold:RemoveGold(playerID, wastedGold)
 
     if isInShop then
-      for _,v in ipairs(ItemsInStash) do
+      for _, v in ipairs(ItemsInStash) do
         local removedItem = FindItemInInventoryByName(unit, v, true, not isInShop)
         if not removedItem then removedItem = FindItemInInventoryByName(unit, v, false) end
         unit:RemoveItem(removedItem)
       end
-      for _,v in ipairs(ItemsInInventory) do
+      for _, v in ipairs(ItemsInInventory) do
         local removedItem = FindItemInInventoryByName(unit, v, false)
         if not removedItem then removedItem = FindItemInInventoryByName(unit, v, true, true) end
         unit:RemoveItem(removedItem)
@@ -433,7 +433,7 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
         PanoramaShop:DecreaseItemStock(team, itemName)
       end
     elseif #ItemsInInventory == 0 and #ItemsInStash > 0 then
-      for _,v in ipairs(ItemsInStash) do
+      for _, v in ipairs(ItemsInStash) do
         unit:RemoveItem(FindItemInInventoryByName(unit, v, true, false))
       end
       PanoramaShop:PushItem(playerID, unit, itemName, true)
@@ -441,7 +441,7 @@ function PanoramaShop:BuyItem(playerID, unit, itemName)
         PanoramaShop:DecreaseItemStock(team, itemName)
       end
     else
-      for _,v in ipairs(ItemsToBuy) do
+      for _, v in ipairs(ItemsToBuy) do
         PanoramaShop:PushItem(playerID, unit, v)
         if PanoramaShop.StocksTable[team][v] then
           PanoramaShop:DecreaseItemStock(team, v)
