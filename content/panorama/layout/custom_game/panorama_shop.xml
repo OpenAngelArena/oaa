@@ -1,20 +1,20 @@
-sssfile://{resources}file://{resources}<root>
+<root>
   <styles>
-    <include src="file://{resources}/styles/dotastyles.vcss_c" />
-    <include src="file://{resources}/styles/panorama_shop.vcss_c" />
+    <include src="file://{resources}/styles/dotastyles.vcss_c"/>
+    <include src="file://{resources}/styles/panorama_shop.vcss_c"/>
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/util.vjs_c" />
-    <include src="file://{resources}/scripts/panorama_shop.vjs_c" />
+    <include src="file://{resources}/scripts/util.vjs_c"/>
+    <include src="file://{resources}/scripts/panorama_shop.vjs_c"/>
   </scripts>
   <snippets>
     <snippet name="SmallItem">
       <Panel class="SmallItemPanel" draggable="true">
         <Button id="SmallItemButton">
-          <DOTAItemImage hittest="false" id="SmallItemImage" />
+          <DOTAItemImage hittest="false" id="SmallItemImage"/>
           <Label hittest="false" id="SmallItemStock"/>
-          <Label hittest="false" id="StockTimer" />
-          <Panel hittest="false" id="StockOverlay" />
+          <Label hittest="false" id="StockTimer"/>
+          <Panel hittest="false" id="StockOverlay"/>
         </Button>
       </Panel>
     </snippet>
@@ -22,36 +22,36 @@ sssfile://{resources}file://{resources}<root>
   <Panel hittest="false" class="base">
     <Panel hittest="true" onmouseactivate="" id="ShopBase" class="ShopBase_Out">
       <Panel id="ItembuildsPanel">
-        <Panel id="Itembuild_selectBox" />
+        <Panel id="Itembuild_selectBox"/>
         <Panel class="SimpleRow">
           <Label text="#panorama_shop_itembuild_author"/>
-          <Label class="SimpleRowValue" id="Itembuild_author" />
+          <Label class="SimpleRowValue" id="Itembuild_author"/>
         </Panel>
         <Panel class="SimpleRow">
           <Label text="#panorama_shop_itembuild_patch"/>
-          <Label class="SimpleRowValue" id="Itembuild_patch" />
+          <Label class="SimpleRowValue" id="Itembuild_patch"/>
         </Panel>
-        <Panel id="ItembuildPanelsRoot" />
+        <Panel id="ItembuildPanelsRoot"/>
       </Panel>
       <Panel id="ShopItemBasePanel">
         <Panel id="ShopItemList">
           <Panel id="ShopSearch">
             <Button id="ShowHideItemguidesButton" hittest="true" onactivate="$.GetContextPanel().ToggleClass('ItembuildsHidden');">
-              <Panel id="ShowHideItemguidesIcon" hittest="false" />
+              <Panel id="ShowHideItemguidesIcon" hittest="false"/>
             </Button>
             <TextEntry id="ShopSearchEntry" oninputsubmit="SearchItems()" placeholder="#panorama_shop_search_placeholder"/>
           </Panel>
-          <Panel id="ShopTabs" />
+          <Panel id="ShopTabs"/>
           <Panel id="ShopItems">
-            <Panel id="ShopItemsBase" />
-            <Panel id="ShopSearchOverlay" />
+            <Panel id="ShopItemsBase"/>
+            <Panel id="ShopSearchOverlay"/>
           </Panel>
         </Panel>
         <Panel id="ItemRecipeBox">
           <Panel id="ItemRecipeBoxRows">
-            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow1" />
-            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow2" />
-            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow3" />
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow1"/>
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow2"/>
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow3"/>
           </Panel>
           <Panel hittest="false" id="ItemRecipeBoxDrops">
             <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_freya" src="s2r://panorama/images/heroes/npc_arena_hero_freya_png.vtex" style="position: 59px 48px 0;"/>
@@ -66,10 +66,10 @@ sssfile://{resources}file://{resources}<root>
       </Panel>
     </Panel>
     <Panel hittest="true" onmouseactivate="" id="QuickBuyPanel">
-      <Panel class="DropDownValidTarget" hittest="false" />
-      <Panel id="QuickBuyPanelItems" />
+      <Panel class="DropDownValidTarget" hittest="false"/>
+      <Panel id="QuickBuyPanelItems"/>
       <Image id="QuickBuyClearButtonPanel" onactivate="ClearQuickbuyItems()"/>
-      <Panel id="QuickBuyStickyButtonPanel" />
+      <Panel id="QuickBuyStickyButtonPanel"/>
     </Panel>
   </Panel>
 </root>
