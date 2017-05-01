@@ -94,9 +94,12 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
 end
 
 function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
+  -- get random position
+  local randPosition = room:GetAbsOrigin() + RandomVector(RandomFloat(10, 300))
+
   local creep = CreateUnitByName(
     properties.name,      -- name
-    room:GetAbsOrigin(),  -- location
+    randPosition,         -- location
     true,                 --
     nil,                  --
     nil,                  --
