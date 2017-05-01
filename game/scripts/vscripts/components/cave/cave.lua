@@ -12,40 +12,43 @@ function CaveHandler:Init ()
   CaveHandler.caves = {}
 
   for teamID=DOTA_TEAM_GOODGUYS,DOTA_TEAM_BADGUYS do
-    CaveHandler.caves[teamID] = {
+    local caveName = 'cave_' .. GetShortTeamName(teamID)
+    self.caves[teamID] = {
       timescleared = 0,
       rooms = {}
     }
 
     for roomID=1,4 do
-      CaveHandler.caves[teamID].rooms[roomID] = {
-        handle = Entities:FindByName(nil, "cave_" .. GetShortTeamName(teamID) .. "_room_" .. roomID),
+      self.caves[teamID].rooms[roomID] = {
+        handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
-        zone = ZoneControl:CreateZone("cave_" .. GetShortTeamName(teamID) .. "_zone_" .. roomID, {
+        zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        })
+        }),
+        door = Doors:UseDoors(caveName .. '_door_' .. roomID, {state=DOOR_STATE_OPEN})
       }
     end
   end
 
-  CaveHandler:InitCave(DOTA_TEAM_GOODGUYS)
-  CaveHandler:InitCave(DOTA_TEAM_BADGUYS)
+  self:InitCave(DOTA_TEAM_GOODGUYS)
+  self:InitCave(DOTA_TEAM_BADGUYS)
 end
 
 
 function CaveHandler:InitCave (teamID)
-  CaveHandler.caves[teamID].rooms[1].zone.disable()
-  CaveHandler:ResetCave(teamID)
+  self.caves[teamID].rooms[1].zone.disable()
+  self:ResetCave(teamID)
 end
 
 function CaveHandler:ResetCave (teamID)
-  local cave = CaveHandler.caves[teamID]
+  local cave = self.caves[teamID]
 
-  for roomID,room in pairs(cave.rooms) do
-    CaveHandler:SpawnRoom(teamID, roomID)
+  for roomID, room in pairs(cave.rooms) do
+    self:SpawnRoom(teamID, roomID)
     if roomID > 1 then
       room.zone.enable()
+      room.door.Close()
     end
   end
 end
@@ -53,23 +56,23 @@ end
 function CaveHandler:SpawnRoom (teamID, roomID)
   DebugPrint('Spawning room ' .. roomID .. ' of team ' .. GetTeamName(teamID))
 
-  local cave = CaveHandler.caves[teamID]
+  local cave = self.caves[teamID]
   local room = cave.rooms[roomID]
   local creepList = CaveTypes[roomID][math.random(#CaveTypes[roomID])]
 
   for _,creep in ipairs(creepList.units) do -- spawn all creeps in list
     -- get properties for the creep
-    local creepProperties = CaveHandler:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
+    local creepProperties = self:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
 
     -- spawn the creep
-    local creepHandle = CaveHandler:SpawnCreepInRoom(room.handle, creepProperties)
+    local creepHandle = self:SpawnCreepInRoom(room.handle, creepProperties)
 
     if roomID == 4 then
       creepHandle:SetModelScale( creepHandle:GetModelScale() / (0.5  * (cave.timescleared + 1)) )
     end
 
     creepHandle:OnDeath(function(keys)
-      CaveHandler:CreepDeath(teamID, roomID)
+      self:CreepDeath(teamID, roomID)
     end)
 
     room.creepCount = room.creepCount + 1
@@ -134,7 +137,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
 end
 
 function CaveHandler:CreepDeath (teamID, roomID)
-  local cave = CaveHandler.caves[teamID]
+  local cave = self.caves[teamID]
   local room = cave.rooms[roomID]
 
   room.creepCount = room.creepCount - 1
@@ -142,25 +145,30 @@ function CaveHandler:CreepDeath (teamID, roomID)
   if room.creepCount == 0 then -- all creeps are dead
     DebugPrint('Room ' .. roomID .. ' of Team ' .. GetTeamName(teamID) .. ' got cleared.')
 
-    if roomID < 4 then -- last room
+    if roomID < 4 then -- not last room
       -- let players advance to next room
       DebugPrint('Opening next room.')
       cave.rooms[roomID + 1].zone.disable()
+      cave.rooms[roomID + 1].room.Open()
+
       -- inform players
       Notifications:TopToTeam(teamID,{
         text="Room " .. roomID .. " got cleared. You can now advance to the next room",
         duration=5,
       })
     else
+      -- close doors
+      self:CloseDoors(teamID)
+
       -- give all players gold
-      local bounty = CaveHandler:GiveBounty(teamID, cave.timescleared)
+      local bounty = self:GiveBounty(teamID, cave.timescleared)
 
       -- teleport player back to base
-      CaveHandler:KickPlayers(teamID)
+      self:KickPlayers(teamID)
 
       -- reset cave
       Timers:CreateTimer(4, function ()
-        CaveHandler:ResetCave(teamID)
+        self:ResetCave(teamID)
       end)
 
       cave.timescleared = cave.timescleared + 1
@@ -174,6 +182,15 @@ function CaveHandler:CreepDeath (teamID, roomID)
         text="You have cleared the Cave " .. cave.timescleared .. " times. The Cave is resetting now.",
         duration=10,
       })
+    end
+  end
+end
+
+function CaveHandler:CloseDoors(teamID)
+  local cave = self.caves[teamID]
+  for roomID, room in pairs(cave.rooms) do
+    if roomID > 1 then
+      room.door.Close()
     end
   end
 end
