@@ -1,32 +1,28 @@
 @define mainPanelWidth: 310px;
 @define mainPanelHeight: 830px;
-.base
-{
+.base {
   align: right center;
   width: 100%;
   height: 100%;
 }
 
-#ShopBase
-{
+#ShopBase {
   align: right center;
   transition-duration: 0.25s;
   transition-timing-function: ease-in;
   transition-property: transform, opacity;
-  box-shadow: rgba(0,0,0,0.4) -4px -4px 8px 8px;
+  box-shadow: rgba(0, 0, 0, 0.4) -4px -4px 8px 8px;
   margin-bottom: 13.4%;
   margin-right: 0px;
   flow-children: right;
 }
 
-#ShopItemBasePanel
-{
+#ShopItemBasePanel {
   height: mainPanelHeight;
   width: mainPanelWidth;
 }
 
-#ItembuildsPanel
-{
+#ItembuildsPanel {
   width: 208px;
   height: 100%;
   background-image: url("s2r://panorama/images/hud/reborn/bg_shop_guide_psd.vtex");
@@ -38,40 +34,35 @@
   transition-timing-function: ease-in-out;
 }
 
-.ItembuildsHidden #ItembuildsPanel
-{
+.ItembuildsHidden #ItembuildsPanel {
   width: 0;
   opacity: 0;
 }
 
-.SimpleRow
-{
+.SimpleRow {
   flow-children: right;
   width: 100%;
   margin: 6px 8px;
 }
 
-.SimpleRowValue
-{
+.SimpleRowValue {
   align: right center;
   color: white;
   font-weight: bold;
 }
 
-#ItembuildPanelsRoot
-{
+#ItembuildPanelsRoot {
   width: 100%;
   flow-children: down;
   overflow: squish scroll;
 }
-.ItembuildItemGroup
-{
+
+.ItembuildItemGroup {
   width: 100%;
   flow-children: down;
 }
 
-.ItembuildItemGroupTitle
-{
+.ItembuildItemGroupTitle {
   margin-left: 4px;
   width: 100%;
   text-overflow: shrink;
@@ -81,22 +72,19 @@
   font-size: 14px;
 }
 
-.ItembuildItemGroupItemRoot
-{
+.ItembuildItemGroupItemRoot {
   margin-top: 6px;
   margin-left: 5px;
   width: 100%;
   flow-children: right-wrap;
 }
 
-.ShopBase_Out
-{
+.ShopBase_Out {
   transform: translateX(650px);
   opacity: 0;
 }
 
-#ShopItemList
-{
+#ShopItemList {
   width: 100%;
   horizontal-align: right;
   height: 84%;
@@ -107,8 +95,7 @@
   background-repeat: no-repeat;
 }
 
-#ItemRecipeBox
-{
+#ItemRecipeBox {
   width: 100%;
   align: right bottom;
   height: 16%;
@@ -116,22 +103,19 @@
   background-size: cover;
 }
 
-#ItemRecipeBoxRows
-{
+#ItemRecipeBoxRows {
   width: 100%;
   flow-children: down;
   vertical-align: center;
 }
 
-.ItemRecipeBoxRow
-{
+.ItemRecipeBoxRow {
   height: 40px;
   horizontal-align: center;
   flow-children: right;
 }
 
-#ShopTabs
-{
+#ShopTabs {
   align: center top;
   height: 28px;
   horizontal-align: center;
@@ -139,14 +123,14 @@
   width: 100%;
   margin-left: 6px;
   margin-right: 6px;
-  /* background-image: url("s2r://panorama/images/custom_game/shop/tabs_panel_png.vtex"); */ /*TODO check if this should be commented */
+  /* background-image: url("s2r://panorama/images/custom_game/shop/tabs_panel_png.vtex"); */
+  /*TODO check if this should be commented */
   background-size: cover;
   border-radius: 3px;
   border: 1px solid #5b687277;
 }
 
-.ShopTabButton
-{
+.ShopTabButton {
   height: 100%;
   padding-left: 1px;
   padding-right: 1px;
@@ -154,44 +138,41 @@
   padding-bottom: 2px;
   background-color: black;
 }
-.ShopTabButton .RadioBox
-{
+
+.ShopTabButton .RadioBox {
   visibility: collapse;
 }
 
-.ShopTabButton Label
-{
+.ShopTabButton Label {
   margin: 4px;
   align: center center;
   font-size: 14px;
   color: #5b6872;
   font-weight: bold;
 }
-.ShopTabButtonSelected
-{
+
+.ShopTabButtonSelected {
   background-color: #57646d77;
 }
-.ShopTabButton.ShopTabButtonSelected Label
-{
+
+.ShopTabButton.ShopTabButtonSelected Label {
   color: white;
 }
 
-#ShopSearch
-{
+#ShopSearch {
   align: center top;
   height: 49px;
   width: 100%;
   flow-children: right;
 }
 
-#ShopSearchEntry
-{
+#ShopSearchEntry {
   height: 100%;
   width: 100%;
   margin: 10px;
   margin-bottom: 6px;
   margin-left: 4px;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, YDYGO 540, Gulim, MingLiU;
   background-color: black;
   padding: 5px 7px 3px 7px;
   color: white;
@@ -201,92 +182,77 @@
   border-radius: 3px;
   border: 1px solid #3d464c;
 }
-#ShopSearchEntry #PlaceholderText
-{
-  opacity: 1.0;
 
+#ShopSearchEntry #PlaceholderText {
+  opacity: 1.0;
   transition-property: opacity;
   transition-duration: 0.2s;
-
   margin-top: -2px;
-
   color: #57646d;
   font-size: 18px;
 }
 
-#ShopSearchEntry:focus #PlaceholderText, #ShopSearchEntry.HasInput #PlaceholderText
-{
+#ShopSearchEntry:focus #PlaceholderText, #ShopSearchEntry.HasInput #PlaceholderText {
   opacity: 0.0;
 }
 
-#ShowHideItemguidesButton
-{
+#ShowHideItemguidesButton {
   width: 34px;
-    height: 34px;
+  height: 34px;
   margin-top: 10px;
   margin-bottom: 6px;
-    margin-left: 4px;
-    transition-property: brightness, opacity;
-    transition-duration: 0.24s;
-    background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
-    opacity: 0.8;
+  margin-left: 4px;
+  transition-property: brightness, opacity;
+  transition-duration: 0.24s;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
+  opacity: 0.8;
 }
 
-.ItembuildsHidden #ShowHideItemguidesButton
-{
-     background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
-     opacity: 0.8;
+.ItembuildsHidden #ShowHideItemguidesButton {
+  background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
+  opacity: 0.8;
 }
 
-.ItembuildsHidden #ShowHideItemguidesButton:hover
-{
-     opacity: 1;
+.ItembuildsHidden #ShowHideItemguidesButton:hover {
+  opacity: 1;
 }
 
-#ShowHideItemguidesButton:hover
-{
-    brightness: 2.0;
+#ShowHideItemguidesButton:hover {
+  brightness: 2.0;
 }
 
-#ShowHideItemguidesButton:active
-{
-    wash-color: #999999;
+#ShowHideItemguidesButton:active {
+  wash-color: #999999;
 }
 
-#ShowHideItemguidesIcon
-{
+#ShowHideItemguidesIcon {
   width: 100%;
   height: 100%;
   background-image: url("s2r://panorama/images/hud/reborn/close_guide_btn_psd.vtex");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80%;
-    transition-property: transform;
-    transition-duration: 0.24s;
+  transition-property: transform;
+  transition-duration: 0.24s;
 }
 
-.ItembuildsHidden #ShowHideItemguidesIcon
-{
+.ItembuildsHidden #ShowHideItemguidesIcon {
   transform: rotateZ(180deg);
 }
 
-
-#ShopItems
-{
+#ShopItems {
   height: 100%;
   width: 100%;
 }
 
-#ShopItemsBase
-{
+#ShopItemsBase {
   margin-top: 9px;
   height: 100%;
   width: 100%;
   visibility: visible;
 }
 
-#ShopSearchOverlay
-{
+#ShopSearchOverlay {
   margin-top: 1px;
   margin-left: 2px;
   height: 100%;
@@ -296,66 +262,58 @@
   overflow: squish scroll;
 }
 
-.InSearchMode #ShopItemsBase
-{
+.InSearchMode #ShopItemsBase {
   visibility: collapse;
 }
 
-.InSearchMode #ShopSearchOverlay
-{
+.InSearchMode #ShopSearchOverlay {
   visibility: visible;
 }
 
-.ShopItemGroup
-{
+.ShopItemGroup {
   height: 100%;
   flow-children: down;
 }
 
-.CanBuy
-{
+.CanBuy {
   border: 1px solid #CD9607;
 }
 
-.NotPurchasableItem
-{
+.NotPurchasableItem {
   border: 1px solid red;
 }
 
-.SmallItemPanel
-{
+.SmallItemPanel {
   width: 45px;
-  height: width-percentage( 72.7% );
+  height: width-percentage( 72.7%);
   margin: 2px;
   border-radius: 3px;
 }
 
-#SmallItemButton
-{
+#SmallItemButton {
   align: center center;
   width: 100%;
   height: 100%;
 }
 
-#SmallItemImage
-{
+#SmallItemImage {
   align: center center;
   width: 100%;
   height: 100%;
   transition-property: brightness;
   transition-duration: 0.2s;
 }
-.SmallItemPanel.CanBuy:hover #SmallItemImage
-{
+
+.SmallItemPanel.CanBuy:hover #SmallItemImage {
   brightness: 1.6;
 }
-.SmallItemPanel.CanBuy:active #SmallItemImage
-{
+
+.SmallItemPanel.CanBuy:active #SmallItemImage {
   brightness: 0.8;
   width: 1000px;
 }
-#SmallItemStock
-{
+
+#SmallItemStock {
   color: white;
   font-size: 15px;
   font-weight: bold;
@@ -365,8 +323,7 @@
   align: right bottom;
 }
 
-#QuickBuyClearButtonPanel
-{
+#QuickBuyClearButtonPanel {
   background-image: url("file://{images}/control_icons/x_close.png");
   background-size: cover;
   background-position: 50% 50%;
@@ -379,18 +336,15 @@
   transition-duration: 0.15s;
 }
 
-#QuickBuyClearButtonPanel:hover
-{
+#QuickBuyClearButtonPanel:hover {
   brightness: 1.0;
 }
 
-#QuickBuyClearButtonPanel:active
-{
+#QuickBuyClearButtonPanel:active {
   brightness: 0.6;
 }
 
-#QuickBuyPanelItems
-{
+#QuickBuyPanelItems {
   align: left center;
   height: 100%;
   width: 232px;
@@ -399,95 +353,81 @@
   flow-children: right-wrap;
 }
 
-.DropDownValidTarget
-{
+.DropDownValidTarget {
   width: 100%;
   height: 100%;
 }
-.DropDownMode .DropDownValidTarget
-{
+
+.DropDownMode .DropDownValidTarget {
   box-shadow: inset #0B93BEBF 20px 20px 40px 40px;
 }
 
 
-
-
-
 /* Standart, 16x9 */
-#QuickBuyPanel
-{
+
+#QuickBuyPanel {
   background-image: url("s2r://panorama/images/hud/reborn/quickbuy_bg_psd.vtex");
   align: right bottom;
   margin-bottom: 60px;
   margin-right: 0px;
   height: 65px;
   width: 262px;
-
   transition-property: transform;
   transition-duration: 0s;
   transition-delay: 0s;
   transition-timing-function: ease-in-out;
 }
-DOTAHud.IsBeforeGameplay #QuickBuyPanel
-{
+
+DOTAHud.IsBeforeGameplay #QuickBuyPanel {
   transform: translateY(230px);
   transition-duration: 1s;
   transition-delay: 2s;
 }
 
-.HUDFlipped #QuickBuyPanel
-{
+.HUDFlipped #QuickBuyPanel {
   horizontal-align: left;
 }
 
-#QuickBuyStickyButtonPanel
-{
+#QuickBuyStickyButtonPanel {
   align: right top;
   margin: 2px;
   margin-top: 4px;
 }
 
-.QuickBuyStickyItem
-{
+.QuickBuyStickyItem {
   align: center center;
   margin: 0px;
   width: 47px;
   border-width: 2px;
 }
 
-.QuickbuyItemPanel
-{
+.QuickbuyItemPanel {
   width: 40px;
   margin: 1px;
   border-radius: 1px;
 }
 
-.ItemRecipeBoxRow.ItemRecipeBoxRowLength7 .SmallItemPanel
-{
+.ItemRecipeBoxRow.ItemRecipeBoxRowLength7 .SmallItemPanel {
   margin: -1px;
 }
 
-.ItemRecipeBoxRow.ItemRecipeBoxRowLength8 .SmallItemPanel
-{
+.ItemRecipeBoxRow.ItemRecipeBoxRowLength8 .SmallItemPanel {
   width: 40px;
   margin-left: -4px;
 }
 
-.ItemRecipeBoxRow.ItemRecipeBoxRowLength9 .SmallItemPanel
-{
+.ItemRecipeBoxRow.ItemRecipeBoxRowLength9 .SmallItemPanel {
   width: 39px;
   margin-left: -3px;
   margin-right: -3px;
 }
 
-#StockOverlay
-{
+#StockOverlay {
   height: 100%;
   background-color: #000000DD;
 }
 
-#StockTimer
-{
+#StockTimer {
   color: white;
   font-size: 20px;
   text-shadow: 0px 0px 6px 6 #000000;
@@ -495,23 +435,20 @@ DOTAHud.IsBeforeGameplay #QuickBuyPanel
   vertical-align: center;
 }
 
-.UnitItemlikeRecipePanel
-{
-  height: width-percentage( 60.8% );
+.UnitItemlikeRecipePanel {
+  height: width-percentage( 60.8%);
   width: 57.6px;
   flow-children: down;
   border-radius: 2px;
 }
 
-.UnitItemlikeRecipePanel:disabled
-{
+.UnitItemlikeRecipePanel:disabled {
   saturation: 0;
   wash-color: #D9FAF9;
-  blur: gaussian( 1.1 );
+  blur: gaussian( 1.1);
 }
 
-.UnitItemlikeRecipePanelChance
-{
+.UnitItemlikeRecipePanelChance {
   horizontal-align: right;
   margin-bottom: -7px;
   color: white;
@@ -521,15 +458,13 @@ DOTAHud.IsBeforeGameplay #QuickBuyPanel
   text-shadow: 0px 0px 6px 6 black;
 }
 
-#ItemRecipeBoxDrops
-{
+#ItemRecipeBoxDrops {
   width: 100%;
   height: 100%;
   visibility: collapse;
 }
 
-.ItemsPageInnerContainer
-{
+.ItemsPageInnerContainer {
   height: 100%;
   horizontal-align: center;
   flow-children: right-wrap;
@@ -538,31 +473,27 @@ DOTAHud.IsBeforeGameplay #QuickBuyPanel
   transition-duration: 0.15s;
 }
 
-.ItemsPageInnerContainer.SelectedPage
-{
+.ItemsPageInnerContainer.SelectedPage {
   opacity: 1;
 }
 
-DropDownMenu.DropDownMenuVisible
-{
+DropDownMenu.DropDownMenuVisible {
   width: 208px;
 }
-DropDown Label,
-DropDownMenu Label
-{
+
+DropDown Label, DropDownMenu Label {
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-#Itembuild_select
-{
+#Itembuild_select {
   background-color: black;
   padding: 6px 8px;
   border-width: 0px;
 }
-#Itembuild_select .DropDownChild
-{
+
+#Itembuild_select .DropDownChild {
   color: #616f7b;
   text-decoration: underline;
   text-transform: uppercase;
