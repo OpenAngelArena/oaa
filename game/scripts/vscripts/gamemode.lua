@@ -48,6 +48,8 @@ require('libraries/chatcommand')
 require('libraries/playerresource')
 -- Extensions to CDOTA_BaseNPC
 require('libraries/basenpc')
+-- Simple KeyValues
+require('libraries/keyvalues')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
