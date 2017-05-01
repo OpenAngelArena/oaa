@@ -26,7 +26,7 @@ function CaveHandler:Init ()
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
         }),
-        door = Doors:UseDoors(caveName .. '_door_' .. roomID, {state=DOOR_STATE_OPEN})
+        door = Doors:UseDoors(caveName .. '_door_' .. roomID, { state=DOOR_STATE_CLOSED })
       }
     end
   end
@@ -151,14 +151,18 @@ function CaveHandler:CreepDeath (teamID, roomID)
     if roomID < 4 then -- not last room
       -- let players advance to next room
       DebugPrint('Opening next room.')
-      cave.rooms[roomID + 1].zone.disable()
-      cave.rooms[roomID + 1].room.Open()
+        cave.rooms[roomID + 1].door.Open()
 
       -- inform players
       Notifications:TopToTeam(teamID,{
         text="Room " .. roomID .. " got cleared. You can now advance to the next room",
         duration=5,
       })
+
+      Timers:CreateTimer(2.6, function()
+          cave.rooms[roomID + 1].zone.disable()
+      end)
+
     else
       -- close doors
       self:CloseDoors(teamID)
