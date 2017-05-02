@@ -2,7 +2,7 @@
 with some added functionality useful for debugging. Documentation available in docs/debug_print_lua.md
 ]]
 
-require('utils/init')
+require('internal/utils/init')
 
 --[[
   Credits:
