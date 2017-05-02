@@ -306,14 +306,10 @@ SHOP_LIST_STATUS_NO_BOSS = 4
 function PanoramaShop:BuyItem(playerID, unit, itemName)
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
   local team = PlayerResource:GetTeam(playerID)
-  if Duel:IsDuelOngoing() then
-    Containers:DisplayError(playerID, "#dota_hud_error_cant_purchase_duel_ongoing")
-    return
-  end
   if unit:IsIllusion() or not unit:HasInventory() then
     unit = hero
   end
-  local isInShop = unit:HasModifier("modifier_fountain_aura_arena")
+  local isInShop = unit:HasModifier("modifier_fountain_aura")
 
   local itemCounter = {}
   local ProbablyPurchasable = {}

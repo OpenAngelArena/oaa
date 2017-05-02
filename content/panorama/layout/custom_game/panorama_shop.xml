@@ -1,11 +1,11 @@
 <root>
   <styles>
-    <include src="file://{resources}/styles/dotastyles.vcss_c"/>
-    <include src="file://{resources}/styles/panorama_shop.vcss_c"/>
+    <include src="file://{resources}/styles/dotastyles.vcss"/>
+    <include src="file://{resources}/styles/panorama_shop.vcss"/>
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/util.vjs_c"/>
-    <include src="file://{resources}/scripts/panorama_shop.vjs_c"/>
+    <include src="file://{resources}/scripts/util.vjs"/>
+    <include src="file://{resources}/scripts/panorama_shop.vjs"/>
   </scripts>
   <snippets>
     <snippet name="SmallItem">
