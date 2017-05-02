@@ -32,9 +32,7 @@ function cleanFile (file) {
     if (err) {
       return console.log(err);
     }
-    var result = data.replace(/^ +/gm, '');
-    result = data.replace(/\t/g, '  ');
-    result = data.replace(/\r\n/g, '\n');
+    var result = data.replace(/^ +/gm, '').replace(/\t/g, '  ').replace(/\r\n/g, '\n');
 
     fs.writeFile(file, result, 'utf8', function (err) {
       if (err) {
