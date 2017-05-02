@@ -34,6 +34,7 @@ function cleanFile (file) {
     }
     var result = data.replace(/^ +/gm, '');
     result = data.replace(/\t/g, '  ');
+    result = data.replace(/\r\n/g, '\n');
 
     fs.writeFile(file, result, 'utf8', function (err) {
       if (err) {
