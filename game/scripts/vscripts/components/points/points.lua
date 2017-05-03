@@ -9,17 +9,9 @@ end
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
 
-  PointsManager.haveBadguysWon = false
-  PointsManager.haveGoodguysWon = false
-  PointsManager.goodguysName = 'Radiant'
-  PointsManager.badguysName = 'Dire'
-  PointsManager.goodguysID = 2
-  PointsManager.badguysID = 3
+  PointsManager.hasGameEnded = false
 
-  -- set initial values for current scores
-  CustomNetTables:SetTableValue( 'team_scores', 'score', { goodguys = 0,
-                                                           badguys = 0
-                                                         })
+  CustomNetTables:SetTableValue( 'team_scores', 'score', {})
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
@@ -29,75 +21,52 @@ function PointsManager:Init ()
   end)
 end
 
-function PointsManager:CheckWinCondition ( scores )
-  if PointsManager.haveGoodguysWon or PointsManager.haveBadguysWon then
+function PointsManager:CheckWinCondition(score)
+  if PointsManager.hasGameEnded then
     return
   end
 
   local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
-  local goodguys = scores.goodguys
-  local badguys = scores.badguys
 
-  DebugPrint (math.max(goodguys, badguys) .. ' / ' .. limit)
-
-  if goodguys >= limit then
-    PointsManager:handleVictory( PointsManager.goodguysName )
-  elseif badguys >= limit then
-    PointsManager:handleVictory( PointsManager.badguysName )
+  for teamID, points in pairs(score) do
+    if points >= limit then
+      Timers:CreateTimer(1, function()
+        GameRules:SetGameWinner(teamID)
+      end)
+      PointsManager.hasGameEnded = true
+      break
+    end
   end
 end
 
-function PointsManager:handleVictory ( side )
-  DebugPrint( side .. ' wins!' )
-  local winner = nil
-
-  if side == PointsManager.goodguysName then
-    PointsManager.haveGoodguysWon = true
-    winner = PointsManager.goodguysID
-  elseif side == PointsManager.badguysName then
-    PointsManager.haveBadguysWon = true
-    winner = PointsManager.badguysID
-  end
-
-  Timers:CreateTimer(1, function()
-    GameRules:SetGameWinner( winner )
-  end)
-end
-
-function PointsManager:SetPoints ( side, newPoints )
-  DebugPrint('Set Score of ' .. side .. ' to ' .. newScore .. '.')
-
+function PointsManager:SetPoints(teamID, amount)
   local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
 
-  if side == PointsManager.goodguysName then
-    score.goodguys = newPoints
-  elseif side == PointsManager.badguysName then
-    score.badguys = newPoints
-  end
+  score[teamID] = amount
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', score )
   PointsManager:CheckWinCondition(score)
 end
 
-function PointsManager:AddPoints ( side, amount )
+function PointsManager:AddPoints(teamID, amount)
   if amount == nil then
     amount = 1
   end
 
-  DebugPrint( 'Increase Score of ' .. side .. ' by ' .. amount .. '.' )
-
   local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
 
-  DebugPrintTable(score)
-
-  if side == PointsManager.goodguysName or side == PointsManager.goodguysID then
-    score.goodguys = score.goodguys + amount
-  elseif side == PointsManager.badguysName or side == PointsManager.badguysID then
-    score.badguys = score.badguys + amount
-  else
-    DebugPrint('What is ' .. side)
-  end
+  score[teamID] = score[teamID] + amount or amount
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', score )
   PointsManager:CheckWinCondition(score)
+end
+
+function PointsManager:GetPoints(teamID)
+  local score = CustomNetTables:GetTableValue('team_scores', 'score')
+
+  return score[teamID]
+end
+
+function PointsManager:GetLimit()
+  return CustomNetTables:GetTableValue('team_scores', 'limit').value
 end

@@ -297,3 +297,7 @@ function CaveHandler:KickPlayers (teamID)
     end)
   end
 end
+
+function CaveHandler:GetCleares (teamID)
+  return CaveHandler.caves[teamID].timescleared
+end
