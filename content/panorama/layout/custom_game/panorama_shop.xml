@@ -1,0 +1,75 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/dotastyles.vcss"/>
+    <include src="file://{resources}/styles/panorama_shop.vcss"/>
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/util.vjs"/>
+    <include src="file://{resources}/scripts/panorama_shop.vjs"/>
+  </scripts>
+  <snippets>
+    <snippet name="SmallItem">
+      <Panel class="SmallItemPanel" draggable="true">
+        <Button id="SmallItemButton">
+          <DOTAItemImage hittest="false" id="SmallItemImage"/>
+          <Label hittest="false" id="SmallItemStock"/>
+          <Label hittest="false" id="StockTimer"/>
+          <Panel hittest="false" id="StockOverlay"/>
+        </Button>
+      </Panel>
+    </snippet>
+  </snippets>
+  <Panel hittest="false" class="base">
+    <Panel hittest="true" onmouseactivate="" id="ShopBase" class="ShopBase_Out">
+      <Panel id="ItembuildsPanel">
+        <Panel id="Itembuild_selectBox"/>
+        <Panel class="SimpleRow">
+          <Label text="#panorama_shop_itembuild_author"/>
+          <Label class="SimpleRowValue" id="Itembuild_author"/>
+        </Panel>
+        <Panel class="SimpleRow">
+          <Label text="#panorama_shop_itembuild_patch"/>
+          <Label class="SimpleRowValue" id="Itembuild_patch"/>
+        </Panel>
+        <Panel id="ItembuildPanelsRoot"/>
+      </Panel>
+      <Panel id="ShopItemBasePanel">
+        <Panel id="ShopItemList">
+          <Panel id="ShopSearch">
+            <Button id="ShowHideItemguidesButton" hittest="true" onactivate="$.GetContextPanel().ToggleClass('ItembuildsHidden');">
+              <Panel id="ShowHideItemguidesIcon" hittest="false"/>
+            </Button>
+            <TextEntry id="ShopSearchEntry" oninputsubmit="SearchItems()" placeholder="#panorama_shop_search_placeholder"/>
+          </Panel>
+          <Panel id="ShopTabs"/>
+          <Panel id="ShopItems">
+            <Panel id="ShopItemsBase"/>
+            <Panel id="ShopSearchOverlay"/>
+          </Panel>
+        </Panel>
+        <Panel id="ItemRecipeBox">
+          <Panel id="ItemRecipeBoxRows">
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow1"/>
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow2"/>
+            <Panel class="ItemRecipeBoxRow" id="ItemRecipeBoxRow3"/>
+          </Panel>
+          <Panel hittest="false" id="ItemRecipeBoxDrops">
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_freya" src="s2r://panorama/images/heroes/npc_arena_hero_freya_png.vtex" style="position: 59px 48px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_zaken" src="s2r://panorama/images/heroes/npc_arena_hero_zaken_png.vtex" style="position: 194px 48px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_l1_v1" src="s2r://panorama/images/custom_game/units/npc_arena_boss_l1_v1_png.vtex" style="position: 1px 90px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_l1_v2" src="s2r://panorama/images/custom_game/units/npc_arena_boss_l1_v2_png.vtex" style="position: 64px 90px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_central" src="s2r://panorama/images/custom_game/units/npc_arena_boss_central_png.vtex" style="position: 128px 90px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_l2_v1" src="s2r://panorama/images/custom_game/units/npc_arena_boss_l2_v1_png.vtex" style="position: 190px 90px 0;"/>
+            <Image class="UnitItemlikeRecipePanel" id="ItemRecipeBoxDrops_npc_arena_boss_l2_v2" src="s2r://panorama/images/custom_game/units/npc_arena_boss_l2_v2_png.vtex" style="position: 251px 90px 0;"/>
+          </Panel>
+        </Panel>
+      </Panel>
+    </Panel>
+    <Panel hittest="true" onmouseactivate="" id="QuickBuyPanel">
+      <Panel class="DropDownValidTarget" hittest="false"/>
+      <Panel id="QuickBuyPanelItems"/>
+      <Image id="QuickBuyClearButtonPanel" onactivate="ClearQuickbuyItems()"/>
+      <Panel id="QuickBuyStickyButtonPanel"/>
+    </Panel>
+  </Panel>
+</root>

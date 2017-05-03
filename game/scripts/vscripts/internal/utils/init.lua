@@ -1,0 +1,8 @@
+require("internal/utils/other")
+require("internal/utils/shared")
+require("internal/utils/table")
+require("internal/utils/debug")
+require("internal/utils/string")
+require("internal/utils/ability")
+require("internal/utils/modifier")
+require("internal/utils/item")

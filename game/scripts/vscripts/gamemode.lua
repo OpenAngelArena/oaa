@@ -48,6 +48,8 @@ require('libraries/chatcommand')
 require('libraries/playerresource')
 -- Extensions to CDOTA_BaseNPC
 require('libraries/basenpc')
+-- Simple KeyValues
+require('libraries/keyvalues')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -187,6 +189,7 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(GameLengthVotes)
   InitModule(Courier)
+  InitModule(PanoramaShop)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
