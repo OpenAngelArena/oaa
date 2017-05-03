@@ -10,7 +10,7 @@ function CreepPower:GetPowerForMinute (minute)
     return {   0,        1.0,      1.0,      1.0,      1.0,      1.0,      1.0 * self.numPlayersXPFactor}
   end
 
-  if minute > 60 then
+  if (minute > 40 and PointsManage:GetLimit() = 50) or (minute > 50 and PointsManage:GetLimit() = 100) or (minute > 120 and PointsManage:GetLimit() = 200) then
     multFactor = 1.5 ^ (minute - 60)
   end
 
