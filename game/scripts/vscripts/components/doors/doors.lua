@@ -13,8 +13,6 @@ DOOR_STATE_CLOSING = 3
 DOOR_STATE_CLOSED = 4
 
 function Doors:Init()
-  local testgate = Doors:CreateDoors(Vector(300, 0, 0), 300, {})
-  DebugPrintTable(testgate)
 end
 
 function Doors:CreateDoors(position, angle, settings)
@@ -31,7 +29,10 @@ end
 function Doors:UseDoors(name, settings)
   local gate = self:CreateEmptyGate(settings)
 
-  gate.props.gate = FindByName(nil, name)
+  gate.props.gate = Entities:FindByName(nil, name)
+  if gate.props.gate == nil then
+    return nil
+  end
 
   gate.Open = partial(Doors['OpenDoors'], gate, settings)
   gate.Close = partial(Doors['CloseDoors'], gate, settings)
@@ -63,32 +64,58 @@ end]]
 
 --[[
 settings = {
+  distance = 300,
   openingSpeed = 1,
   closingSpeed = 2,
-  distance = 100,
 }
 ]]
 function Doors.OpenDoors(gate, settings)
-  local speed = settings.openingSpeed or 100
-  local distance = settings.distance or 100
-  local time = distance / speed
+  if gate.state ~= DOOR_STATE_CLOSED then
+    return gate.state
+  end
 
-  gate.props.gate:SetVelocity(Vector(0, 0, speed))
+  gate.state = DOOR_STATE_OPENING
 
-  Timers:CreateTimer(time, function()
-    gate.props.gate:SetVelocity(Vector(0, 0, 0))
+  DebugPrint('Opening Door')
+
+  local distance = settings.distance or 300
+  local traveled = 0
+  local speed = settings.openingSpeed or 1
+  local delay = speed / 300
+  local stepSize = distance / 300
+
+  Timers:CreateTimer(0, function()
+    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -stepSize))
+    traveled = traveled + stepSize
+    if traveled < distance then
+      return delay
+    end
+    gate.state = DOOR_STATE_OPEN
   end)
 end
 
 function Doors.CloseDoors(gate, settings)
-  local speed = settings.closingSpeed or 200
-  local distance = settings.distance or 100
-  local time = distance / speed
+  if gate.state ~= DOOR_STATE_OPEN then
+    return gate.state
+  end
 
-  gate.props.gate:SetVelocity(Vector(0, 0, -speed))
+  gate.state = DOOR_STATE_CLOSING
 
-  Timers:CreateTimer(time, function()
-    gate.props.gate:SetVelocity(Vector(0, 0, 0))
+  DebugPrint('Closing Door')
+
+  local distance = settings.distance or 300
+  local traveled = 0
+  local speed = settings.closingSpeed or 2
+  local delay = speed / 300
+  local stepSize = distance / 300
+
+  Timers:CreateTimer(0, function()
+    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
+    traveled = traveled + stepSize
+    if traveled < distance then
+      return delay
+    end
+    gate.state = DOOR_STATE_CLOSED
   end)
 end
 

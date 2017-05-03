@@ -38,7 +38,7 @@ end
 
 -- Current gold and item net worth
 function GetNetworth(hero)
-    local networth = hero:GetGold()
+    local networth = Gold:GetGold(hero)
 
     -- Iterate over item slots adding up its gold cost
     for i = 0, 15 do
