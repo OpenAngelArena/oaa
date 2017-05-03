@@ -14,7 +14,6 @@ function BottleCounter:Init()
   for _,playerID in PlayerResource:GetAllTeamPlayerIDs() do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     self.bottleCount[playerID] = 0
-      player.bottleCount = 0
     if hero then
       hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
     end
