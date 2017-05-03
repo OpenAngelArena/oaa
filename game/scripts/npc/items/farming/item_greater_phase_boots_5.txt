@@ -37,7 +37,7 @@
 		"BaseClass"                    	"item_lua"
 		"ScriptFile"                   	"items/item_greater_phase_boots.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phase_boots"
+		"AbilityTextureName"            "custom/item_greater_phase"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
