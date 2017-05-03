@@ -64,7 +64,7 @@ end]]
 
 --[[
 settings = {
-  distance = 100,
+  distance = 300,
   openingSpeed = 1,
   closingSpeed = 2,
 }
@@ -78,16 +78,17 @@ function Doors.OpenDoors(gate, settings)
 
   DebugPrint('Opening Door')
 
-  local distance = settings.distance or 260
-  --local speed = settings.openingSpeed or 0.5
+  local distance = settings.distance or 300
   local traveled = 0
+  local speed = settings.openingSpeed or 1
+  local delay = speed / 300
+  local stepSize = distance / 300
 
   Timers:CreateTimer(0, function()
-    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -10))
-    traveled = traveled + 10
+    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -stepSize))
+    traveled = traveled + stepSize
     if traveled < distance then
-      --return speed / distance
-      return 0.1
+      return delay
     end
     gate.state = DOOR_STATE_OPEN
   end)
@@ -102,16 +103,17 @@ function Doors.CloseDoors(gate, settings)
 
   DebugPrint('Closing Door')
 
-  local distance = settings.distance or 260
-  --local speed = settings.closingSpeed or 0.25
+  local distance = settings.distance or 300
   local traveled = 0
+  local speed = settings.closingSpeed or 2
+  local delay = speed / 300
+  local stepSize = distance / 300
 
   Timers:CreateTimer(0, function()
-    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, 10))
-    traveled = traveled + 10
+    gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
+    traveled = traveled + stepSize
     if traveled < distance then
-      --return speed / distance
-      return 0.1
+      return delay
     end
     gate.state = DOOR_STATE_CLOSED
   end)
