@@ -64,7 +64,7 @@ end]]
 
 --[[
 settings = {
-  distance = 100,
+  distance = 300,
   openingSpeed = 1,
   closingSpeed = 2,
 }
@@ -78,9 +78,9 @@ function Doors.OpenDoors(gate, settings)
 
   DebugPrint('Opening Door')
 
-  local distance = settings.distance or 260
+  local distance = settings.distance or 300
   local traveled = 0
-  local speed = settings.openingSpeed or 0.5
+  local speed = settings.openingSpeed or 1
   local delay = speed / 300
   local stepSize = distance / 300
 
@@ -103,7 +103,7 @@ function Doors.CloseDoors(gate, settings)
 
   DebugPrint('Closing Door')
 
-  local distance = settings.distance or 260
+  local distance = settings.distance or 300
   local traveled = 0
   local speed = settings.closingSpeed or 2
   local delay = speed / 300
