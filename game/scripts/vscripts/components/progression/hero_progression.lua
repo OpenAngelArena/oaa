@@ -15,7 +15,11 @@ function HeroProgression:RegisterCustomLevellingPatterns()
 end
 
 function HeroProgression:Init()
-  HeroProgression = self
+  self.statNames = {
+    "Strength",
+    "Agility",
+    "Intellect"
+  }
 
   self:RegisterCustomLevellingPatterns()
   GameEvents:OnPlayerLevelUp(function (keys)
@@ -32,21 +36,32 @@ function HeroProgression:Init()
   end)
 end
 
+function HeroProgression.GetBaseStat(entity, statName)
+  return entity["GetBase" .. statName](entity)
+end
+
+function HeroProgression.SetBaseStat(entity, statName, statValue)
+  entity["SetBase" .. statName](entity, statValue)
+end
+
+function HeroProgression.GetStatGain(entity, statName)
+  return entity["Get" .. statName .. "Gain"](entity)
+end
+
+function HeroProgression.ModifyStat(entity, statName, modifyAmount)
+  entity["Modify" .. statName](entity, modifyAmount)
+end
+
 function HeroProgression:ReduceStatGain(hero, level)
   if level > 25 then
     local div = (level - 25 + 12) / 12
 
-    local gainStr = hero:GetStrengthGain()
-    local gainAgi = hero:GetAgilityGain()
-    local gainInt = hero:GetIntellectGain()
+    local statGains = map(partial(self.GetStatGain, hero), self.statNames)
 
-    local newStr = gainStr / div
-    local newAgi = gainAgi / div
-    local newInt = gainInt / div
+    local newStats = map(operator.div, zip(statGains, duplicate(div)))
+    local statModifications = map(operator.sub, zip(newStats, statGains))
 
-    hero:ModifyStrength(newStr - gainStr)
-    hero:ModifyAgility(newAgi - gainAgi)
-    hero:ModifyIntellect(newInt - gainInt)
+    foreach(partial(self.ModifyStat, hero), zip(self.statNames, statModifications))
   end
 end
 
