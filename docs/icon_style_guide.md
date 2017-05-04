@@ -16,7 +16,7 @@ In-game icons can be found in the following directories:
 
 #### New Items
 
-Certain high-tier, vanilla Dota2 items are upgradeable into new items through various special items or "cores". At the time of writing, these include the Upgrade Cores, the Reflex Core, Farming Core. Given the huge array of possible upgrade paths, these new items always require a recipe.
+Certain high-tier, vanilla Dota2 items are upgradeable into new items through various special items or "cores". At the time of writing, these include the Upgrade Cores, the Reflex Core, and the Farming Core. Given the huge array of possible upgrade paths, these new items always require a recipe.
 
 #### Tiers
 
@@ -26,7 +26,7 @@ Typically, new items represent an item path containing multiple, related items o
 
 #### Basic Guidelines
 
-Items should comport with the Dota 2 icon style where possible. Icons of increasing tiers of items (eg. Heaven's Halberd 1-3) should appear nearly identical to each other with simple "enhancements" such as the addition of spikes, gems, particles, etc.
+Items should comport with the Dota 2 icon style where possible. Icons of increasing tiers of items (eg. Heaven's Halberd 1-3) should build-off of the same basic source icon. This way, they appear very similar to each other whilst having simple "enhancements" at each increase of tier. Good enhancements often play-off of the innate style and purpose of the item (eg. giving a spiky item more spikes).
 
 #### Pips
 
