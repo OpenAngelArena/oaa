@@ -30,4 +30,4 @@ Items should comport with the Dota 2 icon style where possible. Icons of increas
 
 #### Pips
 
-Icons of increasing tiers of items should also have pips, or dots, in the upper-right-most corner. These pips communicate to the players both the max level and current level of the item. The pip template is available both in [XCF](https://drive.google.com/drive/folders/0B1aXfUWr7QKMUHBfdW9Ba3B6c1k) and [PNG](https://imgur.com/a/z812x) format.
+Icons of increasing tiers of items should also have pips, or dots, in the upper-right-most corner. These pips communicate to the players both the max level and current level of the item. The total number of dots represents the max level. White dots represent current level. The pip template is available both in [XCF](https://drive.google.com/drive/folders/0B1aXfUWr7QKMUHBfdW9Ba3B6c1k) and [PNG](https://imgur.com/a/z812x) format.
