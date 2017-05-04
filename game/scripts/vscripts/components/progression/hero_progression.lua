@@ -5,6 +5,19 @@ if HeroProgression == nil then
     ChatCommand:LinkCommand("-levelup", "OnLevelUpChatCmd", HeroProgression)
 end
 
+GameEvents:OnPlayerLevelUp(function(keys)
+  local player = EntIndexToHScript(keys.player)
+  local level = keys.level
+  local hero = player:GetAssignedHero()
+
+  HeroProgression:ReduceStatGain(hero, level)
+  HeroProgression:ProcessAbilityPointGain(hero, level)
+end)
+GameEvents:OnNPCSpawned(function(keys)
+  local npc = EntIndexToHScript(keys.entindex)
+  HeroProgression:ReduceIllusionStats(npc)
+end)
+
 function HeroProgression:RegisterCustomLevellingPatterns()
   self.customLevellingPatterns = {}
 
@@ -22,18 +35,6 @@ function HeroProgression:Init()
   }
 
   self:RegisterCustomLevellingPatterns()
-  GameEvents:OnPlayerLevelUp(function (keys)
-    local player = EntIndexToHScript(keys.player)
-    local level = keys.level
-    local hero = player:GetAssignedHero()
-
-    self:ReduceStatGain(hero, level)
-    self:ProcessAbilityPointGain(hero, level)
-  end)
-  GameEvents:OnNPCSpawned(function(keys)
-    local npc = EntIndexToHScript(keys.entindex)
-    self:ReduceIllusionStats(npc)
-  end)
 end
 
 function HeroProgression.GetBaseStat(entity, statName)
