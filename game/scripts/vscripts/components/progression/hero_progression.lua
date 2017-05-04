@@ -6,9 +6,9 @@ if HeroProgression == nil then
 end
 
 function HeroProgression:RegisterCustomLevellingPatterns()
-  HeroProgression.customLevellingPatterns = {}
+  self.customLevellingPatterns = {}
 
-  HeroProgression.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
+  self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
     -- Invoker gets all dem ability points
     return true
   end)
