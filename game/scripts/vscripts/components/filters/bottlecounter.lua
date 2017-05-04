@@ -29,7 +29,8 @@ function BottleCounter:Filter(filterTable)
   local player = parent:GetPlayerOwner()
 
   if player and not parent:IsIllusion() and not parent:IsTempestDouble() and not parent:IsPhantom() then
-    hero = player:GetAssignedHero()
+    local hero = player:GetAssignedHero()
+    local playerID = player:GetPlayerID()
 
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
