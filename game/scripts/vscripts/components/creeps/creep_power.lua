@@ -18,7 +18,7 @@ local ExponentialGrowthOnset
   end
 
   if minute > ExponentialGrowthOnset[PointsManager:GetLimit()] then
-    multFactor = 1.5 ^ (minute - 60)
+    multFactor = 1.5 ^ (minute - ExponentialGrowthOnset[PointsManager:GetLimit()])
   end
 
   return {
