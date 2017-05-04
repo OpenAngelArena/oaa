@@ -6,11 +6,18 @@ end
 function CreepPower:GetPowerForMinute (minute)
   local multFactor = 1
 
+local ExponentialGrowthOnset
+{
+  50 = 40,
+  100 = 60,
+  200 = 120
+}
+
   if minute == 0 then
     return {   0,        1.0,      1.0,      1.0,      1.0,      1.0,      1.0 * self.numPlayersXPFactor}
   end
 
-  if (minute > 40 and PointsManage:GetLimit() = 50) or (minute > 50 and PointsManage:GetLimit() = 100) or (minute > 120 and PointsManage:GetLimit() = 200) then
+  if minute > ExponentialGrowthOnset[PointsManager:GetLimit()] then
     multFactor = 1.5 ^ (minute - 60)
   end
 
