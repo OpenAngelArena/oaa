@@ -52,8 +52,8 @@ end
 
 function HeroProgression:ReduceIllusionStats(illusionEnt)
   if illusionEnt.IsIllusion and illusionEnt:IsIllusion() and illusionEnt:IsHero() then
-    -- Set short delay because illusions won't immediately have the correct level
-    Timers:CreateTimer(.02, function()
+    -- Set one frame delay because illusions won't immediately have the correct level
+    Timers:CreateTimer(function()
       local currentHealth = illusionEnt:GetHealth()
       local currentMana = illusionEnt:GetMana()
       local illusionLevel = illusionEnt:GetLevel()
