@@ -67,50 +67,52 @@ function HeroProgression:ReduceStatGain(hero, level)
 end
 
 function HeroProgression:ReduceIllusionStats(illusionEnt)
-  if illusionEnt.IsIllusion and illusionEnt:IsIllusion() and illusionEnt:IsHero() then
+  -- Support functions
+  function CalculateStatAt25(unitLevel, currentBaseStat, statGain)
+    return currentBaseStat - (unitLevel - 25) * statGain
+  end
+
+  function CalculateReducedStat(unitLevel, statAt25, statGain)
+    return statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1)) + statAt25
+  end
+
+  local GetBaseStat = partial(self.GetBaseStat, illusionEnt)
+  local SetBaseStat = partial(self.SetBaseStat, illusionEnt)
+  local GetStatGain = partial(self.GetStatGain, illusionEnt)
+
+  -- Note: Will not run on very first spawn of Tempest Double in a game due to the flag only being set on the next frame
+  if illusionEnt.IsIllusion and (illusionEnt:IsIllusion() or illusionEnt:IsTempestDouble()) and illusionEnt:IsHero() then
     -- Set one frame delay because illusions won't immediately have the correct level
     Timers:CreateTimer(function()
       local currentHealth = illusionEnt:GetHealth()
       local currentMana = illusionEnt:GetMana()
       local illusionLevel = illusionEnt:GetLevel()
       -- No need to do anything if the illusion isn't above level 25
-      if illusionLevel <= 25 then
+      -- Or if the illusion is a Hybrid
+      if illusionLevel <= 25 or illusionEnt:HasModifier("modifier_morph_hybrid_special") then
         return
       end
 
-      function CalculateStatAt25(unitLevel, currentBaseStat, statGain)
-        return currentBaseStat - (unitLevel - 25) * statGain
-      end
+      local statGains = map(GetStatGain, self.statNames)
+      local currentBaseStats = map(GetBaseStat, self.statNames)
 
-      function CalculateReducedStat(unitLevel, statAt25, statGain)
-        return statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1)) + statAt25
-      end
-
-      function SetBaseStat(statName, statValue)
-        illusionEnt["SetBase" .. statName](illusionEnt, statValue)
-      end
-
-      local statGains = {
-        illusionEnt:GetStrengthGain(),
-        illusionEnt:GetAgilityGain(),
-        illusionEnt:GetIntellectGain()
-      }
-      local currentBaseStats = {
-        illusionEnt:GetBaseStrength(),
-        illusionEnt:GetBaseAgility(),
-        illusionEnt:GetBaseIntellect()
-      }
-      local statNames = {
-        "Strength",
-        "Agility",
-        "Intellect"
-      }
       -- Calculate stats after reduction, set them, and call CalculateStatBonus to update health, mana, damage, etc.
-      local statsAt25 = map(partial(CalculateStatAt25, illusionLevel), zip(currentBaseStats, statGains))
+      local statsAt25 = illusionEnt.statsAt25 or map(partial(CalculateStatAt25, illusionLevel), zip(currentBaseStats, statGains))
+      -- Save level 25 stats as a property on the illusion entity the first time that entity is handled by this function
+      -- Mainly used for Arc Warden Tempest Double because it's a persistent entity
+      if illusionEnt:IsTempestDouble() then
+        illusionEnt.statsAt25 = illusionEnt.statsAt25 or totable(statsAt25)
+      end
       local reducedStats = map(partial(CalculateReducedStat, illusionLevel), zip(statsAt25, statGains))
-      foreach(SetBaseStat, zip(statNames, reducedStats))
+
+      -- Don't modify strength and agility of Morphling illusions
+      if illusionEnt:GetName() == "npc_dota_hero_morphling" then
+        SetBaseStat("Intellect", nth(3, reducedStats))
+      else
+        foreach(SetBaseStat, zip(self.statNames, reducedStats))
+      end
       illusionEnt:CalculateStatBonus()
-      -- Set health and mana back to the values the illusison spawned with
+      -- Set health and mana back to the values the illusion spawned with
       illusionEnt:SetHealth(currentHealth)
       illusionEnt:SetMana(currentMana)
     end)
