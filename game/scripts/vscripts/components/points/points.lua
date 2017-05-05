@@ -9,62 +9,81 @@ end
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
 
-  PointsManager.hasGameEnded = false
+  self.hasGameEnded = false
 
-  CustomNetTables:SetTableValue( 'team_scores', 'score', {})
+  CustomNetTables:SetTableValue( 'team_scores', 'score', {
+    goodguys = 0,
+    badguys = 0,
+  })
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
     if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() then
-      PointsManager:AddPoints(keys.killer:GetTeam())
+      self:AddPoints(keys.killer:GetTeam())
     end
   end)
 end
 
 function PointsManager:CheckWinCondition(score)
-  if PointsManager.hasGameEnded then
+  if self.hasGameEnded then
     return
   end
 
   local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
 
-  for teamID, points in pairs(score) do
+  for team, points in pairs(score) do
+    if team == 'goodguys' then
+      local teamID = DOTA_TEAM_GOODGUYS
+    elseif team == 'badguys' then
+      local teamID = DOTA_TEAM_BADGUYS
+    end
+
     if points >= limit then
       Timers:CreateTimer(1, function()
         GameRules:SetGameWinner(teamID)
       end)
-      PointsManager.hasGameEnded = true
+      self.hasGameEnded = true
       break
     end
   end
 end
 
 function PointsManager:SetPoints(teamID, amount)
-  local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
+  local score = CustomNetTables:GetTableValue('team_scores', 'score')
 
-  score[teamID] = amount
+  if teamID == DOTA_TEAM_GOODGUYS then
+    score.goodguys = amount
+  elseif teamID == DOTA_TEAM_BADGUYS then
+    score.badguys = amount
+  end
 
-  CustomNetTables:SetTableValue( 'team_scores', 'score', score )
-  PointsManager:CheckWinCondition(score)
+  CustomNetTables:SetTableValue('team_scores', 'score', score)
+  self:CheckWinCondition(score)
 end
 
 function PointsManager:AddPoints(teamID, amount)
-  if amount == nil then
-    amount = 1
+  amount = amount or 1
+
+  local score = CustomNetTables:GetTableValue('team_scores', 'score')
+
+  if teamID == DOTA_TEAM_GOODGUYS then
+    score.goodguys = score.goodguys + amount
+  elseif teamID == DOTA_TEAM_BADGUYS then
+    score.badguys = score.badguys + amount
   end
 
-  local score = CustomNetTables:GetTableValue( 'team_scores', 'score' )
-
-  score[teamID] = score[teamID] + amount or amount
-
-  CustomNetTables:SetTableValue( 'team_scores', 'score', score )
-  PointsManager:CheckWinCondition(score)
+  CustomNetTables:SetTableValue('team_scores', 'score', score)
+  self:CheckWinCondition(score)
 end
 
 function PointsManager:GetPoints(teamID)
   local score = CustomNetTables:GetTableValue('team_scores', 'score')
 
-  return score[teamID]
+  if teamID == DOTA_TEAM_GOODGUYS then
+    return score.goodguys
+  elseif teamID == DOTA_TEAM_BADGUYS then
+    return score.badguys
+  end
 end
 
 function PointsManager:GetLimit()

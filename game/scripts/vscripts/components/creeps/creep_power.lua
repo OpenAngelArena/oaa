@@ -6,11 +6,10 @@ end
 function CreepPower:GetPowerForMinute (minute)
   local multFactor = 1
 
-local ExponentialGrowthOnset
-{
-  50 = 40,
-  100 = 60,
-  200 = 120
+local ExponentialGrowthOnset = {
+  [50] = 40,
+  [100] = 60,
+  [200] = 120
 }
 
   if minute == 0 then
