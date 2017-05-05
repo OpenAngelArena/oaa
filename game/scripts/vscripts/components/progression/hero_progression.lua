@@ -123,7 +123,7 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
   else
     -- Double check for Tempest Double with one frame delay to catch first spawn
     Timers:CreateTimer(function()
-      if illusionEnt.IsTempestDouble and illusionEnt:IsTempestDouble() then
+      if not illusionEnt:IsNull() and illusionEnt.IsTempestDouble and illusionEnt:IsTempestDouble() then
         ReduceStats()
       end
     end)

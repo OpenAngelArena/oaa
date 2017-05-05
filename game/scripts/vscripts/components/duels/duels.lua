@@ -11,6 +11,14 @@ end
  TODO: Refactor this file into a few modules so that there's less of a wall of code here
 ]]
 
+local DuelPreparingEvent = Event()
+local DuelStartEvent = Event()
+local DuelEndEvent = Event()
+
+Duels.onStart = DuelStartEvent.listen
+Duels.onPreparing = DuelPreparingEvent.listen
+Duels.onEnd = DuelEndEvent.listen
+
 function Duels:Init ()
   DebugPrint('Init duels')
 
@@ -84,6 +92,7 @@ function Duels:StartDuel ()
     return
   end
   Duels.currentDuel = DUEL_IS_STARTING
+  DuelPreparingEvent.broadcast(true)
 
   Notifications:TopToAll({text="A duel will start in 10 seconds!", duration=5.0})
   for index = 1,5 do
@@ -240,6 +249,7 @@ function Duels:ActuallyStartDuel ()
     badPlayerIndex = badPlayerIndex,
     goodPlayerIndex = goodPlayerIndex
   }
+  DuelStartEvent.broadcast(Duels.currentDuel)
 
   Timers:CreateTimer(90, Dynamic_Wrap(Duels, 'EndDuel'))
 end
@@ -303,6 +313,7 @@ function Duels:EndDuel ()
       Duels:RestorePlayerState (hero, state)
       Duels:MoveCameraToPlayer(state.id, hero)
     end)
+    DuelEndEvent.broadcast(true)
   end)
 end
 

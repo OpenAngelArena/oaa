@@ -30,6 +30,7 @@ function Doors:UseDoors(name, settings)
   local gate = self:CreateEmptyGate(settings)
 
   gate.props.gate = Entities:FindByName(nil, name)
+
   if gate.props.gate == nil then
     return nil
   end

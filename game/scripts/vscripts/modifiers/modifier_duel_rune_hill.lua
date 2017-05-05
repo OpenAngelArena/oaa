@@ -64,6 +64,10 @@ function modifier_duel_rune_hill:OnIntervalThink()
   end
 
   local stackCount = self:GetStackCount() + 1
+  if not DuelRunes or not DuelRunes.active then
+    stackCount = 0
+  end
+
   local rewardTable = {
     [30] = "modifier_rune_regen",
     [80] = "modifier_rune_haste",

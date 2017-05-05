@@ -33,7 +33,7 @@ Bosses = {
   -- tier 5
   {
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_tier_6"
+    "npc_dota_boss_stopfightingyourself"
   },
   -- tier 6
   {
