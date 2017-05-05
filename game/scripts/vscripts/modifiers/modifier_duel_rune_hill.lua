@@ -56,6 +56,11 @@ end
 function modifier_duel_rune_hill:OnIntervalThink()
   if self:GetCaster():HasModifier("modifier_duel_rune_hill_enemy") then
     self:SetStackCount(0)
+    return
+  end
+
+  if self:GetStackCount() == 130 then
+    return
   end
 
   local stackCount = self:GetStackCount() + 1
@@ -71,10 +76,29 @@ function modifier_duel_rune_hill:OnIntervalThink()
 
   self:SetStackCount(stackCount)
 
+  local unit = self:GetCaster()
+
   if rewardTable[stackCount] ~= nil and self:GetCaster().AddNewModifier then
-    self:GetCaster():AddNewModifier(self:GetCaster(), nil, rewardTable[stackCount], {
+    unit:AddNewModifier(self:GetCaster(), nil, rewardTable[stackCount], {
       duration = 60
     })
+  end
+
+  local particleTable = {
+    [1]  = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
+    [30] = "particles/items2_fx/mekanism.vpcf",
+    [80] = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
+    [90] = "particles/items2_fx/mekanism.vpcf",
+    [100]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+    [110]= "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
+    [120]= "particles/items2_fx/mekanism.vpcf",
+    [130]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+  }
+
+  if particleTable[stackCount] ~= nil and self:GetCaster() then
+    local part = ParticleManager:CreateParticle(particleTable[stackCount], PATTACH_ABSORIGIN_FOLLOW, unit)
+    ParticleManager:SetParticleControlEnt(part, 1, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(part)
   end
 end
 

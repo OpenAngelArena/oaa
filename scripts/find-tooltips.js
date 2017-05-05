@@ -18,7 +18,16 @@ module.exports = {
 };
 
 if (require.main === module) {
-  findMissingTooltips(function () { });
+  findMissingTooltips(function (err, result) {
+    console.log();
+    if (err) {
+      console.error(err);
+      return;
+    }
+    if (result.length === 0) {
+      console.log('Everything looks good!');
+    }
+  });
 }
 
 function findMissingTooltips (cb) {

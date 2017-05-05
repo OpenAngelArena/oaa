@@ -13,3 +13,4 @@ require('components/boss/index')
 require('components/progression/index')
 require('components/courier/index')
 require('components/cave/index') -- must be after creeps
+require('components/doors/index')

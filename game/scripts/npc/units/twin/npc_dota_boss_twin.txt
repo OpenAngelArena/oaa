@@ -8,10 +8,10 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_neutral" // Class of entity of link to.
-		"Model"						"models/heroes/meepo/meepo.vmdl"	// Model.
+		"Model"						"models\creeps\item_creeps\i_creep_necro_warrior\necro_warrior.vmdl"	// Model.
     	"vscripts"                  "units/twin.lua"
 		"SoundSet"					"Meepo"					// Name of sound set.
-		"ModelScale"				"2"
+		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "1"
@@ -31,10 +31,10 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"500"		// Damage range min.
-		"AttackDamageMax"			"600"		// Damage range max.
+		"AttackDamageMin"			"700"		// Damage range min.
+		"AttackDamageMax"			"750"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.0"			// Speed of attack.
+		"AttackRate"				"0.75"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
 		"AttackRange"				"128"		// Range within a target can be attacked.
@@ -59,7 +59,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"5000"		// Base health
+		"StatusHealth"				"3500"		// Base health
 		"StatusHealthRegen"			"3.5"		// Health regeneration rate.
 		"StatusMana"				"0"		// Base mana.
 		"StatusManaRegen"			"0"		// Mana regeneration rate.

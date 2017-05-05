@@ -1,5 +1,7 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
+GAME_VERSION = "0.21.0"
+
 require('internal/util')
 require('gamemode')
 -- DotaStats
