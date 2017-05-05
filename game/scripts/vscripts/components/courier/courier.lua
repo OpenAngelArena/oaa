@@ -17,6 +17,10 @@ function Courier:Init ()
 end
 
 function Courier.SpawnCourier (hero)
+    if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+
   Timers:CreateTimer(0.1, function ()
     if Courier.hasCourier[hero:GetTeamNumber()] then
       return

@@ -4,7 +4,7 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
-  Debug.EnabledModules['boss:*'] = false
+  Debug.EnabledModules['boss:spawn'] = false
 end
 
 function BossSpawner:Init ()
@@ -64,7 +64,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier)
   local newBossTier = math.min(6, bossTier + 1)
 
   bossAI.onDeath(function ()
-    DebugPrint('Boss has died ' .. pit.killCount .. 'times')
+    DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
     Timers:CreateTimer(60, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)

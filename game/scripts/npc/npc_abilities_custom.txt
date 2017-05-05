@@ -1,10 +1,12 @@
 #base "abilities/tiny_grow_oaa.txt"
+
 #base "abilities/boss/boss_resistance.txt"
+
 #base "abilities/charger/boss_charger_charge.txt"
 #base "abilities/charger/boss_charger_summon_pillar.txt"
 #base "abilities/shielder/boss_shielder_shield.txt"
 #base "abilities/twin/boss_twin_twin_empathy.txt"
 
-"DOTAAbilities"
-{
-}
+#base "abilities/stopfightingyourself/dupe_heroes.txt"
+#base "abilities/stopfightingyourself/debuff_mirror.txt"
+#base "abilities/stopfightingyourself/dupe_items.txt"
