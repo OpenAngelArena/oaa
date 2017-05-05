@@ -1,7 +1,7 @@
 const fs = require('fs');
-var pjson = require('./package.json');
+var pjson = require('package.json');
 
-const addonGameMode = './game/scripts/vscripts/addon_game_mode.lua';
+const addonGameMode = 'game/scripts/vscripts/addon_game_mode.lua';
 
 fs.readFile(addonGameMode, (err, data) => {
   if (err) return console.log(err);
