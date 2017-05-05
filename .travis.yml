@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get -qq install -y luarocks
   - sudo luarocks install luacheck
 script:
-  - luacheck --codes --ranges -qq ./game/scripts/vscripts
+  - luacheck --codes --ranges -q ./game/scripts/vscripts
   - lua './contrib/test_oaa.lua'
   - npm test
 deploy:
