@@ -33,6 +33,18 @@ function DuelRunes:Init ()
   DuelRunes.zone2.onStartTouch(DuelRunes.StartTouch)
   DuelRunes.zone2.onEndTouch(DuelRunes.EndTouch)
 
+
+  Duels.onStart(function()
+    DuelRunes.active = false
+
+    Timers:CreateTimer(30, function()
+      if not Duels.currentDuel then
+        return
+      end
+      Notifications:TopToAll({text="Duel highground objective activated!", duration=10.0, style={color="red", ["font-size"]="86px"}})
+      DuelRunes.active = true
+    end)
+  end)
 end
 
 function DuelRunes:StartTouch(event)
