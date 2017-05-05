@@ -309,5 +309,5 @@ end
 end
 
 function CaveHandler:GetCleares (teamID)
-return self.caves[teamID].timescleared
+  return self.caves[teamID].timescleared
 end

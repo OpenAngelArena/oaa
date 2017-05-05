@@ -59,7 +59,7 @@ function ChatCommand:OnPlayerChat(keys)
     -- Test command to quickly test anything
     if string.find(text, "-list") or string.find(text, "-help") then
       GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots", 0, 0)
-      GameRules:SendCustomMessage("-add x, -give x y, -fixspawn, -noend, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
+      GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -noend, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
 
       -- Add bots to both teams
     elseif string.find(text, "-addbots") then
@@ -192,7 +192,7 @@ function ChatCommand:OnPlayerChat(keys)
       end
 
     -- Adds an ability, if partial name given, gives the last ability it finds matching that string
-    elseif string.find(text, "-add") then
+  elseif string.find(text, "-addability") then
       local splitted = split(text, " ")
       if splitted[2] then
         local absCustom = LoadKeyValues('scripts/npc/npc_abilities_override.txt')
@@ -274,6 +274,12 @@ function ChatCommand:OnPlayerChat(keys)
         name = name .. "_" .. splitted[2]
       end
       hero:AddItemByName(name)
+
+    elseif string.find(text, "-addpoints") then
+      local splitted = split(text, " ")
+      local teamID = hero:GetTeam()
+      local points = tonumber(splitted[2]) or 1
+      PointsManager:AddPoints(teamID, points)
 
     end
   end

@@ -24,27 +24,18 @@ function PointsManager:Init ()
   end)
 end
 
-function PointsManager:CheckWinCondition(score)
+function PointsManager:CheckWinCondition(teamID, points)
   if self.hasGameEnded then
     return
   end
 
   local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
 
-  for team, points in pairs(score) do
-    if team == 'goodguys' then
-      local teamID = DOTA_TEAM_GOODGUYS
-    elseif team == 'badguys' then
-      local teamID = DOTA_TEAM_BADGUYS
-    end
-
-    if points >= limit then
-      Timers:CreateTimer(1, function()
-        GameRules:SetGameWinner(teamID)
-      end)
-      self.hasGameEnded = true
-      break
-    end
+  if points >= limit then
+    Timers:CreateTimer(1, function()
+      GameRules:SetGameWinner(teamID)
+    end)
+    self.hasGameEnded = true
   end
 end
 
@@ -58,7 +49,7 @@ function PointsManager:SetPoints(teamID, amount)
   end
 
   CustomNetTables:SetTableValue('team_scores', 'score', score)
-  self:CheckWinCondition(score)
+  self:CheckWinCondition(teamID, amount)
 end
 
 function PointsManager:AddPoints(teamID, amount)
@@ -73,7 +64,7 @@ function PointsManager:AddPoints(teamID, amount)
   end
 
   CustomNetTables:SetTableValue('team_scores', 'score', score)
-  self:CheckWinCondition(score)
+  self:CheckWinCondition(teamID, amount)
 end
 
 function PointsManager:GetPoints(teamID)
