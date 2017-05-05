@@ -21,7 +21,7 @@ Bosses = {
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_tier_6"
+    "npc_dota_boss_stopfightingyourself"
   },
   -- tier 4
   {
@@ -33,7 +33,7 @@ Bosses = {
   -- tier 5
   {
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_tier_6"
+    "npc_dota_boss_stopfightingyourself"
   },
   -- tier 6
   {
