@@ -15,7 +15,7 @@ function Spawn (entityKeyValues)
   })
 end
 
-function SpawnDumbTwin()  
+function SpawnDumbTwin()
   local twin = CreateUnitByName("npc_dota_boss_twin_dumb", thisEntity:GetAbsOrigin(), true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
   twin:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_twin_twin_empathy_buff", {})
 end
