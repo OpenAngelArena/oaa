@@ -80,9 +80,8 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
   local SetBaseStat = partial(self.SetBaseStat, illusionEnt)
   local GetStatGain = partial(self.GetStatGain, illusionEnt)
 
-  -- Note: Will not run on very first spawn of Tempest Double in a game due to the flag only being set on the next frame
-  if illusionEnt.IsIllusion and (illusionEnt:IsIllusion() or illusionEnt:IsTempestDouble()) and illusionEnt:IsHero() then
-    -- Set one frame delay because illusions won't immediately have the correct level
+  -- Set one frame delay because illusions won't immediately have the correct level
+  function ReduceStats()
     Timers:CreateTimer(function()
       local currentHealth = illusionEnt:GetHealth()
       local currentMana = illusionEnt:GetMana()
@@ -115,6 +114,18 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
       -- Set health and mana back to the values the illusion spawned with
       illusionEnt:SetHealth(currentHealth)
       illusionEnt:SetMana(currentMana)
+    end)
+  end
+
+  -- Note: Will not run on very first spawn of Tempest Double in a game due to the flag only being set on the next frame
+  if illusionEnt.IsIllusion and (illusionEnt:IsIllusion() or illusionEnt:IsTempestDouble()) and illusionEnt:IsHero() then
+    ReduceStats()
+  else
+    -- Double check for Tempest Double with one frame delay to catch first spawn
+    Timers:CreateTimer(function()
+      if illusionEnt.IsTempestDouble and illusionEnt:IsTempestDouble() then
+        ReduceStats()
+      end
     end)
   end
 end
