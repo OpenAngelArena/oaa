@@ -29,14 +29,15 @@ function item_lucience:OnToggle()
 end
 
 function item_lucience:GetAbilityTextureName()
-  if self.auraHandler:IsNull() then
-    return self.BaseClass.GetAbilityTextureName(self)
+  local baseIconName = self.BaseClass.GetAbilityTextureName(self)
+  if not self.auraHandler or self.auraHandler:IsNull() then
+    return baseIconName
   elseif self.auraHandler:GetStackCount() == auraTypeRegen then
-    return regenIconName
+    return baseIconName
   elseif self.auraHandler:GetStackCount() == auraTypeMovespeed then
-    return movespeedIconName
+    return baseIconName .. "_movespeed"
   else
-    return self.BaseClass.GetAbilityTextureName(self)
+    return baseIconName
   end
 end
 
@@ -94,15 +95,13 @@ function modifier_item_lucience_aura_handler:OnCreated()
 
     item_lucience.RemoveLucienceAuras(parent)
     -- Delay adding the aura modifiers by a frame so that illusions won't always spawn with the regen aura
-    Timers:CreateTimer({
-      callback = function()
-        if ability:GetToggleState() then
-          parent:AddNewModifier(caster, ability, movespeedAuraName, {})
-        else
-          parent:AddNewModifier(caster, ability, regenAuraName, {})
-        end
+    Timers:CreateTimer(function()
+      if ability:GetToggleState() then
+        parent:AddNewModifier(caster, ability, movespeedAuraName, {})
+      else
+        parent:AddNewModifier(caster, ability, regenAuraName, {})
       end
-    })
+    end)
   end
 end
 
