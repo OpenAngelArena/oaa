@@ -4,7 +4,7 @@ modifier_boss_twin_twin_empathy_buff = class({})
 
 --This may need to be in the abil not the mod
 function modifier_boss_twin_twin_empathy_buff:OnCreated()
-  local interval = 2 --self:GetSpecialValueFor( "heal_timer" )
+  local interval = 2
   self:StartIntervalThink(interval)
   return true
 end
@@ -18,7 +18,8 @@ function modifier_boss_twin_twin_empathy_buff:IsPurgable()
 end
 
 function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
-  if IsServer() then	
+  if not IsServer() then
+    return
   end
 
   local master = self:GetCaster()
@@ -29,8 +30,9 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
       twin:SetHealth(master:GetHealth())
     end
     if twin:GetHealth() > master:GetHealth() then
-      master:SetHealth(twin:GetHealth()) 
+      master:SetHealth(twin:GetHealth())
     end
 	end
-end
 
+  self:StartIntervalThink(self:GetAbility():GetSpecialValueFor( "heal_timer" ))
+end
