@@ -262,7 +262,9 @@ for roomID, room in pairs(cave.rooms) do
       false -- can grow cache
     )
     for _, unit in pairs(result) do
-      table.insert(units, unit)
+      if room.zone:IsTouching(unit) then
+        table.insert(units, unit)
+      end
     end
   end
 end
