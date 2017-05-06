@@ -1,18 +1,19 @@
-    //===========================================
-    // Hurricane Pull Staff Item
-    //===========================================
+//===========================================
+// Hurricane Pull Staff Item
+//===========================================
 
-            "DOTA_Tooltip_Ability_item_tropical_pike"                                    "Hurricane Pull Staff"
-            "DOTA_Tooltip_Ability_item_recipe_tropical_pike"                             "Hurricane Pull Staff Recipe"
-            "DOTA_Tooltip_Ability_item_tropical_pike_Lore"                               "A legendary staff that can channel a controlled gust."
-            "DOTA_Tooltip_Ability_item_tropical_pike_Note0"                              "Self-cast will use Hurricane Pull Staff on yourself."
-            "DOTA_Tooltip_Ability_item_tropical_pike_Note1"                              "Hurricane Pull Staff doesn't interrupt the target's actions."
-            "DOTA_Tooltip_Ability_item_tropical_pike_Note2"                              "Will not work on a unit inside Chronosphere, Duel, or Black Hole."
-            "DOTA_Tooltip_Ability_item_tropical_pike_bonus_intellect"                    "+$int"
-            "DOTA_Tooltip_Ability_item_tropical_pike_bonus_health_regen"                 "+$hp_regen"
-            "DOTA_Tooltip_Ability_item_tropical_pike_bonus_agility"                      "+$agi"
-            "DOTA_Tooltip_Ability_item_tropical_pike_bonus_strength"                     "+$str"
-            "DOTA_Tooltip_Ability_item_tropical_pike_base_attack_range"                  "+$attack_range"
-            "DOTA_Tooltip_Ability_item_tropical_pike_range_duration"                     "UNLIMITED RANGE DURATION:"
-            "DOTA_Tooltip_Ability_item_tropical_pike_cast_range_enemy"                   "CAST RANGE ON ENEMY:"
-            "DOTA_Tooltip_Ability_item_tropical_pike_max_attacks"                        "UNLIMITED RANGE ATTACKS:"
+"DOTA_Tooltip_Ability_item_tropical_pike"                                    "Hurricane Pull Staff"
+"DOTA_Tooltip_Ability_item_recipe_tropical_pike"                             "Hurricane Pull Staff Recipe"
+"DOTA_Tooltip_Ability_item_tropical_pike_Description"                        "Active: When used on an enemy, it pulls you both together for %enemy_length% units each, and allows you to attack the target without range restrictions for %max_attacks% attacks for a maximum of %range_duration% seconds. Grants %bonus_attack_speed% Attack Speed during the attacks. Works like Pull Staff when used on self or allies."
+"DOTA_Tooltip_Ability_item_tropical_pike_Lore"                               "A legendary staff that can channel a controlled gust."
+"DOTA_Tooltip_Ability_item_tropical_pike_Note0"                              "Self-cast will use Hurricane Pull Staff on yourself."
+"DOTA_Tooltip_Ability_item_tropical_pike_Note1"                              "Hurricane Pull Staff doesn't interrupt the target's actions."
+"DOTA_Tooltip_Ability_item_tropical_pike_Note2"                              "Will not work on a unit inside Chronosphere, Duel, or Black Hole."
+"DOTA_Tooltip_Ability_item_tropical_pike_bonus_intellect"                    "+$int"
+"DOTA_Tooltip_Ability_item_tropical_pike_bonus_health_regen"                 "+$hp_regen"
+"DOTA_Tooltip_Ability_item_tropical_pike_bonus_agility"                      "+$agi"
+"DOTA_Tooltip_Ability_item_tropical_pike_bonus_strength"                     "+$str"
+"DOTA_Tooltip_Ability_item_tropical_pike_base_attack_range"                  "+$attack_range"
+"DOTA_Tooltip_Ability_item_tropical_pike_range_duration"                     "UNLIMITED RANGE DURATION:"
+"DOTA_Tooltip_Ability_item_tropical_pike_cast_range_enemy"                   "CAST RANGE ON ENEMY:"
+"DOTA_Tooltip_Ability_item_tropical_pike_max_attacks"                        "UNLIMITED RANGE ATTACKS:"

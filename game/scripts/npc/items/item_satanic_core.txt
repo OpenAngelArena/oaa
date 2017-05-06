@@ -11,15 +11,15 @@
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"AbilityTextureName"			"item_recipe"
 		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_satanic_core"
 		"ItemRequirements"
 		{
-			"01"						"item_satanic;item_octarine_core;item_upgrade_core_2"
-      "02"            "item_satanic;item_octarine_core;item_upgrade_core_3"
-      "03"            "item_satanic;item_octarine_core;item_upgrade_core_4"
+			"01"						"item_satanic_2;item_octarine_core_2;item_upgrade_core_2"
+      "02"            "item_satanic_2;item_octarine_core_2;item_upgrade_core_3"
+      "03"            "item_satanic_2;item_octarine_core_2;item_upgrade_core_4"
 		}
 	}
 

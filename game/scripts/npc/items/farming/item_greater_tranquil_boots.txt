@@ -34,9 +34,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3045"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_tranquil_boots"
+		"BaseClass"                    	"item_lua"
+		"ScriptFile"                   	"items/item_greater_tranquil_boots.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_tranquil_boots"
+		"AbilityTextureName"            "custom/item_greater_tranquils"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"13.0"
@@ -113,6 +114,18 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"regen_from_creeps"		"20 30 45 60 120"    // New Functionality
+			}
+			// setting either of these to 0 will disable the functionality
+			// of creeps "bleeding" from attacking the wearer
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_sap_damage"		"1.6 1.9 2.1 2.5 5"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_sap_duration"	"2.0"
 			}
 		}
 	}

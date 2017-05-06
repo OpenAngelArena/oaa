@@ -11,7 +11,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4500"
+		"ItemCost"						"20000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -29,7 +29,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3261"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_heart"
+    "BaseClass"             "item_lua"
+    "ScriptFile"            "items/heart_transplant.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -37,10 +38,11 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCooldown"				"7.0"
+    "AbilityCastRange"        "1000"
+    "AbilityCooldown"       "0.0"
 		"AbilitySharedCooldown"			"medallion"
 		"AbilityTextureName"            "item_heart"
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"14000"
@@ -49,51 +51,59 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"transplant2"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"7"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"transplant_range_tooltip"		"1000"
-			}
-			// New Parameters
-			"03"
-            {
-                "var_type"             			 "FIELD_INTEGER"
-                "bonus_strength"        		"135 180"
-            }
-            "04"
-            {
-                "var_type"              		"FIELD_INTEGER"
-                "bonus_health"          		"1000 1350"
-            }
-            "05"
-            {
-                "var_type"              		"FIELD_FLOAT"
-                "health_regen_rate"     		"3.25"
-            }
-            "06"
-            {
-                "var_type"              		"FIELD_INTEGER"
-                "cooldown_melee"        		"5"
-            }
-            "07"
-            {
-                "var_type"              		"FIELD_INTEGER"
-                "cooldown_ranged_tooltip"       "7"
-            }
-		}
-	}
+    // "IsTempestDoubleClonable"   "0"
+    "ItemInitialCharges"      "1"
+    "ItemRequiresCharges"     "1"
 
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      // New Parameters
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "duration"            "7"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "transplant_cooldown" "7"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "transplant_range_tooltip"    "1000"
+      }
+      // Heart Parameters
+      "04"
+      {
+        "var_type"                   "FIELD_INTEGER"
+        "bonus_strength"            "135 180"
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "bonus_health"              "1000 1350"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "health_regen_rate"         "3.25"
+      }
+      "07"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "cooldown_melee"            "5"
+      }
+      "08"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"       "7"
+      }
+    }
+  }
 }

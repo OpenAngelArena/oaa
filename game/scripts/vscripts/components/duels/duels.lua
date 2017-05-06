@@ -3,11 +3,6 @@ if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
 
-  -- debugging lines, enable logging and enable chat commands to start/stop duels
-
-  Debug.EnabledModules['duels:*'] = false
-  Debug.EnabledModules['zonecontrol:*'] = false
-
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
 end
@@ -15,6 +10,14 @@ end
 --[[
  TODO: Refactor this file into a few modules so that there's less of a wall of code here
 ]]
+
+local DuelPreparingEvent = Event()
+local DuelStartEvent = Event()
+local DuelEndEvent = Event()
+
+Duels.onStart = DuelStartEvent.listen
+Duels.onPreparing = DuelPreparingEvent.listen
+Duels.onEnd = DuelEndEvent.listen
 
 function Duels:Init ()
   DebugPrint('Init duels')
@@ -89,6 +92,7 @@ function Duels:StartDuel ()
     return
   end
   Duels.currentDuel = DUEL_IS_STARTING
+  DuelPreparingEvent.broadcast(true)
 
   Notifications:TopToAll({text="A duel will start in 10 seconds!", duration=5.0})
   for index = 1,5 do
@@ -185,6 +189,10 @@ function Duels:ActuallyStartDuel ()
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
 
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
+
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
     badHero:SetRespawnsDisabled(true)
@@ -220,6 +228,10 @@ function Duels:ActuallyStartDuel ()
     Duels:MoveCameraToPlayer(goodGuy.id, goodHero)
     Duels:MoveCameraToPlayer(badGuy.id, badHero)
 
+    -- stop player action
+    goodHero:Stop()
+    badHero:Stop()
+
     -- disable respawn
     goodHero:SetRespawnsDisabled(true)
     badHero:SetRespawnsDisabled(true)
@@ -237,6 +249,7 @@ function Duels:ActuallyStartDuel ()
     badPlayerIndex = badPlayerIndex,
     goodPlayerIndex = goodPlayerIndex
   }
+  DuelStartEvent.broadcast(Duels.currentDuel)
 
   Timers:CreateTimer(90, Dynamic_Wrap(Duels, 'EndDuel'))
 end
@@ -300,6 +313,7 @@ function Duels:EndDuel ()
       Duels:RestorePlayerState (hero, state)
       Duels:MoveCameraToPlayer(state.id, hero)
     end)
+    DuelEndEvent.broadcast(true)
   end)
 end
 
@@ -308,7 +322,7 @@ function Duels:ResetPlayerState (hero)
     hero:RespawnHero(false,false,false)
   end
 
-hero:SetHealth(hero:GetMaxHealth())
+  hero:SetHealth(hero:GetMaxHealth())
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
@@ -378,7 +392,12 @@ function Duels:RestorePlayerState (hero, state)
   for abilityIndex = 0,hero:GetAbilityCount()-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
-      ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+      if state.abilities[abilityIndex] == nil then
+        DebugPrint('Why is this ability broken?' .. abilityIndex)
+        DebugPrintTable(state)
+      else
+        ability:StartCooldown(state.abilities[abilityIndex].cooldown)
+      end
     end
   end
 

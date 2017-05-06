@@ -17,10 +17,10 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"boss_resistance"
-		"Ability2"					""
-		"Ability3"					""
-		"Ability4"					""
+    "Ability1"                  "roshan_spell_block"
+    "Ability2"                  "roshan_bash"
+    "Ability3"                  "roshan_slam"
+    "Ability4"                  "boss_resistance"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -30,11 +30,11 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"500"		// Damage range min.
-		"AttackDamageMax"			"600"		// Damage range max.
+		"AttackDamageMin"			"225"		// Damage range min.
+		"AttackDamageMax"			"250"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"2.0"			// Speed of attack.
-		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackRate"				"1.0"			// Speed of attack.
+		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 

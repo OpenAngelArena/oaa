@@ -7,7 +7,7 @@
   {
     "ID"            "3807"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "2300"
+    "ItemCost"          "20000"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_3a"
@@ -58,28 +58,28 @@
     {
       "01"
       {
-        "var_type"          "FIELD_FLOAT"
-        "tick_interval"     "0.2"
+        "var_type"          "FIELD_INTEGER"
+        "bonus_health"      "4000"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "4.0"
+        "var_type"          "FIELD_INTEGER"
+        "bonus_armor"       "20"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "4000"
+        "var_type"          "FIELD_INTEGER"
+        "magic_resistance"  "20"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "20"
+        "var_type"          "FIELD_FLOAT"
+        "tick_interval"     "0.2"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "magic_resistance"    "20"
+        "var_type"          "FIELD_FLOAT"
+        "duration"          "4.0"
       }
     }
   }

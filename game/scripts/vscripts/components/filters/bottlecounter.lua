@@ -8,13 +8,15 @@ if BottleCounter == nil then
 end
 
 function BottleCounter:Init()
+  self.bottleCount = {}
   FilterManager:AddFilter(FilterManager.ItemAddedToInventory, self, Dynamic_Wrap(BottleCounter, 'Filter'))
 
   for _,playerID in PlayerResource:GetAllTeamPlayerIDs() do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    local player = PlayerResource:GetPlayer(playerID)
-    player.bottleCount = 0
-    hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
+    self.bottleCount[playerID] = 0
+    if hero then
+      hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
+    end
   end
 end
 
@@ -26,15 +28,19 @@ function BottleCounter:Filter(filterTable)
   local parent = EntIndexToHScript(parentEntIndex)
   local player = parent:GetPlayerOwner()
 
-  if player then
-    hero = player:GetAssignedHero()
+  if player and not parent:IsIllusion() and not parent:IsTempestDouble() and not parent:IsPhantom() then
+    local hero = player:GetAssignedHero()
+    local playerID = player:GetPlayerID()
 
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
-      player.bottleCount = player.bottleCount + 3
+      self.bottleCount[playerID] = self.bottleCount[playerID] + 1
       hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
     end
-
   end
   return true
+end
+
+function BottleCounter:GetBottles(playerID)
+  return self.bottleCount[playerID]
 end
