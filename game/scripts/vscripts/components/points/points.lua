@@ -33,6 +33,8 @@ function PointsManager:CheckWinCondition(teamID, points)
 
   if points >= limit then
     Timers:CreateTimer(1, function()
+      GAME_WINNER_TEAM = teamID
+      GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
       GameRules:SetGameWinner(teamID)
     end)
     self.hasGameEnded = true

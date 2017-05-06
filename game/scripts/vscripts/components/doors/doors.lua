@@ -66,8 +66,10 @@ end]]
 --[[
 settings = {
   distance = 300,
-  openingSpeed = 1,
-  closingSpeed = 2,
+  openingStepDelay = 1/100,
+  openingStepSize = 1,
+  closingStepDelay = 1/100,
+  closingStepSize = 1,
 }
 ]]
 function Doors.OpenDoors(gate, settings)
@@ -81,9 +83,9 @@ function Doors.OpenDoors(gate, settings)
 
   local distance = settings.distance or 300
   local traveled = 0
-  local speed = settings.openingSpeed or 1
-  local delay = speed / 300
-  local stepSize = distance / 300
+  local delay = settings.openingStepDelay or 1/100
+  local stepSize = settings.openingStepSize or 1
+  local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, -distance)
 
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -stepSize))
@@ -91,6 +93,7 @@ function Doors.OpenDoors(gate, settings)
     if traveled < distance then
       return delay
     end
+    gate.props.gate:SetOrigin(targetOrigin)
     gate.state = DOOR_STATE_OPEN
   end)
 end
@@ -106,9 +109,9 @@ function Doors.CloseDoors(gate, settings)
 
   local distance = settings.distance or 300
   local traveled = 0
-  local speed = settings.closingSpeed or 2
-  local delay = speed / 300
-  local stepSize = distance / 300
+  local delay = settings.closingStepDelay or 1/100
+  local stepSize = settings.closingStepSize or 1
+  local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, distance)
 
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
@@ -116,6 +119,7 @@ function Doors.CloseDoors(gate, settings)
     if traveled < distance then
       return delay
     end
+    gate.props.gate:SetOrigin(targetOrigin)
     gate.state = DOOR_STATE_CLOSED
   end)
 end

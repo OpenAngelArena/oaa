@@ -52,7 +52,7 @@ function BuildGameArray()
 
     -- Add game values here as game.someValue = GetSomeGameValue()
     table.insert(game, {
-      gl = GAME_TIME_ELAPSED, -- Game length, from the horn sound, in seconds
+      gl = math.floor(GAME_TIME_ELAPSED), -- Game length, from the horn sound, in seconds
       wt = GAME_WINNER_TEAM, -- Winning team
 
       -- Score stats
