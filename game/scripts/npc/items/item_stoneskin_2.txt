@@ -7,14 +7,13 @@
 		"BaseClass"                         "item_datadriven"
         "Model"                             "models/props_gameplay/recipe.mdl"
         "AbilityTextureName"			    "item_recipe"
-        "ItemCost"                          "8000"
+        "ItemCost"                          "20000"
         "ItemShopTags"                      ""
         "ItemRecipe"                        "1"
         "ItemResult"                        "item_stoneskin_2"
         "ItemRequirements"
         {
-            "01"                            "item_stoneskin;item_upgrade_core_3"
-            "02"                            "item_stoneskin;item_upgrade_core_4"
+            "01"                            "item_stoneskin;item_upgrade_core_4"
         }
     }
 
