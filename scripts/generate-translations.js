@@ -9,7 +9,10 @@ var languageShortNames = {
   russian: 'ru',
   chinese: 'zh',
   portuguese: 'pt',
-  spanish: 'es'
+  spanish: 'es',
+  czech: 'cs',
+  polish: 'pl',
+  hungarian: 'hu'
 };
 var englishFileString = parseTranslation(false);
 var englishData = parseKV(englishFileString);

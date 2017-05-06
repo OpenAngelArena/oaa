@@ -7,7 +7,7 @@
   {
     "ID"            "3806"   // unique ID
     "BaseClass"     "item_datadriven"
-    "ItemCost"          "2300"
+    "ItemCost"          "3500"
     "ItemShopTags"          ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_preemptive_2b"
@@ -60,32 +60,32 @@
       "01"
       {
         "var_type"          "FIELD_INTEGER"
-        "damage_reduction"  "100"
+        "bonus_health"      "1000"
       }
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "damage_as_healing"  "0"
+        "bonus_armor"       "10"
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "2.0"
+        "var_type"          "FIELD_INTEGER"
+        "magic_resistance"  "10"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "1000"
+        "var_type"          "FIELD_INTEGER"
+        "damage_reduction"  "100"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "10"
+        "var_type"          "FIELD_INTEGER"
+        "damage_as_healing" "0"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "magic_resistance"    "10"
+        "var_type"          "FIELD_FLOAT"
+        "duration"          "2.0"
       }
     }
   }

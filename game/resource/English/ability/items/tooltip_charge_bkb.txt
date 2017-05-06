@@ -1,14 +1,14 @@
-    //===========================================================
-    // Charge BKB
-    //===========================================================
-            "DOTA_Tooltip_Ability_item_charge_bkb"                                  "Charge BKB"
-            "DOTA_Tooltip_Ability_item_recipe_charge_bkb"                           "Charge BKB Recipe"
-            "DOTA_Tooltip_Ability_item_charge_bkb_Description"                      "Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance. Duration and Cooldown are based on how many charges the item held before being used. Gains a charge whenever a nearby visible enemy hero uses an Ability. Charges decay over time if a charge hasn't been gained recently. Some abilities are able to disable through Avatar. (max %max_charges%)"
-            "DOTA_Tooltip_Ability_item_black_king_bar_Lore"                         "A spirit shield that feeds on the magical energies of its surroundings, granting the user magic nullification."
-            "DOTA_Tooltip_Ability_item_charge_bkb_Note0"                            "Gains charges for spells cast by visible enemies in 1200 range."
-            "DOTA_Tooltip_Ability_item_charge_bkb_Note1"                            "Certain abilities and item abilities will not add charges."
-            "DOTA_Tooltip_Ability_item_charge_bkb_Note2"                            "Using Black King Bar may remove some positive buffs."
-            "DOTA_Tooltip_Ability_item_charge_bkb_bonus_all_stats"                  "+$all"
-            "DOTA_Tooltip_Ability_item_charge_bkb_bonus_strength"                   "+$str"
-            "DOTA_Tooltip_Ability_item_charge_bkb_bonus_damage"                     "+$damage"
-            "DOTA_Tooltip_Ability_item_charge_bkb_duration_per_charge"              "DURATION PER CHARGE:"
+//===========================================================
+// Charge BKB
+//===========================================================
+"DOTA_Tooltip_Ability_item_charge_bkb"                                  "Charge BKB"
+"DOTA_Tooltip_Ability_item_recipe_charge_bkb"                           "Charge BKB Recipe"
+"DOTA_Tooltip_Ability_item_charge_bkb_Description"                      "Active: Avatar - Grants Spell Immunity and 100% Magic Damage Resistance. Duration and Cooldown are based on how many charges the item held before being used. Gains a charge whenever a nearby visible enemy hero uses an Ability. Charges decay over time if a charge hasn't been gained recently. Some abilities are able to disable through Avatar. (max %max_charges%)"
+"DOTA_Tooltip_Ability_item_charge_bkb_Lore"                         "A spirit shield that feeds on the magical energies of its surroundings, granting the user magic nullification."
+"DOTA_Tooltip_Ability_item_charge_bkb_Note0"                            "Gains charges for spells cast by visible enemies in 1200 range."
+"DOTA_Tooltip_Ability_item_charge_bkb_Note1"                            "Certain abilities and item abilities will not add charges."
+"DOTA_Tooltip_Ability_item_charge_bkb_Note2"                            "Using Black King Bar may remove some positive buffs."
+"DOTA_Tooltip_Ability_item_charge_bkb_bonus_all_stats"                  "+$all"
+"DOTA_Tooltip_Ability_item_charge_bkb_bonus_strength"                   "+$str"
+"DOTA_Tooltip_Ability_item_charge_bkb_bonus_damage"                     "+$damage"
+"DOTA_Tooltip_Ability_item_charge_bkb_duration_per_charge"              "DURATION PER CHARGE:"

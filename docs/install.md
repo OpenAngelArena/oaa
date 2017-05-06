@@ -3,6 +3,7 @@ You have to set up several things before you can run a local instance of OAA for
 
 ## System Dependencies
 Start by installing these programs:
+ * Windows
  * [Steam](http://steampowered.com)
  * [nodejs](http://nodejs.org)
  * [Github client](http://desktop.github.com/)
@@ -14,14 +15,15 @@ Install the Dota 2 Workshop Tools.
  * Check the `INSTALL` box next to `Dota 2 Workshop Tools DLC`
 
 ## Addon Tool
-Open the `node.js command prompt`. Not `Node.js` itself, but the command prompt.
+Open the command prompt by pressing `Windows + R` and entering `cmd` in the new window. 
 
 ### Install Node Dependencies
-Run the command 
+Run the commands
 ```
 npm install -g dota2-addon-manager
+npm install
 ```
-This will install both `d2am`, used to manage the addons directory.
+This will install `d2am`, used to manage the addons directory, and other tools/node modules you might need for development later.
 
 ### Prepare Addon Directory
 Next find your `dota 2 beta` folder. You must change the directory of the node.js command prompt to this folder, this can be done with the `cd` command. It should look something like this...
@@ -70,4 +72,6 @@ You will see output about creating links for `oaa` game and content.
 ## Launch Tools
 Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting "Launch Dota 2 - Tools". It should be the second option on the dropdown below "Play Game..."
 
-Open `oaa` from the window that opens, and you're in! To start the game, open the Vconsole and type 'dota_launch_custom_game oaa oaa', if you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Open the 'Asset Browser' window that opened when you started the game, and click the hammer icon on the top left. Open one of the maps (probably oaa) and click the gamepad sybol to test the gamemode. Any changes you make will show up in the Github client, read for a pull request to be made.
+Select `oaa` below `Custom Games` and click `Launch Custom Game Tools`. `Dota 2` and `Asset Browser` will open. To start the game, open the Vconsole (click the monitor icon on the top) and type 'dota_launch_custom_game oaa oaa'. Switch to the `Dota 2` window, if everything worked the game will start loading. If you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Go back to 'Asset Browser' and click the hammer icon on the top left. Open one of the maps (probably oaa) and click the gamepad sybol to test the gamemode. Open `oaa.vmap` and click the gamepad icon on the top (or press `F9`). Untick `Load in engine after building` and click `Build`. This might take some time. Try to launch the game again.
+
+Now you are ready to start developing. Read the [Github guide](/docs/github_for_noobs.md) to learn about contributing. In case you are already familiar with Github there are [other guides](/docs/).

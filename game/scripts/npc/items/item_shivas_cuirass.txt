@@ -14,7 +14,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -23,9 +23,8 @@
 		"ItemResult"					"item_shivas_cuirass"
 		"ItemRequirements"
 		{
-			"01"						"item_assault_3;item_shivas_guard_3;item_upgrade_core_2"
-            "02"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
-            "03"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
+            "01"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
+            "02"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
 
 		}
 	}

@@ -5,15 +5,18 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 | Language   | Progress |
 | :------------- | :--- |
 | Chinese        | 0%   |
-| German         | 83%  |
+| Czech          | 5%   |
+| German         | 77%  |
 | Hungarian      | 0%   |
-| Polish         | 0%   |
-| Portuguese     | 92%  |
-| Russian        | 99%  |
-| Spanish        | 5%   |
-| Turkish        | 0%   |
+| *Polish*       | 0%   |
+| Portuguese     | 98%  |
+| Russian        | 91%  |
+| Spanish        | 4%   |
+| *Turkish*      | 0%   |
 
-## Changes until now
+*Italic*  means 'no translator'
+
+## Changes before 0.0.1
 * Added new Map
 * Added Level 5 and 6 for normal Abilities and Level 4 and 5 for Ultimates to all Heroes
 * Added new Items
@@ -530,7 +533,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Update 0.12.0
 `f19a269e32c9e246883969a8bf6b68b791837fbc`
-### Creeps
+### Cave
 * Added Farming Cave
 
 ### Items
@@ -544,12 +547,235 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Cliff Walking to all Bosses
 
 
+## Hotfix 0.12.1
+`5c14ce2cc1bc607a002f11eb7e923df564d7a087`
+* Updated Translations
+
+### Duels
+* Fixed Various Bugs
+
+
+## Update 0.13.0
+`b9b2ef229d71bfd736c74513236878e6331c7612`
+* Updated Tooltips
+
+## Cave
+* Fixed Baby Rosh size
+* Now using creep scaling
+
+## Items
+* Fixed Greater Travel Boots
+
+## Heroes
+* Added more Talents
+
+
+## Update 0.13.1
+`3d2e92c05c24777005e73bab82b7d11a2cd51032`
+### Cave
+* Added Magical Resistance for Creeps
+* Rebalanced Creeps
+
+### Bosses
+* Reduced Toilet Boss Modelsize
+
+### Heroes
+* Fixed Illusion Stats for Illusions created by a different Hero
+
+### UI
+* Fixed Level Dot Styling for Heroes with 5 or 6 Abilities
+
+### Bots
+* Bots will now pick up and use Infinity Bottle
+* Bots now use their spells against Creeps
+* Bots now level talents and skills correctly with Priority on Farming Skills
+* "When a bot gets beaten up by a neutral camp (or hero), the bot will invisibly ping to the other bots, who will come and throw bodies at the camp (or hero) until it has been culled." RamonNZ
+* If you hold a smoke in the first slot of your backpack, all bots will follow you, and fight Heroes and Creeps
+* If you hold a smoke in the second slot of your backpack, they will follow you, but won't fight Creeps, only Heroes
+* Bots now do basic warding
+
+### Misc
+* Fixed too high Reincarnation Time when killed by Creeps
+
+
+## Update 0.14.0
+`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`
+* Updated Tooltips
+### Map
+* [Video with Changes by Warpdragon](https://youtu.be/127ejnO1iIM)
+* Switched 2 Camps
+* Changed the Boss Arena Layout to go Counter-Clockwise not Clockwise
+* Updated Texturing for Sharpness
+* Enhanced Mini-Boss Room Entrance in Cave
+
+
+## Hotfix 0.14.1
+`56de08ec510e9e480f666276f071f7f1428169f0`
+* Update Tooltips
+
+### Items
+* Shroud of Shadow
+  * Added Lore
+  * Fixed Tooltip
+  
+### Duels
+* Fixed Permadeath after Duels, again
+
+
+## Update 0.15.0
+`0461d693fecaf04328a537bd44ef75b23d01cde5`
+### Cave
+* Fixed a Bug where you could get stuck between two rooms
+
+### Items
+* Reflex Cores
+  * Fixed undocumented stuff
+* Added Bubble Orb
+* Added Tooltips for Refresher Core, Power Treads and Phase Boots
+* Boots of Travel
+  * Fixed Level 1 Recipe
+  * Reduced Level 2 Recipe Cost to 500
+* Lucience
+  * Increased Health Regen Aura from `75 100 150` to `150 300 600`
+* Radiance
+  * Decreased Bonus Damage from `65 100 150 220 300` to `65 80 100 125 160`
+  * Decreased Aura Damage from `50 100 200 350 550` to `50 100 150 225 350`
+* Refresher Core
+  * Level 1 now needs a Upgrade Core Level 2 or higher
+  * Level 2 now needs a Upgrade Core Level 3 or higher
+  * Level 3 now needs a Upgrade Core Level 4
+* Trumps Fists
+  * Level 1 now needs a Upgrade Core Level 3
+  * Level 2 now needs a Upgrade Core Level 4
+  * Increased All Stats from `32 34` to `35 40`
+  * Increased Health from `450 550` to `500 750`
+  * Increased Mana from `475 575` to `600 800`
+  * Increased Heal Prevention Percentage from `-15 -75` to `-50 -100`
+  * Decreased Heal Prevention Duration from `5` to `2`
+
+### Heroes
+* Fixed Zeus Cloud
+
+### Bosses
+* Added Tooltips to various Abilities
+
+
+## Update 0.16.0 - Chris is back
+`d402627dc14afdf41f0b20bff261baa8488f9b25`
+### Cave
+* Fixed Mini Rosh Leash
+
+### Items
+* Lucience
+  * Decreased Health Regen Aura `150 300 600` to `75 150 300`
+* Bubble Orb
+  * Updated Tooltips
+  * Fixed various minor Bugs
+* Assault Cuirass
+  * Fixed Tooltips not displaying correctly
+* Dragon Lance
+  * Added more Tooltips
+* Invisibility Crystal
+  * Fixed Tooltips
+* Greater Dispel Orb
+  * Fixed Tooltips
+* Divine Reflection Shard
+  * Fixed Tooltip Typo
+* Invincibility Shard
+  * Complete Rewrite
+  * Added Icon
+* Added Stats to all Reflex Items
+* Added Bottle Counter
+* Refresher Core
+  * Made non refreshable
+  * Increased Level 1 Gold Cost from `2500` to `3500`
+  * Increased Level 2 Gold Cost from `2500` to `8000`
+  * Increased Level 3 Gold Cost from `3500` to `20000`
+* Monkey King Bar
+  * Added Icons
+* Heavens Halberd
+  * Added Icons
+* Drum of Endurance
+  * Level 2 now wont need any Upgrade Cores
+* Desolator
+  * Reduced Armour Corruption from `-7 -11 -16 -24 -32` to `-7 -9 -12 -16 -21`
+* Pipe of Insight
+  * Increased Damage Absorption from `400` to `400 800`
+* Radiance
+  * Increased Level 3 Gold Cost from `2500` to `3500`
+  * Increased Level 4 Gold Cost from `3500` to `8000`
+  * Increased Level 5 Gold Cost from `4500` to `20000`
+* Divine Rapier
+  * Increased Gold Cost to `50000`
+  * Increased Damager from `330` to `10000`
+* Spectaquila
+  * Decreased Gold Cost from `1500` to `500`
+* Satanic Core
+  * Increased Level 1 Gold Cost from `1500` to `3500`
+  * Increased Level 2 Gold Cost from `3500` to `8000`
+  * Increased Level 3 Gold Cost from `4500` to `20000`
+  * Level 1 now needs Satanic Level 2 and Octarine Core Level 2 instead of Satanic Level 1 and Octarine Core 1
+* Shivas Cuirass
+  * Level 1 now needs Upgrade Core Level 3 or higher
+  * Level 2 now needs Upgrade Core Level 4
+* Blade Mail
+  * Removed Recipe
+
+
+### Heroes
+* Applied 7.05 Ability Changes and scaled Custom Levels accordingly
+* Enabled Arc Warden
+* Fixed Typo that prevented Elder Titan to have correct stats
+* Lich
+  * Fixed Sacrifice Tooltips to properly reflect how the skill works
+
+### Bosses
+* Charger
+  * Added Tooltips
+  * Changed to Ancient
+  * Increased Magical Armour Debuff when Chargers runs into a pillar from `-280` to `-1500`
+  * Decreased Magical Armour from `200` to `95`
+* Added Shield Boss
+
+### Misc
+* Fixed Bugs around `modifier_generic_bonus`
+* Fixed Memory Leak where entities did not get deleted correctly by Purge Tester
+* Fixed Courier replacing the first two Items bought during PreGame for the first Player of every Team
+
+
+## Update 0.17.0
+`d2f46c3790d72edbf0fa0dea44c35385fdc88908`
+### Items
+* Fixed Bug where Bottle Counter gets increased when creating Illusions
+* Rewrite Lucience
+* Added Heart Transplant
+
+
+## Update 0.18.0
+`a1832aaa008d71b944e415a4a1c0ae375bf85399`
+* Updated Tooltips
+  
+### Items
+* Fixed Stacking Cooldown Reduction
+* Bottle Counter
+  * Changed to count Bottles not Charges
+  * Made more stable
+
+## Duel
+* Added Rune Hill
+* Added Triple Damage Rune
+
+### Misc
+* Fixed Automatic Courier Spawn
+  * You now won't get any random Gold when spawning Couriers
+
 
 ## Template
 ```Markdown
 ## <Name> <Tag>
 `<commit>`
 ### Creeps
+### Cave
 ### Items
 ### Heroes
 ### Bosses

@@ -1,16 +1,4 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
-GameEvents = GameEvents or {}
-
-function CreateGameEvent (name)
-  local event = Event()
-
-  GameEvents[name] = (function (self, fn)
-    DebugPrint('Custom event implementation is working')
-    return event.listen(fn)
-  end)
-
-  return event.broadcast
-end
 
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
