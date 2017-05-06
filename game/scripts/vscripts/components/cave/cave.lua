@@ -36,8 +36,8 @@ function CaveHandler:Init ()
         door = Doors:UseDoors(caveName .. '_door_' .. roomID, {
           state = DOOR_STATE_CLOSED,
           distance = doorDistance,
-          openingStepDelay = 1/100,
-          openingStepSize = 1,
+          openingStepDelay = 1/300,
+          openingStepSize = 3,
           closingStepDelay = 1/200,
           closingStepSize = 2,
         }),
