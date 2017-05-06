@@ -29,7 +29,7 @@ function Courier.SpawnCourier (hero)
     DebugPrint("Creating Courier for Team " .. hero:GetTeamNumber())
 
     -- Check if there is an item blocking slot 1, if so sell it
-    slot1Item = hero:GetItemInSlot(0)
+    local slot1Item = hero:GetItemInSlot(0)
     if slot1Item then
       hero:TakeItem(slot1Item)
     end
