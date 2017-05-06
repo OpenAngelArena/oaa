@@ -22,10 +22,10 @@ local ExponentialGrowthOnset = {
 
   return {
     minute,                                   -- minute
-    (45 * ((minute / 100) ^ 4) - 36 * ((minute/100) ^ 3) + 21 * ((minute/100) ^ 2) - 1.5 * (minute/100)) + 1,   -- hp
+    (60 * ((minute / 100) ^ 4) - 48 * ((minute/100) ^ 3) + 28 * ((minute/100) ^ 2) - 2 * (minute/100)) + 1,   -- hp
     (45 * ((minute / 100) ^ 4) - 36 * ((minute/100) ^ 3) + 21 * ((minute/100) ^ 2) - 1.5 * (minute/100)) + 1,   -- mana
     (240 * ((minute / 100) ^ 4) - 192 * ((minute/100) ^ 3) + 112 * ((minute/100) ^ 2) - 8 * (minute/100)) + 1,     -- damage
-    (minute / 20) ^ 2 + minute / 6 + 1,       -- armor
+    (minute / 20) ^ 2 + minute / 7 + 1,       -- armor
     (minute / 2) + 1,                         -- gold
     ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor * multFactor -- xp
   }
