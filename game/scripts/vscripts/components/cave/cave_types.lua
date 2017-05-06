@@ -7,7 +7,7 @@ end
 
 local BaseCreepPowerMultiplier = 8
 local BaseCreepXPGOLDMultiplier = 8
-local CaveProgressionBuff = 4
+local CaveProgressionBuff = 8
 
 local BaseMultipliers = {
   -- CreepPower:GetPowerForMinute
@@ -99,8 +99,8 @@ CaveTypes = {
   [4] = { -- 4 "Roashes Everywhere"
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_mini_roshan",              1500,   0,    120,    4,   95,  300, 70},
-        {"npc_dota_mini_roshan",              1500,   0,    120,    4,   95,  300, 70},
+        {"npc_dota_mini_roshan",              1000,   0,    120,    2,   95,  300, 70},
+        {"npc_dota_mini_roshan",              1000,   0,    120,    2,   95,  300, 70},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 6, CaveProgressionBuff), -- function (k) return 1 end,
