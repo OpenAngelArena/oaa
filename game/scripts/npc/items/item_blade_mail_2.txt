@@ -41,7 +41,7 @@
 		"ID"							"3090"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_blade_mail"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"      "item_blade_mail"
+    "AbilityTextureName"      "custom/blade_mail_2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"18.0"
