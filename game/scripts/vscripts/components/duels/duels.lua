@@ -2,6 +2,7 @@
 if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
+  Debug.EnabledModules['duels:duels'] = true
 
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
@@ -39,12 +40,12 @@ function Duels:Init ()
     }
   })
 
-  GameEvents:OnHeroKilled(function (keys)
+  GameEvents:OnHeroDied(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
 
   GameEvents:OnPlayerReconnect(function (keys)
-    local playerID = keys.playerID
+    local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if not Duels.currentDuel then
@@ -63,18 +64,19 @@ end
 
 local DUEL_IS_STARTING = 21
 
-function Duels:CheckDuelStatus (keys)
+function Duels:CheckDuelStatus (hero)
   if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then -- <- There is nothing here, git.
     return
   end
-  if keys.killed:IsReincarnating() then
-    keys.killed:SetRespawnsDisabled(false)
+  if hero:IsReincarnating() then
+    hero:SetRespawnsDisabled(false)
     Timers:CreateTimer(1, function ()
-      keys.killed:SetRespawnsDisabled(true)
+      hero:SetRespawnsDisabled(true)
     end )
+    return
   end
 
-  local playerId = keys.killed:GetPlayerOwnerID()
+  local playerId = hero:GetPlayerOwnerID()
   local foundIt = false
 
   Duels:AllPlayers(Duels.currentDuel, function (player)
@@ -316,6 +318,10 @@ function Duels:EndDuel ()
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
+      if player == nil then -- disconnected!
+        return
+      end
+
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)

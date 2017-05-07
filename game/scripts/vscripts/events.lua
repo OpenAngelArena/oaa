@@ -306,9 +306,10 @@ end
 
 -- An entity died
 -- game event object for keys
-local keysEvent = CreateGameEvent('keys')
+local OnEntityKilledEvent = CreateGameEvent('OnEntityKilled')
+local OnHeroDiedEvent = CreateGameEvent('OnHeroDied')
 function GameMode:OnEntityKilled( keys )
-  keysEvent(keys)
+  OnEntityKilledEvent(keys)
   DebugPrint( '[BAREBONES] OnEntityKilled Called' )
   DebugPrintTable( keys )
 
@@ -334,6 +335,10 @@ function GameMode:OnEntityKilled( keys )
   -- Fire ent killed event
   if killedUnit.deathEvent then
     killedUnit.deathEvent.broadcast(keys)
+  end
+
+  if killedUnit.IsRealHero and killedUnit:IsRealHero() then
+    OnHeroDiedEvent(killedUnit)
   end
 end
 
@@ -448,27 +453,4 @@ end
 local OnPlayerChatEvent = CreateGameEvent('OnPlayerChat')
 function GameMode:OnPlayerChat(keys)
   OnPlayerChatEvent(keys)
-  DebugPrint('[BAREBONES] OnPlayerchat')
-  DebugPrintTable(keys)
-  local teamonly = keys.teamonly
-  local userID = keys.userid
-  local playerID = self.vUserIds[userID]:GetPlayerID()
-
-  local text = keys.text
-
-
-  if string.sub(text, 0,9) == "-show_ngp" then
-
-    splitted = split(text, " ")
-    DebugPrintTable(splitted)
-    local item =
-    {
-      id =splitted[2],
-      item =splitted[3],
-      title = splitted[4],
-      description = splitted[5],
-      buildsInto =splitted[6]
-    }
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "ngp_add_item", item )
-  end
 end

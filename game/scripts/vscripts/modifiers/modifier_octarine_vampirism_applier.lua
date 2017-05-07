@@ -7,8 +7,18 @@ function modifier_octarine_vampirism_applier:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
+    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+    MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
+end
+
+function modifier_octarine_vampirism_applier:GetModifierConstantHealthRegen()
+  return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
+end
+
+function modifier_octarine_vampirism_applier:GetModifierPercentageManaRegen()
+  return self:GetAbility():GetSpecialValueFor('bonus_mana_regen')
 end
 
 function modifier_octarine_vampirism_applier:GetModifierBonusStats_Intellect()
