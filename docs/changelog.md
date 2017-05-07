@@ -996,7 +996,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Manta Style
   * Midas Hand
   * Mjollnir
-  * Neconomicon
+  * Necronomicon
   * Octarine Core
   * Pipe of Insight
   * Refresher Orb
@@ -1026,6 +1026,25 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Shiva's Guard
   * Lucience
 
+
+## Hotfix 0.24.3
+`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`
+### Items
+* Heart of Tarrasque
+  * Increased Health Regen from `3.25` tp `7`
+* Trump's Fists
+  * Made more consistent
+
+### Bosses
+* Shielder
+  * Decreased Health from `5500` to `3500`
+* Fixed Bug with Bloodrage and Boss Resistance
+
+### Duels
+* Fixed Bug where you potentially won't get teleported when casting a ability
+
+### Misc
+* Fixed Neutral Hero Kill increasing Points
 
 
 ## Template
