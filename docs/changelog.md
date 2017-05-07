@@ -884,7 +884,6 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Increased Jophiel's Attack Range from `128` to `960`
 * Tier 1 Boss is now literally Roshan
   
-
 ### Duels
 *  Added Particle Effects while on the Rune Hill
 
@@ -895,7 +894,140 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Misc
 * Fixed Illusion Progression even more
 
-  
+
+### Update 0.23.0 - Icon Update
+`745f31338eb5ce263ff18b9270cac512995787f6`
+### Items
+* Added Progressive Icons
+  * Greater Power Treads, Grater Phase, Tranquil and Travel Boots
+  * Reflex Shards and Orbs
+  * Abyssal Blade
+  * Aghanims
+  * Aether Lens
+  * Armlet of Mordiggian
+  * Assault Cuirass
+  * Battle Fury
+  * Blade Mail
+  * Bloodstone
+  * Butterfly
+  * Crimson Guard
+  * Deadalus
+  * Dragon
+  * Desolator
+  * Diffusal Blade
+  * Dragon Lance
+  * Drums
+  * Eul's Scepter of Divinity
+  * Radiance
+  * Shroud of Shadows
+  * Lucience
+  * Stoneskin Armour
+  * Trump's Fists
+* Stoneskin Armour
+  * Increased Level 1 Recipe Cost from `3500` to `8000`
+  * Level 1 Requirements are now
+    * Shivas Guard Level 3
+    * Armlet of Mordiggian Level 2
+    * Upgrade Core Level 3 or higher
+  * Increased Level 2 Recipe Cost from `8000` to `20000`
+  * Level 2 Requirements are now
+    * Stoneskin Armour Level 1
+    * Upgrade Core Level 4
+
+### Bosses
+* Roshan
+  * Decreased Attack Damage from `500 600` to `225 250`
+* Shielder
+  * Decreased Attack Damage from `2300 2350` to `1300 1350`
+  * Fixed negative Lifesteal Bug
+  * Shield
+    * Increased Damage Reduction from `10` to `15`
+* Boss Resistance
+  * Reduced Damage Reduction in Percent from `90` to `85`
+* The Twins
+  * Fixed not spawning
+
+### Misc
+* Fixed Automatic Courier swapping Items between Players
+
+
+## Update 0.24.0
+`6cf270810ec8860d0dc6b34d374c9f992a1997e6`
+* Updated Tooltips
+
+### Creeps
+* Changed Creeps to make them a bit tankier vs Spells
+* Changed Progression
+
+### Cave
+* Made Doors faster
+* Made Roshlings less tanky
+
+### GetDotaStats
+* Fixed missing Variables
+
+### Misc
+* Fixed Win Condition not applying correctly
+
+
+### Update 0.24.1 - More Icons
+`d41f222edeab046ea0f43d6e58eff77e6c358708`
+### Creeps
+* Fixed Creep Progression
+
+### Cave
+* Roshlings
+  * Removed Inherent Buff
+  * Removed Devotion Buff
+
+### Items
+* Aghanims
+  * Made Level 4 and 5 Icons look more fancy
+* Aether Lens
+  * Made Level 2 and 3 Icons look more fancy
+* Eul's Scepter of Divinity
+  * Made Level 2 Icon look more fancy
+* Added Progressive Icons
+  * Mask of Madness
+  * Echo Sabre
+  * Eye of Skadi
+  * Linkes Sphere
+  * Lotus Orb
+  * Manta Style
+  * Midas Hand
+  * Mjollnir
+  * Neconomicon
+  * Octarine Core
+  * Pipe of Insight
+  * Refresher Orb
+  * Ring of Aquila
+  * Rod of Atos
+  * Sange and Yasha
+  * Satanic Core
+  * Scythe of Vyse
+  * Shiva's Guard
+  * Silver Edge
+  * Solar Crest
+  * Veil of Discord
+
+### Heroes
+* Shadow Fiend
+  * Necromastery
+    * Increased Damage per Soul from `2 2 2 2 2 2` to `2 2 2 2 3 5`
+
+
+## Icon Hotfix 0.24.2
+`1f650bb51587cd658d76aa2a813175205db5cea8`
+### Items
+* Fixed Icons
+  * Scythe of Vyse
+  * Refresher Orb
+  * Manta Style
+  * Shiva's Guard
+  * Lucience
+
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
@@ -909,6 +1041,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### UI
 ### Bots
 ### Map
+### GetDotaStats
 ### Misc
 ```
 ```Markdown
