@@ -29,7 +29,7 @@ function NGP:PlayerVote (eventSourceIndex, args)
   local item = NGP.activeItems[tonumber(id)]
 
   if item.team ~= team then
-    Notifications:TopToAll({text="NGP mismatch " .. item.team .. " vs " .. team, duration=2.0})
+    DebugPrint("NGP mismatch " .. item.team .. " vs " .. team)
     return
   end
 

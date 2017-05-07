@@ -2,6 +2,7 @@
 if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
+  Debug.EnabledModules['duels:duels'] = true
 
   ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
   ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
@@ -72,6 +73,7 @@ function Duels:CheckDuelStatus (hero)
     Timers:CreateTimer(1, function ()
       hero:SetRespawnsDisabled(true)
     end )
+    return
   end
 
   local playerId = hero:GetPlayerOwnerID()
