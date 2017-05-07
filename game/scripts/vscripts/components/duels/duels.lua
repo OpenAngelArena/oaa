@@ -356,9 +356,6 @@ function Duels:ResetPlayerState (hero)
       item:EndCooldown()
     end
   end
-
-  -- Purge modifiers
-  hero:Purge(true, true, false, true, true)
 end
 
 function Duels:SavePlayerState (hero)
@@ -398,17 +395,6 @@ function Duels:SavePlayerState (hero)
       }
     end
   end
-
-  for modifierIndex, modifier in ipairs(hero:FindAllModifiers()) do
-    state.modifier[modifierIndex] = {
-      caster = modifier:GetCaster(),
-      ability = modifier:GetAbility(),
-      name = modifier:GetName(),
-      duration = modifier:GetDuration(),
-      stackCount = modifier:GetStackCount(),
-    }
-  end
-
   return state
 end
 
@@ -436,15 +422,6 @@ function Duels:RestorePlayerState (hero, state)
     if item ~= nil and state.items[itemIndex] then
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
-  end
-
-  for _, modifier in ipairs(state.modifiers) do
-    local newModifier = hero:AddNewModifier(modifier.caster, modifier.ability, modifier.name, {
-      duration = modifier.duration,
-      duration_ranged = modifier.duration,
-      duration_melee = modifier.duration,
-    })
-    newModifier:SetStackCount(modifier.stackCount)
   end
 end
 
