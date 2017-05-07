@@ -41,7 +41,7 @@
 		"ID"							"3181"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_refresher"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_refresher"
+		"AbilityTextureName"            "custom/refresher_2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
