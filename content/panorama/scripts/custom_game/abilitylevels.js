@@ -15,6 +15,8 @@ function DisplayAbilityLevelError (data) {
   GameEvents.SendEventClientSide('dota_hud_error_message', errorData);
 }
 
+var scheduleRunning = 0;
+
 function CheckLevelUpBubbles (data) {
   var playerID = Players.GetLocalPlayer();
   var entID = Players.GetPlayerHeroEntityIndex(playerID);
@@ -22,13 +24,18 @@ function CheckLevelUpBubbles (data) {
   var canLevelUp = data.canLevelUp;
 
   var abilitiesPanel = FindDotaHudElement('abilities');
-  abilitiesPanel.Children().forEach(function (abilityPanel, i) {
-    if (data.level < canLevelUp[i + 1]) {
-      $.Schedule(0.1, function() {
+  $.Schedule(0.1, function() {
+    abilitiesPanel.Children().forEach(function (abilityPanel, i) {
+      var requiredLevel = canLevelUp[i + 1];
+      if (!abilityPanel.BHasClass('could_level_up') || requiredLevel === -1 || data.level < requiredLevel) {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = 0;
-      });
-    }
+      } else {
+        abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 1;
+        abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 1;
+        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = 1;
+      }
+    });
   });
 }

@@ -45,7 +45,6 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local abilityLevel = ability:GetLevel()
   local abilityType = ability:GetAbilityType()
   local reqTable = basicReqs
-  local requirement = -1
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
@@ -54,12 +53,10 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   end
 
   if abilityLevel >= #reqTable then
-    requirement = reqTable[#reqTable]
-  else
-    requirement = reqTable[abilityLevel+1]
+    return -1
   end
 
-  return requirement
+  return reqTable[abilityLevel+1]
 end
 
 function AbilityLevels:FilterAbilityUpgradeOrder (keys)
