@@ -193,8 +193,11 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 1
     badGuy.duelNumber = 1
 
-    FindClearSpaceForUnit(goodHero, spawn1, true)
-    FindClearSpaceForUnit(badHero, spawn2, true)
+    self:SafeTeleport(goodHero, spawn1, 150)
+    self:SafeTeleport(badHero, spawn2, 150)
+    --FindClearSpaceForUnit(goodHero, spawn1, true)
+    --FindClearSpaceForUnit(badHero, spawn2, true)
+
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
@@ -396,7 +399,7 @@ function Duels:SavePlayerState (hero)
     end
   end
 
-  for modifierIndex,modifier in ipairs(caster:FindAllModifiers()) do
+  for modifierIndex, modifier in ipairs(hero:FindAllModifiers()) do
     state.modifier[modifierIndex] = {
       caster = modifier:GetCaster(),
       ability = modifier:GetAbility(),
@@ -464,5 +467,15 @@ function Duels:AllPlayers (state, cb)
         cb(state.goodPlayers[playerIndex])
       end
     end
+  end
+end
+
+function Duels:SafeTeleport(unit, location, maxDistance)
+  FindClearSpaceForUnit(unit, location, true)
+  local distance = location - unit:GetAbsOrigin()
+  if distance > maxDistance then
+    Timers:CreateTimer(0.1, function()
+      self:SafeTeleport(unit, location, maxDistance)
+    end)
   end
 end
