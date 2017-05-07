@@ -449,7 +449,7 @@ end
 
 function Duels:SafeTeleport(unit, location, maxDistance)
   FindClearSpaceForUnit(unit, location, true)
-  local distance = location - unit:GetAbsOrigin()
+  local distance = (location - unit:GetAbsOrigin()):Length2D()
   if distance > maxDistance then
     Timers:CreateTimer(0.1, function()
       self:SafeTeleport(unit, location, maxDistance)
