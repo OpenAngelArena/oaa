@@ -864,7 +864,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased Beam Count from `5 8 11 17 40` to `5 8 11 13 15`
     * Decreased Scepter Beam Count from `6 12 18 30 78` to `6 12 18 24 30`
     * Decreased Duration from `2.4 4.2 6.0 9.6 24.0` to `2.4 4.2 6.0 7.2 8.4`
-    * Decreased Scepter Duration from `1.8 3.6 5.4 9.0 23.0` `1.8 3.6 5.4 7.2 9.0`
+    * Decreased Scepter Duration from `1.8 3.6 5.4 9.0 23.0` to `1.8 3.6 5.4 7.2 9.0`
   * Moon Glaive
     * Reduced Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
     * Increased Damage Reduced per Bounce from `35` to `35 35 35 35 30 25`
