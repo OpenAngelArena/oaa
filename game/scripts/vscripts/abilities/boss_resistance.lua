@@ -80,5 +80,36 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   end
 ]]
-  return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+  local parent = self:GetParent()
+  -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
+  local damageAmpModifiers = {
+    "modifier_bloodseeker_bloodrage",
+    "modifier_shadow_demon_soul_catcher"
+  }
+  -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
+  local ampAbilitySpecialKeys = {
+    "damage_increase_pct",
+    "bonus_damage_taken"
+  }
+
+  -- Calculates a value that will counteract damage amplification from the named modifier such that
+  -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
+  function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
+    local modifiers = parent:FindAllModifiersByName(modifierName)
+
+    function CalculateAmp(modifier)
+      if modifier:IsNull() then
+        return 0
+      else
+        local modifierDamageAmp = modifier:GetAbility():GetSpecialValueFor(ampValueKey)
+        return (100 - damageReduction) / 100 * modifierDamageAmp - modifierDamageAmp
+      end
+    end
+
+    return sum(map(CalculateAmp, modifiers))
+  end
+
+  local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
+  return 0 - damageReduction + damageAmpReduction
 end
