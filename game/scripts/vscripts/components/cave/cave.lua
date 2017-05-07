@@ -41,6 +41,7 @@ function CaveHandler:Init ()
           closingStepDelay = 1/200,
           closingStepSize = 2,
         }),
+        radius = 1500,
       }
     end
   end
@@ -247,10 +248,6 @@ local units = {}
 
 -- get all heroes in all rooms
 for roomID, room in pairs(cave.rooms) do
-  local radius = max(
-    max(room.zone.bounds.Mins.x, room.zone.bounds.Maxs.x),
-    max(room.zone.bounds.Mins.y, room.zone.bounds.Maxs.y)
-  )
   DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. radius .. ' radius.')
 
   for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
@@ -258,7 +255,7 @@ for roomID, room in pairs(cave.rooms) do
       team, -- team
       room.zone.origin, -- location
       nil, -- cache
-      radius, -- radius
+      room.radius, -- radius
       DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
       DOTA_UNIT_TARGET_ALL, -- type filter
       DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
@@ -266,9 +263,7 @@ for roomID, room in pairs(cave.rooms) do
       false -- can grow cache
     )
     for _, unit in pairs(result) do
-      if room.zone.handle:IsTouching(unit) then
-        table.insert(units, unit)
-      end
+      table.insert(units, unit)
     end
   end
 end
