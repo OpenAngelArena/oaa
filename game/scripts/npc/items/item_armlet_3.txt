@@ -16,9 +16,9 @@
         "ItemResult"                    "item_armlet_3"
         "ItemRequirements"
         {
-            "01"                        "item_armlet_2;item_upgrade_core_2;item_recipe_armlet"
-            "02"                        "item_armlet_2;item_upgrade_core_3;item_recipe_armlet"
-            "03"                        "item_armlet_2;item_upgrade_core_4;item_recipe_armlet"
+            "01"                        "item_armlet_2;item_upgrade_core_2"
+            "02"                        "item_armlet_2;item_upgrade_core_3"
+            "03"                        "item_armlet_2;item_upgrade_core_4"
         }
     }
 
@@ -33,8 +33,8 @@
 		"BaseClass"                     "item_armlet"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"				"custom/armlet_dormant_3"
- 
-        // Stats       
+
+        // Stats
 
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "0.0"
