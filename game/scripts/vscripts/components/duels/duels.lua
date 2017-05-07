@@ -43,6 +43,19 @@ function Duels:Init ()
     Duels:CheckDuelStatus(keys)
   end)
 
+  GameEvents:OnPlayerReconnect(function (keys)
+    local playerID = keys.playerID
+    if playerID then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      if not Duels.currentDuel then
+        hero:SetRespawnsDisabled(false)
+        if not hero:IsAlive() then
+         hero:RespawnHero(false, false, false)
+        end
+      end
+    end
+  end)
+
   Timers:CreateTimer(1, function ()
     Duels:StartDuel()
   end)
@@ -326,7 +339,7 @@ function Duels:ResetPlayerState (hero)
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
-  for abilityIndex = 0,hero:GetAbilityCount() - 1 do
+  for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:EndCooldown()
@@ -334,12 +347,15 @@ function Duels:ResetPlayerState (hero)
   end
 
   -- Reset cooldown for items
-  for i = 0, 5 do
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
     if item  then
       item:EndCooldown()
     end
   end
+
+  -- Purge modifiers
+  hero:Purge(true, true, false, true, true)
 end
 
 function Duels:SavePlayerState (hero)
@@ -348,6 +364,7 @@ function Duels:SavePlayerState (hero)
     abilityCount = hero:GetAbilityCount(),
     abilities = {},
     items = {},
+    modifiers = {},
     hp = hero:GetHealth(),
     mana = hero:GetMana()
   }
@@ -370,13 +387,23 @@ function Duels:SavePlayerState (hero)
     end
   end
 
-  for itemIndex = 0,5 do
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil then
       state.items[itemIndex] = {
         cooldown = item:GetCooldownTimeRemaining()
       }
     end
+  end
+
+  for modifierIndex,modifier in ipairs(caster:FindAllModifiers()) do
+    state.modifier[modifierIndex] = {
+      caster = modifier:GetCaster(),
+      ability = modifier:GetAbility(),
+      name = modifier:GetName(),
+      duration = modifier:GetDuration(),
+      stackCount = modifier:GetStackCount(),
+    }
   end
 
   return state
@@ -389,7 +416,7 @@ function Duels:RestorePlayerState (hero, state)
   end
   hero:SetMana(state.mana)
 
-  for abilityIndex = 0,hero:GetAbilityCount()-1 do
+  for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       if state.abilities[abilityIndex] == nil then
@@ -401,11 +428,20 @@ function Duels:RestorePlayerState (hero, state)
     end
   end
 
-  for itemIndex = 0,5 do
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil and state.items[itemIndex] then
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
+  end
+
+  for _, modifier in ipairs(state.modifiers) do
+    local newModifier = hero:AddNewModifier(modifier.caster, modifier.ability, modifier.name, {
+      duration = modifier.duration,
+      duration_ranged = modifier.duration,
+      duration_melee = modifier.duration,
+    })
+    newModifier:SetStackCount(modifier.stackCount)
   end
 end
 
