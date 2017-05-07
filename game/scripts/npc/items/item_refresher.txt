@@ -36,7 +36,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"110"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_refresher"
+		"AbilityTextureName"            "custom/refresher_1"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
