@@ -36,7 +36,7 @@
 		"ID"							"90"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "item_pipe"
+		"AbilityTextureName"            "custom/pipe_of_insight_1"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60.0"
