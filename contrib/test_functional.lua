@@ -13,7 +13,7 @@ end
 function TestPartial:test1 ()
   print("simple test")
   local addToFive = partial(add, 5)
-  assertEquals(addToFive(5), 10)
-  assertEquals(addToFive(-5), 0)
-  assertEquals(addToFive(-10), -5)
+  luaunit.assertEquals(addToFive(5), 10)
+  luaunit.assertEquals(addToFive(-5), 0)
+  luaunit.assertEquals(addToFive(-10), -5)
 end

@@ -1,6 +1,13 @@
 language: node_js
 node_js:
   - "7"
+before_install:
+  - sudo apt-get -qq install -y luarocks
+  - sudo luarocks install luacheck
+script:
+  - luacheck --codes --ranges -q ./game/scripts/vscripts
+  - lua './contrib/test_oaa.lua'
+  - npm test
 deploy:
 - provider: script
   skip_cleanup: true
