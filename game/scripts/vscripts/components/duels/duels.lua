@@ -45,7 +45,7 @@ function Duels:Init ()
   end)
 
   GameEvents:OnPlayerReconnect(function (keys)
-    local playerID = keys.playerID
+    local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if not Duels.currentDuel then
