@@ -24,7 +24,7 @@ function CheckLevelUpBubbles (data) {
   var canLevelUp = data.canLevelUp;
 
   var abilitiesPanel = FindDotaHudElement('abilities');
-  $.Schedule(0.1, function() {
+  $.Schedule(0.1, function () {
     abilitiesPanel.Children().forEach(function (abilityPanel, i) {
       var requiredLevel = canLevelUp[i + 1];
       if (!abilityPanel.BHasClass('could_level_up') || requiredLevel === -1 || data.level < requiredLevel) {
