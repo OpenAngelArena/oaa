@@ -318,6 +318,10 @@ function Duels:EndDuel ()
       -- DebugPrintTable(state)
       DebugPrint('Is this a player id? ' .. state.id)
       local player = PlayerResource:GetPlayer(state.id)
+      if player == nil then -- disconnected!
+        return
+      end
+
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
