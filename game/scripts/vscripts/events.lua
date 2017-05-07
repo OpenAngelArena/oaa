@@ -114,13 +114,6 @@ function GameMode:OnPlayerReconnect(keys)
     return
   end
 
-  local hero = PlayerResource:GetSelectedHeroEntity(playID)
-  if not Duels.currentDuel then
-    hero:SetRespawnsDisabled(false)
-    if not hero:IsAlive() then
-     hero:RespawnHero(false,false,false)
-    end
-  end
 end
 
 -- An item was purchased by a player
