@@ -6,7 +6,7 @@
 		//
     "BaseClass"					"npc_dota_creep_neutral"
 		"Model"						"models/creeps/roshan/roshan.vmdl"	// Model.
-		"SoundSet"					"Roshan"					// Name of sound set.
+		"SoundSet"					"Roshan"				// Name of sound set.
 		"ModelScale"				"0.25"
 		"Level"						"30"
 		"IsAncient"					"1"
@@ -14,13 +14,13 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"roshan_spell_block"	// Ability 1.
-		"Ability2"					"roshan_bash"			// Ability 2.
-		"Ability3"					"roshan_slam"			// Ability 3.
-		"Ability4"					"roshan_inherent_buffs"	// Ability 4.
-		"Ability5"					"roshan_devotion"		// Ability 5.
-		"Ability6"					""						// Ability 6 - Extra.
-		"Ability7"					""						// Ability 7 - Extra.
-		"Ability8"					""						// Ability 8 - Extra.
+		"Ability2"					"roshan_bash"		// Ability 2.
+		"Ability3"					"roshan_slam"		// Ability 3.
+		"Ability4"					""			// Ability 4 - Extra.
+		"Ability5"					""			// Ability 5 - Extra.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
 
 		// Armor
 		//----------------------------------------------------------------
