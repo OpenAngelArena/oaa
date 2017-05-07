@@ -248,7 +248,7 @@ local units = {}
 
 -- get all heroes in all rooms
 for roomID, room in pairs(cave.rooms) do
-  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. radius .. ' radius.')
+  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
   for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
     local result = FindUnitsInRadius(
