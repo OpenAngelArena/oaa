@@ -11,7 +11,7 @@ CreepTypes = {
     }
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
       {"npc_dota_neutral_polar_furbolg_champion",   600,    0,  18,   1.4,  22,   70},
-      {"npc_dota_tomato",                          1000,    0,  14,   1.4,  17,   62}
+      {"npc_dota_neutral_tomato",                          1000,    0,  14,   1.4,  17,   62}
     }
   },
     -- 2 "medium camp"
