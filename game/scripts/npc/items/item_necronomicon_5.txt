@@ -7,7 +7,7 @@
 	{
 		"ID"							"3167"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"2500"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemBaseLevel"					"5"
 		"ItemRecipe"					"1"
@@ -31,7 +31,7 @@
 		"ID"							"3170"		// unique ID
 		"BaseClass"                     "item_necronomicon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_necronomicon_3"
+		"AbilityTextureName"            "custom/necronomicon_5"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"

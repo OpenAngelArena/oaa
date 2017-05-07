@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 		"ItemAliases"					"hom"
 
@@ -24,9 +24,7 @@
 		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_hand_of_midas_2;item_upgrade_core_2"
-			"02"						"item_hand_of_midas_2;item_upgrade_core_3"
-			"03"						"item_hand_of_midas_2;item_upgrade_core_4"
+			"01"						"item_hand_of_midas_2"
 		}
 	}
 
@@ -43,7 +41,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityTextureName"            "item_hand_of_midas"
+		"AbilityTextureName"            "custom/midas_3"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"

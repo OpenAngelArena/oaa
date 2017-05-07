@@ -40,7 +40,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityTextureName"            "item_travel_boots_2"
+		"AbilityTextureName"            "custom/item_greater_travels"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"45.0"
@@ -73,7 +73,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_per_minute"	"150 300 600 1200 2400"
+				"bonus_gold_per_minute"	"300 600 1200 2400 4800"
 			}
 		}
 	}

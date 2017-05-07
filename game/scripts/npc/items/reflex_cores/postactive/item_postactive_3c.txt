@@ -10,7 +10,7 @@
 		"AbilityTextureName"      "item_recipe"
 		"Model"                             "models/props_gameplay/recipe.mdl"
 		"FightRecapLevel"               "1"
-		"ItemCost"                        "2300"
+		"ItemCost"                        "20000"
 		"ItemShopTags"                  ""
 		"ItemRecipe"                      "1"
 		"ItemResult"                      "item_postactive_3c"
@@ -56,30 +56,32 @@
 
 		"AbilitySpecial"
 		{
+
+
 			"01"
 			{
-				"var_type"                 "FIELD_INTEGER"
-				"bonus_health_regen"       "1000"
+				"var_type"        		"FIELD_INTEGER"
+				"bonus_health"        	"4000"
 			}
 			"02"
 			{
-				"var_type"          "FIELD_INTEGER"
-				"duration"          "5"
+				"var_type"        		"FIELD_INTEGER"
+				"bonus_armor"     		"20"
 			}
 			"03"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_health"        "4000"
+				"var_type"        		"FIELD_INTEGER"
+				"magic_resistance"    	"20"
 			}
 			"04"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_armor"     "20"
+				"var_type"             	"FIELD_INTEGER"
+				"bonus_health_regen"    "1000"
 			}
 			"05"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"magic_resistance"    "20"
+				"var_type"          	"FIELD_INTEGER"
+				"duration"          	"5"
 			}
 		}
 

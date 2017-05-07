@@ -9,7 +9,7 @@
         "ID"                            "3125"      // unique ID
 		"BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
-        "ItemCost"                      "2500"
+        "ItemCost"                      "3500"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_bloodstone_3"
@@ -30,7 +30,8 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3129"      // unique ID
-		"BaseClass"                     "item_bloodstone"
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/bloodstone.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
 
@@ -39,7 +40,7 @@
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.0"
         "AbilityCooldown"               "300.0"
-        "AbilityTextureName"            "item_bloodstone"
+        "AbilityTextureName"            "custom/bloodstone_3"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
@@ -53,7 +54,6 @@
         "ItemShopTags"                  "regen_health;regen_mana;mana_pool;health_pool"
         "ItemQuality"                   "epic"
         "ItemAliases"                   "bs;bloodstone"
-        "ItemInitialCharges"            "12"
         "ItemDisplayCharges"            "1"
         "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
         "AllowedInBackpack"             "0"

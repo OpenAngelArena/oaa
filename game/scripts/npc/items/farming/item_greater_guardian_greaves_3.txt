@@ -13,7 +13,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -40,7 +40,7 @@
 		"BaseClass"                     "item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_guardian_greaves"
+		"AbilityTextureName"            "custom/item_greater_greaves"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"40"

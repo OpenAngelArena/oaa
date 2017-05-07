@@ -5,7 +5,7 @@ function customSchema:init()
     -- Check the schema_examples folder for different implementations
 
     -- Flag Example
-    -- statCollection:setFlags({version = GetVersion()})
+    statCollection:setFlags({version = GAME_VERSION})
 
     -- Listen for changes in the current state
     ListenToGameEvent('game_rules_state_change', function(keys)
@@ -51,6 +51,19 @@ function BuildGameArray()
     local game = {}
 
     -- Add game values here as game.someValue = GetSomeGameValue()
+    table.insert(game, {
+      gl = math.floor(GAME_TIME_ELAPSED), -- Game length, from the horn sound, in seconds
+      wt = GAME_WINNER_TEAM, -- Winning team
+
+      -- Score stats
+      sl = PointsManager:GetLimit(), -- Score limit
+      st1 = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS), -- score team 1
+      st2 = PointsManager:GetLimit(DOTA_TEAM_BADGUYS), -- score team 2
+
+      -- Cave Stats
+      cct1 = CaveHandler:GetCleares(DOTA_TEAM_GOODGUYS),
+      cct2 = CaveHandler:GetCleares(DOTA_TEAM_BADGUYS),
+    })
 
     return game
 end
@@ -70,6 +83,17 @@ function BuildPlayersArray()
 
                     -- Example functions for generic stats are defined in statcollection/lib/utilities.lua
                     -- Add player values here as someValue = GetSomePlayerValue(),
+                    ph = GetHeroName(playerID), --Hero by its short name
+                    pk = hero:GetKills(), --Number of kills of this players hero
+                    pd = hero:GetDeaths(), --Number of deaths of this players hero
+                    pl = hero:GetLevel(), --Player Levels
+                    nt = GetNetworth(hero), --Sum of hero gold and item worth
+
+                    -- Item List
+                    il = GetItemList(hero),
+
+                    -- Bottel Count
+                    bc = BottleCounter:GetBottles(playerID)
                 })
             end
         end

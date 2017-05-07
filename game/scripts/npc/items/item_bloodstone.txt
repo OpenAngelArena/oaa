@@ -11,7 +11,7 @@
         "ItemCost"                      "900"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
-        "ItemResult"                    "item_bloodstone"
+        "ItemResult"                    "item_bloodstone_1"
         "AbilityTextureName"			"item_recipe"
         "ItemRequirements"
         {
@@ -24,9 +24,15 @@
     //=================================================================================================================
     "item_bloodstone"
     {
+      "ItemPurchasable"       "0"
+    }
+    "item_bloodstone_1"
+    {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "121"       // unique ID
+        "ID"                            "9121"       // unique ID
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/bloodstone.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "FightRecapLevel"               "2"
 
@@ -35,13 +41,13 @@
         "AbilityCastRange"              "150"
         "AbilityCastPoint"              "0.0"
         "AbilityCooldown"               "300.0"
-        "AbilityTextureName"            "item_bloodstone"
+        "AbilityTextureName"            "custom/bloodstone_1"
         // Spicy Parameters
         //-------------------------------------------------------------------------------------------------------------
 
         "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "1"
-        "UpgradesItems"                 "item_bloodstone;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
+        "UpgradesItems"                 "item_bloodstone_1;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------

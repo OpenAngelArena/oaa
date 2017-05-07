@@ -7,7 +7,7 @@
 	{
 		"ID"							"3076"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"3500"
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_4"
@@ -34,7 +34,7 @@
 		"AbilityCastRange"				"350"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"4.0"
-		"AbilityTextureName"			"item_bfury"
+		"AbilityTextureName"			"custom/battle_fury_4"
 		//Spicy Parameters
 		//-------------------------------------------------------------------------------------------------------------
 		"MaxUpgradeLevel"				"4"

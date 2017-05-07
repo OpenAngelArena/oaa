@@ -1,3 +1,15 @@
+GameEvents = GameEvents or {}
+
+function CreateGameEvent (name)
+  local event = Event()
+
+  GameEvents[name] = (function (self, fn)
+    return event.listen(fn)
+  end)
+
+  return event.broadcast
+end
+
 -- The overall game state has changed
 function GameMode:_OnGameRulesStateChange(keys)
   if GameMode._reentrantCheck then
@@ -34,6 +46,7 @@ function GameMode:_OnGameRulesStateChange(keys)
   GameMode._reentrantCheck = false
 end
 
+local OnHeroInGameEvent = CreateGameEvent('OnHeroInGame')
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:_OnNPCSpawned(keys)
   if GameMode._reentrantCheck then
@@ -44,6 +57,7 @@ function GameMode:_OnNPCSpawned(keys)
 
   if npc:IsRealHero() and npc.bFirstSpawned == nil then
     npc.bFirstSpawned = true
+    OnHeroInGameEvent(npc)
     GameMode:OnHeroInGame(npc)
   end
 

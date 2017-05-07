@@ -1,66 +1,34 @@
 # Writing and Translations
-There's a lot of text in OAA, varying between single word titles to paragraph descriptions. This document is mostly a place to hold the template for creating tickets to manage the writing workflow.
+There's a lot of text in OAA, varying between single word titles to paragraph descriptions.
 
-## Workflow
-When creating a pull request containing English text, you must add new entries to the `addon_english.txt` file as opposed to putting them directly into the KV/xml/js/lua/whatever. Pull requests with visible English text outside of this file will not be approved.
+## Languages 
+We are currently translating Open Angel Arena to:
+- Chinese
+- Czech
+- German
+- Hungarian
+- Polish
+- Portuguese
+- Russian
+- Spanish
 
-* When the pull request is created, link to the ticket filed using the below template before it is approved
-* Team members from design, copy, or any other applicable teams approve the English copy
-* Once approved, assign/link the ticket to each translation team
-* Team members from each language submit translations
-* Once all 4 are in, assign/link the ticket to the programming team
-* Programmers put the updated copy and translations into the translations files
-* Pull request, merge, rejoice.
+## Transifex
+We are using Transifex to handle all translation work. In order to start translating, you need to:
+- Create an account on [transifex](https://www.transifex.com/) (Use the same name as in Discord)
+- Go to [our project](https://www.transifex.com/open-angel-arena/open-angel-arena/)
+- Click on `Help Translate "Open Angel Arena"` and follow the instructions
+- Wait to be accepted
 
-# Ticket Template
-### Single Translation
-```markdown
-### Request for copy and translations
-**Key**: "PUT_KEY_HERE"  
-**English copy**: "text"
+## Translating
+We want our translations to blend in with the original Dota so you need to learn the "translation style" of your language. For example, item names are not translated in all languages. In that case, we will also keep the original english name.
+Many strings can be copied from the [official Dota 2 website](http://www.dota2.com/items/) (you can select the language in the top right), which is also great to learn the translation style.
+Sometimes it is hard to find out where a string will be used in the game by just reading it. If that happens you can take a look at the key (below the box in which you enter your translation). For example, `DOTA_Tooltip_Ability_item_bfury_2_Description` is the tooltip description of the item Battlefury.
 
-* [ ] English copy approved
+## Testing translations
+After translating you want to test your translated strings. 
 
-Only begin translations when English text is approved. Add in the complete translation before checking the list item.
+First of all, you need to [create environment variables](http://www.forbeslindesay.co.uk/post/42833119552/permanently-set-environment-variables-on-windows), `TRANSIFEX_USER` and `TRANSIFEX_PASSWORD`. `TRANSIFEX_USER` must be set to your username on transifex and `TRANSIFEX_PASSWORD` is your transifex password.
+It is also possible to use an [authentication token](https://www.transifex.com/blog/2017/api-authentication-tokens/). If you want to use that set `TRANSIFEX_USER` to `api` and `TRANSIFEX_PASSWORD` to the token. This is also the way to go if you sign in with Github, Google or Facebook.
 
- * [ ] Chinese translation: ""
- * [ ] Russian translation: ""
- * [ ] Spanish translation: ""
- * [ ] Portuguese translation: ""
-```
-### Multiple Translations
-Sometimes you create several similar pieces of text at once.
-
-```markdown
-### Request for copy and translations
-**Key**: "PUT_KEY_HERE"  
-**English copy**: "text"  
-**Key**: "OTHER_KEY_HERE"  
-**English copy**: "text"  
-**Key**: "MORE_KEYS"  
-**English copy**: "text"  
-
-* [ ] English copy approved
-  * [ ] **PUT_KEY_HERE**
-  * [ ] **OTHER_KEY_HERE**
-  * [ ] **MORE_KEYS**
-
-Only begin translations when English text is approved. Add in the complete translation before checking the list item.
-
- * [ ] Chinese translation: 
-   * [ ] **PUT_KEY_HERE**: "chinese"
-   * [ ] **OTHER_KEY_HERE**: "chinese"
-   * [ ] **MORE_KEYS**: "chinese"
- * [ ] Russian translation: ""
-   * [ ] **PUT_KEY_HERE**: "russian"
-   * [ ] **OTHER_KEY_HERE**: "russian"
-   * [ ] **MORE_KEYS**: "russian"
- * [ ] Spanish translation: ""
-   * [ ] **PUT_KEY_HERE**: "spanish"
-   * [ ] **OTHER_KEY_HERE**: "spanish"
-   * [ ] **MORE_KEYS**: "spanish"
- * [ ] Portuguese translation: ""
-   * [ ] **PUT_KEY_HERE**: "portuguese"
-   * [ ] **OTHER_KEY_HERE**: "portuguese"
-   * [ ] **MORE_KEYS**: "portuguese"
-```
+Open a **new** command prompt in your `oaa` folder and run `node scripts/generate-translations.js`.
+Start the game and check your strings.

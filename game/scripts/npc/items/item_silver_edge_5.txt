@@ -7,7 +7,7 @@
 	{
 		"ID"							"3153"		// unique ID
 		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"4500"
+		"ItemCost"						"20000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge_5"
@@ -29,7 +29,7 @@
 		"BaseClass"                     "item_silver_edge"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_silver_edge"
+		"AbilityTextureName"            "custom/silver_edge_5"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"24.0"

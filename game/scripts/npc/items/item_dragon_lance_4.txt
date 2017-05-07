@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
 
 		"MaxUpgradeLevel"				"4"
@@ -44,7 +44,7 @@
 		"ID"							"3651"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_dragon_lance"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_dragon_lance"
+		"AbilityTextureName"            "custom/dragon_lance_4"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

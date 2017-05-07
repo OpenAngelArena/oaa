@@ -10,7 +10,7 @@
 		"ID"							"3117"		// unique ID
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"ItemCost"						"2500"
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_aether_lens_3"
@@ -33,7 +33,7 @@
 		"ID"							"3119"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_aether_lens"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"				"item_aether_lens"
+		"AbilityTextureName"				"custom/aether_lens_3"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
+GAME_VERSION = "0.24.1"
+
 require('internal/util')
 require('gamemode')
 -- DotaStats
@@ -20,6 +22,8 @@ function Precache( context )
 
   PrecacheItemByNameSync("item_postactive", context)
   PrecacheItemByNameSync("item_preemptive_3c", context)
+
+  PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
