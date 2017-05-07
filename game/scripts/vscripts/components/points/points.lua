@@ -33,6 +33,8 @@ function PointsManager:CheckWinCondition(teamID, points)
 
   if points >= limit then
     Timers:CreateTimer(1, function()
+      GAME_WINNER_TEAM = teamID
+      GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
       GameRules:SetGameWinner(teamID)
     end)
     self.hasGameEnded = true
@@ -59,8 +61,10 @@ function PointsManager:AddPoints(teamID, amount)
 
   if teamID == DOTA_TEAM_GOODGUYS then
     score.goodguys = score.goodguys + amount
+    amount = score.goodguys
   elseif teamID == DOTA_TEAM_BADGUYS then
     score.badguys = score.badguys + amount
+    amount = score.badguys
   end
 
   CustomNetTables:SetTableValue('team_scores', 'score', score)

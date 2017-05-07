@@ -36,6 +36,10 @@ function CaveHandler:Init ()
         door = Doors:UseDoors(caveName .. '_door_' .. roomID, {
           state = DOOR_STATE_CLOSED,
           distance = doorDistance,
+          openingStepDelay = 1/300,
+          openingStepSize = 3,
+          closingStepDelay = 1/200,
+          closingStepSize = 2,
         }),
       }
     end
@@ -262,7 +266,9 @@ for roomID, room in pairs(cave.rooms) do
       false -- can grow cache
     )
     for _, unit in pairs(result) do
-      table.insert(units, unit)
+      if room.zone.handle:IsTouching(unit) then
+        table.insert(units, unit)
+      end
     end
   end
 end
