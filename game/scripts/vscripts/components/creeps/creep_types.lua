@@ -4,18 +4,21 @@ CreepTypes = {
   -- 1 "easy camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_kobold",               400,  0,    10,   0.7,  13,   54}, --expected gold is  65 and XP is 240
-      {"npc_dota_neutral_kobold",               400,  0,    10,   0.7,  13,   54},
-      {"npc_dota_neutral_kobold_taskmaster",    800,  0,    18,   1.4,  22,   70},
-      {"npc_dota_neutral_kobold_tunneler",      550,  0,    14,   1.4,  17,   62}
+      {"npc_dota_neutral_kobold",               450,  0,    12,   0.7,  17,   70}, --expected gold is  65 and XP is 240
+      {"npc_dota_neutral_kobold_taskmaster",    900,  0,    24,   1.4,  27,   90},
+      {"npc_dota_neutral_kobold_tunneler",      625,  0,    16,   1.4,  21,   80}
     }
   },
     -- 2 "medium camp"
   {
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_harpy_storm",          750,  400,  40,   2,    24,   140}, --expected gold is 68 and XP is 360
-      {"npc_dota_neutral_harpy_storm",          750,  400,  40,   2,    24,   140},
-      {"npc_dota_neutral_harpy_scout",          550,  0,    50,   1,    20,    80},
+      {"npc_dota_neutral_harpy_storm",          900,  400,  45,   2,    30,   170}, --expected gold is 68 and XP is 360
+      {"npc_dota_neutral_harpy_storm",          900,  400,  45,   2,    30,   170},
+      {"npc_dota_neutral_harpy_scout",          700,  0,    70,   1,    23,   105},
+    }
+    {                                         --HP    MANA  DMG   ARM   GOLD  EXP
+      {"npc_dota_neutral_harpy_storm",          900,  400,  45,   2,    30,   170}, --expected gold is 68 and XP is 360
+      {"npc_dota_neutral_harpy_scout",          700,  0,    70,   1,    23,   105},
     }
   },
     -- 3 "hard camp"
@@ -32,12 +35,12 @@ CreepTypes = {
     {
       {"npc_dota_neutral_giant_wolf",           1000,  200,  35,   3,    30,   110},
       {"npc_dota_neutral_giant_wolf",           1000,  200,  35,   3,    30,   110},
-      {"npc_dota_neutral_alpha_wolf",           2000,  600, 100,   7,    90,   135}
+      {"npc_dota_neutral_alpha_wolf",           2000,  600, 100,   5,    90,   135}
     },
     {
       {"npc_dota_neutral_giant_wolf",           1000,  200,  35,   3,    30,   110},
-      {"npc_dota_neutral_alpha_wolf",           2000, 600,  100,   7,    90,   135}
+      {"npc_dota_neutral_alpha_wolf",           2000,  600, 100,   5,    90,   135}
     }
-      -- {"npc_dota_neutral_jungle_stalker",       1600, 400,  55,   2,    61,   40},
+      {"npc_dota_neutral_black_dragon",         3000,    0, 150,   2,   135,   300},
   }
 }
