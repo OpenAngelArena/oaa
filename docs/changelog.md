@@ -770,6 +770,132 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * You now won't get any random Gold when spawning Couriers
 
 
+## Update 0.19.0
+`6aea59c1c60eee01714fdc16e0b1920f1464ba15`
+* Update Tooltips
+
+### Creeps
+* Buffed Creep Scaling
+
+### Items
+* Increased Recipe Cost of a lot of Items
+  * Upgrade Core 1: 1500
+  * Upgrade Core 2: 3500
+  * Upgrade Core 3: 8000
+  * Upgrade Core 4: 20000
+* Greater Travel Boots
+  * Increased GPM from `150 300 600 1200 2400` to `300 600 1200 2400 4800`
+
+### Heroes
+* Crystal Maiden
+  * Brilliance Aura
+    * Increased Aura Mana Regen from `1.0 1.5 2.0 3.0 3.5 5.0` to `1.0 1.5 2.0 3.0 5.0 13.0`
+    * Increased Mana Regen from `2 3 4 8 9 12` to `2 3 4 8 16 48`
+* Omniknight
+  * Guardian Angel
+    * Decreased Duration from `6.0 7.0 8.0 9.0 10.0` to `6.0 7.0 8.0 8.0 8.0`
+    * Increased Radius from `600 600 600 600 600` to `600 600 600 800 1000`
+    * Increased Scepter Duration from `8.0 9.0 10.0 11.0 12.0` to `8.0 9.0 10.0 10.5 11.0`
+* Tidehunter
+  * Anchor Smash
+    * Decreased Damage Reduction from `-45 -50 -55 -60 -80 -160` to `-45 -50 -55 -60 -65 -70`
+
+### Bosses
+* Added The Twins - Zadkiel and Jophiel
+
+
+## Update 0.20.0
+`b1ff4d9a37e6b562cfb5d3b3bbbf132b1d9211ea`
+* Update Tooltips
+
+### Bosses
+* The Twins
+  * Decreased Attack Rate from `1.0` to `0.75`
+  * Decreased Health from `5000` to `3500`
+
+### Duels
+* Make Units Stop at the start of the Duel
+
+
+### Update 0.21.0
+`9311104615207fafaf6e8976c879159191ce2e54`
+* Updated Tooltips
+
+### Creeps
+* Tweaked Creep Progression
+  * Reduced Armour
+  Increased Damage
+* Fixed smaller Ancients being stronger
+* Slightly redistributed XP and Gold within camps. Total amounts per spawn still the same
+* Made centaurs tankier so they wouldn't be a weaker camp compared to wolves
+
+
+### Update 0.22.0 - Chris is back again
+`38a53f9403710665a6455787f496ec51b09eb971`
+* Generated Tooltips
+* Added new Languages
+
+### Creeps
+* Made Creeps Spread a bit
+* Added Moving Doors
+* Fixed Exponential Growth
+* Reduced Creeps in Easy and Medium Camps by one
+* Changed Progression to Buff 20~40 minutes, trying to keep lower Minutes' Multiplier the same
+* Changed Hard Camps to spawn different Groups of Creeps
+
+### Cave
+* Decreased Creep Count in Rooms 1 to 3 by two
+
+### Items
+* Added New Icons for all Upgrade Cores, Reflex Core and the Reflex Orbs
+* Added Glowing Icons for all Greater Boots
+* Added Icon to Bottle Counter Buff
+* Added Grater Tranquil Boots
+
+### Heroes
+* Keeper of the Light
+  * Blinding Light
+    * Decreased Miss Duration from `4.0 5.0 6.0 8.0 10.0` to `4.0 5.0 6.0 7.0 8.0`
+* Sladar
+  * Amplify Damage
+    * Reduced Armour Reduction from `-10 -15 -20 -30 -50` to `-10 -15 -20 -25 -35`
+* Luna
+  * Eclipse
+    * Decreased Beam Count from `5 8 11 17 40` to `5 8 11 13 15`
+    * Decreased Scepter Beam Count from `6 12 18 30 78` to `6 12 18 24 30`
+    * Decreased Duration from `2.4 4.2 6.0 9.6 24.0` to `2.4 4.2 6.0 7.2 8.4`
+    * Decreased Scepter Duration from `1.8 3.6 5.4 9.0 23.0` `1.8 3.6 5.4 7.2 9.0`
+  * Moon Glaive
+    * Reduced Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
+    * Increased Damage Reduced per Bounce from `35` to `35 35 35 35 30 25`
+
+### Bosses
+* Added "stop fighting yourself" aka "Uriel the Mirror of Creation"
+* Shielder
+  * Increased Attack Damage from `500 600` to `2300 2350`
+  * Decreased Attack Rate from `2.0` to `1.0`
+  * Increased Health from `1000` to `5500`
+  * Increased Health Regen from `3.5` to `8.5`
+* The Twins
+  * Changed Zadkiel's Model
+  * Changed Jophiel's Model
+  * Increased Zadkiel's Attack Damage from `500 600` to `700 750`
+  * Made Jophiel Ranged
+  * Increased Jophiel's Attack Range from `128` to `960`
+* Tier 1 Boss is now literally Roshan
+  
+
+### Duels
+*  Added Particle Effects while on the Rune Hill
+
+### Map
+* Added Doors to Cave
+* Made Tier 1 Boss Pit more fancy
+
+### Misc
+* Fixed Illusion Progression even more
+
+  
 ## Template
 ```Markdown
 ## <Name> <Tag>
