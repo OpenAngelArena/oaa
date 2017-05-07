@@ -43,6 +43,19 @@ function Duels:Init ()
     Duels:CheckDuelStatus(keys)
   end)
 
+  GameEvents:OnPlayerReconnect(function (keys)
+    local playerID = keys.playerID
+    if playerID then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      if not Duels.currentDuel then
+        hero:SetRespawnsDisabled(false)
+        if not hero:IsAlive() then
+         hero:RespawnHero(false, false, false)
+        end
+      end
+    end
+  end)
+
   Timers:CreateTimer(1, function ()
     Duels:StartDuel()
   end)
@@ -180,8 +193,11 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 1
     badGuy.duelNumber = 1
 
-    FindClearSpaceForUnit(goodHero, spawn1, true)
-    FindClearSpaceForUnit(badHero, spawn2, true)
+    self:SafeTeleport(goodHero, spawn1, 150)
+    self:SafeTeleport(badHero, spawn2, 150)
+    --FindClearSpaceForUnit(goodHero, spawn1, true)
+    --FindClearSpaceForUnit(badHero, spawn2, true)
+
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
@@ -326,7 +342,7 @@ function Duels:ResetPlayerState (hero)
   hero:SetMana(hero:GetMaxMana())
 
   -- Reset cooldown for abilities
-  for abilityIndex = 0,hero:GetAbilityCount() - 1 do
+  for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       ability:EndCooldown()
@@ -334,7 +350,7 @@ function Duels:ResetPlayerState (hero)
   end
 
   -- Reset cooldown for items
-  for i = 0, 5 do
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
     if item  then
       item:EndCooldown()
@@ -348,6 +364,7 @@ function Duels:SavePlayerState (hero)
     abilityCount = hero:GetAbilityCount(),
     abilities = {},
     items = {},
+    modifiers = {},
     hp = hero:GetHealth(),
     mana = hero:GetMana()
   }
@@ -370,7 +387,7 @@ function Duels:SavePlayerState (hero)
     end
   end
 
-  for itemIndex = 0,5 do
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil then
       state.items[itemIndex] = {
@@ -378,7 +395,6 @@ function Duels:SavePlayerState (hero)
       }
     end
   end
-
   return state
 end
 
@@ -389,7 +405,7 @@ function Duels:RestorePlayerState (hero, state)
   end
   hero:SetMana(state.mana)
 
-  for abilityIndex = 0,hero:GetAbilityCount()-1 do
+  for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil then
       if state.abilities[abilityIndex] == nil then
@@ -401,7 +417,7 @@ function Duels:RestorePlayerState (hero, state)
     end
   end
 
-  for itemIndex = 0,5 do
+  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil and state.items[itemIndex] then
       item:StartCooldown(state.items[itemIndex].cooldown)
@@ -428,5 +444,15 @@ function Duels:AllPlayers (state, cb)
         cb(state.goodPlayers[playerIndex])
       end
     end
+  end
+end
+
+function Duels:SafeTeleport(unit, location, maxDistance)
+  FindClearSpaceForUnit(unit, location, true)
+  local distance = (location - unit:GetAbsOrigin()):Length2D()
+  if distance > maxDistance then
+    Timers:CreateTimer(0.1, function()
+      self:SafeTeleport(unit, location, maxDistance)
+    end)
   end
 end
