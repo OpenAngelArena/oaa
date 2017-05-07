@@ -126,7 +126,7 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
 	if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     -- and that the healing is not passive regen
-		if kv.unit == self:GetParent() and kv.damage_type ~= 0 then
+		if kv.unit == self:GetParent() and not kv.process_procs then
       local desiredHP = kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100
       desiredHP = math.max(desiredHP, 1)
 
