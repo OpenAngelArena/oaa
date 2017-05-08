@@ -12,6 +12,7 @@ var languageShortNames = {
   spanish: 'es',
   czech: 'cs',
   polish: 'pl',
+  dutch: 'nl',
   hungarian: 'hu'
 };
 var englishFileString = parseTranslation(false);
