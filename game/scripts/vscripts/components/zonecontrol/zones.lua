@@ -370,6 +370,6 @@ function ZoneControl:InheritState (parent, state)
     isZoneControlState = true,
     isGroup = state.isGroup,
     players = state.players or parent.players,
-    mode = state.mode or players.mode
+    mode = state.mode or parent.mode
   }
 end

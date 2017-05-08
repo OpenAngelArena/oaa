@@ -81,14 +81,24 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
 end
 
 function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
-  local alliedUnitsInBubble = FindUnitsInRadius(self.casterTeam, self.bubbleCenter, nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+  local alliedUnitsInBubble = FindUnitsInRadius(
+    self.casterTeam,
+    self.bubbleCenter,
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_ALL,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 
-  function ApplyBlockModifier(unit)
+  local function ApplyBlockModifier(unit)
     local bubbleModifierName = "modifier_item_preemptive_bubble_block"
     local bubbleModifiers = unit:FindAllModifiersByName(bubbleModifierName)
 
     -- Checks if the given modifier comes from the bubble represented by self by comparing centers
-    function IsFromThisBubble(modifier)
+    local function IsFromThisBubble(modifier)
       return modifier.bubbleCenter.x == self.bubbleCenter.x and modifier.bubbleCenter.y == self.bubbleCenter.y
     end
 

@@ -4,7 +4,7 @@ function modifier_stoneskin_toggle(keys)
   if not keys.caster:HasModifier("modifier_item_stoneskin_stone_armor") and keys.ability:IsCooldownReady() then
     --Apply modifier branch
 
-    cooldown = keys.Cooldown
+    local cooldown = keys.Cooldown
     keys.ability:StartCooldown(keys.Delay + cooldown) --Adds delay and cooldown after delay so the player has
                                                       --the cooldown indication that the item is working.
                                                       -- *Want* eventually add a particle effect

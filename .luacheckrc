@@ -1,7 +1,105 @@
+codes = true
+ranges = true
+cache = true
+max_line_length = 200
+allow_defined_top = true
+
 globals = { -- these globals can be set and accessed.
+-- "GameMode",
+"Gold",
+"Debug",
+"GAME_TIME_ELAPSED",
+"GAME_WINNER_TEAM",
+"GameRules",
 }
 
 read_globals = { -- these globals can only be accessed.
+-- luafun
+"wrap",
+"iter",
+"each",
+"for_each",
+"foreach",
+"range",
+"duplicate",
+"replicate",
+"xrepeat",
+"tabulate",
+"zeros",
+"ones",
+"rands",
+"nth",
+"head",
+"car",
+"tail",
+"cdr",
+"take_n",
+"take_while",
+"take",
+"drop_n",
+"drop_while",
+"drop",
+"split",
+"split_at",
+"span",
+"index",
+"index_of",
+"elem_index",
+"contains",
+"indexes",
+"elem_indexes",
+"indices",
+"elem_indices",
+"filter",
+"remove_if",
+"grep",
+"partition",
+"foldl",
+"reduce",
+"length",
+"is_null",
+"is_prefix_of",
+"all",
+"every",
+"any",
+"some",
+"sum",
+"product",
+"min",
+"minimum",
+"min_by",
+"minimum_by",
+"max",
+"maximum",
+"max_by",
+"maximum_by",
+"totable",
+"tomap",
+"map",
+"enumerate",
+"intersperse",
+"zip",
+"cycle",
+"chain",
+"operator",
+"op",
+
+-- util
+"split",
+"regexsplit",
+"TracesFromFilename",
+"IsAnyTraceEnabled",
+"GetCallingFile",
+"DebugPrint",
+"DebugPrintTable",
+"PrintTable",
+"DebugAllCalls",
+"UnitVarToPlayerID",
+"HideWearables",
+"ShowWearables",
+"GetShortTeamName",
+
+
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
 "ACT_RUN_SCARED",
@@ -1289,7 +1387,6 @@ read_globals = { -- these globals can only be accessed.
 "Tutorial",
 "CDOTATutorial",
 "Time",
-"GameRules",
 "ClearTeamCustomHealthbarColor",
 "CDOTAGamerules",
 "h",
@@ -2595,20 +2692,39 @@ read_globals = { -- these globals can only be accessed.
 "AE_WEAPON_THROW",
 "DOTA_UNIT_TARGET_TEAM_NONE",
 "ACT_WALK_STEALTH_PISTOL",
+"partial",
+"FindByNameWithin",
+"Timers",
+"DebugPrint",
+"DebugPrintTable",
+"CreateGameEvent",
+"Event",
+"ChatCommand",
+"GameEvents",
+"PlayerTables",
 }
 
 ignore = {
-  "111", -- setting non-standard global variable
-  "112", -- mutating non-standard global variable
+  -- "111", -- setting non-standard global variable
+  -- "112", -- mutating non-standard global variable
+  "131", -- unused global variable
+  "211", -- unused variable
+  "212", -- unused argument
+  "213", -- unused loop variable
+  "231", -- never accessed
+  "311", -- Value assigned to a local variable is unused.
+  "631", -- line is too long (200)
 }
 
 -- enable warnings to make sure they're alway checked
 enable = {
-  "631", -- line is too long (120)
 }
 
 exclude_files = {
   "game/scripts/vscripts/statcollection", -- we just ignore getdotastats
   "game/scripts/vscripts/settings.lua", -- this spews so may warnings
   "game/scripts/vscripts/internal", -- like settings.lua and it's not needed
+  "game/scripts/vscripts/libraries", -- like settings.lua and it's not needed
+  "game/scripts/vscripts/examples", -- like settings.lua and it's not needed
 }
+files["**/vscripts/units/**/*.lua"].globals = { "thisEntity" }

@@ -37,7 +37,7 @@ end
 
 
 --[[ ============================================================================================================
-	RamonNZ: This code adds charges when abilities are used by enemies. 
+	RamonNZ: This code adds charges when abilities are used by enemies.
 	Known Bugs (by Rook - wand code): Because OnAbilityExecuted does not pass in information about the ability that was just executed, this code cannot use ProcsMagicStick() to determine if Magic Stick should gain a charge.  For now, every cast ability awards a charge.
 	RamonNZ: Fixed - Charges can be added by neutral abilities, just like wand
 ================================================================================================================= ]]
@@ -45,7 +45,7 @@ function modifier_charge_bkb_aura_on_ability_executed(keys)
 	if keys.caster:GetTeam() ~= keys.unit:GetTeam() and keys.caster:CanEntityBeSeenByMyTeam(keys.unit) then
 		 --Rook's code: Search for a Charge_BKB in the aura creator's inventory.  If there are multiple Charge_BKBs in the player's inventory, the oldest one that's not full receives a charge.
 		local oldest_unfilled_wand = nil
-		
+
 		for i=0, 5, 1 do
 			local current_item = keys.caster:GetItemInSlot(i)
 			if current_item ~= nil and current_item:GetName() == "item_charge_bkb" and current_item:GetCurrentCharges() < keys.MaxCharges then
@@ -54,7 +54,7 @@ function modifier_charge_bkb_aura_on_ability_executed(keys)
 				end
 			end
 		end
-		
+
 		--RamonNZ: Increment the Magic Wand's current charges by 1, but only if CurrentCharges are less than MaxCharges
 		if oldest_unfilled_wand ~= nil then
 			if oldest_unfilled_wand:GetCurrentCharges() < keys.MaxCharges then
@@ -77,7 +77,7 @@ function create_decay_timer(keys)
 	callback = function()
 		if keys.ability:GetCurrentCharges() > 0 then
 			print ("--> -1 Charge_BKB charge")
-			keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1) 
+			keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges()-1)
 		end
 		return nil
 	end})

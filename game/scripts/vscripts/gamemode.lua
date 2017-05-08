@@ -9,7 +9,7 @@ BAREBONES_DEBUG_SPEW = false
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
     print("Lua Version: " .. _VERSION)
-    _G.GameMode = class({})
+    GameMode = class({})
 end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first

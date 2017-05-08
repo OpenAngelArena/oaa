@@ -41,7 +41,7 @@ function modifier_item_reactive_2b:GetAbsorbSpell()
 
   self.hasBlinked = true
 
-  function IsAlly(entity)
+  local function IsAlly(entity)
     return entity:GetTeamNumber() == casterTeam
   end
 

@@ -35,13 +35,7 @@ end
 -- An NPC has spawned somewhere in game.  This includes heroes
 -- game event object for OnNPCSpawned
 local OnNPCSpawnedEvent = CreateGameEvent('OnNPCSpawned')
-function GameMode:OnNPCSpawned(keys)
-  OnNPCSpawnedEvent(keys)
-  DebugPrint("[BAREBONES] NPC Spawned")
-  DebugPrintTable(keys)
-
-  local npc = EntIndexToHScript(keys.entindex)
-
+local function DecorateNPC(npc)
   npc.deathEvent = Event()
   function npc:OnDeath(fn)
     return npc.deathEvent.listen(fn)
@@ -51,6 +45,14 @@ function GameMode:OnNPCSpawned(keys)
   function npc:OnHurt(fn)
     return npc.hurtEvent.listen(fn)
   end
+end
+function GameMode:OnNPCSpawned(keys)
+  OnNPCSpawnedEvent(keys)
+  DebugPrint("[BAREBONES] NPC Spawned")
+  DebugPrintTable(keys)
+
+  local npc = EntIndexToHScript(keys.entindex)
+  DecorateNPC(npc)
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive

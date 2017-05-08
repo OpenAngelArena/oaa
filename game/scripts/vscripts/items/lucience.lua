@@ -121,7 +121,7 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     elseif currentMovespeedAura and ability:GetLevel() < currentMovespeedAura:GetAbility():GetLevel() then
       return
     end
-    function RefreshHandler(modifier)
+    local function RefreshHandler(modifier)
       modifier:OnRefresh()
     end
 

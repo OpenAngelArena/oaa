@@ -68,11 +68,11 @@ end
 
 function HeroProgression:ReduceIllusionStats(illusionEnt)
   -- Support functions
-  function CalculateStatAt25(unitLevel, currentBaseStat, statGain)
+  local function CalculateStatAt25(unitLevel, currentBaseStat, statGain)
     return currentBaseStat - (unitLevel - 25) * statGain
   end
 
-  function CalculateReducedStat(unitLevel, statAt25, statGain)
+  local function CalculateReducedStat(unitLevel, statAt25, statGain)
     return statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1)) + statAt25
   end
 
@@ -81,7 +81,7 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
   local GetStatGain = partial(self.GetStatGain, illusionEnt)
 
   -- Set one frame delay because illusions won't immediately have the correct level
-  function ReduceStats()
+  local function ReduceStats()
     Timers:CreateTimer(function()
       local currentHealth = illusionEnt:GetHealth()
       local currentMana = illusionEnt:GetMana()
@@ -131,7 +131,7 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
 end
 
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
-  pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
+  local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
     -- After level 25 most heros get an additional skill point every 3 levels
     return level < 25 or math.fmod(level, 3) == 1

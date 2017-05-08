@@ -7,13 +7,13 @@ LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/item_greater
 
 function item_greater_tranquil_boots:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
-	
-	brokeName = ""
-	
+
+	local brokeName = ""
+
 	if self.tranqMod and not self.tranqMod:IsNull() and self.tranqMod:GetRemainingTime() > 0 then
 		brokeName = "_active"
 	end
-	
+
 	return baseName .. brokeName
 end
 
@@ -53,12 +53,12 @@ end
 
 function modifier_item_greater_tranquil_boots:OnCreated( event )
 	local spell = self:GetAbility()
-		
+
 	spell.tranqMod = self
-		
+
 	if IsServer() then
 		self:SetDuration( spell:GetCooldownTime(), true )
-			
+
 		self:StartIntervalThink( 0.1 )
 	end
 end
@@ -71,9 +71,9 @@ if IsServer() then
 			local parent = self:GetParent()
 			local spell = self:GetAbility()
 			local maxHeal = math.min( spell:GetSpecialValueFor( "regen_from_creeps" ) * 0.1, self.storedDamage )
-			
+
 			parent:Heal( maxHeal, parent )
-			
+
 			self.storedDamage = self.storedDamage - maxHeal
 		end
 	end
@@ -89,7 +89,7 @@ function modifier_item_greater_tranquil_boots:DeclareFunctions()
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
- 
+
 	return funcs
 end
 
@@ -98,17 +98,17 @@ end
 if IsServer() then
 	function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
 		local parent = self:GetParent()
-			
+
 		-- thankfully, tranqs don't have complicated trigger requirements
 		if event.attacker == parent or event.target == parent then
 			local spell = self:GetAbility()
-			
+
 			-- determine the other unit that isn't the parent
 			local checkUnit = event.attacker
 			if event.attacker == parent then
 				checkUnit = event.target
 			end
-			
+
 			-- if the checked unit is a neutral creep, don't break
 			if UnitFilter( checkUnit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not checkUnit:IsControllableByAnyPlayer() then
 				-- if both creep sap specials are greater than 0, and the attacker is the creep
@@ -120,14 +120,14 @@ if IsServer() then
 						} )
 					end
 				end
-			
+
 				return
 			end
-			
+
 			spell:UseResources( false, false, true )
-					
+
 			-- seriously, this is easy
-					
+
 			-- less so is actually making this do anything
 			-- because valve
 			self:SetDuration( spell:GetCooldownTime(), true )
@@ -141,18 +141,18 @@ if IsServer() then
 
 		if event.unit == parent then
 			local attacker = event.attacker
-			
+
 			-- return if the damage isn't from a creep
 			-- creep heroes count as not a creep, in this case
 			if UnitFilter( attacker, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) ~= UF_SUCCESS then
 				return
 			end
-			
+
 			-- uncomment this if player units shouldn't proc this, either
 			if attacker:IsControllableByAnyPlayer() then
 				return
 			end
-			
+
 			if not self.storedDamage then
 				self.storedDamage = event.damage
 			else
@@ -166,11 +166,11 @@ end
 
 function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Special_Boots( event )
 	local spell = self:GetAbility()
-	
+
 	if self:GetRemainingTime() <= 0 then
 		return spell:GetSpecialValueFor( "bonus_movement_speed" )
 	end
-	
+
 	return spell:GetSpecialValueFor( "broken_movement_speed" )
 end
 
@@ -178,7 +178,7 @@ end
 
 function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus( event )
 	local spell = self:GetAbility()
-	
+
 	return spell:GetSpecialValueFor( "bonus_armor" )
 end
 
@@ -186,11 +186,11 @@ end
 
 function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen( event )
 	local spell = self:GetAbility()
-	
+
 	if self:GetRemainingTime() <= 0 then
 		return spell:GetSpecialValueFor( "bonus_health_regen" )
 	end
-	
+
 	return 0
 end
 
@@ -217,9 +217,9 @@ end
 if IsServer() then
 	function modifier_item_greater_tranquil_boots_sap:OnCreated( event )
 		local spell = self:GetAbility()
-		
+
 		self.sapDamage = spell:GetSpecialValueFor( "creep_sap_damage" )
-		
+
 		self:StartIntervalThink( 1.0 )
 	end
 
@@ -227,7 +227,7 @@ if IsServer() then
 
 	function modifier_item_greater_tranquil_boots_sap:OnRefresh( event )
 		local spell = self:GetAbility()
-		
+
 		self.sapDamage = spell:GetSpecialValueFor( "creep_sap_damage" )
 	end
 
@@ -238,9 +238,9 @@ if IsServer() then
 			local parent = self:GetParent()
 			local caster = self:GetCaster()
 			local spell = self:GetAbility()
-			
+
 			local damage = parent:GetMaxHealth() * ( self.sapDamage * 0.01 )
-			
+
 			ApplyDamage( {
 				victim = parent,
 				attacker = caster,
