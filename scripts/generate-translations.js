@@ -38,12 +38,10 @@ if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
   console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
   process.exit(0);
 } else {
-
   request.get({
     url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt'
   }, function (err, result) {
     if (err) {
-      console.error(languageName);
       throw err;
     }
     result.body = result.body.replace('"Kyxy"', '');
@@ -109,7 +107,7 @@ function getTranslationsForLanguage (lang, cb) {
   });
 }
 
-function getUnchangedStrings(languageName, cb) {
+function getUnchangedStrings (languageName, cb) {
   if (languageName === 'chinese') {
     languageName = 'schinese';
   }
@@ -133,7 +131,7 @@ function getUnchangedStrings(languageName, cb) {
 
 function generateFileForTranslations (languageName, translations, cb) {
   var duplicateStrings = getDuplicateStrings();
-  var unchangedStrings = getUnchangedStrings(languageName, function (translatedKeys) {
+  getUnchangedStrings(languageName, function (translatedKeys) {
     var lines = [];
     lines.push('"lang"');
     lines.push('{');

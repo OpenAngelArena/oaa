@@ -1,5 +1,5 @@
 var request = require('request');
-var fs = require('fs');
+// var fs = require('fs');
 var parseKV = require('parse-kv');
 var parseTranslation = require('./parse-translation');
 
@@ -41,8 +41,6 @@ request.get({
       delete englishStrings[key];
     }
   });
-
-  return;
 
   // fs.writeFileSync('./i18n.json', JSON.stringify(englishStrings, null, 2));
   // curl -i -L --user username:password -F file=@path_to_the_file -X PUT http://www.transifex.com/api/2/project/documentation/resource/api_doc/content/
