@@ -9,7 +9,7 @@ install:
   - luarocks install luacheck --upgrade --upgrade-deps
 script:
   - luacheck -q ./game/scripts/vscripts
-  - lua './game/scripts/vscripts/**/*.test.lua'
+  - lua contrib/test_oaa.lua
   - npm test
 deploy:
 - provider: script
