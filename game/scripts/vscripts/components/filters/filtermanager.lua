@@ -32,8 +32,8 @@ function FilterManager:Init()
     self.Filters[i] = {}
 
     -- Generate master filter functions
-    function MasterFilter(self, keys)
-      return self:RunFilterForType(keys, i)
+    local function MasterFilter(this, keys)
+      return this:RunFilterForType(keys, i)
     end
     self.MasterFilters[i] = MasterFilter
   end

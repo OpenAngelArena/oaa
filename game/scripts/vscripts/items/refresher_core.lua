@@ -65,5 +65,5 @@ function item_refresher_core:IsRefreshable()
   return false
 end
 
-item_refresher_core_2 = item_refresher_core
-item_refresher_core_3 = item_refresher_core
+item_refresher_core_2 = item_refresher_core --luacheck: ignore item_refresher_core_2
+item_refresher_core_3 = item_refresher_core --luacheck: ignore item_refresher_core_3

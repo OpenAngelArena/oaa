@@ -8,9 +8,6 @@ LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_b
 
 boss_charger_charge = class({})
 
-function boss_charger_charge:OnSpellStart()
-end
-
 function boss_charger_charge:OnChannelFinish(interupted)
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interupted then
@@ -60,11 +57,11 @@ function modifier_boss_charger_charge:OnIntervalThink()
     false
   )
 
-  function isTower (tower)
+  local function isTower (tower)
     return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
   end
 
-  function isHero (hero)
+  local function isHero (hero)
     -- intentionally don't call it, i just want to make sure it has the method
     -- we're gonna blow up the non-heroes with charge because fuck your shit PA
     if hero:GetTeam() == caster:GetTeam() then

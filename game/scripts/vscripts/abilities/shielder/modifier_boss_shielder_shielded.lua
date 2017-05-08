@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_boss_shielder_shield", "abilities/shielder/boss_shield
 modifier_boss_shielder_shielded_buff = class({})
 
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
-  return 
+  return
   {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
   }
@@ -53,7 +53,7 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
   local angleCos = 0
 
   --if hero and hero:IsRealHero and hero:IsRealHero() then
-  local attackOrigin = hero:GetAbsOrigin() 
+  local attackOrigin = hero:GetAbsOrigin()
   local parentOrigin = parent:GetAbsOrigin()
   local attackDirection = (attackOrigin - parentOrigin):Normalized()
   local parentFacing = (parent:GetForwardVector()):Normalized()
@@ -67,6 +67,6 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
     ParticleManager:SetParticleControl(particle, 1, Vector(nil,0,0))
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   end
-  
+
   return 0
 end

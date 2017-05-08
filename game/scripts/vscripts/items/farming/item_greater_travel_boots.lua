@@ -25,7 +25,7 @@ function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
     -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
     local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, 2000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 
-    function IsNotCaster(entity)
+    local function IsNotCaster(entity)
       return not (entity == hCaster)
     end
     local hTarget = nth(1, filter(IsNotCaster, iter(units)))
@@ -49,7 +49,7 @@ function item_greater_travel_boots:OnSpellStart()
   local hTarget = self:GetCursorTarget()
   local casterTeam = hCaster:GetTeamNumber()
 
-  function IsAlly(entity)
+  local function IsAlly(entity)
     return entity:GetTeamNumber() == casterTeam
   end
 

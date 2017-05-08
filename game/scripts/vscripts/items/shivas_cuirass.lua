@@ -19,7 +19,7 @@ end
 
 --------------------------------------------------------------------------------
 
-item_shivas_cuirass_2 = item_shivas_cuirass
+item_shivas_cuirass_2 = item_shivas_cuirass --luacheck: ignore item_shivas_cuirass_2
 
 --------------------------------------------------------------------------------
 

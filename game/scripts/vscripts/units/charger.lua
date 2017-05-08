@@ -1,24 +1,11 @@
 
 LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
 
-function Spawn (entityKeyValues)
-  thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+local ABILITY_charge = nil
+local ABILITY_summon_pillar = nil
+local GLOBAL_origin = nil
 
-  thisEntity:SetContextThink( "ChargerThink", partial(ChargerThink, thisEntity) , 1)
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
-
-  ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
-  ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
-
-  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
-  phaseController:SetPhases({ 66, 33 })
-  phaseController:SetAbilities({
-    "boss_charger_charge"
-  })
-
-end
-
-function GetAllPillars ()
+local function GetAllPillars ()
   local towers = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
     GLOBAL_origin,
@@ -31,14 +18,14 @@ function GetAllPillars ()
     false
   )
 
-  function isTower (tower)
+  local function isTower (tower)
     return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
   end
 
   return filter(isTower, iter(towers))
 end
 
-function CheckPillars ()
+local function CheckPillars ()
   local towers = GetAllPillars()
 
   -- print('Found ' .. towers:length() .. ' towers!')
@@ -66,7 +53,40 @@ function CheckPillars ()
   return true
 end
 
-function ChargerThink (state, target)
+local function ChargeHero ()
+  if not ABILITY_charge:IsCooldownReady() then
+    return false
+  end
+  local units = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetAbsOrigin(),
+    nil,
+    1000,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_CLOSEST,
+    false
+  )
+
+  if #units == 0 then
+    return false
+  end
+  local hero = units[1]
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    TargetIndex = hero:entindex(), --Optional.  Only used when targeting units
+    AbilityIndex = ABILITY_charge:entindex(), --Optional.  Only used when casting abilities
+    Position = hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+    Queue = 0 --Optional.  Used for queueing up abilities
+  })
+
+  return true
+end
+
+local function ChargerThink (state, target)
   if not thisEntity:IsAlive() then
     GetAllPillars():each(function (pillar)
       pillar:Kill(thisEntity, ABILITY_charge)
@@ -106,38 +126,20 @@ function ChargerThink (state, target)
   })
 
   return 0.1
-
 end
 
-function ChargeHero ()
-  if not ABILITY_charge:IsCooldownReady() then
-    return false
-  end
-  local units = FindUnitsInRadius(
-    thisEntity:GetTeamNumber(),
-    thisEntity:GetAbsOrigin(),
-    nil,
-    1000,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-    FIND_CLOSEST,
-    false
-  )
+function Spawn (entityKeyValues) --luacheck: ignore Spawn
+  thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
-  if #units == 0 then
-    return false
-  end
-  local hero = units[1]
+  thisEntity:SetContextThink( "ChargerThink", partial(ChargerThink, thisEntity) , 1)
+  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    TargetIndex = hero:entindex(), --Optional.  Only used when targeting units
-    AbilityIndex = ABILITY_charge:entindex(), --Optional.  Only used when casting abilities
-    Position = hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-    Queue = 0 --Optional.  Used for queueing up abilities
+  ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
+  ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+
+  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
+  phaseController:SetPhases({ 66, 33 })
+  phaseController:SetAbilities({
+    "boss_charger_charge"
   })
-
-  return true
 end

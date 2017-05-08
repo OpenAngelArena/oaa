@@ -49,7 +49,6 @@ function modifier_charge_replenisher:OnIntervalThink()
   end
   local charges = ability:GetCurrentCharges()
 
-  local ability = self:GetAbility()
   if charges < maxCharges then
     -- purely visual
     caster:AddNewModifier( caster, ability, "modifier_charge_replenishing", { duration = duration } )

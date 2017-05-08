@@ -25,7 +25,7 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   local bubbleModifiers = parent:FindAllModifiersByName(bubbleModifierName)
   local casterIsInBubbles = false
 
-  function UnitIsInSpecificBubble(unit, bubbleModifier)
+  local function UnitIsInSpecificBubble(unit, bubbleModifier)
     return bubbleModifier:UnitIsInBubble(unit)
   end
 

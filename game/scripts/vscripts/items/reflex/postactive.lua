@@ -14,7 +14,7 @@ function item_postactive:OnSpellStart()
   --Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
   --then checks if the modifier was purged (All because IsDebuff and IsPurgable don't exist in the Lua API
   --for built-in modifiers)
-  function IsPurgableDebuff(modifier)
+  local function IsPurgableDebuff(modifier)
     local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
     testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
     testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
@@ -25,7 +25,7 @@ function item_postactive:OnSpellStart()
   end
 
   -- Compares the CreationTime of two modifiers and returns the older modifier
-  function EarlierModifier(mod1, mod2)
+  local function EarlierModifier(mod1, mod2)
     if mod1:GetCreationTime() <= mod2:GetCreationTime() then
       return mod1
     else

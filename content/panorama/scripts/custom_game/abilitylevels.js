@@ -15,12 +15,7 @@ function DisplayAbilityLevelError (data) {
   GameEvents.SendEventClientSide('dota_hud_error_message', errorData);
 }
 
-var scheduleRunning = 0;
-
 function CheckLevelUpBubbles (data) {
-  var playerID = Players.GetLocalPlayer();
-  var entID = Players.GetPlayerHeroEntityIndex(playerID);
-  var level = Players.GetLevel(playerID);
   var canLevelUp = data.canLevelUp;
 
   var abilitiesPanel = FindDotaHudElement('abilities');

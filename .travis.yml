@@ -1,15 +1,20 @@
 language: node_js
 node_js:
   - "7"
+install:
+  - npm i
+  - pip install --user hererocks
+  - hererocks here --lua 5.3 -r https://github.com/mpeterv/luarocks@upgrade-install
+  - export PATH="$PWD/here/bin:$PATH"
+  - luarocks install luacheck --upgrade --upgrade-deps
+script:
+  - luacheck -q ./game/scripts/vscripts
+  - lua contrib/test_oaa.lua
+  - npm test
 deploy:
 - provider: script
   skip_cleanup: true
   script: node scripts/send-translations.js
-  on:
-    branch: master
-- provider: script
-  skip_cleanup: true
-  script: node scripts/write-version.js
   on:
     branch: master
 env:

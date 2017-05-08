@@ -1,6 +1,6 @@
 GameEvents = GameEvents or {}
 
-function CreateGameEvent (name)
+function CreateGameEvent (name) --luacheck: ignore CreateGameEvent
   local event = Event()
 
   GameEvents[name] = (function (self, fn)

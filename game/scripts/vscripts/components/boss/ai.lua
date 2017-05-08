@@ -55,7 +55,7 @@ function BossAI:HurtHandler (state, keys)
       BossAI:Agro(state, EntIndexToHScript(keys.entindex_attacker))
       state.currentDamage = 0
     end
-  elseif state.state == BossAI.AGRO then
+  elseif state.state == BossAI.AGRO then --luacheck: ignore
   end
 end
 
@@ -77,6 +77,7 @@ function BossAI:DeathHandler (state, keys)
   state.handle = nil
   local killer = EntIndexToHScript(keys.entindex_attacker)
   local teamId = killer:GetTeam()
+  local team = nil
 
   state.deathEvent.broadcast(keys)
 

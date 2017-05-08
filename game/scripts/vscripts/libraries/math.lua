@@ -15,6 +15,20 @@
 -- http://local.wasp.uwa.edu.au/~pbourke/geometry/lineline2d/
 -- http://paulbourke.net/geometry/pointlineplane/
 math.doLinesIntersect = function( a, b, c, d )
+
+        -- lines are end to end
+        if a.x == c.x and a.y == c.y then
+          return true, a
+        end
+        if b.x == c.x and b.y == c.y then
+          return true, b
+        end
+        if a.x == d.x and a.y == d.y then
+          return true, a
+        end
+        if b.x == d.x and b.y == d.y then
+          return true, b
+        end
         -- parameter conversion
         local L1 = {X1=a.x,Y1=a.y,X2=b.x,Y2=b.y}
         local L2 = {X1=c.x,Y1=c.y,X2=d.x,Y2=d.y}
