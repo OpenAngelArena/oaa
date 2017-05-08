@@ -16,6 +16,9 @@ var languageShortNames = {
 };
 var englishFileString = parseTranslation(false);
 var englishData = parseKV(englishFileString);
+var transByValue = {};
+var dotaEnglish = {};
+var unchagedKeys = {};
 
 getDuplicateStrings();
 
@@ -35,6 +38,30 @@ if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
   console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
   process.exit(0);
 } else {
+
+  request.get({
+    url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt'
+  }, function (err, result) {
+    if (err) {
+      console.error(languageName);
+      throw err;
+    }
+    result.body = result.body.replace('"Kyxy"', '');
+    result.body = result.body.replace('"Era"', '');
+    dotaEnglish = parseKV(result.body);
+    Object.keys(dotaEnglish.lang.Tokens.values).forEach(function (key) {
+      if (!transByValue[dotaEnglish.lang.Tokens.values[key]]) {
+        transByValue[dotaEnglish.lang.Tokens.values[key]] = key;
+      }
+    });
+    Object.keys(englishData.lang.Tokens.values).forEach(function (key) {
+      if (transByValue[englishData.lang.Tokens.values[key]]) {
+        unchagedKeys[key] = transByValue[englishData.lang.Tokens.values[key]];
+        console.log(key, 'is unchanged from', unchagedKeys[key]);
+      }
+    });
+  });
+
   Object.keys(languageShortNames).map(generateTranslations);
 }
 
@@ -82,42 +109,66 @@ function getTranslationsForLanguage (lang, cb) {
   });
 }
 
-function generateFileForTranslations (languageName, translations) {
-  var duplicateStrings = getDuplicateStrings();
-  var lines = [];
-  lines.push('"lang"');
-  lines.push('{');
-  lines.push('  "Language"      "' + languageName + '"');
-  lines.push('  "Tokens"');
-  lines.push('  {');
-  lines.push('    //==================================================================================');
-  lines.push('    // This file is auto-generated, do not edit it directly. Your changes will be lost.');
-  lines.push('    //==================================================================================');
-  lines.push();
-
-  Object.keys(translations).forEach(function (key) {
-    if (!translations[key].length) {
-      return;
+function getUnchangedStrings(languageName, cb) {
+  if (languageName === 'chinese') {
+    languageName = 'schinese';
+  }
+  request.get({
+    url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_' + languageName + '.txt'
+  }, function (err, result) {
+    if (err) {
+      console.error(languageName);
+      throw err;
     }
-    if (duplicateStrings[key]) {
-      lines.push();
-    }
-    var indent = (new Array(100 - key.length)).join(' ');
-    lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key]));
-
-    if (duplicateStrings[key]) {
-      duplicateStrings[key].keys.forEach(function (dupKey) {
-        var indent = (new Array(100 - dupKey.length)).join(' ');
-        lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key]));
-      });
-    }
+    result.body = result.body.replace('"Kyxy"', '');
+    result.body = result.body.replace('"Era"', '');
+    var dotaKVs = parseKV(result.body);
+    var translatedKeys = {};
+    Object.keys(unchagedKeys).forEach(function (key) {
+      translatedKeys[key] = dotaKVs.lang.Tokens.values[unchagedKeys[key]];
+    });
+    cb(translatedKeys);
   });
-  // done
-  lines.push('  }');
-  lines.push('}');
-  lines.push('');
+}
 
-  return lines;
+function generateFileForTranslations (languageName, translations, cb) {
+  var duplicateStrings = getDuplicateStrings();
+  var unchangedStrings = getUnchangedStrings(languageName, function (translatedKeys) {
+    var lines = [];
+    lines.push('"lang"');
+    lines.push('{');
+    lines.push('  "Language"      "' + languageName + '"');
+    lines.push('  "Tokens"');
+    lines.push('  {');
+    lines.push('    //==================================================================================');
+    lines.push('    // This file is auto-generated, do not edit it directly. Your changes will be lost.');
+    lines.push('    //==================================================================================');
+    lines.push();
+
+    Object.keys(translations).forEach(function (key) {
+      if (!translations[key].length) {
+        return;
+      }
+      if (duplicateStrings[key]) {
+        lines.push();
+      }
+      var indent = (new Array(100 - key.length)).join(' ');
+      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key]));
+
+      if (duplicateStrings[key]) {
+        duplicateStrings[key].keys.forEach(function (dupKey) {
+          var indent = (new Array(100 - dupKey.length)).join(' ');
+          lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key]));
+        });
+      }
+    });
+    // done
+    lines.push('  }');
+    lines.push('}');
+    lines.push('');
+
+    cb(lines);
+  });
 }
 
 function generateTranslations (lang) {
@@ -127,9 +178,10 @@ function generateTranslations (lang) {
     }
 
     // translations
-    var lines = generateFileForTranslations(lang, data);
-    fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
-      encoding: 'ucs2'
+    generateFileForTranslations(lang, data, function (lines) {
+      fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
+        encoding: 'ucs2'
+      });
     });
   });
 }
