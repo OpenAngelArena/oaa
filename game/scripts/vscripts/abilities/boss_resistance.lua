@@ -95,10 +95,10 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
 
   -- Calculates a value that will counteract damage amplification from the named modifier such that
   -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
-  function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
+  local function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
     local modifiers = parent:FindAllModifiersByName(modifierName)
 
-    function CalculateAmp(modifier)
+    local function CalculateAmp(modifier)
       if modifier:IsNull() then
         return 0
       else

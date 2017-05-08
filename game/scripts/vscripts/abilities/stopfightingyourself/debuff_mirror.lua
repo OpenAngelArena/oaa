@@ -39,7 +39,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
     return
   end
 
-  function IsDebuff(modifier)
+  local function IsDebuff(modifier)
     local whitelist = {
       "modifier_item_skadi_slow",
       "modifier_alchemist_acid_spray",
@@ -64,17 +64,13 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
     --  Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
     --  then checks if the modifier was purged (All because IsDebuff and IsPurgable don't exist in the Lua API
     --  for built-in modifiers)
-    function IsPurgableDebuff(modifier)
-      local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
-      testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
-      testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
-      testUnit:Purge(false, true, true, true, true)
-      local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
-      testUnit:RemoveSelf()
-      return modifierIsPurgableDebuff
-    end
-
-    return IsPurgableDebuff(modifier)
+    local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
+    testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
+    testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
+    testUnit:Purge(false, true, true, true, true)
+    local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
+    testUnit:RemoveSelf()
+    return modifierIsPurgableDebuff
   end
 
   --print('-------')

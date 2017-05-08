@@ -15,6 +15,9 @@ function boss_stopfightingyourself_dupe_heroes:GetCooldown(level)
 end
 
 function boss_stopfightingyourself_dupe_heroes:CastFilterResult()
+  local caster = self:GetCaster()
+  local target = caster:GetAbsOrigin()
+
   for _,unit in ipairs(FindUnitsInRadius(
     caster:GetTeamNumber(),
     target,
@@ -149,7 +152,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         caster.illusions = {}
       end
       caster.illusions[illusion:entindex()] = illusion
-      cast.illusions.count = cast.illusions.count + 1
+      caster.illusions.count = caster.illusions.count + 1
 
       illusion:OnDeath(function()
         -- create particle
@@ -158,7 +161,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         end)
         caster.illusions[illusion:entindex()]:RemoveSelf()
         caster.illusions[illusion:entindex()] = nil
-        cast.illusions.count = cast.illusions.count - 1
+        caster.illusions.count = caster.illusions.count - 1
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)

@@ -2702,6 +2702,7 @@ read_globals = { -- these globals can only be accessed.
 "ChatCommand",
 "GameEvents",
 "PlayerTables",
+"Notifications",
 }
 
 ignore = {
@@ -2726,5 +2727,8 @@ exclude_files = {
   "game/scripts/vscripts/internal", -- like settings.lua and it's not needed
   "game/scripts/vscripts/libraries", -- like settings.lua and it's not needed
   "game/scripts/vscripts/examples", -- like settings.lua and it's not needed
+  "game/scripts/vscripts/bots", -- like settings.lua and it's not needed
+  "game/scripts/vscripts/animation_example", -- like settings.lua and it's not needed
+  "game/scripts/vscripts/abilities/bot_controller.lua", -- like settings.lua and it's not needed
 }
 files["**/vscripts/units/**/*.lua"].globals = { "thisEntity" }
