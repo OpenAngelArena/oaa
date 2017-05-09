@@ -40,22 +40,20 @@ if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
   process.exit(0);
 } else {
   request.get({
-    url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
   }, function (err, result) {
     if (err) {
       throw err;
     }
-    result.body = result.body.replace('"Kyxy"', '');
-    result.body = result.body.replace('"Era"', '');
     dotaEnglish = parseKV(result.body);
     Object.keys(dotaEnglish.lang.Tokens.values).forEach(function (key) {
       if (!transByValue[dotaEnglish.lang.Tokens.values[key]]) {
-        transByValue[dotaEnglish.lang.Tokens.values[key]] = key;
+        transByValue[dotaEnglish.lang.Tokens.values[key]] = key.toLowerCase();
       }
     });
     Object.keys(englishData.lang.Tokens.values).forEach(function (key) {
-      if (transByValue[englishData.lang.Tokens.values[key]]) {
-        unchagedKeys[key] = transByValue[englishData.lang.Tokens.values[key]];
+      if (!unchagedKeys[key.toLowerCase()] && transByValue[englishData.lang.Tokens.values[key]]) {
+        unchagedKeys[key.toLowerCase()] = transByValue[englishData.lang.Tokens.values[key]];
         console.log(key, 'is unchanged from', unchagedKeys[key]);
       }
     });
@@ -113,18 +111,23 @@ function getUnchangedStrings (languageName, cb) {
     languageName = 'schinese';
   }
   request.get({
-    url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);
       throw err;
     }
-    result.body = result.body.replace('"Kyxy"', '');
-    result.body = result.body.replace('"Era"', '');
     var dotaKVs = parseKV(result.body);
     var translatedKeys = {};
+    Object.keys(dotaKVs.lang.Tokens.values).forEach(function (key) {
+      dotaKVs.lang.Tokens.values[key.toLowerCase()] = dotaKVs.lang.Tokens.values[key];
+    });
     Object.keys(unchagedKeys).forEach(function (key) {
-      translatedKeys[key] = dotaKVs.lang.Tokens.values[unchagedKeys[key]];
+      if (dotaKVs.lang.Tokens.values[unchagedKeys[key]]) {
+        translatedKeys[key] = dotaKVs.lang.Tokens.values[unchagedKeys[key]];
+      } else {
+        console.log(languageName, 'No unchaged value for', key, unchagedKeys[key]);
+      }
     });
     cb(translatedKeys);
   });
@@ -143,6 +146,11 @@ function generateFileForTranslations (languageName, translations, cb) {
     lines.push('    // This file is auto-generated, do not edit it directly. Your changes will be lost.');
     lines.push('    //==================================================================================');
     lines.push();
+
+    Object.keys(translatedKeys).map(function (key) {
+      var indent = (new Array(100 - key.length)).join(' ');
+      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translatedKeys[key]));
+    });
 
     Object.keys(translations).forEach(function (key) {
       if (!translations[key].length) {
