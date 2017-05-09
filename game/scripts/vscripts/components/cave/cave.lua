@@ -41,12 +41,8 @@ function CaveHandler:Init ()
           closingStepDelay = 1/200,
           closingStepSize = 2,
         }),
-        radius = nil,
+        radius = 1600
       }
-      self.caves[teamID].rooms[roomID].radius = max(
-        self.caves[teamID].rooms[1].zone.bounds.Maxs,
-        self.caves[teamID].rooms[1].zone.bounds.Min
-      )
     end
   end
 
@@ -230,14 +226,43 @@ function CaveHandler:GiveBounty (teamID, k)
 
   each(function(playerID)
     PlayerResource:ModifyGold(
-    playerID, -- player
-    bounty, -- amount
-    true, -- is reliable gold
-    DOTA_ModifyGold_RoshanKill -- reason
-  )
-end, PlayerResource:GetPlayerIDsForTeam(teamID))
+      playerID, -- player
+      bounty, -- amount
+      true, -- is reliable gold
+      DOTA_ModifyGold_RoshanKill -- reason
+    )
+  end, PlayerResource:GetPlayerIDsForTeam(teamID))
 
-return bounty
+  return bounty
+end
+
+function CaveHandler:IsInFarmingCave (teamID, entity)
+  local caveOrigin = self.caves[teamID].rooms[1].zone.origin
+  local bounds = self.caves[teamID].rooms[1].zone.bounds
+
+  local origin = entity
+  if entity.GetAbsOrigin then
+    origin = entity:GetAbsOrigin()
+  end
+
+  if origin.x < bounds.Mins.x + caveOrigin.x then
+    -- DebugPrint('x is too small')
+    return false
+  end
+  if origin.y < bounds.Mins.y + caveOrigin.y then
+    -- DebugPrint('y is too small')
+    return false
+  end
+  if origin.x > bounds.Maxs.x + caveOrigin.x then
+    -- DebugPrint('x is too large')
+    return false
+  end
+  if origin.y > bounds.Maxs.y + caveOrigin.y then
+    -- DebugPrint('y is too large')
+    return false
+  end
+
+  return true
 end
 
 function CaveHandler:KickPlayers (teamID)
@@ -267,7 +292,9 @@ for roomID, room in pairs(cave.rooms) do
       false -- can grow cache
     )
     for _, unit in pairs(result) do
-      table.insert(units, unit)
+      if CaveHandler:IsInFarmingCave(teamID, unit) then
+        table.insert(units, unit)
+      end
     end
   end
 end
