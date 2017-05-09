@@ -41,8 +41,12 @@ function CaveHandler:Init ()
           closingStepDelay = 1/200,
           closingStepSize = 2,
         }),
-        radius = 1500,
+        radius = nil,
       }
+      self.caves[teamID].rooms[roomID].radius = max(
+        self.caves[teamID].rooms[1].zone.bounds.Maxs,
+        self.caves[teamID].rooms[1].zone.bounds.Min
+      )
     end
   end
 
