@@ -220,7 +220,7 @@ function CaveHandler:GiveBounty (teamID, k)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
 
-  local pool = (56 * k^2 + 85 * k + 37) / 37 * roshGold * roshCount
+  local pool = (8 * k + 6) * roshGold * roshCount
   local bounty = round(pool / playerCount)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
