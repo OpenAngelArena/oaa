@@ -16,7 +16,7 @@ Object.keys(data.lang.Tokens.values).forEach(function (key) {
   }
 
   foundStrings[str] = key;
-  englishStrings[key] = str;
+  englishStrings[key.toLowerCase()] = str;
 });
 
 // setTimeout(function () { var result = {body: fs.readFileSync('./scripts/dota_english.txt', {encoding: 'utf8'})};
