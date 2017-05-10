@@ -85,11 +85,13 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
   local damageAmpModifiers = {
     "modifier_bloodseeker_bloodrage",
+    "modifier_chen_penitence",
     "modifier_shadow_demon_soul_catcher"
   }
   -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
   local ampAbilitySpecialKeys = {
     "damage_increase_pct",
+    "bonus_damage_taken",
     "bonus_damage_taken"
   }
 
