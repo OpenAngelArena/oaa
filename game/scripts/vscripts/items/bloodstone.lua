@@ -173,10 +173,10 @@ end
 -- charge loss
 
 function modifier_item_bloodstone_oaa:OnDeath(keys)
-  local dead = self:GetCaster()
+  local caster = self:GetCaster()
 
-  if dead ~= keys.unit then
-    -- someone else died
+  if caster ~= keys.unit or caster:IsReincarnating() then
+    -- someone else died or owner is reincarnating
     return
   end
 
@@ -187,14 +187,14 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
   stone:SetCurrentCharges(newCharges)
   self.charges = newCharges
 
-  if not dead:IsRealHero() or dead:IsTempestDouble() then
+  if not caster:IsRealHero() or caster:IsTempestDouble() then
     return
   end
 
   local healAmount = stone:GetSpecialValueFor("heal_on_death_base") + (stone:GetSpecialValueFor("heal_on_death_per_charge") * oldCharges)
   local heroes = FindUnitsInRadius(
-    dead:GetTeamNumber(),
-    dead:GetAbsOrigin(),
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
     nil,
     stone:GetSpecialValueFor("heal_on_death_range"),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
@@ -260,8 +260,8 @@ function modifier_item_bloodstone_charge_collector:OnDeath(keys)
 
   local dead = self:GetParent()
 
-  if dead ~= keys.unit then
-    -- someone else died
+  if dead ~= keys.unit or not keys.unit:IsRealHero() or keys.unit:IsReincarnating() or keys.unit:IsTempestDouble() then
+    -- someone else died or it was not a real hero, Tempest Double, or is reincarnating
     return
   end
 
