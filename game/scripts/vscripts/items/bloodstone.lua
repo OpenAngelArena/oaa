@@ -184,7 +184,7 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
     if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsReincarnating() then
       -- Charge gain
 
-      function IsItemBloodstone(item)
+      local function IsItemBloodstone(item)
         return string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
       end
 
