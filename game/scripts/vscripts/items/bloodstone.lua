@@ -18,7 +18,7 @@ item_bloodstone_4 = item_bloodstone_1
 item_bloodstone_5 = item_bloodstone_1
 
 --------------------------------------------------------------------------
--- base modifier, is an aura
+-- base modifier
 
 modifier_item_bloodstone_oaa = class({})
 
@@ -170,17 +170,41 @@ function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
 end
 
 --------------------------------------------------------------------------
--- charge loss
+-- charge handling
 
 function modifier_item_bloodstone_oaa:OnDeath(keys)
   local caster = self:GetCaster()
+  local dead = keys.unit
+  local killer = keys.attacker
+  local stone = self:GetAbility()
 
-  if caster ~= keys.unit or caster:IsReincarnating() then
-    -- someone else died or owner is reincarnating
+  -- someone else died or owner is reincarnating
+  if caster ~= dead or caster:IsReincarnating() then
+    -- Dead unit is an actually dead real enemy hero unit
+    if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsReincarnating() then
+      -- Charge gain
+
+      function IsItemBloodstone(item)
+        return string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
+      end
+
+      local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
+      local firstBloodstone = nth(1, filter(IsItemBloodstone, items))
+      local isSelfFirstBloodstone = firstBloodstone == stone
+
+      local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
+      local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
+
+      if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
+        stone:SetCurrentCharges(stone:GetCurrentCharges() + 1)
+        self.charges = stone:GetCurrentCharges()
+      end
+    end
     return
   end
 
-  local stone = self:GetAbility()
+  -- Charge loss
+
   local oldCharges = stone:GetCurrentCharges()
   local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
 
@@ -213,67 +237,67 @@ end
 --------------------------------------------------------------------------
 -- aura stuff
 
-function modifier_item_bloodstone_oaa:IsAura()
-  return true
-end
+-- function modifier_item_bloodstone_oaa:IsAura()
+--   return true
+-- end
 
-function modifier_item_bloodstone_oaa:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
-end
+-- function modifier_item_bloodstone_oaa:GetAuraSearchType()
+--   return DOTA_UNIT_TARGET_HERO
+-- end
 
-function modifier_item_bloodstone_oaa:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_ENEMY
-end
+-- function modifier_item_bloodstone_oaa:GetAuraSearchTeam()
+--   return DOTA_UNIT_TARGET_TEAM_ENEMY
+-- end
 
-function modifier_item_bloodstone_oaa:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("charge_range")
-end
+-- function modifier_item_bloodstone_oaa:GetAuraRadius()
+--   return self:GetAbility():GetSpecialValueFor("charge_range")
+-- end
 
-function modifier_item_bloodstone_oaa:GetModifierAura()
-  return "modifier_item_bloodstone_charge_collector"
-end
+-- function modifier_item_bloodstone_oaa:GetModifierAura()
+--   return "modifier_item_bloodstone_charge_collector"
+-- end
 
---------------------------------------------------------------------------
--- charge collector, stacking modifiers that gives stacks
--- stacking auras don't get applied more than once no matter what
+-- --------------------------------------------------------------------------
+-- -- charge collector, stacking modifiers that gives stacks
+-- -- stacking auras don't get applied more than once no matter what
 
-modifier_item_bloodstone_charge_collector = class({})
+-- modifier_item_bloodstone_charge_collector = class({})
 
-function modifier_item_bloodstone_charge_collector:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_DEATH
-  }
-end
+-- function modifier_item_bloodstone_charge_collector:DeclareFunctions()
+--   return {
+--     MODIFIER_EVENT_ON_DEATH
+--   }
+-- end
 
-function modifier_item_bloodstone_charge_collector:IsHidden()
-  return true
-end
-function modifier_item_bloodstone_charge_collector:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
+-- function modifier_item_bloodstone_charge_collector:IsHidden()
+--   return true
+-- end
+-- function modifier_item_bloodstone_charge_collector:GetAttributes()
+--   return MODIFIER_ATTRIBUTE_MULTIPLE
+-- end
 
--- charge gain
-function modifier_item_bloodstone_charge_collector:OnDeath(keys)
-  if not IsServer() then
-    return
-  end
+-- -- charge gain
+-- function modifier_item_bloodstone_charge_collector:OnDeath(keys)
+--   if not IsServer() then
+--     return
+--   end
 
-  local dead = self:GetParent()
+--   local dead = self:GetParent()
 
-  if dead ~= keys.unit or not keys.unit:IsRealHero() or keys.unit:IsReincarnating() or keys.unit:IsTempestDouble() then
-    -- someone else died or it was not a real hero, Tempest Double, or is reincarnating
-    return
-  end
+--   if dead ~= keys.unit or not keys.unit:IsRealHero() or keys.unit:IsReincarnating() or keys.unit:IsTempestDouble() then
+--     -- someone else died or it was not a real hero, Tempest Double, or is reincarnating
+--     return
+--   end
 
-  local caster = self:GetCaster()
+--   local caster = self:GetCaster()
 
-  -- Find the first bloodstone we can
-  local found = false
-  for i = 0, 5 do
-    local item = caster:GetItemInSlot(i)
-    if not found and item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone" then
-      found = true
-      item:SetCurrentCharges( item:GetCurrentCharges() + 1 )
-    end
-  end
-end
+--   -- Find the first bloodstone we can
+--   local found = false
+--   for i = 0, 5 do
+--     local item = caster:GetItemInSlot(i)
+--     if not found and item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone" then
+--       found = true
+--       item:SetCurrentCharges( item:GetCurrentCharges() + 1 )
+--     end
+--   end
+-- end
