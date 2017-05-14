@@ -15,19 +15,19 @@ end
 
 function item_siege_mode:OnSpellStart()
 	local caster = self:GetCaster()
-	
+
 	-- if we have the modifier while this thing is "toggled"
 	-- ( which we should, but 'should' isn't a concept in programming )
 	-- remove it
 	if self.mod then
 		self.mod:Destroy()
 		self.mod = nil
-		
+
 		caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
 	else
 		-- if it isn't toggled, add the modifier and keep track of it
 		self.mod = caster:AddNewModifier( caster, self, "modifier_item_siege_mode_siege", {} )
-		
+
 		caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
 	end
 end
@@ -100,11 +100,11 @@ end
 function modifier_item_siege_mode_siege:GetModifierAttackRangeBonus( event )
 	local spell = self:GetAbility()
 	local parent = self:GetParent()
-	
+
 	if parent:IsRangedAttacker() then
 		return spell:GetSpecialValueFor( "siege_attack_range" )
 	end
-	
+
 	return 0
 end
 
@@ -113,7 +113,7 @@ end
 if IsServer() then
 	function modifier_item_siege_mode_siege:OnAttackLanded( event )
 		local parent = self:GetParent()
-		
+
 		-- i can just use code from greater power treads here!
 		-- yaaaaay
 		if event.attacker == parent then
@@ -187,12 +187,12 @@ if IsServer() then
 					ability = self,
 				} )
 			end
-				
+
 			-- play the particle
 			local part = ParticleManager:CreateParticle( "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, target )
 			ParticleManager:SetParticleControl( part, 3, targetOrigin )
 			ParticleManager:ReleaseParticleIndex( part )
-		
+
 			target:EmitSound( "OAA_Item.SiegeMode.Explosion" )
 		end
 	end
