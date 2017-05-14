@@ -27,7 +27,7 @@ end
 function modifier_boss_phase_controller:SetAbilities (abilities)
   local caster = self:GetCaster()
 
-  function getAbilityByName (name)
+  local function getAbilityByName (name)
     return caster:FindAbilityByName(name)
   end
 

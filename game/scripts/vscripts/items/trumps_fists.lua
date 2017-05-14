@@ -95,7 +95,7 @@ modifier_item_trumps_fists_frostbite = class({})
 
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
-  	self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
+    self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
     self.passive_heal_reduction = self:GetParent():GetHealthRegen() * self.heal_prevent_percent / 100
     self:StartIntervalThink(0.1)
   end
@@ -106,11 +106,11 @@ function modifier_item_trumps_fists_frostbite:IsDebuff()
 end
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+  local funcs = {
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_EVENT_ON_HEALTH_GAINED
-	}
-	return funcs
+  }
+  return funcs
 end
 
 function modifier_item_trumps_fists_frostbite:OnIntervalThink()
@@ -123,14 +123,14 @@ function modifier_item_trumps_fists_frostbite:GetModifierConstantHealthRegen()
 end
 
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
-	if IsServer() then
+  if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     -- and that the healing is not passive regen
-		if kv.unit == self:GetParent() and not kv.process_procs then
+    if kv.unit == self:GetParent() and not kv.process_procs then
       local desiredHP = kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100
       desiredHP = math.max(desiredHP, 1)
 
       kv.unit:SetHealth( desiredHP )
-		end
-	end
+    end
+  end
 end

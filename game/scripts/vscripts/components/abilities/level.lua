@@ -7,14 +7,30 @@ end
 
 function AbilityLevels:Init ()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"))
+  GameEvents:OnPlayerLevelUp(AbilityLevels.HeroLeveledUp)
 end
 
-function AbilityLevels:FilterAbilityUpgradeOrder (keys)
-  -- Immediately return true if intercepted order isn't an ability upgrade order
-  if keys.order_type ~= DOTA_UNIT_ORDER_TRAIN_ABILITY then
-    return true
+function AbilityLevels.HeroLeveledUp (keys)
+  local player = EntIndexToHScript(keys.player)
+  local level = keys.level
+  local hero = player:GetAssignedHero()
+  local canLevelUp = {}
+
+  for index = 0, hero:GetAbilityCount() - 1 do
+    local ability = hero:GetAbilityByIndex(index)
+    if ability then
+      local abilityName = ability:GetAbilityName()
+      table.insert(canLevelUp, AbilityLevels:GetRequiredLevel(hero, abilityName))
+    end
   end
 
+  CustomGameEventManager:Send_ServerToPlayer(player, "check_level_up", {
+    level = level,
+    canLevelUp = canLevelUp
+  })
+end
+
+function AbilityLevels:GetRequiredLevel (hero, abilityName)
   -- Ability hero level requirements
   local basicReqs = {0, 0, 0, 0, 28, 40}
   local ultimateReqs = {0, 0, 0, 37, 49}
@@ -25,15 +41,10 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
                                 invoker_wex = invokerAbilityReqs,
                                 invoker_exort = invokerAbilityReqs}
 
-  local ability = EntIndexToHScript(keys.entindex_ability)
-  local abilityName = ability:GetAbilityName()
-  local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
-  local hero = EntIndexToHScript(keys.units["0"])
-  local heroLevel = hero:GetLevel()
+  local ability = hero:FindAbilityByName(abilityName)
   local abilityLevel = ability:GetLevel()
   local abilityType = ability:GetAbilityType()
   local reqTable = basicReqs
-  local requirement = -1
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
@@ -42,12 +53,33 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   end
 
   if abilityLevel >= #reqTable then
-    requirement = reqTable[#reqTable]
-  else
-    requirement = reqTable[abilityLevel+1]
+    return -1
   end
 
+  return reqTable[abilityLevel+1]
+end
+
+function AbilityLevels:FilterAbilityUpgradeOrder (keys)
+  -- Immediately return true if intercepted order isn't an ability upgrade order
+  if keys.order_type ~= DOTA_UNIT_ORDER_TRAIN_ABILITY then
+    return true
+  end
+
+  local ability = EntIndexToHScript(keys.entindex_ability)
+  local abilityName = ability:GetAbilityName()
+  local player = PlayerResource:GetPlayer(keys.issuer_player_id_const)
+  local hero = EntIndexToHScript(keys.units["0"])
+  local heroLevel = hero:GetLevel()
+
+  local requirement = AbilityLevels:GetRequiredLevel(hero, abilityName)
+
   if heroLevel >= requirement then
+    Timers:CreateTimer(function()
+      AbilityLevels.HeroLeveledUp({
+        player = player:GetEntityIndex(),
+        level = heroLevel
+      })
+    end)
     return true
   else
     -- Send event to client to display error message about hero level requirement

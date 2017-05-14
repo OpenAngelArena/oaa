@@ -20,11 +20,11 @@ end
 
 --------------------------------------------------------------------------------
 
-item_satanic_core_2 = item_satanic_core
+item_satanic_core_2 = item_satanic_core --luacheck: ignore item_satanic_core_2
 
 --------------------------------------------------------------------------------
 
-item_satanic_core_3 = item_satanic_core
+item_satanic_core_3 = item_satanic_core --luacheck: ignore item_satanic_core_3
 
 --------------------------------------------------------------------------------
 

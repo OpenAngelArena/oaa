@@ -1,16 +1,16 @@
 
-local AbilityMovementMap = {
-  [0] = {},
-  [1] = {},
-  [2] = {},
-  [3] = {},
-  [4] = {},
-  [5] = {},
-  [6] = {},
-  [7] = {},
-  [8] = {},
-  [9] = {}
-}
+-- local AbilityMovementMap = {
+--   [0] = {},
+--   [1] = {},
+--   [2] = {},
+--   [3] = {},
+--   [4] = {},
+--   [5] = {},
+--   [6] = {},
+--   [7] = {},
+--   [8] = {},
+--   [9] = {}
+-- }
 
 -- Taken from bb template
 if BlinkBlock == nil then
@@ -33,7 +33,7 @@ function BlinkBlock:OnAbilityCastBegins(keys)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local abilityname = keys.abilityname
 
-  AbilityMovementMap[keys.PlayerID].start = player:GetAssignedHero():GetAbsOrigin()
+  -- AbilityMovementMap[keys.PlayerID].start = player:GetAssignedHero():GetAbsOrigin()
 end
 
 -- An ability was used by a player
@@ -46,12 +46,12 @@ function BlinkBlock:OnAbilityUsed(keys)
 
   -- todo: Meepo will break this
   -- todo: allow things like natures profit
-  function checkHeroPosition ()
+  local function checkHeroPosition ()
     if hero:IsInvulnerable() then
       Timers:CreateTimer(0.01, checkHeroPosition)
     end
     local endPos = hero:GetAbsOrigin()
-    AbilityMovementMap[keys.PlayerID].start = nil
+    -- AbilityMovementMap[keys.PlayerID].start = nil
 
     local shouldMoveUnit, moveLocaiton = BlinkBlock:CheckBlink(startPos, endPos)
 

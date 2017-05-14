@@ -55,7 +55,7 @@ function BossAI:HurtHandler (state, keys)
       BossAI:Agro(state, EntIndexToHScript(keys.entindex_attacker))
       state.currentDamage = 0
     end
-  elseif state.state == BossAI.AGRO then
+  elseif state.state == BossAI.AGRO then --luacheck: ignore
   end
 end
 
@@ -77,6 +77,7 @@ function BossAI:DeathHandler (state, keys)
   state.handle = nil
   local killer = EntIndexToHScript(keys.entindex_attacker)
   local teamId = killer:GetTeam()
+  local team = nil
 
   state.deathEvent.broadcast(keys)
 
@@ -87,6 +88,8 @@ function BossAI:DeathHandler (state, keys)
   else
     return
   end
+
+  PointsManager:AddPoints(teamId)
 
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
@@ -113,19 +116,17 @@ function BossAI:DeathHandler (state, keys)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
   elseif state.tier == 3 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-  elseif state.tier == 4 then
-
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
+  elseif state.tier == 4 then
+
+    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 5 then
 
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 6 then
-    PointsManager:AddPoints(teamId)
-
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end

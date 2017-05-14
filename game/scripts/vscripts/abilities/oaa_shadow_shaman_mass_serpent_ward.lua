@@ -14,7 +14,7 @@ function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local xSpaceVector = Vector(spawnSpacing, 0, 0)
   local ySpaceVector = Vector(0, spawnSpacing, 0)
 
-  function GetNthSpawnLocation(n)
+  local function GetNthSpawnLocation(n)
     n = n + 1
     if n == 1 then
       return targetPoint + ySpaceVector
@@ -28,7 +28,7 @@ function shadow_shaman_mass_serpent_ward:OnSpellStart()
     end
   end
 
-  function SpawnWard(point)
+  local function SpawnWard(point)
     local serpentWard = CreateUnitByName(unitName, point, true, caster, owner, casterTeam)
     serpentWard:SetControllableByPlayer(playerID, false)
     serpentWard:AddNewModifier(caster, self, "modifier_shadow_shaman_serpent_ward", {duration = duration})

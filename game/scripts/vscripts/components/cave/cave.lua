@@ -41,7 +41,7 @@ function CaveHandler:Init ()
           closingStepDelay = 1/200,
           closingStepSize = 2,
         }),
-        radius = 1500,
+        radius = 1600
       }
     end
   end
@@ -220,20 +220,49 @@ function CaveHandler:GiveBounty (teamID, k)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
 
-  local pool = (56 * k^2 + 85 * k + 37) / 37 * roshGold * roshCount
+  local pool = (8 * k + 6) * roshGold * roshCount
   local bounty = round(pool / playerCount)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
   each(function(playerID)
     PlayerResource:ModifyGold(
-    playerID, -- player
-    bounty, -- amount
-    true, -- is reliable gold
-    DOTA_ModifyGold_RoshanKill -- reason
-  )
-end, PlayerResource:GetPlayerIDsForTeam(teamID))
+      playerID, -- player
+      bounty, -- amount
+      true, -- is reliable gold
+      DOTA_ModifyGold_RoshanKill -- reason
+    )
+  end, PlayerResource:GetPlayerIDsForTeam(teamID))
 
-return bounty
+  return bounty
+end
+
+function CaveHandler:IsInFarmingCave (teamID, entity)
+  local caveOrigin = self.caves[teamID].rooms[1].zone.origin
+  local bounds = self.caves[teamID].rooms[1].zone.bounds
+
+  local origin = entity
+  if entity.GetAbsOrigin then
+    origin = entity:GetAbsOrigin()
+  end
+
+  if origin.x < bounds.Mins.x + caveOrigin.x then
+    -- DebugPrint('x is too small')
+    return false
+  end
+  if origin.y < bounds.Mins.y + caveOrigin.y then
+    -- DebugPrint('y is too small')
+    return false
+  end
+  if origin.x > bounds.Maxs.x + caveOrigin.x then
+    -- DebugPrint('x is too large')
+    return false
+  end
+  if origin.y > bounds.Maxs.y + caveOrigin.y then
+    -- DebugPrint('y is too large')
+    return false
+  end
+
+  return true
 end
 
 function CaveHandler:KickPlayers (teamID)
@@ -248,7 +277,7 @@ local units = {}
 
 -- get all heroes in all rooms
 for roomID, room in pairs(cave.rooms) do
-  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. radius .. ' radius.')
+  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
   for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
     local result = FindUnitsInRadius(
@@ -263,7 +292,9 @@ for roomID, room in pairs(cave.rooms) do
       false -- can grow cache
     )
     for _, unit in pairs(result) do
-      table.insert(units, unit)
+      if CaveHandler:IsInFarmingCave(teamID, unit) then
+        table.insert(units, unit)
+      end
     end
   end
 end

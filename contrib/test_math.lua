@@ -38,7 +38,7 @@ function TestMath:test4()
   print("with lines touching at the end")
   local isIntersecting, intersection = math.doLinesIntersect(self.P5, self.P3, self.P2, self.P3)
   luaunit.assertTrue(isIntersecting)
-  luaunit.assertEquals(intersection, self.P1)
+  luaunit.assertEquals(intersection, self.P3)
 end
 
 function TestMath:test5()

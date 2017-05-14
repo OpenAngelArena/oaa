@@ -9,7 +9,7 @@
 
 if Gold == nil then
   DebugPrint ( '[gold/gold] creating new Gold object' )
-  _G.Gold = class({})
+  Gold = class({})
 end
 
 local GOLD_CAP = 50000

@@ -28,6 +28,10 @@ end
 
 ------------------------------------------------------------------------
 
+item_preemptive_3a = item_preemptive_2a --luacheck: ignore item_preemptive_3a
+
+------------------------------------------------------------------------
+
 modifier_item_preemptive_purge = class({})
 
 function modifier_item_preemptive_purge:IsHidden()
@@ -54,5 +58,3 @@ function modifier_item_preemptive_purge:OnIntervalThink()
     self:GetCaster():Purge(false, true, false, false, false)
   end
 end
-
-item_preemptive_3a = item_preemptive_2a

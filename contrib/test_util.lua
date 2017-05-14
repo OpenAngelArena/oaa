@@ -40,8 +40,7 @@ function TestSplit:test2()
     " Donec tristique lobortis lectus, non semper risus egestas non",
     " Phasellus bibendum, arcu et feugiat condimentum, erat nibh ornare justo, nec ullamcorper nunc tortor quis mi",
     " Vivamus interdum molestie elit, quis commodo neque tempor eget",
-    " Curabitur consequat at massa in convallis",
-    ""
+    " Curabitur consequat at massa in convallis"
   }
-  luaunit.assertEquals(split(self.string1, "%."), result)
+  luaunit.assertEquals(regexsplit(self.string1, "."), result)
 end
