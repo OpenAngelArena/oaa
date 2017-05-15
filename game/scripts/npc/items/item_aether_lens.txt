@@ -16,7 +16,7 @@
 		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
-			"01"						"item_energy_booster;item_ring_of_health"
+			"01"						"item_energy_booster;item_void_stone"
 		}
 	}
 
@@ -57,7 +57,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"8 12 16"
+				"bonus_mana_regen"	"100 150 250"
 			}
 			"03"
 			{
@@ -67,7 +67,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"spell_amp"				"5 7 10"
+				"spell_amp"				"6 8 11"
 			}
 		}
 	}

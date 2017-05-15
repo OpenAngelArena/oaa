@@ -6,7 +6,7 @@
 	"item_recipe_silver_edge"
 	{
 		"ID"							"248"		// unique ID
-		"ItemCost"						"500"
+		"ItemCost"						"700"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_silver_edge"
@@ -86,7 +86,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"windwalk_bonus_damage"	"175 250 400 600 800"
+				"windwalk_bonus_damage"	"175 265 400 600 800"
 			}
 			"08"
 			{
