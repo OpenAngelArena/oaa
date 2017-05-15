@@ -74,18 +74,8 @@
 			}
 			"07"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"6.0 6.0 6.0 6.0 6.0"
-			}
-			"08"
-			{
 				"var_type"					"FIELD_INTEGER"
-				"kill_threshold_scepter"	"300 425 550 800 1800"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"speed_duration_scepter"	"10"
+				"scepter_aoe"				"700"
 			}
 		}
 	}
