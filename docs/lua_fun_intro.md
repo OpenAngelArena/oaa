@@ -21,7 +21,7 @@ A reference for the functions available in Lua Fun can be found [here](https://l
 ### Iterators
 Lua Fun functions don't technically take or return tables, they return iterators instead, which are actually a set of 3 values. Details can be found [here](https://luafun.github.io/under_the_hood.html) if you're interested. All you really need to know though, is that because of this detail:
 
-1. Whenever you want to pass in a table to Lua Fun functions, you should almost always call `iter` on that table to create an iterator from the table, e.g. `map(..., iter(table))`.
+1. Tables will automatically be handled when passed into Lua Fun functions **but**, keep in mind that if your table has non-contiguous numeric keys and key `1` is defined, Lua Fun will assume the table is an array and will only iterate through keys 1 up to the value that would be returned by Lua's length operator (read [this](https://www.lua.org/manual/5.1/manual.html#2.5.5) for more info on the length operator). In order for that to happen, you have to explicitly do `pairs(table)`. e.g. `map(func, pairs(table))`.
 
 2. If you need to produce an actual table to interop with code not using Lua Fun, or for some other reason, you can use the `totable` or `tomap` functions. Documentation for those functions is available [here](https://luafun.github.io/reducing.html).
 
