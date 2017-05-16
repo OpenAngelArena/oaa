@@ -10,6 +10,9 @@
 		"ID"							"5277"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"6"
+
+		"AbilityCooldown"				"26 22 18 14 14 14"
+		"AbilityManaCost"				"50"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -24,6 +27,11 @@
 			{
 				"var_type"							"FIELD_INTEGER"
 				"bonus_attack_speed_night"			"45 60 75 90 115 150"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"duration"			"2"
 			}
 		}
 	}

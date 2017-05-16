@@ -16,6 +16,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"6"
+		"HasScepterUpgrade"				"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
@@ -62,6 +63,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"slow_duration"			"0.7 0.8 0.9 1.0 1.2 1.6"
 				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_2"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"interval_scepter"			"1.75"
+			}		
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_scepter"	"750"
 			}			
 		}
 	}
