@@ -9,7 +9,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5626"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
@@ -20,7 +20,7 @@
 		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.01"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"26"
 		"AbilityDuration"				"6.0"
@@ -46,7 +46,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"1.5 3.25 5.0 6.75 10.0 20.0"
+				"hp_perc_damage"		"1.5 3.25 5.0 6.75 6.75 6.75"
 			}
 			"04"
 			{
@@ -56,9 +56,9 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_perc_heal"			"0.625 1.25 1.875 2.5 3.75 8.75"
+				"hp_perc_heal"			"0.625 1.25 1.875 2.5 2.5 2.5"
 			}
-			
+
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
