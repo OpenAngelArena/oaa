@@ -78,7 +78,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60 90 120 170 250"
+				"bonus_damage"			"60 90 135 200 270"
 			}
 			"04"
 			{
@@ -88,12 +88,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"20 22 25 27 30"
+				"crit_chance"			"20"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"175 190 210 230 250"
+				"crit_multiplier"		"175 195 215 235 255"
 			}
 			"07"
 			{
@@ -108,7 +108,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"target_crit_multiplier"		"145 160 180 200 220"
+				"target_crit_multiplier"		"145 160 175 190 205"
 			}
 		}
 	}
