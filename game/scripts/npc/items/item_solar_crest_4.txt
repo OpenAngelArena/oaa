@@ -67,7 +67,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"12 18 27 40"
+				"bonus_armor"			"10 15 23 34"
 			}
 			"02"
 			{
@@ -82,34 +82,14 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"allied_armor"			"12 18 27 40"
+				"truestrike_chance"		"25"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"allied_evasion"			"25"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-12 -18 -27 -40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"enemy_armor_reduction_tooltip"		"12 18 27 40"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_chance"			"25"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"duration"				"7"
 			}
-			"10"
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"valor_cast_range_tooltip"				"1000"

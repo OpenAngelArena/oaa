@@ -62,14 +62,19 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"50 100 150 225 350"
+				"aura_damage"			"60 120 180 270 420"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blind_pct"				"17"
+				"aura_damage_illusions"	"35 70 105 160 245"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blind_pct"				"17"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius"			"700"
