@@ -2,10 +2,10 @@
 {
 	"consumables"
 	{
-        "item"    "item_clarity"
+        "item"    "item_flask"
+        "item"    "item_ring_of_protection"
         "item"    "item_faerie_fire"
         "item"    "item_enchanted_mango"
-        "item"    "item_flask"
         "item"    "item_quelling_blade"
         "item"    "item_tpscroll"
         "item"    "item_ward_observer"
@@ -38,7 +38,29 @@
 
 	"weapons_armor"
 	{
+        "item"    "item_cyclone"
+        "item"    "item_blade_mail"
+        "item"    "item_dagon"
+        "item"    "item_rapier"
+        "item"    "item_butterfly"
+        "item"    "item_ethereal_blade"
+        "item"    "item_silver_edge"
+        "item"    "item_radiance"
+        "item"    "item_monkey_king_bar"
+        "item"    "item_greater_crit"
+        "item"    "item_ancient_janggo"
+        "item"    "item_assault"
+        "item"    "item_urn_of_shadows"
+        "item"    "item_vladmir"
+	}
 
+	"misc"
+	{
+        "item"    "item_mjollnir"
+        "item"    "item_necronomicon"
+        "item"    "item_veil_of_discord"
+        "item"    "item_aether_lens"
+        "item"    "item_octarine_core"
         "item"    "item_lucience"
         "item"    "item_trumps_fists"
         "item"    "item_refresher_core"
@@ -48,29 +70,6 @@
         "item"    "item_shivas_cuirass"
         "item"    "item_martyrs_mail"
         "item"    "item_shroud"
-        "item"    "item_phase_boots"
-        "item"    "item_power_treads"
-        "item"    "item_tranquil_boots"
-        "item"    "item_travel_boots"
-        "item"    "item_arcane_boots"
-	}
-
-	"misc"
-	{
-        "item"    "item_reflex_core"
-        "item"    "item_preemptive"
-        "item"    "item_reactive"
-        "item"    "item_postactive"
-        "item"    "item_farming_core"
-        "item"    "item_upgrade_core"
-        "item"    "item_upgrade_core_2"
-        "item"    "item_upgrade_core_3"
-        "item"    "item_upgrade_core_4"
-        "item"    "item_cyclone"
-        "item"    "item_rapier"
-        "item"    ""
-        "item"    ""
-        "item"    ""
 	}
 
 	// Level 1 - Green Recipes
@@ -203,18 +202,20 @@
 
 	"secretshop"
 	{
-		"item"		"item_energy_booster"
-		"item"		"item_vitality_booster"
-		"item"		"item_point_booster"
-		"item"		"item_platemail"
-		"item"		"item_talisman_of_evasion"
-		"item"		"item_hyperstone"
-		"item"		"item_ultimate_orb"
-		"item"		"item_demon_edge"
-		"item"		"item_mystic_staff"
-		"item"		"item_reaver"
-		"item"		"item_eagle"
-		"item"		"item_relic"
+    "item"    "item_phase_boots"
+    "item"    "item_power_treads"
+    "item"    "item_tranquil_boots"
+    "item"    "item_travel_boots"
+    "item"    "item_arcane_boots"
+    "item"    "item_reflex_core"
+    "item"    "item_preemptive"
+    "item"    "item_reactive"
+    "item"    "item_postactive"
+    "item"    "item_farming_core"
+    "item"    "item_upgrade_core"
+    "item"    "item_upgrade_core_2"
+    "item"    "item_upgrade_core_3"
+    "item"    "item_upgrade_core_4"
 	}
 
   "sideshop1"       // Duel Shop 1
