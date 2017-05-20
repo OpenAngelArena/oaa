@@ -17,6 +17,7 @@
 		"MaxLevel"						"6"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
+		"HasScepterUpgrade"				"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -46,6 +47,11 @@
 				"var_type"						"FIELD_INTEGER"
 				"tooltip_brain_sap_heal_amt"	"90 160 230 300 440 1000"
 				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cooldown_scepter"				"1.5"
 			}
 		}
 	}

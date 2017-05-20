@@ -17,7 +17,6 @@
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
 
-		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -55,21 +54,6 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"24.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius_scepter"			"775 775 775 775 775"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration_scepter"			"24"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"armor_per_second_scepter"	"1.25 1.5 1.75 2.25 4.25"
 			}
 		}
 	}
