@@ -71,7 +71,7 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
     self.bubbleCenter = self:GetParent():GetOrigin()
     self.caster = self:GetCaster()
     self.casterTeam = self.caster:GetTeamNumber()
-    self.bubbleIdentifier = "BubbleOrbID: " .. self.casterTeam .. "," .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
+    self.bubbleID = "BubbleOrbID: " .. self.casterTeam .. "," .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
     self.ability = self:GetAbility()
     self.radius = self.ability:GetSpecialValueFor("radius")
     self.aura_stickiness = self.ability:GetSpecialValueFor("aura_stickiness")
@@ -103,10 +103,11 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
     end
 
     local duplicateModifier = nth(1, filter(IsFromThisBubble, bubbleModifiers))
+    local bubbleModifierID = self.bubbleID .. "," .. unit:entindex()
     -- If the unit already has a modifier with the same center then refresh its timer
     if duplicateModifier then
-      Timers:RemoveTimer(self.bubbleIdentifier)
-      Timers:CreateTimer(self.bubbleIdentifier, {
+      Timers:RemoveTimer(bubbleModifierID)
+      Timers:CreateTimer(bubbleModifierID, {
         endTime = self.aura_stickiness,
         callback = function()
           duplicateModifier:Destroy()
@@ -117,7 +118,7 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
         aura_origin_x = self.bubbleCenter.x,
         aura_origin_y = self.bubbleCenter.y
       })
-      Timers:CreateTimer(self.bubbleIdentifier, {
+      Timers:CreateTimer(bubbleModifierID, {
         endTime = self.aura_stickiness,
         callback = function()
           newBubbleModifier:Destroy()
