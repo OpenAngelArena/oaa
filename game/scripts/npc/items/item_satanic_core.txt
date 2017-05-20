@@ -70,7 +70,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"25 35 45"
+				"bonus_intelligence"		"25 35 45"
 			}
 			"03"
 			{
@@ -116,27 +116,23 @@
 			"11"
 			{
 				"var_type"				"FIELD_FLOAT"
-<<<<<<< HEAD
-				"hero_lifesteal"		"35 45 55"
-=======
 				"hero_lifesteal"		"35"
 			}
 			"12"
 			{
-				"var_type"        "FIELD_FLOAT"
-				"creep_lifesteal"   "10 20 30"
+				"var_type"				"FIELD_FLOAT"
+				"creep_lifesteal"		"10 20 30"
 			}
 			// unholy spellsteal
 			"13"
 			{
-				"var_type"        "FIELD_FLOAT"
-				"hero_spellsteal_unholy"   "165"
+				"var_type"				"FIELD_FLOAT"
+				"hero_spellsteal_unholy"	"165"
 			}
 			"14"
 			{
-				"var_type"        "FIELD_FLOAT"
-				"creep_spellsteal_unholy"   "190 180 170"
->>>>>>> nerfed satanic core spell lifesteal; made unholy rage work like satanic's
+				"var_type"				"FIELD_FLOAT"
+				"creep_spellsteal_unholy"	"190 180 170"
 			}
 		}
 	}
