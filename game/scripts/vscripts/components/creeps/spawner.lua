@@ -27,6 +27,7 @@ local EXP_BOUNTY_ENUM = 7
 function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
+  self.NumberOfSpawnsTable = {}
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
 end
 
@@ -68,6 +69,7 @@ function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
     CreepCamps:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
   end
 end
+
 function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   if creepProperties == nil then
     DebugPrint ('[creeps/spawner] unknown creep type ')
@@ -105,7 +107,18 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   if creepHandle ~= nil then
     CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
     creepHandle.Is_ItemDropEnabled = true
+    table.insert(units, creepHandle)
   end
+
+  -- Increment spawn counter for camp
+  local locationString = location.x .. "," .. location.y
+  if not self.NumberOfSpawnsTable[locationString] then
+    self.NumberOfSpawnsTable[locationString] = 0
+  end
+  self.NumberOfSpawnsTable[locationString] = self.NumberOfSpawnsTable[locationString] + 1
+
+  -- Add per spawn drops
+  CreepItemDrop:AddFixedDropsToCamp(units, self.NumberOfSpawnsTable[locationString])
 
   return true
 end
