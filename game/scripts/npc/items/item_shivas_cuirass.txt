@@ -75,12 +75,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"40"
+				"bonus_armor"			"45 50"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40"
+				"bonus_attack_speed"	"50 60"
 			}
 			"04"
 			{
@@ -105,7 +105,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"900"
+				"blast_radius"			"900 1100"
 			}
 			"09"
 			{
@@ -115,23 +115,23 @@
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-55"
+				"aura_attack_speed"		"-85 -95"
 			}
 			// Assault Cuirass Parameters
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_negative_armor"	"-5"
+				"aura_negative_armor"	"-9 11"
 			}
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed_bonus"		"25 30"
+				"aura_attack_speed_bonus"		"35 45"
 			}
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_positive_armor"	"10"
+				"aura_positive_armor"	"9 11"
 			}
 		}
 	}
