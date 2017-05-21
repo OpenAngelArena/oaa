@@ -4,9 +4,9 @@
     {
 
         "ID"                                "3245"      // unique ID
-		"BaseClass"                         "item_datadriven"
+    "BaseClass"                         "item_datadriven"
         "Model"                             "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"			    "item_recipe"
+        "AbilityTextureName"          "item_recipe"
         "ItemCost"                          "20000"
         "ItemShopTags"                      ""
         "ItemRecipe"                        "1"
@@ -22,7 +22,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                                "3247"      // unique ID
-		    "BaseClass"                     "item_datadriven"
+        "BaseClass"                     "item_datadriven"
         "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
         "AbilityTextureName"                "custom/stoneskin_2"
         // Stats
@@ -53,23 +53,23 @@
         }
         "OnToggleOn"
         {
-        		"RunScript"
-        		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"                 "%start_delay"
+            "RunScript"
+            {
+              "ScriptFile"      "items/item_stoneskin.lua"
+              "Function"        "modifier_stoneskin_toggle"
+              "Delay"                 "%start_delay"
                     "Cooldown"              "%cooldown_after_delay"
-        		}
+            }
         }
         "OnToggleOff"
         {
-        		"RunScript"
-        		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"                 "%start_delay"
+            "RunScript"
+            {
+              "ScriptFile"      "items/item_stoneskin.lua"
+              "Function"        "modifier_stoneskin_toggle"
+              "Delay"                 "%start_delay"
                     "Cooldown"              "%cooldown_after_delay"
-        		}
+            }
         }
 
         "Modifiers"

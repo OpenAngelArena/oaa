@@ -8,7 +8,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3510"      // unique ID
-    		"BaseClass"                     "item_datadriven"
+        "BaseClass"                     "item_datadriven"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
         // Stats
@@ -17,8 +17,8 @@
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
 
-        "ItemCost"						  "1500"
-    		"ItemPurchasable"				"0"
+        "ItemCost"              "1500"
+        "ItemPurchasable"        "0"
         "ItemSellable"          "0"
         "ItemKillable"          "0"
         "ItemShareability"      "ITEM_FULLY_SHAREABLE"

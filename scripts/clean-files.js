@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var chalk = require('chalk');
 
-var walk = function (directoryName) {
+var walk = function (directoryName, action) {
   fs.readdir(directoryName, function (err, files) {
     if (err) {
       console.log(chalk.red(err));
@@ -16,16 +16,16 @@ var walk = function (directoryName) {
           return;
         }
         if (f.isDirectory()) {
-          walk(fullPath);
+          walk(fullPath, action);
         } else {
-          cleanFile(fullPath);
+          action(fullPath);
         }
       });
     });
   });
 };
 
-function cleanFile (file) {
+function cleanTooltipFile (file) {
   console.log('Cleaning ' + chalk.green(file));
 
   fs.readFile(file, 'utf8', function (err, data) {
@@ -42,4 +42,22 @@ function cleanFile (file) {
   });
 }
 
-walk('game/resource/English');
+function cleanKVFile (file) {
+  console.log('Cleaning ' + chalk.green(file));
+
+  fs.readFile(file, 'utf8', function (err, data) {
+    if (err) {
+      return console.log(chalk.red(err));
+    }
+    var result = data.replace(/\t/g, '  ').replace(/\r\n/g, '\n');
+
+    fs.writeFile(file, result, 'utf8', function (err) {
+      if (err) {
+        return console.log(chalk.red(err));
+      }
+    });
+  });
+}
+
+walk('game/resource/English', cleanTooltipFile);
+walk('game/scripts/npc', cleanKVFile);

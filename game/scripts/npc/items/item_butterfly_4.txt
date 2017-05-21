@@ -8,12 +8,12 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3134"      // unique ID
-		"BaseClass"                     "item_datadriven"
+    "BaseClass"                     "item_datadriven"
         "ItemShopTags"                  ""
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_butterfly_4"
         "ItemCost"                      "8000"
-        "AbilityTextureName"			"item_recipe"
+        "AbilityTextureName"      "item_recipe"
         "ItemRequirements"
         {
             "01"                        "item_butterfly_3;item_upgrade_core_3"
@@ -29,7 +29,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3138"      // unique ID
-		"BaseClass"                     "item_butterfly"
+    "BaseClass"                     "item_butterfly"
         //"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 

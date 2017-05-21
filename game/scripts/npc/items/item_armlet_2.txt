@@ -7,7 +7,7 @@
     {
 
         "ID"                            "3120"      // unique ID
-		"BaseClass"                     "item_datadriven"
+    "BaseClass"                     "item_datadriven"
         "Model"                         "models/props_gameplay/recipe.mdl"
         "AbilityTextureName"            "item_recipe"
         "ItemCost"                      "1500"
@@ -31,9 +31,9 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "3122"      // unique ID
-		"BaseClass"                     "item_armlet"
+    "BaseClass"                     "item_armlet"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"				"custom/armlet_dormant_2"
+        "AbilityTextureName"        "custom/armlet_dormant_2"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
