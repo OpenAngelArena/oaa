@@ -8,7 +8,7 @@ function modifier_creep_loot:GetAttributes()
 end
 
 function modifier_creep_loot:IsHidden()
-  return false
+  return true
 end
 
 function modifier_creep_loot:IsPurgable()
