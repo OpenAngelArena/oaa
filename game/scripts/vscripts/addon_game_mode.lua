@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "0.26.0"
+GAME_VERSION = "0.28.1"
 
 require('internal/util')
 require('gamemode')

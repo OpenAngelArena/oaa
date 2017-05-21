@@ -58,29 +58,34 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"		"15 30 50"
+				"bonus_damage"		"20 30 50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"lifesteal_percent"		"15"
+				"bonus_attack_speed"	"10 15 25"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"berserk_bonus_attack_speed"	"100 125 150"
+				"lifesteal_percent"		"15"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"berserk_bonus_movement_speed"	"17 27 37"
+				"berserk_bonus_attack_speed"	"110 135 160"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"berserk_armor_reduction"	"5"
+				"berserk_bonus_movement_speed"	"17 27 37"
 			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"berserk_armor_reduction"	"5"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"berserk_duration"		"8.0"

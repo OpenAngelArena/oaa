@@ -87,19 +87,29 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"maim_chance"			"16"
+				"maim_chance"			"40"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"maim_slow_movement"	"-32 -35"
+				"maim_slow_movement"	"-26 -30"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"maim_slow_attack"		"-32 -35"
+				"maim_slow_attack"		"-26 -30"
 			}
 			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"maim_slow_movement_range"	"-13"
+			}			
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"maim_slow_attack_range"	"-13"
+			}
+			"11"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"maim_duration"			"5.0"

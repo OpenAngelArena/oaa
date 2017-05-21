@@ -40,7 +40,7 @@
 		"ID"						"4028"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"                     "item_heart"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_heart"
+		"AbilityTextureName"            "custom/heart_2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7.0"
@@ -69,7 +69,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"300 600 1200 2400 4800"
+				"bonus_health"			"500 1000 2000 3500 5500"
 			}
 			"03"
 			{

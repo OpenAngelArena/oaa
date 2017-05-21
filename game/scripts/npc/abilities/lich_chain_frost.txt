@@ -59,12 +59,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-50"
+				"slow_movement_speed"	"-65"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-30"
+				"slow_attack_speed"		"-65"
 			}
 			"06"
 			{
@@ -91,16 +91,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"cast_range_scepter"	"850 850 850 850 850"
 			}		
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed_scepter"	"-50"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed_scepter"		"-50"
-			}
 		}			
 	}
 }

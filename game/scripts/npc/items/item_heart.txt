@@ -13,7 +13,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -22,7 +22,7 @@
 		"ItemResult"					"item_heart"
 		"ItemRequirements"
 		{
-			"01"						"item_reaver;item_vitality_booster"
+			"01"						"item_reaver;item_vitality_booster;item_vitality_booster"
 		}
 	}
 
@@ -35,7 +35,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"114"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "item_heart"
+		"AbilityTextureName"            "custom/heart"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7.0"
@@ -64,7 +64,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"300 600 1200 2400 4800"
+				"bonus_health"			"500 1000 2000 3500 5500"
 			}
 			"03"
 			{

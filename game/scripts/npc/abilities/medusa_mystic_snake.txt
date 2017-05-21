@@ -72,6 +72,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"return_speed"			"800"
 			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stone_form_scepter_base"		"1.0"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stone_form_scepter_increment"		"0.2"
+			}
 		}
 	}
 }

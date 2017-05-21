@@ -42,7 +42,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_heart"
+		"AbilityTextureName"            "custom/heart_transplant"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
@@ -99,7 +99,7 @@
       "06"
       {
         "var_type"              		"FIELD_FLOAT"
-        "health_regen_rate"     		"3.25"
+        "health_regen_rate"     		"7"
       }
       "07"
       {

@@ -41,7 +41,7 @@
     "AbilityCastRange"        "1000"
     "AbilityCooldown"       "0.0"
 		"AbilitySharedCooldown"			"medallion"
-		"AbilityTextureName"            "item_heart"
+		"AbilityTextureName"            "custom/heart_transplant_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@
       "06"
       {
         "var_type"                  "FIELD_FLOAT"
-        "health_regen_rate"         "3.25"
+        "health_regen_rate"         "7"
       }
       "07"
       {

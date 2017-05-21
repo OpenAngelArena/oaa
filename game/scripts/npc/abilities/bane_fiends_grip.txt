@@ -21,7 +21,6 @@
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
 
-		"HasScepterUpgrade"			"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,7 +44,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"fiend_grip_tick_interval"		"1.0"
+				"fiend_grip_tick_interval"		"0.5"
 			}
 			"02"
 			{
@@ -61,22 +60,6 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"fiend_grip_damage"				"100 155 215 335 815"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"fiend_grip_mana_drain_scepter"	"10"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"fiend_grip_duration_scepter"	"7"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"fiend_grip_damage_scepter"		"155 215 270 400 920"
-			}
 		}
 	}
 }
