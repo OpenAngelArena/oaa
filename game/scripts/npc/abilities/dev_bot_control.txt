@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Bot controller ability used to coordinate bots
   //=================================================================================================================
-    "dev_bot_control" {
+  "dev_bot_control" {
     "BaseClass" "ability_datadriven"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName" "nothing"

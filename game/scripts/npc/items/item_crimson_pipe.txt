@@ -1,6 +1,6 @@
 "DOTAItems"
 {
-    //=================================================================================================================
+  //=================================================================================================================
   // Recipe: Crimson Pipe
   //=================================================================================================================
   "item_recipe_crimson_pipe"
@@ -48,12 +48,12 @@
     "ItemCost"            "16550"
     "ItemShopTags"          "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
     "ItemQuality"          "epic"
-        "ItemAliases"                   "Crimson Pipe"
+    "ItemAliases"                   "Crimson Pipe"
     "ItemAlertable"          "1"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "1"
-        "UpgradesItems"                 "item_crimson_pipe"
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "1"
+    "UpgradesItems"                 "item_crimson_pipe"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -78,22 +78,22 @@
         "var_type"        "FIELD_INTEGER"
         "bonus_armor"      "10 15"
       }
-            "05"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance"    "45"
       }
-            "06"
+      "06"
       {
         "var_type"        "FIELD_INTEGER"
         "aura_radius"      "900"
       }
-            "07"
+      "07"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_damage_block_aura"  "150 250"
       }
-            "08"
+      "08"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_damage_threshold"      "150 250"
@@ -113,12 +113,12 @@
         "var_type"        "FIELD_INTEGER"
         "block_chance_aura"      "50"
       }
-            "12"
+      "12"
       {
         "var_type"        "FIELD_INTEGER"
         "threshold_cooldown"    "6.0"
       }
-            "13"
+      "13"
       {
         "var_type"        "FIELD_INTEGER"
         "magic_resistance_aura"    "15"

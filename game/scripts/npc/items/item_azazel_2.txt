@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Azazel 2
   //=================================================================================================================
-    "item_recipe_azazel_2"
+  "item_recipe_azazel_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -51,8 +51,8 @@
     "ItemQuality"          "rare"
     "ItemAliases"          "vod;veil of discord 2"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "2"
 
 
     // Special

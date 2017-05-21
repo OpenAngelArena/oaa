@@ -1,6 +1,6 @@
 "DOTAItems"
 {
-    //=================================================================================================================
+  //=================================================================================================================
   // Recipe: trumps_fists
   //=================================================================================================================
   "item_recipe_trumps_fists"
@@ -44,10 +44,10 @@
     "AbilityTextureName"            "custom/trump"
     "ScriptFile"          "items/trumps_fists"
 
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@
     "ItemQuality"          "artifact"
     "ItemAliases"          "trumps_fists"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "UpgradesItems"                 "item_trumps_fists"
+    "UpgradesItems"                 "item_trumps_fists"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,30 +68,30 @@
         "bonus_damage"      "125 150"
       }
       "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "35 40"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "500 750"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana"            "600 800"
-            }
-           "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_percent"  "-50 -100"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "2"
-            }
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_all_stats"       "35 40"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_health"          "500 750"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_mana"            "600 800"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal_prevent_percent"  "-50 -100"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal_prevent_duration"  "2"
+      }
     }
   }
 }

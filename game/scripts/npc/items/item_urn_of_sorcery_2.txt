@@ -26,14 +26,14 @@
     }
   }
 
-    "item_urn_of_sorcery_2"
+  "item_urn_of_sorcery_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3239"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_urn_of_shadows"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-     "AbilityTextureName"        "item_urn_of_shadows"
+    "AbilityTextureName"        "item_urn_of_shadows"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"        "13.0"

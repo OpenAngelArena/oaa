@@ -44,7 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"               "5"
-        "ItemBaseLevel"                 "2"
+    "ItemBaseLevel"                 "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
     "ItemQuality"          "epic"
     "ItemAliases"          "daedalus"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "UpgradesItems"                 "item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
+    "UpgradesItems"                 "item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

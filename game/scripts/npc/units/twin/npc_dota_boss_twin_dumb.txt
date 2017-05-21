@@ -13,7 +13,7 @@
     "ModelScale"        "1"
     "Level"            "30"
     "IsAncient"          "1"
-        "ConsideredHero"            "1"
+    "ConsideredHero"            "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -63,13 +63,13 @@
     "StatusMana"        "0"    // Base mana.
     "StatusManaRegen"      "0"    // Mana regeneration rate.
 
-   // Creature data
+    // Creature data
 
-     "Creature"
-      {
-        //Makes it only have 25% remaining of applied crowd control
-        "DisableResistance"            "75.0"
-      }
+    "Creature"
+    {
+      //Makes it only have 25% remaining of applied crowd control
+      "DisableResistance"            "75.0"
+    }
 
 
     // Team

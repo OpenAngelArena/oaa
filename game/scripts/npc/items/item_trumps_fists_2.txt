@@ -33,10 +33,10 @@
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"            "custom/trump2"
     "ScriptFile"          "items/trumps_fists"
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -56,30 +56,30 @@
         "bonus_damage"      "125 150"
       }
       "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "35 40"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "500 750"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana"            "600 800"
-            }
-           "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_percent"  "-50 -100"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "2"
-            }
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_all_stats"       "35 40"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_health"          "500 750"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_mana"            "600 800"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal_prevent_percent"  "-50 -100"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal_prevent_duration"  "2"
+      }
     }
   }
 }

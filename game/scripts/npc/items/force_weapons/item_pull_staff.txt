@@ -73,118 +73,118 @@
 
     "precache"
     {
-        "soundfile"                         "soundevents/game_sounds_items.vsndevts"
-        "particle"                          "particles/items_fx/force_staff.vpcf"
-        "particle"                          "particles/status_fx/status_effect_forcestaff.vpcf"
+      "soundfile"                         "soundevents/game_sounds_items.vsndevts"
+      "particle"                          "particles/items_fx/force_staff.vpcf"
+      "particle"                          "particles/status_fx/status_effect_forcestaff.vpcf"
     }
 
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "bonus_intellect"               "15"
-        }
-        "02"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "bonus_health_regen"            "8"
-        }
-        "03"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "pull_length"                   "-600"
-        }
-        "04"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "pull_speed"                    "1500"
-        }
-        "05"
-        {
-            "var_type"                      "FIELD_FLOAT"
-            "pull_duration"                 "0.4"
-        }
-        "06"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "tree_radius"                   "100"
-        }
+      "01"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "bonus_intellect"               "15"
+      }
+      "02"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "bonus_health_regen"            "8"
+      }
+      "03"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "pull_length"                   "-600"
+      }
+      "04"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "pull_speed"                    "1500"
+      }
+      "05"
+      {
+        "var_type"                      "FIELD_FLOAT"
+        "pull_duration"                 "0.4"
+      }
+      "06"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "tree_radius"                   "100"
+      }
     }
 
     "OnSpellStart"
     {
-        "FireSound"
-        {
-            "EffectName"                    "DOTA_Item.ForceStaff.Activate"
-            "Target"                        "TARGET"
-        }
-        "ApplyModifier"
-        {
-            "ModifierName"                  "modifier_item_pull_staff_effect"
-            "Target"                        "TARGET"
-        }
-        "RunScript"
-        {
-            "ScriptFile"                    "items/force_weapons/item_pull_staff.lua"
-            "Function"                      "pullStaff"
-            "Target"                        "TARGET"
-        }
-        "ApplyMotionController"
-        // For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
-        {
-                "Target"                    "TARGET"
-                "ScriptFile"                "items/force_weapons/item_pull_staff.lua"
-                "HorizontalControlFunction" "pullHorizontal"
-        }
+      "FireSound"
+      {
+        "EffectName"                    "DOTA_Item.ForceStaff.Activate"
+        "Target"                        "TARGET"
+      }
+      "ApplyModifier"
+      {
+        "ModifierName"                  "modifier_item_pull_staff_effect"
+        "Target"                        "TARGET"
+      }
+      "RunScript"
+      {
+        "ScriptFile"                    "items/force_weapons/item_pull_staff.lua"
+        "Function"                      "pullStaff"
+        "Target"                        "TARGET"
+      }
+      "ApplyMotionController"
+      // For this: gfycat.com/BraveHideousGiantschnauzer -> check: bit.ly/1KWulqA
+      {
+        "Target"                    "TARGET"
+        "ScriptFile"                "items/force_weapons/item_pull_staff.lua"
+        "HorizontalControlFunction" "pullHorizontal"
+      }
     }
 
     "Modifiers"
     {
-            "modifier_item_pull_staff_passive"
-            {
-                    "Passive"               "1"
-                    "IsHidden"              "1"
+      "modifier_item_pull_staff_passive"
+      {
+        "Passive"               "1"
+        "IsHidden"              "1"
 
-                    "Attributes"            "MODIFIER_ATTRIBUTE_NONE"
-                    "Properties"
-                    {
-                                            "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
-                                            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_health_regen"
-                    }
-            }
-            "modifier_item_pull_staff_effect"
-            {
-
-                "Duration"                  "%pull_duration"
-
-                "OverrideAnimation"         "ACT_DOTA_FLAIL"
-
-                "StatusEffectName"          "particles/status_fx/status_effect_forcestaff.vpcf"
-                "StatusEffectPriority"      "10"
-
-                "OnCreated"
-                {
-                    "AttachEffect"
-                    {
-                        "EffectName"        "particles/items_fx/force_staff.vpcf"
-                        "EffectAttachType"  "follow_origin"
-                        "Target"            "TARGET"
-                    }
-                }
-
-                "ThinkInterval"             "0.03"
-                "OnIntervalThink"
-                {
-                    "DestroyTrees"
-                    {
-                        "Target"            "TARGET"
-                        "Radius"            "%tree_radius"
-                    }
-
-                }
-
-            }
+        "Attributes"            "MODIFIER_ATTRIBUTE_NONE"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_health_regen"
         }
+      }
+      "modifier_item_pull_staff_effect"
+      {
+
+        "Duration"                  "%pull_duration"
+
+        "OverrideAnimation"         "ACT_DOTA_FLAIL"
+
+        "StatusEffectName"          "particles/status_fx/status_effect_forcestaff.vpcf"
+        "StatusEffectPriority"      "10"
+
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"        "particles/items_fx/force_staff.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "TARGET"
+          }
+        }
+
+        "ThinkInterval"             "0.03"
+        "OnIntervalThink"
+        {
+          "DestroyTrees"
+          {
+            "Target"            "TARGET"
+            "Radius"            "%tree_radius"
+          }
+
+        }
+
+      }
     }
+  }
 }

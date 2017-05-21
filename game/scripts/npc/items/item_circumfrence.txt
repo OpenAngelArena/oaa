@@ -33,7 +33,7 @@
   // circumfrence
   //=================================================================================================================
 
-    "item_circumfrence"
+  "item_circumfrence"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -41,9 +41,9 @@
     "BaseClass"                     "item_radiance"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"            "item_radiance"
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "MaxUpgradeLevel"        "2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"        "2"
     "ItemBaseLevel"          "1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@
     "ItemQuality"          "epic"
     "ItemAliases"          "circumfrence"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "UpgradesItems"          "item_circumfrence"
+    "UpgradesItems"          "item_circumfrence"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

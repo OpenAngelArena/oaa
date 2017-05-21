@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   "item_upgrade_core_3"
-    {
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "3532"      // unique ID
@@ -10,16 +10,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-     "AbilityTextureName"        "custom/angels_soul"
+    "AbilityTextureName"        "custom/angels_soul"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
 
-        "ItemCost"              "3500"
-        "ItemPurchasable"       "0"
-        //"ItemSellable"          "0"
-        "ItemKillable"          "0"
-        "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+    "ItemCost"              "3500"
+    "ItemPurchasable"       "0"
+    //"ItemSellable"          "0"
+    "ItemKillable"          "0"
+    "ItemShareability"      "ITEM_FULLY_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

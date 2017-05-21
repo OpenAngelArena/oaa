@@ -29,9 +29,9 @@
     "ItemQuality"          "rare"
     "ItemAliases"          "vod;veil of discord"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "1"
-        "UpgradesItems"                 "item_azazel"
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "1"
+    "UpgradesItems"                 "item_azazel"
     
     // Special  
     //-------------------------------------------------------------------------------------------------------------
@@ -50,5 +50,5 @@
     }
   }
 
- 
+  
 }

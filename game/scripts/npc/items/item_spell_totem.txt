@@ -35,10 +35,10 @@
     "BaseClass"                     "item_datadriven"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityTextureName"            "item_firework_mine"
-      "AbilityCastPoint"        "0.2"
-      "AbilityCastRange"        "900"
-        "AbilityManaCost"             "100"
-        "AbilityCooldown"             "25"
+    "AbilityCastPoint"        "0.2"
+    "AbilityCastRange"        "900"
+    "AbilityManaCost"             "100"
+    "AbilityCooldown"             "25"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -50,24 +50,24 @@
 
     // Modifiers
     //-------------------------------------------------------------------------------------------------------------
-      "Modifiers"
+    "Modifiers"
+    {
+      "modifier_item_spell_totem_stats"
       {
-        "modifier_item_spell_totem_stats"
+        "Passive"                   "1"
+        "IsHidden"                  "1"
+        "Properties"
         {
-          "Passive"                   "1"
-          "IsHidden"                  "1"
-          "Properties"
-          {
-            "MODIFIER_PROPERTY_MANA_BONUS"        "%bonus_mana"
-            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"  "%bonus_health_regen"
-          }
-        }
-        "modifier_item_spell_totem_summon"
-        {
-          "OnSpellStart"
-          {}
+          "MODIFIER_PROPERTY_MANA_BONUS"        "%bonus_mana"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"  "%bonus_health_regen"
         }
       }
+      "modifier_item_spell_totem_summon"
+      {
+        "OnSpellStart"
+      {}
+      }
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

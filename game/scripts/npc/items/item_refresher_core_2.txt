@@ -26,19 +26,19 @@
     }
   }
 
-    "item_refresher_core_2"
+  "item_refresher_core_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3216"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "BaseClass"                     "item_lua"
-        "ScriptFile"                    "items/refresher_core.lua"
-        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/refresher_core.lua"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"            "custom/refresher_core_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"        "0.0"
-        "AbilityCooldown"       "150.0 105.0 60.0"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "150.0 105.0 60.0"
 
     "MaxUpgradeLevel"        "3"
     "ItemBaseLevel"          "2"

@@ -1,6 +1,6 @@
 "DOTAItems"
 {
-     "item_recipe_force_shield_2"
+  "item_recipe_force_shield_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@
   }
 
 
-    "item_force_shield_2"
+  "item_force_shield_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -48,8 +48,8 @@
     "ItemQuality"          "epic"
     "ItemAliases"          "shield"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+    "MaxUpgradeLevel"               "2"
+    "ItemBaseLevel"                 "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -52,14 +52,14 @@
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air
     "MovementSpeed"        "0"      // Speed
     "MovementTurnRate"      "0.5"    // Turning rate.
-  
+    
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"          "35"    // Experience earn.
     "BountyGoldMin"        "14"    // Gold earned min.
     "BountyGoldMax"        "17"    // Gold earned max.
 
-      // Status
+    // Status
     //----------------------------------------------------------------
     "StatusHealth"        "700"    // Base health.
     "StatusHealthRegen"      "0.25"    // Health regeneration rate.

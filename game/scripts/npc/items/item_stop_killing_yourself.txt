@@ -2,7 +2,7 @@
 {
   //=================================================================================================================
   // Recipe: Stop Killing Yourself (Based on Lotus Sphere)
-    //=================================================================================================================
+  //=================================================================================================================
   "item_recipe_stop_killing_yourself"
   {
     // General
@@ -105,66 +105,66 @@
 
       // Linkens Parameters
       "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "23 24"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "150 225"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "block_cooldown"        "13.0"
-            }
-            // Bloodthorn Parameters
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "55 65"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "45 50"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "170 200"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "225 235"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "crit_chance"           "27 30"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "crit_multiplier"       "230 250"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "silence_damage_percent"    "30"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "silence_duration"      "5"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "target_crit_multiplier"        "200 200"
-            }
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_all_stats"       "23 24"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_mana_regen"      "150 225"
+      }
+      "10"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "block_cooldown"        "13.0"
+      }
+      // Bloodthorn Parameters
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_intellect"       "55 65"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_attack_speed"    "45 50"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"          "170 200"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_mana_regen"      "225 235"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "crit_chance"           "27 30"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "crit_multiplier"       "230 250"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "silence_damage_percent"    "30"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "silence_duration"      "5"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "target_crit_multiplier"        "200 200"
+      }
     }
   }
 
