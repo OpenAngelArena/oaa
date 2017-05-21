@@ -82,6 +82,12 @@ function CreepItemDrop:CreateDrop (itemName, pos)
 end
 
 function CreepItemDrop:AddFixedDropsToCamp(creeps, numberOfCreepsSpawned)
+  local function IsNotNumber(value)
+    return not (type(value) == "number")
+  end
+
+  local sequencedCreeps = totable(filter(IsNotNumber, pairs(creeps)))
+
   local function AddItemToCamp(item)
     local from = item[FROM_ENUM]
     local to = item[TO_ENUM]
@@ -90,7 +96,11 @@ function CreepItemDrop:AddFixedDropsToCamp(creeps, numberOfCreepsSpawned)
 
     if (from < 0 or (from >= 0 and ItemPowerLevel >= from)) and (to < 0 or (to >= 0 and ItemPowerLevel <= to)) and numberOfCreepsSpawned % every == 0 then
       for i = 1,numDrops do
-        local selectedCreep = creeps[RandomInt(1, #creeps)]
+        local creepIndex = RandomInt(1, #sequencedCreeps)
+        local selectedCreep = sequencedCreeps[creepIndex]
+        if not selectedCreep then
+          return
+        end
         selectedCreep:AddNewModifier(nil, nil, "modifier_creep_loot", {drop = item[NAME_ENUM]})
       end
     end
