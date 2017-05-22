@@ -54,6 +54,7 @@
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
+<<<<<<< HEAD
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -81,12 +82,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 7 9"
+        "aura_positive_armor"                             "5 7 11"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-5 -7 -9"
+        "aura_negative_armor"                             "-5 -7 -11"
       }
     }
   }
