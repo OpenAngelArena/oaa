@@ -23,6 +23,7 @@ Bosses = {
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },
+  -- past here isn't used in current implementation
   -- tier 4
   {
     "npc_dota_boss_tier_4",
