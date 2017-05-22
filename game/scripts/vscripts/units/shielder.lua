@@ -40,17 +40,9 @@ local function HurtHandler (keys)
   if thisEntity.currentDamage[playerIndex] == maxDamage then
     ExecuteOrderFromTable({
       UnitIndex = bossIndex,
-      OrderType = DOTA_UNIT_ORDER_STOP,
-      -- Position = nil
-      Queue = 0
-    })
-
-    ExecuteOrderFromTable({
-      UnitIndex = bossIndex,
-      -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
       OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
       Position = EntIndexToHScript(playerIndex):GetAbsOrigin(),
-      Queue = 1,
+      Queue = 0,
     })
   end
 end
@@ -64,7 +56,6 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
 
   thisEntity:SetContextThink( "ShielderThink", partial(ShielderThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
-  --Timers:CreateTimer(1, thisEntity:OnHurt(HurtHandler(keys)))
 
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
 
