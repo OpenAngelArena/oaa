@@ -7,23 +7,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5488"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"        "1"
-    "MaxLevel"            "5"
+    "ID"                                                   "5488"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                      "1"
+    "MaxLevel"                                             "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0 0 0 0 0"
+    "AbilityCastPoint"                                     "0 0 0 0 0"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "90.0 75.0 60.0 50 40"
+    "AbilityCooldown"                                      "90.0 75.0 60.0 50 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "100 100 100 100 100"
+    "AbilityManaCost"                                      "100 100 100 100 100"
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,13 +31,13 @@
     {
       "01"
       {
-        "var_type"          "FIELD_FLOAT"
-        "cast_delay"        "2.7 2.35 2.0 1.5 1.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "cast_delay"                                       "2.7 2.35 2.0 1.5 1.0"
       }
       "02"
       {
-        "var_type"          "FIELD_FLOAT"
-        "return_time"        "12.0 12.0 12.0 12.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "return_time"                                      "12.0 12.0 12.0 12.0"
       }
     }
   }

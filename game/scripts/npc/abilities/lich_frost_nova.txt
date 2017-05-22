@@ -7,37 +7,37 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5134"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"  
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"        "1"
-    "MaxLevel"            "6"
+    "ID"                                                   "5134"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                      "1"
+    "MaxLevel"                                             "6"
     
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "600"
-    "AbilityCastPoint"        "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastRange"                                     "600"
+    "AbilityCastPoint"                                     "0.4 0.4 0.4 0.4 0.4 0.4"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "8.0"
-    "AbilityDuration"        "4.0 4.0 4.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                      "8.0"
+    "AbilityDuration"                                      "4.0 4.0 4.0 4.0 4.0 4.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"          "50 100 150 200 300 700"
+    "AbilityDamage"                                        "50 100 150 200 300 700"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "125 150 170 190 240 420"
+    "AbilityManaCost"                                      "125 150 170 190 240 420"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"  "0.3"  // Primarily about the damage
+    "AbilityModifierSupportValue"                          "0.3"  // Primarily about the damage
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,23 +45,23 @@
     {      
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "radius"        "200 200 200 200 200 200"
+        "var_type"                                         "FIELD_INTEGER"
+        "radius"                                           "200 200 200 200 200 200"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "slow_movement_speed"  "-30 -30 -30 -30 -30 -30"
+        "var_type"                                         "FIELD_INTEGER"
+        "slow_movement_speed"                              "-30 -30 -30 -30 -30 -30"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "slow_attack_speed"    "-20 -20 -20 -20 -20 -20"
+        "var_type"                                         "FIELD_INTEGER"
+        "slow_attack_speed"                                "-20 -20 -20 -20 -20 -20"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "aoe_damage"      "75 100 125 150 200 400"
+        "var_type"                                         "FIELD_INTEGER"
+        "aoe_damage"                                       "75 100 125 150 200 400"
       }
     }
   }

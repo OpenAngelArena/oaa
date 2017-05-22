@@ -4,18 +4,18 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5139"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
-    "MaxLevel"            "6"
+    "ID"                                                   "5139"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                             "6"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                      "0.0 0.0 0.0 0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "20 30 40 50 70 150"    
+    "AbilityManaCost"                                      "20 30 40 50 70 150"    
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,24 +23,24 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "mana_per_second"      "8 12 16 20 28 60"
+        "var_type"                                         "FIELD_INTEGER"
+        "mana_per_second"                                  "8 12 16 20 28 60"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "radius"          "500"
+        "var_type"                                         "FIELD_INTEGER"
+        "radius"                                           "500"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "heal"            "16 24 32 40 56 120"
-        "LinkedSpecialBonus"    "special_bonus_unique_witch_doctor_2"
+        "var_type"                                         "FIELD_INTEGER"
+        "heal"                                             "16 24 32 40 56 120"
+        "LinkedSpecialBonus"                               "special_bonus_unique_witch_doctor_2"
       }
       "04"
       {
-        "var_type"          "FIELD_FLOAT"
-        "heal_interval"        "0.33 0.33 0.33 0.33"
+        "var_type"                                         "FIELD_FLOAT"
+        "heal_interval"                                    "0.33 0.33 0.33 0.33"
       }
     }
   }

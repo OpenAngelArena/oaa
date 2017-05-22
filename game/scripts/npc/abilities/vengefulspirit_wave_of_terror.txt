@@ -7,33 +7,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5124"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "ID"                                                   "5124"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                "6"
-    "RequiredLevel"            "1"
-    "LevelsBetweenUpgrades"    "2"
+    "MaxLevel"                                             "6"
+    "RequiredLevel"                                        "1"
+    "LevelsBetweenUpgrades"                                "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "1400"
-    "AbilityCastPoint"        "0.3"
+    "AbilityCastRange"                                     "1400"
+    "AbilityCastPoint"                                     "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "22 20 18 16 16 16"
-    "AbilityDuration"        "15"
+    "AbilityCooldown"                                      "22 20 18 16 16 16"
+    "AbilityDuration"                                      "15"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"          "45 70 95 120 170 370"
+    "AbilityDamage"                                        "45 70 95 120 170 370"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "40"
+    "AbilityManaCost"                                      "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,33 +41,33 @@
     {
       "01"
       {
-        "var_type"      "FIELD_FLOAT"
-        "wave_speed"    "2000.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "wave_speed"                                       "2000.0"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "wave_width"    "300"
+        "var_type"                                         "FIELD_INTEGER"
+        "wave_width"                                       "300"
       }
       "03"
       {
-        "var_type"      "FIELD_INTEGER"
-        "armor_reduction"  "-3 -4 -5 -6 -8 -16"
+        "var_type"                                         "FIELD_INTEGER"
+        "armor_reduction"                                  "-3 -4 -5 -6 -8 -16"
       }
       "04"
       {
-        "var_type"      "FIELD_FLOAT"
-        "tooltip_duration"  "15"
+        "var_type"                                         "FIELD_FLOAT"
+        "tooltip_duration"                                 "15"
       }
       "05"
       {
-        "var_type"      "FIELD_FLOAT"
-        "vision_aoe"    "500"
+        "var_type"                                         "FIELD_FLOAT"
+        "vision_aoe"                                       "500"
       }
       "06"
       {
-        "var_type"      "FIELD_FLOAT"
-        "vision_duration"  "3.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "vision_duration"                                  "3.0"
       }
 
     }

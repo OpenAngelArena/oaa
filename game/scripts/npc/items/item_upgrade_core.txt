@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3530"      // unique ID
-    "BaseClass"                     "item_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"        "custom/angels_blood"
+    "ID"                                                   "3530"      // unique ID
+    "BaseClass"                                            "item_datadriven"
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                   "custom/angels_blood"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
 
@@ -18,11 +18,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
 
-    "ItemCost"              "1500"
-    "ItemPurchasable"        "0"
-    //"ItemSellable"          "0"
-    "ItemKillable"          "0"
-    "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+    "ItemCost"                                             "1500"
+    "ItemPurchasable"                                      "0"
+    //"ItemSellable"                                       "0"
+    "ItemKillable"                                         "0"
+    "ItemShareability"                                     "ITEM_FULLY_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

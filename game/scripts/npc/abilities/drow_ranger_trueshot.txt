@@ -7,19 +7,19 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5021"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "MaxLevel"            "6"
+    "ID"                                                   "5021"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "MaxLevel"                                             "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "0"
-    "AbilityCastPoint"        "0 0 0 0 0 0"
+    "AbilityCastRange"                                     "0"
+    "AbilityCastPoint"                                     "0 0 0 0 0 0"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "100"
-    "AbilityDuration"        "30.0"
+    "AbilityCooldown"                                      "100"
+    "AbilityDuration"                                      "30.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,9 +27,9 @@
     {
       "01"
       {
-        "var_type"          "FIELD_FLOAT"
-        "trueshot_ranged_damage"  "20 26 32 38 50 100"
-        "LinkedSpecialBonus"    "special_bonus_unique_drow_ranger_1"
+        "var_type"                                         "FIELD_FLOAT"
+        "trueshot_ranged_damage"                           "20 26 32 38 50 100"
+        "LinkedSpecialBonus"                               "special_bonus_unique_drow_ranger_1"
       }
     }
   }

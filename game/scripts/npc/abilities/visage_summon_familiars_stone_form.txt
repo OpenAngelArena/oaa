@@ -4,18 +4,18 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5484"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"  
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityCastRange"        "160"
-    "AbilityCastPoint"        "0.0"
-    "MaxLevel"            "5"
+    "ID"                                                   "5484"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityCastRange"                                     "160"
+    "AbilityCastPoint"                                     "0.0"
+    "MaxLevel"                                             "5"
     
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "14.0"
+    "AbilityCooldown"                                      "14.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,33 +23,33 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "stun_radius"            "350"
+        "var_type"                                         "FIELD_INTEGER"
+        "stun_radius"                                      "350"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "stun_delay"            "0.55"
+        "var_type"                                         "FIELD_FLOAT"
+        "stun_delay"                                       "0.55"
       }      
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "stun_damage"            "60 100 140 220 540"
+        "var_type"                                         "FIELD_INTEGER"
+        "stun_damage"                                      "60 100 140 220 540"
       }
       "04"
       {
-        "var_type"              "FIELD_FLOAT"
-        "stun_duration"            "1.0 1.25 1.5 1.75 2"
+        "var_type"                                         "FIELD_FLOAT"
+        "stun_duration"                                    "1.0 1.25 1.5 1.75 2"
       }
       "05"
       {
-        "var_type"              "FIELD_FLOAT"
-        "stone_duration"          "6.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "stone_duration"                                   "6.0"
       }
       "06"
       {
-        "var_type"              "FIELD_FLOAT"
-        "hp_regen"              "150 175 200 250 450"
+        "var_type"                                         "FIELD_FLOAT"
+        "hp_regen"                                         "150 175 200 250 450"
       }
     }
   }

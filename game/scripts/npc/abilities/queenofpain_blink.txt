@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5174"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "MaxLevel"            "6"
+    "ID"                                                   "5174"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "MaxLevel"                                             "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "0"
-    "AbilityCastPoint"        "0.33 0.33 0.33 0.33"
+    "AbilityCastRange"                                     "0"
+    "AbilityCastPoint"                                     "0.33 0.33 0.33 0.33"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "15.0 12.0 9.0 6.0 5.0 4.0"
+    "AbilityCooldown"                                      "15.0 12.0 9.0 6.0 5.0 4.0"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "60 60 60 60"
+    "AbilityManaCost"                                      "60 60 60 60"
     
     // Special  
     //-------------------------------------------------------------------------------------------------------------
@@ -29,14 +29,14 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "blink_range"      "1300"
+        "var_type"                                         "FIELD_INTEGER"
+        "blink_range"                                      "1300"
       }
       
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "min_blink_range"    "200"
+        "var_type"                                         "FIELD_INTEGER"
+        "min_blink_range"                                  "200"
       }
     }
   }

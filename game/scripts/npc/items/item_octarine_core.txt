@@ -5,15 +5,15 @@
   //=================================================================================================================
   "item_recipe_octarine_core"
   {
-    "ID"              "228"    // unique ID
-    "ItemCost"            "0"
-    "ItemShopTags"          ""
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_octarine_core"
-    "AbilityTextureName"      "item_recipe"
+    "ID"                                                   "228"    // unique ID
+    "ItemCost"                                             "0"
+    "ItemShopTags"                                         ""
+    "ItemRecipe"                                           "1"
+    "ItemResult"                                           "item_octarine_core"
+    "AbilityTextureName"                                   "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_mystic_staff;item_soul_booster"
+      "01"                                                 "item_mystic_staff;item_soul_booster"
     }
   }
 
@@ -24,21 +24,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "235"    // unique ID
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/octarine_core_1"
+    "ID"                                                   "235"    // unique ID
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                   "custom/octarine_core_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "5900"
-    "ItemShopTags"          "move_speed;boost_mana;mana_pool"
-    "ItemQuality"          "rare"
-    "ItemAliases"          "mana;mb;octarine core"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"      "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemCost"                                             "5900"
+    "ItemShopTags"                                         "move_speed;boost_mana;mana_pool"
+    "ItemQuality"                                          "rare"
+    "ItemAliases"                                          "mana;mb;octarine core"
+    "ItemDeclarations"                                     "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                  "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-    "MaxUpgradeLevel"        "2"
-    "ItemBaseLevel"          "1"
-    "UpgradesItems"          "item_octarine_core"
+    "MaxUpgradeLevel"                                      "2"
+    "ItemBaseLevel"                                        "1"
+    "UpgradesItems"                                        "item_octarine_core"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,33 +46,33 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intelligence"  "25 35"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_intelligence"                               "25 35"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"      "425 550"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_health"                                     "425 550"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_mana"      "425 550"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_mana"                                       "425 550"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_cooldown"    "25 25"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_cooldown"                                   "25 25"
       }
       "05"
       {
-        "var_type"        "FIELD_FLOAT"
-        "hero_lifesteal"    "25 30"
+        "var_type"                                         "FIELD_FLOAT"
+        "hero_lifesteal"                                   "25 30"
       }
       "06"
       {
-        "var_type"        "FIELD_FLOAT"
-        "creep_lifesteal"    "5 10"
+        "var_type"                                         "FIELD_FLOAT"
+        "creep_lifesteal"                                  "5 10"
       }
     }
   }

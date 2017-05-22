@@ -7,22 +7,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "189"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"              "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"      "item_recipe"
+    "ID"                                                   "189"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                                "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                   "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "400"
-    "ItemShopTags"          ""
+    "ItemCost"                                             "400"
+    "ItemShopTags"                                         ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_veil_of_discord"
+    "ItemRecipe"                                           "1"
+    "ItemResult"                                           "item_veil_of_discord"
     "ItemRequirements"
     {
-      "01"            "item_helm_of_iron_will;item_null_talisman;item_null_talisman"
+      "01"                                                 "item_helm_of_iron_will;item_null_talisman;item_null_talisman"
     }
   }
 
@@ -33,27 +33,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "190"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-    "AbilityTextureName"      "custom/veil_of_discord_1"
+    "ID"                                                   "190"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityTextureName"                                   "custom/veil_of_discord_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "20"
-    "AbilityCastRange"        "1000"
-    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"                                      "20"
+    "AbilityCastRange"                                     "1000"
+    "AbilityCastPoint"                                     "0.0"
 
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "50"
-    "ItemCost"            "2240"
-    "ItemShopTags"          "int;armor;regen_health;hard_to_tag"
-    "ItemQuality"          "rare"
-    "ItemAliases"          "vod;veil of discord"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"               "2"
-    "ItemBaseLevel"                 "1"
-    "UpgradesItems"                 "item_veil_of_discord;item_veil_of_discord_2"
+    "AbilityManaCost"                                      "50"
+    "ItemCost"                                             "2240"
+    "ItemShopTags"                                         "int;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                          "rare"
+    "ItemAliases"                                          "vod;veil of discord"
+    "ItemDeclarations"                                     "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                      "2"
+    "ItemBaseLevel"                                        "1"
+    "UpgradesItems"                                        "item_veil_of_discord;item_veil_of_discord_2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -61,48 +61,48 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "6 9"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_health_regen"                               "6 9"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"      "6 9"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_armor"                                      "6 9"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_agi"    "6 9"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_agi"                                        "6 9"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_str"    "6 9"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_str"                                        "6 9"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"    "6 9"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_damage"                                     "6 9"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_int"    "12 18"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_int"                                        "12 18"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "resist_debuff"      "-25 -30"
+        "var_type"                                         "FIELD_INTEGER"
+        "resist_debuff"                                    "-25 -30"
       }
       "08"
       {
-        "var_type"        "FIELD_INTEGER"
-        "debuff_radius"      "600"
+        "var_type"                                         "FIELD_INTEGER"
+        "debuff_radius"                                    "600"
       }
       "09"
       {
-        "var_type"          "FIELD_FLOAT"
-        "resist_debuff_duration"  "16.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "resist_debuff_duration"                           "16.0"
       }
     }
   }

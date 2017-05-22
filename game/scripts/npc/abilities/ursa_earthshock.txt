@@ -7,34 +7,34 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5357"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"        "1"
+    "ID"                                                   "5357"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                      "1"
 
-    "MaxLevel"                "6"
-    "RequiredLevel"            "1"
-    "LevelsBetweenUpgrades"    "2"
+    "MaxLevel"                                             "6"
+    "RequiredLevel"                                        "1"
+    "LevelsBetweenUpgrades"                                "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "0"
-    "AbilityCastPoint"        "0.3"
+    "AbilityCastRange"                                     "0"
+    "AbilityCastPoint"                                     "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "5"
-    "AbilityDuration"        "4.0"
+    "AbilityCooldown"                                      "5"
+    "AbilityDuration"                                      "4.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"          "90 140 190 240 340 740"
+    "AbilityDamage"                                        "90 140 190 240 340 740"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "75"
+    "AbilityManaCost"                                      "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,13 +42,13 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "shock_radius"        "385"
+        "var_type"                                         "FIELD_INTEGER"
+        "shock_radius"                                     "385"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "movement_slow"        "-25 -35 -45 -55 -55 -60"
+        "var_type"                                         "FIELD_INTEGER"
+        "movement_slow"                                    "-25 -35 -45 -55 -55 -60"
       }
     }
   }

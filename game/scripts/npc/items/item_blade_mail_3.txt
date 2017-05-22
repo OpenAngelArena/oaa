@@ -7,26 +7,26 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3089"    // unique ID
-    "BaseClass"                     "item_datadriven"
-    "Model"              "models/props_gameplay/recipe.mdl"
-    "FightRecapLevel"        "1"
+    "ID"                                                   "3089"    // unique ID
+    "BaseClass"                                            "item_datadriven"
+    "Model"                                                "models/props_gameplay/recipe.mdl"
+    "FightRecapLevel"                                      "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "3500"
-    "ItemShopTags"          ""
+    "ItemCost"                                             "3500"
+    "ItemShopTags"                                         ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_blade_mail_3"
-    "AbilityTextureName"      "item_recipe"
+    "ItemRecipe"                                           "1"
+    "ItemResult"                                           "item_blade_mail_3"
+    "AbilityTextureName"                                   "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_blade_mail_2;item_upgrade_core_2"
-      "02"            "item_blade_mail_2;item_upgrade_core_3"
-      "03"            "item_blade_mail_2;item_upgrade_core_4"
+      "01"                                                 "item_blade_mail_2;item_upgrade_core_2"
+      "02"                                                 "item_blade_mail_2;item_upgrade_core_3"
+      "03"                                                 "item_blade_mail_2;item_upgrade_core_4"
     }
   }
 
@@ -37,27 +37,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3091"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_blade_mail"
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"      "custom/blade_mail_3"
+    "ID"                                                   "3091"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                            "item_blade_mail"
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                   "custom/blade_mail_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "20.0"
+    "AbilityCooldown"                                      "20.0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"        "3"
-    "ItemBaseLevel"          "3"
+    "MaxUpgradeLevel"                                      "3"
+    "ItemBaseLevel"                                        "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "25"
-    "ItemCost"            "8200"
-    "ItemShopTags"          "damage;armor;int;hard_to_tag"
-    "ItemQuality"          "epic"
-    "ItemAliases"          "bm;blade mail;blademail"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "AbilityManaCost"                                      "25"
+    "ItemCost"                                             "8200"
+    "ItemShopTags"                                         "damage;armor;int;hard_to_tag"
+    "ItemQuality"                                          "epic"
+    "ItemAliases"                                          "bm;blade mail;blademail"
+    "ItemDeclarations"                                     "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,23 +65,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "22 35 50"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_damage"                                     "22 35 50"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"      "6 9 12"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_armor"                                      "6 9 12"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"    "10 15 22"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_intellect"                                  "10 15 22"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "4.5"
+        "var_type"                                         "FIELD_FLOAT"
+        "duration"                                         "4.5"
       }
     }
   }

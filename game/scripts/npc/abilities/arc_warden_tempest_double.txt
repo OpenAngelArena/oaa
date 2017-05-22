@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5683"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
-    "FightRecapLevel"        "2"
-    "MaxLevel"            "5"
-    "RequiredLevel"          "6"
-    "LevelsBetweenUpgrades"      "6"
+    "ID"                                                   "5683"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"                                      "2"
+    "MaxLevel"                                             "5"
+    "RequiredLevel"                                        "6"
+    "LevelsBetweenUpgrades"                                "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.15"
+    "AbilityCastPoint"                                     "0.15"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "60 50 40 40 40"
+    "AbilityCooldown"                                      "60 50 40 40 40"
 
 
     // Special
@@ -30,8 +30,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "12 14 16 18 20"
+        "var_type"                                         "FIELD_FLOAT"
+        "duration"                                         "12 14 16 18 20"
       }
     }
   }

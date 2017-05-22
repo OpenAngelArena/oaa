@@ -8,22 +8,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5417"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "MaxLevel"            "5"
+    "ID"                                                   "5417"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                             "5"
     
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                     "0.5 0.5 0.5 0.5 0.5"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "60.0"
+    "AbilityCooldown"                                      "60.0"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "50 50 50 50 50"
+    "AbilityManaCost"                                      "50 50 50 50 50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,23 +31,23 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "bonus_damage"    "70 100 130 200 450"    
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_damage"                                     "70 100 130 200 450"    
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "bonus_armor"    "10 15 20 30 70"
+        "var_type"                                         "FIELD_INTEGER"
+        "bonus_armor"                                      "10 15 20 30 70"
       }
       "03"
       {
-        "var_type"      "FIELD_FLOAT"
-        "cry_duration"    "6.0"
+        "var_type"                                         "FIELD_FLOAT"
+        "cry_duration"                                     "6.0"
       }
       "04"
       {
-        "var_type"      "FIELD_FLOAT"
-        "range"    "1000"
+        "var_type"                                         "FIELD_FLOAT"
+        "range"                                            "1000"
       }
     }
   }

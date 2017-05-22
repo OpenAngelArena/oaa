@@ -7,37 +7,37 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5118"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"        "1"
-    "HasScepterUpgrade"      "1"
+    "ID"                                                   "5118"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                                "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                      "1"
+    "HasScepterUpgrade"                                    "1"
 
-    "MaxLevel"                "6"
-    "RequiredLevel"            "1"
-    "LevelsBetweenUpgrades"    "2"
+    "MaxLevel"                                             "6"
+    "RequiredLevel"                                        "1"
+    "LevelsBetweenUpgrades"                                "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "700"
-    "AbilityCastPoint"        "0.3"
+    "AbilityCastRange"                                     "700"
+    "AbilityCastPoint"                                     "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"        "12"
-    "AbilityDuration"        "4.0"
+    "AbilityCooldown"                                      "12"
+    "AbilityDuration"                                      "4.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"          "110 160 210 260 360 760"
+    "AbilityDamage"                                        "110 160 210 260 360 760"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"        "90 100 110 120 140 220"
+    "AbilityManaCost"                                      "90 100 110 120 140 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,39 +45,39 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "projectile_speed"  "2500"
+        "var_type"                                         "FIELD_INTEGER"
+        "projectile_speed"                                 "2500"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "movement_speed"  "-40"
+        "var_type"                                         "FIELD_INTEGER"
+        "movement_speed"                                   "-40"
       }
       "03"
       {
-        "var_type"      "FIELD_FLOAT"
-        "negative_armor"    "3 4 5 6 8 16"
-        "LinkedSpecialBonus"  "special_bonus_unique_tidehunter"
+        "var_type"                                         "FIELD_FLOAT"
+        "negative_armor"                                   "3 4 5 6 8 16"
+        "LinkedSpecialBonus"                               "special_bonus_unique_tidehunter"
       }
       "04"
       {
-        "var_type"      "FIELD_INTEGER"
-        "speed_scepter"    "1500"
+        "var_type"                                         "FIELD_INTEGER"
+        "speed_scepter"                                    "1500"
       }
       "05"
       {
-        "var_type"      "FIELD_INTEGER"
-        "aoe_scepter"    "240"
+        "var_type"                                         "FIELD_INTEGER"
+        "aoe_scepter"                                      "240"
       }
       "06"
       {
-        "var_type"      "FIELD_INTEGER"
-        "cooldown_scepter"    "7"
+        "var_type"                                         "FIELD_INTEGER"
+        "cooldown_scepter"                                 "7"
       }
       "07"
       {
-        "var_type"      "FIELD_INTEGER"
-        "cast_range_scepter"    "1800"
+        "var_type"                                         "FIELD_INTEGER"
+        "cast_range_scepter"                               "1800"
       }
     }
   }

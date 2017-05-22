@@ -7,24 +7,24 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "5193"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
-    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"            "5"
+    "ID"                                                   "5193"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                          "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                             "5"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "crit_bonus"        "230 340 450 560 770"
+        "var_type"                                         "FIELD_INTEGER"
+        "crit_bonus"                                       "230 340 450 560 770"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "crit_chance"        "15"
+        "var_type"                                         "FIELD_INTEGER"
+        "crit_chance"                                      "15"
       }
     }
   }

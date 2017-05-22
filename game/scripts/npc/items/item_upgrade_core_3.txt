@@ -4,22 +4,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3532"      // unique ID
-    "BaseClass"                     "item_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                   "3532"      // unique ID
+    "BaseClass"                                            "item_datadriven"
+    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityTextureName"        "custom/angels_soul"
+    "AbilityTextureName"                                   "custom/angels_soul"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
 
-    "ItemCost"              "3500"
-    "ItemPurchasable"       "0"
-    //"ItemSellable"          "0"
-    "ItemKillable"          "0"
-    "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+    "ItemCost"                                             "3500"
+    "ItemPurchasable"                                      "0"
+    //"ItemSellable"                                       "0"
+    "ItemKillable"                                         "0"
+    "ItemShareability"                                     "ITEM_FULLY_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
