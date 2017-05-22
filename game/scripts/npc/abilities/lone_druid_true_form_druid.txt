@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "5416"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityType"                                          "DOTA_ABILITY_TYPE_ULTIMATE"
-    "SpellDispellableType"                                 "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                             "5"
+    "ID"                                                  "5416"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                     "0 0 0 0 0"
+    "AbilityCastPoint"                                    "0 0 0 0 0"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                      "0.0 0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0"
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                      "25 25 25 25 25"    
+    "AbilityManaCost"                                     "25 25 25 25 25"    
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,8 +29,8 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "transformation_time"                              "0.8"
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "0.8"
       }
     }
   }

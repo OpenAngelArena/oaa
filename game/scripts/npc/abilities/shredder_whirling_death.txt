@@ -7,29 +7,29 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "5524"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                 "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                      "1"
+    "ID"                                                  "5524"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-    "MaxLevel"                                             "6"
-    "RequiredLevel"                                        "1"
-    "LevelsBetweenUpgrades"                                "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                     "300"
-    "AbilityCastPoint"                                     "0.0"
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                      "6"
+    "AbilityCooldown"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                      "70"
+    "AbilityManaCost"                                     "70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,29 +37,29 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "whirling_radius"                                  "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "whirling_radius"                                 "300"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "whirling_damage"                                  "100 150 200 250 350 750"
+        "var_type"                                        "FIELD_INTEGER"
+        "whirling_damage"                                 "100 150 200 250 350 750"
       }
       "03"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "whirling_tick"                                    "0.3"
+        "var_type"                                        "FIELD_FLOAT"
+        "whirling_tick"                                   "0.3"
       }
       "04"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "stat_loss_pct"                                    "15"
-        "LinkedSpecialBonus"                               "special_bonus_unique_timbersaw"
+        "var_type"                                        "FIELD_INTEGER"
+        "stat_loss_pct"                                   "15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw"
       }
       "05"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "duration"                                         "14.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "14.0"
       }
     }
   }

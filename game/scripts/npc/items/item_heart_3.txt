@@ -7,25 +7,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "4025"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                            "item_datadriven"
-    "Model"                                                "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                   "item_recipe"
+    "ID"                                                  "4025"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                             "3500"
-    "ItemShopTags"                                         ""
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                           "1"
-    "ItemResult"                                           "item_heart_3"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_heart_3"
     "ItemRequirements"
     {
-      "01"                                                 "item_heart_2;item_upgrade_core_2"
-      "02"                                                 "item_heart_2;item_upgrade_core_3"
-      "03"                                                 "item_heart_2;item_upgrade_core_4"
+      "01"                                                "item_heart_2;item_upgrade_core_2"
+      "02"                                                "item_heart_2;item_upgrade_core_3"
+      "03"                                                "item_heart_2;item_upgrade_core_4"
     }
   }
 
@@ -36,25 +36,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "4029"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                            "item_heart"
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                   "custom/heart_3"
+    "ID"                                                  "4029"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_heart"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/heart_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                      "7.0"
-    "MaxUpgradeLevel"                                      "5"
-    "ItemBaseLevel"                                        "3"
+    "AbilityCooldown"                                     "7.0"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                             "12300"
-    "ItemShopTags"                                         "str;regen_health;health_pool"
-    "ItemQuality"                                          "epic"
-    "ItemAliases"                                          "hot;heart of tarrasque"
-    "ItemDeclarations"                                     "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "12300"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "hot;heart of tarrasque"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "UpgradesItems"                                        "item_heart_3;item_heart_4;item_heart_5"
+    "UpgradesItems"                                       "item_heart_3;item_heart_4;item_heart_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,28 +62,28 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_strength"                                   "40 60 90 135 180"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "40 60 90 135 180"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_health"                                     "500 1000 2000 3500 5500"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "500 1000 2000 3500 5500"
       }
       "03"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "health_regen_rate"                                "7"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_rate"                               "7"
       }
       "04"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "cooldown_melee"                                   "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_melee"                                  "5"
       }
       "05"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                          "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"                         "7"
       }
     }
   }

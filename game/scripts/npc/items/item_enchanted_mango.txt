@@ -7,17 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "216"                            // unique
+    "ID"                                                  "216"                            // unique
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                             "110"
-    "ItemStackable"                                        "1"
-    "ItemHideCharges"                                      "0"
-    "ItemShareability"                                     "ITEM_FULLY_SHAREABLE_STACKING"
+    "ItemCost"                                            "110"
+    "ItemStackable"                                       "1"
+    "ItemHideCharges"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
 
     // Special  
     //-------------------------------------------------------------------------------------------------------------
@@ -25,13 +25,13 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "hp_regen"                                         "1.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_regen"                                        "1.0"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "replenish_amount"                                 "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_amount"                                "150"
       }  
     }
   }

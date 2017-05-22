@@ -7,33 +7,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "5459"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                                "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                                "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                               "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "SpellImmunityType"                                    "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                 "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                      "1"
-    "MaxLevel"                                             "6"
-    "RequiredLevel"                                        "1"
-    "LevelsBetweenUpgrades"                                "2"
+    "ID"                                                  "5459"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                     "0.05 0.05 0.05 0.05 0.05 0.05"
+    "AbilityCastPoint"                                    "0.05 0.05 0.05 0.05 0.05 0.05"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                      "60.0 46.0 32.0 18.0 14.0 14.0"
+    "AbilityCooldown"                                     "60.0 46.0 32.0 18.0 14.0 14.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                      "100"
+    "AbilityManaCost"                                     "100"
     
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                     "600 1000 1400 1800 2200 2600"
+    "AbilityCastRange"                                    "600 1000 1400 1800 2200 2600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,13 +41,13 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "backtrack_time"                                   "4.0 4.0 4.0 4.0 4.0 4.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "backtrack_time"                                  "4.0 4.0 4.0 4.0 4.0 4.0"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "cast_range"                                       "600 1000 1400 1800 2200 2600"
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "600 1000 1400 1800 2200 2600"
       }
     }
   }  

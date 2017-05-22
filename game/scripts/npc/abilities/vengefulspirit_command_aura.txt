@@ -7,17 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "5123"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-    "AbilityUnitTargetTeam"                                "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "ID"                                                  "5123"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
-    "MaxLevel"                                             "6"
-    "RequiredLevel"                                        "1"
-    "LevelsBetweenUpgrades"                                "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                     "900"
+    "AbilityCastRange"                                    "900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,14 +25,14 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_damage_pct"                                 "10 18 26 34 42 50"
-        "LinkedSpecialBonus"                               "special_bonus_unique_vengeful_spirit_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_pct"                                "10 18 26 34 42 50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_2"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "aura_radius"                                      "900"
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
       }
     }
   }

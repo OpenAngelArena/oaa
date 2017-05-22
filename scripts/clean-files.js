@@ -68,7 +68,9 @@ function cleanKVFile (file) {
   var indent = 0;
   var result = '';
   var error = false;
+  var lineNumber = 0;
   lineReader.on('line', (line) => {
+    lineNumber++;
     // replace tabs
     line = line.replace(/\t/g, tab);
 
@@ -92,13 +94,13 @@ function cleanKVFile (file) {
     }
 
     if (Object.keys(indices).length % 2 === 1) {
-      console.error(chalk.red('ERR File "' + file + '" has an uneven number of ".'));
+      console.error(chalk.red('ERR File "' + file + '" has an uneven number of " at line ' + lineNumber + '.'));
       error = true;
       return;
     }
 
     if (Object.keys(indices).length > 2 && indices[2] < padLenght) {
-      line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1]) + line.slice(indices[2]);
+      line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1] - 2) + line.slice(indices[2]);
     }
 
     result += line + '\n';
@@ -116,3 +118,4 @@ function cleanKVFile (file) {
 
 walk('game/resource/English', cleanTooltipFile);
 walk('game/scripts/npc', cleanKVFile);
+walk('game/scripts/shops', cleanKVFile);

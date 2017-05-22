@@ -7,16 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "3135"      // unique ID
-    "BaseClass"                                            "item_datadriven"
-    "ItemShopTags"                                         ""
-    "ItemRecipe"                                           "1"
-    "ItemResult"                                           "item_butterfly_5"
-    "ItemCost"                                             "20000"
-    "AbilityTextureName"                                   "item_recipe"
+    "ID"                                                  "3135"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_butterfly_5"
+    "ItemCost"                                            "20000"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                 "item_butterfly_4;item_upgrade_core_4"
+      "01"                                                "item_butterfly_4;item_upgrade_core_4"
     }
   }
 
@@ -27,28 +27,28 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "3139"      // unique ID
-    "BaseClass"                                            "item_butterfly"
-    //"AbilityBehavior"                                    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                   "custom/butterfly_5"
+    "ID"                                                  "3139"      // unique ID
+    "BaseClass"                                           "item_butterfly"
+    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/butterfly_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                      "25.0"
+    "AbilityCooldown"                                     "25.0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
 
-    "MaxUpgradeLevel"                                      "5"
-    "ItemBaseLevel"                                        "5"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                             "21525"
-    "ItemShopTags"                                         "agi;damage;evasion;attack_speed"
-    "ItemQuality"                                          "epic"
-    "ItemAliases"                                          "bfly;butterfly"
-    "ItemDeclarations"                                     "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "21525"
+    "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bfly;butterfly"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -56,33 +56,33 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_agility"                                    "35 45 55 65 75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "35 45 55 65 75"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_damage"                                     "30 40 53 65 75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 40 53 65 75"
       }
       "03"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_evasion"                                    "35"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "35"
       }
       "04"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_attack_speed"                               "30 33 36 39 42"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30 33 36 39 42"
       }
       "05"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_move_speed"                                 "35 39 42 45 48"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "35 39 42 45 48"
       }
       "06"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "duration"                                         "4"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4"
       }
     }
   }

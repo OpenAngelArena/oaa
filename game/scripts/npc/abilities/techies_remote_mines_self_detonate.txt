@@ -7,12 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                   "5636"// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                      "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                                "DAMAGE_TYPE_MAGICAL"
+    "ID"                                                  "5636"// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
-    "AbilityCastRange"                                     "0"
-    "MaxLevel"                                             "1"
+    "AbilityCastRange"                                    "0"
+    "MaxLevel"                                            "1"
 
 
     // Special
@@ -21,8 +21,8 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "radius"                                           "400 410 425 425 425"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400 410 425 425 425"
       }
     }
   }
