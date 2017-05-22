@@ -19,14 +19,14 @@ end
 
 local function FindTwin()
   local unitsInRange = FindUnitsInRadius(
-    DOTA_TEAM_NEUTRALS, 
-    self:GetAbsOrigin(), 
-    nil, 
-    2000, 
+    DOTA_TEAM_NEUTRALS,
+    thisEntity:GetAbsOrigin(),
+    nil,
+    2000,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_HERO,
     DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER, 
+    FIND_ANY_ORDER,
     false
     )
 
