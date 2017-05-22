@@ -48,7 +48,7 @@ local function HurtHandler (keys)
     ExecuteOrderFromTable({
       UnitIndex = bossIndex,
       -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
       Position = EntIndexToHScript(playerIndex):GetAbsOrigin(),
       Queue = 1,
     })
