@@ -25,7 +25,7 @@
   "attributes"
   {
         "item"    "item_ring_of_aquila"
-        "item"    "item_blink_dagger"
+        "item"    "item_blink"
         "item"    "item_urn_of_shadows"
         "item"    "item_ancient_janggo"
         "item"    "item_mekansm"
@@ -37,7 +37,7 @@
         "item"    "item_veil_of_discord"
         "item"    "item_solar_crest"
         "item"    "item_shivas_guard"
-        "item"    "item_assault_cuirass"
+        "item"    "item_assault"
         "item"    "item_radiance"
   }
 
@@ -69,7 +69,7 @@
         "item"    "item_blade_mail"
         "item"    "item_abyssal_blade"
         "item"    "item_vanguard"
-        "item"    "item_crimson"
+        "item"    "item_crimson_guard"
         "item"    "item_heart"
 
         "item"    "item_black_king_bar"
@@ -104,6 +104,26 @@
   // Column 1, Upgrades - OAA Tier 1
   "basics_off"
   {
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+    "item"    ""
+  }
+
+  // Column 2, Upgrades - OAA Tier 1
+  "basics"
+  {
     "item"    "item_farming_core"
     "item"    "item_reflex_core"
     "item"    "item_upgrade_core"
@@ -121,8 +141,8 @@
     "item"    ""
   }
 
-  // Column 2, Upgrades - OAA Tier 1
-  "basics"
+  // Column 3, Upgrades - OAA Tier 1
+  "support"
   {
     "item"    "item_preemptive_3a"
     "item"    "item_preemptive_3b"
@@ -141,8 +161,8 @@
     "item"    ""
   }
 
-  // Column 3, Upgrades - OAA Tier 1
-  "support"
+  // Column 4, Upgrades - OAA Tier 1
+  "magics"
   {
     "item"    "item_charge_bkb"
     "item"    "item_lucience"
@@ -156,26 +176,6 @@
     "item"    "item_refresher_core"
     "item"    "item_satanic_core"
     "item"    "item_trumps_fists"
-    "item"    ""
-    "item"    ""
-    "item"    ""
-  }
-
-  // Column 4, Upgrades - OAA Tier 1
-  "magics"
-  {
-    "item"    ""
-    "item"    ""
-    "item"    ""
-    "item"    ""
-    "item"    ""
-    "item"    ""
-    "item"    ""
-
-    "item"    ""
-    "item"    ""
-    "item"    ""
-    "item"    ""
     "item"    ""
     "item"    ""
     "item"    ""
