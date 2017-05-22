@@ -20,6 +20,7 @@
       "02"                                                "item_shivas_guard_3;item_armlet_2;item_upgrade_core_4"
     }
 
+<<<<<<< HEAD
   }
   //=================================================================================================================
   // stoneskin
@@ -35,6 +36,21 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
+=======
+        "ID"                            "3244"       // unique ID
+		"BaseClass"                     "item_datadriven"
+        "Model"                         "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"            "item_recipe"
+        "ItemCost"                      "8000"
+        "ItemShopTags"                  ""
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_stoneskin"
+        "ItemRequirements"
+        {
+          "01"                          "item_shivas_guard_3;item_armlet_3;item_upgrade_core_3"
+          "02"                          "item_shivas_guard_3;item_armlet_3;item_upgrade_core_4"
+      	}
+>>>>>>> fixed stoneskin having ridiculously low base armor
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -127,7 +143,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20 25"
+        "bonus_armor"                                     "50 65"
       }
       "04"
       {
@@ -151,7 +167,6 @@
       }
       "08"
       {
-
         "var_type"                                        "FIELD_INTEGER"
         "stone_resist"                                    "10 15"
       }
