@@ -38,9 +38,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3016"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                      "item_lua"
-    "ScriptFile"                     "items/item_greater_power_treads.lua"
+    "ScriptFile"                     "items/farming/greater_power_treads.lua"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"            "custom/item_greater_power_treads_2"
+    "AbilityTextureName"            "custom/greater_power_treads_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "5250"

@@ -35,9 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3045"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                      "item_lua"
-    "ScriptFile"                     "items/item_greater_tranquil_boots.lua"
+    "ScriptFile"                     "items/farming/greater_tranquil_boots.lua"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/item_greater_tranquils"
+    "AbilityTextureName"            "custom/greater_tranquils"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"        "13.0"

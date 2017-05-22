@@ -35,9 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3009"                          // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                      "item_lua"
-    "ScriptFile"                     "items/item_greater_phase_boots.lua"
+    "ScriptFile"                     "items/farming/greater_phase_boots.lua"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"            "custom/item_greater_phase_5"
+    "AbilityTextureName"            "custom/greater_phase_boots_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"        "8.0"
