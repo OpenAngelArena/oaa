@@ -1,0 +1,73 @@
+.StatDisplay
+{
+  vertical-align: top;
+  text-shadow: 0 0 6px 6 #000000;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 0.15s;
+  flow-children: none;
+  width: 250px;
+  height: fit-children;
+  margin-top: 116px;
+  z-index: 0;
+}
+
+.StatDisplayContainer
+{
+  z-index: 10;
+  flow-children: down;
+  horizontal-align: left;
+  opacity: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663cc ), color-stop( .5, #42566355 ), to( #0000 ) );
+  width: 175px;
+  transition-property: opacity;
+  transition-duration: 0.12s;
+  transition-timing-function: ease-out;
+}
+
+.StatDisplayHeaderContainer
+{
+  flow-children: none;
+  padding-top: 0;
+  padding-left: 8px;
+}
+
+#BCRow .StatDisplayHeaderContainer
+{
+  padding-top: 4px;
+  margin-top: -4px;
+}
+
+.QuickStatLabel
+{
+  font-weight: thin;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px 2 #00000099;
+  width: fit-children;
+}
+
+#QuickStatLabelHeader
+{
+  color: #A3B5D0CC;
+  text-align: left;
+  horizontal-align: left;
+  margin-right: 12px;
+}
+
+#QuickStatLabelValue
+{
+  color: white;
+  text-align: center;
+  margin-left: 68px;
+  horizontal-align: center;
+  flow-children: down;
+  font-family: RadianceM;
+  margin-right: 4px;
+}
+
+Label, TextEntry
+{
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}

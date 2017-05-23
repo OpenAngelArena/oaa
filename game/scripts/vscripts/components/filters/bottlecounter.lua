@@ -8,16 +8,8 @@ if BottleCounter == nil then
 end
 
 function BottleCounter:Init()
-  self.bottleCount = {}
+  self.bottleCount = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   FilterManager:AddFilter(FilterManager.ItemAddedToInventory, self, Dynamic_Wrap(BottleCounter, 'Filter'))
-
-  for _,playerID in PlayerResource:GetAllTeamPlayerIDs() do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    self.bottleCount[playerID] = 0
-    if hero then
-      hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
-    end
-  end
 end
 
 function BottleCounter:Filter(filterTable)
@@ -35,7 +27,7 @@ function BottleCounter:Filter(filterTable)
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
       self.bottleCount[playerID] = self.bottleCount[playerID] + 1
-      hero:AddNewModifier(hero, nil, 'modifier_bottle_counter', {})
+      CustomNetTables:SetTableValue('stat_display', 'BC', { value = self.bottleCount })
     end
   end
   return true

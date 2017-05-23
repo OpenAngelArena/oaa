@@ -24,7 +24,7 @@
   margin-left: 0px;
   vertical-align: middle;
   horizontal-align: center;
-  background-image: url("file://{images}/custom_game/TeamSelect_Teams.png");
+  background-image: url("file://{images}/custom_game/team_select/TeamSelect_Teams.png");
   background-size: 100% 100%; // image fills the panel
   background-repeat: no-repeat round;
   background-color: transparent;
@@ -159,7 +159,7 @@
   horizontal-align: right;
   margin-top: 220px;
   flow-children: down;
-  background-image: url("file://{images}/custom_game/TeamSelect_Teams_unassigned.png");
+  background-image: url("file://{images}/custom_game/team_select/TeamSelect_Teams_unassigned.png");
   background-size: 100% 100%;
 background-repeat: no-repeat;
   background-color: transparent;
