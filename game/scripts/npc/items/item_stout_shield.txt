@@ -4,17 +4,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "182"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Model"             "models/props_gameplay/stout_shield.vmdl"
+    "ID"                                                  "182"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"                                               "models/props_gameplay/stout_shield.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "200"
-    "ItemShopTags"          "block"
-    "ItemQuality"         "component"
-    "ItemAliases"         "stout shield"
-    "SideShop"            "0"
+    "ItemCost"                                            "200"
+    "ItemShopTags"                                        "block"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "stout shield"
+    "SideShop"                                            "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,18 +22,18 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage_block_melee"  "16"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_melee"                              "16"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage_block_ranged" "8"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_ranged"                             "8"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "block_chance"      "50"
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance"                                    "50"
       }
     }
   }
