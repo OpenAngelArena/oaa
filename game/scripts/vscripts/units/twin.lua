@@ -44,7 +44,7 @@ local function FindTwin()
   return false
 end
 
-local function HutHandler(keys)
+local function HurtHandler(keys)
   local twin = FindTwin()
   if twin == false then
     return
