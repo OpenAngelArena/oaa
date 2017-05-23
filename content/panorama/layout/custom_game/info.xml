@@ -1,0 +1,11 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/info.css" />
+  </styles>
+  <script>
+    $.GetContextPanel().FindChildTraverse('InfoVersion').text = 'Version: ' + CustomNetTables.GetTableValue('info', 'version').value
+  </script>
+  <Panel class="InfoContainer">
+    <Label class="InfoLabel" id="InfoVersion" text=""/>
+  </Panel>
+</root>
