@@ -58,39 +58,39 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"18"
+				"bonus_health_regen"		"18"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana_regen"		"400 450 500"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intelligence"		"28 45 65"
+			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"40 45 50"
+				"bonus_health"			"500"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"600 700 800"
+				"bonus_mana"			"500"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"600"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_cooldown"		"27 30 33"
 			}
-			"08"
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"hero_lifesteal"		"30"
 			}
-			"09"
+			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"creep_lifesteal"		"10"
