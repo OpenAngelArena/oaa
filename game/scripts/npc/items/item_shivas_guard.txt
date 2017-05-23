@@ -1,110 +1,110 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Shiva's Guard
-	//=================================================================================================================
-	"item_recipe_shivas_guard"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"118"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Shiva's Guard
+  //=================================================================================================================
+  "item_recipe_shivas_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "118"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"650"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "650"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shivas_guard"
-		"ItemRequirements"
-		{
-			"01"						"item_platemail;item_mystic_staff"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shivas_guard"
+    "ItemRequirements"
+    {
+      "01"                                                "item_platemail;item_mystic_staff"
+    }
+  }
 
-	//=================================================================================================================
-	// Shiva's Guard
-	//=================================================================================================================
-	"item_shivas_guard"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"119"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/shivas_guard_1"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
-		"AbilitySharedCooldown"			"shivas"
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"1"
+  //=================================================================================================================
+  // Shiva's Guard
+  //=================================================================================================================
+  "item_shivas_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "119"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/shivas_guard_1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+    "AbilitySharedCooldown"                               "shivas"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		"ItemCost"						"4700"
-		"ItemShopTags"					"int;armor;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"shiva's guard"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "4700"
+    "ItemShopTags"                                        "int;armor;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "shiva's guard"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"UpgradesItems"					"item_shivas_guard;item_shivas_guard_2;item_shivas_guard_3"
+    "UpgradesItems"                                       "item_shivas_guard;item_shivas_guard_2;item_shivas_guard_3"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30 45 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15 20 25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-45 -65 -85"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"200 300 450"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-40 -45 -50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"900"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"350"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "30 45 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "15 20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed"                               "-45 -65 -85"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_damage"                                    "200 300 450"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_movement_speed"                            "-40 -45 -50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_debuff_duration"                           "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_radius"                                    "900"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "350"
+      }
+    }
+  }
 }

@@ -1,104 +1,104 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Lotus Orb 2
-	//=================================================================================================================
-	"item_recipe_lotus_orb_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3188"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Lotus Orb 2
+  //=================================================================================================================
+  "item_recipe_lotus_orb_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3188"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_lotus_orb_2"
-		"ItemRequirements"
-		{
-			"01"						"item_lotus_orb;item_upgrade_core"
-			"02"						"item_lotus_orb;item_upgrade_core_2"
-			"03"						"item_lotus_orb;item_upgrade_core_3"
-			"04"						"item_lotus_orb;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_lotus_orb_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_lotus_orb;item_upgrade_core"
+      "02"                                                "item_lotus_orb;item_upgrade_core_2"
+      "03"                                                "item_lotus_orb;item_upgrade_core_3"
+      "04"                                                "item_lotus_orb;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Lotus Orb 2
-	//=================================================================================================================
-	"item_lotus_orb_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3189"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lotus_orb"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/lotus_orb_2"
-		"AbilityCooldown"				"15.0"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"75"
+  //=================================================================================================================
+  // Lotus Orb 2
+  //=================================================================================================================
+  "item_lotus_orb_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3189"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lotus_orb"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/lotus_orb_2"
+    "AbilityCooldown"                                     "15.0"
+    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "75"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7500"
-		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"ls;lotus orb"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "7500"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "ls;lotus orb"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10 20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"		"10 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"6 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"125 175"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250 350"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range_tooltip"		"900 1200"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10 20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10 20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "6 9"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "125 175"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250 350"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "active_duration"                                 "6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range_tooltip"                              "900 1200"
+      }
+    }
+  }
 }

@@ -5,17 +5,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "29"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Model"             "models/props_gameplay/boots_of_speed.vmdl"
+    "ID"                                                  "29"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "400"
-    "ItemShopTags"          "move_speed"
-    "ItemQuality"         "component"
-    "ItemAliases"         "boots of speed"
-    "SideShop"            "0"
+    "ItemCost"                                            "400"
+    "ItemShopTags"                                        "move_speed"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "boots of speed"
+    "SideShop"                                            "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,8 +23,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_movement_speed"  "45"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "45"
       }
     }
   }

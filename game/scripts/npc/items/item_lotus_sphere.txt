@@ -1,124 +1,124 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Lotus Sphere (Based on Lotus Orb)
-	//=================================================================================================================
-	"item_recipe_lotus_sphere"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3208"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Lotus Sphere (Based on Lotus Orb)
+  //=================================================================================================================
+  "item_recipe_lotus_sphere"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3208"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_lotus_sphere"
-		"ItemRequirements"
-		{
-      "01"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_2"
-      "02"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_3"
-      "03"            "item_sphere_2;item_lotus_orb_2;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_lotus_sphere"
+    "ItemRequirements"
+    {
+      "01"                                                "item_sphere_2;item_lotus_orb_2;item_upgrade_core_2"
+      "02"                                                "item_sphere_2;item_lotus_orb_2;item_upgrade_core_3"
+      "03"                                                "item_sphere_2;item_lotus_orb_2;item_upgrade_core_4"
+    }
+  }
 
 
-	//=================================================================================================================
-	// Lotus Orb (Based on Lotus Orb)
-	//=================================================================================================================
-	"item_lotus_sphere"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3210"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lotus_orb"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_lotus_orb"
-		"AbilityCooldown"				"15.0"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"75"
+  //=================================================================================================================
+  // Lotus Orb (Based on Lotus Orb)
+  //=================================================================================================================
+  "item_lotus_sphere"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3210"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lotus_orb"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_lotus_orb"
+    "AbilityCooldown"                                     "15.0"
+    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "75"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_lotus_sphere"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_lotus_sphere"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10000"
-		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"funball"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "10000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "funball"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"20 25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"15 21"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"200 250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"400 500"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"6 7"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range_tooltip"		"1200 1200"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "15 21"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "200 250"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "400 500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "active_duration"                                 "6 7"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range_tooltip"                              "1200 1200"
+      }
 
-			// Linkens Parameters
-			"08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "30 40"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "300 375"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "block_cooldown"        "9.0 7.0"
-            }
-		}
-	}
+      // Linkens Parameters
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "30 40"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "300 375"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "block_cooldown"                                  "9.0 7.0"
+      }
+    }
+  }
 
 
 }

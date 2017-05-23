@@ -5,16 +5,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "18"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "18"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "450"
-    "ItemShopTags"          "agi"
-    "ItemQuality"         "component"
-    "ItemAliases"         "band of elvenskin"
-    "SideShop"            "0"
+    "ItemCost"                                            "450"
+    "ItemShopTags"                                        "agi"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "band of elvenskin"
+    "SideShop"                                            "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,8 +22,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_agility"     "6"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "6"
       }
     }
   }

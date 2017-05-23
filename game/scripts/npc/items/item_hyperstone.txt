@@ -4,16 +4,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "55"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "55"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2000"
-    "ItemShopTags"          "attack_speed"
-    "ItemQuality"         "secret_shop"
-    "ItemAliases"         "hyperstone"
-    "SecretShop"          "0"
+    "ItemCost"                                            "2000"
+    "ItemShopTags"                                        "attack_speed"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "hyperstone"
+    "SecretShop"                                          "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,8 +21,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_attack_speed"  "55"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "55"
       }
     }
   }

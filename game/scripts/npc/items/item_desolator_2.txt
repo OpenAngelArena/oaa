@@ -1,78 +1,78 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Desolator 2
-	//=================================================================================================================
-	"item_recipe_desolator_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3600"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Desolator 2
+  //=================================================================================================================
+  "item_recipe_desolator_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3600"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_desolator_2"
-		"ItemRequirements"
-		{
-			"01"						"item_desolator;item_upgrade_core"
-			"02"						"item_desolator;item_upgrade_core_2"
-			"03"						"item_desolator;item_upgrade_core_3"
-			"04"						"item_desolator;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_desolator_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_desolator;item_upgrade_core"
+      "02"                                                "item_desolator;item_upgrade_core_2"
+      "03"                                                "item_desolator;item_upgrade_core_3"
+      "04"                                                "item_desolator;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Desolator 2
-	//=================================================================================================================
-	"item_desolator_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3604"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_desolator"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/desolator_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "2"
+  //=================================================================================================================
+  // Desolator 2
+  //=================================================================================================================
+  "item_desolator_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3604"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_desolator"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/desolator_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5500"
-		"ItemShopTags"					"damage;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"desolator 2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5500"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "desolator 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50 75 110 170 225"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-7 -9 -12 -16 -21"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"15.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 75 110 170 225"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "corruption_armor"                                "-7 -9 -12 -16 -21"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "corruption_duration"                             "15.0"
+      }
+    }
+  }
 }
