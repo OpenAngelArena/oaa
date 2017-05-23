@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 
 if Glyph == nil then
   Debug.EnabledModules['filters:glyph'] = true
@@ -6,6 +7,17 @@ if Glyph == nil then
 end
 
 function Glyph:Init()
+  self.ward = {}
+  self.scan = {}
+
+
+  self.ward.cooldown = 360
+  self.ward.cooldowns = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
+  self.scan.cooldowns = {
+    [DOTA_TEAM_GOODGUYS] = 0,
+    [DOTA_TEAM_BADGUYS] = 0,
+  }
+
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(Glyph, "Filter"))
 end
 
@@ -20,12 +32,38 @@ function Glyph:Filter(keys)
   if order == DOTA_UNIT_ORDER_GLYPH then
     -- Handle Glyph aka Ward Button
     DebugPrintTable(keys)
+    self:CastWard(issuerID)
     return false
   elseif order == DOTA_UNIT_ORDER_RADAR then
     -- Handle Scan
     DebugPrintTable(keys)
-    return true
+    self:CastScan(issuerID)
+    return false
   end
 
   return true
+end
+
+function Glyph:CastWard(playerID)
+  if self.ward.cooldowns[playerID] < 0 then
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
+    return
+  end
+  self.ward.cooldowns[playerID] = self.ward.cooldown
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  local position = hero:GetAbsOrigin()
+  --[[for i=0,256 do
+    Timers:CreateTimer(i * 2, function ()
+      print('Message ' .. i)
+      DebugDrawText(position, 'Message ' .. i, true, 2)
+      CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=i, message="message"})
+    end)
+  end]]
+
+  local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, hero, hero:GetTeam())
+  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = 360 })
+end
+
+function Glyph:CastScan(playerID)
+
 end
