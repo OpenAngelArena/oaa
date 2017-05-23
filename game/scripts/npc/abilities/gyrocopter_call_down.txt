@@ -1,84 +1,84 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Gyrocopter: Call Down
-	//=================================================================================================================
-	"gyrocopter_call_down"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5364"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Gyrocopter: Call Down
+  //=================================================================================================================
+  "gyrocopter_call_down"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5364"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"55 50 45 42 40"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 125 125 125 125"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_duration_first"		"2"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_duration_second"		"4"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_first"				"200 275 350 500 1100"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_second"				"100 150 200 300 700"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_first"				"30"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_second"				"60"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"600"
-			}			
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range_scepter"					"0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_second_scepter"		"175 225 275 400 850"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "55 50 45 42 40"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 125 125 125 125"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_duration_first"                             "2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_duration_second"                            "4"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_first"                                    "200 275 350 500 1100"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_second"                                   "100 150 200 300 700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_first"                                      "30"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_second"                                     "60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600"
+      }      
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range_scepter"                                   "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_second_scepter"                           "175 225 275 400 850"
+      }
+    }
+  }
 }

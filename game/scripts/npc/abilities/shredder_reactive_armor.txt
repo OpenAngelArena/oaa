@@ -1,46 +1,46 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Shredder: Reactive Armor
-	//=================================================================================================================
-	"shredder_reactive_armor"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5526"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Shredder: Reactive Armor
+  //=================================================================================================================
+  "shredder_reactive_armor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5526"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"bonus_armor"						"1 1.2 1.4 1.6 1.8 2.2"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"bonus_hp_regen"							"1 1.2 1.4 1.6 1.8 2.2"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"stack_limit"						"5 10 15 20 25 35"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"stack_duration"					"10 13 16 19 22 28"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_armor"                                     "1 1.2 1.4 1.6 1.8 2.2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_hp_regen"                                  "1 1.2 1.4 1.6 1.8 2.2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stack_limit"                                     "5 10 15 20 25 35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stack_duration"                                  "10 13 16 19 22 28"
+      }
+    }
+  }
 
 }

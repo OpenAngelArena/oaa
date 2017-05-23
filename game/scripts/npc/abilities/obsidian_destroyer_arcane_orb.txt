@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Obsidian Destroyer: Arcane Orb
-	//=================================================================================================================
-	"obsidian_destroyer_arcane_orb"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5391"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		"AbilityCastRange"				"450"
+  //=================================================================================================================
+  // Obsidian Destroyer: Arcane Orb
+  //=================================================================================================================
+  "obsidian_destroyer_arcane_orb"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5391"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "AbilityCastRange"                                    "450"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 120 140 160 200 360"
-		"AbilityCooldown"				"0"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 120 140 160 200 360"
+    "AbilityCooldown"                                     "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_pool_damage_pct"	"6 7 8 9 11 19"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"illusion_damage"		"100 200 300 400 600 1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int_steal"		"1 2 3 4 6 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"int_steal_duration"		"80"
-				"LinkedSpecialBonus"	"special_bonus_unique_outworld_devourer"
-			}
-		}
-	}	
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_pool_damage_pct"                            "6 7 8 9 11 19"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage"                                 "100 200 300 400 600 1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "int_steal"                                       "1 2 3 4 6 9"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "int_steal_duration"                              "80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
+      }
+    }
+  }  
 }

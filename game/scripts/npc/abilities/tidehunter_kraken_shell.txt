@@ -1,39 +1,39 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tidehunter: Kraken Shell
-	//=================================================================================================================
-	"tidehunter_kraken_shell"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5119"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Tidehunter: Kraken Shell
+  //=================================================================================================================
+  "tidehunter_kraken_shell"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5119"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"12 24 36 48 72 168"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_cleanse"		"600 550 500 450 400 350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_reset_interval"	"6.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "12 24 36 48 72 168"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_cleanse"                                  "600 550 500 450 400 350"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reset_interval"                           "6.0"
+      }
+    }
+  }
 
 }

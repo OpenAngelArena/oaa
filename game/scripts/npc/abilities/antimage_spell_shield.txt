@@ -1,34 +1,34 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Antimage Spell Shield
-	//=================================================================================================================
-	"antimage_spell_shield"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5005"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Ability: Antimage Spell Shield
+  //=================================================================================================================
+  "antimage_spell_shield"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5005"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"spell_shield_resistance"		"26 34 42 50 60 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_cooldown"		"12"
-			}
-		}
-	}
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_shield_resistance"                         "26 34 42 50 60 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "12"
+      }
+    }
+  }
 }

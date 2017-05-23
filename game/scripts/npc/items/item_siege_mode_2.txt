@@ -1,111 +1,111 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Sieghe Mode 2
-	//=================================================================================================================
+  //=================================================================================================================
+  // Recipe: Sieghe Mode 2
+  //=================================================================================================================
 
-	"item_recipe_siege_mode_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3347"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  "item_recipe_siege_mode_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3347"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_siege_mode_2"
-		"ItemRequirements"
-		{
-			"01"						"item_siege_mode;item_upgrade_core_4"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_siege_mode_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_siege_mode;item_upgrade_core_4"
 
-		}
-	}
+    }
+  }
 
-	//=================================================================================================================
-	// Siege Mode 2
-	//=================================================================================================================
+  //=================================================================================================================
+  // Siege Mode 2
+  //=================================================================================================================
 
-	"item_siege_mode_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3349"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                    	"item_lua"
-		"ScriptFile"                   	"items/item_siege_mode.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityTextureName"            "item_firework_mine"
-    	"AbilityCastPoint"  			"0.0"
-        "AbilityManaCost"           	"0"
-        "AbilityCooldown"           	"7.0"
+  "item_siege_mode_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3349"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/siege_mode.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityTextureName"                                  "item_firework_mine"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "7.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"27000"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"dragon lance"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "27000"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "dragon lance"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"25 30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"20 25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_attack_range"		"240"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siege_attack_range"	"600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siege_damage_bonus"	"300 450"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siege_atkspd_bonus"	"0"
-				// meant for negative bonus
-				// aka a self-slow
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siege_aoe"				"300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siege_splash"			"100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "25 30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_attack_range"                               "240"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_attack_range"                              "600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_damage_bonus"                              "300 450"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_atkspd_bonus"                              "0"
+        // meant for negative bonus
+        // aka a self-slow
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_aoe"                                       "300"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_splash"                                    "100"
+      }
+    }
+  }
 }

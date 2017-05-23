@@ -1,88 +1,88 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Satanic
-	//=================================================================================================================
-	"item_recipe_satanic"
-	{
+  //=================================================================================================================
+  // Recipe: Satanic
+  //=================================================================================================================
+  "item_recipe_satanic"
+  {
 
-		"ID"							"155"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"0"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_satanic"
-		"ItemRequirements"
-		{
-			"01"						"item_lifesteal;item_mithril_hammer;item_reaver"
-		}
-	}
+    "ID"                                                  "155"    // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_satanic"
+    "ItemRequirements"
+    {
+      "01"                                                "item_lifesteal;item_mithril_hammer;item_reaver"
+    }
+  }
 
-	//=================================================================================================================
-	// Satanic
-	//=================================================================================================================
-	"item_satanic"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"156"		// unique ID
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "item_satanic"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35.0"
+  //=================================================================================================================
+  // Satanic
+  //=================================================================================================================
+  "item_satanic"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "156"    // unique ID
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/satanic"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35.0"
 
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
 
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_satanic;item_satanic_2;item_satanic_3;item_satanic_4"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_satanic;item_satanic_2;item_satanic_3;item_satanic_4"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5800"
-		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"satanic"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5800"
+    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "satanic"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"25 38 55 75 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50 75 100 150 225"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifesteal_percent"		"25 30 35 40 45"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"unholy_lifesteal_percent"	"175 170 165 160 155"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"unholy_lifesteal_total_tooltip"	"200"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"unholy_duration"		"4.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "25 38 55 75 100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 75 100 150 225"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "25 30 35 40 45"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_lifesteal_percent"                        "175 170 165 160 155"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_lifesteal_total_tooltip"                  "200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "unholy_duration"                                 "4.5"
+      }
+    }
+  }
 }

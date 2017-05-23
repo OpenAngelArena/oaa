@@ -1,72 +1,72 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Crystal Maiden's Crystal Nova
-	//=================================================================================================================
-	"crystal_maiden_crystal_nova"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5126"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Ability: Crystal Maiden's Crystal Nova
+  //=================================================================================================================
+  "crystal_maiden_crystal_nova"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5126"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 11 10 9 9 9"
-		
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12 11 10 9 9 9"
+    
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 120 140 160 180 240"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"425"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_slow"	"-20 -30 -40 -50 -55 -65"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attackspeed_slow"	"-20 -30 -40 -50 -60 -85"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_duration"	"6.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"nova_damage"			"100 150 200 250 350 550"
-				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_2"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 120 140 160 180 240"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "425"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed_slow"                                  "-20 -30 -40 -50 -55 -65"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackspeed_slow"                                "-20 -30 -40 -50 -60 -85"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "6.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "nova_damage"                                     "100 150 200 250 350 550"
+        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_2"
+      }
+    }
+  }
 }

@@ -1,46 +1,46 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Doom Bringer: Devour
-	//=================================================================================================================
-	"doom_bringer_devour"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5339"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Doom Bringer: Devour
+  //=================================================================================================================
+  "doom_bringer_devour"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5339"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300 300 300 300 300 300"
-		"AbilityCooldown"				"70.0 60.0 50.0 40.0 40.0 40.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "300 300 300 300 300 300"
+    "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 40.0 40.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 50 60 70 90 170"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 50 60 70 90 170"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"25 50 75 100 150 350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_per_second"		"20 20 20 20 20 20"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold"                                      "25 50 75 100 150 350"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_per_second"                               "20 20 20 20 20 20"
+      }
+    }
+  }
 }

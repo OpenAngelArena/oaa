@@ -1,68 +1,68 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Nyx Assassin: Vendetta
-	//=================================================================================================================
-	"nyx_assassin_vendetta"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5465"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70.0 60.0 50.0 50.0 50.0"
+  //=================================================================================================================
+  // Nyx Assassin: Vendetta
+  //=================================================================================================================
+  "nyx_assassin_vendetta"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5465"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    // Stats    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70.0 60.0 50.0 50.0 50.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 210 260 360 760"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40 50 60 65 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_time"				"0.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"16 18 20 24 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"250 400 550 850 2000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_scepter"		"70 60 50 50 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health_regen_rate_scepter"		"3"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_regen_rate_scepter"		"3"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "160 210 260 360 760"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40 50 60 65 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "16 18 20 24 40"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "250 400 550 850 2000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "70 60 50 50 50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_regen_rate_scepter"                       "3"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_regen_rate_scepter"                         "3"
+      }
+    }
+  }
 }

@@ -1,105 +1,105 @@
 "DOTAAbilities"
 {
 "warlock_rain_of_chaos"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5165"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5165"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"165 165 165 165 165"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "165 165 165 165 165"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 350 450 650 1450"		
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250 350 450 650 1450"    
+    
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Primarily about the summon
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"golem_duration"			"60 60 60 60 60"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aoe"						"600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip"			"1000 1500 2000 3000 7000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip"			"75 100 125 175 375"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_armor_tooltip"		"6 9 12 18 42"
-				"LinkedSpecialBonus"		"special_bonus_unique_warlock_2"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_regen_tooltip"		"25 50 75 125 325"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"number_of_golems_scepter"	"2"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_hp_tooltip_scepter"	"750 1125 1500 2250 5250"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"golem_dmg_tooltip_scepter"	"56 75 94 131 281"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_dmg_reduction_scepter"	"25"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bounty_reduction_scepter"	"50"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // Primarily about the summon
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "golem_duration"                                  "60 60 60 60 60"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aoe"                                             "600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_hp_tooltip"                                "1000 1500 2000 3000 7000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_dmg_tooltip"                               "75 100 125 175 375"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_armor_tooltip"                             "6 9 12 18 42"
+        "LinkedSpecialBonus"                              "special_bonus_unique_warlock_2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_regen_tooltip"                             "25 50 75 125 325"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "number_of_golems_scepter"                        "2"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_hp_tooltip_scepter"                        "750 1125 1500 2250 5250"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "golem_dmg_tooltip_scepter"                       "56 75 94 131 281"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_dmg_reduction_scepter"                        "25"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty_reduction_scepter"                        "50"
+      }
+    }
+  }
 
 }

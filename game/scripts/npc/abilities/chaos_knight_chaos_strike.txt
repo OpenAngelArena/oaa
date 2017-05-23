@@ -1,38 +1,38 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Chaos Knight: Chaos Strike
-	//=================================================================================================================
-	"chaos_knight_chaos_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5428"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"12"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_damage"				"125 175 225 275 325 375"
-			}	
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"lifesteal"					"75"
-			}		
-		}
-	}
+  //=================================================================================================================
+  // Chaos Knight: Chaos Strike
+  //=================================================================================================================
+  "chaos_knight_chaos_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5428"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "12"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_damage"                                     "125 175 225 275 325 375"
+      }  
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal"                                       "75"
+      }    
+    }
+  }
 }

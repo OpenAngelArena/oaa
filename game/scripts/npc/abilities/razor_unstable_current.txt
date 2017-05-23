@@ -1,51 +1,51 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Razor: Unstable Current
-	//=================================================================================================================
-	"razor_unstable_current"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5084"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 70 100 130 190 430"
-				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"4 8 12 16 24 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"	"0.5 1.0 1.5 2.0 2.5 3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pause_duration"		"0.3 0.3 0.3 0.3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"purge_frequency"		"1 1 1 1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_amount"		"-100 -100 -100 -100"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Razor: Unstable Current
+  //=================================================================================================================
+  "razor_unstable_current"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5084"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "40 70 100 130 190 430"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "4 8 12 16 24 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.5 1.0 1.5 2.0 2.5 3.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pause_duration"                                  "0.3 0.3 0.3 0.3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "purge_frequency"                                 "1 1 1 1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_amount"                                     "-100 -100 -100 -100"
+      }
+    }
+  }
 }

@@ -1,113 +1,113 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Turret
-	//=================================================================================================================
-	"item_recipe_turret"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3356"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_turret"
-		"ItemRequirements"
-		{
-			"01"						"item_echo_sabre_4;item_dragon_lance_4;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Turret
+  //=================================================================================================================
+  "item_recipe_turret"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3356"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_turret"
+    "ItemRequirements"
+    {
+      "01"                                                "item_echo_sabre_4;item_dragon_lance_4;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Turret
-	//=================================================================================================================
+  //=================================================================================================================
+  // Turret
+  //=================================================================================================================
 
-	"item_turret"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3357"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"            "item_firework_mine"
-    	"AbilityCastPoint"  			"0.2"
-    	"AbilityCastRange"  			"900"
-        "AbilityManaCost"           	"100"
-        "AbilityCooldown"           	"25"
+  "item_turret"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3357"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityTextureName"                                  "item_firework_mine"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "100"
+    "AbilityCooldown"                                     "25"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"30000"
-		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"totem"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "30000"
+    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "totem"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Modifiers
-		//-------------------------------------------------------------------------------------------------------------
-	    "Modifiers"
-	    {
-	    	"modifier_item_turret_stats"
-	    	{
-	    		"Passive" 									"1"
-	    		"IsHidden"									"1"
-	    		"Properties"
-	    		{
-		    		"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
-		    		"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
-		    		"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
-		    		"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE "	"%bonus_mana_regen"
-	    		}
-	    	}
-	    	"modifier_item_turret_summon"
-	    	{
-	    		"OnSpellStart"
-	    		{}
-	    	}
-	    }
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+      "modifier_item_turret_stats"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_intellect"
+          "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_strength"
+          "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
+          "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE "      "%bonus_mana_regen"
+        }
+      }
+      "modifier_item_turret_summon"
+      {
+        "OnSpellStart"
+      {}
+      }
+    }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"turret_damage_pct"		"75"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"turret_range_pct"			"75"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"turret_atk_spd_pct"	"75"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "250"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turret_damage_pct"                               "75"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turret_range_pct"                                "75"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turret_atk_spd_pct"                              "75"
+      }
+    }
+  }
 }

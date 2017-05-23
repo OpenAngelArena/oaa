@@ -1,82 +1,82 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bristleback: Viscous Nasal Goo
-	//=================================================================================================================
-	"bristleback_viscous_nasal_goo"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5548"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Bristleback: Viscous Nasal Goo
+  //=================================================================================================================
+  "bristleback_viscous_nasal_goo"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5548"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.5 1.5 1.5 1.5 1.5 1.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1.5 1.5 1.5 1.5 1.5 1.5"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"goo_speed"				"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"goo_duration"			"5.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_per_stack"		"1 1.4 1.8 2.2 3 6.2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_move_slow"		"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow_per_stack"	"3 6 9 12 15 20"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stack_limit"			"4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"goo_duration_creep"			"10.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_scepter"				"750"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "goo_speed"                                       "1000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "goo_duration"                                    "5.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_per_stack"                                 "1 1.4 1.8 2.2 3 6.2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_move_slow"                                  "20"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow_per_stack"                             "3 6 9 12 15 20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stack_limit"                                     "4"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "goo_duration_creep"                              "10.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_scepter"                                  "750"
+      }
+    }
+  }
 }

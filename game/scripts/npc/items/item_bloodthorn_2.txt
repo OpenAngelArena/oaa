@@ -1,120 +1,120 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Bloodthorn 2
-	//=================================================================================================================
-	"item_recipe_bloodthorn_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3100"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Bloodthorn 2
+  //=================================================================================================================
+  "item_recipe_bloodthorn_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3100"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_bloodthorn_2"
-		"ItemRequirements"
-		{
-			"01"						"item_bloodthorn;item_upgrade_core"
-			"02"						"item_bloodthorn;item_upgrade_core_2"
-			"03"						"item_bloodthorn;item_upgrade_core_3"
-			"04"						"item_bloodthorn;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_bloodthorn_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_bloodthorn;item_upgrade_core"
+      "02"                                                "item_bloodthorn;item_upgrade_core_2"
+      "03"                                                "item_bloodthorn;item_upgrade_core_3"
+      "04"                                                "item_bloodthorn;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Bloodthorn 2
-	//=================================================================================================================
-	"item_bloodthorn_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3104"		// unique ID
-		"BaseClass"                     "item_bloodthorn"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Bloodthorn 2
+  //=================================================================================================================
+  "item_bloodthorn_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3104"    // unique ID
+    "BaseClass"                                           "item_bloodthorn"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"18.0"
-		"AbilitySharedCooldown"			"orchid"
-		"AbilityTextureName"            "custom/bloodthorn_2"
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "orchid"
+    "AbilityTextureName"                                  "custom/bloodthorn_2"
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_bloodthorn_2;item_bloodthorn_3;item_bloodthorn_4"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		"ItemCost"						"9695"
-		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"orchid malevolence"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "9695"
+    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "orchid malevolence"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"25 35 45 55 65"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 35 40 45 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60 90 135 200 270"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"150 175 200 225 250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"20"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"175 195 215 235 255"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"silence_damage_percent"	"30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"silence_duration"		"5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"target_crit_multiplier"		"145 160 175 190 205"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "25 35 45 55 65"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30 35 40 45 50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "60 90 135 200 270"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "150 175 200 225 250"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "175 195 215 235 255"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_damage_percent"                          "30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "target_crit_multiplier"                          "145 160 175 190 205"
+      }
+    }
+  }
 }

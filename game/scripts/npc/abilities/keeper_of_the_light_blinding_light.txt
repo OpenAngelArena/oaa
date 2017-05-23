@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Keeper of the Light: Blinding Light
-	//=================================================================================================================
-	"keeper_of_the_light_blinding_light"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5476"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"5"
+  //=================================================================================================================
+  // Keeper of the Light: Blinding Light
+  //=================================================================================================================
+  "keeper_of_the_light_blinding_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5476"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "5"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 900 900 900 900"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900 900 900 900 900"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 16 12 12 12"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 16 12 12 12"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50 50 50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 50 50 50 50"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"1.0"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "1.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"675 675 675 675 675"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"miss_duration"			"4.0 5.0 6.0 7.0 8.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_rate"				"80 80 80 80 80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"	"525"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_height"		"50 50 50 50 50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"	"0.4 0.4 0.4 0.4 0.4"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "675 675 675 675 675"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "miss_duration"                                   "4.0 5.0 6.0 7.0 8.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "80 80 80 80 80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "525"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_height"                                "50 50 50 50 50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.4 0.4 0.4 0.4 0.4"
+      }
+    }
+  }
 }

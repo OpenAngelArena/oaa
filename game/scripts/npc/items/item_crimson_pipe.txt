@@ -1,129 +1,129 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-	// Recipe: Crimson Pipe
-	//=================================================================================================================
-	"item_recipe_crimson_pipe"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3204"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Recipe: Crimson Pipe
+  //=================================================================================================================
+  "item_recipe_crimson_pipe"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3204"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_crimson_pipe"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_crimson_guard_2;item_pipe_2;item_upgrade_core_2"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_crimson_pipe"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_crimson_guard_2;item_pipe_2;item_upgrade_core_2"
+    }
+  }
 
-	//=================================================================================================================
-	// Crimson Pipe
-	//=================================================================================================================
-	"item_crimson_pipe"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3206"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_pipe"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_pipe"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
-		"AbilityCastRange"				"900"
+  //=================================================================================================================
+  // Crimson Pipe
+  //=================================================================================================================
+  "item_crimson_pipe"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3206"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_pipe"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityTextureName"                                  "item_pipe"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0"
+    "AbilityCastRange"                                    "900"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16550"
-		"ItemShopTags"					"armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
-		"ItemQuality"					"epic"
-        "ItemAliases"                   "Crimson Pipe"
-		"ItemAlertable"					"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "1"
-        "UpgradesItems"                 "item_crimson_pipe"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"350 525"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"28 42"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5 7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10 15"
-			}
-            "05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"		"45"
-			}
-            "06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-            "07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_damage_block_aura"	"150 250"
-			}
-            "08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_damage_threshold"			"150 250"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee_aura"	"75 90"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged_aura"	"40 50"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance_aura"			"50"
-			}
-            "12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"threshold_cooldown"		"6.0"
-			}
-            "13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_aura"		"15"
-			}
-		}
-	}
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "16550"
+    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "Crimson Pipe"
+    "ItemAlertable"                                       "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_crimson_pipe"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "350 525"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "28 42"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "5 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "45"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_damage_block_aura"                         "150 250"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_damage_threshold"                          "150 250"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_melee_aura"                         "75 90"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_ranged_aura"                        "40 50"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance_aura"                               "50"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_cooldown"                              "6.0"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance_aura"                           "15"
+      }
+    }
+  }
 
 }

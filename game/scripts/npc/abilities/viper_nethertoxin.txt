@@ -1,34 +1,34 @@
 "DOTAAbilities"
 {
 "viper_nethertoxin"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5219"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_damage"			"3 6 9 12 18 42"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"non_hero_damage_pct"	"50 50 50 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_damage_tooltip"	"48 96 144 192 288 672"
-			}
-		}
-	}
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5219"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_damage"                                    "3 6 9 12 18 42"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "non_hero_damage_pct"                             "50 50 50 50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage_tooltip"                              "48 96 144 192 288 672"
+      }
+    }
+  }
 }

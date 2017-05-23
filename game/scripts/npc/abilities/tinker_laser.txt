@@ -1,80 +1,80 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tinker: Laser
-	//=================================================================================================================
-	"tinker_laser"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5150"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Tinker: Laser
+  //=================================================================================================================
+  "tinker_laser"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5150"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"650"
-		"AbilityCastPoint"				"0.4"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.4"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14.0"
 
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95 120 145 170 220 420"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "95 120 145 170 220 420"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damageo
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.3"  // Primarily about the damageo
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_rate"				"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_hero"			"3 3.5 4 4.5 5.0 5.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_creep"		"6.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"laser_damage"			"80 160 240 320 480 1120"
-				"LinkedSpecialBonus"	"special_bonus_unique_tinker"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"	"650"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_scepter"	"650"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_hero"                                   "3 3.5 4 4.5 5.0 5.5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_creep"                                  "6.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "laser_damage"                                    "80 160 240 320 480 1120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "650"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "650"
+      }
+    }
+  }
 
 }

@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Phantom Assassin's Stifling Dagger
-	//=================================================================================================================
-	"phantom_assassin_stifling_dagger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5190"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Ability: Phantom Assassin's Stifling Dagger
+  //=================================================================================================================
+  "phantom_assassin_stifling_dagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5190"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"525 750 975 1200 1250 1275"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
-		"AbilityDuration"				"1 2 3 4 5 7"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 25 20 15 10 10"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "525 750 975 1200 1250 1275"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "6"
+    "AbilityDuration"                                     "1 2 3 4 5 7"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "30 25 20 15 10 10"
 
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"					"-50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dagger_speed"			"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1 2 3 4 5 7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"65"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_factor"			"-75 -60 -45 -30 -15 0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_factor_tooltip"	"25 40 55 70 85 100"
-			}
-		}
-	}
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "-50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dagger_speed"                                    "1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1 2 3 4 5 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "65"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_factor"                                   "-75 -60 -45 -30 -15 0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_factor_tooltip"                           "25 40 55 70 85 100"
+      }
+    }
+  }
 }

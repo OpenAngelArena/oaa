@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Monkey King: Boundless Strike
-	//=================================================================================================================
-	"monkey_king_boundless_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5716"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
-		"AbilityCastRange"				"1200"
+  //=================================================================================================================
+  // Monkey King: Boundless Strike
+  //=================================================================================================================
+  "monkey_king_boundless_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5716"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "1200"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.4 0.8 1.2 1.6 1.8 2.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strike_crit_mult"			"140 160 180 200 220 250"
-				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strike_radius"				"150"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strike_cast_range"			"1200"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.4 0.8 1.2 1.6 1.8 2.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strike_crit_mult"                                "140 160 180 200 220 250"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strike_radius"                                   "150"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strike_cast_range"                               "1200"
+      }
+    }
+  }
 
 }

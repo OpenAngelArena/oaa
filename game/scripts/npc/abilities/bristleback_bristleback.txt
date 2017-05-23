@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bristleback: Bristleback
-	//=================================================================================================================
-	"bristleback_bristleback"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5550"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"side_damage_reduction"			"8 12 16 20 30 40"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 24 32 40 45 55"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"side_angle"					"110"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"back_angle"					"70"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"quill_release_threshold"				"210"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Bristleback: Bristleback
+  //=================================================================================================================
+  "bristleback_bristleback"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5550"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "side_damage_reduction"                           "8 12 16 20 30 40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "back_damage_reduction"                           "16 24 32 40 45 55"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "side_angle"                                      "110"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "back_angle"                                      "70"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quill_release_threshold"                         "210"
+      }
+    }
+  }
 }

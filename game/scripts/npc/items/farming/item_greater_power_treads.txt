@@ -1,100 +1,100 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Power Treads
-	//=================================================================================================================
-	"item_recipe_greater_power_treads"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3010"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
-		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
+  //=================================================================================================================
+  // Recipe: Power Treads
+  //=================================================================================================================
+  "item_recipe_greater_power_treads"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3010"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "100"
+    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_power_treads"
-		"ItemRequirements"
-		{
-			"01"						"item_power_treads;item_farming_core"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_greater_power_treads"
+    "ItemRequirements"
+    {
+      "01"                                                "item_power_treads;item_farming_core"
+    }
+  }
 
-	//=================================================================================================================
-	// Power Treads
-	//=================================================================================================================
-	"item_greater_power_treads"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3015"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                    	"item_lua"
-		"ScriptFile"                   	"items/item_greater_power_treads.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "custom/item_greater_power_treads"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3450"
-		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"greater power treads"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+  //=================================================================================================================
+  // Power Treads
+  //=================================================================================================================
+  "item_greater_power_treads"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3015"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_power_treads.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/greater_power_treads"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3450"
+    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "greater power treads"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "1"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"  "50 55 60 65 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"15 24 36 54 72"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 35 40 45 50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"split_radius"			"300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"split_damage"			"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"split_damage_ranged"	"10 20 30 40 50"
-			}
-		}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "50 55 60 65 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_stat"                                      "15 24 36 54 72"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30 35 40 45 50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "split_radius"                                    "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "split_damage"                                    "10 20 30 40 50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "split_damage_ranged"                             "10 20 30 40 50"
+      }
+    }
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/items/powertreads_splash.vpcf"
-		}
-	}
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/items/powertreads_splash.vpcf"
+    }
+  }
 }

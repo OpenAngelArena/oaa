@@ -1,42 +1,42 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tombstone Aura
-	//=================================================================================================================
-	"undying_tombstone_zombie_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5445"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+  //=================================================================================================================
+  // Tombstone Aura
+  //=================================================================================================================
+  "undying_tombstone_zombie_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5445"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-		"MaxLevel"								"6"
+    "MaxLevel"                                            "6"
 
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"600 800 1000 1200 1400 1800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold"		"100 200 300 400 600 1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"zombie_interval"		"3.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_speed"			"50"
-			}
-		}
-	}
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600 800 1000 1200 1400 1800"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_threshold"                                "100 200 300 400 600 1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "zombie_interval"                                 "3.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "50"
+      }
+    }
+  }
 }

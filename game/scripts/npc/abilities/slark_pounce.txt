@@ -1,72 +1,72 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Slark: Pounce
-	//=================================================================================================================
-	"slark_pounce"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5495"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Slark: Pounce
+  //=================================================================================================================
+  "slark_pounce"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5495"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0 16.0 12.0 8.0 8.0 8.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 16.0 12.0 8.0 8.0 8.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pounce_distance"		"700"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pounce_speed"			"933.33"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pounce_acceleration"	"7000.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pounce_radius"			"95"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pounce_damage"			"40 80 120 160 240 560"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"leash_duration"		"3.5"
-				"LinkedSpecialBonus"	"special_bonus_unique_slark"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leash_radius"			"325"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pounce_distance"                                 "700"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pounce_speed"                                    "933.33"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pounce_acceleration"                             "7000.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pounce_radius"                                   "95"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pounce_damage"                                   "40 80 120 160 240 560"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "leash_duration"                                  "3.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slark"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leash_radius"                                    "325"
+      }
+    }
+  }
 
 }

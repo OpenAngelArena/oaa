@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Bloodseekers Thirst
-	//=================================================================================================================
-	"bloodseeker_thirst"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5017"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Ability: Bloodseekers Thirst
+  //=================================================================================================================
+  "bloodseeker_thirst"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5017"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"min_bonus_pct"				"75"
-			}			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"16 24 32 40 48 80"
-			}			
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"16 24 32 40 56 120"
-			}		
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_bonus_pct"				"25"
-			}	
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"visibility_threshold_pct"	"25"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"invis_threshold_pct"	"25"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_bonus_pct"                                   "75"
+      }      
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "16 24 32 40 48 80"
+      }      
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "16 24 32 40 56 120"
+      }    
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_bonus_pct"                                   "25"
+      }  
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "visibility_threshold_pct"                        "25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "invis_threshold_pct"                             "25"
+      }
+    }
+  }
 }

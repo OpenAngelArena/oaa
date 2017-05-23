@@ -1,130 +1,130 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Guardian Greaves
-	//=================================================================================================================
-	"item_recipe_guardian_greaves"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"230"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+  //=================================================================================================================
+  // Recipe: Guardian Greaves
+  //=================================================================================================================
+  "item_recipe_guardian_greaves"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "230"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1700"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1700"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_guardian_greaves"
-		"AbilityTextureName"			"item_recipe"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_guardian_greaves"
+    "AbilityTextureName"                                  "item_recipe"
 
-		"ItemRequirements"
-		{
-			"01"						"item_mekansm;item_arcane_boots"
-		}
-	}
+    "ItemRequirements"
+    {
+      "01"                                                "item_mekansm;item_arcane_boots"
+    }
+  }
 
-	//=================================================================================================================
-	// Guardian Greaves
-	//=================================================================================================================
-	"item_guardian_greaves"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"231"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
- 		"AbilityTextureName"			"item_guardian_greaves"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40"
-		"AbilityCastRange" 				"900"
+  //=================================================================================================================
+  // Guardian Greaves
+  //=================================================================================================================
+  "item_guardian_greaves"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "231"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_guardian_greaves"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40"
+    "AbilityCastRange"                                    "900"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"ItemCost"						"5275"
-		"ItemShopTags"					"int;armor;regen_health;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"guardian greaves"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "5275"
+    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "guardian greaves"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemAlertable"                                       "1"
 
-		"MaxUpgradeLevel"               "1"
-		"ItemBaseLevel"                 "1"
+    "MaxUpgradeLevel"                                     "1"
+    "ItemBaseLevel"                                       "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement"		"55"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen"		"4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_armor"			"2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen_bonus"		"15"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_armor_bonus"			"15"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_bonus_threshold"	"20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_health"		"250"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_mana"		"160"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_radius"		"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement"                                  "55"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_health_regen"                               "4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_armor"                                      "2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_health_regen_bonus"                         "15"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_armor_bonus"                                "15"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_bonus_threshold"                            "20"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_health"                                "250"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_mana"                                  "160"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_radius"                                "900"
+      }
+    }
+  }
 }

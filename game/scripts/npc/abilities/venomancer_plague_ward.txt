@@ -1,57 +1,57 @@
 "DOTAAbilities"
 {
 "venomancer_plague_ward"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5180"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5180"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"850"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20 20 20 20 20 20"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "20 20 20 20 20 20"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ward_hp_tooltip"		"75 200 325 450 700 1700"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ward_damage_tooltip"	"13 22 31 40 58 130"
-			}
-			"04" // For special bonus at level 25
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ward_hp"		"150 400 650 900 1400 3400"
-			}
-			"05" // For special bonus at level 25
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ward_damage"	"26 44 62 80 119 260"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_hp_tooltip"                                 "75 200 325 450 700 1700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_damage_tooltip"                             "13 22 31 40 58 130"
+      }
+      "04" // For special bonus at level 25
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_hp"                                         "150 400 650 900 1400 3400"
+      }
+      "05" // For special bonus at level 25
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_damage"                                     "26 44 62 80 119 260"
+      }
+    }
+  }
 }

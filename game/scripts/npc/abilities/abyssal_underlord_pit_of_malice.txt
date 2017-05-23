@@ -1,65 +1,65 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Abyssal Underlord: Pit of Malice
-	//=================================================================================================================
-	"abyssal_underlord_pit_of_malice"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5614"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Abyssal Underlord: Pit of Malice
+  //=================================================================================================================
+  "abyssal_underlord_pit_of_malice"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5614"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.45"
-		"FightRecapLevel"				"1"
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.45"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"32 28 24 20 20 20"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "32 28 24 20 20 20"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 115 130 145 175 295"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 115 130 145 175 295"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"375"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"pit_duration"					"12.0"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"pit_interval"					"3.6"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"pit_damage"					"0"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"ensnare_duration"				"0.9 1.2 1.5 1.8 2.1 2.4"
-				"LinkedSpecialBonus"			"special_bonus_unique_underlord"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pit_duration"                                    "12.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pit_interval"                                    "3.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pit_damage"                                      "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ensnare_duration"                                "0.9 1.2 1.5 1.8 2.1 2.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord"
+      }
+    }
+  }
 
 }

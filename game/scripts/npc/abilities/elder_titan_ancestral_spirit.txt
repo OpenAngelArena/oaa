@@ -1,87 +1,87 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Elder Titan: Ancestral Spirit
-	//=================================================================================================================
-	"elder_titan_ancestral_spirit"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5591"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4 0.4"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16.0"
+  //=================================================================================================================
+  // Elder Titan: Ancestral Spirit
+  //=================================================================================================================
+  "elder_titan_ancestral_spirit"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5591"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110 150 310"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 90 100 110 150 310"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"275"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"pass_damage"					"60 90 120 150 320 1040"
-			}
-						
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"spirit_duration"				"8.0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"buff_duration"					"9.0"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"speed"							"600"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"move_pct_creeps"				"1"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"move_pct_heroes"				"5"
-			}
-			"08"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_creeps"					"6 9 12 15 32 104"
-				"CalculateSpellDamageTooltip"				"0"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_heroes"					"15 30 45 60 150 500"
-				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan"
-				"CalculateSpellDamageTooltip"	"0"
-			}	
-			"10"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"move_pct_cap"					"30"
-			}		
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pass_damage"                                     "60 90 120 150 320 1040"
+      }
+      
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spirit_duration"                                 "8.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "9.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "600"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_pct_creeps"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_pct_heroes"                                 "5"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_creeps"                                   "6 9 12 15 32 104"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_heroes"                                   "15 30 45 60 150 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan"
+        "CalculateSpellDamageTooltip"                     "0"
+      }  
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_pct_cap"                                    "30"
+      }    
+    }
+  }
 }

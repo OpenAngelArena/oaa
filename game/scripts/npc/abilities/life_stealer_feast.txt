@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Lifestealer: Feast
-	//=================================================================================================================
-	"life_stealer_feast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5250"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"		"4.5 5.5 6.5 7.5 9.0 11.0"
-			}
-		}
-	}
-	
+  //=================================================================================================================
+  // Lifestealer: Feast
+  //=================================================================================================================
+  "life_stealer_feast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5250"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_leech_percent"                                "4.5 5.5 6.5 7.5 9.0 11.0"
+      }
+    }
+  }
+  
 }

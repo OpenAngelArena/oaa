@@ -1,118 +1,118 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Spell Totem
-	//=================================================================================================================
-	"item_recipe_spell_totem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3350"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_spell_totem"
-		"ItemRequirements"
-		{
-			"01"						"item_aether_lens_3;item_upgrade_core_3"
-			"02"						"item_aether_lens_3;item_upgrade_core_4"
-			"03"						"item_aether_glasses_2;item_upgrade_core_3"
-			"04"						"item_aether_glasses_2;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Spell Totem
+  //=================================================================================================================
+  "item_recipe_spell_totem"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3350"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_spell_totem"
+    "ItemRequirements"
+    {
+      "01"                                                "item_aether_lens_3;item_upgrade_core_3"
+      "02"                                                "item_aether_lens_3;item_upgrade_core_4"
+      "03"                                                "item_aether_glasses_2;item_upgrade_core_3"
+      "04"                                                "item_aether_glasses_2;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Spell Totem
-	//=================================================================================================================
-	"item_spell_totem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3351"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"            "item_firework_mine"
-    	"AbilityCastPoint"  			"0.2"
-    	"AbilityCastRange"  			"900"
-        "AbilityManaCost"           	"100"
-        "AbilityCooldown"           	"25"
+  //=================================================================================================================
+  // Spell Totem
+  //=================================================================================================================
+  "item_spell_totem"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3351"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityTextureName"                                  "item_firework_mine"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "100"
+    "AbilityCooldown"                                     "25"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"30000"
-		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"totem"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "30000"
+    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "totem"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Modifiers
-		//-------------------------------------------------------------------------------------------------------------
-	    "Modifiers"
-	    {
-	    	"modifier_item_spell_totem_stats"
-	    	{
-	    		"Passive" 									"1"
-	    		"IsHidden"									"1"
-	    		"Properties"
-	    		{
-		    		"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
-		    		"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
-	    		}
-	    	}
-	    	"modifier_item_spell_totem_summon"
-	    	{
-	    		"OnSpellStart"
-	    		{}
-	    	}
-	    }
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+      "modifier_item_spell_totem_stats"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MANA_BONUS"                  "%bonus_mana"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"       "%bonus_health_regen"
+        }
+      }
+      "modifier_item_spell_totem_summon"
+      {
+        "OnSpellStart"
+      {}
+      }
+    }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_mana"				"500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_health_regen"		"16"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_bonus"			"300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"spell_amp"					"10"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_aoe_bonus_percent"	"25"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"totem_mana_percent"		"100"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"totem_damage_percent"		"75"
-			}
-			"08"
-			{
-				"var_type"        "FIELD_INGEGER"
-				"totem_cast_range_percent"	"100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "16"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_bonus"                                "300"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "10"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_aoe_bonus_percent"                          "25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "totem_mana_percent"                              "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "totem_damage_percent"                            "75"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INGEGER"
+        "totem_cast_range_percent"                        "100"
+      }
+    }
+  }
 }

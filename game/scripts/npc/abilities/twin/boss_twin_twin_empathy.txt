@@ -1,32 +1,32 @@
 "DOTAAbilities"
- {
-   //=================================================================================================================
-   // Generic boss resistance for % based damage
-   //=================================================================================================================
-   "boss_twin_twin_empathy"
-   {
- 
-     "ID" "9900"
-     "BaseClass" "ability_lua"
-     "ScriptFile" "abilities/twin/boss_twin_twin_empathy.lua"
-     "AbilityTextureName" "meepo_poof"
-     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_ACTIVE"
-     "AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
- 
- 
-     "MaxLevel"            "3"
-     "RequiredLevel"         "1"
-     "LevelsBetweenUpgrades"     "1"
- 
- 
-     "AbilitySpecial"
-     {
-       "01"
-       {
-         "var_type"            "FIELD_FLOAT"
-         "heal_timer"   "2 1.5 1"
-       }
-     }
-   }
- }
+{
+  //=================================================================================================================
+  // Generic boss resistance for % based damage
+  //=================================================================================================================
+  "boss_twin_twin_empathy"
+  {
+    
+    "ID"                                                  "9900"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/twin/boss_twin_twin_empathy.lua"
+    "AbilityTextureName"                                  "meepo_poof"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_ACTIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    
+    
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+    
+    
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_timer"                                      "2 1.5 1"
+      }
+    }
+  }
+}
 

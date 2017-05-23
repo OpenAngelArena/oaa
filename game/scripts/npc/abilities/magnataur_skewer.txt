@@ -1,71 +1,71 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Magnataur: Skewer
-	//=================================================================================================================
-	"magnataur_skewer"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5520"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Magnataur: Skewer
+  //=================================================================================================================
+  "magnataur_skewer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5520"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 80 80 80 80 80"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 80 80 80 80 80"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skewer_speed"					"950"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"900 1000 1100 1200 1300 1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_pct"				"25 30 35 40 45 60"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skewer_radius"				"125"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"				"2.5 2.75 3 3.25 3.75 6.0"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"skewer_damage"			"70 140 210 280 420 1000"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tree_radius"				"200"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_speed"                                    "950"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "900 1000 1100 1200 1300 1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "25 30 35 40 45 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_radius"                                   "125"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.5 2.75 3 3.25 3.75 6.0"
+      }      
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_damage"                                   "70 140 210 280 420 1000"
+      }      
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_radius"                                     "200"
+      }
+    }
+  }
 }

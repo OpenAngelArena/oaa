@@ -1,67 +1,67 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Broodmother: Spawn Spiderlings
-	//=================================================================================================================
-	"broodmother_spawn_spiderlings"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5279"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Broodmother: Spawn Spiderlings
+  //=================================================================================================================
+  "broodmother_spawn_spiderlings"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5279"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2 0.2 0.2"
-		"AbilityCooldown"				"10.0 10.0 10.0 10.0 10.0"
-		"AbilityManaCost"				"120 120 120 120 120 120"
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
+    "AbilityCooldown"                                     "10.0 10.0 10.0 10.0 10.0"
+    "AbilityManaCost"                                     "120 120 120 120 120 120"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Modifier has no support value
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"2.0 2.0 2.0 2.0 2.0 2.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spiderling_duration"	"60.0 60.0 60.0 60.0 60.0 60.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 140 210 280 420 980"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"count"					"1 2 3 4 6 14"
-			}	 
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"	"1200"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"  // Modifier has no support value
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "2.0 2.0 2.0 2.0 2.0 2.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spiderling_duration"                             "60.0 60.0 60.0 60.0 60.0 60.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "70 140 210 280 420 980"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count"                                           "1 2 3 4 6 14"
+      }   
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1200"
+      }
+    }
+  }
 }

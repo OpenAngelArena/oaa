@@ -1,37 +1,37 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Luna: Moon Glaive
-	//=================================================================================================================
-	"luna_moon_glaive"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5223"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bounces"					"1 2 3 6 7 8"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_reduction_percent"	"35 35 35 35 30 25"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Luna: Moon Glaive
+  //=================================================================================================================
+  "luna_moon_glaive"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5223"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounces"                                         "1 2 3 6 7 8"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction_percent"                        "35 35 35 35 30 25"
+      }
+    }
+  }
 
 }

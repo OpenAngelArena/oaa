@@ -7,89 +7,89 @@
   {
     // General
     //
-    "BaseClass"                 "npc_dota_creature" // Class of entity of link to.
-    "Model"                     "models/heroes/spirit_breaker/spirit_breaker.vmdl"  // Model.
-    "vscripts"                  "units/charger.lua"
-    "SoundSet"                  "spirit_breaker"                    // Name of sound set.
-    "ModelScale"                "2"
-    "Level"                     "30"
-    "IsAncient"                 "1"
-    "ConsideredHero"            "1"
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/heroes/spirit_breaker/spirit_breaker.vmdl"  // Model.
+    "vscripts"                                            "units/charger.lua"
+    "SoundSet"                                            "spirit_breaker"                    // Name of sound set.
+    "ModelScale"                                          "2"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "boss_charger_summon_pillar"
-    "Ability2"                  "boss_charger_charge"
-    "Ability3"                  "boss_resistance"
-    "Ability4"                  ""
+    "Ability1"                                            "boss_charger_summon_pillar"
+    "Ability2"                                            "boss_charger_charge"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"             "250"            // Physical protection.
-    "MagicalResistance"         "95"                                 // Magical protection (percentage).
+    "ArmorPhysical"                                       "250"            // Physical protection.
+    "MagicalResistance"                                   "95"                                 // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "1000"      // Damage range min.
-    "AttackDamageMax"           "1000"      // Damage range max.
-    "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                "2.0"           // Speed of attack.
-    "AttackAnimationPoint"      "0.3"       // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "150"       // Range within a target can be acquired.
-    "AttackRange"               "128"       // Range within a target can be attacked.
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "1000"      // Damage range min.
+    "AttackDamageMax"                                     "1000"      // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "2.0"           // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "150"       // Range within a target can be acquired.
+    "AttackRange"                                         "128"       // Range within a target can be attacked.
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                  "0"     // Experience earn.
-    "BountyGoldMin"             "0"     // Gold earned min.
-    "BountyGoldMax"             "0"     // Gold earned max.
+    "BountyXP"                                            "0"     // Experience earn.
+    "BountyGoldMin"                                       "0"     // Gold earned min.
+    "BountyGoldMax"                                       "0"     // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"            "DOTA_HULL_SIZE_HERO"           // Hull type used for navigation/locomotion.
-    "RingRadius"                "110"
-    "HealthBarOffset"           "400"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"           // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"         // Type of locomotion - ground, air
-    "MovementSpeed"             "520"       // Speed
-    "MovementTurnRate"          "0.8"       // Turning rate.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"         // Type of locomotion - ground, air
+    "MovementSpeed"                                       "520"       // Speed
+    "MovementTurnRate"                                    "0.8"       // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "3000"     // Base health
-    "StatusHealthRegen"         "1.5"        // Health regeneration rate.
-    "StatusMana"                "0"     // Base mana.
-    "StatusManaRegen"           "0"     // Mana regeneration rate.
+    "StatusHealth"                                        "3000"     // Base health
+    "StatusHealthRegen"                                   "1.5"        // Health regeneration rate.
+    "StatusMana"                                          "0"     // Base mana.
+    "StatusManaRegen"                                     "0"     // Mana regeneration rate.
 
-   // Creature data
+    // Creature data
 
-   "Creature"
+    "Creature"
     {
-    //Makes it only have 75% remaining of applied crowd control
-     "DisableResistance"            "25.0"
+      //Makes it only have 75% remaining of applied crowd control
+      "DisableResistance"                                 "25.0"
     }
 
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"            // Team name.
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "1400"      // Range of vision during day light.
-    "VisionNighttimeRange"      "1400"      // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1400"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"      // Range of vision at night time.
 
     // Inventory
     //----------------------------------------------------------------
-    "HasInventory"              "1"
+    "HasInventory"                                        "1"
 
-    "MinimapIcon"                   "minimap_roshancamp"
-    "MinimapIconSize"               "450"
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
   }
 }

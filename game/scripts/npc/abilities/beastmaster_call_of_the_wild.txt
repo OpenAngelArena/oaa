@@ -1,67 +1,67 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Beastmaster: Call of the Wild Hawk
-	//=================================================================================================================
-	"beastmaster_call_of_the_wild"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5169"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"           "ability_lua"
-    "ScriptFile"          "abilities/oaa_call_of_the_wild_hawk"
-    "AbilityTextureName"  "beastmaster_call_of_the_wild"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Beastmaster: Call of the Wild Hawk
+  //=================================================================================================================
+  "beastmaster_call_of_the_wild"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5169"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_call_of_the_wild_hawk"
+    "AbilityTextureName"                                  "beastmaster_call_of_the_wild"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"42 38 34 30 30 30"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "42 38 34 30 30 30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-		"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_duration"				"60 60 60 60 60 60"
-			}
-		"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_hp_tooltip"				"40 60 80 100 140 300"
-			}
-		"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_speed_tooltip"				"250 275 300 325 375 575"
-			}
-		"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_daysight_tooltip"				"500 750 1000 1250 1500 1750"
-			}
-		"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_nightsight_tooltip"				"500 650 800 950 1500 1750"
-			}
-		"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_duration"				"60 60 60 60 60 60"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_duration"                                   "60 60 60 60 60 60"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_hp_tooltip"                                 "40 60 80 100 140 300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_speed_tooltip"                              "250 275 300 325 375 575"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_daysight_tooltip"                           "500 750 1000 1250 1500 1750"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_nightsight_tooltip"                         "500 650 800 950 1500 1750"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_duration"                                   "60 60 60 60 60 60"
+      }
+    }
+  }
 }

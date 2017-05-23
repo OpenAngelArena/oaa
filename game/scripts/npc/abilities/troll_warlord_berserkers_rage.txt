@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Troll Warlord: Berserker's Rage
-	//=================================================================================================================
-	"troll_warlord_berserkers_rage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5508"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+  //=================================================================================================================
+  // Troll Warlord: Berserker's Rage
+  //=================================================================================================================
+  "troll_warlord_berserkers_rage"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5508"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_hp"				"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed"		"10 20 30 40 50 60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"6 6 6 6 12 18"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_range"			"350"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"1.50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance"			"10"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_duration"			"0.8 1.2 1.6 2.0 2.0 2.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_damage"			"20 30 40 50 70 150"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp"                                        "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "10 20 30 40 50 60"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6 6 6 6 12 18"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_range"                                     "350"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_chance"                                     "10"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bash_duration"                                   "0.8 1.2 1.6 2.0 2.0 2.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_damage"                                     "20 30 40 50 70 150"
+      }
+    }
+  }
 
 
 }

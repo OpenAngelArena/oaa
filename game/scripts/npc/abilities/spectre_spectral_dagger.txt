@@ -1,98 +1,98 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Spectre: Spectral Dagger
-	//=================================================================================================================
-	"spectre_spectral_dagger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5334"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Spectre: Spectral Dagger
+  //=================================================================================================================
+  "spectre_spectral_dagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5334"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "2000"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130 140 150 160 180 250"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "130 140 150 160 180 250"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Modifier has no support value
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"  // Modifier has no support value
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 100 150 200 300 700"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"8 12 16 20 25 45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dagger_path_duration"	"12.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_path_duration"	"7.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_persistence"		"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dagger_radius"			"125"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"path_radius"			"175"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"200"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dagger_grace_period"	"2.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50 100 150 200 300 700"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed"                                 "8 12 16 20 25 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "dagger_path_duration"                            "12.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_path_duration"                              "7.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_persistence"                                "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dagger_radius"                                   "125"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "path_radius"                                     "175"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "200"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "dagger_grace_period"                             "2.0"
+      }
+    }
+  }
 
 }

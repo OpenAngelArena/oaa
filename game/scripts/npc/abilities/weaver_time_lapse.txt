@@ -1,39 +1,39 @@
 "DOTAAbilities"
 {
 "weaver_time_lapse"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5292"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"		
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityCastRange"				"1000"
-		"MaxLevel"						"5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5292"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"    
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityCastRange"                                    "1000"
+    "MaxLevel"                                            "5"
 
-		"FightRecapLevel"				"2"
+    "FightRecapLevel"                                     "2"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"60 50 40 30 20"
-		"AbilityManaCost"				"150 75 0 0 0"	
-		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_scepter"		"16 16 16 12 8"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip_scepter"		"1000"
-			}				
-		}
-	}
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCooldown"                                     "60 50 40 30 20"
+    "AbilityManaCost"                                     "150 75 0 0 0"  
+    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "16 16 16 12 8"
+      }  
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip_scepter"                      "1000"
+      }        
+    }
+  }
 }

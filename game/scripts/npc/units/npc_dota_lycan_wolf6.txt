@@ -1,82 +1,82 @@
 "DOTAUnits"
 {
-	//=================================================================================
-	// Lycan Wolf 6
-	//=================================================================================
+  //=================================================================================
+  // Lycan Wolf 6
+  //=================================================================================
 
-	"npc_dota_lycan_wolf6"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.	// Model.
-		"BaseClass"					"npc_dota_creep_neutral"
-		"SoundSet"					"Lycan_Wolf"
-		"Level"						"2"
-		"IsSummoned"				"1"
-		"ModelScale" 					"1.1"
-		"UnitLabel"			"lycan_wolf"
-		"UseNeutralCreepBehavior"	"0"
+  "npc_dota_lycan_wolf6"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/lycan/summon_wolves.vmdl"  // Model.  // Model.
+    "BaseClass"                                           "npc_dota_creep_neutral"
+    "SoundSet"                                            "Lycan_Wolf"
+    "Level"                                               "2"
+    "IsSummoned"                                          "1"
+    "ModelScale"                                          "1.1"
+    "UnitLabel"                                           "lycan_wolf"
+    "UseNeutralCreepBehavior"                             "0"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"lycan_summon_wolves_critical_strike"			// Ability 1
-		"Ability2"					"lycan_summon_wolves_invisibility"			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "lycan_summon_wolves_critical_strike"      // Ability 1
+    "Ability2"                                            "lycan_summon_wolves_invisibility"      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"1"			// Physical protection.
-		"MagicalResistance"				"80"		// Magical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "1"      // Physical protection.
+    "MagicalResistance"                                   "80"    // Magical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"138"		// Damage range min.
-		"AttackDamageMax"			"142"		// Damage range max.	
-		"AttackRate"				"0.7"		// Speed of attack.
-		"AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"90"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "138"    // Damage range min.
+    "AttackDamageMax"                                     "142"    // Damage range max.  
+    "AttackRate"                                          "0.7"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "90"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
 
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"70"
-		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "160"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"20"		// Experience earn.
-		"BountyGoldMin"				"26"		// Gold earned min.
-		"BountyGoldMax"				"26"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"    // Experience earn.
+    "BountyGoldMin"                                       "26"    // Gold earned min.
+    "BountyGoldMax"                                       "26"    // Gold earned max.
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"500"		// Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "500"    // Speed.
 
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"720"		// Base health.
-		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1200"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "720"    // Base health.
+    "StatusHealthRegen"                                   "0.5"    // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	}	
-	
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }  
+  
 }

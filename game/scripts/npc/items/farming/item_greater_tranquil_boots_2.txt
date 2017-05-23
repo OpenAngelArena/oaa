@@ -1,134 +1,134 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Tranquil Boots 2
-	//=================================================================================================================
-	"item_recipe_greater_tranquil_boots_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3041"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+  //=================================================================================================================
+  // Recipe: Tranquil Boots 2
+  //=================================================================================================================
+  "item_recipe_greater_tranquil_boots_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3041"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_tranquil_boots_2"
-		"ItemRequirements"
-		{
-			"01"						"item_greater_tranquil_boots;item_upgrade_core"
-			"02"						"item_greater_tranquil_boots;item_upgrade_core_2"
-			"03"						"item_greater_tranquil_boots;item_upgrade_core_3"
-			"04"						"item_greater_tranquil_boots;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_greater_tranquil_boots_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_greater_tranquil_boots;item_upgrade_core"
+      "02"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "03"                                                "item_greater_tranquil_boots;item_upgrade_core_3"
+      "04"                                                "item_greater_tranquil_boots;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Tranquil Boots 2
-	//=================================================================================================================
-	"item_greater_tranquil_boots_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3046"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                    	"item_lua"
-		"ScriptFile"                   	"items/item_greater_tranquil_boots.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/item_greater_tranquils_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0"
-		"AbilityManaCost"				"0"
+  //=================================================================================================================
+  // Tranquil Boots 2
+  //=================================================================================================================
+  "item_greater_tranquil_boots_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3046"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_tranquil_boots.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/greater_tranquils_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0"
+    "AbilityManaCost"                                     "0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4200"
-		"ItemShopTags"					"move_speed;regen_health;armor"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"tranquil boots"
-		"ItemHideCharges"		     	"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4200"
+    "ItemShopTags"                                        "move_speed;regen_health;armor"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "tranquil boots"
+    "ItemHideCharges"                                     "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-  		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "2"
-		"UpgradesItems"                 "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
-		"UpgradeRecipe"                 "item_recipe_greater_tranquil_boots"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"95 105 115 125 135"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"4 5 7 9 11"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"18 25 35 45 55"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_duration"			"20.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_interval"			"0.334"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_time"			"13"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_count"			"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_threshold"		"20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"broken_movement_speed"	"55"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_from_creeps"		"20 30 45 60 120"    // New Functionality
-			}
-			// setting either of these to 0 will disable the functionality
-			// of creeps "bleeding" from attacking the wearer
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_sap_damage"		"1.6 1.9 2.1 2.5 5"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_sap_duration"	"2.0"
-			}
-		}
-	}
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
+    "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "95 105 115 125 135"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "4 5 7 9 11"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "18 25 35 45 55"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_duration"                                   "20.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_amount"                                     "250"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_interval"                                   "0.334"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_time"                                      "13"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_count"                                     "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_threshold"                                 "20"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "broken_movement_speed"                           "55"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "regen_from_creeps"                               "20 30 45 60 120"    // New Functionality
+      }
+      // setting either of these to 0 will disable the functionality
+      // of creeps "bleeding" from attacking the wearer
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_sap_damage"                                "1.6 1.9 2.1 2.5 5"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_sap_duration"                              "2.0"
+      }
+    }
+  }
 }

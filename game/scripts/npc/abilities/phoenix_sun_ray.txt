@@ -1,99 +1,99 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Phoenix: Sun Ray
-	//=================================================================================================================
-	"phoenix_sun_ray"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5626"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Phoenix: Sun Ray
+  //=================================================================================================================
+  "phoenix_sun_ray"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5626"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.01"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1300"
+    "AbilityCastPoint"                                    "0.01"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"26"
-		"AbilityDuration"				"6.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "26"
+    "AbilityDuration"                                     "6.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"hp_cost_perc_per_second"		"6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"14 20 26 32 44 92"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hp_perc_damage"		"1.5 3.25 5.0 6.75 6.75 6.75"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_heal"			"7 10 13 16 22 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hp_perc_heal"			"0.625 1.25 1.875 2.5 2.5 2.5"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost_perc_per_second"                         "6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "14 20 26 32 44 92"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_perc_damage"                                  "1.5 3.25 5.0 6.75 6.75 6.75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_heal"                                       "7 10 13 16 22 50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_perc_heal"                                    "0.625 1.25 1.875 2.5 2.5 2.5"
+      }
 
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"130"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.2"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"forward_move_speed"	"250"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"beam_range"		"1300"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate_initial"			"250"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate"					"25"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_duration"	"6"
-			}
-		}
-	}
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "130"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.2"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "forward_move_speed"                              "250"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "beam_range"                                      "1300"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "turn_rate_initial"                               "250"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "turn_rate"                                       "25"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_duration"                                "6"
+      }
+    }
+  }
 }

@@ -1,68 +1,68 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Techies: Stasis Trap
-	//=================================================================================================================
-	"techies_stasis_trap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5600"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+  //=================================================================================================================
+  // Techies: Stasis Trap
+  //=================================================================================================================
+  "techies_stasis_trap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5600"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"1.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "1.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0 16.0 13.0 10.0 7.5 5.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 16.0 13.0 10.0 7.5 5.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 110 140 160 250 430"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 110 140 160 250 430"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"activation_radius"			"400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"explode_delay"			"0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"stun_radius"				"600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"2 3 4 5 5 5"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"activation_time"			"2.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"2.0 2.0 2.0 2.0 1.0 0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "activation_radius"                               "400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "explode_delay"                                   "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_radius"                                     "600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2 3 4 5 5 5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "activation_time"                                 "2.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "2.0 2.0 2.0 2.0 1.0 0"
+      }
+    }
+  }
 
 }

@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
 "skeleton_king_mortal_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5088"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"MaxLevel"						"6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5088"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "MaxLevel"                                            "6"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"150 200 250 300 350 400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_mult_creeps"			"200 300 400 500 600 700"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"15"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_drain"					"20"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"drain_duration"			"7.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"death_buffer"				"4"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"spawn_duration"			"25 30 35 40"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_mult"                                       "150 200 250 300 350 400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_mult_creeps"                                "200 300 400 500 600 700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "15"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_drain"                                        "20"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "drain_duration"                                  "7.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "death_buffer"                                    "4"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spawn_duration"                                  "25 30 35 40"
+      }
+    }
+  }
 }

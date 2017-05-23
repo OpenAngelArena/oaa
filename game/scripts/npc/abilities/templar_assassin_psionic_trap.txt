@@ -1,65 +1,65 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Templar Assassin: Psionic Trap
-	//=================================================================================================================
-	"templar_assassin_psionic_trap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5197"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Templar Assassin: Psionic Trap
+  //=================================================================================================================
+  "templar_assassin_psionic_trap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5197"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "2000"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11.0 8.0 5.0 4.0 3.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "11.0 8.0 5.0 4.0 3.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"15"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "15"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_traps"					"5 8 11 12 14"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"trap_fade_time"			"2.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_speed_min_tooltip"			"30"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_speed_max_tooltip"			"60"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"trap_duration_tooltip"			"5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_traps"                                       "5 8 11 12 14"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "trap_fade_time"                                  "2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_min_tooltip"                      "30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_max_tooltip"                      "60"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trap_duration_tooltip"                           "5"
+      }
+    }
+  }
 
 }

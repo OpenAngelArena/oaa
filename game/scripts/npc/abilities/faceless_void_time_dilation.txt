@@ -1,40 +1,40 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Faceless Void: Time Dilation
-	//=================================================================================================================
-	"faceless_void_time_dilation"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5691"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"		
-		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"40 34 28 22 22 22"
-		"AbilityManaCost"				"75"	
-				
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"725"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6 8 10 12 15 20"
-			}					
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"14"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Faceless Void: Time Dilation
+  //=================================================================================================================
+  "faceless_void_time_dilation"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5691"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"    
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCooldown"                                     "40 34 28 22 22 22"
+    "AbilityManaCost"                                     "75"  
+    
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "725"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6 8 10 12 15 20"
+      }          
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "14"
+      }
+    }
+  }
 }

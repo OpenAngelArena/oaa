@@ -1,64 +1,64 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Lone Druid: Summon Spirit Bear
-	//=================================================================================================================
-	"lone_druid_spirit_bear"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5412"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"DisplayAdditionalHeroes"	"1"
+  //=================================================================================================================
+  // Lone Druid: Summon Spirit Bear
+  //=================================================================================================================
+  "lone_druid_spirit_bear"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5412"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "DisplayAdditionalHeroes"                             "1"
 
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75 75"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 75 75 75 75 75"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bear_hp"					"1400 1800 2300 2700 3600 7200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bear_regen_tooltip"	"2 3 4 5 7 15"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bear_bat"					"1.75 1.65 1.55 1.45 1.40 1.35"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bear_armor"				"3 4 5 6 8 16"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"backlash_damage"			"10.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"120.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bear_hp"                                         "1400 1800 2300 2700 3600 7200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bear_regen_tooltip"                              "2 3 4 5 7 15"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bear_bat"                                        "1.75 1.65 1.55 1.45 1.40 1.35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bear_armor"                                      "3 4 5 6 8 16"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "backlash_damage"                                 "10.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "120.0"
+      }
+    }
+  }
 }

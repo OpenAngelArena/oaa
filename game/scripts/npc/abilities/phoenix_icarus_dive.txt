@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Phoenix: Icarus Dive
-	//=================================================================================================================
-	"phoenix_icarus_dive"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5623"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
+  //=================================================================================================================
+  // Phoenix: Icarus Dive
+  //=================================================================================================================
+  "phoenix_icarus_dive"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5623"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"36 36 36 36 33 30"
-		"AbilityDuration"				"2.0"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_cost_perc"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_length"			"1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_width"			"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hit_radius"			"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"4"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"10 30 50 70 110 270"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_tick_interval"	"1.0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_movement_speed_pct"	"-28"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "36 36 36 36 33 30"
+    "AbilityDuration"                                     "2.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost_perc"                                    "15"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_length"                                     "1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_width"                                      "500"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_radius"                                      "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_duration"                                   "4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "10 30 50 70 110 270"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_tick_interval"                              "1.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed_pct"                         "-28"
+      }
+    }
+  }
 }

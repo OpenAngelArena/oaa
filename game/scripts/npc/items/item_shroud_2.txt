@@ -1,104 +1,104 @@
 "DOTAItems"
 {
-	"item_recipe_shroud_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3233"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  "item_recipe_shroud_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3233"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shroud_2"
-		"ItemRequirements"
-		{
-			"01"						"item_shroud;item_upgrade_core_2"
-			"02"						"item_shroud;item_upgrade_core_3"
-			"03"						"item_shroud;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shroud_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_shroud;item_upgrade_core_2"
+      "02"                                                "item_shroud;item_upgrade_core_3"
+      "03"                                                "item_shroud;item_upgrade_core_4"
+    }
+  }
 
 
-	"item_shroud_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3235"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lua"
-		"ScriptFile"					"items/shroud"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/item_shroud_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"				"75"
-		"AbilitySharedCooldown"			"ethereal"
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+  "item_shroud_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3235"                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/shroud"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/shroud_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0"
+    "AbilityManaCost"                                     "75"
+    "AbilitySharedCooldown"                               "ethereal"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7500"
-		"ItemShopTags"					"int;agi;str;hard_to_tag"
-		"ItemQuality"					"component"
-		"ItemAliases"					"shroud of Shadows"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "7500"
+    "ItemShopTags"                                        "int;agi;str;hard_to_tag"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "shroud of Shadows"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"8 10"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "8 10"
+      }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_attack_speed"  "25 28"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "25 28"
       }
       // Glimmer Cape Parameters
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_magical_armor" "15 20"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "15 20"
       }
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_spell_damage_percent"	"0" // Zero Spell Amp from Ghost Scepter
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"				"0.6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"30 35"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"	"5"
-			}
-		}
-	}
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "extra_spell_damage_percent"                      "0" // Zero Spell Amp from Ghost Scepter
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_magical_armor"                            "30 35"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
+      }
+    }
+  }
 }

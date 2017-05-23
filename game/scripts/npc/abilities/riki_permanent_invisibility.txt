@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Riki: Cloak and Dagger
-	//=================================================================================================================
-	"riki_permanent_invisibility"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5144"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Riki: Cloak and Dagger
+  //=================================================================================================================
+  "riki_permanent_invisibility"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5144"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage_multiplier"				"0.5 0.75 1.0 1.25 1.5 2.0"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"backstab_angle"				"105"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"0.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_delay"				"6 5 4 3 2.5 2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_multiplier"                               "0.5 0.75 1.0 1.25 1.5 2.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "backstab_angle"                                  "105"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "6 5 4 3 2.5 2"
+      }
+    }
+  }
 
 }

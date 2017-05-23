@@ -1,96 +1,96 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Mask of Madness 2
-	//=================================================================================================================
-	"item_recipe_mask_of_madness_2"
-	{
-		"ID"							"3080"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_mask_of_madness_2"
-		"ItemRequirements"
-		{
-			"01"						"item_mask_of_madness;item_upgrade_core"
-			"02"						"item_mask_of_madness;item_upgrade_core_2"
-			"03"						"item_mask_of_madness;item_upgrade_core_3"
-			"04"						"item_mask_of_madness;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Mask of Madness 2
+  //=================================================================================================================
+  "item_recipe_mask_of_madness_2"
+  {
+    "ID"                                                  "3080"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_mask_of_madness_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_mask_of_madness;item_upgrade_core"
+      "02"                                                "item_mask_of_madness;item_upgrade_core_2"
+      "03"                                                "item_mask_of_madness;item_upgrade_core_3"
+      "04"                                                "item_mask_of_madness;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Mask of Madness 2
-	//=================================================================================================================
-	"item_mask_of_madness_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3082"		// unique ID
-		"BaseClass"                     "item_mask_of_madness"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Mask of Madness 2
+  //=================================================================================================================
+  "item_mask_of_madness_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3082"    // unique ID
+    "BaseClass"                                           "item_mask_of_madness"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
-		"AbilityTextureName"            "custom/Mask_of_Madness_2"
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
-		"UpgradesItems"					"item_mask_of_madness_2"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
-		"ItemCost"						"4100"
-		"ItemShopTags"					"unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"mom;mask of madness"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0"
+    "AbilityTextureName"                                  "custom/mask_of_madness_2"
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_mask_of_madness_2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
+    "ItemCost"                                            "4100"
+    "ItemShopTags"                                        "unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "mom;mask of madness"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"		"20 30 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"10 15 25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifesteal_percent"		"15"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"berserk_bonus_attack_speed"	"110 135 160"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"berserk_bonus_movement_speed"	"17 27 37"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"berserk_armor_reduction"	"5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"berserk_duration"		"8.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 30 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "10 15 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "15"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "berserk_bonus_attack_speed"                      "110 135 160"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "berserk_bonus_movement_speed"                    "17 27 37"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "berserk_armor_reduction"                         "5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "berserk_duration"                                "8.0"
+      }
+    }
+  }
 }

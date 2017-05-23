@@ -3,23 +3,23 @@
 {
   "boss_stopfightingyourself_debuff_mirror"
   {
-    "ID"                              "9911"
-    "BaseClass"                       "ability_lua"
-    "ScriptFile"                      "abilities/stopfightingyourself/debuff_mirror.lua"
-    "AbilityTextureName"              "custom/stopfightingyourself_debuff_mirror"
-    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                     "DOTA_ABILITY_TYPE_BASIC"
+    "ID"                                                  "9911"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/stopfightingyourself/debuff_mirror.lua"
+    "AbilityTextureName"                                  "custom/stopfightingyourself_debuff_mirror"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
-    "MaxLevel"                        "1"
-    "RequiredLevel"                   "1"
-    "LevelsBetweenUpgrades"           "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "duration_multiplier"         "1.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_multiplier"                             "1.5"
       }
     }
   }

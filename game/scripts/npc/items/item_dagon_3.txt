@@ -1,98 +1,98 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Dagon 3
-	//=================================================================================================================
-	"item_recipe_dagon_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"198"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Recipe: Dagon 3
+  //=================================================================================================================
+  "item_recipe_dagon_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "198"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_dagon_3"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"02"						"item_dagon_2;item_recipe_dagon"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_dagon_3"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "02"                                                "item_dagon_2;item_recipe_dagon"
+    }
+  }
 
-	//=================================================================================================================
-	// Dagon 3
-	//=================================================================================================================
-	"item_dagon_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"202"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_dagon_3"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 650 700 750 800 850 900 950 1000"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"35.0 30.0 25.0 20.0 15.0 15.0 15.0 13.0 10.0"
-		"AbilitySharedCooldown"			"dagon"
-		"MaxUpgradeLevel"				"9"
-		"ItemBaseLevel"					"3"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+  //=================================================================================================================
+  // Dagon 3
+  //=================================================================================================================
+  "item_dagon_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "202"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_dagon_3"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600 650 700 750 800 850 900 950 1000"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "35.0 30.0 25.0 20.0 15.0 15.0 15.0 13.0 10.0"
+    "AbilitySharedCooldown"                               "dagon"
+    "MaxUpgradeLevel"                                     "9"
+    "ItemBaseLevel"                                       "3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"180"
-		"ItemCost"						"5220"
-		"ItemShopTags"					"damage;int;str;agi;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"dagon 3"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "180"
+    "ItemCost"                                            "5220"
+    "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "dagon 3"
 
-		"UpgradesItems"					"item_dagon_3;item_dagon_4;item_dagon_5;item_dagon_6;item_dagon_7;item_dagon_8;item_dagon_9"
+    "UpgradesItems"                                       "item_dagon_3;item_dagon_4;item_dagon_5;item_dagon_6;item_dagon_7;item_dagon_8;item_dagon_9"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"13 16 19 22 25 38 31 34 37"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 500 600 700 800 1000 1500 2250 3000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range_tooltip"			"600 650 700 750 800 850 900 950 1000"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_delay"				"0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "13 16 19 22 25 38 31 34 37"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "9"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "400 500 600 700 800 1000 1500 2250 3000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range_tooltip"                                   "600 650 700 750 800 850 900 950 1000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_delay"                                    "0"
+      }
+    }
+  }
 }

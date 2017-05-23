@@ -1,51 +1,51 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Obsidian Destroyer: Essence Aura
-	//=================================================================================================================
-	"obsidian_destroyer_essence_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5393"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"MaxLevel"						"6"		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_mana"	    "125 200 275 350 500 1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"restore_amount"	"10 15 20 25 30 33"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"restore_chance"		"40"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"intelligence_bonus"	"4"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"intelligence_duration"	"30"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Obsidian Destroyer: Essence Aura
+  //=================================================================================================================
+  "obsidian_destroyer_essence_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5393"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "MaxLevel"                                            "6"    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "125 200 275 350 500 1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "restore_amount"                                  "10 15 20 25 30 33"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_chance"                                  "40"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "intelligence_bonus"                              "4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "intelligence_duration"                           "30"
+      }
+    }
+  }
 }

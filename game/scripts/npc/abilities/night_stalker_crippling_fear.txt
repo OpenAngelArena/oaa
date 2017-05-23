@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Night Stalker: Crippling Fear
-	//=================================================================================================================
-	"night_stalker_crippling_fear"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5276"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"		
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"12 12 12 12"
-		"AbilityManaCost"				"50"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_day"			"3.0 3.0 3.0 3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_night"		"5.0 6.0 7.0 8.0 9.0 10.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"miss_rate_day"				"10 10 10 10"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"miss_rate_night"			"50 50 50 50 60 75"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Night Stalker: Crippling Fear
+  //=================================================================================================================
+  "night_stalker_crippling_fear"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5276"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"    
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCooldown"                                     "12 12 12 12"
+    "AbilityManaCost"                                     "50"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_day"                                    "3.0 3.0 3.0 3.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_night"                                  "5.0 6.0 7.0 8.0 9.0 10.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate_day"                                   "10 10 10 10"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate_night"                                 "50 50 50 50 60 75"
+      }
+    }
+  }
 }

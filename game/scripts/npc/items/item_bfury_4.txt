@@ -1,112 +1,112 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Battlefury 4
-	//=================================================================================================================
-	"item_recipe_bfury_4"
-	{
-		"ID"							"3076"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_bfury_4"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_bfury_3;item_upgrade_core_3"
-			"02"						"item_bfury_3;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Battlefury 4
+  //=================================================================================================================
+  "item_recipe_bfury_4"
+  {
+    "ID"                                                  "3076"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_bfury_4"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_bfury_3;item_upgrade_core_3"
+      "02"                                                "item_bfury_3;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Battlefury 4
-	//=================================================================================================================
-	"item_bfury_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3079"		// unique ID
-		"BaseClass"                     "item_bfury"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"4.0"
-		"AbilityTextureName"			"custom/battle_fury_4"
-		//Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"4"
-		"ItemBaseLevel"					"4"
+  //=================================================================================================================
+  // Battlefury 4
+  //=================================================================================================================
+  "item_bfury_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3079"    // unique ID
+    "BaseClass"                                           "item_bfury"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityCastRange"                                    "350"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "4.0"
+    "AbilityTextureName"                                  "custom/battle_fury_4"
+    //Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "4"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"14000"
-		"ItemShopTags"					"damage;health_regen;mana_regen;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"bf;battle fury"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "14000"
+    "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bf;battle fury"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"55 75 105 155 205"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"6 9 13 20 28"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"150 225 330 475 650"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"40 50 60 70 80"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus"		"160"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus_ranged"	"125"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"	"150"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"	"300"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"		"570"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"			"350"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_ward"			"450"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "55 75 105 155 205"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "6 9 13 20 28"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "150 225 330 475 650"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_damage_percent"                           "40 50 60 70 80"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quelling_bonus"                                  "160"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quelling_bonus_ranged"                           "125"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "300"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "570"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "350"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_ward"                                 "450"
+      }
+    }
+  }
 }

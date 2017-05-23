@@ -1,125 +1,125 @@
 "DOTAItems"
 {
 
-    "item_recipe_crimson_pipe_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3205"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  "item_recipe_crimson_pipe_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3205"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_crimson_pipe_2"
-		"ItemRequirements"
-		{
-			"01"						"item_crimson_pipe;item_upgrade_core_3"
-			"02"						"item_crimson_pipe;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_crimson_pipe_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_crimson_pipe;item_upgrade_core_3"
+      "02"                                                "item_crimson_pipe;item_upgrade_core_4"
+    }
+  }
 
 
-    "item_crimson_pipe_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3207"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_pipe"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_pipe"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
-		"AbilityCastRange"				"900"
+  "item_crimson_pipe_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3207"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_pipe"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityTextureName"                                  "item_pipe"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0"
+    "AbilityCastRange"                                    "900"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"18050"
-		"ItemShopTags"					"armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
-		"ItemQuality"					"epic"
-        "ItemAliases"                   "Crimson Pipe 2"
-		"ItemAlertable"					"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "18050"
+    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "Crimson Pipe 2"
+    "ItemAlertable"                                       "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"350 525"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"28 42"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5 7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10 15"
-			}
-            "05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"		"45"
-			}
-            "06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-             "07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_damage_block_aura"	"150 250"
-			}
-            "08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_damage_threshold"			"150 250"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee_aura"	"75 90"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged_aura"	"40 50"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance_aura"			"50"
-			}
-            "12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"threshold_cooldown"		"6.0"
-			}
-            "13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_aura"		"15"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "350 525"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "28 42"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "5 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "45"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_damage_block_aura"                         "150 250"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_damage_threshold"                          "150 250"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_melee_aura"                         "75 90"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_ranged_aura"                        "40 50"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance_aura"                               "50"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_cooldown"                              "6.0"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance_aura"                           "15"
+      }
+    }
+  }
 }

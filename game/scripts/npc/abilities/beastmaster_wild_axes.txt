@@ -1,63 +1,63 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Beastmaster: Wild Axes
-	//=================================================================================================================
-	"beastmaster_wild_axes"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5168"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.4"
+  //=================================================================================================================
+  // Beastmaster: Wild Axes
+  //=================================================================================================================
+  "beastmaster_wild_axes"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5168"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1500"
+    "AbilityCastPoint"                                    "0.4"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13"
 
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"105 110 115 120 130 170"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "105 110 115 120 130 170"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"140"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"spread"					"353 353 353 353 353 353"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"1300 1300 1300 1300 1300 1300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_damage"				"70 100 130 160 220 460"
-				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "140"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spread"                                          "353 353 353 353 353 353"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1300 1300 1300 1300 1300 1300"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_damage"                                      "70 100 130 160 220 460"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
+      }
 
-		}
-	}
+    }
+  }
 }

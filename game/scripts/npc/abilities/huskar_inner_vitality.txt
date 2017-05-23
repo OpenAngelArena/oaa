@@ -1,71 +1,71 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Huskar: Inner Vitality
-	//=================================================================================================================
-	"huskar_inner_vitality"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5271"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"	
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"					   
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 18 14 10 10 10"
-		"AbilityDuration"				"16 16 16 16 16 16"
+  //=================================================================================================================
+  // Huskar: Inner Vitality
+  //=================================================================================================================
+  "huskar_inner_vitality"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5271"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"  
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"             
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22 18 14 10 10 10"
+    "AbilityDuration"                                     "16 16 16 16 16 16"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"170 170 170 170 170 170"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// already gets credit for the healing
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "170 170 170 170 170 170"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"  // already gets credit for the healing
 
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal"					"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attrib_bonus"			"0.05 0.1 0.15 0.20 0.25 0.35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hurt_attrib_bonus"		"0.2 0.4 0.6 0.8 1.0 1.4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hurt_percent"			"0.35"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"tooltip_attrib_bonus"			"5 10 15 20 25 35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_hurt_attrib_bonus"		"20 40 60 80 100 140"
-			}
-		}
-	}	
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal"                                            "10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attrib_bonus"                                    "0.05 0.1 0.15 0.20 0.25 0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hurt_attrib_bonus"                               "0.2 0.4 0.6 0.8 1.0 1.4"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hurt_percent"                                    "0.35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_attrib_bonus"                            "5 10 15 20 25 35"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_hurt_attrib_bonus"                       "20 40 60 80 100 140"
+      }
+    }
+  }  
 }

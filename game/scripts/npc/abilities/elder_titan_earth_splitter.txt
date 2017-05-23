@@ -1,106 +1,106 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Elder Titan: Earth Splitter
-	//=================================================================================================================
-	"elder_titan_earth_splitter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5594"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Elder Titan: Earth Splitter
+  //=================================================================================================================
+  "elder_titan_earth_splitter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5594"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2400"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "2400"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100.0 100.0 100.0 100.0 100.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100.0 100.0 100.0 100.0 100.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 175 225 425 1225"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 175 225 425 1225"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"crack_time"				"3.14"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crack_width"				"315"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crack_distance"			"2400"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_pct"					"30 40 50 60 80"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"3.0 4.0 5.0 5.5 6.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"910"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_pct"				"30 40 50 55 65"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"vision_width"				"500"
-			}
-			"09"
-			{	
-				"var_type"					"FIELD_FLOAT"
-				"vision_interval"			"0.22"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vision_duration"			"4.0"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"vision_step"				"200"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"total_steps"				"12"
-			}
-			"13"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration_scepter"		"4.0 5.0 6.0 6.5 7.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "crack_time"                                      "3.14"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crack_width"                                     "315"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crack_distance"                                  "2400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "30 40 50 60 80"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3.0 4.0 5.0 5.5 6.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "910"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_pct"                                      "30 40 50 55 65"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_width"                                    "500"
+      }
+      "09"
+      {  
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_interval"                                 "0.22"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "4.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_step"                                     "200"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_steps"                                     "12"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration_scepter"                           "4.0 5.0 6.0 6.5 7.0"
+      }
+    }
+  }
 }

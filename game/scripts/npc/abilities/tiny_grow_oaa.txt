@@ -2,17 +2,17 @@
 
 "DOTAAbilities" {
   "tiny_grow_oaa" {
-    "ID" "9109"
-    "BaseClass" "ability_lua"
-    "ScriptFile" "abilities/tiny_grow.lua"
-    "AbilityTextureName" "tiny_grow"
-    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
-    "HasScepterUpgrade" "1"
+    "ID"                                                  "9109"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/tiny_grow.lua"
+    "AbilityTextureName"                                  "tiny_grow"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "HasScepterUpgrade"                                   "1"
 
-    "MaxLevel"                "5"
-    "RequiredLevel"           "6"
-    "LevelsBetweenUpgrades"   "6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,58 +20,58 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_damage"        "50 100 150 250 650"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 100 150 250 650"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_attack_speed"    "-20 -35 -50 -80 -200"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "-20 -35 -50 -80 -200"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_movement_speed"    "40 50 60 70 80"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "40 50 60 70 80"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "grow_bonus_damage_pct"   "35 50 65 80 110"
+        "var_type"                                        "FIELD_INTEGER"
+        "grow_bonus_damage_pct"                           "35 50 65 80 110"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_range_scepter"   "85"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_range_scepter"                             "85"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "cleave_starting_width"     "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "cleave_ending_width"     "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "400"
       }
       "08"
       {
-        "var_type"        "FIELD_INTEGER"
-        "cleave_distance"     "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "600"
       }
       "09"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_cleave_damage_scepter" "50"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cleave_damage_scepter"                     "50"
       }
       "10"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_building_damage_scepter" "75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_building_damage_scepter"                   "75"
       }
       "11"
       {
-        "var_type"          "FIELD_INTEGER"
-        "grow_bonus_damage_pct_scepter"   "50 65 80 95 140"
+        "var_type"                                        "FIELD_INTEGER"
+        "grow_bonus_damage_pct_scepter"                   "50 65 80 95 140"
       }
 
     }

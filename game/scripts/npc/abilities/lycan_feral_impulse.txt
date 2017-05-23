@@ -1,35 +1,35 @@
 "DOTAAbilities"
 {
 
-	//=====================================================================================================
-	// Lycan: Feral Impulse
-	//=================================================================================================================
-	"lycan_feral_impulse"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5397"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"		
-		// Casting
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900 900 900 900 900 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"	"15 26 37 48 60 85"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_hp_regen"		"1 4 7 10 16 40"
-				"LinkedSpecialBonus"	"special_bonus_unique_lycan_3"
-			}
-		}
-	}
+  //=====================================================================================================
+  // Lycan: Feral Impulse
+  //=================================================================================================================
+  "lycan_feral_impulse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5397"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"    
+    // Casting
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900 900 900 900 900 900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "15 26 37 48 60 85"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp_regen"                                  "1 4 7 10 16 40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_3"
+      }
+    }
+  }
 }

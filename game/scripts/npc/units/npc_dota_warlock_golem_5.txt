@@ -1,162 +1,162 @@
 "DOTAUnits"
 {
-	//=================================================================================
-	// Warlock: Golem 5
-	//=================================================================================
-	"npc_dota_warlock_golem_5"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
-		"BaseClass"					"npc_dota_warlock_golem"
-		"SoundSet"					"Hero_WarlockGolem"			// Name of sound set.
-		"IdleSoundLoop"				"Hero_WarlockGolem.Spawn_Loop"
-		"IsSummoned"				"1"
-		"IsAncient"					"1"
-		"ModelScale"					"1.3"
-		"ConsideredHero"			"1"
-		"UnitLabel"			"golem"
-		"wearable"				"8362"
-	
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
-		"Ability2"					"warlock_golem_permanent_immolation"			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+  //=================================================================================
+  // Warlock: Golem 5
+  //=================================================================================
+  "npc_dota_warlock_golem_5"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_warlock_golem"
+    "SoundSet"                                            "Hero_WarlockGolem"      // Name of sound set.
+    "IdleSoundLoop"                                       "Hero_WarlockGolem.Spawn_Loop"
+    "IsSummoned"                                          "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.3"
+    "ConsideredHero"                                      "1"
+    "UnitLabel"                                           "golem"
+    "wearable"                                            "8362"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "warlock_golem_flaming_fists"      // Ability 1
+    "Ability2"                                            "warlock_golem_permanent_immolation"      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"42"		// Physical protection.
-		"MagicalResistance"				"37"		// Magical protection.  // this should be 33, switch it back once we implement Resistant Skin
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "42"    // Physical protection.
+    "MagicalResistance"                                   "37"    // Magical protection.  // this should be 33, switch it back once we implement Resistant Skin
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"375"		// Damage range min.
-		"AttackDamageMax"			"375"		// Damage range max.	
-		"AttackRate"				"1.2"		// Speed of attack.
-		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"225"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "375"    // Damage range min.
+    "AttackDamageMax"                                     "375"    // Damage range max.  
+    "AttackRate"                                          "1.2"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "225"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
 
-		// Bounds
-		//----------------------------------------------------------------
-		"HealthBarOffset"			"280"
+    // Bounds
+    //----------------------------------------------------------------
+    "HealthBarOffset"                                     "280"
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"98"		// Experience earn.
-		"BountyGoldMin"				"200"		// Gold earned min.
-		"BountyGoldMax"				"200"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "98"    // Experience earn.
+    "BountyGoldMin"                                       "200"    // Gold earned min.
+    "BountyGoldMax"                                       "200"    // Gold earned max.
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"360"		// Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "360"    // Speed.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"7000"		// Base health.
-		"StatusHealthRegen"			"325"		// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1800"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "7000"    // Base health.
+    "StatusHealthRegen"                                   "325"    // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
-		//Inventory
-		"HasInventory"				"0"
-	}	
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+    //Inventory
+    "HasInventory"                                        "0"
+  }  
 
-	"npc_dota_warlock_golem_scepter_5"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
-		"BaseClass"					"npc_dota_warlock_golem"
-		"SoundSet"					"Hero_WarlockGolem"
-		"IsSummoned"				"1"
-		"IsAncient"					"1"
-		"ModelScale"					"1.10"
-		"ConsideredHero"			"1"
-		"UnitLabel"			"golem"
-		"wearable"				"8362"
-	
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
-		"Ability2"					"warlock_golem_permanent_immolation"			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+  "npc_dota_warlock_golem_scepter_5"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_warlock_golem"
+    "SoundSet"                                            "Hero_WarlockGolem"
+    "IsSummoned"                                          "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.10"
+    "ConsideredHero"                                      "1"
+    "UnitLabel"                                           "golem"
+    "wearable"                                            "8362"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "warlock_golem_flaming_fists"      // Ability 1
+    "Ability2"                                            "warlock_golem_permanent_immolation"      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"35"			// Physical protection.
-		"MagicalResistance"				"37"	
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "35"      // Physical protection.
+    "MagicalResistance"                                   "37"  
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"281"		// Damage range min.
-		"AttackDamageMax"			"281"		// Damage range max.	
-		"AttackRate"				"1.2"		// Speed of attack.
-		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"225"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "281"    // Damage range min.
+    "AttackDamageMax"                                     "281"    // Damage range max.  
+    "AttackRate"                                          "1.2"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "225"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
 
-		// Bounds
-		//----------------------------------------------------------------
-		"HealthBarOffset"			"240"
+    // Bounds
+    //----------------------------------------------------------------
+    "HealthBarOffset"                                     "240"
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"98"		// Experience earn.
-		"BountyGoldMin"				"50"		// Gold earned min.
-		"BountyGoldMax"				"50"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "98"    // Experience earn.
+    "BountyGoldMin"                                       "50"    // Gold earned min.
+    "BountyGoldMax"                                       "50"    // Gold earned max.
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"320"		// Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "320"    // Speed.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"5250"		// Base health.
-		"StatusHealthRegen"			"325"		// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1800"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "5250"    // Base health.
+    "StatusHealthRegen"                                   "325"    // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+    "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
 
-		//Inventory
-		"HasInventory"				"0"
-	}	
+    //Inventory
+    "HasInventory"                                        "0"
+  }  
 
 }

@@ -1,158 +1,158 @@
 "DOTAItems"
 {
-	"item_recipe_stop_killing_yourself_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3249"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  "item_recipe_stop_killing_yourself_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3249"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_stop_killing_yourself_2"
-		"ItemRequirements"
-		{
-			"01"						"item_stop_killing_yourself;item_upgrade_core_4"
-		}
-	}
-		"item_stop_killing_yourself_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3251"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_lotus_orb"
-		"AbilityCooldown"				"15.0"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"75"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_stop_killing_yourself_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_stop_killing_yourself;item_upgrade_core_4"
+    }
+  }
+  "item_stop_killing_yourself_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3251"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_lotus_orb"
+    "AbilityCooldown"                                     "15.0"
+    "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "75"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"30000"
-		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"sky"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "30000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "sky"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			// Lotus Sphere Parameters
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20 25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"18 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"10 12"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"200 250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"400 500"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"9 10"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range_tooltip"		"900"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      // Lotus Sphere Parameters
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "18 20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "10 12"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "200 250"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "400 500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "active_duration"                                 "9 10"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range_tooltip"                              "900"
+      }
 
-			// Linkens Parameters
-			"08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "23 24"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "150 225"
-            }
-            "10"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "block_cooldown"        "13.0"
-            }
-            // Bloodthorn Parameters
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "55 65"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "45 50"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "170 200"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "225 235"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "crit_chance"           "27 30"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "crit_multiplier"       "230 250"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "silence_damage_percent"    "30"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "silence_duration"      "5"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "target_crit_multiplier"        "200 200"
-            }
-		}
-	}
+      // Linkens Parameters
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "23 24"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "150 225"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "block_cooldown"                                  "13.0"
+      }
+      // Bloodthorn Parameters
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "55 65"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "45 50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "170 200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "225 235"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "27 30"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "230 250"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_damage_percent"                          "30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "target_crit_multiplier"                          "200 200"
+      }
+    }
+  }
 }

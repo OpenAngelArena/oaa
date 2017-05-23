@@ -1,135 +1,135 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Diffusal Blade 4
-	//=================================================================================================================
-	"item_recipe_diffusal_blade_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3609"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+  //=================================================================================================================
+  // Recipe: Diffusal Blade 4
+  //=================================================================================================================
+  "item_recipe_diffusal_blade_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3609"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_diffusal_blade_4"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_diffusal_blade_3;item_upgrade_core_2"
-			"02"						"item_diffusal_blade_3;item_upgrade_core_3"
-			"03"						"item_diffusal_blade_3;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_diffusal_blade_4"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_diffusal_blade_3;item_upgrade_core_2"
+      "02"                                                "item_diffusal_blade_3;item_upgrade_core_3"
+      "03"                                                "item_diffusal_blade_3;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Diffusal Blade 4
-	//=================================================================================================================
-	"item_diffusal_blade_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3611"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_diffusal_blade_2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/diffusal_blade_4"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"4.0"
-		"AbilitySharedCooldown"			"diffusal"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+  //=================================================================================================================
+  // Diffusal Blade 4
+  //=================================================================================================================
+  "item_diffusal_blade_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3611"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_diffusal_blade_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/diffusal_blade_4"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "4.0"
+    "AbilitySharedCooldown"                               "diffusal"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"ItemCost"						"12750"
-		"ItemShopTags"					"agi;int;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"diffusal blade 4"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "12750"
+    "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "diffusal blade 4"
 
-		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"8"
-		"ItemRequiresCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"MaxUpgradeLevel"				"4"
-		"ItemBaseLevel"					"4"
+    "ItemPermanent"                                       "1"
+    "ItemInitialCharges"                                  "8"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "4"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"25 35 55 80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10 15 25 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"initial_charges"		"8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"feedback_mana_burn"	"50 50 75 115"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_melee"	"16 16 24 36"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"feedback_mana_burn_illusion_ranged"	"8 8 12 18"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"purge_summoned_damage"	"99999"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"purge_rate"			"5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"purge_root_duration"	"3.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"purge_slow_duration"	"4.0"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_burn"		"0.8"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"		"600"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "25 35 55 80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 15 25 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "initial_charges"                                 "8"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "feedback_mana_burn"                              "50 50 75 115"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "feedback_mana_burn_illusion_melee"               "16 16 24 36"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "feedback_mana_burn_illusion_ranged"              "8 8 12 18"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "purge_summoned_damage"                           "99999"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "purge_rate"                                      "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "purge_root_duration"                             "3.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "purge_slow_duration"                             "4.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_per_burn"                                 "0.8"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "600"
+      }
+    }
+  }
 }

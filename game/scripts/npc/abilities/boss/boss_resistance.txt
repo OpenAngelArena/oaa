@@ -6,25 +6,25 @@
   "boss_resistance"
   {
 
-    "ID" "9900"
-    "BaseClass" "ability_lua"
-    "ScriptFile" "abilities/boss_resistance.lua"
-    "AbilityTextureName" "tidehunter_kraken_shell"
-    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "9900"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss_resistance.lua"
+    "AbilityTextureName"                                  "tidehunter_kraken_shell"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
 
-    "MaxLevel"            "1"
-    "RequiredLevel"         "1"
-    "LevelsBetweenUpgrades"     "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"            "FIELD_INTEGER"
-        "percent_damage_reduce"   "85"
+        "var_type"                                        "FIELD_INTEGER"
+        "percent_damage_reduce"                           "85"
       }
     }
   }

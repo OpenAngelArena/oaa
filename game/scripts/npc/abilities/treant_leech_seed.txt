@@ -1,70 +1,70 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Treant Protector: Leech Seed
-	//=================================================================================================================
-	"treant_leech_seed"
-	{
-		"ID"					"5435"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Treant Protector: Leech Seed
+  //=================================================================================================================
+  "treant_leech_seed"
+  {
+    "ID"                                                  "5435"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.5"
-		"FightRecapLevel"				"1"
+    "AbilityCastRange"                                    "350"
+    "AbilityCastPoint"                                    "0.5"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 13 10 7 7 7"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 13 10 7 7 7"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 95 110 125 155 275"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 95 110 125 155 275"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage_interval"				"0.75"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"leech_damage"					"15 30 45 60 90 210"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_2" 
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"movement_slow"					"-16 -20 -24 -28 -28 -28"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"500"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"4.5"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"projectile_speed"				"400"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "0.75"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leech_damage"                                    "15 30 45 60 90 210"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_2" 
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "-16 -20 -24 -28 -28 -28"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "400"
+      }
+    }
+  }
 
 }

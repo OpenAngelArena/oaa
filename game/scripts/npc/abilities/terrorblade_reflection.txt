@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Terrorblade: Reflection
-	//=================================================================================================================
-	"terrorblade_reflection"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5619"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Terrorblade: Reflection
+  //=================================================================================================================
+  "terrorblade_reflection"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5619"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 20 18 16 16 16"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22 20 18 16 16 16"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"2.5 3.5 4.5 5.5 6.5 8.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_outgoing_damage"	"-60.0 -40.0 -20.0 0.0 20.0 60.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_outgoing_tooltip"	"40 60 80 100 120 160"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"25"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_slow_tooltip"		"25"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_duration"                               "2.5 3.5 4.5 5.5 6.5 8.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_outgoing_damage"                        "-60.0 -40.0 -20.0 0.0 20.0 60.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_outgoing_tooltip"                       "40 60 80 100 120 160"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "25"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow_tooltip"                             "25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "900"
+      }
+    }
+  }
 
 }

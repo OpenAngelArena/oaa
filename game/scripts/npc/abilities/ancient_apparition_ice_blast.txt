@@ -1,96 +1,96 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ancient Apparition: Ice Blast
-	//=================================================================================================================
-	"ancient_apparition_ice_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5348"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Ancient Apparition: Ice Blast
+  //=================================================================================================================
+  "ancient_apparition_ice_blast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5348"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01 0.01"
-		"AbilityCastRange"				"0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01 0.01"
+    "AbilityCastRange"                                    "0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 125 150 200 400"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 125 150 200 400"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"250 350 450 650 1300"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "250 350 450 650 1300"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_min"			"275 275 275 275 275"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius_grow"			"50.0 50.0 50.0 50.0 50.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_max"			"1000 1000 1000 1000 1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"path_radius"			"275 275 275 275 275"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"frostbite_duration"	"8.0 9.0 10.0 11.0 12.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dot_damage"			"12.5 20.0 32.0 40.0 60.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1500 1500 1500 1500 1500 1500"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"kill_pct"				"10.0 11.0 12.0 13.0 15.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"target_sight_radius"	"500 500 500 500 500"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"frostbite_duration_scepter"	"17"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_min"                                      "275 275 275 275 275"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "radius_grow"                                     "50.0 50.0 50.0 50.0 50.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_max"                                      "1000 1000 1000 1000 1000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "path_radius"                                     "275 275 275 275 275"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "frostbite_duration"                              "8.0 9.0 10.0 11.0 12.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "dot_damage"                                      "12.5 20.0 32.0 40.0 60.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1500 1500 1500 1500 1500 1500"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "kill_pct"                                        "10.0 11.0 12.0 13.0 15.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "target_sight_radius"                             "500 500 500 500 500"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "frostbite_duration_scepter"                      "17"
+      }
+    }
+  }
 }

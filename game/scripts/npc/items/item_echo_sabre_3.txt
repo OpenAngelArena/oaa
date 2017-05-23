@@ -1,112 +1,112 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Echo Sabre 3
-	//=================================================================================================================
-	"item_recipe_echo_sabre_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3621"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Recipe: Echo Sabre 3
+  //=================================================================================================================
+  "item_recipe_echo_sabre_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3621"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_echo_sabre_3"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_echo_sabre_2;item_upgrade_core_2"
-			"02"						"item_echo_sabre_2;item_upgrade_core_3"
-			"03"						"item_echo_sabre_2;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_echo_sabre_3"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_echo_sabre_2;item_upgrade_core_2"
+      "02"                                                "item_echo_sabre_2;item_upgrade_core_3"
+      "03"                                                "item_echo_sabre_2;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Echo Sabre 3
-	//=================================================================================================================
-	"item_echo_sabre_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3624"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_echo_sabre"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/echo_sabre_3"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"3.0"
+  //=================================================================================================================
+  // Echo Sabre 3
+  //=================================================================================================================
+  "item_echo_sabre_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3624"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_echo_sabre"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/echo_sabre_3"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "3.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"ItemCost"						"8650"
-		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"echo sabre 3"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "4"
-		"ItemBaseLevel"                 "3"
-		"UpgradesItems"                 "item_echo_sabre;item_echo_sabre_2;item_echo_sabre_3;item_echo_sabre_4"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "8650"
+    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "echo sabre 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_echo_sabre;item_echo_sabre_2;item_echo_sabre_3;item_echo_sabre_4"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10 15 25 35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"10 15 25 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"10 15 20 25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"15 25 35 50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"75 125 175 250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"proc_damage"			"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"100"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed_slow"			"0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"0.6"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 15 25 35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "10 15 25 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "10 15 20 25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "15 25 35 50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "75 125 175 250"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "proc_damage"                                     "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.6"
+      }
+    }
+  }
 }

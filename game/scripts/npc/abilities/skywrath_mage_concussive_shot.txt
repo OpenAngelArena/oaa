@@ -1,88 +1,88 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Skywrath Mage: Concussive Shot
-	//=================================================================================================================
-	"skywrath_mage_concussive_shot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5582"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Skywrath Mage: Concussive Shot
+  //=================================================================================================================
+  "skywrath_mage_concussive_shot"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5582"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
-		"AbilityCastRange"				"1600"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "1600"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18.0 16.0 14.0 12.0 12.0 12.0"
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18.0 16.0 14.0 12.0 12.0 12.0"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"launch_radius"		"1600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_radius"		"250"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"800"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 120 180 240 360 840"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"4.0"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movement_speed_pct"	"30 35 40 45 50 55"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shot_vision"		"300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision_duration"		"3.34"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_radius"		"700"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "95"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "launch_radius"                                   "1600"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_radius"                                     "250"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "60 120 180 240 360 840"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "30 35 40 45 50 55"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shot_vision"                                     "300"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "3.34"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "700"
+      }
+    }
+  }
 
 }

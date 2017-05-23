@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ember Spirit: Sleight of Fist
-	//=================================================================================================================
-	"ember_spirit_sleight_of_fist"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5604"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30.0 22.0 14.0 6.0 6.0 6.0"
+  //=================================================================================================================
+  // Ember Spirit: Sleight of Fist
+  //=================================================================================================================
+  "ember_spirit_sleight_of_fist"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5604"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0 22.0 14.0 6.0 6.0 6.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"250 350 450 550 650 700"
-			}
-			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hero_damage"			"20 40 60 80 120 280"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-						
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"attack_interval"				"0.2"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "250 350 450 550 650 700"
+      }
+      
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hero_damage"                               "20 40 60 80 120 280"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "0.2"
+      }
 
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"creep_damage_penalty"			"-50"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-		}
-	}
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_penalty"                            "-50"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+    }
+  }
 }

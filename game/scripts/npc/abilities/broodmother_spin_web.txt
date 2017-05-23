@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Broodmother: Spin Web
-	//=================================================================================================================
-	"broodmother_spin_web"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5280"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Broodmother: Spin Web
+  //=================================================================================================================
+  "broodmother_spin_web"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5280"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------

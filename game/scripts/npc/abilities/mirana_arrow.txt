@@ -1,81 +1,81 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Mirana Arrow
-	//=================================================================================================================
-	"mirana_arrow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5048"													// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+  //=================================================================================================================
+  // Ability: Mirana Arrow
+  //=================================================================================================================
+  "mirana_arrow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5048"                          // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17.0"
-		"AbilityDuration"				"3.11 3.11 3.11 3.11"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17.0"
+    "AbilityDuration"                                     "3.11 3.11 3.11 3.11"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 140 230 320 500 1200"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "50 140 230 320 500 1200"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 100 100 100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 100 100 100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_speed"		"857.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_width"		"115"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_range"		"3000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_max_stunrange"	"1500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_min_stun"	"0.01"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"arrow_max_stun"	"5.0"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_bonus_damage"	"140"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"arrow_vision"	"500"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "arrow_speed"                                     "857.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_width"                                     "115"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_range"                                     "3000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_max_stunrange"                             "1500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "arrow_min_stun"                                  "0.01"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "arrow_max_stun"                                  "5.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_bonus_damage"                              "140"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_vision"                                    "500"
+      }
+    }
+  }
 }

@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Treant Protector: Nature's Guise
-	//=================================================================================================================
-	"treant_natures_guise"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5434"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Treant Protector: Nature's Guise
+  //=================================================================================================================
+  "treant_natures_guise"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5434"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"6 5 4 3 3 3"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"265 265 265 265 275 300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_move_speed"			"10 18 26 34 40 46"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"grace_time"				"0.75"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bash_duration"				"0.4 1.0 1.6 2.2 2.2 2.2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "6 5 4 3 3 3"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "265 265 265 265 275 300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "10 18 26 34 40 46"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "grace_time"                                      "0.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bash_duration"                                   "0.4 1.0 1.6 2.2 2.2 2.2"
+      }
+    }
+  }
 
 }

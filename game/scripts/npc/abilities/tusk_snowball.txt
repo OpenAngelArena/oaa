@@ -1,94 +1,94 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tusk: Snowball
-	//=================================================================================================================
-	"tusk_snowball"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5566"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Tusk: Snowball
+  //=================================================================================================================
+  "tusk_snowball"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5566"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1250"
-		"AbilityCastPoint"				"0.1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1250"
+    "AbilityCastPoint"                                    "0.1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 20 19 18 18 18"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "21 20 19 18 18 18"
 
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_damage"			"80 120 160 200 280 600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_speed"			"675"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_damage_bonus"		"20 30 40 50 70 150"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.5 0.75 1.0 1.25 1.5 2.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_windup_radius"	"100"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"snowball_duration"			"3.0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_radius"			"200"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_grow_rate"		"40"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"snowball_windup"			"3.0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"snowball_grab_radius"		"350"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_damage"                                 "80 120 160 200 280 600"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_speed"                                  "675"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_damage_bonus"                           "20 30 40 50 70 150"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.5 0.75 1.0 1.25 1.5 2.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_windup_radius"                          "100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "snowball_duration"                               "3.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_radius"                                 "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_grow_rate"                              "40"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "snowball_windup"                                 "3.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_grab_radius"                            "350"
+      }
+    }
+  }
 
 }

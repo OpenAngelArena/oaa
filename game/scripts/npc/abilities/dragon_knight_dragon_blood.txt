@@ -1,35 +1,35 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Dragon Knight: Dragon Blood
-	//=================================================================================================================
-	"dragon_knight_dragon_blood"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5228"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_health_regen"			"3 6 9 12 18 42"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_armor"					"3 6 9 12 18 42"
-				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-		}
-	}
-	
+  //=================================================================================================================
+  // Dragon Knight: Dragon Blood
+  //=================================================================================================================
+  "dragon_knight_dragon_blood"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5228"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "3 6 9 12 18 42"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "3 6 9 12 18 42"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+      }
+    }
+  }
+  
 }
