@@ -8,6 +8,9 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5153"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"           "ability_lua"
+    "ScriptFile"          "abilities/oaa_rearm.lua"
+    "AbilityTextureName"  "tinker_rearm"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
