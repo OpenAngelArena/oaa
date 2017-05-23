@@ -36,6 +36,9 @@ function CreepCamps:SetPowerLevel (powerLevel)
 end
 
 function CreepCamps:CreepSpawnTimer ()
+  if (10 > CDOTAGamerules:GetDOTATime(false, false)) then
+    return 30
+  end
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
@@ -45,6 +48,10 @@ function CreepCamps:CreepSpawnTimer ()
 
   CreepCamps:UpgradeCreeps()
 
+
+  if (50 > CDOTAGamerules:GetDOTATime(false, false)) then
+    return 30
+  end
   return CreepSpawnInterval
 end
 
