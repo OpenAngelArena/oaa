@@ -1,74 +1,74 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Desolator
-	//=================================================================================================================
-	"item_recipe_desolator"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"167"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+  //=================================================================================================================
+  // Recipe: Desolator
+  //=================================================================================================================
+  "item_recipe_desolator"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "167"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_desolator"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_mithril_hammer;item_mithril_hammer;item_blight_stone"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_desolator"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_mithril_hammer;item_mithril_hammer;item_blight_stone"
+    }
+  }
 
-	//=================================================================================================================
-	// Desolator
-	//=================================================================================================================
-	"item_desolator"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"168"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/desolator_1"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                	"1"
+  //=================================================================================================================
+  // Desolator
+  //=================================================================================================================
+  "item_desolator"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "168"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/desolator_1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					"damage;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"desolator"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"                 "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "desolator"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50 75 110 170 225"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-7 -9 -12 -16 -21"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"15.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 75 110 170 225"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "corruption_armor"                                "-7 -9 -12 -16 -21"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "corruption_duration"                             "15.0"
+      }
+    }
+  }
 }

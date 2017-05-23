@@ -1,150 +1,150 @@
 "DOTAItems"
 {
-	"item_recipe_shivas_rush_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3229"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  "item_recipe_shivas_rush_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3229"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shivas_rush_2"
-		"ItemRequirements"
-		{
-			"01"						"item_shivas_rush;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shivas_rush_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_shivas_rush;item_upgrade_core_4"
+    }
+  }
 
-		"item_shivas_rush_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3231"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_shivas_guard"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
+  "item_shivas_rush_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3231"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_shivas_guard"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
-		"AbilitySharedCooldown"			"shivas"
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
-		"AbilityTextureName"            "item_shivas_guard"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
-		"ItemCost"						"25000"
-		"ItemShopTags"					"int;armor;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"shivas rush"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10"
+    "AbilitySharedCooldown"                               "shivas"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+    "AbilityTextureName"                                  "item_shivas_guard"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
+    "ItemCost"                                            "25000"
+    "ItemShopTags"                                        "int;armor;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "shivas rush"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"75 80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"40 45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-55"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"450 600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"450"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"350"
-			}
-			// Drums Parameters
-            "10"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_str"         "6 10"
-            }
-            "11"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_agi"         "3 5"
-            }
-            "12"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "3 5"
-            }
-            "13"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana_regen"      "50 75"
-            }
-            "14"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_aura_movement_speed" "20 25"
-            }
-            "15"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed_pct"    "25 30"
-            }
-            "16"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_movement_speed_pct"  "13 15"
-            }
-            "17"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "duration"              "6"
-            }
-            "18"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"                "900"
-            }
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "75 80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "40 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed"                               "-55"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_damage"                                    "450 600"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_movement_speed"                            "-50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_debuff_duration"                           "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_radius"                                    "450"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "350"
+      }
+      // Drums Parameters
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "6 10"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agi"                                       "3 5"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "3 5"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "50 75"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_aura_movement_speed"                       "20 25"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed_pct"                          "25 30"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_pct"                        "13 15"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6"
+      }
+      "18"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+    }
+  }
 }
