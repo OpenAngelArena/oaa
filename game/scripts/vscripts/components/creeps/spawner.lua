@@ -1,4 +1,3 @@
-
 -- Taken from bb template
 if CreepCamps == nil then
     Debug.EnabledModules['creeps:*'] = false
@@ -36,7 +35,7 @@ function CreepCamps:SetPowerLevel (powerLevel)
 end
 
 function CreepCamps:CreepSpawnTimer ()
-  if (10 > CDOTAGamerules:GetDOTATime(false, false)) then
+  if (10 > GameRules:GetDOTATime(false, false)) then
     return 30
   end
   -- scan for creep camps and spawn them
@@ -49,7 +48,7 @@ function CreepCamps:CreepSpawnTimer ()
   CreepCamps:UpgradeCreeps()
 
 
-  if (50 > CDOTAGamerules:GetDOTATime(false, false)) then
+  if (50 > GameRules:GetDOTATime(false, false)) then
     return 30
   end
   return CreepSpawnInterval
