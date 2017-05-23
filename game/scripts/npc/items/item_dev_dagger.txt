@@ -1,52 +1,52 @@
 "DOTAItems"
 {
-	//////
-	// Global Range Blink Dagger for Developers to help in testing
-	//////
-	"item_devDagger"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "item_blink"
-        "ID"                            "2009"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+  //////
+  // Global Range Blink Dagger for Developers to help in testing
+  //////
+  "item_devDagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_blink"
+    "ID"                                                  "2009"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "0"
-        "AbilityCastPoint"              "0.0"
-        "AbilityCooldown"               "0.0"
-        "AbilityManaCost"               "0"
-        
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "1"
-        "ItemShopTags"                  "teleport"
-        "ItemQuality"                   "component"
-        "ItemAliases"                   "blink dagger"
-        "ItemPurchasable"              "0"
-        "SideShop"                      "0"
-        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blink_range"           "20000"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "blink_damage_cooldown" "0.0"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "blink_range_clamp"     "960"
-            }
-        }
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "0.0"
+    "AbilityManaCost"                                     "0"
+    
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        "teleport"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "blink dagger"
+    "ItemPurchasable"                                     "0"
+    "SideShop"                                            "0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range"                                     "20000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blink_damage_cooldown"                           "0.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range_clamp"                               "960"
+      }
     }
+  }
 }

@@ -1,63 +1,63 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Pugna: Decrepify
-	//=================================================================================================================
-	"pugna_decrepify"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5187"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700 700 700 700"
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15.0 12.0 9.0 6.0 6.0 6.0"
-		"AbilityDuration"				"3.5"
+  //=================================================================================================================
+  // Pugna: Decrepify
+  //=================================================================================================================
+  "pugna_decrepify"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5187"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700 700 700 700"
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15.0 12.0 9.0 6.0 6.0 6.0"
+    "AbilityDuration"                                     "3.5"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "60"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_spell_damage_pct_allies"	"-25"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed_allies"		"0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_spell_damage_pct"	"-30 -40 -50 -60 -70 -80"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"-30 -40 -50 -60 -65 -70"
-			}			
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tooltip_duration"		"3.5"
-				"LinkedSpecialBonus"	"special_bonus_unique_pugna_5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_damage_pct_allies"                   "-25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_allies"                     "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_damage_pct"                          "-30 -40 -50 -60 -70 -80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "-30 -40 -50 -60 -65 -70"
+      }      
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "3.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pugna_5"
+      }
+    }
+  }
 }

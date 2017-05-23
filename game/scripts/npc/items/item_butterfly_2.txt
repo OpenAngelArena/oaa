@@ -1,94 +1,94 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-    // Recipe: Butterfly 2
-    //=================================================================================================================
-    "item_recipe_butterfly_2"
+  //=================================================================================================================
+  // Recipe: Butterfly 2
+  //=================================================================================================================
+  "item_recipe_butterfly_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3132"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_butterfly_2"
+    "ItemCost"                                            "1500"
+    "ItemRequirements"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3132"      // unique ID
-		"BaseClass"                     "item_datadriven"
-        "Model"                         "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"            "item_recipe"
-        "ItemShopTags"                  ""
-        "ItemRecipe"                    "1"
-        "ItemResult"                    "item_butterfly_2"
-        "ItemCost"                      "1500"
-        "ItemRequirements"
-        {
-            "01"                        "item_butterfly;item_upgrade_core"
-            "02"                        "item_butterfly;item_upgrade_core_2"
-            "03"                        "item_butterfly;item_upgrade_core_3"
-            "04"                        "item_butterfly;item_upgrade_core_4"
-        }
+      "01"                                                "item_butterfly;item_upgrade_core"
+      "02"                                                "item_butterfly;item_upgrade_core_2"
+      "03"                                                "item_butterfly;item_upgrade_core_3"
+      "04"                                                "item_butterfly;item_upgrade_core_4"
     }
+  }
 
-    //=================================================================================================================
-    // Butterfly 2
-    //=================================================================================================================
-    "item_butterfly_2"
+  //=================================================================================================================
+  // Butterfly 2
+  //=================================================================================================================
+  "item_butterfly_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3136"      // unique ID
+    "BaseClass"                                           "item_butterfly"
+    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25.0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_butterfly_2;item_butterfly_3;item_butterfly_4"
+    "AbilityTextureName"                                  "custom/butterfly_2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8025"
+    "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bfly;butterfly"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "3136"      // unique ID
-		"BaseClass"                     "item_butterfly"
-        //"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "25.0"
-
-        // Spicy Parameters
-        //-------------------------------------------------------------------------------------------------------------
-
-        "MaxUpgradeLevel"               "5"
-        "ItemBaseLevel"                 "2"
-        "UpgradesItems"                 "item_butterfly_2;item_butterfly_3;item_butterfly_4"
-        "AbilityTextureName"            "custom/butterfly_2"
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "8025"
-        "ItemShopTags"                  "agi;damage;evasion;attack_speed"
-        "ItemQuality"                   "epic"
-        "ItemAliases"                   "bfly;butterfly"
-        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_agility"         "35 45 55 65 75"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "30 40 53 65 75"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_evasion"         "35"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "30 33 36 39 42"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_move_speed"  "35 39 42 45 48"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration"              "4"
-            }
-        }
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "35 45 55 65 75"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 40 53 65 75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30 33 36 39 42"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "35 39 42 45 48"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4"
+      }
     }
+  }
 }

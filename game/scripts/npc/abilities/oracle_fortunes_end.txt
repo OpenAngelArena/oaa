@@ -1,70 +1,70 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Oracle: Fortune's End
-	//=================================================================================================================
-	"oracle_fortunes_end"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5637"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"850"
-		"AbilityCastPoint"				"0"
-		"AbilityChannelTime"			"2.5"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15 12 9 6 6 6"
+  //=================================================================================================================
+  // Oracle: Fortune's End
+  //=================================================================================================================
+  "oracle_fortunes_end"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5637"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0"
+    "AbilityChannelTime"                                  "2.5"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "110"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"90 120 150 180 240 480"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bolt_speed"				"1000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"minimum_purge_duration"	"0.5"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"maximum_purge_duration"	"2.5"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"max_channel_time_tooltip"	"2.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "90 120 150 180 240 480"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bolt_speed"                                      "1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "minimum_purge_duration"                          "0.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "maximum_purge_duration"                          "2.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_channel_time_tooltip"                        "2.5"
+      }
+    }
+  }
 }

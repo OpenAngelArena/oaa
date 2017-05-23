@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Sand King Epicenter
-	//=================================================================================================================
-	"sandking_epicenter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5105"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  // Ability: Sand King Epicenter
+  //=================================================================================================================
+  "sandking_epicenter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5105"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120 110 100 100 100"
-		"AbilityDuration"				"3.0"
-		"AbilityChannelTime"			"2.0"
-		"AbilityCastPoint"				"0.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityDuration"                                     "3.0"
+    "AbilityChannelTime"                                  "2.0"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 225 300 450 1000"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 225 300 450 1000"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.2"	// Damage is the main component of spell
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.2"  // Damage is the main component of spell
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_radius"	"275 325 375 425 475 525 575 650 675 700 725 750 775 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_pulses"	"6 8 10 14 30"
-				"LinkedSpecialBonus"	"special_bonus_unique_sand_king"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_damage"	"110"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_slow"	"-30"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_slow_as"	"-30"
-				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_3"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"epicenter_slow_duration_tooltip"	"3"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_radius"                                "275 325 375 425 475 525 575 650 675 700 725 750 775 800"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_pulses"                                "6 8 10 14 30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_damage"                                "110"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_slow"                                  "-30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_slow_as"                               "-30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "epicenter_slow_duration_tooltip"                 "3"
+      }
+    }
+  }
 
 }

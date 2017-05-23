@@ -1,63 +1,63 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Lycan: Shapeshift
-	//=================================================================================================================
-	"lycan_shapeshift"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5398"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120 90 60 60 60"
+  //=================================================================================================================
+  // Lycan: Shapeshift
+  //=================================================================================================================
+  "lycan_shapeshift"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5398"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120 90 60 60 60"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 100 100 100 100"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 100 100 100 100"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"18"
-				"LinkedSpecialBonus"		"special_bonus_unique_lycan_1"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"				"650"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"1000"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"transformation_time"		"1.5"
-			}		
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"40"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"160 180 200 220 240"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "18"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "650"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "1000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "1.5"
+      }    
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "160 180 200 220 240"
+      }
+    }
+  }
 
 }

@@ -1,93 +1,93 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Luna: Eclipse
-	//=================================================================================================================
-	"luna_eclipse"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5225"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Luna: Eclipse
+  //=================================================================================================================
+  "luna_eclipse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5225"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.6 0.6 0.6 0.6 0.6"
-		"AbilityCastRange"				"0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.6 0.6 0.6 0.6 0.6"
+    "AbilityCastRange"                                    "0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"140.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "140.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 200 250 350 750"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 200 250 350 750"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"beams"						"5 8 11 13 15"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hit_count"					"5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"beam_interval"				"0.6 0.6 0.6 0.6 0.6"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"beam_interval_scepter"				"0.3"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration_tooltip"			"2.4 4.2 6.0 7.2 8.4"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"675 675 675 675 675"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"beams_scepter"				"6 12 18 24 30"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hit_count_scepter"			"6 12 18 24 30"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration_tooltip_scepter"	"1.8 3.6 5.4 7.2 9.0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_tooltip_scepter"	"2500"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "beams"                                           "5 8 11 13 15"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_count"                                       "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "beam_interval"                                   "0.6 0.6 0.6 0.6 0.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "beam_interval_scepter"                           "0.3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "2.4 4.2 6.0 7.2 8.4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "675 675 675 675 675"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "beams_scepter"                                   "6 12 18 24 30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_count_scepter"                               "6 12 18 24 30"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip_scepter"                        "1.8 3.6 5.4 7.2 9.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip_scepter"                      "2500"
+      }
+    }
+  }
 
 }

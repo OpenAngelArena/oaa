@@ -1,101 +1,101 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Monkey King: Tree Dance
-	//=================================================================================================================
-	"monkey_king_tree_dance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5721"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"MaxLevel"						"6"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Monkey King: Tree Dance
+  //=================================================================================================================
+  "monkey_king_tree_dance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5721"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "MaxLevel"                                            "6"
+    "FightRecapLevel"                                     "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.4"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1.4"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"leap_speed"				"700"
-			}
-			"02" // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
-			{
-				"var_type"					"FIELD_INTEGER"
-				"spring_leap_speed"			"1300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"give_up_distance"			"1850"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ground_jump_distance"		"1000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"perched_jump_distance"		"1000"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"jump_damage_cooldown"		"3.0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"perched_day_vision"			"800"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"perched_night_vision"			"400"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"perched_spot_height"		"192.0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"unperched_stunned_duration"	"4.0"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"top_level_height"			"500"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"impact_damage_tooltip"		"100 180 260 340 500 1100"
-			}
-			"13"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"impact_movement_slow_tooltip"	"20 40 60 80 85 90"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_speed"                                      "700"
+      }
+      "02" // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spring_leap_speed"                               "1300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "give_up_distance"                                "1850"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ground_jump_distance"                            "1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "perched_jump_distance"                           "1000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_damage_cooldown"                            "3.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_day_vision"                              "800"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_night_vision"                            "400"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "perched_spot_height"                             "192.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "unperched_stunned_duration"                      "4.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "top_level_height"                                "500"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_damage_tooltip"                           "100 180 260 340 500 1100"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_movement_slow_tooltip"                    "20 40 60 80 85 90"
+      }
+    }
+  }
 }

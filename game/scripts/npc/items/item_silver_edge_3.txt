@@ -1,107 +1,107 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Silver Edge 3
-	//=================================================================================================================
-	"item_recipe_silver_edge_3"
-	{
-		"ID"							"3151"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_silver_edge_3"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_silver_edge_2;item_upgrade_core_2"
-			"02"						"item_silver_edge_2;item_upgrade_core_3"
-			"03"						"item_silver_edge_2;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Silver Edge 3
+  //=================================================================================================================
+  "item_recipe_silver_edge_3"
+  {
+    "ID"                                                  "3151"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_silver_edge_3"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_silver_edge_2;item_upgrade_core_2"
+      "02"                                                "item_silver_edge_2;item_upgrade_core_3"
+      "03"                                                "item_silver_edge_2;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Silver Edge 3
-	//=================================================================================================================
-	"item_silver_edge_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3155"		// unique ID
-		"BaseClass"                     "item_silver_edge"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/silver_edge_3"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24.0"
-		"AbilitySharedCooldown"			"shadow_blade"
+  //=================================================================================================================
+  // Silver Edge 3
+  //=================================================================================================================
+  "item_silver_edge_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3155"    // unique ID
+    "BaseClass"                                           "item_silver_edge"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/silver_edge_3"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "24.0"
+    "AbilitySharedCooldown"                               "shadow_blade"
 
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"3"
-		"UpgradesItems"					"item_silver_edge_3;item_silver_edge_4"
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_silver_edge_3;item_silver_edge_4"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
-		"ItemCost"						"11100"
-		"ItemShopTags"					"damage;attack_speed;movespeed;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"sb;invis;shadow blade"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+    "ItemCost"                                            "11100"
+    "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "sb;invis;shadow blade"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30 40 50 60 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 33 36 40 45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"15 18 21 25 28"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"windwalk_duration"		"14.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"windwalk_movement_speed"	"20 24 27 30 34"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"windwalk_fade_time"	"0.3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"windwalk_bonus_damage"	"175 265 400 600 800"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"backstab_reduction"	"-50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"backstab_duration"		"5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 40 50 60 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30 33 36 40 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "15 18 21 25 28"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "windwalk_duration"                               "14.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "windwalk_movement_speed"                         "20 24 27 30 34"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "windwalk_fade_time"                              "0.3"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "windwalk_bonus_damage"                           "175 265 400 600 800"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "backstab_reduction"                              "-50"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "backstab_duration"                               "5"
+      }
+    }
+  }
 }

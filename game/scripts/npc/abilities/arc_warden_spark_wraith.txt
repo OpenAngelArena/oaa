@@ -1,82 +1,82 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Arc Warden: Spark Wraith
-	//=================================================================================================================
-	"arc_warden_spark_wraith"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5679"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-			
-		"AbilityCastRange"				"2000"
-		"AbilityCastPoint"				"0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.0 4.0 4.0 4.0 4.0 4.0"
+  //=================================================================================================================
+  // Arc Warden: Spark Wraith
+  //=================================================================================================================
+  "arc_warden_spark_wraith"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5679"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    "AbilityCastRange"                                    "2000"
+    "AbilityCastPoint"                                    "0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"375"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"activation_delay"				"2.0"
-			}			
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"50"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"wraith_speed"					"400"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"spark_damage"					"100 160 220 280 400 880"
-				"LinkedSpecialBonus"			"special_bonus_unique_arc_warden"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"think_interval"				"0.2"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"wraith_vision_radius"					"300"
-			}  
-			"08"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"wraith_vision_duration"				"3.34"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"ministun_duration"				"0.4 0.5 0.6 0.7 0.9 1.7"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "activation_delay"                                "2.0"
+      }      
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "wraith_speed"                                    "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spark_damage"                                    "100 160 220 280 400 880"
+        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "think_interval"                                  "0.2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "wraith_vision_radius"                            "300"
+      }  
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "wraith_vision_duration"                          "3.34"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ministun_duration"                               "0.4 0.5 0.6 0.7 0.9 1.7"
+      }
+    }
+  }
 }

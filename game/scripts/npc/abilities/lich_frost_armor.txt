@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Lich: Frost Armor
-	//=================================================================================================================
-	"lich_frost_armor"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5135"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"		
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4 0.4"
+  //=================================================================================================================
+  // Lich: Frost Armor
+  //=================================================================================================================
+  "lich_frost_armor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5135"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"    
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0 5.0 5.0 5.0 5.0 5.0"
-		"AbilityDuration"				"40.0 40.0 40.0 40.0 40.0 40.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5.0 5.0 5.0 5.0 5.0 5.0"
+    "AbilityDuration"                                     "40.0 40.0 40.0 40.0 40.0 40.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50 50 50 50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 50 50 50 50 50"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Easy to spam 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.3"  // Easy to spam 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"			"3 5 7 9 13 30"
-			}		
-			"02"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"building_armor_bonus_tooltip"			"3 5 7 9 13 30"
-				"LinkedSpecialBonus"					"special_bonus_unique_lich_1"
-			}		
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"2.0 2.0 2.0 2.0 2.0 2.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-30 -30 -30 -30 -30 -30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-30"
-			}		
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_bonus"                                     "3 5 7 9 13 30"
+      }    
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "building_armor_bonus_tooltip"                    "3 5 7 9 13 30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lich_1"
+      }    
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.0 2.0 2.0 2.0 2.0 2.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed"                             "-30 -30 -30 -30 -30 -30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed"                               "-30"
+      }    
+    }
+  }
 }

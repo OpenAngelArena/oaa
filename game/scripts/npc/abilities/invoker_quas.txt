@@ -1,33 +1,33 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Invoker: Quas
-	//=================================================================================================================
-	"invoker_quas"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5370"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"14"
+  //=================================================================================================================
+  // Invoker: Quas
+  //=================================================================================================================
+  "invoker_quas"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5370"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "14"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"health_regen_per_instance"	"1 3 5 7 9 11 13 15 17 19 21 23 25 27"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                     "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_per_instance"                       "1 3 5 7 9 11 13 15 17 19 21 23 25 27"
+      }
+    }
+  }
 
 
 }

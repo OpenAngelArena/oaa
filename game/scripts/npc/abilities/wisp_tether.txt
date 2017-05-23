@@ -1,85 +1,85 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Wisp: Tether
-	//=================================================================================================================
-	"wisp_tether"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5485"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.001 0.001 0.001 0.001 0.001 0.001"
+  //=================================================================================================================
+  // Wisp: Tether
+  //=================================================================================================================
+  "wisp_tether"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5485"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.001 0.001 0.001 0.001 0.001 0.001"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0 12.0 12.0 12.0 12.0 12.0"
-		"AbilityDuration"				"12.0 12.0 12.0 12.0 12.0 12.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12.0 12.0 12.0 12.0 12.0 12.0"
+    "AbilityDuration"                                     "12.0 12.0 12.0 12.0 12.0 12.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 40 40 40 40 40"
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1800 1800 1800 1800 1800 1800"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 40 40 40 40 40"
+    
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1800 1800 1800 1800 1800 1800"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"900 900 900 900 1100 1300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"13 14 15 16 18 26"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"latch_distance"			"700 700 700 700 700 700"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"latch_speed"				"1000 1000 1000 1000 1000 1000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tether_duration"			"12.0 12.0 12.0 12.0 12.0 12.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tether_heal_amp"			"1.5"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"			"-100"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attackslow_tooltip"			"-100"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.75 1.25 1.75 2.25 3.25 5.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900 900 900 900 1100 1300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "13 14 15 16 18 26"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_distance"                                  "700 700 700 700 700 700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_speed"                                     "1000 1000 1000 1000 1000 1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tether_duration"                                 "12.0 12.0 12.0 12.0 12.0 12.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tether_heal_amp"                                 "1.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackslow_tooltip"                              "-100"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.75 1.25 1.75 2.25 3.25 5.0"
+      }
+    }
+  }
 }

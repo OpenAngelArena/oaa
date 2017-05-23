@@ -1,86 +1,86 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Magnataur: Empower
-	//=================================================================================================================
-	"magnataur_empower"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5519"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Magnataur: Empower
+  //=================================================================================================================
+  "magnataur_empower"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5519"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 50 70 90 130 290"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "30 50 70 90 130 290"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Easy to spam 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.3"  // Easy to spam 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"empower_duration"		"40.0 40.0 40.0 40.0 40.0 40.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_pct"		"20 30 40 50 65 85"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cleave_damage_pct"		"20 30 40 50 65 85"
-			}			
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"			"150"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"			"240"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"			"460"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"splash_damage_pct"		"10 15 20 25 30 35"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"splash_radius"			"240"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "empower_duration"                                "40.0 40.0 40.0 40.0 40.0 40.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_pct"                                "20 30 40 50 65 85"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cleave_damage_pct"                               "20 30 40 50 65 85"
+      }      
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }      
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "240"
+      }      
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "460"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "splash_damage_pct"                               "10 15 20 25 30 35"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_radius"                                   "240"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+    }
+  }
 }

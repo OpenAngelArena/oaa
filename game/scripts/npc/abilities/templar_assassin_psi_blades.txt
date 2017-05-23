@@ -1,41 +1,41 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Templar Assassin: Psi Blades
-	//=================================================================================================================
-	"templar_assassin_psi_blades"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5196"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+  //=================================================================================================================
+  // Templar Assassin: Psi Blades
+  //=================================================================================================================
+  "templar_assassin_psi_blades"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5196"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_range"		"60 120 180 240 300 360"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_spill_range"		"590 630 670 710 750 800"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_spill_width"		"75"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range"                              "60 120 180 240 300 360"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_spill_range"                              "590 630 670 710 750 800"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_spill_width"                              "75"
+      }
+    }
+  }
 
 }

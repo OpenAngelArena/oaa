@@ -1,86 +1,86 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Jump Dagger
-	//=================================================================================================================
-	"item_recipe_jump_dagger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3326"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Jump Dagger
+  //=================================================================================================================
+  "item_recipe_jump_dagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3326"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_jump_dagger"
-		"ItemRequirements"
-		{
-			"01"						"item_blink;item_upgrade_core_2"
-			"02"						"item_blink;item_upgrade_core_3"
-			"03"						"item_blink;item_upgrade_core_4"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_jump_dagger"
+    "ItemRequirements"
+    {
+      "01"                                                "item_blink;item_upgrade_core_2"
+      "02"                                                "item_blink;item_upgrade_core_3"
+      "03"                                                "item_blink;item_upgrade_core_4"
 
-		}
-	}
+    }
+  }
 
-	//=================================================================================================================
-	// Jump Dagger
-	//=================================================================================================================
-	"item_jump_dagger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3327"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_blink"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_blink"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.0"
+  //=================================================================================================================
+  // Jump Dagger
+  //=================================================================================================================
+  "item_jump_dagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3327"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_blink"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_blink"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.0"
 
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"23.0"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "23.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"jump_dagger euls;eul's scepter of divinity"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "jump_dagger euls;eul's scepter of divinity"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"1200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_damage_cooldown"	"3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_range_clamp"		"960"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_range"                                      "1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_damage_cooldown"                            "3.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_range_clamp"                                "960"
+      }
+    }
+  }
 }

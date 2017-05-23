@@ -1,74 +1,74 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tiny: Avalanche
-	//=================================================================================================================
-	"tiny_avalanche"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5106"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Tiny: Avalanche
+  //=================================================================================================================
+  "tiny_avalanche"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5106"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17.0"
-		"AbilityDuration"				"2.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17.0"
+    "AbilityDuration"                                     "2.0"
 
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"275"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tick_interval"				"0.25"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"num_ticks"					"4"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"projectile_duration"		"0.5"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"avalanche_damage"			"100 180 260 300 360 630"
-				"LinkedSpecialBonus"		"special_bonus_unique_tiny"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_ticks"                                       "4"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_duration"                             "0.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "avalanche_damage"                                "100 180 260 300 360 630"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tiny"
+      }
+    }
+  }
 
 }

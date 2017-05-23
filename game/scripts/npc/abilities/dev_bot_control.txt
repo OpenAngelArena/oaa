@@ -1,31 +1,31 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bot controller ability used to coordinate bots
-	//=================================================================================================================
-		"dev_bot_control" {
-		"BaseClass" "ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" "nothing"
-		"MaxLevel" "1"
-		"AbilitySharedWithTeammates" "1"
-		"AbilityCastRange" "1500"
-		"AbilityCooldown" "10"
-		"AbilityType" "DOTA_ABILITY_TYPE_BASIC"
+  //=================================================================================================================
+  // Bot controller ability used to coordinate bots
+  //=================================================================================================================
+  "dev_bot_control" {
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "nothing"
+    "MaxLevel"                                            "1"
+    "AbilitySharedWithTeammates"                          "1"
+    "AbilityCastRange"                                    "1500"
+    "AbilityCooldown"                                     "10"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
-		"Modifiers" {
-			"modifier_bot_controller" {
-				"Passive" "1"
-				"IsHidden" "1"
-				"ThinkInterval" "1.0"
+    "Modifiers" {
+      "modifier_bot_controller" {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "ThinkInterval"                                   "1.0"
 
-				"OnIntervalThink" {
-					"RunScript" {
-						"ScriptFile" "abilities/bot_controller.lua"
-						"Function" "Control"
-					}
-				}
-			}
-		}
-	}
+        "OnIntervalThink" {
+          "RunScript" {
+            "ScriptFile"                                  "abilities/bot_controller.lua"
+            "Function"                                    "Control"
+          }
+        }
+      }
+    }
+  }
 }

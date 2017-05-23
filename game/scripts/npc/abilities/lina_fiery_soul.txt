@@ -1,41 +1,41 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Lina's Fiery Soul
-	//=================================================================================================================
-	"lina_fiery_soul"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5042"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"fiery_soul_attack_speed_bonus"	"40 55 70 85 100 140"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"fiery_soul_move_speed_bonus"	"5 6 7 8 10 18"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fiery_soul_max_stacks"		"3"
-				"LinkedSpecialBonus"		"special_bonus_unique_lina_2"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fiery_soul_stack_duration"			"10"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Ability: Lina's Fiery Soul
+  //=================================================================================================================
+  "lina_fiery_soul"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5042"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fiery_soul_attack_speed_bonus"                   "40 55 70 85 100 140"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fiery_soul_move_speed_bonus"                     "5 6 7 8 10 18"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fiery_soul_max_stacks"                           "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lina_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fiery_soul_stack_duration"                       "10"
+      }
+    }
+  }
 }

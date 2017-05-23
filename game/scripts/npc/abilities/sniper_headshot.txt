@@ -1,45 +1,45 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Sniper: Headshot
-	//=================================================================================================================
-	"sniper_headshot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5155"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+  //=================================================================================================================
+  // Sniper: Headshot
+  //=================================================================================================================
+  "sniper_headshot"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5155"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"15 40 65 90 150 300"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "15 40 65 90 150 300"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"0.5"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"proc_chance"					"40"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"			"-100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "proc_chance"                                     "40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-100"
+      }
+    }
+  }
 
 }

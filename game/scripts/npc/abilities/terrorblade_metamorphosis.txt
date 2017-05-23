@@ -1,78 +1,78 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Terrorblade: Metamorphosis
-	//=================================================================================================================
-	"terrorblade_metamorphosis"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5621"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Terrorblade: Metamorphosis
+  //=================================================================================================================
+  "terrorblade_metamorphosis"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5621"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0."
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0."
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"140.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "140.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40 44 48 52 56 64"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"transformation_time"	"0.35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"1.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_range"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_attack_range"			"550"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20 40 60 80 120 280"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_loss"				"30"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"metamorph_aura_tooltip"				"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40 44 48 52 56 64"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_range"                                     "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_attack_range"                            "550"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 40 60 80 120 280"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_loss"                                      "30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "metamorph_aura_tooltip"                          "900"
+      }
+    }
+  }
 
 
 }

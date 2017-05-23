@@ -1,114 +1,114 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Veil of Discord 2
-	//=================================================================================================================
-	"item_recipe_veil_of_discord_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3618"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Veil of Discord 2
+  //=================================================================================================================
+  "item_recipe_veil_of_discord_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3618"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_veil_of_discord_2"
-		"ItemRequirements"
-		{
-			"01"						"item_veil_of_discord;item_upgrade_core"
-			"02"						"item_veil_of_discord;item_upgrade_core_2"
-			"03"						"item_veil_of_discord;item_upgrade_core_3"
-			"04"						"item_veil_of_discord;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_veil_of_discord_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_veil_of_discord;item_upgrade_core"
+      "02"                                                "item_veil_of_discord;item_upgrade_core_2"
+      "03"                                                "item_veil_of_discord;item_upgrade_core_3"
+      "04"                                                "item_veil_of_discord;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Veil of discord 2
-	//=================================================================================================================
-	"item_veil_of_discord_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3619"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_veil_of_discord"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
- 		"AbilityTextureName"			"custom/veil_of_discord_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.0"
+  //=================================================================================================================
+  // Veil of discord 2
+  //=================================================================================================================
+  "item_veil_of_discord_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3619"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_veil_of_discord"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityTextureName"                                  "custom/veil_of_discord_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.0"
 
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-		"ItemCost"						"4740"
-		"ItemShopTags"					"int;armor;regen_health;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"vod;veil of discord 2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "2"
-		"ItemBaseLevel"                 "2"
-//		"UpgradesItems"                 "item_veil_of_discord;item_veil_of_discord_2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+    "ItemCost"                                            "4740"
+    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "vod;veil of discord 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+//    "UpgradesItems"                                     "item_veil_of_discord;item_veil_of_discord_2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"6 9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"6 9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"		"6 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_str"		"6 9"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"		"6 9"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"		"12 18"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"resist_debuff"			"-25 -30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"debuff_radius"			"600"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"resist_debuff_duration"	"16.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "6 9"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6 9"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agi"                                       "6 9"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "6 9"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "6 9"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "12 18"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "resist_debuff"                                   "-25 -30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "debuff_radius"                                   "600"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "resist_debuff_duration"                          "16.0"
+      }
+    }
+  }
 }

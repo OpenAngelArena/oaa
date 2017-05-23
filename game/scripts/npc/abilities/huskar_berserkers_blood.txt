@@ -1,34 +1,34 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Huskar: Berserker's Blood
-	//=================================================================================================================
-	"huskar_berserkers_blood"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5273"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"maximum_attack_speed"			"220 260 300 340 380 420"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"maximum_resistance"			"20 30 40 50 60 80"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"hp_threshold_max"				"10"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Huskar: Berserker's Blood
+  //=================================================================================================================
+  "huskar_berserkers_blood"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5273"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"        
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maximum_attack_speed"                            "220 260 300 340 380 420"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maximum_resistance"                              "20 30 40 50 60 80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_threshold_max"                                "10"
+      }
+    }
+  }
 }

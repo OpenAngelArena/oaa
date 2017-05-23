@@ -1,42 +1,42 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Presence of the Dark Lord
-	//=================================================================================================================
-	"nevermore_dark_lord"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5063"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"OnCastbar"					"0"
+  //=================================================================================================================
+  // Ability: Presence of the Dark Lord
+  //=================================================================================================================
+  "nevermore_dark_lord"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5063"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "OnCastbar"                                           "0"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-3 -4 -5 -6 -8 -16"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"presence_radius"				"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "presence_armor_reduction"                        "-3 -4 -5 -6 -8 -16"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "presence_radius"                                 "900"
+      }
+    }
+  }
 
 }

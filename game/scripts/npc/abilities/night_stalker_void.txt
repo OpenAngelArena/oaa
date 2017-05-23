@@ -1,60 +1,60 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Night Stalker: Void
-	//=================================================================================================================
-	"night_stalker_void"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5275"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"525"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"8 8 8 8"
-		"AbilityManaCost"				"80 90 100 110 130 210"
-		"AbilityDamage"					"90 160 255 335 500 1100"
-			
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// applies 2 modifiers
+  //=================================================================================================================
+  // Night Stalker: Void
+  //=================================================================================================================
+  "night_stalker_void"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5275"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "525"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCooldown"                                     "8 8 8 8"
+    "AbilityManaCost"                                     "80 90 100 110 130 210"
+    "AbilityDamage"                                       "90 160 255 335 500 1100"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // applies 2 modifiers
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_day"			"2.0 2.0 2.0 2.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_night"		"2.5 3 3.5 4 4.5 5.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed_slow"		"-50 -50 -50 -50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attackspeed_slow"		"-50 -50 -50 -50"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_day"                                    "2.0 2.0 2.0 2.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_night"                                  "2.5 3 3.5 4 4.5 5.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed_slow"                                  "-50 -50 -50 -50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackspeed_slow"                                "-50 -50 -50 -50"
+      }
+    }
+  }
 }

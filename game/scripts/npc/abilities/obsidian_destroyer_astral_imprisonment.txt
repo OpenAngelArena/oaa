@@ -1,80 +1,80 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Obsidian Destroyer: Astral Imprisonment
-	//=================================================================================================================
-	"obsidian_destroyer_astral_imprisonment"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5392"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		"HasScepterUpgrade"				"1"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"4.0"
-		"AbilityCooldown"				"22 18 14 10 10 10"
+  //=================================================================================================================
+  // Obsidian Destroyer: Astral Imprisonment
+  //=================================================================================================================
+  "obsidian_destroyer_astral_imprisonment"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5392"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "HasScepterUpgrade"                                   "1"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "4.0"
+    "AbilityCooldown"                                     "22 18 14 10 10 10"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"225 300 375 450 500 600"
-		"AbilityCastPoint"				"0.25 0.25 0.25 0.25"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "225 300 375 450 500 600"
+    "AbilityCastPoint"                                    "0.25 0.25 0.25 0.25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 140 160 180 220 380"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120 140 160 180 220 380"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5" // applies multiple modifiers
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5" // applies multiple modifiers
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"prison_duration"		"4.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"		"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"		"100 175 250 325 475 1075"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"	"225 300 375 450 500 600"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges_scepter"		"2"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time_scepter"		"12"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"scepter_range_bonus"	"300"
-			}
-		}
-	}	
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "prison_duration"                                 "4.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 175 250 325 475 1075"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "225 300 375 450 500 600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges_scepter"                             "2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time_scepter"                     "12"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range_bonus"                             "300"
+      }
+    }
+  }  
 }

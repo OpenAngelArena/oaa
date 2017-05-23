@@ -1,84 +1,84 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Troll Warlord: Whirling Axes (Ranged)
-	//=================================================================================================================
-	"troll_warlord_whirling_axes_ranged"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5509"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Troll Warlord: Whirling Axes (Ranged)
+  //=================================================================================================================
+  "troll_warlord_whirling_axes_ranged"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5509"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"19 16 13 10 10 10"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "19 16 13 10 10 10"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_width"					"100"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_width"                                       "100"
+      }
 
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"axe_speed"					"1500.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"axe_range"					"1000.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_damage"				"75"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"axe_slow_duration"			"3.0 3.75 4.5 5.25 6.0 7.5"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_speed"			"30"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_spread"				"25"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_count"					"5"
-			}
-		}
-	}
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "axe_speed"                                       "1500.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "axe_range"                                       "1000.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_damage"                                      "75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "axe_slow_duration"                               "3.0 3.75 4.5 5.25 6.0 7.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "30"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_spread"                                      "25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_count"                                       "5"
+      }
+    }
+  }
 
 }

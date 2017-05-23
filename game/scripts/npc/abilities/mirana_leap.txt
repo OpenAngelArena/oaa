@@ -1,65 +1,65 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Mirana Leap
-	//=================================================================================================================
-	"mirana_leap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5050"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+  //=================================================================================================================
+  // Ability: Mirana Leap
+  //=================================================================================================================
+  "mirana_leap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5050"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30.0 26.0 22.0 18.0 17.0 16.0"
-		"AbilityDuration"				"5.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0 26.0 22.0 18.0 17.0 16.0"
+    "AbilityDuration"                                     "5.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 35 30 20 20 20"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 35 30 20 20 20"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_distance"			"600 700 800 900 950 1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"leap_speed"			"1600.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"leap_acceleration"		"7000.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_radius"		"775"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"leap_speedbonus"	"4 8 12 16 20 25"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"leap_speedbonus_as"	"16 32 48 64 96 144"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_1"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_distance"                                   "600 700 800 900 950 1000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "leap_speed"                                      "1600.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "leap_acceleration"                               "7000.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_radius"                                     "775"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_speedbonus"                                 "4 8 12 16 20 25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_speedbonus_as"                              "16 32 48 64 96 144"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
+      }
+    }
+  }
 }

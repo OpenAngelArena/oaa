@@ -1,49 +1,49 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Silencer: Glaives of Wisdom
-	//=================================================================================================================
-	"silencer_glaives_of_wisdom"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5378"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Silencer: Glaives of Wisdom
+  //=================================================================================================================
+  "silencer_glaives_of_wisdom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5378"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "HasScepterUpgrade"                                   "1"
 
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"0.0"
-		"AbilityCastRange"				"600"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "0.0"
+    "AbilityCastRange"                                    "600"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"15 15 15 15 12 10"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "15 15 15 15 12 10"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"intellect_damage_pct"	"35 50 65 80 90 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"steal_range"		"925"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "intellect_damage_pct"                            "35 50 65 80 90 100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "steal_range"                                     "925"
+      }
+    }
+  }
 
 }

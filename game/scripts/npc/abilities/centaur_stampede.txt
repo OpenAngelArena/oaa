@@ -1,86 +1,86 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Centaur: Stampede
-	//=================================================================================================================
-	"centaur_stampede"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Centaur: Stampede
+  //=================================================================================================================
+  "centaur_stampede"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5517"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90.0 75.0 60.0 60 60"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "90.0 75.0 60.0 60 60"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.2"	// hits everything on the map
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.2"  // hits everything on the map
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_damage"		"0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"strength_damage"	"1.0 2.0 3.0 4.5 6.5"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_duration"		"1.8"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"105"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_movement_speed"			"100"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cooldown_scepter"			"90 75 60 60 60"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_reduction"	"40"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_reduction_tooltip_scepter"	"60"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "strength_damage"                                 "1.0 2.0 3.0 4.5 6.5"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.8"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "105"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed"                             "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "90 75 60 60 60"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "40"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction_tooltip_scepter"                "60"
+      }
+    }
+  }
 }

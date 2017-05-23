@@ -1,81 +1,81 @@
 "DOTAAbilities"
 {
 "skeleton_king_hellfire_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5086"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"525"
-		"AbilityCastPoint"				"0.35 0.35 0.35 0.35 0.35 0.35"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5086"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "525"
+    "AbilityCastPoint"                                    "0.35 0.35 0.35 0.35 0.35 0.35"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0 8.0 8.0 8.0 8.0 8.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0 8.0 8.0 8.0 8.0 8.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 100 150 200 300 700"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "50 100 150 200 300 700"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"140"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "140"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Applies two modifiers
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // Applies two modifiers
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"1000"
-			}
-			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_stun_duration"	"2.0"
-			}
-			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tooltip_slow_duration"	"2"
-			}
-			
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_slow"			"-20"
-			}
-			
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_dot_duration"	"4"
-			}
-			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_dot_damage"		"20 35 50 65 95 215"
-			}
-			
-			
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "1000"
+      }
+      
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_stun_duration"                             "2.0"
+      }
+      
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_slow_duration"                           "2"
+      }
+      
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_slow"                                      "-20"
+      }
+      
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_dot_duration"                              "4"
+      }
+      
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_dot_damage"                                "20 35 50 65 95 215"
+      }
+      
+      
+    }
+  }
 }

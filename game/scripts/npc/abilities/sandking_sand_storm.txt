@@ -1,62 +1,62 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Sand King Sand Storm
-	//=================================================================================================================
-	"sandking_sand_storm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5103"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Ability: Sand King Sand Storm
+  //=================================================================================================================
+  "sandking_sand_storm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5103"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityDuration"				"50"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityDuration"                                     "50"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"34 26 18 10 10 10"
-		"AbilityChannelTime"			"50"
-		"AbilityCastPoint"				"0.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "34 26 18 10 10 10"
+    "AbilityChannelTime"                                  "50"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 60 80 100 140 300"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "40 60 80 100 140 300"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 50 40 30 20 10"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "60 50 40 30 20 10"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sand_storm_invis_delay"	"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sand_storm_radius"		"525"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"AbilityDuration"		"50"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "sand_storm_invis_delay"                          "1.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sand_storm_radius"                               "525"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "AbilityDuration"                                 "50"
+      }
+    }
+  }
 
 }

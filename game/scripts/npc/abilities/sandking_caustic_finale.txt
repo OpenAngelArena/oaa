@@ -1,67 +1,67 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Sand King Caustic Finale
-	//=================================================================================================================
-	"sandking_caustic_finale"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5104"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Ability: Sand King Caustic Finale
+  //=================================================================================================================
+  "sandking_caustic_finale"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5104"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_radius"		"400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_damage"		"90 130 170 220 310 670"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_damage_expire_tooltip"		"45 65 85 110 155 335"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"caustic_finale_damage_reduced"	"50"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"caustic_finale_duration"	"6"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_slow"		"-30"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"caustic_finale_slow_duration"		"3"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_expire_dmg_pct_tooltip"		"50"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_radius"                           "400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_damage"                           "90 130 170 220 310 670"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_damage_expire_tooltip"            "45 65 85 110 155 335"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "caustic_finale_damage_reduced"                   "50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "caustic_finale_duration"                         "6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_slow"                             "-30"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "caustic_finale_slow_duration"                    "3"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_expire_dmg_pct_tooltip"           "50"
+      }
+    }
+  }
 
 }

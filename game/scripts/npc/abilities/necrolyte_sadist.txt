@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Necrolyte's Sadist
-	//=================================================================================================================
-	"necrolyte_sadist"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5160"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+  //=================================================================================================================
+  // Ability: Necrolyte's Sadist
+  //=================================================================================================================
+  "necrolyte_sadist"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5160"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"28 24 20 16 16 16"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-		
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"3 3.5 4 4.5 5.0 5.5"
-			}				
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal_bonus"	"75"
-			}			
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"movement_speed"			"12 20 28 36 42 55"
-			}			
-			"04"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"slow_aoe"		"600"
-			}		
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"bonus_damage" "-20"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "28 24 20 16 16 16"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+    
+    
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3 3.5 4 4.5 5.0 5.5"
+      }        
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_bonus"                                      "75"
+      }      
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "12 20 28 36 42 55"
+      }      
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_aoe"                                        "600"
+      }    
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "-20"
+      }
+    }
+  }
 }

@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Dazzle: Shallow Grave
-	//=================================================================================================================
-	"dazzle_shallow_grave"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5234"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"HasScepterUpgrade"				"1"
+  //=================================================================================================================
+  // Dazzle: Shallow Grave
+  //=================================================================================================================
+  "dazzle_shallow_grave"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5234"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550 700 850 1000 1150 1450"
-		"AbilityCastPoint"				"0.4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 45 30 15 10 10"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550 700 850 1000 1150 1450"
+    "AbilityCastPoint"                                    "0.4"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60 45 30 15 10 10"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
-		
-		"AbilityDuration"				"5 5 5 5 5 5"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"duration_tooltip"		"5 5 5 5 5 5"
-			}
-			"02"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"range_tooltip"		"550 700 850 1000 1150 1450"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"scepter_radius"		"450"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
+    
+    "AbilityDuration"                                     "5 5 5 5 5 5"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {  
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "5 5 5 5 5 5"
+      }
+      "02"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "range_tooltip"                                   "550 700 850 1000 1150 1450"
+      }
+      "03"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "450"
+      }
+    }
+  }
 }

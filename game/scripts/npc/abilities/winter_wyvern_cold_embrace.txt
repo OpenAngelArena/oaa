@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
 "winter_wyvern_cold_embrace"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5653"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5653"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 21 18 15 15 15"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "24 21 18 15 15 15"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75 75"
-				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_3"
-			"02"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"heal_additive"		"20 20 20 20 50 80"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"heal_percentage"	"3.0 4.0 5.0 6.0 7.0 8.0"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 75 75 75 75 75"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {  
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
+        "02"
+        {  
+          "var_type"                                      "FIELD_INTEGER"
+          "heal_additive"                                 "20 20 20 20 50 80"
+        }
+        "03"
+        {  
+          "var_type"                                      "FIELD_FLOAT"
+          "heal_percentage"                               "3.0 4.0 5.0 6.0 7.0 8.0"
+        }
+      }
+    }
 }

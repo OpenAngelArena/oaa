@@ -1,16 +1,16 @@
 "DOTAItems"
 {
 
-	//A dummy item that is used to take up item slots in the swap_to_item() Lua function.
-	"item_dummy_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "2001"
-		"BaseClass"                     "item_datadriven"
-		"ItemBaseLevel"                 "1"
-  		"ItemPurchasable"				"0"
-	}
+  //A dummy item that is used to take up item slots in the swap_to_item() Lua function.
+  "item_dummy_datadriven"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "2001"
+    "BaseClass"                                           "item_datadriven"
+    "ItemBaseLevel"                                       "1"
+    "ItemPurchasable"                                     "0"
+  }
 
 
 }

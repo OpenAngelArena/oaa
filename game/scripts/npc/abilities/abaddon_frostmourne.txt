@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Abaddon: Frostmourne
-	//=================================================================================================================
-	"abaddon_frostmourne"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5587"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"debuff_duration"				"2.5"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"buff_duration"					"4.5"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"slow_pct"						"8 12 16 20 24 30"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_slow_tooltip"			"8 12 16 20 120 240"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"move_speed_pct"				"15"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"attack_speed"					"10 20 30 40 50 60"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Abaddon: Frostmourne
+  //=================================================================================================================
+  "abaddon_frostmourne"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5587"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "2.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "4.5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "8 12 16 20 24 30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow_tooltip"                             "8 12 16 20 120 240"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_pct"                                  "15"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "10 20 30 40 50 60"
+      }
+    }
+  }
 }

@@ -1,75 +1,75 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Oracle: Purifying Flames
-	//=================================================================================================================
-	"oracle_purifying_flames"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5639"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"850"
-		"AbilityCastPoint"				"0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.25"
+  //=================================================================================================================
+  // Oracle: Purifying Flames
+  //=================================================================================================================
+  "oracle_purifying_flames"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5639"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "850"
+    "AbilityCastPoint"                                    "0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "2.25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 85 90 95 105 145"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 85 90 95 105 145"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"90 180 270 360 540 1260"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_per_second"		"11.0 22.0 33.0 44.0 66.0 154.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"total_heal_tooltip"	"99 198 297 396 594 1386"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"9.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_rate"				"1.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_scepter"		"1.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"castpoint_scepter"		"0.1"
-			}
-		}
-	} 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "90 180 270 360 540 1260"
+      }      
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_per_second"                                 "11.0 22.0 33.0 44.0 66.0 154.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_heal_tooltip"                              "99 198 297 396 594 1386"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "9.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_rate"                                       "1.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "1.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "castpoint_scepter"                               "0.1"
+      }
+    }
+  } 
 }

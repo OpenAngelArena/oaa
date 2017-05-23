@@ -1,49 +1,49 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Phantom Lancer's Phantom Rush / Phantom Edge
-	//=================================================================================================================
-	"phantom_lancer_phantom_edge"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5068"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 12 8 4 4 4"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"min_distance"		"250"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_distance"				"600 700 800 900 1000 1200"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_speed"		"800"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_agility"		"6 14 22 30 45 90"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agility_duration"		"2"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Ability: Phantom Lancer's Phantom Rush / Phantom Edge
+  //=================================================================================================================
+  "phantom_lancer_phantom_edge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5068"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 12 8 4 4 4"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_distance"                                    "250"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_distance"                                    "600 700 800 900 1000 1200"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "6 14 22 30 45 90"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "agility_duration"                                "2"
+      }
+    }
+  }
 }

@@ -1,43 +1,43 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ursa: Fury Swipes
-	//=================================================================================================================
-	"ursa_fury_swipes"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5359"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Ursa: Fury Swipes
+  //=================================================================================================================
+  "ursa_fury_swipes"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5359"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time"				"20"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time_roshan"		"6"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"15 20 25 30 40 80"
-				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_reset_time"                                "20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_reset_time_roshan"                         "6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "15 20 25 30 40 80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ursa"
+      }
+    }
+  }
 
 }

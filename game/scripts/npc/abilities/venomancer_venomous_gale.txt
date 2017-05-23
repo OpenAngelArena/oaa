@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
 "venomancer_venomous_gale"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5178"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5178"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 20 19 18 18 18"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15.0 15.0 15.0 15.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"25 50 75 100 150 350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"10 40 70 100 160 400"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_interval"			"3.0 3.0 3.0 3.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"			"-50 -50 -50 -50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"125"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1200 1200 1200 1200"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "21 20 19 18 18 18"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "15.0 15.0 15.0 15.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strike_damage"                                   "25 50 75 100 150 350"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tick_damage"                                     "10 40 70 100 160 400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "3.0 3.0 3.0 3.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "-50 -50 -50 -50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "125"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1200 1200 1200 1200"
+      }
+    }
+  }
 }

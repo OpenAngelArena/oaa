@@ -3,72 +3,72 @@
 //=================================================================================
 // Brewmaster Earth 4
 //=================================================================================
-	"npc_dota_brewmaster_earth_4"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/brewmaster/brewmaster_earthspirit.vmdl"	// Model.
-		"BaseClass"					"npc_dota_brewmaster_earth"
-		"IdleExpression"			"scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"		// custom facial animation idle
-		"SoundSet"					"Brewmaster_Earth"			// Name of sound set.
-		"Level"						"8"
-		"ModelScale"				"1.0"
-		"IsSummoned"				"0"
-		"IsAncient"					"1"
-		"ConsideredHero"			"1"
-		"IgnoreAddSummonedToSelection" "1"
-		"UnitLabel"					"brewmaster_earth"
+  "npc_dota_brewmaster_earth_4"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/brewmaster/brewmaster_earthspirit.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_brewmaster_earth"
+    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"    // custom facial animation idle
+    "SoundSet"                                            "Brewmaster_Earth"      // Name of sound set.
+    "Level"                                               "8"
+    "ModelScale"                                          "1.0"
+    "IsSummoned"                                          "0"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+    "IgnoreAddSummonedToSelection"                        "1"
+    "UnitLabel"                                           "brewmaster_earth"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"brewmaster_earth_hurl_boulder"		// Ability 1
-		"Ability2"					"brewmaster_earth_spell_immunity"	// Ability 2
-		"Ability3"					"brewmaster_earth_pulverize"		// Ability 3
-		"Ability4"					"brewmaster_thunder_clap"		// Ability 4	
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
+    "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
+    "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
+    "Ability4"                                            "brewmaster_thunder_clap"    // Ability 4  
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// Physical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "5"      // Physical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"145"		// Damage range min.
-		"AttackDamageMax"			"155"		// Damage range max.	
-		"AttackRate"				"1.35"		// Speed of attack.
-		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
-		"AttackRange"				"150"		// Range within a target can be attacked.
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "145"    // Damage range min.
+    "AttackDamageMax"                                     "155"    // Damage range max.  
+    "AttackRate"                                          "1.35"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
 
-		// Bounds
-		//----------------------------------------------------------------
-		"HealthBarOffset"			"175"
+    // Bounds
+    //----------------------------------------------------------------
+    "HealthBarOffset"                                     "175"
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"325"		// Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"    // Speed.
 
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"4500"		// Base health.
-		"StatusHealthRegen"			"4"		// Health regeneration rate.
-		"StatusMana"				"600"		// Base mana.
-		"StatusManaRegen"			"2"			// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "4500"    // Base health.
+    "StatusHealthRegen"                                   "4"    // Health regeneration rate.
+    "StatusMana"                                          "600"    // Base mana.
+    "StatusManaRegen"                                     "2"      // Mana regeneration rate.
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	}	
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }  
 
 }

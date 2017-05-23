@@ -1,85 +1,85 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Guinsoos Scythe of Vyse 5
-	//=================================================================================================================
-	"item_recipe_sheepstick_5"
-	{
-		"ID"							"3069"			// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_sheepstick_5"
-		"ItemRequirements"
-		{
-			"01"						"item_sheepstick_4;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Guinsoos Scythe of Vyse 5
+  //=================================================================================================================
+  "item_recipe_sheepstick_5"
+  {
+    "ID"                                                  "3069"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_sheepstick_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_sheepstick_4;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Guinsoos Scythe of Vyse 5
-	//=================================================================================================================
-	"item_sheepstick_5"
-	{
-		// General-----------------------------------------------------------------------------------------------------
-		"ID"							"3073"		//Unique ID
-		"BaseClass"                     "item_sheepstick"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "custom/scythe_of_vyse_5"
-		// Stats-------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"22.0"
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"5"
+  //=================================================================================================================
+  // Guinsoos Scythe of Vyse 5
+  //=================================================================================================================
+  "item_sheepstick_5"
+  {
+    // General-----------------------------------------------------------------------------------------------------
+    "ID"                                                  "3073"    //Unique ID
+    "BaseClass"                                           "item_sheepstick"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/scythe_of_vyse_5"
+    // Stats-------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "22.0"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
 
-		// Item Info---------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		"ItemCost"						"25650"
-		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"hex;sheepstick;scythe of vyse"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info---------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "25650"
+    "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special-----------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"10 15 20 30 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"10 15 20 30 40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"35 50 70 105 140"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"150 200 300 450 600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sheep_duration"		"3.5 3.75 4.0 4.25 4.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sheep_movement_speed"	"140"
-			}
-		}
-	}
+    // Special-----------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "10 15 20 30 40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "10 15 20 30 40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "35 50 70 105 140"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "150 200 300 450 600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "sheep_duration"                                  "3.5 3.75 4.0 4.25 4.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "sheep_movement_speed"                            "140"
+      }
+    }
+  }
 }

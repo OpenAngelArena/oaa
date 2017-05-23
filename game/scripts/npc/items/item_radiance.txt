@@ -1,82 +1,82 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Radiance
-	//=================================================================================================================
-	"item_recipe_radiance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"136"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Radiance
+  //=================================================================================================================
+  "item_recipe_radiance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "136"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1350"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1350"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_radiance"
-		"ItemRequirements"
-		{
-			"01"						"item_relic"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_radiance"
+    "ItemRequirements"
+    {
+      "01"                                                "item_relic"
+    }
+  }
 
-	//=================================================================================================================
-	// Radiance
-	//=================================================================================================================
-	"item_radiance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"137"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "custom/item_radiance1"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"1"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5225"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"radiance"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"					"item_radiance;item_radiance_2;item_radiance_3;item_radiance_4"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"65 80 100 125 160"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"60 120 180 270 420"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_damage_illusions"	"35 70 105 160 245"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blind_pct"				"17"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"700"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Radiance
+  //=================================================================================================================
+  "item_radiance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "137"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityTextureName"                                  "custom/radiance"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5225"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "radiance"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_radiance;item_radiance_2;item_radiance_3;item_radiance_4"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "65 80 100 125 160"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_damage"                                     "60 120 180 270 420"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_damage_illusions"                           "35 70 105 160 245"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blind_pct"                                       "17"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "700"
+      }
+    }
+  }
 }

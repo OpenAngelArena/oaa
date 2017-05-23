@@ -1,81 +1,81 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Phoenix: Supernova
-	//=================================================================================================================
-	"phoenix_supernova"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5630"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"						"5"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.01"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"110.0 110.0 110.0"
-		"AbilityDuration"				"6.0"
+  //=================================================================================================================
+  // Phoenix: Supernova
+  //=================================================================================================================
+  "phoenix_supernova"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5630"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.01"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "110.0 110.0 110.0"
+    "AbilityDuration"                                     "6.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 200 200 250 350"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 200 200 250 350"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aura_radius"		"1000 1000 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_sec"	"60 90 120 180 450"
-			}
-			
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"1.5 2.0 2.5 3.0 3.25"
-				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_2"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks"	"5 8 11 16 25"
-				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_hero_attacks_scepter"	"7 10 13 20 30"
-				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_1"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_duration"	"6"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range_tooltip_scepter"	"500"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1000 1000 1000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_sec"                                  "60 90 120 180 450"
+      }
+      
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.5 2.0 2.5 3.0 3.25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_hero_attacks"                                "5 8 11 16 25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_hero_attacks_scepter"                        "7 10 13 20 30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_duration"                                "6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip_scepter"                      "500"
+      }
+    }
+  }
 }

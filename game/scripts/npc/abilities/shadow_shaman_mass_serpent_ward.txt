@@ -1,66 +1,66 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Shadow Shaman: Mass Serpent Ward
-	//=================================================================================================================
-	"shadow_shaman_mass_serpent_ward"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5081"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"           "ability_lua"
-    "ScriptFile"          "abilities/oaa_shadow_shaman_mass_serpent_ward"
-    "AbilityTextureName"  "shadow_shaman_mass_serpent_ward"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Shadow Shaman: Mass Serpent Ward
+  //=================================================================================================================
+  "shadow_shaman_mass_serpent_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5081"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_shadow_shaman_mass_serpent_ward"
+    "AbilityTextureName"                                  "shadow_shaman_mass_serpent_ward"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 350 600 1000 2500"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 350 600 1000 2500"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"10"
-				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"40 70 100 160 400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"45.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_range"			"225"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_count"                                      "10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_tooltip"                                  "40 70 100 160 400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "45.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "225"
+      }
+    }
+  }
 
 }

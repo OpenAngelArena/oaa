@@ -6,30 +6,30 @@
   "boss_shielder_shield"
   {
 
-    "ID" "9900"
-    "BaseClass" "ability_lua"
-    "ScriptFile" "abilities/shielder/boss_shielder_shield.lua"
-    "AbilityTextureName" "tidehunter_kraken_shell"
-    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType" "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "9900"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/shielder/boss_shielder_shield.lua"
+    "AbilityTextureName"                                  "tidehunter_kraken_shell"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
 
-    "MaxLevel"            "3"
-    "RequiredLevel"         "1"
-    "LevelsBetweenUpgrades"     "1"
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"            "FIELD_INTEGER"
-        "percent_damage_reduce"   "15"
+        "var_type"                                        "FIELD_INTEGER"
+        "percent_damage_reduce"                           "15"
       }
       "02"
       {
-        "var_type"            "FIELD_FLOAT"
-        "sheild_width"           "0.707 0 -0.707" // In terms of cosine
+        "var_type"                                        "FIELD_FLOAT"
+        "sheild_width"                                    "0.707 0 -0.707" // In terms of cosine
       }
     }
   }

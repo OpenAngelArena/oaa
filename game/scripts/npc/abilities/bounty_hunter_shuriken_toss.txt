@@ -1,68 +1,68 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bounty Hunter: Shuriken Toss
-	//=================================================================================================================
-	"bounty_hunter_shuriken_toss"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5285"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Bounty Hunter: Shuriken Toss
+  //=================================================================================================================
+  "bounty_hunter_shuriken_toss"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5285"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"120 130 140 150 170 250"
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCooldown"                                     "10"
+    "AbilityManaCost"                                     "120 130 140 150 170 250"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// just a mini stun
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.1"  // just a mini stun
 
-		"HasScepterUpgrade"				"1"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"150 225 300 375 525 1125"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1000 1000 1000 1000 1000 1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bounce_aoe"			"1200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ministun"			"0.1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_ministun"			"0.75"
-			}
-		}
-	}
+    "HasScepterUpgrade"                                   "1"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "150 225 300 375 525 1125"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000 1000 1000 1000 1000 1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_aoe"                                      "1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ministun"                                        "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_ministun"                                "0.75"
+      }
+    }
+  }
 }

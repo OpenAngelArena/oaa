@@ -5,17 +5,17 @@
   //=================================================================================================================
   "item_recipe_preemptive_3c"
   {
-    "ID"            "3823"   // unique ID
-    "BaseClass"     "item_datadriven"
-    "ItemCost"          "20000"
-    "ItemShopTags"          ""
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_preemptive_3c"
-    "AbilityTextureName"      "item_recipe"
+    "ID"                                                  "3823"   // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_preemptive_3c"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_preemptive_2b;item_upgrade_core_4"
-      "02"            "item_preemptive_2a;item_upgrade_core_4"
+      "01"                                                "item_preemptive_2b;item_upgrade_core_4"
+      "02"                                                "item_preemptive_2a;item_upgrade_core_4"
     }
   }
 
@@ -26,30 +26,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                    "3824"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"             "item_lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "custom/item_preemptive_3c"
-    "ScriptFile"            "items/reflex/preemptive_bubble.lua"
-    "FightRecapLevel"       "1"
+    "ID"                                                  "3824"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/preemptive_3c"
+    "ScriptFile"                                          "items/reflex/preemptive_bubble.lua"
+    "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"       "3"
-    "ItemBaseLevel"         "3"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
-    "AbilityCooldown"       "20"
-    "AbilitySharedCooldown" "reflex"
-    "AbilityCastPoint"      "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "reflex"
+    "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "13900"
-    "ItemShopTags"          "defense;support;mobility;hard_to_tag"
-    "ItemQuality"         "epic"
-    "ItemAliases"         "reflex;preemptive_3c"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "13900"
+    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "reflex;preemptive_3c"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
     // Special
@@ -58,41 +58,41 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"        "4000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "4000"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "20"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "magic_resistance"    "20"
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "20"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "4.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
       }
       "05"
       {
-        "var_type"      "FIELD_INTEGER"
-        "radius"        "275"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
       }
       "06"
       {
         // The time that the buff effect lingers after exiting the bubble
-        "var_type"          "FIELD_FLOAT"
-        "aura_stickiness"   "0.1"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_stickiness"                                 "0.1"
       }
     }
 
     "Precache"
     {
-      "particle"    "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
-      "soundfile"   "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+      "particle"                                          "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
     }
   }
 }

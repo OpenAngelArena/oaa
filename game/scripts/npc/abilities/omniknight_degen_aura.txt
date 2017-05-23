@@ -1,42 +1,42 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Omniknight: Degen Aura
-	//=================================================================================================================
-	"omniknight_degen_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5265"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"-10 -18 -26 -34 -38 -45"
-				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_bonus_tooltip"	"-10 -18 -26 -34 -46 -85"
-				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Omniknight: Degen Aura
+  //=================================================================================================================
+  "omniknight_degen_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5265"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "350"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_bonus"                                     "-10 -18 -26 -34 -38 -45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_bonus_tooltip"                            "-10 -18 -26 -34 -46 -85"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "350"
+      }
+    }
+  }
 }

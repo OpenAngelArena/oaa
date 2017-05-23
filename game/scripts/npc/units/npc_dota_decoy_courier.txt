@@ -4,80 +4,80 @@
 // Decoy Courier
 //=================================================================================
 
-	"npc_dota_decoy_courier"
-	{
-		// General
-		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_courier"	// Class of entity of link to.
-		"Model"						"models/props_gameplay/donkey.vmdl"	// Model.
-		"SoundSet"					""					// Name of sound set.
-		"Level"						"0"
-		"IsAncient"					"1"
-		"ModelScale"					"1"
-		"UnitLabel"					"courier"
+  "npc_dota_decoy_courier"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_courier"  // Class of entity of link to.
+    "Model"                                               "models/props_gameplay/donkey.vmdl"  // Model.
+    "SoundSet"                                            ""          // Name of sound set.
+    "Level"                                               "0"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1"
+    "UnitLabel"                                           "courier"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"AbilityLayout"				"6"		// changes when we change to flying -> "5"
+    // Abilities
+    //----------------------------------------------------------------
+    "AbilityLayout"                                       "6"    // changes when we change to flying -> "5"
 
-		"Ability1"					"courier_return_to_base"
-		"Ability2"					"courier_go_to_secretshop"
-		"Ability3"					"courier_return_stash_items"
-		"Ability4"					"courier_take_stash_items"
-		"Ability5"					"courier_transfer_items"
-		"Ability6"					"courier_burst"
-		"Ability7"					"courier_morph"
-		"Ability8"					"courier_take_stash_and_transfer_items"
-		"Ability9"					"courier_transfer_items_to_other_player"
-		"Ability10"					"courier_go_to_enemy_secretshop"
-		"Ability11"					"courier_go_to_sideshop"
-		"Ability12"					"courier_go_to_sideshop2"
+    "Ability1"                                            "courier_return_to_base"
+    "Ability2"                                            "courier_go_to_secretshop"
+    "Ability3"                                            "courier_return_stash_items"
+    "Ability4"                                            "courier_take_stash_items"
+    "Ability5"                                            "courier_transfer_items"
+    "Ability6"                                            "courier_burst"
+    "Ability7"                                            "courier_morph"
+    "Ability8"                                            "courier_take_stash_and_transfer_items"
+    "Ability9"                                            "courier_transfer_items_to_other_player"
+    "Ability10"                                           "courier_go_to_enemy_secretshop"
+    "Ability11"                                           "courier_go_to_sideshop"
+    "Ability12"                                           "courier_go_to_sideshop2"
 
-		// Bounds
-		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
-		"HealthBarOffset"			"120"
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+    "HealthBarOffset"                                     "120"
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"350"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "350"    // Speed
+    "MovementTurnRate"                                    "0.5"    // Turning rate.
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyGoldMin"				"0"		// Gold earned min.
-		"BountyGoldMax"				"0"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
 
-			// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"75"		// Base health.
-		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "75"    // Base health.
+    "StatusHealthRegen"                                   "0.5"      // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
 
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"350"		// Range of vision during day light.
-		"VisionNighttimeRange"		"350"		// Range of vision at night time.
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "350"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "350"    // Range of vision at night time.
 
-		// Bots
-		//----------------------------------------------------------------
-		"AttackDesire"				"5"		// How much bots want to attack them vs other non-hero things
+    // Bots
+    //----------------------------------------------------------------
+    "AttackDesire"                                        "5"    // How much bots want to attack them vs other non-hero things
 
-		//Inventory
-		"HasInventory"				"0"
+    //Inventory
+    "HasInventory"                                        "0"
 
-		"IdleExpression"			"scenes/default_idle.vcd"
+    "IdleExpression"                                      "scenes/default_idle.vcd"
 
-		"WakesNeutrals"				"0"
-	}
+    "WakesNeutrals"                                       "0"
+  }
 
 }

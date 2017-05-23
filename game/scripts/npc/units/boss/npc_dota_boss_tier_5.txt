@@ -3,93 +3,93 @@
 //=================================================================================
 // Boss tier 5
 //=================================================================================
-    "npc_dota_boss_tier_5"
+  "npc_dota_boss_tier_5"
+  {
+
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "n_creep_Melee"                                   // Name of sound set.
+    "Level"                                               "125"
+    "ModelScale"                                          "3.0"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+
+
+    // Abilities
+    //----------------------------------------------------------------
+
+    "Ability1"                                            "boss_resistance"          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
+
+    // Armor
+    //-----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"        // Physical protection.
+    "MagicalResistance"                                   "25"        // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "7910"      // Damage range min.
+    "AttackDamageMax"                                     "7910"      // Damage range max.
+    "AttackRate"                                          "0.625"     // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"       // Range within a target can be acquired.
+    "AttackRange"                                         "120"       // Range within a target can be attacked.
+    "ProjectileModel"                                     ""          // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"         // Speed of projectile.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"         // Experience earn.
+    "BountyGoldMin"                                       "0"         // Gold earned min.
+    "BountyGoldMax"                                       "0"         // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"            // Hull type used for navigation/locomotion.
+    "HealthBarOffset"                                     "140"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"            // Type of locomotion - ground, air
+    "MovementSpeed"                                       "420"       // Speed
+    "MovementTurnRate"                                    "0.5"       // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "33750"        // Base health.
+    "StatusHealthRegen"                                   "100.0"     // Health regeneration rate.
+    "StatusMana"                                          "0"         // Base mana.
+    "StatusManaRegen"                                     "0"         // Mana regeneration rate.
+
+    // Creature data
+
+    "Creature"
     {
-
-        // General
-        //----------------------------------------------------------------
-        "Model"                     "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
-        "BaseClass"                 "npc_dota_creature"
-        "SoundSet"                  "n_creep_Melee"                                   // Name of sound set.
-        "Level"                     "125"
-        "ModelScale"                    "3.0"
-        "IsAncient"                   "1"
-        "ConsideredHero"              "1"
-
-
-        // Abilities
-        //----------------------------------------------------------------
-
-        "Ability1"                  "boss_resistance"          // Ability 1.
-        "Ability2"                  ""          // Ability 2.
-        "Ability3"                  ""          // Ability 3.
-        "Ability4"                  ""          // Ability 4.
-        "Ability5"                  ""          // Ability 5.
-        "Ability6"                  ""          // Ability 6 - Extra.
-        "Ability7"                  ""          // Ability 7 - Extra.
-        "Ability8"                  ""          // Ability 8 - Extra.
-
-        // Armor
-        //-----------------------------------------------------------------
-        "ArmorPhysical"             "25"        // Physical protection.
-        "MagicalResistance"         "25"        // Magical protection.
-
-        // Attack
-        //----------------------------------------------------------------
-        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "7910"      // Damage range min.
-        "AttackDamageMax"           "7910"      // Damage range max.
-        "AttackRate"                "0.625"     // Speed of attack.
-        "AttackAnimationPoint"      "0.3"       // Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"    "800"       // Range within a target can be acquired.
-        "AttackRange"               "120"       // Range within a target can be attacked.
-        "ProjectileModel"           ""          // Particle system model for projectile.
-        "ProjectileSpeed"           "0"         // Speed of projectile.
-        // Bounty
-        //----------------------------------------------------------------
-        "BountyXP"                  "0"         // Experience earn.
-        "BountyGoldMin"             "0"         // Gold earned min.
-        "BountyGoldMax"             "0"         // Gold earned max.
-
-        // Bounds
-        //----------------------------------------------------------------
-        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"            // Hull type used for navigation/locomotion.
-        "HealthBarOffset"           "140"
-
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"            // Type of locomotion - ground, air
-        "MovementSpeed"             "420"       // Speed
-        "MovementTurnRate"          "0.5"       // Turning rate.
-
-        // Status
-        //----------------------------------------------------------------
-        "StatusHealth"              "33750"        // Base health.
-        "StatusHealthRegen"         "100.0"     // Health regeneration rate.
-        "StatusMana"                "0"         // Base mana.
-        "StatusManaRegen"           "0"         // Mana regeneration rate.
-
-        // Creature data
-
-        "Creature"
-         {
-            //Makes it only have 25% remaining of applied crowd control
-            "DisableResistance"            "75.0"
-         }
-
-        // Team
-        //----------------------------------------------------------------
-        "TeamName"                  "DOTA_TEAM_NEUTRALS"            // Team name.
-        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-        // Vision
-        //----------------------------------------------------------------
-        "VisionDaytimeRange"        "1800"      // Range of vision during day light.
-        "VisionNighttimeRange"      "1800"      // Range of vision at night time.
-
-        "HasInventory"              "1"
+      //Makes it only have 25% remaining of applied crowd control
+      "DisableResistance"                                 "75.0"
     }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+
+    "HasInventory"                                        "1"
+  }
 
 }

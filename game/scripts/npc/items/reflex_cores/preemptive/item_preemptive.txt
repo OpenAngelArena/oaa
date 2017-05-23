@@ -5,16 +5,16 @@
   //=================================================================================================================
   "item_recipe_preemptive"
   {
-    "ID"            "3801"   // unique ID
-    "BaseClass"     "item_datadriven"
-    "ItemCost"          "1500"
-    "ItemShopTags"          ""
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_preemptive"
-    "AbilityTextureName"      "item_recipe"
+    "ID"                                                  "3801"   // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_preemptive"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_reflex_core"
+      "01"                                                "item_reflex_core"
     }
   }
 
@@ -25,33 +25,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                    "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"             "item_lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "custom/item_preemptive"
-    "ScriptFile"            "items/reflex/preemptive.lua"
-    "FightRecapLevel"       "1"
+    "ID"                                                  "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/preemptive"
+    "ScriptFile"                                          "items/reflex/preemptive.lua"
+    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
-    "AbilityCooldown"       "20"
-    "AbilitySharedCooldown" "reflex"
-    "AbilityCastPoint"      "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "reflex"
+    "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     // even though this levels up, it splits at every level, so we dont show it that way
-    // "MaxUpgradeLevel"       "1"
-    // "ItemBaseLevel"         "1"
+    // "MaxUpgradeLevel"                                  "1"
+    // "ItemBaseLevel"                                    "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "2300"
-    "ItemShopTags"          "defense;support;mobility;hard_to_tag"
-    "ItemQuality"         "epic"
-    "ItemAliases"         "reflex;preemptive"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "2300"
+    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "reflex;preemptive"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
     // Special
@@ -60,28 +60,28 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_health"      "250"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_armor"       "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "magic_resistance"  "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "5"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage_reduction"  "50"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "50"
       }
       "05"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"          "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
       }
     }
   }

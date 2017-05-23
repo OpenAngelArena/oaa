@@ -1,59 +1,59 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Undying: Tombstone Zombie Deathlust
-	//=================================================================================================================
-	"undying_tombstone_zombie_deathstrike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5446"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Undying: Tombstone Zombie Deathlust
+  //=================================================================================================================
+  "undying_tombstone_zombie_deathstrike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5446"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"MaxLevel"								"6"
+    "MaxLevel"                                            "6"
 
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"5"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold"		"100 200 300 400 600 1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_threshold_pct"	"20 25 30 35 40 50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_speed"			"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1200"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-7"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_threshold"                                "100 200 300 400 600 1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_threshold_pct"                            "20 25 30 35 40 50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
+      }
+    }
+  }
 
 }

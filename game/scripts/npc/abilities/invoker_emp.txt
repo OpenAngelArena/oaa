@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Invoker: EMP
-	//=================================================================================================================
-	"invoker_emp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5383"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"C"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+  //=================================================================================================================
+  // Invoker: EMP
+  //=================================================================================================================
+  "invoker_emp"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5383"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "1"
+    "HotKeyOverride"                                      "C"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"950"
-		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"125 125 125 125 125 125 125 125 125 125 130 135 140 145 150"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"2.9"
-				"levelkey"				"wexlevel"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"675"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_burned"			"100 175 250 325 400 475 550 625 675 725 775 825 875 925 1000"
-				"levelkey"				"wexlevel"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_mana_pct"	"60"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "950"
+    "AbilityCastPoint"                                    "0.05"
+    "AbilityCooldown"                                     "30"
+    "AbilityManaCost"                                     "125 125 125 125 125 125 125 125 125 125 130 135 140 145 150"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "2.9"
+        "levelkey"                                        "wexlevel"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "area_of_effect"                                  "675"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_burned"                                     "100 175 250 325 400 475 550 625 675 725 775 825 875 925 1000"
+        "levelkey"                                        "wexlevel"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_mana_pct"                             "60"
+      }
+    }
+  }
 
 
 }

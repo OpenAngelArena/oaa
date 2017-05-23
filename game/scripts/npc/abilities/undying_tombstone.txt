@@ -1,74 +1,74 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Undying: Tombstone
-	//=================================================================================================================
-	"undying_tombstone"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5444"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"FightRecapLevel"				"1"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+  //=================================================================================================================
+  // Undying: Tombstone
+  //=================================================================================================================
+  "undying_tombstone"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5444"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "FightRecapLevel"                                     "1"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.45"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.45"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 130 140 150 170 250"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120 130 140 150 170 250"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tombstone_health"				"6 8 10 14 18 24"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"				"3 4 5 7 9 12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15.0 20.0 25.0 30.0 35.0 45.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600 800 1000 1200 1400 1800"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold"		"100 200 300 400 600 1400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold_pct_tooltip"		"20 25 30 35 40 50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"zombie_interval"		"3.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tombstone_health"                                "6 8 10 14 18 24"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hits_to_destroy_tooltip"                         "3 4 5 7 9 12"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "15.0 20.0 25.0 30.0 35.0 45.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600 800 1000 1200 1400 1800"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_threshold"                                "100 200 300 400 600 1400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_threshold_pct_tooltip"                    "20 25 30 35 40 50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "zombie_interval"                                 "3.0"
+      }
+    }
+  }
 
 }

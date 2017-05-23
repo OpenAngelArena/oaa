@@ -1,66 +1,66 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ogre Magi: Ignite
-	//=================================================================================================================
-	"ogre_magi_ignite"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5439"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.45"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+  //=================================================================================================================
+  // Ogre Magi: Ignite
+  //=================================================================================================================
+  "ogre_magi_ignite"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5439"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.45"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
-				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5 6 7 8 10 15"
-			}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "90"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5 6 7 8 10 15"
+      }
 
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"26 34 42 50 66 130"
-			}		
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burn_damage"                                     "26 34 42 50 66 130"
+      }    
 
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_movement_speed_pct"		"-20 -22 -24 -26 -29 -35"
-			}
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed_pct"                         "-20 -22 -24 -26 -29 -35"
+      }
 
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1000"
-			}	
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"multicast_delay"	"0.5"
-			}	
-		}
-	}
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1000"
+      }  
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "multicast_delay"                                 "0.5"
+      }  
+    }
+  }
 }

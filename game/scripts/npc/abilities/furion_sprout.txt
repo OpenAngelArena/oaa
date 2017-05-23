@@ -1,48 +1,48 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Furion: Sprout
-	//=================================================================================================================
-	"furion_sprout"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5245"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+  //=================================================================================================================
+  // Furion: Sprout
+  //=================================================================================================================
+  "furion_sprout"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5245"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"625 700 775 850 900 1000"
-		"AbilityCastPoint"				"0.35"
-		"AbilityCooldown"				"11 10 9 8"
-		"AbilityManaCost"				"70 90 110 130 160 225"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_range"			"750"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 4.0 5.0 6.0 6.5 7.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"				"625 700 775 850 900 1000"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "625 700 775 850 900 1000"
+    "AbilityCastPoint"                                    "0.35"
+    "AbilityCooldown"                                     "11 10 9 8"
+    "AbilityManaCost"                                     "70 90 110 130 160 225"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_range"                                    "750"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 4.0 5.0 6.0 6.5 7.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "625 700 775 850 900 1000"
+      }
+    }
+  }
 }

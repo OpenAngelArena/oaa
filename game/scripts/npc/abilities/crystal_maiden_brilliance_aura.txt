@@ -1,35 +1,35 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Crystal Maiden's Brilliance Aura
-	//=================================================================================================================
-	"crystal_maiden_brilliance_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5128"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Ability: Crystal Maiden's Brilliance Aura
+  //=================================================================================================================
+  "crystal_maiden_brilliance_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5128"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen"		"1.0 1.5 2.0 3.0 5.0 13.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_self"	"2 3 4 8 16 48"
-			}
-		}
-	}
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen"                                      "1.0 1.5 2.0 3.0 5.0 13.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen_self"                                 "2 3 4 8 16 48"
+      }
+    }
+  }
 }

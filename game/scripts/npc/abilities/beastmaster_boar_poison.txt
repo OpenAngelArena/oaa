@@ -1,37 +1,37 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Beastmaster: Boar: Poison
-	//=================================================================================================================
-	"beastmaster_boar_poison"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5171"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"-10 -20 -30 -40 -80 -160"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"-10 -20 -30 -40 -50 -60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Beastmaster: Boar: Poison
+  //=================================================================================================================
+  "beastmaster_boar_poison"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5171"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "-10 -20 -30 -40 -80 -160"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "-10 -20 -30 -40 -50 -60"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0"
+      }
+    }
+  }
 }

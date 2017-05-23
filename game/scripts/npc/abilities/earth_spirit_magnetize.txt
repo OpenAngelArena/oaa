@@ -1,83 +1,83 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Earth Spirit: Magnetize
-	//=================================================================================================================
-	"earth_spirit_magnetize"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5612"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300"
-		"AbilityCastPoint"				"0.01"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100 90 80 80 80"
+  //=================================================================================================================
+  // Earth Spirit: Magnetize
+  //=================================================================================================================
+  "earth_spirit_magnetize"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5612"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.01"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100 90 80 80 80"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100.0"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_radius"			"300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"			"50 75 100 150 350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_duration"			"6.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_search_radius"			"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_explosion_radius"			"600"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"			"1.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_explosion_delay"			"8.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"silence_duration"			"5.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"2.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_radius"                                     "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "50 75 100 150 350"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_duration"                                 "6.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_search_radius"                              "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_explosion_radius"                           "600"
+      }      
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "1.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rock_explosion_delay"                            "8.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "5.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.0"
+      }
+    }
+  }
 }

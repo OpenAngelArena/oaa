@@ -1,62 +1,62 @@
 "DOTAItems"
 {
-   "item_recipe_heart_transplant_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3259"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"			"item_recipe"
+  "item_recipe_heart_transplant_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3259"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_heart_transplant_2"
-		"ItemRequirements"
-		{
-			"01"						"item_heart_transplant;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_heart_transplant_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heart_transplant;item_upgrade_core_4"
+    }
+  }
 
-   "item_heart_transplant_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3261"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"             "item_lua"
-    "ScriptFile"            "items/heart_transplant.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
+  "item_heart_transplant_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3261"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/heart_transplant.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "1000"
-    "AbilityCooldown"       "0.0"
-		"AbilitySharedCooldown"			"medallion"
-		"AbilityTextureName"            "custom/heart_transplant_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCooldown"                                     "0.0"
+    "AbilitySharedCooldown"                               "medallion"
+    "AbilityTextureName"                                  "custom/heart_transplant_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"14000"
-		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"					"armor;regen_mana;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"transplant2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"               "2"
-    "ItemBaseLevel"                 "2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "14000"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "transplant2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-    // "IsTempestDoubleClonable"   "0"
-    "ItemInitialCharges"      "1"
-    "ItemRequiresCharges"     "1"
+    // "IsTempestDoubleClonable"                          "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,44 +65,44 @@
       // New Parameters
       "01"
       {
-        "var_type"            "FIELD_INTEGER"
-        "duration"            "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "7"
       }
       "02"
       {
-        "var_type"            "FIELD_INTEGER"
-        "transplant_cooldown" "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "transplant_cooldown"                             "7"
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "transplant_range_tooltip"    "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "transplant_range_tooltip"                        "1000"
       }
       // Heart Parameters
       "04"
       {
-        "var_type"                   "FIELD_INTEGER"
-        "bonus_strength"            "135 180"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "135 180"
       }
       "05"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "bonus_health"              "1000 1350"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "1000 1350"
       }
       "06"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "health_regen_rate"         "7"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_rate"                               "7"
       }
       "07"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "cooldown_melee"            "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_melee"                                  "5"
       }
       "08"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"       "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"                         "7"
       }
     }
   }

@@ -1,41 +1,41 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Legion Commander: Moment of Courage
-	//=================================================================================================================
-	"legion_commander_moment_of_courage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5597"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.3 1.8 1.3 0.8 0.8 0.8"
+  //=================================================================================================================
+  // Legion Commander: Moment of Courage
+  //=================================================================================================================
+  "legion_commander_moment_of_courage"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5597"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "2.3 1.8 1.3 0.8 0.8 0.8"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"trigger_chance"			"25 25 25 25 35 45"
-				"LinkedSpecialBonus"		"special_bonus_unique_legion_commander_3"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"buff_duration"				"1.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_leech_percent"			"55 65 75 85 90 95"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trigger_chance"                                  "25 25 25 25 35 45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_3"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "1.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_leech_percent"                                "55 65 75 85 90 95"
+      }
+    }
+  }
 
 }

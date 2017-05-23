@@ -1,83 +1,83 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Postactive Reflex 3b
-	//=================================================================================================================
-	"item_recipe_postactive_3b"
-	{
-		"ID"                    "3833"    // unique ID
-		"BaseClass"             "item_datadriven"
-		"AbilityTextureName"    "item_recipe"
-		"Model"                 "models/props_gameplay/recipe.mdl"
-		"FightRecapLevel"       "1"
-		"ItemCost"              "20000"
-		"ItemShopTags"          ""
-		"ItemRecipe"            "1"
-		"ItemResult"            "item_postactive_3b"
-		"ItemRequirements"
-		{
-			"01"            "item_postactive_2a;item_upgrade_core_4"
-			"02"            "item_postactive_2b;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Postactive Reflex 3b
+  //=================================================================================================================
+  "item_recipe_postactive_3b"
+  {
+    "ID"                                                  "3833"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "FightRecapLevel"                                     "1"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_postactive_3b"
+    "ItemRequirements"
+    {
+      "01"                                                "item_postactive_2a;item_upgrade_core_4"
+      "02"                                                "item_postactive_2b;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Postactive Reflex 3b
-	//=================================================================================================================
-	"item_postactive_3b"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                    "3834"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"             "item_lua"
-		"ScriptFile"            "items/reflex/postactive_hard_dispell.lua"
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"    "custom/item_postactive_3b"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       "10.0"
-		"AbilityCastPoint"      "0.0"
+  //=================================================================================================================
+  // Postactive Reflex 3b
+  //=================================================================================================================
+  "item_postactive_3b"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3834"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/reflex/postactive_hard_dispell.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"                                  "custom/postactive_3b"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10.0"
+    "AbilityCastPoint"                                    "0.0"
 
-		"MaxUpgradeLevel"       "3"
-		"ItemBaseLevel"         "3"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"       "100"
-		"ItemCost"              "13900"
-		"ItemShopTags"          "agi;str;int;attack_speed;move_speed;hard_to_tag"
-		"ItemQuality"           "epic"
-		"ItemAliases"           "wing chun"
-		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "13900"
+    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "wing chun"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_health"        "4000"
-			}
-			"02"
-			{
-				"var_type"        "FIELD_INTEGER"
-				"bonus_armor"     "20"
-			}
-			"03"
-			{
-				"var_type"        "FIELD_INTEGER"
-				"magic_resistance"    "20"
-			}
-		}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "4000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "20"
+      }
+    }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"  "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-			"particle"   "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "particle"                                          "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+    }
+  }
 }

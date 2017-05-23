@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Juggernaut Healing Ward
-	//=================================================================================================================
-	"juggernaut_healing_ward"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5029"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0 60.0 60.0 60.0 55.0 50.0"
-		"AbilityDuration"				"25.0 25.0 25.0 25.0 25.0 25.0"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"140"
+  //=================================================================================================================
+  // Ability: Juggernaut Healing Ward
+  //=================================================================================================================
+  "juggernaut_healing_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5029"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "350"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60.0 60.0 60.0 60.0 55.0 50.0"
+    "AbilityDuration"                                     "25.0 25.0 25.0 25.0 25.0 25.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "140"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"healing_ward_heal_amount"	"2 3 4 5 6 8"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"healing_ward_aura_radius"	"500"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"healing_ward_movespeed_tooltip"	"420"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"healing_ward_duration_tooltip"		"25"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "healing_ward_heal_amount"                        "2 3 4 5 6 8"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "healing_ward_aura_radius"                        "500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "healing_ward_movespeed_tooltip"                  "420"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "healing_ward_duration_tooltip"                   "25"
+      }
+    }
+  }
 }

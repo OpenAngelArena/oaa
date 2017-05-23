@@ -1,73 +1,73 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Queen of Pain: Sonic Wave
-	//=================================================================================================================
-	"queenofpain_sonic_wave"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5176"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.452 0.452 0.452"
+  //=================================================================================================================
+  // Queen of Pain: Sonic Wave
+  //=================================================================================================================
+  "queenofpain_sonic_wave"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5176"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
+    "MaxLevel"                                            "5"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.452 0.452 0.452"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"135 135 135"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "135 135 135"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 360 500 750 1750"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250 360 500 750 1750"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"starting_aoe"		"100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"distance"			"900"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"final_aoe"			"450"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"900"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"290 380 470 650 1400"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cooldown_scepter"	"40"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"325 440 555 785 1700"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "starting_aoe"                                    "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "900"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "final_aoe"                                       "450"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "900"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "290 380 470 650 1400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_scepter"                                  "325 440 555 785 1700"
+      }
+    }
+  }
 }

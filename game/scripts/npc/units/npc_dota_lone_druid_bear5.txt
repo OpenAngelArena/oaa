@@ -3,79 +3,79 @@
 //=================================================================================
 // Lone Druid Spirit Bear 5
 //=================================================================================
-	"npc_dota_lone_druid_bear5"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/lone_druid/spirit_bear.vmdl"	// Model.
-		"BaseClass"					"npc_dota_lone_druid_bear"
-		"SoundSet"					"LoneDruid_SpiritBear"
-		"Level"						"7"
-		"ModelScale" 					".91"
-		"ConsideredHero"			"1"
-		"UnitLabel"			"spirit_bear"
+  "npc_dota_lone_druid_bear5"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/lone_druid/spirit_bear.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_lone_druid_bear"
+    "SoundSet"                                            "LoneDruid_SpiritBear"
+    "Level"                                               "7"
+    "ModelScale"                                          ".91"
+    "ConsideredHero"                                      "1"
+    "UnitLabel"                                           "spirit_bear"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
-		"Ability2"					"lone_druid_spirit_bear_entangle"			// Ability 2
-		"Ability3"					"lone_druid_savage_roar_bear"			// Ability 3
-		"Ability4"					"lone_druid_spirit_bear_demolish"			// Ability 4
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "lone_druid_spirit_bear_return"      // Ability 1
+    "Ability2"                                            "lone_druid_spirit_bear_entangle"      // Ability 2
+    "Ability3"                                            "lone_druid_savage_roar_bear"      // Ability 3
+    "Ability4"                                            "lone_druid_spirit_bear_demolish"      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"8"			// Physical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "8"      // Physical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"75"		// Damage range min.
-		"AttackDamageMax"			"75"		// Damage range max.	
-		"AttackRate"				"1.40"		// Speed of attack.
-		"AttackAnimationPoint"		"0.43"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"128"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "75"    // Damage range min.
+    "AttackDamageMax"                                     "75"    // Damage range max.  
+    "AttackRate"                                          "1.40"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.43"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "128"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
 
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"70"
-		"HealthBarOffset"			"215"
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "215"
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"300"		// Experience earn.
-		"BountyGoldMin"				"300"		// Gold earned min.
-		"BountyGoldMax"				"300"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "300"    // Experience earn.
+    "BountyGoldMin"                                       "300"    // Gold earned min.
+    "BountyGoldMax"                                       "300"    // Gold earned max.
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"360"		// Speed.
-		"MovementTurnRate"			"0.6"		// Turning rate.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "360"    // Speed.
+    "MovementTurnRate"                                    "0.6"    // Turning rate.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"3600"		// Base health.
-		"StatusHealthRegen"			"7"			// Health regeneration rate.
-		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "3600"    // Base health.
+    "StatusHealthRegen"                                   "7"      // Health regeneration rate.
+    "StatusMana"                                          "300"    // Base mana.
+    "StatusManaRegen"                                     "0.5"    // Mana regeneration rate.     
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-		//Inventory
-		"HasInventory"				"1"	
-	}	
-	
+    //Inventory
+    "HasInventory"                                        "1"  
+  }  
+  
 }

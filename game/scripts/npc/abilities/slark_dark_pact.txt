@@ -1,70 +1,70 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Slark: Dark Pact
-	//=================================================================================================================
-	"slark_dark_pact"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5494"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Slark: Dark Pact
+  //=================================================================================================================
+  "slark_dark_pact"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5494"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.001"
-		"AbilityCastRange"				"325"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.001"
+    "AbilityCastRange"                                    "325"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9.0 8.0 7.0 6.0 6.0 6.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "9.0 8.0 7.0 6.0 6.0 6.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"55 50 45 40 35 25"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "55 50 45 40 35 25"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pulse_duration"		"1.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"325"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"total_damage"			"75 150 225 300 450 1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"total_pulses"			"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pulse_interval"		"0.1"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "1.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_duration"                                  "1.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage"                                    "75 150 225 300 450 1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_pulses"                                    "10"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_interval"                                  "0.1"
+      }
+    }
+  }
 
 }

@@ -1,65 +1,65 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Riki: Smoke Screen
-	//=================================================================================================================
-	"riki_smoke_screen"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5142"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Riki: Smoke Screen
+  //=================================================================================================================
+  "riki_smoke_screen"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5142"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0.4"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550"
+    "AbilityCastPoint"                                    "0.4"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11"
-		"AbilityDuration"				"6"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "11"
+    "AbilityDuration"                                     "6"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "90"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"250 275 300 325 325 325"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"miss_rate"					"40 50 60 70 75 80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_speed_reduction"	"10 15 20 25 30 35"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"turn_reduction"			"0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"					"6"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "250 275 300 325 325 325"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "40 50 60 70 75 80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_reduction"                        "10 15 20 25 30 35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turn_reduction"                                  "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6"
+      }
+    }
+  }
 
 }

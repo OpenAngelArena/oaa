@@ -1,112 +1,112 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-    // Recipe: Armlet
-    //=================================================================================================================
-    "item_recipe_armlet"
-    {
- 
-        "ID"                            "150"       // unique ID
-        "Model"                         "models/props_gameplay/recipe.vmdl"
-        "ItemCost"                      "550"  
-        "ItemShopTags"                  ""
-        "ItemRecipe"                    "1"
-        "ItemResult"                    "item_armlet"
-        "ItemRequirements"
-        {
-            "01"                        "item_helm_of_iron_will;item_gloves;item_blades_of_attack"
-        }
-    }
+  //=================================================================================================================
+  // Recipe: Armlet
+  //=================================================================================================================
+  "item_recipe_armlet"
+  {
 
-    //=================================================================================================================
-    // Armlet
-    //=================================================================================================================
-    "item_armlet"
+    "ID"                                                  "150"       // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCost"                                            "550"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_armlet"
+    "ItemRequirements"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "151"       // unique ID
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"				"custom/armlet_dormant_1"
- 
-        // Stats       
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "0.0"
- 
-        // Spicy Parameters
-        //-------------------------------------------------------------------------------------------------------------
- 
-        "MaxUpgradeLevel"               "3"
-        "ItemBaseLevel"                 "1"
-        "UpgradesItems"                 "item_armlet;item_armlet_2"
- 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "2370"
-        "ItemShopTags"                  "damage;attack_speed;armor;regen_health;hard_to_tag"
-        "ItemQuality"                   "epic"
-        "ItemAliases"                   "armlet of mordiggian"
-        "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-       
-        // Special 
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "9 15 20"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "25 28 32"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_armor"           "5 6 7"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health_regen"    "7 9 11"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_damage"   "31 40 55"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_attack_speed" "0"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_strength" "25 30 35"
-            }
-            "08"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_bonus_armor"    "4 5 6"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_tick"  "5 6 7"
-            }      
-            "10"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "unholy_health_drain_per_second_tooltip"    "45 54 63"
-            }  
-            "11"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "toggle_cooldown"       "0.036f"
-            }  
-        }
+      "01"                                                "item_helm_of_iron_will;item_gloves;item_blades_of_attack"
     }
+  }
+
+  //=================================================================================================================
+  // Armlet
+  //=================================================================================================================
+  "item_armlet"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "151"       // unique ID
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/armlet_dormant"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_armlet;item_armlet_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "2370"
+    "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "armlet of mordiggian"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "9 15 20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "25 28 32"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5 6 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "7 9 11"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_bonus_damage"                             "31 40 55"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_bonus_attack_speed"                       "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_bonus_strength"                           "25 30 35"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_bonus_armor"                              "4 5 6"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_health_drain_per_tick"                    "5 6 7"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_health_drain_per_second_tooltip"          "45 54 63"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "toggle_cooldown"                                 "0.036f"
+      }
+    }
+  }
 }

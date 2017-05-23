@@ -1,97 +1,97 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-	// Recipe: trumps_fists
-	//=================================================================================================================
-	"item_recipe_trumps_fists"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3262"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: trumps_fists
+  //=================================================================================================================
+  "item_recipe_trumps_fists"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3262"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_trumps_fists"
-		"ItemRequirements"
-		{
-			"01"				"item_desolator_3;item_skadi_3;item_upgrade_core_3"
-			"02"				"item_desolator_3;item_skadi_3;item_upgrade_core_4"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_trumps_fists"
+    "ItemRequirements"
+    {
+      "01"                                                "item_desolator_3;item_skadi_3;item_upgrade_core_3"
+      "02"                                                "item_desolator_3;item_skadi_3;item_upgrade_core_4"
 
-		}
-	}
+    }
+  }
 
 
 
-	//=================================================================================================================
-	// trumps_fists (Based on Desolator)
-	//=================================================================================================================
-	"item_trumps_fists"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3264"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/trump"
-		"ScriptFile"					"items/trumps_fists"
+  //=================================================================================================================
+  // trumps_fists (Based on Desolator)
+  //=================================================================================================================
+  "item_trumps_fists"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3264"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/trumps_fists"
+    "ScriptFile"                                          "items/trumps_fists"
 
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "MaxUpgradeLevel"               "2"
-        "ItemBaseLevel"                 "1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					"damage;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"trumps_fists"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "UpgradesItems"                 "item_trumps_fists"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "trumps_fists"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_trumps_fists"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"125 150"
-			}
-			"02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_all_stats"       "35 40"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health"          "500 750"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_mana"            "600 800"
-            }
-       		"05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_percent"  "-50 -100"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "heal_prevent_duration"  "2"
-            }
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "125 150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "35 40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "500 750"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "600 800"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_prevent_percent"                            "-50 -100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_prevent_duration"                           "2"
+      }
+    }
+  }
 }

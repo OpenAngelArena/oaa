@@ -1,36 +1,36 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Pudge Flesh Heap
-	//=================================================================================================================
-	"pudge_flesh_heap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5074"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"		
+  //=================================================================================================================
+  // Ability: Pudge Flesh Heap
+  //=================================================================================================================
+  "pudge_flesh_heap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5074"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"flesh_heap_magic_resist"		"6 8 10 12 15 25"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"flesh_heap_strength_buff_amount"	"1 1.5 2 2.5 3.0 5.0"
-				"LinkedSpecialBonus"			"special_bonus_unique_pudge_1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"flesh_heap_range"		"450"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "flesh_heap_magic_resist"                         "6 8 10 12 15 25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "flesh_heap_strength_buff_amount"                 "1 1.5 2 2.5 3.0 5.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "flesh_heap_range"                                "450"
+      }
+    }
+  }
 }

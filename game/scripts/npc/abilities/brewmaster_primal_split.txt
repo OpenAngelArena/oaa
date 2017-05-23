@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Brewmaster: Primal Split
-	//=================================================================================================================
-	"brewmaster_primal_split"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5403"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Brewmaster: Primal Split
+  //=================================================================================================================
+  "brewmaster_primal_split"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5403"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"140 120 100 95 90"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "140 120 100 95 90"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.65"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.65"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 150 175 225 425"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 150 175 225 425"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
 
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"16 18 20 22 25"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"split_duration"			"0.6"
-			}
-		}
-	}
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "16 18 20 22 25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "split_duration"                                  "0.6"
+      }
+    }
+  }
 }

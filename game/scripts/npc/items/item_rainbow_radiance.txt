@@ -1,99 +1,99 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: rainbow_radiance
-	//=================================================================================================================
-	"item_recipe_rainbow_radiance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3338"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: rainbow_radiance
+  //=================================================================================================================
+  "item_recipe_rainbow_radiance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3338"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_rainbow_radiance"
-		"ItemRequirements"
-		{
-			"01"						"item_lucience_2;item_upgrade_core"
-			"02"						"item_lucience_2;item_upgrade_core_2"
-			"03"						"item_lucience_2;item_upgrade_core_3"
-			"04"						"item_lucience_2;item_upgrade_core_4"
-		}
-	}
-	//=================================================================================================================
-	// rainbow_radiance
-	//=================================================================================================================
-	"item_rainbow_radiance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3339"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_radiance"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "item_radiance"
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"26000"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"rainbow_radiance"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_amount"			"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spellamp_amount"		"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_amount"			"50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifesteal_amount"			"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_amount"			"-50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_amount"			"150"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"65"
-			}
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_rainbow_radiance"
+    "ItemRequirements"
+    {
+      "01"                                                "item_lucience_2;item_upgrade_core"
+      "02"                                                "item_lucience_2;item_upgrade_core_2"
+      "03"                                                "item_lucience_2;item_upgrade_core_3"
+      "04"                                                "item_lucience_2;item_upgrade_core_4"
+    }
+  }
+  //=================================================================================================================
+  // rainbow_radiance
+  //=================================================================================================================
+  "item_rainbow_radiance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3339"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_radiance"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityTextureName"                                  "item_radiance"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "26000"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "rainbow_radiance"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_amount"                                     "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_amount"                                   "100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spellamp_amount"                                 "10"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_amount"                                    "50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_amount"                                "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_amount"                                     "-50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_amount"                                    "150"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "65"
+      }
+    }
+  }
 
 }

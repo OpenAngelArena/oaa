@@ -1,90 +1,90 @@
 "DOTAUnits"
 {
 
-    "dota_fountain"
-    {
-        // General
-        //
-        "BaseClass"                 "ent_dota_fountain" // Class of entity of link to.
-        "Model"                     "models/props_structures/dire_fountain002.vmdl" // Model.
-        "SoundSet"                  "dota_fountain"                 // Name of sound set.
-        "MinimapIcon"               "minimap_ward_obs"
-        "MinimapIconSize"               "1"
+  "dota_fountain"
+  {
+    // General
+    //
+    "BaseClass"                                           "ent_dota_fountain" // Class of entity of link to.
+    "Model"                                               "models/props_structures/dire_fountain002.vmdl" // Model.
+    "SoundSet"                                            "dota_fountain"                 // Name of sound set.
+    "MinimapIcon"                                         "minimap_ward_obs"
+    "MinimapIconSize"                                     "1"
 
-        // Abilities
-        //----------------------------------------------------------------
+    // Abilities
+    //----------------------------------------------------------------
 
-        "Ability1"                  ""          // Ability 1.
-        "Ability2"                  ""          // Ability 2.
-        "Ability3"                  ""          // Ability 3.
-        "Ability4"                  ""          // Ability 4.
-        "Ability5"                  ""          // Ability 5.
-        "Ability6"                  ""          // Ability 6 - Extra.
-        "Ability7"                  ""          // Ability 7 - Extra.
-        "Ability8"                  ""          // Ability 8 - Extra.
+    "Ability1"                                            ""          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
 
-        // Armor
-        //----------------------------------------------------------------
-        "ArmorPhysical"             "0"         // Physical protection.
-        "MagicalResistance"             "0"         // Magical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"         // Physical protection.
+    "MagicalResistance"                                   "0"         // Magical protection.
 
-        // Attack
-        //----------------------------------------------------------------
-        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"           "25000"       // Damage range min.
-        "AttackDamageMax"           "25000"       // Damage range max.
-        "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"                "0.05"      // Speed of attack.
-        "AttackAnimationPoint"      "0.0"       // Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"    "800"      // Range within a target can be acquired.
-        "AttackRange"               "800"      // Range within a target can be attacked. (was 690)
-        "ProjectileModel"           "particles/base_attacks/fountain_attack.vpcf" // Particle system model for projectile.
-        "ProjectileSpeed"           "2500"      // Speed of projectile.
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "25000"       // Damage range min.
+    "AttackDamageMax"                                     "25000"       // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "0.05"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.0"       // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"      // Range within a target can be acquired.
+    "AttackRange"                                         "800"      // Range within a target can be attacked. (was 690)
+    "ProjectileModel"                                     "particles/base_attacks/fountain_attack.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                                     "2500"      // Speed of projectile.
 
-        // Attributes
-        //----------------------------------------------------------------
-        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-        "AttributeBaseStrength"     "0"         // Base strength
-        "AttributeStrengthGain"     "0"         // Strength bonus per level.
-        "AttributeBaseIntelligence" "0"         // Base intelligence
-        "AttributeIntelligenceGain" "0"         // Intelligence bonus per level.
-        "AttributeBaseAgility"      "0"         // Base agility
-        "AttributeAgilityGain"      "0"         // Agility bonus per level.
+    // Attributes
+    //----------------------------------------------------------------
+    "AttributePrimary"                                    "DOTA_ATTRIBUTE_STRENGTH"
+    "AttributeBaseStrength"                               "0"         // Base strength
+    "AttributeStrengthGain"                               "0"         // Strength bonus per level.
+    "AttributeBaseIntelligence"                           "0"         // Base intelligence
+    "AttributeIntelligenceGain"                           "0"         // Intelligence bonus per level.
+    "AttributeBaseAgility"                                "0"         // Base agility
+    "AttributeAgilityGain"                                "0"         // Agility bonus per level.
 
-        // Bounty
-        //----------------------------------------------------------------
-        "BountyXP"                  "0"     // Experience earn.
-        "BountyGoldMin"             "0"     // Gold earned min.
-        "BountyGoldMax"             "0"     // Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"     // Experience earn.
+    "BountyGoldMin"                                       "0"     // Gold earned min.
+    "BountyGoldMax"                                       "0"     // Gold earned max.
 
-        // Bounds
-        //----------------------------------------------------------------
-        "BoundsHullName"            "DOTA_HULL_SIZE_TOWER"          // Hull type used for navigation/locomotion.
-        "RingRadius"                "220"
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER"          // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "220"
 
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
-        "MovementSpeed"             "0"         // Speed
-        "MovementTurnRate"          "0"         // Turning rate.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"         // Speed
+    "MovementTurnRate"                                    "0"         // Turning rate.
 
-        // Status
-        //----------------------------------------------------------------
-        "StatusHealth"              "500"       // Base health.
-        "StatusHealthRegen"         "0"         // Health regeneration rate.
-        "StatusMana"                "0"         // Base mana.
-        "StatusManaRegen"           "0"         // Mana regeneration rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "500"       // Base health.
+    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
+    "StatusMana"                                          "0"         // Base mana.
+    "StatusManaRegen"                                     "0"         // Mana regeneration rate.
 
-        // Team
-        //----------------------------------------------------------------
-        "TeamName"                  "DOTA_TEAM_BADGUYS"         // Team name.
-        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_BADGUYS"         // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
-        // Vision
-        //----------------------------------------------------------------
-        "VisionDaytimeRange"        "1800"      // Range of vision during day light.
-        "VisionNighttimeRange"      "1800"      // Range of vision at night time.
-    }
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+  }
 }

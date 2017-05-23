@@ -1,132 +1,132 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Necronomicon
-	//=================================================================================================================
-	"item_recipe_necronomicon"
-	{
-		"ID"							"105"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"1200"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_necronomicon"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_staff_of_wizardry;item_belt_of_strength"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Necronomicon
+  //=================================================================================================================
+  "item_recipe_necronomicon"
+  {
+    "ID"                                                  "105"    // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCost"                                            "1200"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_necronomicon"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_staff_of_wizardry;item_belt_of_strength"
+    }
+  }
 
-	//=================================================================================================================
-	// Necronomicon
-	//=================================================================================================================
-	"item_necronomicon"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"106"		// unique ID
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  //=================================================================================================================
+  // Necronomicon
+  //=================================================================================================================
+  "item_necronomicon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "106"    // unique ID
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"90.0"
-		"AbilitySharedCooldown"			"necronomicon"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "item_necronomicon"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-		"ItemCost"						"2650"
-		"ItemShopTags"					"int;str;hard_to_tag;see_invis"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"necronomicon 1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"				"6"
-		"ItemBaseLevel"					"1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "90.0"
+    "AbilitySharedCooldown"                               "necronomicon"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "item_necronomicon"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+    "ItemCost"                                            "2650"
+    "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "necronomicon 1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "6"
+    "ItemBaseLevel"                                       "1"
 
-		"UpgradesItems"					"item_necronomicon;item_necronomicon_2;item_necronomicon_3;item_necronomicon_4;item_necronomicon_5"
+    "UpgradesItems"                                       "item_necronomicon;item_necronomicon_2;item_necronomicon_3;item_necronomicon_4;item_necronomicon_5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"15 21 24 27 30 33"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"8 12 16 20 24 28"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_duration"		"45"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_health_tooltip"	"700 800 900 1000 1100 1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_damage_tooltip"	"75 100 125 150 175 200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_feedback"	"20 30 40 50 60 65"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_break_tooltip"	"20 30 40 50 60 65"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion"				"550 675 800 1000 1200 1500"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_truesight"		"1000"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_health_tooltip"	"700 800 900 1000 1100 1200"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_damage_tooltip"	"60 90 120 150 175 200"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_mana_burn"		"200 300 400 500 600 650"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_aura_radius_tooltip"	"900"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_move_speed"	"5 7 9 10 11 12"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_attack_speed"	"5 10 15 18 20 22"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "15 21 24 27 30 33"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "8 12 16 20 24 28"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_duration"                                 "45"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_health_tooltip"                          "700 800 900 1000 1100 1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_damage_tooltip"                          "75 100 125 150 175 200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_mana_feedback"                           "20 30 40 50 60 65"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_mana_break_tooltip"                      "20 30 40 50 60 65"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "explosion"                                       "550 675 800 1000 1200 1500"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_truesight"                               "1000"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_health_tooltip"                           "700 800 900 1000 1100 1200"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_damage_tooltip"                           "60 90 120 150 175 200"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_mana_burn"                                "200 300 400 500 600 650"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_aura_radius_tooltip"                      "900"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_move_speed"                               "5 7 9 10 11 12"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "archer_attack_speed"                             "5 10 15 18 20 22"
+      }
+    }
+  }
 }

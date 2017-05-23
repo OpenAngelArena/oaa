@@ -1,67 +1,67 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Naga Siren: Mirror Image
-	//=================================================================================================================
-	"naga_siren_mirror_image"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5467"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.65"
+  //=================================================================================================================
+  // Naga Siren: Mirror Image
+  //=================================================================================================================
+  "naga_siren_mirror_image"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5467"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.65"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40.0 40.0 40.0 40.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40.0 40.0 40.0 40.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 80 90 100 120 200"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 80 90 100 120 200"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"30.0 30.0 30.0 30.0 30.0 30.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"-75 -70 -65 -60 -50 -20"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage_tooltip"	"25 30 35 40 50 80"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"450 400 350 300 200 100"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_incoming_damage_total_pct"			"550 500 450 400 300 200"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"images_count"				"3 3 3 3 3 3"
-				"LinkedSpecialBonus"		"special_bonus_unique_naga_siren"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"invuln_duration"			"0.3"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_duration"                               "30.0 30.0 30.0 30.0 30.0 30.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "outgoing_damage"                                 "-75 -70 -65 -60 -50 -20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "outgoing_damage_tooltip"                         "25 30 35 40 50 80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage"                                 "450 400 350 300 200 100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_incoming_damage_total_pct"               "550 500 450 400 300 200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_count"                                    "3 3 3 3 3 3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "invuln_duration"                                 "0.3"
+      }
+    }
+  }
 }

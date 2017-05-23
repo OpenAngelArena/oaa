@@ -1,29 +1,29 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Juggernaut Blade Dance
-	//=================================================================================================================
-	"juggernaut_blade_dance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5027"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blade_dance_crit_mult"		"200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blade_dance_crit_chance"	"20 25 30 35 40 45"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Ability: Juggernaut Blade Dance
+  //=================================================================================================================
+  "juggernaut_blade_dance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5027"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blade_dance_crit_mult"                           "200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blade_dance_crit_chance"                         "20 25 30 35 40 45"
+      }
+    }
+  }
 }

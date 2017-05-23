@@ -3,74 +3,74 @@
 //=================================================================================
 // Healing Mine
 //=================================================================================
-	"npc_dota_healing_mine"
-	{
-		// General
-		// 
-		"BaseClass"					"npc_dota_rattletrap_cog"	// Class of entity of link to.
-		"Model"						"models/heroes/rattletrap/rattletrap_cog.vmdl"	// Model.
-		"SoundSet"					"0"					// Name of sound set.
-		"Level"						"1"
-		"ModelScale"				"1.5"
-		"wearable"				"8636"
+  "npc_dota_healing_mine"
+  {
+    // General
+    // 
+    "BaseClass"                                           "npc_dota_rattletrap_cog"  // Class of entity of link to.
+    "Model"                                               "models/heroes/rattletrap/rattletrap_cog.vmdl"  // Model.
+    "SoundSet"                                            "0"          // Name of sound set.
+    "Level"                                               "1"
+    "ModelScale"                                          "1.5"
+    "wearable"                                            "8636"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""      // Ability 1
+    "Ability2"                                            ""      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"			// Physical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"      // Physical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"0"			// Damage range min.
-		"AttackDamageMax"			"0"			// Damage range max.	
-		"AttackRate"				"1.0"		// Speed of attack.
-		"AttackAnimationPoint"		"0.0"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
-		"AttackRange"				"0"			// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"                                     "0"      // Damage range min.
+    "AttackDamageMax"                                     "0"      // Damage range max.  
+    "AttackRate"                                          "1.0"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.0"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "0"      // Range within a target can be acquired.
+    "AttackRange"                                         "0"      // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
 
-		// Bounds
-		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
-		"HealthBarOffset"			"140"
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+    "HealthBarOffset"                                     "140"
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air 
-		"MovementSpeed"				"0"			// Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air 
+    "MovementSpeed"                                       "0"      // Speed.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"200"		// Base health.
-		"StatusHealthRegen"			"0"			// Health regeneration rate.
-		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "200"    // Base health.
+    "StatusHealthRegen"                                   "0"      // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"25"			// Experience earn.
-		"BountyGoldMin"				"100"		// Gold earned min.
-		"BountyGoldMax"				"100"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "25"      // Experience earn.
+    "BountyGoldMin"                                       "100"    // Gold earned min.
+    "BountyGoldMax"                                       "100"    // Gold earned max.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1600"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1600"		// Range of vision at night time.
-	}	
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1600"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1600"    // Range of vision at night time.
+  }  
 
 }

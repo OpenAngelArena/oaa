@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
 "skeleton_king_reincarnation"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5089"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5089"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "160"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
 
-		"AbilityCooldown"				"240 140 40 40 40"
+    "AbilityCooldown"                                     "240 140 40 40 40"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.2"	// Slow isn't the main function of this ability.
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.2"  // Slow isn't the main function of this ability.
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"reincarnate_time"		"3.0 3.0 3.0 2.5 2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_radius"			"900"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed"				"-75"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attackslow_tooltip"	"-75"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"5.0 5.0 5.0 6.0 7.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"7 7 7 8 9"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"	"1200"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius_tooltip_scepter"	"1200"
-			}
-		}
-	}
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "reincarnate_time"                                "3.0 3.0 3.0 2.5 2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_radius"                                     "900"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "-75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackslow_tooltip"                              "-75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "5.0 5.0 5.0 6.0 7.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_duration"                                "7 7 7 8 9"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius_tooltip_scepter"                     "1200"
+      }
+    }
+  }
 }

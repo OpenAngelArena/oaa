@@ -1,38 +1,38 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Broodmother: Incapacitating Bite
-	//=================================================================================================================
-	"broodmother_incapacitating_bite"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5281"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Broodmother: Incapacitating Bite
+  //=================================================================================================================
+  "broodmother_incapacitating_bite"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5281"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_chance"			"30 40 50 60 70 80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"-16 -26 -36 -46 -56 -66"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"			"2.0 2.0 2.0 2.0 2.0 2.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_chance"                                     "30 40 50 60 70 80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed"                                 "-16 -26 -36 -46 -56 -66"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 2.0 2.0 2.0 2.0 2.0"
+      }
+    }
+  }
 }

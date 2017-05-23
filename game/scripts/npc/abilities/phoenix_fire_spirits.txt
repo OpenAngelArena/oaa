@@ -1,81 +1,81 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Phoenix: Fire Spirits
-	//=================================================================================================================
-	"phoenix_fire_spirits"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5625"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1400"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45 40 35 30 25 20"
+  //=================================================================================================================
+  // Phoenix: Fire Spirits
+  //=================================================================================================================
+  "phoenix_fire_spirits"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5625"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1400"
+    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "45 40 35 30 25 20"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110 130 210"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 90 100 110 130 210"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hp_cost_perc"		"20"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"spirit_duration"	"16.0 16.0 16.0 16.0"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"spirit_speed"		"900 900 900 900"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"175 175 175 175"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"4.0"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attackspeed_slow"	"-80 -100 -120 -140 -170 -230"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_second"				"10 30 50 70 110 270"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"spirit_count"		"4"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"1.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost_perc"                                    "20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spirit_duration"                                 "16.0 16.0 16.0 16.0"
+      }
+      "03"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "spirit_speed"                                    "900 900 900 900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "175 175 175 175"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackspeed_slow"                                "-80 -100 -120 -140 -170 -230"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "10 30 50 70 110 270"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spirit_count"                                    "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "1.0"
+      }
+    }
+  }
 }

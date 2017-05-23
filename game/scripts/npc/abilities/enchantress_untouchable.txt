@@ -1,32 +1,32 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Enchantress: Untouchable
-	//=================================================================================================================
-	"enchantress_untouchable"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5267"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Enchantress: Untouchable
+  //=================================================================================================================
+  "enchantress_untouchable"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5267"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
 
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-40 -70 -100 -130 -160 -240"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"			"4"
-			}
-		}
-	}
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed"                               "-40 -70 -100 -130 -160 -240"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_duration"                                   "4"
+      }
+    }
+  }
 }

@@ -1,82 +1,82 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Dragon Lance
-	//=================================================================================================================
-	"item_recipe_dragon_lance_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3650"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Recipe: Dragon Lance
+  //=================================================================================================================
+  "item_recipe_dragon_lance_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3650"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
-		"MaxUpgradeLevel"				"4"
-		"ItemBaseLevel"					"4"
-
-
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_dragon_lance_4"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"02"						"item_dragon_lance_3;item_upgrade_core_3"
-			"03"						"item_dragon_lance_3;item_upgrade_core_4"
-
-		}
-	}
-
-	//=================================================================================================================
-	// Dragon Lance
-	//=================================================================================================================
-	"item_dragon_lance_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3651"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_dragon_lance"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/dragon_lance_4"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16000"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"dragon lance"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"MaxUpgradeLevel"				"4"
-		"ItemBaseLevel"					"4"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "4"
 
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"12 16 19 21"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"12 15 18 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_attack_range"		"140 180 240 280"
-			}
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_dragon_lance_4"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "02"                                                "item_dragon_lance_3;item_upgrade_core_3"
+      "03"                                                "item_dragon_lance_3;item_upgrade_core_4"
+
+    }
+  }
+
+  //=================================================================================================================
+  // Dragon Lance
+  //=================================================================================================================
+  "item_dragon_lance_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3651"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_dragon_lance"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/dragon_lance_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "16000"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "dragon lance"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "4"
+
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "12 16 19 21"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "12 15 18 20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_attack_range"                               "140 180 240 280"
+      }
+    }
+  }
 }

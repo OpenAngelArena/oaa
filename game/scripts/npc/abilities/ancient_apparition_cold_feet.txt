@@ -1,71 +1,71 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ancient Apparition: Cold Feet
-	//=================================================================================================================
-	"ancient_apparition_cold_feet"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5345"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700 800 900 1000 1200 1600"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01 0.1 0.1"
+  //=================================================================================================================
+  // Ancient Apparition: Cold Feet
+  //=================================================================================================================
+  "ancient_apparition_cold_feet"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5345"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700 800 900 1000 1200 1600"
+    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01 0.1 0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13 11 9 7 7 7"
-		"AbilityDuration"				"4.0 4.0 4.0 4.0 4.0 4.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13 11 9 7 7 7"
+    "AbilityDuration"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 125 125 125 200 400"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 125 125 125 200 400"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // Does two modifiers 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"30 50 70 90 130 290"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"740 740 740 740 740 740"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.25 2.0 2.75 3.5 4.25 5.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"			"700 800 900 1000 1200 1600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_restore_time"	"10 9 8 7 7 7"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "30 50 70 90 130 290"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_distance"                                  "740 740 740 740 740 740"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.25 2.0 2.75 3.5 4.25 5.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "700 800 900 1000 1200 1600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "10 9 8 7 7 7"
+      }
+    }
+  }
 }

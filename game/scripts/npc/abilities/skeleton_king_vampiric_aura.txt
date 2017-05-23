@@ -1,27 +1,27 @@
 "DOTAAbilities"
 {
 "skeleton_king_vampiric_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5087"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"MaxLevel"						"6"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura_radius"	"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura"			"15 20 25 30 35 40"
-				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
-			}
-		}
-	}
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5087"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "MaxLevel"                                            "6"
+    
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vampiric_aura_radius"                            "900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vampiric_aura"                                   "15 20 25 30 35 40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
+      }
+    }
+  }
 }

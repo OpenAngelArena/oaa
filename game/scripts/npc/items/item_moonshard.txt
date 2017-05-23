@@ -1,77 +1,77 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-    // Recipe: Moon Shard
-    //=================================================================================================================
-    "item_recipe_moon_shard"
+  //=================================================================================================================
+  // Recipe: Moon Shard
+  //=================================================================================================================
+  "item_recipe_moon_shard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "246"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "0"
+
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_moon_shard"
+    "ItemRequirements"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "246"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "Model"                         "models/props_gameplay/recipe.vmdl"
-
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemShopTags"                  ""
-        "ItemPurchasable"               "0"
-
-
-        // Recipe
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemRecipe"                    "1"
-        "ItemResult"                    "item_moon_shard"
-        "ItemRequirements"
-        {
-            "01"                        "item_dev_dagger"
-        }
+      "01"                                                "item_dev_dagger"
     }
+  }
 
-    //=================================================================================================================
-    // Moon Shard
-    //=================================================================================================================
-    "item_moon_shard"
+  //=================================================================================================================
+  // Moon Shard
+  //=================================================================================================================
+  "item_moon_shard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "247"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4000"
+    "ItemShopTags"                                        "attack_speed"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "moon shard"
+    "SideShop"                                            "0"
+    "ItemPurchasable"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "247"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
-
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "4000"
-        "ItemShopTags"                  "attack_speed"
-        "ItemQuality"                   "common"
-        "ItemAliases"                   "moon shard"
-        "SideShop"                      "0"
-        "ItemPurchasable"               "0"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "120"
-            }           
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_night_vision"    "300"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "consumed_bonus"        "60"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "consumed_bonus_night_vision"   "150"
-            }
-        }
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "120"
+      }           
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "consumed_bonus"                                  "60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "consumed_bonus_night_vision"                     "150"
+      }
     }
+  }
 }

@@ -1,135 +1,135 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Vladimirs Helm
-	//=================================================================================================================
-	"item_recipe_vlads_helm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3240"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Vladimirs Helm
+  //=================================================================================================================
+  "item_recipe_vlads_helm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3240"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_vlads_helm"
-		"ItemRequirements"
-		{
-			"01"						"item_vladmir;item_helm_of_the_dominator;item_upgrade_core"
-      "02"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_2"
-      "03"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_3"
-      "04"            "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_4"
-		}
-	}
-
-
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_vlads_helm"
+    "ItemRequirements"
+    {
+      "01"                                                "item_vladmir;item_helm_of_the_dominator;item_upgrade_core"
+      "02"                                                "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_2"
+      "03"                                                "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_3"
+      "04"                                                "item_vladmir;item_helm_of_the_dominator;item_upgrade_core_4"
+    }
+  }
 
 
-	//=================================================================================================================
-	// Vladimirs Helm (Based on Helm of the Dominator)
-	//=================================================================================================================
-	"item_vlads_helm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3242"														// unique ID
-		"BaseClass"                     "item_vladmir"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
- 		"AbilityTextureName"			"item_vladmir"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"60.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"ItemCost"						"8000"
-		"ItemShopTags"					"damage;armor;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"vlads helm"
-		"MaxUpgradeLevels"				"2"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_vlads_helm"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stats"			"7 10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"15 22"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed_aura"		"15 22"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_aura"			"10 15"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_min"			"1400"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_base"			"425"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen_aura"		"1.2 1.6"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_aura"			"5 7"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_aura"			"20 30"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura"			"15 18"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura_ranged"			"10 13"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Vladimirs Helm (Based on Helm of the Dominator)
+  //=================================================================================================================
+  "item_vlads_helm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3242"                            // unique ID
+    "BaseClass"                                           "item_vladmir"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityTextureName"                                  "item_vladmir"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "60.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "vlads helm"
+    "MaxUpgradeLevels"                                    "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_vlads_helm"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_stats"                                     "7 10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "15 22"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_aura"                               "15 22"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_aura"                                   "10 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_min"                                      "1400"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_base"                                      "425"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen_aura"                                 "1.2 1.6"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_aura"                                      "5 7"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_aura"                                     "20 30"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vampiric_aura"                                   "15 18"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vampiric_aura_ranged"                            "10 13"
+      }
+    }
+  }
 
 
 }

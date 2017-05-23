@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Centaur Warchief: Double Edge
-	//=================================================================================================================
-	"centaur_double_edge"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5515"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Centaur Warchief: Double Edge
+  //=================================================================================================================
+  "centaur_double_edge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5515"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
-		"AbilityCastRange"				"150 150 150 150 150 150"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    // Stats    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5.0"
+    "AbilityCastRange"                                    "150 150 150 150 150 150"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		//------------------------------------------------------------------------------
-		"AbilityManaCost"				"0 0 0 0 0 0"
+    //------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0 0 0 0 0 0"
 
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"edge_damage"					"175 250 325 400 550 1150"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"190"
-			}
-		}
-	}
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "edge_damage"                                     "175 250 325 400 550 1150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "190"
+      }
+    }
+  }
 }

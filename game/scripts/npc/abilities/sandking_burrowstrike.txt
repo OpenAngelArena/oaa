@@ -1,81 +1,81 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Sand King Burrowsrike
-	//=================================================================================================================
-	"sandking_burrowstrike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5102"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Ability: Sand King Burrowsrike
+  //=================================================================================================================
+  "sandking_burrowstrike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5102"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350 450 550 650 675 700"
-		"AbilityCastPoint"				"0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "350 450 550 650 675 700"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "11.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110 120 130 140 160 240"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "110 120 130 140 160 240"
 
-		"AbilityDamage"					"100 160 220 280 400 900"
+    "AbilityDamage"                                       "100 160 220 280 400 900"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burrow_width"		"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burrow_duration"	"2.17"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burrow_speed"		"2000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"burrow_anim_time"	"0.52"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_range"		"350 450 550 650 675 700"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range_scepter"		"700 900 1100 1300 1400 1500"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"burrow_speed_scepter"		"3000"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burrow_width"                                    "150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burrow_duration"                                 "2.17"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burrow_speed"                                    "2000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burrow_anim_time"                                "0.52"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "350 450 550 650 675 700"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "700 900 1100 1300 1400 1500"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burrow_speed_scepter"                            "3000"
+      }
+    }
+  }
 
 }

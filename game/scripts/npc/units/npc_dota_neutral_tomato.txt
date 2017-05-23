@@ -1,72 +1,72 @@
 "DOTAUnits"
 {
-    "npc_dota_neutral_tomato"
-    {                                       
-        // General
-        //----------------------------------------------------------------
-        "Model"                     "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"   // Model.
-        "BaseClass"                 "npc_dota_creep_neutral"
-        "SoundSet"                  "n_creep_Melee"
-        "Level"                     "5"
-        "ModelScale"                    ".95"
-        "IsNeutralUnitType"         "1"
+  "npc_dota_neutral_tomato"
+  {                                       
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"   // Model.
+    "BaseClass"                                           "npc_dota_creep_neutral"
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "5"
+    "ModelScale"                                          ".95"
+    "IsNeutralUnitType"                                   "1"
 
-        // Abilities
-        //----------------------------------------------------------------
-        "Ability1"                  ""          // Ability 1
-        "Ability2"                  ""          // Ability 2
-        "Ability3"                  ""          // Ability 3
-        "Ability4"                  ""          // Ability 4
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""          // Ability 1
+    "Ability2"                                            ""          // Ability 2
+    "Ability3"                                            ""          // Ability 3
+    "Ability4"                                            ""          // Ability 4
 
-        // Armor
-        //----------------------------------------------------------------
-        "ArmorPhysical"             "4"         // Physical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "4"         // Physical protection.
 
-        // Attack
-        //----------------------------------------------------------------
-        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "49"        // Damage range min.
-        "AttackDamageMax"           "55"        // Damage range max.    
-        "AttackRate"                "1.55"      // Speed of attack.
-        "AttackAnimationPoint"      "0.3"       // Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"    "500"       // Range within a target can be acquired.
-        "AttackRange"               "100"       // Range within a target can be attacked.
-        "ProjectileModel"           ""          // Particle system model for projectile.
-        "ProjectileSpeed"           "0"         // Speed of projectile.        
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "49"        // Damage range min.
+    "AttackDamageMax"                                     "55"        // Damage range max.    
+    "AttackRate"                                          "1.55"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
+    "AttackRange"                                         "100"       // Range within a target can be attacked.
+    "ProjectileModel"                                     ""          // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"         // Speed of projectile.        
 
-        // Bounds
-        //----------------------------------------------------------------
-        "RingRadius"                "70"
-        "HealthBarOffset"           "215"
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "215"
 
-        // Bounty
-        //----------------------------------------------------------------
-        "BountyXP"                  "119"       // Experience earn.
-        "BountyGoldMin"             "76"        // Gold earned min.
-        "BountyGoldMax"             "88"        // Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "119"       // Experience earn.
+    "BountyGoldMin"                                       "76"        // Gold earned min.
+    "BountyGoldMax"                                       "88"        // Gold earned max.
 
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"             "320"       // Speed.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "320"       // Speed.
 
-        // Status
-        //----------------------------------------------------------------
-        "StatusHealth"              "950"       // Base health.
-        "StatusHealthRegen"         "1"         // Health regeneration rate.
-        "StatusMana"                "300"       // Base mana.
-        "StatusManaRegen"           "1.0"       // Mana regeneration rate.       
-        
-        // Vision
-        //----------------------------------------------------------------
-        "VisionDaytimeRange"        "800"       // Range of vision during day light.
-        "VisionNighttimeRange"      "800"       // Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "950"       // Base health.
+    "StatusHealthRegen"                                   "1"         // Health regeneration rate.
+    "StatusMana"                                          "300"       // Base mana.
+    "StatusManaRegen"                                     "1.0"       // Mana regeneration rate.       
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"       // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"       // Range of vision at night time.
 
-        // Team
-        //----------------------------------------------------------------
-        "TeamName"                  "DOTA_TEAM_NEUTRALS"                            // Team name.
-        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    }   
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"                            // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }   
 }

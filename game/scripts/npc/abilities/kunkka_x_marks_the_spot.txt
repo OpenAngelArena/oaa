@@ -1,62 +1,62 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Kunkka: X Marks the Spot
-	//=================================================================================================================
-	"kunkka_x_marks_the_spot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5033"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400 600 800 1000 1100 1200"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4 0.4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"26 20 14 8 7 6"
+  //=================================================================================================================
+  // Kunkka: X Marks the Spot
+  //=================================================================================================================
+  "kunkka_x_marks_the_spot"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5033"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "400 600 800 1000 1100 1200"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "26 20 14 8 7 6"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0"
-			}	
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"allied_duration_tooltip"	"8.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_range"				"400 600 800 1000 1100 1200"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fow_range"				"400"
-			}	  
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fow_duration"				"5.94"
-			}	
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }  
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "allied_duration_tooltip"                         "8.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "400 600 800 1000 1100 1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fow_range"                                       "400"
+      }    
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fow_duration"                                    "5.94"
+      }  
+    }
+  }
 }
