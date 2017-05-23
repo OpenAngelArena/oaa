@@ -32,31 +32,31 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 300 700"
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage"                            "80 120 160 200 280"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_bonus_str"                         "16 28 40 64 112"    
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "900"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage_scepter"                    "75 100 125 150 200"
-      }
-    }
-  }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gods_strength_damage"		"80 120 160 200 280"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gods_strength_bonus_str"		"12 24 36 60 108"		
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius_scepter"		"900"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"gods_strength_damage_scepter"	"75 100 125 150 200"
+			}
+		}
+	}
 
 }
