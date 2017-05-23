@@ -46,6 +46,7 @@
 		//-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
     "AbilityCooldown"       "195.0"
+    "AbilitySharedCooldown"  "refresher"
 
 		"MaxUpgradeLevel"				"2"
 		"ItemBaseLevel"					"2"
@@ -66,7 +67,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"12 16"
+				"bonus_health_regen"		"12 18"
 			}
 			"02"
 			{

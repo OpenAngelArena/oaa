@@ -5,7 +5,7 @@
   margin-top: 100px;
   flow-children: right;
   horizontal-align: center;
-  background-image: url("file://{images}/custom_game/TeamSelect_Gamemode_bg.png");
+  background-image: url("file://{images}/custom_game/team_select/TeamSelect_Gamemode_bg.png");
   background-size: 100% 100%;
   background-repeat: no-repeat round;
   background-color: transparent;
@@ -44,7 +44,7 @@
 #GameLengthPicker RadioButton:not(:selected) Panel.RadioBox
 {
   box-shadow: none;
-  background-image: url("file://{images}/custom_game/TeamSelect_Button_off.png");
+  background-image: url("file://{images}/custom_game/team_select/TeamSelect_Button_off.png");
   background-size: 100% 100%;
   background-repeat: no-repeat round;
   background-color: transparent;
@@ -53,7 +53,7 @@
 #GameLengthPicker  RadioButton:selected Panel.RadioBox
 {
   box-shadow: none;
-  background-image: url("file://{images}/custom_game/TeamSelect_Button_on.png");
+  background-image: url("file://{images}/custom_game/team_select/TeamSelect_Button_on.png");
   background-size: 100% 100%;
   background-repeat: no-repeat round;
 }

@@ -36,22 +36,26 @@ function GameLengthVotes:SetGameLength ()
   end
 
   local length
+  local scoreLimit
   if votes.long > votes.normal then
     if votes.long > votes.short then
       length = 'long'
-      CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 200, name = length } )
+      scoreLimit = 200
+      CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
     else
       length = 'short'
-      CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 50, name = length } )
+      scoreLimit = 50
+      CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
     end
   elseif votes.short > votes.normal then
     length = 'short'
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 50, name = length } )
+    scoreLimit = 50
+    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   else
     length = 'normal'
-    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = 100, name = length } )
+    scoreLimit = 100
+    CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   end
   DebugPrint ( 'votes ' .. votes.short .. ', ' .. votes.normal .. ', ' .. votes.long .. ' result: ' .. length)
   GameRules.GameLength = length
-
 end
