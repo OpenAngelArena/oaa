@@ -18,20 +18,20 @@ local function FarthestHeroInRange(position, range)
 end
 
 local function FindTwin()
-  local unitsInRange = FindUnitsInRadius(
+  return FindUnitsInRadius(
     DOTA_TEAM_NEUTRALS,
     thisEntity:GetAbsOrigin(),
     nil,
-    2000,
+    1000,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_HERO,
     DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
-    )
-
+    )[1]
+--[[
   if #unitsInRange == 0 then
-    return false
+    return nil
   end
 
   local i = 1
@@ -41,12 +41,12 @@ local function FindTwin()
     end
   end
 
-  return false
+  return nil]]
 end
 
 local function HurtHandler(keys)
   local twin = FindTwin()
-  if twin == false then
+  if twin == nil then
     return
   end
   local target = FarthestHeroInRange(twin:GetAbsOrigin(), 1000)
