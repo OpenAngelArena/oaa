@@ -4,23 +4,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "56"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"              "56"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "850"
-    "ItemShopTags"                                        "regen_health"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "roh;ring of health"
-    "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
-    "SideShop"                                            "0"
+    "ItemCost"            "850"
+    "ItemShopTags"          "regen_health"
+    "ItemQuality"         "component"
+    "ItemAliases"         "roh;ring of health"
+    "ItemShareability"        "ITEM_PARTIALLY_SHAREABLE"
+    "SideShop"            "0"
 
     // Sound
     //-------------------------------------------------------------------------------------------------------------
-    "UIPickupSound"                                       "Item.PickUpRingShop"
-    "UIDropSound"                                         "Item.DropRingShop"
-    "WorldDropSound"                                      "Item.DropRingWorld"
+    "UIPickupSound"         "Item.PickUpRingShop"
+    "UIDropSound"         "Item.DropRingShop"
+    "WorldDropSound"        "Item.DropRingWorld"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +28,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6"
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health_regen"  "6"
       }
     }
   }
