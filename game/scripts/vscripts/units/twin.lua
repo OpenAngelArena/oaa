@@ -35,7 +35,7 @@ local function FindTwin()
   end
 
   local i = 1
-  while i < #unitsInRange do
+  while i <= #unitsInRange do
     if unitsInRange[i]:GetUnitName() == "npc_dota_boss_twin_dumb" then
       return unitsInRange[i]
     end
