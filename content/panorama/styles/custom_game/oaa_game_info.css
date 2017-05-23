@@ -1,0 +1,202 @@
+.OAAGameInfo
+{
+    width:100%;
+    flow-children: down;
+}
+
+Label
+{
+    font-size: 16px;
+    color: #999999;
+    vertical-align: top;
+}
+
+#Title
+{
+    flow-children: right;
+}
+
+#TitleIcon
+{
+    width: 64px;
+    height: 64px;
+    vertical-align: center;
+}
+
+#TitleName
+{
+    color: #ffcc55;
+    font-size: 42px;
+    margin-left: 4px;
+    margin-top: -25px;
+    text-transform: uppercase;
+    vertical-align: center;
+}
+
+#BriefDescription
+{
+}
+
+#ThroneText,
+#CoinsText,
+#ItemsText,
+#FarmingCaveText,
+#DuelsText
+{
+    width: 70%;
+}
+
+.Header
+{
+	  font-size: 25px;
+    font-weight: bold;
+	  margin-top: 10px;
+	  text-transform: uppercase;
+}
+
+#ObjectiveHeader
+{
+	margin-top: 0px;
+}
+
+/*====================| ROW A |=======================*/
+#ThroneRow
+{
+    margin-top: 0px;
+}
+
+#ThroneText
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+	 text-align: left;
+}
+
+#ThroneImage
+{
+    margin-top: -10px;
+    width: 100px;
+    height: 100px;
+}
+
+/*====================| ROW B |=======================*/
+#CoinsRow
+{
+    margin-top: 0px;
+}
+
+#CoinsImage
+{
+    width: 100px;
+    height: 100px;
+}
+
+#CoinsText
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+/*====================| ROW C |=======================*/
+#ItemsRow
+{
+    margin-top: -10px;
+}
+
+#ItemsImage
+{
+    margin-top: -10px;
+    width: 100px;
+    height: 100px;
+}
+
+#ItemsText
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+	  text-align: left;
+}
+
+/*====================| ROW D |=======================*/
+#FarmingCaveRow
+{
+    margin-top: -10px;
+}
+
+#FarmingCaveImage
+{
+    margin-top: -10px;
+    width: 100px;
+    height: 100px;
+}
+
+#FarmingCaveText
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+/*====================| ROW E |=======================*/
+#DuelsRow
+{
+    margin-top: -10px;
+}
+
+#DuelsImage
+{
+    margin-top: -10px;
+    width: 100px;
+    height: 100px;
+}
+
+#DuelsText
+{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+/*====================| TIPS |=======================*/
+#TipsHeader
+{
+	margin-top: -18px;
+}
+
+#TipsRow
+{
+	flow-children: down;
+	margin-right: 92px;
+	margin-top: 18px;
+}
+
+.TipText
+{
+	margin-left: 16px;
+    margin-top: 0px;
+}
+
+.InfoRow
+{
+    flow-children: right;
+    width: 100%;
+}
+
+
+Label .roshan,
+Label .cores,
+Label .bosses,
+Label .items,
+Label .gold,
+Label .creeps,
+Label .arena
+{
+    color: #88ccff;
+    font-weight: bold;
+}
