@@ -195,7 +195,9 @@ end
 
 function BossAI:Think (state)
   if state.handle:IsNull() then
-    -- return false
+    -- this shouldn't happen, but sometimes other bugs can cause it
+    -- try to keep the bugged game running
+    return false
   end
 
   local distance = (state.handle:GetAbsOrigin() - state.origin):Length()
