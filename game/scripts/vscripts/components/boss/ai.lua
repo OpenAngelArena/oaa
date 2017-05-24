@@ -26,6 +26,9 @@ function BossAI:Create (unit, options)
     state = BossAI.IDLE,
     customAgro = options.customAgro or false,
 
+    owner = options.owner,
+    isProtected = options.isProtected,
+
     deathEvent = Event()
   }
 
@@ -81,6 +84,9 @@ function BossAI:DeathHandler (state, keys)
 
   state.deathEvent.broadcast(keys)
 
+  if state.isProtected then
+    teamId = state.owner
+  end
   if teamId == 2 then
     team = 'good'
   elseif teamId == 3 then
