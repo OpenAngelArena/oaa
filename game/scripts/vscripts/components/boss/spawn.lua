@@ -62,7 +62,7 @@ function BossSpawner:SpawnBossAtPit (pit)
   local tierIndex = math.min(#options, pit.killCount)
   local bossTier = tierIndex - 1 + startTier
   local bossName = options[tierIndex]
-  local isProtected = bossList == 1
+  local isProtected = bossList == 1 and pit.killCount == 1
 
   DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
   BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)

@@ -3,6 +3,8 @@
 if BossAI == nil then
   DebugPrint ( 'creating new BossAI object' )
   BossAI = class({})
+  BossAI.hasFarmingCore = {}
+  BossAI.hasReflexCore = {}
 
   Debug.EnabledModules['boss:ai'] = false
 end
@@ -99,6 +101,16 @@ function BossAI:DeathHandler (state, keys)
 
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
+    local needsZoneDisable = false
+
+    if not BossAI.hasFarmingCore[team] then
+      BossAI.hasFarmingCore[team] = true
+    elseif not BossAI.hasReflexCore[team] then
+      BossAI.hasReflexCore[team] = true
+
+      BossSpawner[team .. "Zone1"].disable()
+      BossSpawner[team .. "Zone2"].disable()
+    end
 
     for playerId = 0,19 do
       if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
@@ -106,19 +118,20 @@ function BossAI:DeathHandler (state, keys)
         local hero = player:GetAssignedHero()
 
         if hero then
-          if not hero.hasFarmingCore then
+          if BossAI.hasFarmingCore[team] and not hero.hasFarmingCore then
             hero:AddItemByName("item_farming_core")
             hero.hasFarmingCore = true
-          elseif not hero.hasReflexCore then
+          elseif BossAI.hasReflexCore[team] and not hero.hasReflexCore then
             hero:AddItemByName("item_reflex_core")
             hero.hasReflexCore = true
-
-            BossSpawner[team .. "Zone1"].disable()
-            BossSpawner[team .. "Zone2"].disable()
           end
         end
       end
     end
+
+    if needsZoneDisable then
+    end
+
   elseif state.tier == 2 then
     NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
