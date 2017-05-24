@@ -26,7 +26,7 @@ function AbilityLevels.CheckAbilityLevels (keys)
     if ability then
       local abilityName = ability:GetAbilityName()
       if hasNoPoints then
-        table.insert(canLevelUp, 9999)
+        table.insert(canLevelUp, -1)
       else
         table.insert(canLevelUp, AbilityLevels:GetRequiredLevel(hero, abilityName))
       end
