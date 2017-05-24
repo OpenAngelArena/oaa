@@ -27,7 +27,8 @@ end
 
 function BossSpawner:SpawnBossAtPit (pit)
   local startTier = pit:GetIntAttr('tier')
-  local options = Bosses[startTier]
+  local bossList = pit:GetIntAttr('type')
+  local options = Bosses[bossList]
   local tierIndex = math.min(#options, pit.killCount)
   local bossTier = tierIndex - 1 + startTier
   local bossName = options[tierIndex]

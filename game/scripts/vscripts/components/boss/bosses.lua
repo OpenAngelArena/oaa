@@ -8,13 +8,31 @@ Bosses = {
     "npc_dota_boss_tier_5",
     "npc_dota_boss_tier_6"
   },
-  -- tier 2
+  -- tier 1
   {
+    "npc_dota_boss_tier_1",
     "npc_dota_boss_twin",
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_tier_6"
+    "npc_dota_boss_stopfightingyourself"
+  },
+  -- tier 1
+  {
+    "npc_dota_boss_tier_1",
+    "npc_dota_boss_twin",
+    "npc_dota_boss_charger",
+    "npc_dota_boss_tier_4",
+    "npc_dota_boss_tier_5",
+    "npc_dota_boss_stopfightingyourself"
+  },
+  -- tier 2
+  {
+    "npc_dota_boss_shielder",
+    "npc_dota_boss_charger",
+    "npc_dota_boss_tier_4",
+    "npc_dota_boss_tier_5",
+    "npc_dota_boss_stopfightingyourself"
   },
   -- tier 3
   {
@@ -23,18 +41,7 @@ Bosses = {
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },
-  -- tier 4
-  {
-    "npc_dota_boss_tier_4",
-    "npc_dota_boss_tier_5",
-    "npc_dota_boss_tier_6"
-  },
-  -- tier 5
-  {
-    "npc_dota_boss_tier_5",
-    "npc_dota_boss_stopfightingyourself"
-  },
-  -- tier 6
+  -- unused
   {
     "npc_dota_boss_stopfightingyourself"
   }
