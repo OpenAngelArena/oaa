@@ -194,17 +194,13 @@ function CaveHandler:CreepDeath (teamID, roomID)
       cave.timescleared = cave.timescleared + 1
       for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
         local statTable = CustomNetTables:GetTableValue('stat_display', 'CC').value
-        -- local statTable = CustomNetTables:GetTableValue('stat_display', 'CC')
-        -- if not statTable then
-        --   stateTable = {}
-        -- else
-        --   stateTable = stateTable.value
-        -- end
+
         if statTable[tostring(playerID)] then
           statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
         else
           statTable[tostring(playerID)] = 1
         end
+
         CustomNetTables:SetTableValue('stat_display', 'CC', { value = statTable })
       end
       -- inform players
