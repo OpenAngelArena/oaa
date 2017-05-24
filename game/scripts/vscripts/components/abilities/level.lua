@@ -7,20 +7,29 @@ end
 
 function AbilityLevels:Init ()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"))
-  GameEvents:OnPlayerLevelUp(AbilityLevels.HeroLeveledUp)
+  GameEvents:OnPlayerLevelUp(AbilityLevels.CheckAbilityLevels)
+  GameEvents:OnPlayerLearnedAbility(AbilityLevels.CheckAbilityLevels)
 end
 
-function AbilityLevels.HeroLeveledUp (keys)
+function AbilityLevels.CheckAbilityLevels (keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
   local hero = player:GetAssignedHero()
+  if not level then
+    level = hero:GetLevel()
+  end
   local canLevelUp = {}
+  local hasNoPoints = hero:GetAbilityPoints() == 0
 
   for index = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(index)
     if ability then
       local abilityName = ability:GetAbilityName()
-      table.insert(canLevelUp, AbilityLevels:GetRequiredLevel(hero, abilityName))
+      if hasNoPoints then
+        table.insert(canLevelUp, -1)
+      else
+        table.insert(canLevelUp, AbilityLevels:GetRequiredLevel(hero, abilityName))
+      end
     end
   end
 
@@ -75,7 +84,7 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
 
   if heroLevel >= requirement then
     Timers:CreateTimer(function()
-      AbilityLevels.HeroLeveledUp({
+      AbilityLevels.CheckAbilityLevels({
         player = player:GetEntityIndex(),
         level = heroLevel
       })
