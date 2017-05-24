@@ -55,7 +55,7 @@
     {
       "RunScript"
       {
-        "ScriptFile"                                      "items/item_stoneskin.lua"
+        "ScriptFile"                                      "items/stoneskin.lua"
         "Function"                                        "modifier_stoneskin_toggle"
         "Delay"                                           "%start_delay"
         "Cooldown"                                        "%cooldown_after_delay"
@@ -65,7 +65,7 @@
     {
       "RunScript"
       {
-        "ScriptFile"                                      "items/item_stoneskin.lua"
+        "ScriptFile"                                      "items/stoneskin.lua"
         "Function"                                        "modifier_stoneskin_toggle"
         "Delay"                                           "%start_delay"
         "Cooldown"                                        "%cooldown_after_delay"

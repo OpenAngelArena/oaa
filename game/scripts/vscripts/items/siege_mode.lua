@@ -1,6 +1,6 @@
 item_siege_mode = class({})
 
-LinkLuaModifier( "modifier_item_siege_mode_siege", "items/item_siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
