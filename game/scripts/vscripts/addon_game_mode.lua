@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "0.30.1"
+GAME_VERSION = "0.31.0"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
 require('internal/util')
