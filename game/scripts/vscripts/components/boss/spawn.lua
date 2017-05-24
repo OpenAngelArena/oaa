@@ -9,6 +9,36 @@ end
 
 function BossSpawner:Init ()
   Timers:CreateTimer(5, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+
+  local allGoodPlayers = {}
+  local allBadPlayers = {}
+  local function addToList (list, id)
+    list[id] = true
+  end
+  each(partial(addToList, allGoodPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
+  each(partial(addToList, allBadPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
+
+  BossSpawner.goodZone2 = ZoneControl:CreateZone('good_safe_pit_2', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 300,
+    players = allGoodPlayers
+  })
+  BossSpawner.goodZone1 = ZoneControl:CreateZone('good_safe_pit_1', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 300,
+    players = allGoodPlayers
+  })
+
+  BossSpawner.badZone2 = ZoneControl:CreateZone('bad_safe_pit_2', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 300,
+    players = allBadPlayers
+  })
+  BossSpawner.badZone1 = ZoneControl:CreateZone('bad_safe_pit_1', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 300,
+    players = allBadPlayers
+  })
 end
 
 function BossSpawner:SpawnAllBosses ()

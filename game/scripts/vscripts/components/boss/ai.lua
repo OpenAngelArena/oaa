@@ -106,6 +106,9 @@ function BossAI:DeathHandler (state, keys)
           elseif not hero.hasReflexCore then
             hero:AddItemByName("item_reflex_core")
             hero.hasReflexCore = true
+
+            BossSpawner[team .. "Zone1"].disable()
+            BossSpawner[team .. "Zone2"].disable()
           end
         end
       end
