@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Enigma: Midnight Pulse
-	//=================================================================================================================
-	"enigma_midnight_pulse"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5148"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.1"
+  //=================================================================================================================
+  // Enigma: Midnight Pulse
+  //=================================================================================================================
+  "enigma_midnight_pulse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5148"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95 110 125 140 170 290"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "95 110 125 140 170 290"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"550"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"3 3.75 4.5 5.25 5.25 5.25"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"11 11 11 11 13 16"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "550"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_percent"                                  "3 3.75 4.5 5.25 5.25 5.25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "11 11 11 11 13 16"
+      }
+    }
+  }
 }

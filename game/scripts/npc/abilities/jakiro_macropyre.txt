@@ -1,85 +1,85 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Jakiro's Macropyre
-	//=================================================================================================================
-	"jakiro_macropyre"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5300"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Ability: Jakiro's Macropyre
+  //=================================================================================================================
+  "jakiro_macropyre"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5300"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1400"
-		"AbilityCastPoint"				"0.65 0.65 0.65 0.65 0.65"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1400"
+    "AbilityCastPoint"                                    "0.65 0.65 0.65 0.65 0.65"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 60 60 60 60"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60 60 60 60 60"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"220 330 440 660 1540"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "220 330 440 660 1540"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 140 180 260 560"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"1400"					
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"path_radius"				"260"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_duration"			"10"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"			"10"
-			}	
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"burn_interval"				"0.5 0.5 0.5 0.5 0.5"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_scepter"			"125 175 225 300 650"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter"		"1800"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration_scepter"			"30"
-			}
-		}	
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 140 180 260 560"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "1400"          
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "path_radius"                                     "260"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_duration"                                "10"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "10"
+      }  
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_interval"                                   "0.5 0.5 0.5 0.5 0.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_scepter"                                  "125 175 225 300 650"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "1800"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_scepter"                                "30"
+      }
+    }  
+  }
 }

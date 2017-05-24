@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Oracle: False Promise
-	//=================================================================================================================
-	"oracle_false_promise"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5640"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"	
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"5"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100 65 30 30 30"
+  //=================================================================================================================
+  // Oracle: False Promise
+  //=================================================================================================================
+  "oracle_false_promise"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5640"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"  
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100 65 30 30 30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"7 8 9 10 12"
-				"LinkedSpecialBonus"	"special_bonus_unique_oracle"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				"400"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "7 8 9 10 12"
+        "LinkedSpecialBonus"                              "special_bonus_unique_oracle"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "radius"                                          "400"
+      }
+    }
+  }
 }

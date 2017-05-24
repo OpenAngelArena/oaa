@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Obsidian Destroyer: Sanity's Eclipse
-	//=================================================================================================================
-	"obsidian_destroyer_sanity_eclipse"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5394"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.25 0.25 0.25"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"160"
+  //=================================================================================================================
+  // Obsidian Destroyer: Sanity's Eclipse
+  //=================================================================================================================
+  "obsidian_destroyer_sanity_eclipse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5394"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.25 0.25 0.25"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "160"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175 250 325 475 1075"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "175 250 325 475 1075"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_multiplier"				"8 9 10 11 12"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"mana_drain"				"40"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"375 475 575 625 650"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"					"700"
-			}	
-		}
-	}	
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_multiplier"                               "8 9 10 11 12"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_drain"                                      "40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375 475 575 625 650"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "700"
+      }  
+    }
+  }  
 }

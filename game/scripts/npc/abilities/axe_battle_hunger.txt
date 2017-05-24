@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Axe Battle Hunger
-	//=================================================================================================================
-	"axe_battle_hunger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5008"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Ability: Axe Battle Hunger
+  //=================================================================================================================
+  "axe_battle_hunger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5008"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0 15.0 10.0 5.0 5.0 5.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 15.0 10.0 5.0 5.0 5.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"		
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"    
+    
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "750"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"10.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"-12"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_bonus"						"12"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_per_second"			"16 24 32 40 56 120"
-				"LinkedSpecialBonus"		"special_bonus_unique_axe"
-			}
-		}		
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.1"  // Primarily about the damage
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-12"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_bonus"                                     "12"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "16 24 32 40 56 120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_axe"
+      }
+    }    
+  }
 }

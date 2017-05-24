@@ -190,6 +190,11 @@ function CaveHandler:CreepDeath (teamID, roomID)
       end)
 
       cave.timescleared = cave.timescleared + 1
+      for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
+        local statTable = CustomNetTables:GetTableValue('stat_display', 'CC').value
+        table.insert(statTable, { [tostring(playerID)] = cave.timescleared })
+        CustomNetTables:SetTableValue('stat_display', 'CC', { value = statTable })
+      end
       -- inform players
       Notifications:TopToTeam(teamID, {
         text = "Your last Room got cleared. Every player on your Team got " .. bounty .. " gold",

@@ -1,75 +1,75 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Juggernaut Omni Slash
-	//=================================================================================================================
-	"juggernaut_omni_slash"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5030"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"130.0 120.0 110.0 105.0 100.0"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 275 350 500 1000"
+  //=================================================================================================================
+  // Ability: Juggernaut Omni Slash
+  //=================================================================================================================
+  "juggernaut_omni_slash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5030"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "350"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "130.0 120.0 110.0 105.0 100.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 275 350 500 1000"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// damage only
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"  // damage only
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"omni_slash_damage"			"200 225"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"omni_slash_jumps"			"3 6 9 12 18"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"omni_slash_radius"			"425"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"omni_slash_bounce_tick"	"0.4 0.4 0.4 0.4 0.3 0.1"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"omni_slash_jumps_scepter"		"6 9 12 15 18"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"omni_slash_cooldown_scepter"	"70"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "omni_slash_damage"                               "200 225"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "omni_slash_jumps"                                "3 6 9 12 18"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "omni_slash_radius"                               "425"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "omni_slash_bounce_tick"                          "0.4 0.4 0.4 0.4 0.3 0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "omni_slash_jumps_scepter"                        "6 9 12 15 18"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "omni_slash_cooldown_scepter"                     "70"
+      }
+    }
+  }
 }

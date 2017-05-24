@@ -1,45 +1,45 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Chen: Test of Faith Teleport
-	//=================================================================================================================
-	"chen_test_of_faith_teleport"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5522"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Chen: Test of Faith Teleport
+  //=================================================================================================================
+  "chen_test_of_faith_teleport"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5522"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 600 600 600 600 600"
-		"AbilityCooldown"				"24.0 24.0 24.0 24.0 24.0 24.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600 600 600 600 600 600"
+    "AbilityCooldown"                                     "24.0 24.0 24.0 24.0 24.0 24.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 200 200 200 200 200"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 200 200 200 200 200"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_teleport_delay"	"6.0 5.0 4.0 3.0 2.5 1.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_teleport_delay"                             "6.0 5.0 4.0 3.0 2.5 1.5"
+      }
+    }
+  }
 }

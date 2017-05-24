@@ -1,74 +1,74 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Batrider: Flaming Lasso
-	//=================================================================================================================
-	"batrider_flaming_lasso"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5323"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Batrider: Flaming Lasso
+  //=================================================================================================================
+  "batrider_flaming_lasso"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5323"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2 0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"100"
-		"AbilityCooldown"				"90.0 75.0 60.0 60.0 60.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "100"
+    "AbilityCooldown"                                     "90.0 75.0 60.0 60.0 60.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"225"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "225"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 3.5 4.0 5.0 6.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"drag_distance"			"300 300 300 300 300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"425"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"grab_radius"		"400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"grab_radius_scepter"		"400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_scepter"		"100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 3.5 4.0 5.0 6.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "drag_distance"                                   "300 300 300 300 300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_distance"                                  "425"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "grab_radius"                                     "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "grab_radius_scepter"                             "400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_scepter"                                  "100"
+      }
+    }
+  }
 }

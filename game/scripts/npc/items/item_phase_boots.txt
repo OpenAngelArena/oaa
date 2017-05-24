@@ -1,110 +1,110 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Phase Boots
-	//=================================================================================================================
-	"item_recipe_phase_boots"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"49"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Phase Boots
+  //=================================================================================================================
+  "item_recipe_phase_boots"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "49"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_phase_boots"
-		"ItemRequirements"
-		{
-			"01"						"item_boots;item_blades_of_attack;item_blades_of_attack"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_phase_boots"
+    "ItemRequirements"
+    {
+      "01"                                                "item_boots;item_blades_of_attack;item_blades_of_attack"
+    }
+  }
 
-	//=================================================================================================================
-	// Phase Boots
-	//=================================================================================================================
-	"item_phase_boots"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"50"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"            "item_phase_boots"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8.0"
+  //=================================================================================================================
+  // Phase Boots
+  //=================================================================================================================
+  "item_phase_boots"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "50"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "item_phase_boots"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1540"
-		"ItemShopTags"					"damage;move_speed;hard_to_tag"
-		"ItemQuality"					"common"
-		"ItemAliases"					"phase boots"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1540"
+    "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "phase boots"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"               "1"
-		"ItemBaseLevel"                 "1"
+    "MaxUpgradeLevel"                                     "1"
+    "ItemBaseLevel"                                       "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"45"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_melee"	"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_ranged"	"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed"  "24"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed_range"  "20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"phase_duration"		"2.5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "45"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "24"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_melee"                              "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_ranged"                             "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance"                                    "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "phase_movement_speed"                            "24"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "phase_movement_speed_range"                      "20"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "phase_duration"                                  "2.5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "0"
+      }
+    }
+  }
 }

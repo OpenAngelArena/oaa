@@ -1,0 +1,29 @@
+"DOTAItems"
+{
+  "item_broadsword"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1200"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "broadsword"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "18"
+      }
+    }
+  }
+}

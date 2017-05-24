@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Rattletrap: Power Cogs
-	//=================================================================================================================
-	"rattletrap_power_cogs"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5238"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Rattletrap: Power Cogs
+  //=================================================================================================================
+  "rattletrap_power_cogs"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5238"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 60 70 80 100 200"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5.0 6.0 7.0 8.0 9.0 10.0"
-			}
-			"02"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"drain_amount"		"80 120 160 200 280 600"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"attacks_to_destroy"	"2 2 2 3 4 6"
-			}
-			"04"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"push_length"		"250"
-			}
-			"05"
-			{	
-				"var_type"			"FIELD_FLOAT"
-				"push_duration"		"0.85"
-			}
-			"06"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"cogs_radius"			"215"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"trigger_distance"			"170"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"extra_pull_buffer"			"-10"
-			}
-		}
-	}
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 60 70 80 100 200"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {  
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0 6.0 7.0 8.0 9.0 10.0"
+      }
+      "02"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "drain_amount"                                    "80 120 160 200 280 600"
+      }
+      "03"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "attacks_to_destroy"                              "2 2 2 3 4 6"
+      }
+      "04"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "push_length"                                     "250"
+      }
+      "05"
+      {  
+        "var_type"                                        "FIELD_FLOAT"
+        "push_duration"                                   "0.85"
+      }
+      "06"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "cogs_radius"                                     "215"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trigger_distance"                                "170"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "extra_pull_buffer"                               "-10"
+      }
+    }
+  }
 }

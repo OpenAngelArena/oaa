@@ -1,59 +1,59 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Storm Spirit Overload
-	//=================================================================================================================
-	"storm_spirit_overload"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5100"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Ability: Storm Spirit Overload
+  //=================================================================================================================
+  "storm_spirit_overload"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5100"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		"AbilityDuration"				"0.6"
+    "AbilityDuration"                                     "0.6"
 
-		// Damage
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 60 80 100 140 300"
+    // Damage
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "40 60 80 100 140 300"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"40"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "40"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"overload_aoe"					"300"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "overload_aoe"                                    "300"
+      }
 
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"overload_move_slow"			"-80"
-			}
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "overload_move_slow"                              "-80"
+      }
 
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"overload_attack_slow"			"-50"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"tooltip_duration"				"0.6"
-			}
-		}
-	}
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "overload_attack_slow"                            "-50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "0.6"
+      }
+    }
+  }
 
 }

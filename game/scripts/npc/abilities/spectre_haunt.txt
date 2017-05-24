@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Spectre: Haunt
-	//=================================================================================================================
-	"spectre_haunt"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5337"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  // Spectre: Haunt
+  //=================================================================================================================
+  "spectre_haunt"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5337"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "2"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"180 150 120 110 100"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "180 150 120 110 100"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0 6.0 7.0 9.0 17.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_outgoing"	"-70"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	"30"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_incoming"	"100"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_total_damage_incoming"	"200"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"attack_delay"				"1.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0 6.0 7.0 9.0 17.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_outgoing"                        "-70"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_outgoing"                                "30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_incoming"                        "100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_illusion_total_damage_incoming"          "200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_delay"                                    "1.0"
+      }
+    }
+  }
 
 }

@@ -1,74 +1,74 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Dragon Knight: Breathe Fire
-	//=================================================================================================================
-	"dragon_knight_breathe_fire"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5226"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"				   
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	   
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Dragon Knight: Breathe Fire
+  //=================================================================================================================
+  "dragon_knight_breathe_fire"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5226"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"           
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"     
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0 0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14 13 12 11 11 11"
-		
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"90 170 240 300 450 1000"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 110 120 130 150 230"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"150 150 150 150 150 150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"250 250 250 250 250 250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"650 650 650 650 650 650"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1050"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"reduction"				"-35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"11"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "90 170 240 300 450 1000"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 110 120 130 150 230"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "150 150 150 150 150 150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "250 250 250 250 250 250"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "650 650 650 650 650 650"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1050"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reduction"                                       "-35"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "11"
+      }
+    }
+  }
 }

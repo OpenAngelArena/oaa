@@ -1,78 +1,78 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bounty Hunter: Track
-	//=================================================================================================================
-	"bounty_hunter_track"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5288"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Bounty Hunter: Track
+  //=================================================================================================================
+  "bounty_hunter_track"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5288"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"4"
-		"AbilityManaCost"				"65"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCooldown"                                     "4"
+    "AbilityManaCost"                                     "65"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900 900 900 900 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed_pct"	"16 18 20 25 30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_radius"		"925 925 925 925 925"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold_self"		"150 250 350 550 1350"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"40 80 120 200 520"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30.0 30.0 30.0 30.0 30.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"			"1200"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"gold_steal"			"0.3 0.4 0.5 0.6 0.7"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900 900 900 900 900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed_pct"                            "16 18 20 25 30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_radius"                               "925 925 925 925 925"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_self"                                 "150 250 350 550 1350"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold"                                      "40 80 120 200 520"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "30.0 30.0 30.0 30.0 30.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "1200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "gold_steal"                                      "0.3 0.4 0.5 0.6 0.7"
+      }
+    }
+  }
 }

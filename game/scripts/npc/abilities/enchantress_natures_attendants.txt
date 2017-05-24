@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Enchantress: Nature's Attendants
-	//=================================================================================================================
-	"enchantress_natures_attendants"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5269"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45.0 45.0 45.0 45.0 40.0 35.0"
-		"AbilityDuration"				"11"
+  //=================================================================================================================
+  // Enchantress: Nature's Attendants
+  //=================================================================================================================
+  "enchantress_natures_attendants"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5269"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "45.0 45.0 45.0 45.0 40.0 35.0"
+    "AbilityDuration"                                     "11"
 
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 140 155 170 260 980"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_interval"			"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal"					"10.0 10.0 10.0 10.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"275 275 275 275 275 275"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wisp_count"			"4 6 8 10 22 55"
-				"LinkedSpecialBonus"	"special_bonus_unique_enchantress_2"
-			}
-		}
-	}
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 140 155 170 260 980"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_interval"                                   "1.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal"                                            "10.0 10.0 10.0 10.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275 275 275 275 275 275"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "wisp_count"                                      "4 6 8 10 22 55"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
+      }
+    }
+  }
 }

@@ -1,129 +1,129 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Pipe of Insight 2
-	//=================================================================================================================
-	"item_recipe_pipe_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3182"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Pipe of Insight 2
+  //=================================================================================================================
+  "item_recipe_pipe_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3182"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_pipe_2"
-		"ItemRequirements"
-		{
-			"01"						"item_pipe;item_upgrade_core"
-			"02"						"item_pipe;item_upgrade_core_2"
-			"03"						"item_pipe;item_upgrade_core_3"
-			"04"						"item_pipe;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_pipe_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_pipe;item_upgrade_core"
+      "02"                                                "item_pipe;item_upgrade_core_2"
+      "03"                                                "item_pipe;item_upgrade_core_3"
+      "04"                                                "item_pipe;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Pipe of Insight 2
-	//=================================================================================================================
-	"item_pipe_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3183"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_pipe"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"2"
-		"AbilityTextureName"            "custom/pipe_of_insight_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"100"
-		"AbilityCastRange"				"900"
+  //=================================================================================================================
+  // Pipe of Insight 2
+  //=================================================================================================================
+  "item_pipe_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3183"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_pipe"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/pipe_of_insight_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60.0"
+    "AbilityManaCost"                                     "100"
+    "AbilityCastRange"                                    "900"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5400"
-		"ItemShopTags"					"regen_health;boost_magic_resist"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"pipe of insight"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5400"
+    "ItemShopTags"                                        "regen_health;boost_magic_resist"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "pipe of insight"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemAlertable"                                       "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"8 12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance"		"30 45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"barrier_debuff_duration"	"50.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"			"30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen"		"4 6"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resistance_aura"		"10 15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"			"400 800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_duration"		"12.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_radius"		"900"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"0"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block_creep"	"400"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_regen"                                    "8 12"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "30 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "barrier_debuff_duration"                         "50.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_resist"                                  "30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_health_regen"                               "4 6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance_aura"                           "10 15"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "barrier_block"                                   "400 800"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "barrier_duration"                                "12.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "barrier_radius"                                  "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "barrier_block_creep"                             "400"
+      }
+    }
+  }
 }

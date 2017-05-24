@@ -1,45 +1,45 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Night Stalker: Darkness
-	//=================================================================================================================
-	"night_stalker_darkness"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5278"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Night Stalker: Darkness
+  //=================================================================================================================
+  "night_stalker_darkness"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5278"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"					"5"
-		"HasScepterUpgrade"			"1"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCooldown"				"160 120 80 70 65"
-		"AbilityManaCost"				"0 0 0"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"50.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blind_percentage"				"-25 -30 -35 -40 -45"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"fixed_vision"			"675"
-			}
-		}
-	}
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3"
+    "AbilityCooldown"                                     "160 120 80 70 65"
+    "AbilityManaCost"                                     "0 0 0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "50.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blind_percentage"                                "-25 -30 -35 -40 -45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fixed_vision"                                    "675"
+      }
+    }
+  }
 }

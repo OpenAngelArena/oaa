@@ -1,0 +1,55 @@
+"DOTAItems"
+{
+  "item_dust"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "40"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "Model"                                               "models/props_gameplay/dust.vmdl"
+    "Effect"                                              "particles/generic_gameplay/dropped_dust.vpcf"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0"
+    "AbilityCastRange"                                    "1050"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "180"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "dust of appearance"
+    "ItemStackable"                                       "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES"
+    "ItemSupport"                                         "1"
+    "IsTempestDoubleClonable"                             "0"
+    "SideShop"                                            "1"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "12"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1050"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "-20"
+      }
+    }
+  }
+}

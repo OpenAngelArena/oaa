@@ -1,48 +1,48 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Death Prophet: Silence
-	//=================================================================================================================
-	"death_prophet_silence"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5091"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Death Prophet: Silence
+  //=================================================================================================================
+  "death_prophet_silence"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5091"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15 14 13 12 12 12"
-		"AbilityDuration"				"3.0 4.0 5.0 6.0 8.0 11.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 14 13 12 12 12"
+    "AbilityDuration"                                     "3.0 4.0 5.0 6.0 8.0 11.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 80 80 80 80 80"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 80 80 80 80 80"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"425"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 4.0 5.0 6.0 8.0 11.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "425"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 4.0 5.0 6.0 8.0 11.0"
+      }
+    }
+  }
 }

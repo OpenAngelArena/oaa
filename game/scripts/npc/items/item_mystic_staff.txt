@@ -1,0 +1,29 @@
+"DOTAItems"
+{
+  "item_mystic_staff"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "58"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "2700"
+    "ItemShopTags"                                        "int"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "mystic staff"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "25"
+      }
+    }
+  }
+}

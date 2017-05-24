@@ -1,60 +1,60 @@
 "DOTAAbilities"
 {
 "warlock_upheaval"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5164"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
-		"AbilityChannelTime"			"16.0"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5164"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityChannelTime"                                  "16.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 46 42 38 34 30"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50 46 42 38 34 30"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "0 0 0 0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 110 120 130 150 230"		
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aoe"					"650 650 650 650"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_rate_duration"	"12.5 6.5 4.5 3.5 3 2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 3.0 3.0 3.0 3.5 5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_slow"				"84"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 110 120 130 150 230"    
+    
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aoe"                                             "650 650 650 650"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_rate_duration"                              "12.5 6.5 4.5 3.5 3 2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 3.0 3.0 3.0 3.5 5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_slow"                                        "84"
+      }
+    }
+  }
 }

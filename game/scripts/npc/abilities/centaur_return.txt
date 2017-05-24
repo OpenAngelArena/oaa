@@ -1,40 +1,40 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Centaur Warchief: Return
-	//=================================================================================================================
-	"centaur_return"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5516"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Centaur Warchief: Return
+  //=================================================================================================================
+  "centaur_return"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5516"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"return_damage"				"16 18 20 22 26 42"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strength_pct"				"30 45 60 75 105 225"
-				"CalculateSpellDamageTooltip"		"1"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aura_radius"				"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "return_damage"                                   "16 18 20 22 26 42"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strength_pct"                                    "30 45 60 75 105 225"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+    }
+  }
 }

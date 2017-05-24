@@ -1,101 +1,101 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Rod of Atos 2
-	//=================================================================================================================
-	"item_recipe_rod_of_atos_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3634"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"	
-		"ItemShopTags"					""
+  //=================================================================================================================
+  // Recipe: Rod of Atos 2
+  //=================================================================================================================
+  "item_recipe_rod_of_atos_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3634"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"  
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_rod_of_atos_2"
-		"ItemRequirements"
-		{
-			"01"						"item_rod_of_atos;item_upgrade_core"
-			"02"						"item_rod_of_atos;item_upgrade_core_2"
-			"03"						"item_rod_of_atos;item_upgrade_core_3"
-			"04"						"item_rod_of_atos;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_rod_of_atos_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_rod_of_atos;item_upgrade_core"
+      "02"                                                "item_rod_of_atos;item_upgrade_core_2"
+      "03"                                                "item_rod_of_atos;item_upgrade_core_3"
+      "04"                                                "item_rod_of_atos;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Rod of Atos 2
-	//=================================================================================================================
-	"item_rod_of_atos_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3636"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_rod_of_atos"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Rod of Atos 2
+  //=================================================================================================================
+  "item_rod_of_atos_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3636"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_rod_of_atos"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
-		"AbilityCastRange"				"1150"
-		"AbilityCastPoint"				"0.0"
-		"AbilityTextureName"            "custom/rod_of_atos_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16"
+    "AbilityCastRange"                                    "1150"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityTextureName"                                  "custom/rod_of_atos_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 150 250"
-		"ItemCost"						"5600"
-		"ItemShopTags"					"int;regen_health"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"rod of atos 2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "3"
-		"ItemBaseLevel"                 "2"
-		"UpgradesItems"                 "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 150 250"
+    "ItemCost"                                            "5600"
+    "ItemShopTags"                                        "int;regen_health"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "rod of atos 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"20 30 45"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"15 25 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6 9 14"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"6 9 14"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"root_radius"				"0 0 200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0 3.0 3.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "20 30 45"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "15 25 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "6 9 14"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "6 9 14"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "root_radius"                                     "0 0 200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 3.0 3.0"
+      }
+    }
+  }
 }

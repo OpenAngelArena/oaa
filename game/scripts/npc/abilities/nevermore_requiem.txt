@@ -1,121 +1,121 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Nevermore Requiem of Souls
-	//=================================================================================================================
-	"nevermore_requiem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5064"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Ability: Nevermore Requiem of Souls
+  //=================================================================================================================
+  "nevermore_requiem"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5064"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"1.67"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "1.67"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120 110 100 100 100"
-		"AbilityDuration"				"5.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityDuration"                                     "5.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"80 120 160 320 640"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "80 120 160 320 640"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200 250 500"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 175 200 250 500"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Primarily about the damage
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // Primarily about the damage
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_time_tooltip"	"1.67"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_radius"	"1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_reduction_ms"	"-25"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_reduction_damage"	"-50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_reduction_tooltip"	"-50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"requiem_slow_duration"	"5.0"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_reduction_radius"	"700"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_soul_conversion"	"2"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_line_width_start"	"125"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_line_width_end"	"425"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"requiem_line_speed"	"700"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"soul_death_release"	"0.5"
-			}
-			"13"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"requiem_heal_pct_scepter"	"100"
-			}
-			"14"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"requiem_damage_pct_scepter"	"40"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_time_tooltip"                               "1.67"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_radius"                                  "1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_reduction_ms"                            "-25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_reduction_damage"                        "-50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_reduction_tooltip"                       "-50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_slow_duration"                           "5.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_reduction_radius"                        "700"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_soul_conversion"                         "2"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_line_width_start"                        "125"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_line_width_end"                          "425"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_line_speed"                              "700"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "soul_death_release"                              "0.5"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_heal_pct_scepter"                        "100"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_damage_pct_scepter"                      "40"
+      }
+    }
+  }
 
 }

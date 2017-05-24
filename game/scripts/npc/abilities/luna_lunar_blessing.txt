@@ -1,36 +1,36 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Luna: Lunar Blessing
-	//=================================================================================================================
-	"luna_lunar_blessing"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5224"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"900 900 900 900 900 900"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"14 22 30 38 54 120"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"250 500 750 1000 1200 1400"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Luna: Lunar Blessing
+  //=================================================================================================================
+  "luna_lunar_blessing"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5224"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900 900 900 900 900 900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "14 22 30 38 54 120"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "250 500 750 1000 1200 1400"
+      }
+    }
+  }
 
 }

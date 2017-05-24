@@ -1,67 +1,67 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Techies: Suicide Squad, Attack!
-	//=================================================================================================================
-	"techies_suicide"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5601"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Techies: Suicide Squad, Attack!
+  //=================================================================================================================
+  "techies_suicide"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5601"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"1.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "1.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 125 150 175 225 425"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 125 150 175 225 425"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"				"400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"300 400 500 600 800 1600"
-				"LinkedSpecialBonus"		"special_bonus_unique_techies"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"silence_duration"			"4 5 6 7 7 7"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_cost"			"50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.75"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "300 400 500 600 800 1600"
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "4 5 6 7 7 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost"                                         "50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "0.75"
+      }
+    }
+  }
 
 }

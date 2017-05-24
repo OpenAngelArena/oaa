@@ -1,0 +1,35 @@
+"DOTAItems"
+{
+  // Morbid Mask
+  "item_lifesteal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "26"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1100"
+    "ItemShopTags"                                        "unique"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "morbid mask"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "15"
+      }
+    }
+  }
+}

@@ -1,78 +1,78 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Scepter
-	//=================================================================================================================
-	"item_recipe_ultimate_scepter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"107"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Scepter
+  //=================================================================================================================
+  "item_recipe_ultimate_scepter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "107"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_ultimate_scepter"
-		"ItemRequirements"
-		{
-			"01"						"item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_ultimate_scepter"
+    "ItemRequirements"
+    {
+      "01"                                                "item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
+    }
+  }
 
-	//=================================================================================================================
-	// Scepter
-	//=================================================================================================================
-	"item_ultimate_scepter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"108"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_ultimate_scepter"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityTextureName"            "custom/Aghs_1"
-		"AbilityCastRange"				"600"
+  //=================================================================================================================
+  // Scepter
+  //=================================================================================================================
+  "item_ultimate_scepter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "108"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_ultimate_scepter"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityTextureName"                                  "custom/ultimate_scepter"
+    "AbilityCastRange"                                    "600"
 
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4200"
-		"ItemShopTags"					"int;str;agi;mana_pool;health_pool;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"ags;ultimate;aghanim's scepter;ags"
-		//"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"		// heroes for whom this is a problem solve it in their code - ogre magi, meepo
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_ultimate_scepter;item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"10 20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"175 250 400 600 800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"175 250 400 600 800"
-			}
-		}
-	}
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4200"
+    "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "ags;ultimate;aghanim's scepter;ags"
+    //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_ultimate_scepter;item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "10 20 30 40 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "175 250 400 600 800"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "175 250 400 600 800"
+      }
+    }
+  }
 }

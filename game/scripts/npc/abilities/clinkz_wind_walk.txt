@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Clinkz: Wind Walk
-	//=================================================================================================================
-	"clinkz_wind_walk"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5261"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Clinkz: Wind Walk
+  //=================================================================================================================
+  "clinkz_wind_walk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5261"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 19 18 17 17 17"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75 75"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"20.0 25.0 30.0 35.0 35.0 35.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"0.6 0.6 0.6 0.6 0.6 0.6"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed_bonus_pct"		"11 22 33 44 55 66"
-			}
-		}
-	}
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 19 18 17 17 17"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 75 75 75 75 75"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "20.0 25.0 30.0 35.0 35.0 35.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.6 0.6 0.6 0.6 0.6 0.6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_bonus_pct"                            "11 22 33 44 55 66"
+      }
+    }
+  }
 }

@@ -1,16 +1,16 @@
 
 "DOTAAbilities" {
   "boss_charger_charge" {
-    "ID"                      "9901"
-    "BaseClass"               "ability_lua"
-    "ScriptFile"              "abilities/charger/boss_charger_charge.lua"
-    "AbilityTextureName"      "magnataur_skewer"
-    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "ID"                                                  "9901"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/charger/boss_charger_charge.lua"
+    "AbilityTextureName"                                  "magnataur_skewer"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
-    "MaxLevel"                "3"
-    "RequiredLevel"           "1"
-    "LevelsBetweenUpgrades"   "1"
-    "AbilityChannelTime"      "1.6 1.2 0.8"
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+    "AbilityChannelTime"                                  "1.6 1.2 0.8"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,23 +18,23 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "cooldown"          "6 4 0"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown"                                        "6 4 0"
       }
       "02"
       {
-        "var_type"         "FIELD_INTEGER"
-        "distance"         "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "1000"
       }
       "03"
       {
-        "var_type"         "FIELD_FLOAT"
-        "charge_duration"     "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "charge_duration"                                 "2.0"
       }
       "04"
       {
-        "var_type"         "FIELD_INTEGER"
-        "speed"            "20 25 35"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "20 25 35"
       }
 
       //----------------------------
@@ -42,54 +42,54 @@
       //----------------------------
       "05"
       {
-        "var_type"         "FIELD_FLOAT"
-        "debuff_duration"     "5.0 4.0 3.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "5.0 4.0 3.0"
       }
       "06"
       {
-        "var_type"         "FIELD_INTEGER"
-        "debuff_magic_resist"     "-1500"
+        "var_type"                                        "FIELD_INTEGER"
+        "debuff_magic_resist"                             "-1500"
       }
       "07"
       {
-        "var_type"         "FIELD_INTEGER"
-        "debuff_armor"     "-225"
+        "var_type"                                        "FIELD_INTEGER"
+        "debuff_armor"                                    "-225"
       }
       //----------------------------
       // hero is dragged into a pillar
       //----------------------------
       "08"
       {
-        "var_type"         "FIELD_FLOAT"
-        "hero_stun_duration"  "2.0 2.75 3.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_stun_duration"                              "2.0 2.75 3.5"
       }
       "09"
       {
-        "var_type"         "FIELD_FLOAT"
-        "hero_pillar_damage"  "8000 10000 12000"
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_pillar_damage"                              "8000 10000 12000"
       }
       //----------------------------------
       // Glacing blow, when the charger strikes a hero indirectly and pushes them away
       //----------------------------------
       "09"
       {
-        "var_type"         "FIELD_FLOAT"
-        "glacing_damage"  "75 100 150"
+        "var_type"                                        "FIELD_FLOAT"
+        "glacing_damage"                                  "75 100 150"
       }
       "10"
       {
-        "var_type"         "FIELD_FLOAT"
-        "glacing_slow"  "10 30 50"
+        "var_type"                                        "FIELD_FLOAT"
+        "glacing_slow"                                    "10 30 50"
       }
       "11"
       {
-        "var_type"         "FIELD_FLOAT"
-        "glacing_duration"  "1 2 3"
+        "var_type"                                        "FIELD_FLOAT"
+        "glacing_duration"                                "1 2 3"
       }
       "12"
       {
-        "var_type"         "FIELD_FLOAT"
-        "glacing_knockback"  "200 250 300"
+        "var_type"                                        "FIELD_FLOAT"
+        "glacing_knockback"                               "200 250 300"
       }
     }
   }

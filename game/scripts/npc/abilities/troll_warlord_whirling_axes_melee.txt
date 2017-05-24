@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Troll Warlord: Whirling Axes Melee
-	//=================================================================================================================
-	"troll_warlord_whirling_axes_melee"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5510"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Troll Warlord: Whirling Axes Melee
+  //=================================================================================================================
+  "troll_warlord_whirling_axes_melee"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5510"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"75 125 175 225 325 725"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hit_radius"				"100"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"max_range"					"450.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"axe_movement_speed"		"1250"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"blind_duration"			"4 5 6 7 8 9"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"blind_pct"					"60"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"whirl_duration"			"3.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "75 125 175 225 325 725"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_radius"                                      "100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_range"                                       "450.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "axe_movement_speed"                              "1250"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blind_duration"                                  "4 5 6 7 8 9"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blind_pct"                                       "60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "whirl_duration"                                  "3.0"
+      }
+    }
+  }
 
 }

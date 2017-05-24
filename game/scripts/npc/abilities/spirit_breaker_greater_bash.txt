@@ -1,77 +1,77 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Spirit Breaker: Greater Bash
-	//=================================================================================================================
-	"spirit_breaker_greater_bash"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5355"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+  //=================================================================================================================
+  // Spirit Breaker: Greater Bash
+  //=================================================================================================================
+  "spirit_breaker_greater_bash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5355"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.5"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1.5"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"40"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "40"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chance_pct"			"17"
-				"LinkedSpecialBonus"	"special_bonus_unique_spirit_breaker_1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"22 30 38 46 62 126"
-				"LinkedSpecialBonus"	"special_bonus_unique_spirit_breaker_3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0 1.2 1.4 1.6 1.6 1.6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"	"0.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"	"143 152 158 162 166 170"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_height"		"50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct"	"15"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"movespeed_duration"	"3.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chance_pct"                                      "17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "22 30 38 46 62 126"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.0 1.2 1.4 1.6 1.6 1.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "143 152 158 162 166 170"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_height"                                "50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed_pct"                             "15"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "movespeed_duration"                              "3.0"
+      }
+    }
+  }
 
 }

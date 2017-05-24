@@ -1,84 +1,84 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Furion: Force of Nature, Nature's Call
+  //=================================================================================================================
+  // Furion: Force of Nature, Nature's Call
   // OAA version that spawns stronger treants for levels 5 and 6
-	//=================================================================================================================
-	"furion_force_of_nature"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"											"5247"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    	"BaseClass"       								"ability_lua"
-    	"AbilityTextureName"    						"furion_force_of_nature"
-    	"ScriptFile"      								"abilities/oaa_force_of_nature"
-		"AbilityBehavior"								"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+  //=================================================================================================================
+  "furion_force_of_nature"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5247"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "furion_force_of_nature"
+    "ScriptFile"                                          "abilities/oaa_force_of_nature"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"								"750"
-		"AbilityCastPoint"								"0.5 0.5 0.5 0.5"
-		"AbilityCooldown"								"37 37 37 37"
-		"AbilityManaCost"								"160 160 160 160"
-		"MaxLevel"										"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			// Number of trees
-			//-------------------------------------------------------------------------------------------------------------
-			"01"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"area_of_effect"						"150 225 300 375 450 550"
-			}
-			"02"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"max_treants"							"2 3 4 5 5 5"
-        "LinkedSpecialBonus"      "special_bonus_unique_furion_2"
-			}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityCooldown"                                     "37 37 37 37"
+    "AbilityManaCost"                                     "160 160 160 160"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      // Number of trees
+      //-------------------------------------------------------------------------------------------------------------
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "area_of_effect"                                  "150 225 300 375 450 550"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_treants"                                     "2 3 4 5 5 5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion_2"
+      }
 
-			"03"
-			{
-				"var_type"								"FIELD_FLOAT"
-				"duration"								"60 60 60 60"
-			}
-			"04"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_health_tooltip"					"550 550 550 550 770 1210"
-			}
-			"05"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_min_dmg_tooltip"				"30 30 30 30 42 66"
-			}
-			"06"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_max_dmg_tooltip"				"34 34 34 34 48 79"
-			}
-			"07"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_hp_bonus"						"550"
-			}
-			"08"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_damage_bonus"					"32"
-			}
-			"09"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_large_hp_bonus"					"1650"
-			}
-    	"10"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"treant_large_damage_bonus"				"96"
-			}
-		}
-	}
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "60 60 60 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_health_tooltip"                           "550 550 550 550 770 1210"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_min_dmg_tooltip"                          "30 30 30 30 42 66"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_max_dmg_tooltip"                          "34 34 34 34 48 79"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_hp_bonus"                                 "550"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_damage_bonus"                             "32"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_large_hp_bonus"                           "1650"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_large_damage_bonus"                       "96"
+      }
+    }
+  }
 }

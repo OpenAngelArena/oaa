@@ -1,38 +1,38 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Invoker: Wex
-	//=================================================================================================================
-	"invoker_wex"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5371"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"14"
+  //=================================================================================================================
+  // Invoker: Wex
+  //=================================================================================================================
+  "invoker_wex"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5371"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "14"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed_per_instance"	"2 4 6 8 10 12 14 16 18 20 22 24 26 28"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed_per_instance"	"1 2 3 4 5 6 7 8 9 10 11 12 13 14"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                     "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_per_instance"                       "2 4 6 8 10 12 14 16 18 20 22 24 26 28"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_per_instance"                         "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
+      }
+    }
+  }
 
 
 }

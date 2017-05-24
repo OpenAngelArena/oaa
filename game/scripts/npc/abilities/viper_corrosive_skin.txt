@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
 "viper_corrosive_skin"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5220"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"		"10"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5220"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "10"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"-10 -15 -20 -25 -30 -35"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"		"-10 -15 -20 -25 -35 -75"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_magic_resistance"	"10 15 20 25 30 35"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"10 15 20 25 35 75"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_range_tooltip"					"1400"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "-10 -15 -20 -25 -30 -35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "-10 -15 -20 -25 -35 -75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "10 15 20 25 30 35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "10 15 20 25 35 75"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_range_tooltip"                               "1400"
+      }
+    }
+  }
 }

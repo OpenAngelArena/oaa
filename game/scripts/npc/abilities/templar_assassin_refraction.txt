@@ -1,60 +1,60 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Templar Assassin: Refraction
-	//=================================================================================================================
-	"templar_assassin_refraction"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5194"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Templar Assassin: Refraction
+  //=================================================================================================================
+  "templar_assassin_refraction"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5194"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"instances"					"3 4 5 6 7 8"
-				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"20 40 60 80 160 480"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_threshold"			"5"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"17.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "instances"                                       "3 4 5 6 7 8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 40 60 80 160 480"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_threshold"                                "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "17.0"
+      }
+    }
+  }
 
 }

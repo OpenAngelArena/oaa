@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Chaos Knight: Reality Rift
-	//=================================================================================================================
-	"chaos_knight_reality_rift"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5427"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Chaos Knight: Reality Rift
+  //=================================================================================================================
+  "chaos_knight_reality_rift"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5427"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550 600 650 700 800 1200"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550 600 650 700 800 1200"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 14 10 6 6 6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18 14 10 6 6 6"
 
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range"				"550 600 650 700 800 1200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_reduction"			"-1 -3 -5 -7 -11 -27"
-			}		
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_duration"			"8"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "550 600 650 700 800 1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction"                                 "-1 -3 -5 -7 -11 -27"
+      }    
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_duration"                                  "8"
+      }
+    }
+  }
 }

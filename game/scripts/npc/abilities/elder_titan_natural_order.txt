@@ -1,38 +1,38 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Elder Titan: Natural Order
-	//=================================================================================================================
-	"elder_titan_natural_order"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5593"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"325"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_reduction_pct"	    "40 60 80 100 120 140"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"magic_resistance_pct"		"40 60 80 100 120 140"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Elder Titan: Natural Order
+  //=================================================================================================================
+  "elder_titan_natural_order"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5593"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction_pct"                             "40 60 80 100 120 140"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance_pct"                            "40 60 80 100 120 140"
+      }
+    }
+  }
 }

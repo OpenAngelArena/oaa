@@ -1,114 +1,114 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Drums Endurance
-	//=================================================================================================================
-	"item_recipe_ancient_janggo"
-	{
-		"ID"							"184"		// unique ID
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"ItemCost"						"575"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_ancient_janggo"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_sobi_mask;item_bracer;item_wind_lace"
-			"02"						"item_ancient_janggo"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Drums Endurance
+  //=================================================================================================================
+  "item_recipe_ancient_janggo"
+  {
+    "ID"                                                  "184"    // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCost"                                            "575"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_ancient_janggo"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_sobi_mask;item_bracer;item_wind_lace"
+      "02"                                                "item_ancient_janggo"
+    }
+  }
 
-	//=================================================================================================================
-	// Drums of Endurance
-	//=================================================================================================================
-	"item_ancient_janggo"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"185"		// unique ID
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"				"custom/drums_1"
+  //=================================================================================================================
+  // Drums of Endurance
+  //=================================================================================================================
+  "item_ancient_janggo"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "185"    // unique ID
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/drums_1"
 
-		"ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
+    "ItemPermanent"                                       "1"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30.0"
-		"AbilityCastRange"				"900"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0"
+    "AbilityCastRange"                                    "900"
 
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_ancient_janggo"
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_ancient_janggo"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1780"
-		"ItemShopTags"					"str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"drum of endurance"
-		"ItemInitialCharges"			"6"
-		"ItemDisplayCharges"			"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemRequiresCharges"			"1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1780"
+    "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "drum of endurance"
+    "ItemInitialCharges"                                  "6"
+    "ItemDisplayCharges"                                  "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemRequiresCharges"                                 "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"			"6 10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_str"			"6 10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"			"3 5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"3 5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"50 75"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aura_movement_speed"	"20 25"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed_pct"	"25 30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed_pct"	"13 15"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"6"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "6 10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "6 10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agi"                                       "3 5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "3 5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "50 75"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_aura_movement_speed"                       "20 25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed_pct"                          "25 30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_pct"                        "13 15"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+    }
+  }
 }

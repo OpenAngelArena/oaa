@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Wisp: Overcharge
-	//=================================================================================================================
-	"wisp_overcharge"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5487"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0 0 0 0"
+  //=================================================================================================================
+  // Wisp: Overcharge
+  //=================================================================================================================
+  "wisp_overcharge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5487"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "2.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_attack_speed"		"40 50 60 70 90 170"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_pct"			"-5 -10 -15 -20 -25 -35"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"drain_interval"			"0.2 0.2 0.2 0.2 0.2 0.2"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"drain_pct"					"0.045 0.045 0.045 0.045 0.045 0.045"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"drain_pct_tooltip"			"4.5 4.5 4.5 4.5 4.5 4.5"
-			}
-		}
-	}	
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "40 50 60 70 90 170"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_pct"                                "-5 -10 -15 -20 -25 -35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "drain_interval"                                  "0.2 0.2 0.2 0.2 0.2 0.2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "drain_pct"                                       "0.045 0.045 0.045 0.045 0.045 0.045"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "drain_pct_tooltip"                               "4.5 4.5 4.5 4.5 4.5 4.5"
+      }
+    }
+  }  
 }

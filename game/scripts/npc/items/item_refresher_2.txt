@@ -1,83 +1,84 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Refresher Orb 2
-	//=================================================================================================================
-	"item_recipe_refresher_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3180"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  // Recipe: Refresher Orb 2
+  //=================================================================================================================
+  "item_recipe_refresher_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3180"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "FightRecapLevel"                                     "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_refresher_2"
-		"ItemRequirements"
-		{
-			"01"						"item_refresher;item_upgrade_core"
-			"02"						"item_refresher;item_upgrade_core_2"
-			"03"						"item_refresher;item_upgrade_core_3"
-			"04"						"item_refresher;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_refresher_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_refresher;item_upgrade_core"
+      "02"                                                "item_refresher;item_upgrade_core_2"
+      "03"                                                "item_refresher;item_upgrade_core_3"
+      "04"                                                "item_refresher;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Refresher 2
-	//=================================================================================================================
-	"item_refresher_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3181"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_refresher"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "custom/refresher_orb_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "195.0"
+  //=================================================================================================================
+  // Refresher 2
+  //=================================================================================================================
+  "item_refresher_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3181"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_refresher"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/refresher_orb_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "195.0"
+    "AbilitySharedCooldown"                               "refresher"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275"
-		"ItemCost"						"8700"
-		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"refresher orb"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "275"
+    "ItemCost"                                            "8700"
+    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "refresher orb"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"12 16"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"250 350"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"20 30"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "12 18"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "250 350"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 30"
+      }
+    }
+  }
 }

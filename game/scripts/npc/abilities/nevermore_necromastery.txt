@@ -1,52 +1,52 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Nevermore Necromastery
-	//=================================================================================================================
-	"nevermore_necromastery"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5062"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"OnCastbar"					"0"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Ability: Nevermore Necromastery
+  //=================================================================================================================
+  "nevermore_necromastery"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5062"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "OnCastbar"                                           "0"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_damage_per_soul"	"2 2 2 2 3 5"
-				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_1"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls"	"18 24 30 36 36 36"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"necromastery_soul_release"		"0.5"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_souls_hero_bonus"	"11"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls_scepter" "22 30 38 46 46 46"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_damage_per_soul"                    "2 2 2 2 3 5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_max_souls"                          "18 24 30 36 36 36"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "necromastery_soul_release"                       "0.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_souls_hero_bonus"                   "11"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "necromastery_max_souls_scepter"                  "22 30 38 46 46 46"
+      }
+    }
+  }
 
 }

@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bristleback: Warpath
-	//=================================================================================================================
-	"bristleback_warpath"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5551"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Bristleback: Warpath
+  //=================================================================================================================
+  "bristleback_warpath"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5551"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"10.0 10.0 10.0 10.0 10.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "10.0 10.0 10.0 10.0 10.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"base_damage"						"20 25 30 40 80"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"					"20 25 30 40 80"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"base_move_speed"					"3 4 5 6 7"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"move_speed_per_stack"				"3 4 5 6 7"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"stack_duration"				"14.0"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"max_stacks"					"5 7 9 13 25"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "20 25 30 40 80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "20 25 30 40 80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_move_speed"                                 "3 4 5 6 7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_per_stack"                            "3 4 5 6 7"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stack_duration"                                  "14.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_stacks"                                      "5 7 9 13 25"
+      }
+    }
+  }
 }

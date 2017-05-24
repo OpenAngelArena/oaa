@@ -1,72 +1,72 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Beastmaster: Call of the Wild Boar
-	//=================================================================================================================
-	"beastmaster_call_of_the_wild_boar"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5580"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"           "ability_lua"
-    "ScriptFile"          "abilities/oaa_call_of_the_wild_boar"
-    "AbilityTextureName"  "beastmaster_call_of_the_wild_boar"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Beastmaster: Call of the Wild Boar
+  //=================================================================================================================
+  "beastmaster_call_of_the_wild_boar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5580"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_call_of_the_wild_boar"
+    "AbilityTextureName"                                  "beastmaster_call_of_the_wild_boar"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"42 38 34 30 30 30"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "42 38 34 30 30 30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-		"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hawk_duration"				"60 60 60 60 60 60"
-			}
-		"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_hp_tooltip"				"200 300 400 500 1000 3000"
-			}
-		"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_damage_tooltip"				"10 25 40 55 150 500"
-			}
-		"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_moveslow_tooltip"				"10 20 30 40 80 160"
-			}
-		"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_attackslow_tooltip"				"10 20 30 40 80 160"
-			}
-		"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_duration_tooltip"				"3"
-			}
-		"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"boar_duration"				"60 60 60 60 60 60"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_duration"                                   "60 60 60 60 60 60"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_hp_tooltip"                                 "200 300 400 500 1000 3000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_damage_tooltip"                             "10 25 40 55 150 500"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_moveslow_tooltip"                           "10 20 30 40 80 160"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_attackslow_tooltip"                         "10 20 30 40 80 160"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "poison_duration_tooltip"                         "3"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_duration"                                   "60 60 60 60 60 60"
+      }
+    }
+  }
 }

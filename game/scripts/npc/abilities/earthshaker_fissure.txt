@@ -1,65 +1,65 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Earthshaker Fissure
-	//=================================================================================================================
-	"earthshaker_fissure"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5023"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1400"
-		"AbilityCastPoint"				"0.69 0.69 0.69 0.69 0.69 0.69"
+  //=================================================================================================================
+  // Ability: Earthshaker Fissure
+  //=================================================================================================================
+  "earthshaker_fissure"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5023"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1400"
+    "AbilityCastPoint"                                    "0.69 0.69 0.69 0.69 0.69 0.69"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15.0 15.0 15.0 15.0 15.0 15.0"
-		"AbilityDuration"				"1.0 1.25 1.5 1.75 2.0 2.25"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15.0 15.0 15.0 15.0 15.0 15.0"
+    "AbilityDuration"                                     "1.0 1.25 1.5 1.75 2.0 2.25"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"110 160 210 260 360 760"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "110 160 210 260 360 760"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 140 155 170 200 320"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 140 155 170 200 320"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_range"				"1400"
-				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_3"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fissure_duration"			"8.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"fissure_radius"				"225"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.0 1.25 1.5 1.75 2.0 2.25"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fissure_range"                                   "1400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_3"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fissure_duration"                                "8.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fissure_radius"                                  "225"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.0 1.25 1.5 1.75 2.0 2.25"
+      }
+    }
+  }
 
 }

@@ -1,0 +1,30 @@
+"DOTAItems"
+{
+  "item_chainmail"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "4"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "550"
+    "ItemShopTags"                                        "armor"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "chainmail"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+    }
+  }
+}

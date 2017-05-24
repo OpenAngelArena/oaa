@@ -1,94 +1,94 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Chaos Knight: Phantasm
-	//=================================================================================================================
-	"chaos_knight_phantasm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5429"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Chaos Knight: Phantasm
+  //=================================================================================================================
+  "chaos_knight_phantasm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5429"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"AbilityCastRange"				"1200"
-		"HasScepterUpgrade"			"1"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityCastRange"                                    "1200"
+    "HasScepterUpgrade"                                   "1"
 
 
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"130"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "130"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 200 275 425 1025"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 200 275 425 1025"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"images_count"				"1 2 3 4 6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_phantasm_chance_pct_tooltip"			"50"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"42"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"0 0 0 0 0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage_tooltip"			"100 100 100 100 100"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"160"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"incoming_damage_tooltip"			"260"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invuln_duration"		"0.5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"400"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_scepter"		"110"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_count"                                    "1 2 3 4 6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "extra_phantasm_chance_pct_tooltip"               "50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_duration"                               "42"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "outgoing_damage"                                 "0 0 0 0 0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "outgoing_damage_tooltip"                         "100 100 100 100 100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage"                                 "160"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage_tooltip"                         "260"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "invuln_duration"                                 "0.5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "400"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "110"
+      }
+    }
+  }
 }

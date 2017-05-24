@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Riki: Tricks of the Trade
-	//=================================================================================================================
-	"riki_tricks_of_the_trade"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5145"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"HasScepterUpgrade"				"1"
+  //=================================================================================================================
+  // Riki: Tricks of the Trade
+  //=================================================================================================================
+  "riki_tricks_of_the_trade"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5145"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3"
-		"AbilityChannelTime"			"3 4 5 6 7"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityChannelTime"                                  "3 4 5 6 7"
 
-		// Ability Data
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40 35 30 30 30"
-		"AbilityManaCost"				"75"
+    // Ability Data
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40 35 30 30 30"
+    "AbilityManaCost"                                     "75"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_count"				"4 5 6 8 14"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_bonus"				"4"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_count"                                    "4 5 6 8 14"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus"                                   "4"
+      }
+    }
+  }
 
 }

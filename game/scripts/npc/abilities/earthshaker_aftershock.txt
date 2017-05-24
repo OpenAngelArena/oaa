@@ -1,44 +1,44 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Earthshaker Aftershock
-	//=================================================================================================================
-	"earthshaker_aftershock"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5025"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"0.6 0.9 1.2 1.5 1.8 2.1"
+  //=================================================================================================================
+  // Ability: Earthshaker Aftershock
+  //=================================================================================================================
+  "earthshaker_aftershock"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5025"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "0.6 0.9 1.2 1.5 1.8 2.1"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 75 100 125 175 375"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"100"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "50 75 100 125 175 375"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aftershock_range"			"300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tooltip_duration"			"0.6 0.9 1.2 1.5 1.8 2.1"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aftershock_range"                                "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "0.6 0.9 1.2 1.5 1.8 2.1"
+      }
+    }
+  }
 }

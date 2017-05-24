@@ -1,34 +1,34 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Phantom Assassin's Blur
-	//=================================================================================================================
-	"phantom_assassin_blur"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5192"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_evasion"				"20 30 40 50 60 75"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"transparency_fade"			"0.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1600 1600 1600 1600"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Ability: Phantom Assassin's Blur
+  //=================================================================================================================
+  "phantom_assassin_blur"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5192"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "20 30 40 50 60 75"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transparency_fade"                               "0.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1600 1600 1600 1600"
+      }
+    }
+  }
 }

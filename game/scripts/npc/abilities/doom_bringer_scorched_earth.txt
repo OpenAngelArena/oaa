@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Doom Bringer: Scorched Earth
-	//=================================================================================================================
-	"doom_bringer_scorched_earth"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5340"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0 0.0"
+  //=================================================================================================================
+  // Doom Bringer: Scorched Earth
+  //=================================================================================================================
+  "doom_bringer_scorched_earth"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5340"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 600 600 600 600 600"
-		"AbilityCooldown"				"55"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600 600 600 600 600 600"
+    "AbilityCooldown"                                     "55"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 65 70 75 85 125"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "60 65 70 75 85 125"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"16 24 32 40 56 120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600 600 600 600 600 600"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed_pct"	"14"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10.0 12.0 14.0 16.0 18.0 20.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "16 24 32 40 56 120"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600 600 600 600 600 600"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_pct"                        "14"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"
+      }
+    }
+  }
 }

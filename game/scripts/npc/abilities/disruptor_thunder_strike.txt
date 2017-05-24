@@ -1,64 +1,64 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Disruptor: Thunder Strike
-	//=================================================================================================================
-	"disruptor_thunder_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5458"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Disruptor: Thunder Strike
+  //=================================================================================================================
+  "disruptor_thunder_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5458"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.05 0.05 0.05 0.05 0.05 0.05"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.05 0.05 0.05 0.05 0.05 0.05"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 11 10 9 9 9"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12 11 10 9 9 9"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130 130 130 130 130 130"
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800 800 800 800 800 800"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "130 130 130 130 130 130"
+    
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800 800 800 800 800 800"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"40 60 80 100 150 320"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "40 60 80 100 150 320"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"240 240 240 240 240 240"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strikes"					"4 4 4 4 4 4"
-				"LinkedSpecialBonus"		"special_bonus_unique_disruptor"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"strike_interval"			"2.0 2.0 2.0 2.0 2.0 2.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "240 240 240 240 240 240"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strikes"                                         "4 4 4 4 4 4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "strike_interval"                                 "2.0 2.0 2.0 2.0 2.0 2.0"
+      }
+    }
+  }
 }

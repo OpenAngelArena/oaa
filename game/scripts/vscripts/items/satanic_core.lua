@@ -81,7 +81,6 @@ function modifier_item_satanic_core:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
   return funcs
@@ -105,10 +104,6 @@ end
 
 function modifier_item_satanic_core:GetModifierPercentageCooldown()
   return self:GetAbility():GetSpecialValueFor( "bonus_cooldown" )
-end
-
-function modifier_item_satanic_core:GetModifierPreAttack_BonusDamage()
-  return self:GetAbility():GetSpecialValueFor( "bonus_damage" )
 end
 
 function modifier_item_satanic_core:OnAttackLanded( kv )

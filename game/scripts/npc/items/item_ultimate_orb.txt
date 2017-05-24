@@ -1,0 +1,29 @@
+"DOTAItems"
+{
+  "item_ultimate_orb"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "24"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "2150"
+    "ItemShopTags"                                        "agi;int;str"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "ultimate orb"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "10"
+      }
+    }
+  }
+}

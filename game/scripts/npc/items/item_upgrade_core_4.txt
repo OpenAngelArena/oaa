@@ -1,28 +1,28 @@
 "DOTAItems"
 {
-	"item_upgrade_core_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "3533"      // unique ID
-		"BaseClass"                     "item_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "item_upgrade_core_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3533"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityTextureName"				"custom/demons_soul"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "custom/demons_soul"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
 
-        "ItemCost"              "4500"
-        "ItemPurchasable"       "0"
-        //"ItemSellable"          "0"
-        "ItemKillable"          "0"
-        "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+    "ItemCost"                                            "4500"
+    "ItemPurchasable"                                     "0"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
 
-	}
+  }
 }

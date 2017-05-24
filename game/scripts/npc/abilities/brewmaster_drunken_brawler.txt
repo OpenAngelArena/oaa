@@ -1,42 +1,42 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Brewmaster: Drunken Brawler
-	//=================================================================================================================
-	"brewmaster_drunken_brawler"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5402"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Brewmaster: Drunken Brawler
+  //=================================================================================================================
+  "brewmaster_drunken_brawler"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5402"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"dodge_chance"				"10 15 20 25 30 35"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"10 15 20 25 30 35"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"230"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"last_proc"			"13 12 11 10 8 6"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dodge_chance"                                    "10 15 20 25 30 35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "10 15 20 25 30 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "230"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "last_proc"                                       "13 12 11 10 8 6"
+      }
+    }
+  }
 }

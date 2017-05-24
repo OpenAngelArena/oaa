@@ -1,61 +1,61 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Terrorblade: Conjure Image
-	//=================================================================================================================
-	"terrorblade_conjure_image"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5620"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  //=================================================================================================================
+  // Terrorblade: Conjure Image
+  //=================================================================================================================
+  "terrorblade_conjure_image"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5620"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.15"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.15"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_duration"					"34.0"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_outgoing_damage"			"-70 -60 -50 -40 -30 -10"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_outgoing_tooltip"			"30 40 50 60 70 90"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_incoming_damage"			"300.0"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_incoming_damage_total_tooltip"			"400.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_duration"                               "34.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_outgoing_damage"                        "-70 -60 -50 -40 -30 -10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_outgoing_tooltip"                       "30 40 50 60 70 90"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_incoming_damage"                        "300.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_incoming_damage_total_tooltip"          "400.0"
+      }
+    }
+  }
 
 }

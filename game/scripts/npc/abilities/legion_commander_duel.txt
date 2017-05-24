@@ -1,63 +1,63 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Legion Commander: Duel
-	//=================================================================================================================
-	"legion_commander_duel"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5598"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Legion Commander: Duel
+  //=================================================================================================================
+  "legion_commander_duel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5598"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50.0 50.0 50.0 50.0"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75 75"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50.0 50.0 50.0 50.0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 75 75 75 75"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
 
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0 4.75 5.5 6.25 7.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_scepter"		"6 7 8 9 10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"reward_damage"			"10 14 18 25 55"
-				"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
-			}
-		}
-	}
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0 4.75 5.5 6.25 7.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_scepter"                                "6 7 8 9 10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reward_damage"                                   "10 14 18 25 55"
+        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
+      }
+    }
+  }
 }

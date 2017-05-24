@@ -1,162 +1,162 @@
 "DOTAItems"
 {
-   "item_recipe_stoneskin_2"
-    {
+  "item_recipe_stoneskin_2"
+  {
 
-        "ID"                                "3245"      // unique ID
-		"BaseClass"                         "item_datadriven"
-        "Model"                             "models/props_gameplay/recipe.mdl"
-        "AbilityTextureName"			    "item_recipe"
-        "ItemCost"                          "20000"
-        "ItemShopTags"                      ""
-        "ItemRecipe"                        "1"
-        "ItemResult"                        "item_stoneskin_2"
-        "ItemRequirements"
-        {
-            "01"                            "item_stoneskin;item_upgrade_core_4"
-        }
+    "ID"                                                  "3245"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_stoneskin_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_stoneskin;item_upgrade_core_4"
+    }
+  }
+
+  "item_stoneskin_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3247"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/stoneskin_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+
+    "AbilitySharedCooldown"                               "stoneskin"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "stoneskin of mordiggian"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/status_fx/status_effect_frost_lich.vpcf"
+    }
+    "OnToggleOn"
+    {
+      "RunScript"
+      {
+        "ScriptFile"                                      "items/item_stoneskin.lua"
+        "Function"                                        "modifier_stoneskin_toggle"
+        "Delay"                                           "%start_delay"
+        "Cooldown"                                        "%cooldown_after_delay"
+      }
+    }
+    "OnToggleOff"
+    {
+      "RunScript"
+      {
+        "ScriptFile"                                      "items/item_stoneskin.lua"
+        "Function"                                        "modifier_stoneskin_toggle"
+        "Delay"                                           "%start_delay"
+        "Cooldown"                                        "%cooldown_after_delay"
+      }
     }
 
-     "item_stoneskin_2"
+    "Modifiers"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                                "3247"      // unique ID
-		    "BaseClass"                     "item_datadriven"
-        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-        "AbilityTextureName"                "custom/stoneskin_2"
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"                   "50"
-
-        // Spicy Parameters
-        //-------------------------------------------------------------------------------------------------------------
-
-        "AbilitySharedCooldown"             "stoneskin"
-        "MaxUpgradeLevel"                   "2"
-        "ItemBaseLevel"                     "2"
-
-
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                          "20000"
-        "ItemShopTags"                      "damage;attack_speed;armor;regen_health;hard_to_tag"
-        "ItemQuality"                       "epic"
-        "ItemAliases"                       "stoneskin of mordiggian"
-        "ItemDeclarations"                  "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "precache"
+      // PASSIVE
+      "modifier_item_stoneskin_properties"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "Properties"
         {
-            "particle"                      "particles/status_fx/status_effect_frost_lich.vpcf"
-        }
-        "OnToggleOn"
-        {
-        		"RunScript"
-        		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"                 "%start_delay"
-                    "Cooldown"              "%cooldown_after_delay"
-        		}
-        }
-        "OnToggleOff"
-        {
-        		"RunScript"
-        		{
-        			"ScriptFile"			"items/item_stoneskin.lua"
-        			"Function"				"modifier_stoneskin_toggle"
-        			"Delay"                 "%start_delay"
-                    "Cooldown"              "%cooldown_after_delay"
-        		}
+          "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"       "%bonus_health_regen"
+          "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
         }
 
-        "Modifiers"
+      }
+      // STONESKIN
+      "modifier_item_stoneskin_stone_armor"
+      {
+        "StatusEffectName"                                "particles/status_fx/status_effect_frost_lich.vpcf"
+        "StatusEffectPriority"                            "10"
+        "Properties"
         {
-            // PASSIVE
-            "modifier_item_stoneskin_properties"
-            {
-                "Passive"                   "1"
-                "IsHidden"                  "1"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
-                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
-                    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"       "%bonus_health_regen"
-                    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-                }
-
-            }
-            // STONESKIN
-            "modifier_item_stoneskin_stone_armor"
-            {
-                "StatusEffectName"          "particles/status_fx/status_effect_frost_lich.vpcf"
-                "StatusEffectPriority"      "10"
-                "Properties"
-                {
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%stone_armor"
-                    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"    "%stone_resist"
-                    "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"          "%stone_move_speed"
-                }
-            }
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%stone_armor"
+          "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"    "%stone_resist"
+          "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"          "%stone_move_speed"
         }
-
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_damage"          "30 35"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "20 25"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_armor"           "20 25"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_health_regen"    "10 15"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_int"             "75 80"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "stone_move_speed"      "100"
-            }
-            "07"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "stone_armor"           "80 130"
-            }
-            "08"
-            {
-
-                "var_type"              "FIELD_INTEGER"
-                "stone_resist"           "10 15"
-            }
-            "09"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "start_delay"           "1.5"
-            }
-            "10"
-            {
-                "var_type"               "FIELD_INTEGER"
-                "cooldown_after_delay"   "2"
-            }
-        }
+      }
     }
+
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20 25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "10 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "75 80"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_move_speed"                                "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_armor"                                     "80 130"
+      }
+      "08"
+      {
+
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_resist"                                    "10 15"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "start_delay"                                     "1.5"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_after_delay"                            "2"
+      }
+    }
+  }
 }

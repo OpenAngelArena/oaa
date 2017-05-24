@@ -1,91 +1,91 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Monkey King: Wukong's Command
-	//=================================================================================================================
-	"monkey_king_wukongs_command"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5725"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"1.2"
-		"AbilityCastRange"				"0"
+  //=================================================================================================================
+  // Monkey King: Wukong's Command
+  //=================================================================================================================
+  "monkey_king_wukongs_command"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5725"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "1.2"
+    "AbilityCastRange"                                    "0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"130 110 90 90 90"
-		"AbilityDuration"				"13.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "130 110 90 90 90"
+    "AbilityDuration"                                     "13.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"first_radius"						"300"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"second_radius"						"750"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"num_first_soldiers"				"5"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"num_second_soldiers"				"9"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"move_speed"						"700"
-			}
-			"06"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_armor"						"8 14 20 26 32"
-			}
-			"07"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"attack_speed"						"1.7"
-			}
-			"08"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"duration"							"13.0"
-			}
-			"09"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"leadership_radius"					"780"
-			}
-			"10"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"cast_range"						"550"
-			}
-			"11"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"outer_attack_buffer"				"0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "first_radius"                                    "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "second_radius"                                   "750"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_first_soldiers"                              "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_second_soldiers"                             "9"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed"                                      "700"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 14 20 26 32"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_speed"                                    "1.7"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "13.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leadership_radius"                               "780"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "550"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "outer_attack_buffer"                             "0"
+      }
+    }
+  }
 }

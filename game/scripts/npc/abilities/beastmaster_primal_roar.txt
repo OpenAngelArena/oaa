@@ -1,108 +1,108 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Beastmaster: Primal Roar
-	//=================================================================================================================
-	"beastmaster_primal_roar"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5177"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Beastmaster: Primal Roar
+  //=================================================================================================================
+  "beastmaster_primal_roar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5177"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"80.0 75.0 70.0 70.0 70.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "80.0 75.0 70.0 70.0 70.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200 250 450"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 175 200 250 450"
 
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.6"	// Applies multiple modifiers
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.6"  // Applies multiple modifiers
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"3.0 3.5 4.0 4.5 5.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"150 225 300 450 1050"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"side_damage"				"150 225 300 450 1050"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_radius"				"300"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_movement_speed_pct"	"-50 -50 -50 -50 -50"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_attack_speed_pct"		"-50 -50 -50 -50 -50"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"push_distance"				"300"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"push_duration"				"0.6"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2.0 3.0 4.0 6.0 8.0"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter"		"950 950 950 950 950"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"45.0 45.0 45.0 45.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "150 225 300 450 1050"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "side_damage"                                     "150 225 300 450 1050"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_radius"                                   "300"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed_pct"                         "-50 -50 -50 -50 -50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed_pct"                           "-50 -50 -50 -50 -50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "push_distance"                                   "300"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "push_duration"                                   "0.6"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.0 3.0 4.0 6.0 8.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "950 950 950 950 950"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "45.0 45.0 45.0 45.0"
+      }
+    }
+  }
 }

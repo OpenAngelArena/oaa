@@ -1,0 +1,34 @@
+"DOTAItems"
+{
+  "item_quarterstaff"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "10"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "875"
+    "ItemShopTags"                                        "damage;attack_speed"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "quarterstaff"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "10"
+      }
+    }
+  }
+}

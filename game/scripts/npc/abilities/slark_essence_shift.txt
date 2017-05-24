@@ -1,41 +1,41 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Slark: Essence Shift
-	//=================================================================================================================
-	"slark_essence_shift"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5496"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Slark: Essence Shift
+  //=================================================================================================================
+  "slark_essence_shift"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5496"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi_gain"				"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stat_loss"				"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15 30 60 120 150 180"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "agi_gain"                                        "3"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stat_loss"                                       "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "15 30 60 120 150 180"
+      }
+    }
+  }
 
 }

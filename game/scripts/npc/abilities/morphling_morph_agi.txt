@@ -1,43 +1,43 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Morphling: Morph (Agility Gain)
-	//=================================================================================================================
-	"morphling_morph_agi"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5055"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0"
+  //=================================================================================================================
+  // Morphling: Morph (Agility Gain)
+  //=================================================================================================================
+  "morphling_morph_agi"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5055"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_cost"				"30 30 30 30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"points_per_tick"		"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"morph_cooldown"		"0.5 0.25 0.125 0.0625 0.03125 0.015625"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attributes"		"3 4 5 6 8 16"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost"                                       "30 30 30 30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "points_per_tick"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "morph_cooldown"                                  "0.5 0.25 0.125 0.0625 0.03125 0.015625"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attributes"                                "3 4 5 6 8 16"
+      }
+    }
+  }
 }

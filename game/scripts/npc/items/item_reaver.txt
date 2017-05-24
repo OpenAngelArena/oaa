@@ -1,0 +1,29 @@
+"DOTAItems"
+{
+  "item_reaver"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "53"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3000"
+    "ItemShopTags"                                        "str"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "reaver"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "25"
+      }
+    }
+  }
+}

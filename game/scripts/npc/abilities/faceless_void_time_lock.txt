@@ -1,46 +1,46 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Faceless Void: Time Lock
-	//=================================================================================================================
-	"faceless_void_time_lock"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5184"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"MaxLevel"						"6"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"		"25"
+  //=================================================================================================================
+  // Faceless Void: Time Lock
+  //=================================================================================================================
+  "faceless_void_time_lock"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "MaxLevel"                                            "6"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "25"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_creep"		"2.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chance_pct"			"10 15 20 25 25 25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50 75 100 125 195 475"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_creep"                                  "2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chance_pct"                                      "10 15 20 25 25 25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 75 100 125 195 475"
+      }
+    }
+  }
 }

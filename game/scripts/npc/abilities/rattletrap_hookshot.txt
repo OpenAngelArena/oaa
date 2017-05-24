@@ -1,78 +1,78 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Rattletrap: Hookshot
-	//=================================================================================================================
-	"rattletrap_hookshot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5240"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Rattletrap: Hookshot
+  //=================================================================================================================
+  "rattletrap_hookshot"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5240"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		"AbilityCastRange"				"2000 2500 3000 32000 3400"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "2000 2500 3000 32000 3400"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70.0 55.0 40.0 40.0 40.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70.0 55.0 40.0 40.0 40.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 150 150 150 150"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 150 150 150 150"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"latch_radius"		"125 125 125 125"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stun_radius"		"175 175 175 175"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"1.0 1.5 2.0 2.25 2.5"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_radius"                                    "125 125 125 125"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_radius"                                     "175 175 175 175"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.0 1.5 2.0 2.25 2.5"
+      }
 
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"4000 5000 6000 7000 7500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_range"		"2000 2500 3000 3000 3000"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 200 300 500 1300"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cooldown_scepter"	"12.0 12.0 12.0 12.0 12.0"
-			}
-		}
-	}
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "4000 5000 6000 7000 7500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "2000 2500 3000 3000 3000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 200 300 500 1300"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "12.0 12.0 12.0 12.0 12.0"
+      }
+    }
+  }
 }

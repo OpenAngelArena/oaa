@@ -1,0 +1,29 @@
+"DOTAItems"
+{
+  "item_talisman_of_evasion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "32"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1450"
+    "ItemShopTags"                                        "evasion"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "talisman of evasion"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "20"
+      }
+    }
+  }
+}

@@ -1,48 +1,48 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Chen: Hand of God
-	//=================================================================================================================
-	"chen_hand_of_god"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5331"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Chen: Hand of God
+  //=================================================================================================================
+  "chen_hand_of_god"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5331"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"160 140 120 115 110"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "160 140 120 115 110"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 300 400 600 1400"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 300 400 600 1400"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"200 300 400 600 1400"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ancient_creeps_scepter"		"1 2 3 5 13"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_amount"                                     "200 300 400 600 1400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_chen_2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ancient_creeps_scepter"                          "1 2 3 5 13"
+      }
+    }
+  }
 }

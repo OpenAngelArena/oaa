@@ -1,62 +1,62 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ursa: Enrage
-	//=================================================================================================================
-	"ursa_enrage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5360"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Ursa: Enrage
+  //=================================================================================================================
+  "ursa_enrage"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5360"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 40 30 30 30"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50 40 30 30 30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"enrage_multiplier"			"1.5 1.75 2.0 2.25 2.75"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_reduction"			"80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"30 24 18 15 12"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "enrage_multiplier"                               "1.5 1.75 2.0 2.25 2.75"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "30 24 18 15 12"
+      }
+    }
+  }
 
 }

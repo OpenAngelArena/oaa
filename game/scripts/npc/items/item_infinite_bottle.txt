@@ -2,60 +2,60 @@
 {
   "item_bottle"
   {
-    "ItemPurchasable"       "0"
+    "ItemPurchasable"                                     "0"
   }
-	//=================================================================================================================
-	// Bottle
-	//=================================================================================================================
-	"item_infinite_bottle"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "41"
-		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"item_bottle"
-		"ScriptFile"					"items/bottle"
+  //=================================================================================================================
+  // Bottle
+  //=================================================================================================================
+  "item_infinite_bottle"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "41"
+    "BaseClass"                                           "item_lua"
+    "AbilityTextureName"                                  "item_bottle"
+    "ScriptFile"                                          "items/bottle"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-    "Model"                         "models/props_gameplay/bottle_blue.vmdl"
-    "ModelAlternate"                "models/props_gameplay/bottle_empty.vmdl"
+    "Model"                                               "models/props_gameplay/bottle_blue.vmdl"
+    "ModelAlternate"                                      "models/props_gameplay/bottle_empty.vmdl"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.5"
-		"AbilityCastPoint"				"0.0"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.5"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"650"
-		"ItemStackable"					"1"
-		"ItemSellable"					"1"
-		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"3"
-		"IsTempestDoubleClonable"		"0"
-		"ItemRequiresCharges"			"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "650"
+    "ItemStackable"                                       "1"
+    "ItemSellable"                                        "1"
+    "ItemPermanent"                                       "1"
+    "ItemInitialCharges"                                  "3"
+    "IsTempestDoubleClonable"                             "0"
+    "ItemRequiresCharges"                                 "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restore"		"90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"restore_time"			"2.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_restore"                                  "90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_restore"                                    "60"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "restore_time"                                    "2.5"
+      }
+    }
+  }
 }

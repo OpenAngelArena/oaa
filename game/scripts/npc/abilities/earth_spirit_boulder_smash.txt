@@ -1,80 +1,80 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Earth Spirit: Boulder Smash
-	//=================================================================================================================
-	"earth_spirit_boulder_smash"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5608"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Earth Spirit: Boulder Smash
+  //=================================================================================================================
+  "earth_spirit_boulder_smash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5608"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlag"                               "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.01"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22.0 18.0 14.0 10.0 10.0 10.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0.01"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22.0 18.0 14.0 10.0 10.0 10.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"160"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_search_aoe"				"200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"50 100 150 200 300 700"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.75 1.25 1.75 2.25 2.75 3.25"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"900"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"unit_distance"			"500.0 600.0 700.0 800.0 900.0 1000.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_distance"			"2000.0"
-			}			
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"remnant_smash_radius_tooltip"			"200"
-			}			
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "160"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_search_aoe"                                 "200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_damage"                                     "50 100 150 200 300 700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.75 1.25 1.75 2.25 2.75 3.25"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "900"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "unit_distance"                                   "500.0 600.0 700.0 800.0 900.0 1000.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rock_distance"                                   "2000.0"
+      }      
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "remnant_smash_radius_tooltip"                    "200"
+      }      
+    }
+  }
 }

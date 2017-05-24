@@ -1,96 +1,96 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Lich: Chain Frost
-	//=================================================================================================================
-	"lich_chain_frost"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5137"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+  //=================================================================================================================
+  // Lich: Chain Frost
+  //=================================================================================================================
+  "lich_chain_frost"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5137"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100.0 80.0 60.0 60.0 60.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100.0 80.0 60.0 60.0 60.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 325 500 800 2000"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200 325 500 800 2000"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"  // Primarily about the damage
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"280 370 460 640 1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jumps"					"10 10 10 10 10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"575 575 575 575 575"
-			}			
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-65"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-65"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"2.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"850"
-			}
-			"08"
-			{	
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"800"
-			}			
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_scepter"		"370 460 550 730 1500"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_scepter"	"850 850 850 850 850"
-			}		
-		}			
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "280 370 460 640 1300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jumps"                                           "10 10 10 10 10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_range"                                      "575 575 575 575 575"
+      }      
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed"                             "-65"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed"                               "-65"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "850"
+      }
+      "08"
+      {  
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "800"
+      }      
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_scepter"                                  "370 460 550 730 1500"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "850 850 850 850 850"
+      }    
+    }      
+  }
 }

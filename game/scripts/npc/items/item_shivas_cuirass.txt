@@ -1,140 +1,140 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Shivas Cuirass (Based on Shivas Guard)
-	//=================================================================================================================
-	"item_recipe_shivas_cuirass"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3224"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Shivas Cuirass (Based on Shivas Guard)
+  //=================================================================================================================
+  "item_recipe_shivas_cuirass"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3224"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shivas_cuirass"
-		"ItemRequirements"
-		{
-            "01"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
-            "02"            "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_shivas_cuirass"
+    "ItemRequirements"
+    {
+      "01"                                                "item_assault_3;item_shivas_guard_3;item_upgrade_core_3"
+      "02"                                                "item_assault_3;item_shivas_guard_3;item_upgrade_core_4"
 
-		}
-	}
+    }
+  }
 
 
 
-	//=================================================================================================================
-	// Shivas Cuirass (Based on Shivas Guard)
-	//=================================================================================================================
-	"item_shivas_cuirass"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lua"
-		"ScriptFile"					"items/shivas_cuirass"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"            "custom/shivas_cuirass"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
-		"AbilitySharedCooldown"			"shivas"
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
+  //=================================================================================================================
+  // Shivas Cuirass (Based on Shivas Guard)
+  //=================================================================================================================
+  "item_shivas_cuirass"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3226"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/shivas_cuirass"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/shivas_cuirass"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+    "AbilitySharedCooldown"                               "shivas"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		"ItemCost"						"25000"
-		"ItemShopTags"					"int;armor;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"shivas guard"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "25000"
+    "ItemShopTags"                                        "int;armor;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "shivas guard"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"UpgradesItems"					"item_shivas_cuirass;item_shivas_cuirass_2;item_shivas_cuirass_3"
+    "UpgradesItems"                                       "item_shivas_cuirass;item_shivas_cuirass_2;item_shivas_cuirass_3"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"75 80"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"45 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"50 60"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"550 600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"900 1100"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"350"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-85 -95"
-			}
-			// Assault Cuirass Parameters
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_negative_armor"	"-9 11"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed_bonus"		"35 45"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_positive_armor"	"9 11"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "75 80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "40 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "50 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "900"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_damage"                                    "550 600"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_movement_speed"                            "-50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_debuff_duration"                           "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_radius"                                    "900 1100"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "350"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed"                               "-85 -95"
+      }
+      // Assault Cuirass Parameters
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_negative_armor"                             "-15 -20"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed_bonus"                         "35 45"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_positive_armor"                             "15 20"
+      }
+    }
+  }
 
 
 }

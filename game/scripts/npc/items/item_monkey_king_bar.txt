@@ -1,76 +1,76 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Monkey King Bar
-	//=================================================================================================================
-	"item_recipe_monkey_king_bar"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"134"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+  //=================================================================================================================
+  // Recipe: Monkey King Bar
+  //=================================================================================================================
+  "item_recipe_monkey_king_bar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "134"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_monkey_king_bar"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_demon_edge;item_javelin;item_javelin"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_monkey_king_bar"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_demon_edge;item_javelin;item_javelin"
+    }
+  }
 
-	//=================================================================================================================
-	// Monkey King Bar
-	//=================================================================================================================
-	"item_monkey_king_bar"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"135"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/Monkey_King_Bar_1"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5400"
-		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"mkb;monkey king bar"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "1"
+  //=================================================================================================================
+  // Monkey King Bar
+  //=================================================================================================================
+  "item_monkey_king_bar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "135"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/Monkey_King_Bar_1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5400"
+    "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "mkb;monkey king bar"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
-		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
+    "UpgradesItems"                                       "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"66 99 150 222 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance"			"35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_damage"			"160 240 360 540 720"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_stun"				"0.01"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "66 99 150 222 300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_chance"                                     "35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_damage"                                     "160 240 360 540 720"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bash_stun"                                       "0.01"
+      }
+    }
+  }
 }

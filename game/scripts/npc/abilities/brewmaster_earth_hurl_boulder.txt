@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Brewmaster Earth: Hurl Boulder
-	//=================================================================================================================
-	"brewmaster_earth_hurl_boulder"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5404"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+  //=================================================================================================================
+  // Brewmaster Earth: Hurl Boulder
+  //=================================================================================================================
+  "brewmaster_earth_hurl_boulder"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5404"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-		"AbilityCastRange"				"800 800 800 800 800"
-		"MaxLevel"						"5"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
-		"AbilityCastPoint"				"0.25"
+    "AbilityCastRange"                                    "800 800 800 800 800"
+    "MaxLevel"                                            "5"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5"
+    "AbilityCastPoint"                                    "0.25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"50 100 150 250 650"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.0 2.0 2.0 2.0 2.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"800 800 800 800 800"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50 100 150 250 650"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 2.0 2.0 2.0 2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800 800 800 800 800"
+      }
+    }
+  }
 }

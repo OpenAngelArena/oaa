@@ -1,60 +1,60 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Shadow Shaman: Shackles
-	//=================================================================================================================
-	"shadow_shaman_shackles"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5080"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Shadow Shaman: Shackles
+  //=================================================================================================================
+  "shadow_shaman_shackles"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5080"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"2.75 3.5 4.25 5.0 5.25 5.5"
-		"AbilityCooldown"				"10"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"                                  "2.75 3.5 4.25 5.0 5.25 5.5"
+    "AbilityCooldown"                                     "10"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"140 150 160 170 190 250"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "140 150 160 170 190 250"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"total_damage"		"120 200 280 360 600 1300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"channel_time"		"2.75 3.5 4.25 5.0 5.25 5.5"
-				"LinkedSpecialBonus"	"special_bonus_unique_shadow_shaman_2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "total_damage"                                    "120 200 280 360 600 1300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time"                                    "2.75 3.5 4.25 5.0 5.25 5.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_2"
+      }
+    }
+  }
 
 }

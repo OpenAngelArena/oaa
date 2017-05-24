@@ -1,61 +1,61 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Pugna: Nether Ward
-	//=================================================================================================================
-	"pugna_nether_ward"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5188"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"		
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
-		"AbilityCastRange"				"150"
+  //=================================================================================================================
+  // Pugna: Nether Ward
+  //=================================================================================================================
+  "pugna_nether_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5188"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.    
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"    
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
+    "AbilityCastRange"                                    "150"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35.0 35.0 35.0 35.0"
-		"AbilityDuration"				"30"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35.0 35.0 35.0 35.0"
+    "AbilityDuration"                                     "30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 80 80 80"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 80 80 80"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mana_multiplier"			"1.0 1.25 1.50 1.75 2.25 4.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mana_regen"				"-0.25 -0.5 -0.75 -1 -1 -1"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attacks_to_destroy_tooltip"				"4 4 4 4"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ward_duration_tooltip"				"30"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1600"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_multiplier"                                 "1.0 1.25 1.50 1.75 2.25 4.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen"                                      "-0.25 -0.5 -0.75 -1 -1 -1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attacks_to_destroy_tooltip"                      "4 4 4 4"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_duration_tooltip"                           "30"
+      }
+    }
+  }
 }

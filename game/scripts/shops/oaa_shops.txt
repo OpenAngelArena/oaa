@@ -1,269 +1,330 @@
 "dota_shops"
 {
-	"consumables"
-	{
-        "item"    "item_flask"
-        "item"    "item_ring_of_protection"
-        "item"    "item_faerie_fire"
-        "item"    "item_enchanted_mango"
-        "item"    "item_quelling_blade"
-        "item"    "item_tpscroll"
-        "item"    "item_ward_observer"
-        "item"    "item_ward_sentry"
-        "item"    "item_dust"
-        "item"    "item_infused_raindrop"
-        "item"    "item_ring_of_aquila"
-        "item"    "item_stout_shield"
-        "item"    "item_orb_of_venom"
-        "item"    "item_boots"
-	}
-
-	"attributes"
-	{
-        "item"    "item_mekansm"
-        "item"    "item_satanic"
-        "item"    "item_pipe"
-        "item"    "item_magic_wand"
-        "item"    "item_bloodstone_1"
-        "item"    "item_abyssal_blade"
-        "item"    "item_solar_crest"
-        "item"    "item_ultimate_scepter"
-        "item"    "item_sheepstick"
-        "item"    "item_blink"
-        "item"    "item_diffusal_blade"
-        "item"    "item_assault_cuirass"
-        "item"    "item_heart"
-        "item"    "item_vanguard"
-	}
-
-	"weapons_armor"
-	{
-        "item"    "item_cyclone"
-        "item"    "item_blade_mail"
-        "item"    "item_dagon"
-        "item"    "item_rapier"
-        "item"    "item_butterfly"
-        "item"    "item_ethereal_blade"
-        "item"    "item_silver_edge"
-        "item"    "item_radiance"
-        "item"    "item_monkey_king_bar"
-        "item"    "item_greater_crit"
-        "item"    "item_ancient_janggo"
-        "item"    "item_assault"
-        "item"    "item_urn_of_shadows"
-        "item"    "item_vladmir"
-	}
-
-	"misc"
-	{
-        "item"    "item_mjollnir"
-        "item"    "item_necronomicon"
-        "item"    "item_veil_of_discord"
-        "item"    "item_aether_lens"
-        "item"    "item_octarine_core"
-        "item"    "item_lucience"
-        "item"    "item_trumps_fists"
-        "item"    "item_refresher_core"
-        "item"    "item_satanic_core"
-        "item"    "item_stoneskin"
-        "item"    "item_charge_bkb"
-        "item"    "item_shivas_cuirass"
-        "item"    "item_martyrs_mail"
-        "item"    "item_shroud"
-	}
-
-	// Level 1 - Green Recipes
-	"basics_off"
-	{
-		"item"		"item_magic_wand"
-		"item"		"item_null_talisman"
-		"item"		"item_wraith_band"
-		"item"		"item_poor_mans_shield"
-		"item"		"item_bracer"
-		"item"		"item_soul_ring"
-		"item"		"item_phase_boots"
-		"item"		"item_power_treads"
-		"item"		"item_oblivion_staff"
-		"item"		"item_pers"
-		"item"		"item_hand_of_midas"
-		"item"		"item_travel_boots"
-		"item"		"item_moon_shard"
-	}
-
-	"basics"
-	{
-		"item"		"item_trumps_fists"
-		"item"		"item_stoneskin"
-		"item"		"item_shroud"
-		"item"		"item_shivas_cuirass"
-		"item"		"item_refresher_core"
-		"item"		"item_martyrs_mail"
-		"item"		"item_lucience"
-		"item"		"item_charge_bkb"
-		"item"		"item_force_staff"
-		"item"		"item_pull_staff"
-		"item"    "item_postactive"
-		"item"    "item_preemptive"
-		"item"    "item_reactive"
-    "item"    ""
-	}
-
-	// Level 2 - Blue Recipes
-	"support"
-	{
-		"item"		"item_ring_of_basilius"
-		"item"		"item_iron_talon"
-		"item"		"item_headdress"
-		"item"		"item_buckler"
-		"item"		"item_urn_of_shadows"
-		"item"		"item_tranquil_boots"
-		"item"		"item_ring_of_aquila"
-		"item"		"item_medallion_of_courage"
-		"item"		"item_arcane_boots"
-		"item"		"item_ancient_janggo"
-		"item"		"item_mekansm"
-		"item"		"item_vladmir"
-		"item"		"item_pipe"
-		"item"		"item_guardian_greaves"
-	}
-
-	"magics"
-	{
-		"item"		"item_glimmer_cape"
-		"item"		"item_veil_of_discord"
-		"item"		"item_aether_lens"
-		"item"		"item_necronomicon"
-		"item"		"item_dagon"
-		"item"		"item_cyclone"
-		"item"		"item_solar_crest"
-		"item"		"item_rod_of_atos"
-		"item"		"item_orchid"
-    "item"		"item_ultimate_scepter"
-		"item"		"item_refresher"
-		"item"		"item_sheepstick"
-		"item"		"item_octarine_core"
-	}
-
-	// Level 3 - Purple Recipes
-	"defense"
-	{
-		"item"		"item_hood_of_defiance"
-		"item"		"item_vanguard"
-		"item"		"item_blade_mail"
-		"item"		"item_soul_booster"
-		"item"		"item_crimson_guard"
-		"item"		"item_black_king_bar"
-		"item"		"item_lotus_orb"
-		"item"		"item_shivas_guard"
-		"item"		"item_bloodstone_1"
-		"item"		"item_manta"
-		"item"		"item_sphere"
-		"item"		"item_hurricane_pike"
-		"item"		"item_assault"
-		"item"		"item_heart"
-	}
-
-	"weapons"
-	{
-		"item"		"item_lesser_crit"
-		"item"		"item_armlet"
-		"item"		"item_invis_sword"
-		"item"		"item_basher"
-		"item"		"item_bfury"
-		"item"		"item_ethereal_blade"
-		"item"		"item_silver_edge"
-		"item"		"item_radiance"
-		"item"		"item_monkey_king_bar"
-		"item"		"item_greater_crit"
-		"item"		"item_butterfly"
-		"item"		"item_rapier"
-		"item"		"item_abyssal_blade"
-		"item"		"item_bloodthorn"
-	}
-
-	// Level 4 - Orange / Orb / Artifacts
-	"artifacts"
-	{
-		"item"		"item_mask_of_madness"
-		"item"		"item_helm_of_the_dominator"
-		"item"		"item_dragon_lance"
-		"item"		"item_sange"
-		"item"		"item_yasha"
-		"item"		"item_echo_sabre"
-		"item"		"item_maelstrom"
-		"item"		"item_diffusal_blade"
-		"item"		"item_desolator"
-		"item"		"item_heavens_halberd"
-		"item"		"item_sange_and_yasha"
-		"item"		"item_skadi"
-		"item"		"item_mjollnir"
-		"item"		"item_satanic"
-	}
-
-	"secretshop"
-	{
-    "item"    "item_phase_boots"
-    "item"    "item_power_treads"
-    "item"    "item_tranquil_boots"
-    "item"    "item_travel_boots"
-    "item"    "item_arcane_boots"
-    "item"    "item_reflex_core"
-    "item"    "item_preemptive"
-    "item"    "item_reactive"
-    "item"    "item_postactive"
-    "item"    "item_farming_core"
-    "item"    "item_upgrade_core"
-    "item"    "item_upgrade_core_2"
-    "item"    "item_upgrade_core_3"
-    "item"    "item_upgrade_core_4"
-	}
-
-  "sideshop1"       // Duel Shop 1
+  // Column 1, Basics - Early & Consumable
+  "consumables"
   {
-    "item"    "item_ward_sentry"
-    "item"    "item_ward_observer"
-    "item"    "item_dust"
+    "item"                                                "item_faerie_fire"
+    "item"                                                "item_enchanted_mango"
+    "item"                                                "item_dust"
+    "item"                                                "item_ward_observer"
+    "item"                                                "item_ward_sentry"
+    "item"                                                "item_tpscroll"
+    "item"                                                "item_boots"
+
+    "item"                                                "item_stout_shield"
+    "item"                                                "item_quelling_blade"
+    "item"                                                "item_infused_raindrop"
+    "item"                                                "item_blight_stone"
+    "item"                                                "item_orb_of_venom"
+    "item"                                                "item_wind_lace"
+    "item"                                                "item_magic_wand"
+
   }
 
-  "sideshop2"       // Duel Shop 2
+  // Column 2, Basics - Support & Aura
+  "attributes"
   {
-    "item"    "item_tango"
-    "item"    "item_clarity"
+    "item"                                                "item_ring_of_aquila"
+    "item"                                                "item_blink"
+    "item"                                                "item_urn_of_shadows"
+    "item"                                                "item_ancient_janggo"
+    "item"                                                "item_mekansm"
+    "item"                                                "item_vladmir"
+    "item"                                                "item_pipe"
+
+    "item"                                                "item_glimmer_cape"
+    "item"                                                "item_force_staff"
+    "item"                                                "item_veil_of_discord"
+    "item"                                                "item_solar_crest"
+    "item"                                                "item_shivas_guard"
+    "item"                                                "item_assault"
+    "item"                                                "item_radiance"
   }
 
-	"pregame"
-	{
-		"item"		"item_clarity"
-		"item"		"item_faerie_fire"
-		"item"		"item_enchanted_mango"
-		"item"		"item_tango"
-		"item"		"item_flask"
-		"item"		"item_smoke_of_deceit"
-		"item"		"item_tpscroll"
-		"item"		"item_dust"
-		"item"		"item_courier"
-		"item"		"item_ward_observer"
-		"item"		"item_ward_sentry"
-		"item"		"item_infinite_bottle"
-		"item"		"item_branches"
-		"item"		"item_gauntlets"
-		"item"		"item_slippers"
-		"item"		"item_mantle"
-		"item"		"item_circlet"
-		"item"		"item_ring_of_protection"
-		"item"		"item_stout_shield"
-		"item"		"item_quelling_blade"
-		"item"		"item_blight_stone"
-		"item"		"item_orb_of_venom"
-		"item"		"item_wind_lace"
-		"item"		"item_magic_stick"
-		"item"		"item_sobi_mask"
-		"item"		"item_ring_of_regen"
-		"item"		"item_boots"
-		"item"		"item_gloves"
-		"item"		"item_wraith_band"
-		"item"		"item_null_talisman"
-		"item"		"item_iron_talon"
-		"item"		"item_recipe_soul_ring"
-	}
+  // Column 3, Basics - Ranger
+  "weapons_armor"
+  {
+    "item"                                                "item_monkey_king_bar"
+    "item"                                                "item_greater_crit"
+    "item"                                                "item_butterfly"
+    "item"                                                "item_bloodthorn"
+    "item"                                                "item_manta"
+    "item"                                                "item_hurricane_pike"
+    "item"                                                "item_echo_sabre"
+
+    "item"                                                "item_silver_edge"
+    "item"                                                "item_satanic"
+    "item"                                                "item_heavens_halberd"
+    "item"                                                "item_rod_of_atos"
+    "item"                                                "item_desolator"
+    "item"                                                "item_skadi"
+    "item"                                                "item_mjollnir"
+  }
+
+  // Column 4, Basics - Warrior
+  "misc"
+  {
+    "item"                                                "item_bfury"
+    "item"                                                "item_armlet"
+    "item"                                                "item_blade_mail"
+    "item"                                                "item_abyssal_blade"
+    "item"                                                "item_vanguard"
+    "item"                                                "item_crimson_guard"
+    "item"                                                "item_heart"
+
+    "item"                                                "item_black_king_bar"
+    "item"                                                "item_sphere"
+    "item"                                                "item_diffusal_blade"
+    "item"                                                "item_sange_and_yasha"
+    "item"                                                "item_ethereal_blade"
+    "item"                                                "item_lotus_orb"
+    "item"                                                "item_bloodstone"
+  }
+
+  //Column 5, Basics - Magic
+  "secretshop"
+  {
+    "item"                                                "item_necronomicon"
+    "item"                                                "item_dagon"
+    "item"                                                "item_cyclone"
+    "item"                                                "item_ultimate_scepter"
+    "item"                                                "item_refresher"
+    "item"                                                "item_sheepstick"
+    "item"                                                "item_octarine_core"
+
+    "item"                                                "item_aether_lens"
+    "item"                                                "item_power_treads"
+    "item"                                                "item_tranquil_boots"
+    "item"                                                "item_travel_boots_2"
+    "item"                                                "item_phase_boots"
+    "item"                                                "item_arcane_boots"
+    "item"                                                "item_core_info"
+  }
+
+  // Column 1, Upgrades - OAA Tier 1
+  "basics_off"
+  {
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 2, Upgrades - OAA Tier 1
+  "basics"
+  {
+    "item"                                                "item_farming_core"
+    "item"                                                "item_reflex_core"
+    "item"                                                "item_upgrade_core"
+    "item"                                                "item_upgrade_core_2"
+    "item"                                                "item_upgrade_core_3"
+    "item"                                                "item_upgrade_core_4"
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 3, Upgrades - OAA Tier 1
+  "support"
+  {
+    "item"                                                "item_preemptive_3a"
+    "item"                                                "item_preemptive_3b"
+    "item"                                                "item_preemptive_3c"
+    "item"                                                "item_reactive_3a"
+    "item"                                                "item_postactive_3b"
+    "item"                                                "item_postactive_3c"
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 4, Upgrades - OAA Tier 1
+  "magics"
+  {
+    "item"                                                "item_charge_bkb"
+    "item"                                                "item_lucience"
+    "item"                                                "item_shroud"
+    "item"                                                "item_pull_staff"
+    "item"                                                "item_shivas_cuirass"
+    "item"                                                "item_stone_skin"
+    "item"                                                "item_martyrs_mail"
+
+    "item"                                                "item_heart_transplant"
+    "item"                                                "item_refresher_core"
+    "item"                                                "item_satanic_core"
+    "item"                                                "item_trumps_fists"
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 5, Upgrades - OAA Tier 1
+  "defense"
+  {
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 6, Upgrades - OAA Tier 1
+  "weapons"
+  {
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 7, Upgrades - OAA Tier 1
+  "artifacts"
+  {
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+    "item"                                                ""
+  }
+
+  // Column 1, Duel Shop
+  "sideshop1"
+  {
+    "item"                                                "item_ward_sentry"
+    "item"                                                "item_dust"
+  }
+
+  // Strategy Screen
+  "pregame"
+  {
+    "item"                                                "item_clarity"
+    "item"                                                "item_faerie_fire"
+    "item"                                                "item_enchanted_mango"
+    "item"                                                "item_tango"
+
+    "item"                                                "item_flask"
+    "item"                                                "item_smoke_of_deceit"
+    "item"                                                "item_tpscroll"
+    "item"                                                "item_dust"
+
+    "item"                                                "item_courier"
+    "item"                                                "item_ward_observer"
+    "item"                                                "item_ward_sentry"
+    "item"                                                "item_infinite_bottle"
+
+    "item"                                                "item_branches"
+    "item"                                                "item_gauntlets"
+    "item"                                                "item_slippers"
+    "item"                                                "item_mantle"
+
+    "item"                                                "item_circlet"
+    "item"                                                "item_ring_of_protection"
+    "item"                                                "item_stout_shield"
+    "item"                                                "item_quelling_blade"
+
+    "item"                                                "item_blight_stone"
+    "item"                                                "item_orb_of_venom"
+    "item"                                                "item_wind_lace"
+    "item"                                                "item_magic_stick"
+
+    "item"                                                "item_sobi_mask"
+    "item"                                                "item_ring_of_regen"
+    "item"                                                "item_boots"
+    "item"                                                "item_gloves"
+
+    "item"                                                "item_wraith_band"
+    "item"                                                "item_null_talisman"
+    "item"                                                "item_iron_talon"
+    "item"                                                "item_recipe_soul_ring"
+  }
+
+  "pregame"
+  {
+    "item"                                                "item_clarity"
+    "item"                                                "item_faerie_fire"
+    "item"                                                "item_enchanted_mango"
+    "item"                                                "item_tango"
+    "item"                                                "item_flask"
+    "item"                                                "item_smoke_of_deceit"
+    "item"                                                "item_tpscroll"
+    "item"                                                "item_dust"
+    "item"                                                "item_courier"
+    "item"                                                "item_ward_observer"
+    "item"                                                "item_ward_sentry"
+    "item"                                                "item_infinite_bottle"
+    "item"                                                "item_branches"
+    "item"                                                "item_gauntlets"
+    "item"                                                "item_slippers"
+    "item"                                                "item_mantle"
+    "item"                                                "item_circlet"
+    "item"                                                "item_ring_of_protection"
+    "item"                                                "item_stout_shield"
+    "item"                                                "item_quelling_blade"
+    "item"                                                "item_blight_stone"
+    "item"                                                "item_orb_of_venom"
+    "item"                                                "item_wind_lace"
+    "item"                                                "item_magic_stick"
+    "item"                                                "item_sobi_mask"
+    "item"                                                "item_ring_of_regen"
+    "item"                                                "item_boots"
+    "item"                                                "item_gloves"
+    "item"                                                "item_wraith_band"
+    "item"                                                "item_null_talisman"
+    "item"                                                "item_iron_talon"
+    "item"                                                "item_recipe_soul_ring"
+  }
 }

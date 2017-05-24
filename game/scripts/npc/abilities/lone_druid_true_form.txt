@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Lone Druid: True Form
-	//=================================================================================================================
-	"lone_druid_true_form"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5415"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"5"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0 0.0 0.0"
+  //=================================================================================================================
+  // Lone Druid: True Form
+  //=================================================================================================================
+  "lone_druid_true_form"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5415"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "5"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0 0 0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0 0 0 0 0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25 25 25 25 25"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25 25 25 25 25"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"base_attack_time"			"1.5 1.5 1.5 1.5 1.5"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"				"4 6 8 12 28"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hp"					"300 600 900 1400 2800"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_loss"				"45"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"transformation_time"		"1.933"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.5 1.5 1.5 1.5 1.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "4 6 8 12 28"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp"                                        "300 600 900 1400 2800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_loss"                                      "45"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "1.933"
+      }
+    }
+  }
 }

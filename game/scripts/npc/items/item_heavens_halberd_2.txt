@@ -1,134 +1,134 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Heaven's Halberd 2
-	//=================================================================================================================
-	"item_recipe_heavens_halberd_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3638"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+  //=================================================================================================================
+  // Recipe: Heaven's Halberd 2
+  //=================================================================================================================
+  "item_recipe_heavens_halberd_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3638"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_heavens_halberd_2"
-		"ItemRequirements"
-		{
-			"01"						"item_heavens_halberd;item_upgrade_core"
-			"02"						"item_heavens_halberd;item_upgrade_core_2"
-			"03"						"item_heavens_halberd;item_upgrade_core_3"
-			"04"						"item_heavens_halberd;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_heavens_halberd_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heavens_halberd;item_upgrade_core"
+      "02"                                                "item_heavens_halberd;item_upgrade_core_2"
+      "03"                                                "item_heavens_halberd;item_upgrade_core_3"
+      "04"                                                "item_heavens_halberd;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Heaven's Halberd 2
-	//=================================================================================================================
-	"item_heavens_halberd_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3640"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_heavens_halberd"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/Heavens_Halberd_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 16 14"
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0"
+  //=================================================================================================================
+  // Heaven's Halberd 2
+  //=================================================================================================================
+  "item_heavens_halberd_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3640"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_heavens_halberd"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/Heavens_Halberd_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18 16 14"
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.0"
 
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 175 250"
-		"ItemCost"						"8000"
-		"ItemShopTags"					"str;damage;evasion"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"heaven's halberd 2"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "3"
-		"ItemBaseLevel"                 "2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 175 250"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        "str;damage;evasion"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "heaven's halberd 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
 
-		"UpgradesItems"                 "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
+    "UpgradesItems"                                       "item_heavens_halberd;item_heavens_halberd_2;item_heavens_halberd_3"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
 
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"				"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"25 40 55"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"20 40 80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_chance"			"35"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_movement"	"-20 -30 -40"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_attack"		"-20 -40 -60"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_movement_range"	"-10 -15 -20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_attack_range"		"-10 -20 -30"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"maim_duration"			"5.0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_range"				"5.5"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_melee"				"3.0"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"disarm_cast_range_tooltip"	"600"
-			}
-		}
-	}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "25 40 55"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "20 40 80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_chance"                                     "35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_movement"                              "-20 -30 -40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_attack"                                "-20 -40 -60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_movement_range"                        "-10 -15 -20"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_attack_range"                          "-10 -20 -30"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "maim_duration"                                   "5.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "disarm_range"                                    "5.5"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "disarm_melee"                                    "3.0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "disarm_cast_range_tooltip"                       "600"
+      }
+    }
+  }
 }

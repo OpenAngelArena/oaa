@@ -1,66 +1,66 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Rapier
-	//=================================================================================================================
-	"item_recipe_rapier"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"132"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"      "item_recipe"
+  //=================================================================================================================
+  // Recipe: Rapier
+  //=================================================================================================================
+  "item_recipe_rapier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "132"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "150000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_rapier"
-		"ItemRequirements"
-		{
-			"01"						"item_relic;item_demon_edge;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_rapier"
+    "ItemRequirements"
+    {
+      "01"                                                "item_relic;item_demon_edge;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Rapier
-	//=================================================================================================================
-	"item_rapier"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"133"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_gameplay/divine_rapier.vmdl"
+  //=================================================================================================================
+  // Rapier
+  //=================================================================================================================
+  "item_rapier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "133"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"                                               "models/props_gameplay/divine_rapier.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6200"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"divine rapier"
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemSellable"					"0"
-		"ItemKillable"					"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-		"ItemContributesToNetWorthWhenDropped"	"0"
-		"AllowedInBackpack"				"0"
-		"IsTempestDoubleClonable"		"0"
-		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_NEVER"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "6200"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "divine rapier"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+    "ItemSellable"                                        "0"
+    "ItemKillable"                                        "0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+    "ItemContributesToNetWorthWhenDropped"                "0"
+    "AllowedInBackpack"                                   "0"
+    "IsTempestDoubleClonable"                             "0"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"2500"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "2500"
+      }
+    }
+  }
 }

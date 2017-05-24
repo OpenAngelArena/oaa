@@ -1,94 +1,94 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Enigma: Black Hole
-	//=================================================================================================================
-	"enigma_black_hole"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5149"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"			"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"275"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
-		"AbilityChannelTime"			"4.0 4.0 4.0 4.0 4.0"
+  //=================================================================================================================
+  // Enigma: Black Hole
+  //=================================================================================================================
+  "enigma_black_hole"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5149"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "275"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityChannelTime"                                  "4.0 4.0 4.0 4.0 4.0"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"200.0 180.0 160.0 145.0 130.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "200.0 180.0 160.0 145.0 130.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275 325 375 475 875"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "275 325 375 475 875"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"far_damage"			"50 100 150 250 650"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"far_radius"			"420"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_radius"			"420"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_speed"			"30"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"near_radius"			"200"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"near_damage"			"50 100 150 250 650"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_rate"				"0.1 0.1 0.1 0.1 0.1"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0 4.0 4.0 4.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"800 800 800"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pull_rotate_speed"		"0.25"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"animation_rate"		"0.2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "far_damage"                                      "50 100 150 250 650"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "far_radius"                                      "420"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_radius"                                     "420"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_speed"                                      "30"
+      }      
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "near_radius"                                     "200"
+      }      
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "near_damage"                                     "50 100 150 250 650"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_rate"                                       "0.1 0.1 0.1 0.1 0.1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0 4.0 4.0 4.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "800 800 800"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pull_rotate_speed"                               "0.25"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "animation_rate"                                  "0.2"
+      }
+    }
+  }
 }

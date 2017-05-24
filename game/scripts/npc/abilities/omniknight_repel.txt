@@ -1,47 +1,47 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Omniknight: Repel
-	//=================================================================================================================
-	"omniknight_repel"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5264"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.35"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30 26 22 18 18 18"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50 50"
+  //=================================================================================================================
+  // Omniknight: Repel
+  //=================================================================================================================
+  "omniknight_repel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5264"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.35"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30 26 22 18 18 18"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 50 50 50"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
 
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4 5 6 7 8 9"
-			}
-		}
-	}
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4 5 6 7 8 9"
+      }
+    }
+  }
 }

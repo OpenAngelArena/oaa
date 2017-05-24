@@ -1,45 +1,45 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Invoker: Invoke
-	//=================================================================================================================
-	"invoker_invoke"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5375"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Invoker: Invoke
+  //=================================================================================================================
+  "invoker_invoke"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5375"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
-		"AbilityManaCost"				"60"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_invoked_spells"		"2"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"2"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_cost_scepter"			"0"
-			}
-		}
-	}
-	
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "6"
+    "AbilityManaCost"                                     "60"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_invoked_spells"                              "2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_scepter"                               "0"
+      }
+    }
+  }
+  
 
 }

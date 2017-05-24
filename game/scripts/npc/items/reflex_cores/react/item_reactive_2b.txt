@@ -1,94 +1,94 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Reactive Reflex 2b
-	//=================================================================================================================
-	"item_recipe_reactive_2b"
-	{
-		"ID"                    "3817"    // unique ID
-		"BaseClass"             "item_datadriven"
-		"AbilityTextureName"    "item_recipe"
-		"Model"                 "models/props_gameplay/recipe.mdl"
-		"FightRecapLevel"       "1"
-		"ItemCost"              "3500"
-		"ItemShopTags"          ""
-		"ItemRecipe"            "1"
-		"ItemResult"            "item_reactive_2b"
-		"ItemRequirements"
-		{
-			"01"            "item_reactive;item_upgrade_core_2"
-			"02"            "item_reactive;item_upgrade_core_3"
-			"03"            "item_reactive;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Reactive Reflex 2b
+  //=================================================================================================================
+  "item_recipe_reactive_2b"
+  {
+    "ID"                                                  "3817"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "FightRecapLevel"                                     "1"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_reactive_2b"
+    "ItemRequirements"
+    {
+      "01"                                                "item_reactive;item_upgrade_core_2"
+      "02"                                                "item_reactive;item_upgrade_core_3"
+      "03"                                                "item_reactive;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Reactive Reflex 2b
-	//=================================================================================================================
-	"item_reactive_2b"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                    "3818"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"             "item_lua"
-		"ScriptFile"            "items/reflex/reactive_block_blink.lua"
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityTextureName"    "custom/item_reactive_2b"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"       "10.0"
-		"AbilityCastPoint"      "0.0"
+  //=================================================================================================================
+  // Reactive Reflex 2b
+  //=================================================================================================================
+  "item_reactive_2b"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3818"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/reflex/reactive_block_blink.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityTextureName"                                  "custom/reactive_2b"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10.0"
+    "AbilityCastPoint"                                    "0.0"
 
-		"MaxUpgradeLevel"       "2"
-		"ItemBaseLevel"         "2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"       "100"
-		"ItemCost"              "7100"
-		"ItemShopTags"          "agi;str;int;attack_speed;move_speed;hard_to_tag"
-		"ItemQuality"           "epic"
-		"ItemAliases"           "wing chun"
-		"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "7100"
+    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "wing chun"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"        	"FIELD_INTEGER"
-				"bonus_health"      "1000"
-			}
-			"02"
-			{
-				"var_type"        	"FIELD_INTEGER"
-				"bonus_armor"     	"10"
-			}
-			"03"
-			{
-				"var_type"        	"FIELD_INTEGER"
-				"magic_resistance"  "10"
-			}
-			"04"
-			{
-				"var_type"        	"FIELD_FLOAT"
-				"duration"        	"0.75"
-			}
-			"05"
-			{
-				"var_type"        	"FIELD_INTEGER"
-				"distance"        	"1000"
-			}
-		}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "1000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "10"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "0.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "1000"
+      }
+    }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"  "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-			"particle"   "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "particle"                                          "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+    }
+  }
 }

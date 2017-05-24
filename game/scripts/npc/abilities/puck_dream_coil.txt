@@ -1,92 +1,92 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Puck: Dream Coil
-	//=================================================================================================================
-	"puck_dream_coil"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5073"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"						"5"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.1 0.1 0.1"
+  //=================================================================================================================
+  // Puck: Dream Coil
+  //=================================================================================================================
+  "puck_dream_coil"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5073"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
+    "MaxLevel"                                            "5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.1 0.1 0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 65 60 60 60"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "70 65 60 60 60"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200 300 1100"
-				
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 150 200 300 1100"
+    
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.5"  // Does two modifiers 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"coil_duration"				"6.0 6.0 6.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"coil_init_damage_tooltip"				"100 150 200 300 1100"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"coil_break_radius"			"600 600 600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.5"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"coil_stun_duration"		"1.5 2.25 3.0 3.5 4.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"coil_break_damage"			"100 150 200 300 1100"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"coil_radius"				"375 375 375"
-			}			
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"coil_duration_scepter"		"8"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"coil_break_damage_scepter"	"200 250 300 400 1250"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"coil_stun_duration_scepter"		"1.5 3 4.5 4.75 5.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "coil_duration"                                   "6.0 6.0 6.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_init_damage_tooltip"                        "100 150 200 300 1100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_break_radius"                               "600 600 600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "coil_stun_duration"                              "1.5 2.25 3.0 3.5 4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_break_damage"                               "100 150 200 300 1100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_radius"                                     "375 375 375"
+      }      
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "coil_duration_scepter"                           "8"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_break_damage_scepter"                       "200 250 300 400 1250"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "coil_stun_duration_scepter"                      "1.5 3 4.5 4.75 5.5"
+      }
+    }
+  }
 }

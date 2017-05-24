@@ -1,58 +1,58 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tusk: Frozen Sigil
-	//=================================================================================================================
-	"tusk_frozen_sigil"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5567"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+  //=================================================================================================================
+  // Tusk: Frozen Sigil
+  //=================================================================================================================
+  "tusk_frozen_sigil"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5567"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"sigil_radius"				"600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"sigil_duration"			"30.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"10 15 20 25 25 25"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_slow"				"30 40 50 60 60 60"
-			}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sigil_radius"                                    "600"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "sigil_duration"                                  "30.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "10 15 20 25 25 25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow"                                     "30 40 50 60 60 60"
+      }
 
-		}
-	}
+    }
+  }
 
 }

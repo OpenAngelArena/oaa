@@ -1,128 +1,128 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Crimson Guard
-	//=================================================================================================================
-	"item_recipe_crimson_guard"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"243"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Recipe: Crimson Guard
+  //=================================================================================================================
+  "item_recipe_crimson_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "243"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"600"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "600"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_crimson_guard"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_vanguard;item_buckler"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_crimson_guard"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_vanguard;item_buckler"
+    }
+  }
 
-	//=================================================================================================================
-	// Crimson Guard
-	//=================================================================================================================
-	"item_crimson_guard"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"242"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "custom/crimson_guard_1"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"46.0"
-		"AbilityCastRange"				"900"
+  //=================================================================================================================
+  // Crimson Guard
+  //=================================================================================================================
+  "item_crimson_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "242"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/crimson_guard_1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "46.0"
+    "AbilityCastRange"                                    "900"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_crimson_guard"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_crimson_guard"
 
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3550"
-		"ItemShopTags"					"armor;boost_armor;regen_health;block;health_pool"
-		"ItemQuality"					"epic"
-		"ItemAlertable"					"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3550"
+    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAlertable"                                       "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250 500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"8 12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"2 3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5 7"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee"	"70 100"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged"	"35 45"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"50"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aoe_armor"		"2 3"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"	"12"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aoe_radius"		"900"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee_active"	"60"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged_active"	"60"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance_active"			"100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "8 12"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "2 3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5 7"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_melee"                              "70 100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_ranged"                             "35 45"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance"                                    "50"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_aoe_armor"                                 "2 3"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "12"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_aoe_radius"                                "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_melee_active"                       "60 90"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_ranged_active"                      "60 90"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance_active"                             "100"
+      }
+    }
+  }
 }

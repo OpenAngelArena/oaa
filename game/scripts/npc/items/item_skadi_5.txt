@@ -1,92 +1,92 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Eye of Skadi 5
-	//=================================================================================================================
-	"item_recipe_skadi_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3193"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Eye of Skadi 5
+  //=================================================================================================================
+  "item_recipe_skadi_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3193"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_skadi_5"
-		"ItemRequirements"
-		{
-			"02"						"item_skadi_4;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_skadi_5"
+    "ItemRequirements"
+    {
+      "02"                                                "item_skadi_4;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Eye of Skadi 5
-	//=================================================================================================================
-	"item_skadi_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3197"		// unique ID
-		"BaseClass"                     "item_skadi"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/eye_of_skadi_5"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"25675"
-		"ItemShopTags"					"agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"eos;eye of skadi"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+  //=================================================================================================================
+  // Eye of Skadi 5
+  //=================================================================================================================
+  "item_skadi_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3197"    // unique ID
+    "BaseClass"                                           "item_skadi"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/skadi"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "25675"
+    "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "eos;eye of skadi"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"5"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"25 30 40 50 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"225 400 600 1000 1500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250 450 700 1100 1600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cold_movement_speed"	"-35 -37 -39 -41 -43"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cold_attack_speed"		"-45 -60 -80 -105 -130"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_duration_melee"	"5.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cold_duration_ranged"	"2.5"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "25 30 40 50 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "225 400 600 1000 1500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250 450 700 1100 1600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cold_movement_speed"                             "-35 -37 -39 -41 -43"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cold_attack_speed"                               "-45 -60 -80 -105 -130"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cold_duration_melee"                             "5.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cold_duration_ranged"                            "2.5"
+      }
+    }
+  }
 }

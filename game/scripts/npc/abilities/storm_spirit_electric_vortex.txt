@@ -1,75 +1,75 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Electric Vortex
-	//=================================================================================================================
-	"storm_spirit_electric_vortex"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5099"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Ability: Electric Vortex
+  //=================================================================================================================
+  "storm_spirit_electric_vortex"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5099"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"300"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "300"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 20 19 18 18 18"
-		"AbilityDuration"				"1.0 1.5 2.0 2.5 2.75 3.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "21 20 19 18 18 18"
+    "AbilityDuration"                                     "1.0 1.5 2.0 2.5 2.75 3.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"85 85 85 85 170 340"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "85 85 85 85 170 340"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"electric_vortex_pull_units_per_second"			"100"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"electric_vortex_pull_tether_range"			"1200.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"electric_vortex_self_slow"	"-50"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"electric_vortex_self_slow_duration"	"3.0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"	"1.0 1.5 2.0 2.5 2.75 3.25"
-				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius_scepter"	"475"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "electric_vortex_pull_units_per_second"           "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "electric_vortex_pull_tether_range"               "1200.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "electric_vortex_self_slow"                       "-50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "electric_vortex_self_slow_duration"              "3.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.0 1.5 2.0 2.5 2.75 3.25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_scepter"                                  "475"
+      }
+    }
+  }
 
 }

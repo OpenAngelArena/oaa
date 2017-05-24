@@ -1,83 +1,83 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Earth Spirit: Rolling Boulder
-	//=================================================================================================================
-	"earth_spirit_rolling_boulder"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5609"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"6"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.01"
+  //=================================================================================================================
+  // Earth Spirit: Rolling Boulder
+  //=================================================================================================================
+  "earth_spirit_rolling_boulder"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5609"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "6"
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.01"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16.0 12.0 8.0 4.0 4.0 4.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16.0 12.0 8.0 4.0 4.0 4.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_speed"			"1600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"distance"				"800.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_distance"			"1600.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"0.6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"80"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"0.8 1.2 1.6 2 2.4 3.6"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_speed"                                      "1600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "distance"                                        "800.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rock_distance"                                   "1600.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "0.6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "80"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.8 1.2 1.6 2 2.4 3.6"
+      }
+    }
+  }
 
 }

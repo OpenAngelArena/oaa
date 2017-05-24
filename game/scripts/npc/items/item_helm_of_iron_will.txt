@@ -1,0 +1,34 @@
+"DOTAItems"
+{
+  "item_helm_of_iron_will"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "900"
+    "ItemShopTags"                                        "armor;regen_health"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "helm of iron will"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_regen"                                     "3"
+      }
+    }
+  }
+}

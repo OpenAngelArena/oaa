@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	//  Troll Warlord: Battle Trance
-	//=================================================================================================================
-	"troll_warlord_battle_trance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5512"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"3"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  //  Troll Warlord: Battle Trance
+  //=================================================================================================================
+  "troll_warlord_battle_trance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5512"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "3"
+    "FightRecapLevel"                                     "2"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"trance_duration"		"5.0 5.0 5.0 6.0 8.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"		"60 120 180 180 180"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "trance_duration"                                 "5.0 5.0 5.0 6.0 8.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "60 120 180 180 180"
+      }
+    }
+  }
 
 }

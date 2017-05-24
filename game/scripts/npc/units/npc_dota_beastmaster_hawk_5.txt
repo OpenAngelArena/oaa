@@ -3,67 +3,67 @@
 //=================================================================================
 // Beastmaster Hawk 5
 //=================================================================================
-	"npc_dota_beastmaster_hawk_5"
-	{										
-		// General
-		//----------------------------------------------------------------
-		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
-		"BaseClass"					"npc_dota_beastmaster_hawk"
-		"SoundSet"					"0"			// Name of sound set.
-		"Level"						"1"
-		"ModelScale"				"1.2"
-		"IsSummoned"				"1"
-		"UnitLabel"					"hawk"
+  "npc_dota_beastmaster_hawk_5"
+  {                    
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/beastmaster/beastmaster_bird.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_beastmaster_hawk"
+    "SoundSet"                                            "0"      // Name of sound set.
+    "Level"                                               "1"
+    "ModelScale"                                          "1.2"
+    "IsSummoned"                                          "1"
+    "UnitLabel"                                           "hawk"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"beastmaster_hawk_invisibility"			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "beastmaster_hawk_invisibility"      // Ability 1
+    "Ability2"                                            ""      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// Physical protection.
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "5"      // Physical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
 
-		// Bounds
-		//----------------------------------------------------------------
-		"HealthBarOffset"			"165"
+    // Bounds
+    //----------------------------------------------------------------
+    "HealthBarOffset"                                     "165"
 
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"77"		// Experience earn.
-		"BountyGoldMin"				"60"		// Gold earned min.
-		"BountyGoldMax"				"60"		// Gold earned max.
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "77"    // Experience earn.
+    "BountyGoldMin"                                       "60"    // Gold earned min.
+    "BountyGoldMax"                                       "60"    // Gold earned max.
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
-		"MovementSpeed"				"375"		// Speed.
-		"MovementTurnRate"			"0.6"		// Turning rate.
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"
+    "MovementSpeed"                                       "375"    // Speed.
+    "MovementTurnRate"                                    "0.6"    // Turning rate.
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"140"		// Base health.
-		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1500"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1500"		// Range of vision at night time.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "140"    // Base health.
+    "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1500"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1500"    // Range of vision at night time.
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
-		"WakesNeutrals"				"0"
-	}
-	
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    
+    "WakesNeutrals"                                       "0"
+  }
+  
 }

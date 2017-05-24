@@ -1,68 +1,68 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Nyx Assassin: Spiked Carapce
-	//=================================================================================================================
-	"nyx_assassin_spiked_carapace"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5464"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 18 14 10 9 8"
-		"AbilityCastPoint"				"0 0 0 0"
+  //=================================================================================================================
+  // Nyx Assassin: Spiked Carapce
+  //=================================================================================================================
+  "nyx_assassin_spiked_carapace"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5464"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Stats    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22 18 14 10 9 8"
+    "AbilityCastPoint"                                    "0 0 0 0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40 40 40 40"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"reflect_duration"			"2.25"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.6 1.2 1.8 2.4 2.8 3.2"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"				"0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_intellect"				"0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"burrow_aoe"				"300"
-			}
-			"07"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"damage_reflect_pct_tooltip"		"100"
-				"LinkedSpecialBonus"				"special_bonus_unique_nyx"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 40 40 40"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "reflect_duration"                                "2.25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.6 1.2 1.8 2.4 2.8 3.2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burrow_aoe"                                      "300"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reflect_pct_tooltip"                      "100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nyx"
+      }
+    }
+  }
 }

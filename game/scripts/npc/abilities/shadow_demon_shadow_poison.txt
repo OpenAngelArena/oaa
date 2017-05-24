@@ -1,79 +1,79 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Shadow Demon: Shadow Demon Shadow Poison
-	//=================================================================================================================
-	"shadow_demon_shadow_poison"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5423"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+  //=================================================================================================================
+  // Shadow Demon: Shadow Demon Shadow Poison
+  //=================================================================================================================
+  "shadow_demon_shadow_poison"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5423"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"10.0"
-		"AbilityCooldown"				"2.5"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "10.0"
+    "AbilityCooldown"                                     "2.5"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1500"
+    "AbilityCastPoint"                                    "0.3"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"26 34 42 50 66 130"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "26 34 42 50 66 130"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0" // modifier is damage only.
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0" // modifier is damage only.
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stack_damage"			"20 35 50 65 95 215"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_multiply_stacks"	"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_stack_damage"	"50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"190"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1000"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tooltip_duration"		"10.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stack_damage"                                    "20 35 50 65 95 215"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_multiply_stacks"                             "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_stack_damage"                              "50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "190"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "10.0"
+      }
+    }
+  }
 
 }

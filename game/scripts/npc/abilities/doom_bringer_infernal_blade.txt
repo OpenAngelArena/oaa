@@ -1,52 +1,52 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Doom Bringer: Infernal Blade
-	//=================================================================================================================
-	"doom_bringer_infernal_blade"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5341"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 12 8 4 4 4"
-		"AbilityManaCost"				"40"
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0 0.0 0.0"
+  //=================================================================================================================
+  // Doom Bringer: Infernal Blade
+  //=================================================================================================================
+  "doom_bringer_infernal_blade"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5341"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 12 8 4 4 4"
+    "AbilityManaCost"                                     "40"
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"25 30 35 40 50 90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_damage_pct"		"1.25 2.5 3.75 5 6.25 7.5"
-				"LinkedSpecialBonus"	"special_bonus_unique_doom_1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"4.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ministun_duration"	"0.4"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burn_damage"                                     "25 30 35 40 50 90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_damage_pct"                                 "1.25 2.5 3.75 5 6.25 7.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_duration"                                   "4.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ministun_duration"                               "0.4"
+      }
+    }
+  }
 }

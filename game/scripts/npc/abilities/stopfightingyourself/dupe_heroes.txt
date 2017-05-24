@@ -3,46 +3,46 @@
 {
   "boss_stopfightingyourself_dupe_heroes"
   {
-    "ID"                              "9912"
-    "BaseClass"                       "ability_lua"
-    "ScriptFile"                      "abilities/stopfightingyourself/dupe_heroes.lua"
-    "AbilityTextureName"              "custom/stopfightingyourself_dupe_heroes"
-    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                     "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "9912"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/stopfightingyourself/dupe_heroes.lua"
+    "AbilityTextureName"                                  "custom/stopfightingyourself_dupe_heroes"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "MaxLevel"                        "1"
-    "RequiredLevel"                   "1"
-    "LevelsBetweenUpgrades"           "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
-    "AbilityUnitTargetTeam"           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "cooldown"                    "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown"                                        "5"
       }
       "02"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "radius"                      "900"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
       }
       "03"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "illusion_outgoing_damage"    "-100"
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_outgoing_damage"                        "-100"
       }
       "04"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "illusion_incoming_damage"    "200"
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_incoming_damage"                        "200"
       }
       "05"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "max_illusions"               "32"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_illusions"                                   "32"
       }
     }
   }

@@ -1,49 +1,49 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Pudge Dismember
-	//=================================================================================================================
-	"pudge_dismember"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5077"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"160"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+  //=================================================================================================================
+  // Ability: Pudge Dismember
+  //=================================================================================================================
+  "pudge_dismember"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5077"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "160"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"			"3.0 3.0 3.0"
-		"AbilityCooldown"				"30 25 20 20 20"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"                                  "3.0 3.0 3.0"
+    "AbilityCooldown"                                     "30 25 20 20 20"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 130 170 240 420"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dismember_damage"		"60 90 120 180 420"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"strength_damage"		"0.3 0.45 0.6 0.75 1.0"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 130 170 240 420"
+    
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dismember_damage"                                "60 90 120 180 420"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "strength_damage"                                 "0.3 0.45 0.6 0.75 1.0"
+      }
+    }
+  }
 }

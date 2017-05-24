@@ -1,82 +1,82 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Earth Spirit: Geomagnetic Grip
-	//=================================================================================================================
-	"earth_spirit_geomagnetic_grip"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5610"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Earth Spirit: Geomagnetic Grip
+  //=================================================================================================================
+  "earth_spirit_geomagnetic_grip"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5610"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1100"
-		"AbilityCastPoint"				"0.01"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1100"
+    "AbilityCastPoint"                                    "0.01"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"180"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_rate"			"75"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"miss_duration"			"2.5 3 3.5 4 4.5 5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pull_units_per_second_heroes"		"600"
-			}				
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"50 100 150 200 300 700"
-			}				
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pull_units_per_second"		"1000"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"800"
-			}	
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"total_pull_distance"		"1400"
-			}			
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "180"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "miss_duration"                                   "2.5 3 3.5 4 4.5 5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pull_units_per_second_heroes"                    "600"
+      }        
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_damage"                                     "50 100 150 200 300 700"
+      }        
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pull_units_per_second"                           "1000"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
+      }  
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "total_pull_distance"                             "1400"
+      }      
+    }
+  }
 }

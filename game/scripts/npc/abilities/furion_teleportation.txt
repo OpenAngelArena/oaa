@@ -1,22 +1,22 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Furion: Teleportation
-	//=================================================================================================================
-	"furion_teleportation"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5246"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Furion: Teleportation
+  //=================================================================================================================
+  "furion_teleportation"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5246"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"3 3 3 3 3 1.5"
-		"AbilityCooldown"				"50 40 30 20 15 7"
-		"AbilityManaCost"				"50 50 50 50"
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "3 3 3 3 3 1.5"
+    "AbilityCooldown"                                     "50 40 30 20 15 7"
+    "AbilityManaCost"                                     "50 50 50 50"
+  }
 }

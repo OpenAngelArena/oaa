@@ -3,26 +3,26 @@
 {
   "boss_stopfightingyourself_dupe_items"
   {
-    "ID"                              "9913"
-    "BaseClass"                       "ability_lua"
-    "ScriptFile"                      "abilities/stopfightingyourself/dupe_items.lua"
-    "AbilityTextureName"              "custom/stopfightingyourself_dupe_items"
-    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                     "DOTA_ABILITY_TYPE_BASIC"
+    "ID"                                                  "9913"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/stopfightingyourself/dupe_items.lua"
+    "AbilityTextureName"                                  "custom/stopfightingyourself_dupe_items"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
-    "MaxLevel"                        "1"
-    "RequiredLevel"                   "1"
-    "LevelsBetweenUpgrades"           "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
-    "AbilityUnitTargetTeam"           "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "cooldown"                    "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown"                                        "5"
       }
     }
   }

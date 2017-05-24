@@ -4,98 +4,98 @@
   {
     // General
     //
-    "BaseClass"                       "npc_dota_creature" // Class of entity of link to.
-    "Model"                           "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"  // Model.
-    "vscripts"                        "units/stopfightingyourself.lua"
-    "SoundSet"                        "wisp"              // Name of sound set.
-    "ModelScale"                      "1"
-    "Level"                           "30"
-    "IsAncient"                       "0"
-    "ConsideredHero"                  "1"
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"  // Model.
+    "vscripts"                                            "units/stopfightingyourself.lua"
+    "SoundSet"                                            "wisp"              // Name of sound set.
+    "ModelScale"                                          "1"
+    "Level"                                               "30"
+    "IsAncient"                                           "0"
+    "ConsideredHero"                                      "1"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                        "boss_stopfightingyourself_debuff_mirror"
-    "Ability2"                        "boss_stopfightingyourself_dupe_items"
-    "Ability3"                        "boss_resistance"
-    "Ability4"                        "boss_stopfightingyourself_dupe_heroes"
+    "Ability1"                                            "boss_stopfightingyourself_debuff_mirror"
+    "Ability2"                                            "boss_stopfightingyourself_dupe_items"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_stopfightingyourself_dupe_heroes"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                   "75"               // Physical protection.
-    "MagicalResistance"               "20"               // Magical protection (percentage).
+    "ArmorPhysical"                                       "75"               // Physical protection.
+    "MagicalResistance"                                   "20"               // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"              "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                 "1000"              // Damage range min.
-    "AttackDamageMax"                 "1000"              // Damage range max.
-    "AttackDamageType"                "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                      "0.5"               // Speed of attack.
-    "AttackAnimationPoint"            "0.0"               // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"          "650"               // Range within a target can be acquired.
-    "AttackRange"                     "600"               // Range within a target can be attacked.
-    "ProjectileModel"                 "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                 "800"              // Speed of projectile.
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "1000"              // Damage range min.
+    "AttackDamageMax"                                     "1000"              // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "0.5"               // Speed of attack.
+    "AttackAnimationPoint"                                "0.0"               // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "650"               // Range within a target can be acquired.
+    "AttackRange"                                         "600"               // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                                     "800"              // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                        "0"                 // Experience earn.
-    "BountyGoldMin"                   "0"                 // Gold earned min.
-    "BountyGoldMax"                   "0"                 // Gold earned max.
+    "BountyXP"                                            "0"                 // Experience earn.
+    "BountyGoldMin"                                       "0"                 // Gold earned min.
+    "BountyGoldMax"                                       "0"                 // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                  "DOTA_HULL_SIZE_HERO"  // Hull type used for navigation/locomotion.
-    "RingRadius"                      "110"
-    "HealthBarOffset"                 "400"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"  // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"            "DOTA_UNIT_CAP_MOVE_FLY"  // Type of locomotion - ground, air
-    "MovementSpeed"                   "300"               // Speed
-    "MovementTurnRate"                "2.0"               // Turning rate.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"  // Type of locomotion - ground, air
+    "MovementSpeed"                                       "300"               // Speed
+    "MovementTurnRate"                                    "2.0"               // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                    "10000"             // Base health
-    "StatusHealthRegen"               "10"                // Health regeneration rate. -- effectively 100 because boss resists
-    "StatusMana"                      "500"               // Base mana.
-    "StatusManaRegen"                 "10"                // Mana regeneration rate.
+    "StatusHealth"                                        "10000"             // Base health
+    "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
+    "StatusMana"                                          "500"               // Base mana.
+    "StatusManaRegen"                                     "10"                // Mana regeneration rate.
 
     // Creature data
     //
     "Creature"
     {
       //Makes it only have 75% remaining of applied crowd control
-      "DisableResistance"             "25.0"
+      "DisableResistance"                                 "25.0"
     }
 
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                        "DOTA_TEAM_NEUTRALS"  // Team name.
-    "CombatClassAttack"               "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"               "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"           "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"  // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"              "1400"              // Range of vision during day light.
-    "VisionNighttimeRange"            "1400"              // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1400"              // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"              // Range of vision at night time.
 
     // Inventory
     //----------------------------------------------------------------
-    "HasInventory"                    "1"
+    "HasInventory"                                        "1"
 
-    "MinimapIcon"                     "minimap_roshancamp"
-    "MinimapIconSize"                 "450"
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
 
     "precache"
     {
-      "model"                         "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"
-      "particle"                      "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf"
-      "soundfile"                     "soundevents/voscripts/game_sounds_vo_announcer_dlc_rick_and_morty.vsndevts"
+      "model"                                             "models/items/terrorblade/endless_purgatory_demon/endless_purgatory_demon.vmdl"
+      "particle"                                          "particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf"
+      "soundfile"                                         "soundevents/voscripts/game_sounds_vo_announcer_dlc_rick_and_morty.vsndevts"
     }
   }
 }

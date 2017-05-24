@@ -1,86 +1,86 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Heart of Tarrasque
-	//=================================================================================================================
-	"item_recipe_heart"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"113"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Heart of Tarrasque
+  //=================================================================================================================
+  "item_recipe_heart"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "113"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_heart"
-		"ItemRequirements"
-		{
-			"01"						"item_reaver;item_vitality_booster;item_vitality_booster"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_heart"
+    "ItemRequirements"
+    {
+      "01"                                                "item_reaver;item_vitality_booster;item_vitality_booster"
+    }
+  }
 
-	//=================================================================================================================
-	// Heart of Tarrasque
-	//=================================================================================================================
-	"item_heart"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"114"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/heart"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0"
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"1"
+  //=================================================================================================================
+  // Heart of Tarrasque
+  //=================================================================================================================
+  "item_heart"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "114"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/heart"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "7.0"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5500"
-		"ItemShopTags"					"str;regen_health;health_pool"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"hot;heart of tarrasque"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5500"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "hot;heart of tarrasque"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		"UpgradesItems"					"item_heart;item_heart_2;item_heart_3;item_heart_4;item_heart_5"
+    "UpgradesItems"                                       "item_heart;item_heart_2;item_heart_3;item_heart_4;item_heart_5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"40 60 90 135 180"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"500 1000 2000 3500 5500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_regen_rate"		"7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_melee"		"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_ranged_tooltip"		"7"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "40 60 90 135 180"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "500 1000 2000 3500 5500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_rate"                               "7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_melee"                                  "5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"                         "7"
+      }
+    }
+  }
 }

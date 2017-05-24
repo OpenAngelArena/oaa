@@ -1,116 +1,116 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-	// Recipe: Heart Transplant (Based on Solar Crest)
-	//=================================================================================================================
-	"item_recipe_heart_transplant"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3258"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+  //=================================================================================================================
+  // Recipe: Heart Transplant (Based on Solar Crest)
+  //=================================================================================================================
+  "item_recipe_heart_transplant"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3258"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_heart_transplant"
-		"ItemRequirements"
-		{
-			"01"						"item_heart_3;item_solar_crest_3;item_upgrade_core_3"
-      "02"            "item_heart_3;item_solar_crest_3;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_heart_transplant"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heart_3;item_solar_crest_3;item_upgrade_core_3"
+      "02"                                                "item_heart_3;item_solar_crest_3;item_upgrade_core_4"
+    }
+  }
 
   //=================================================================================================================
-	// Heart Transplant (Based on Solar Crest)
-	//=================================================================================================================
-	"item_heart_transplant"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3260"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"             "item_lua"
-    "ScriptFile"            "items/heart_transplant.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/heart_transplant"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCooldown"				"0.0"
-		"AbilitySharedCooldown"			"medallion"
+  // Heart Transplant (Based on Solar Crest)
+  //=================================================================================================================
+  "item_heart_transplant"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3260"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/heart_transplant.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/heart_transplant"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCooldown"                                     "0.0"
+    "AbilitySharedCooldown"                               "medallion"
 
-    // "IsTempestDoubleClonable"   "0"
-    "ItemInitialCharges"      "1"
-    "ItemRequiresCharges"     "1"
+    // "IsTempestDoubleClonable"                          "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10000"
-		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemShopTags"					"armor;regen_mana;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"transplant"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"               "2"
-    "ItemBaseLevel"                 "1"
-    "UpgradesItems"                 "item_heart_transplant"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "10000"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "transplant"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_heart_transplant"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
       // New Parameters
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"duration"						"7"
-			}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "7"
+      }
       "02"
       {
-        "var_type"            "FIELD_INTEGER"
-        "transplant_cooldown" "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "transplant_cooldown"                             "7"
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "transplant_range_tooltip"    "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "transplant_range_tooltip"                        "1000"
       }
       // Heart Parameters
-			"04"
+      "04"
       {
-        "var_type"             			 "FIELD_INTEGER"
-        "bonus_strength"        		"135 180"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "135 180"
       }
       "05"
       {
-        "var_type"              		"FIELD_INTEGER"
-        "bonus_health"          		"1000 1350"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "1000 1350"
       }
       "06"
       {
-        "var_type"              		"FIELD_FLOAT"
-        "health_regen_rate"     		"7"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_rate"                               "7"
       }
       "07"
       {
-        "var_type"              		"FIELD_INTEGER"
-        "cooldown_melee"        		"5"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_melee"                                  "5"
       }
       "08"
       {
-        "var_type"              		"FIELD_INTEGER"
-        "cooldown_ranged_tooltip"       "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"                         "7"
       }
-		}
-	}
+    }
+  }
 }

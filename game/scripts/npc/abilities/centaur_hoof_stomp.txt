@@ -1,48 +1,48 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Centaur Warchief: Hoof Stomp
-	//=================================================================================================================
-	"centaur_hoof_stomp"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5514"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Centaur Warchief: Hoof Stomp
+  //=================================================================================================================
+  "centaur_hoof_stomp"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5514"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
-		"AbilityCooldown"				"13.0 13.0 13.0 13.0 13.0 13.0"
-		"AbilityManaCost"				"130"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"315"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"2.0 2.25 2.5 2.75 3.0 3.5"
-				"LinkedSpecialBonus"			"special_bonus_unique_centaur_2"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"100 150 200 250 350 750"
-			}
-		}
-	}
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCooldown"                                     "13.0 13.0 13.0 13.0 13.0 13.0"
+    "AbilityManaCost"                                     "130"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "315"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2.0 2.25 2.5 2.75 3.0 3.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stomp_damage"                                    "100 150 200 250 350 750"
+      }
+    }
+  }
 }

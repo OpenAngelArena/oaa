@@ -5,18 +5,18 @@
   //=================================================================================================================
   "item_recipe_preemptive_2b"
   {
-    "ID"            "3806"   // unique ID
-    "BaseClass"     "item_datadriven"
-    "ItemCost"          "3500"
-    "ItemShopTags"          ""
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_preemptive_2b"
-    "AbilityTextureName"      "item_recipe"
+    "ID"                                                  "3806"   // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_preemptive_2b"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"            "item_preemptive;item_upgrade_core_2"
-      "02"            "item_preemptive;item_upgrade_core_3"
-      "03"            "item_preemptive;item_upgrade_core_4"
+      "01"                                                "item_preemptive;item_upgrade_core_2"
+      "02"                                                "item_preemptive;item_upgrade_core_3"
+      "03"                                                "item_preemptive;item_upgrade_core_4"
     }
   }
 
@@ -27,30 +27,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                    "3805"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"             "item_lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "custom/item_preemptive_2b"
-    "ScriptFile"            "items/reflex/preemptive_damage_block.lua"
-    "FightRecapLevel"       "1"
+    "ID"                                                  "3805"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/preemptive_2b"
+    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
+    "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"       "2"
-    "ItemBaseLevel"         "2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
-    "AbilityCooldown"       "20"
-    "AbilitySharedCooldown" "reflex"
-    "AbilityCastPoint"      "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "reflex"
+    "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"          "7100"
-    "ItemShopTags"          "defense;support;mobility;hard_to_tag"
-    "ItemQuality"         "epic"
-    "ItemAliases"         "reflex;preemptive_2b"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "7100"
+    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "reflex;preemptive_2b"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
     // Special
@@ -59,33 +59,33 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_health"      "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "1000"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_armor"       "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "magic_resistance"  "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "10"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage_reduction"  "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "100"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage_as_healing" "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_as_healing"                               "0"
       }
       "06"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"          "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
       }
     }
   }

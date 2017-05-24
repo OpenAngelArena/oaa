@@ -1,0 +1,34 @@
+"DOTAItems"
+{
+  "item_cloak"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "31"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "550"
+    "ItemShopTags"                                        "magic_resist"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "cloak"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "15"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_resist"                                  "15"
+      }
+    }
+  }
+}

@@ -1,78 +1,78 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Invoker: Deafening Blast
-	//=================================================================================================================
-	"invoker_deafening_blast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5390"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"B"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Invoker: Deafening Blast
+  //=================================================================================================================
+  "invoker_deafening_blast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5390"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+    "HotKeyOverride"                                      "B"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"                                     "1"
 
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.05"
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"300 300 300 300 300 300 300 300 300 300 310 320 330 340 350"
-		"AbilityModifierSupportValue"	"0.5"	// Applies 2 modifiers
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.05"
+    "AbilityCooldown"                                     "40"
+    "AbilityManaCost"                                     "300 300 300 300 300 300 300 300 300 300 310 320 330 340 350"
+    "AbilityModifierSupportValue"                         "0.5"  // Applies 2 modifiers
 
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"1000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"travel_speed"			"1100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_start"			"175"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_end"			"225"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_vision_duration"	"1.75"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"40 80 120 160 200 240 280 320 360 400 450 500 550 600 650"
-				"levelkey"				"exortlevel"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"	"0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 23.25 3.5 3.75"
-				"levelkey"				"quaslevel"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_duration"		"1.25 2.0 2.75 3.5 4.25 5.0 5.75 6.5 6.75 7.0 7.25 7.5 7.75 8.0 8.25"
-				"levelkey"				"wexlevel"
-			}
-		}
-	}
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "travel_distance"                                 "1000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "travel_speed"                                    "1100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_start"                                    "175"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_end"                                      "225"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "end_vision_duration"                             "1.75"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "40 80 120 160 200 240 280 320 360 400 450 500 550 600 650"
+        "levelkey"                                        "exortlevel"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 23.25 3.5 3.75"
+        "levelkey"                                        "quaslevel"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "disarm_duration"                                 "1.25 2.0 2.75 3.5 4.25 5.0 5.75 6.5 6.75 7.0 7.25 7.5 7.75 8.0 8.25"
+        "levelkey"                                        "wexlevel"
+      }
+    }
+  }
 }

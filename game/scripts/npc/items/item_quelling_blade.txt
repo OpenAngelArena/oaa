@@ -1,0 +1,52 @@
+"DOTAItems"
+{
+  "item_quelling_blade"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "11"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
+    "AbilityCastRange"                                    "350"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "4.0"
+    "Model"                                               "models/props_gameplay/quelling_blade.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "200"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "qb;quelling blade"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bonus"                                    "24"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bonus_ranged"                             "7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quelling_range_tooltip"                          "350"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_ward"                                 "450"
+      }
+    }
+  }
+}

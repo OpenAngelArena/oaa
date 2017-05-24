@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Treant: Eyes In The Forest ( scepter ability )
-	//=================================================================================================================
-	"treant_eyes_in_the_forest"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5649"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"						"1"
-		"FightRecapLevel"				"1"
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Treant: Eyes In The Forest ( scepter ability )
+  //=================================================================================================================
+  "treant_eyes_in_the_forest"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5649"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "MaxLevel"                                            "1"
+    "FightRecapLevel"                                     "1"
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"160"
-		"AbilityCastPoint"				"0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "160"
+    "AbilityCastPoint"                                    "0.2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_aoe"		"800 800 800 850 900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"overgrowth_aoe"		"800 800 800 850 900"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"		"175 175 175 275 675"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_aoe"                                      "800 800 800 850 900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "overgrowth_aoe"                                  "800 800 800 850 900"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "175 175 175 275 675"
+      }
+    }
+  }
 
 }

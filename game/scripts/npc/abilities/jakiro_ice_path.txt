@@ -1,63 +1,63 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Jakiro's Ice Path
-	//=================================================================================================================
-	"jakiro_ice_path"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5298"									// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.65"
+  //=================================================================================================================
+  // Ability: Jakiro's Ice Path
+  //=================================================================================================================
+  "jakiro_ice_path"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5298"                  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.65"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0 11.0 10.0 9.0 9.0 9.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12.0 11.0 10.0 9.0 9.0 9.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "90"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"path_delay"				"0.5"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"1 1.5 2.0 2.5 2.75 3.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_jakiro"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"path_radius"				"150"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"50"
-			}
-		}		
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "path_delay"                                      "0.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1 1.5 2.0 2.5 2.75 3.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "path_radius"                                     "150"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50"
+      }
+    }    
+  }
 }

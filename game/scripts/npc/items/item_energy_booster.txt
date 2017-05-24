@@ -1,0 +1,30 @@
+"DOTAItems"
+{
+  "item_energy_booster"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "59"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "900"
+    "ItemShopTags"                                        "mana_pool"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "energy booster"
+    "SecretShop"                                          "0"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250"
+      }
+    }
+  }
+}

@@ -1,73 +1,73 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Undying: Decay
-	//=================================================================================================================
-	"undying_decay"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"5442"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Undying: Decay
+  //=================================================================================================================
+  "undying_decay"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5442"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"AbilityCastRange"				"650"
-		"AbilityCastPoint"				"0.45"
-		"FightRecapLevel"				"1"
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.45"
+    "FightRecapLevel"                                     "1"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10.0 8.0 6.0 4.0 4.0 4.0"
-		"AbilityDuration"				"21.0 24.0 27.0 30.0 33.0 36.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10.0 8.0 6.0 4.0 4.0 4.0"
+    "AbilityDuration"                                     "21.0 24.0 27.0 30.0 33.0 36.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 90 110 130 170 330"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 90 110 130 170 330"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"decay_damage"					"20 60 100 140 220 540"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal"						"4"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"decay_duration"				"45"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"325"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_scale_up"					"2"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal_scepter"				"10"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "decay_damage"                                    "20 60 100 140 220 540"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "str_steal"                                       "4"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "decay_duration"                                  "45"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "str_scale_up"                                    "2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "str_steal_scepter"                               "10"
+      }
+    }
+  }
 
 }

@@ -1,77 +1,77 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Slark Shadow Dance
-	//=================================================================================================================
-	"slark_shadow_dance"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5497"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"				"1"
+  //=================================================================================================================
+  // Slark Shadow Dance
+  //=================================================================================================================
+  "slark_shadow_dance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5497"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
 
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"4.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"0.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"30 35 40 45 50"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_regen_pct"			"3 5 7 9 12"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"activation_delay"			"0.5"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"neutral_disable"			"2.0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_aoe"						"325"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cooldown_scepter"			"30"
-			}
-		}
-	}
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "30 35 40 45 50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_regen_pct"                                 "3 5 7 9 12"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "activation_delay"                                "0.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "neutral_disable"                                 "2.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_aoe"                                     "325"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "30"
+      }
+    }
+  }
 
 }

@@ -1,131 +1,131 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Abyssal Blade 4
-	//=================================================================================================================
-	"item_recipe_abyssal_blade_4"
-	{
-		"ID"							"3110"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_abyssal_blade_4"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_abyssal_blade_3;item_upgrade_core_3"
-			"01"						"item_abyssal_blade_3;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Abyssal Blade 4
+  //=================================================================================================================
+  "item_recipe_abyssal_blade_4"
+  {
+    "ID"                                                  "3110"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_abyssal_blade_4"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_abyssal_blade_3;item_upgrade_core_3"
+      "01"                                                "item_abyssal_blade_3;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Abyssal Blade 4
-	//=================================================================================================================
-	"item_abyssal_blade_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3114"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_abyssal_blade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityTextureName"			"custom/Abyssal_Blade_4"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Abyssal Blade 4
+  //=================================================================================================================
+  "item_abyssal_blade_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3114"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_abyssal_blade"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityTextureName"                                  "custom/abyssal_blade_4"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "FightRecapLevel"                                     "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35"
-		"AbilityCastRange"				"140"
-		"AbilityCastPoint"				"0.0"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+    "AbilityCastRange"                                    "140"
+    "AbilityCastPoint"                                    "0.0"
 
-		// Spicy Parameters
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"5"
-		"ItemBaseLevel"					"4"
-		"UpgradesItems"					"item_abyssal_blade_4"
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_abyssal_blade_4"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
-		"ItemCost"						"18550"
-		"ItemShopTags"					"damage;str;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"abyssal blade"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+    "ItemCost"                                            "18550"
+    "ItemShopTags"                                        "damage;str;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "abyssal blade"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250 500 750 1250 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"15 20 25 30 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee"	"70 100 130 160 190"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged"	"35 50 70 100 140"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"				"10"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"				"10 15 20 25 30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance_melee"		"25"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance_ranged"	"10"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_duration"			"1.4"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_chance_damage"	"85 100 140 200 275"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_cooldown"			"2.3"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 750 1250 2000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "15 20 25 30 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_melee"                              "70 100 130 160 190"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_damage_ranged"                             "35 50 70 100 140"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance"                                    "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "10 15 20 25 30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_chance_melee"                               "25"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bash_chance_ranged"                              "10"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bash_duration"                                   "1.4"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_chance_damage"                             "85 100 140 200 275"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bash_cooldown"                                   "2.3"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2"
+      }
+    }
+  }
 }

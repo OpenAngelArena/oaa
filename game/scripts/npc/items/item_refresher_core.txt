@@ -1,112 +1,113 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: refresher_core (Based on Refresher)
-	//=================================================================================================================
-	"item_recipe_refresher_core"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3212"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  // Recipe: refresher_core (Based on Refresher)
+  //=================================================================================================================
+  "item_recipe_refresher_core"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3212"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "FightRecapLevel"                                     "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_refresher_core"
-		"ItemRequirements"
-		{
-      "01"            "item_refresher_2;item_octarine_core_2;item_upgrade_core_2"
-      "02"            "item_refresher_2;item_octarine_core_2;item_upgrade_core_3"
-      "03"            "item_refresher_2;item_octarine_core_2;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_refresher_core"
+    "ItemRequirements"
+    {
+      "01"                                                "item_refresher_2;item_octarine_core_2;item_upgrade_core_2"
+      "02"                                                "item_refresher_2;item_octarine_core_2;item_upgrade_core_3"
+      "03"                                                "item_refresher_2;item_octarine_core_2;item_upgrade_core_4"
+    }
+  }
 
 
 
-	//=================================================================================================================
-	// refresher_core (Based on Refresher)
-	//=================================================================================================================
-	"item_refresher_core"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3215"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/refresher_core.lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_octarine_core"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "150.0 105.0 60.0"
+  //=================================================================================================================
+  // refresher_core (Based on Refresher)
+  //=================================================================================================================
+  "item_refresher_core"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3215"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "item_octarine_core"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "150.0 105.0 60.0"
+    "AbilitySharedCooldown"                               "refresher"
 
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_refresher_core;item_refresher_core_2"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_refresher_core;item_refresher_core_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"
-		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"refresher_core"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "refresher_core"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"18"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"400 450 500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"40 45 50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"600 700 800"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"600"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"27 30 33"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"30"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"10"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "18"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "400 450 500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intelligence"                              "28 45 65"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "27 30 33"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_lifesteal"                                  "30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "10"
+      }
+    }
+  }
 
 
 

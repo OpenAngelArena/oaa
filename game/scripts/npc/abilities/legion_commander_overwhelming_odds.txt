@@ -1,77 +1,77 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Legion Commander: Overwhelming Odds
-	//=================================================================================================================
-	"legion_commander_overwhelming_odds"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5595"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+  //=================================================================================================================
+  // Legion Commander: Overwhelming Odds
+  //=================================================================================================================
+  "legion_commander_overwhelming_odds"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5595"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 110 120 130 150 230"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 110 120 130 150 230"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{			
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 60 80 100 140 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_unit"		"14 16 18 20 24 40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_hero"		"30 60 90 120 180 400"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"illusion_dmg_pct"		"25"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_speed_creeps"		"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_speed_heroes"		"9"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"7.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"330"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {      
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "40 60 80 100 140 300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_unit"                                 "14 16 18 20 24 40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_hero"                                 "30 60 90 120 180 400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_dmg_pct"                                "25"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed_creeps"                              "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed_heroes"                              "9"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "7.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "330"
+      }
+    }
+  }
 }

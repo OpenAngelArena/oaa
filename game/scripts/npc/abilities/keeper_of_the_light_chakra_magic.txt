@@ -1,57 +1,57 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Keeper of the Light: Chakra Magic
-	//=================================================================================================================
-	"keeper_of_the_light_chakra_magic"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5473"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 900 900 900 900 900"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+  //=================================================================================================================
+  // Keeper of the Light: Chakra Magic
+  //=================================================================================================================
+  "keeper_of_the_light_chakra_magic"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5473"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900 900 900 900 900 900"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17 16 15 14 14 14"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17 16 15 14 14 14"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25 35 45 55 75 150"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25 35 45 55 75 150"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"75 150 225 300 450 1000"
-				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_2"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown_reduction"	"3 4 5 6 6.5 7"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"			"15"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_restore"                                    "75 150 225 300 450 1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_2"
+      }      
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_reduction"                              "3 4 5 6 6.5 7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "15"
+      }
+    }
+  }
 }

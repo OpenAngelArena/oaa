@@ -1,119 +1,119 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Sange and Yasha 2
-	//=================================================================================================================
-	"item_recipe_sange_and_yasha_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"4032"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+  //=================================================================================================================
+  // Recipe: Sange and Yasha 2
+  //=================================================================================================================
+  "item_recipe_sange_and_yasha_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "4032"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_sange_and_yasha_2"
-		"ItemRequirements"
-		{
-			"01"						"item_sange_and_yasha;item_upgrade_core"
-			"02"						"item_sange_and_yasha;item_upgrade_core_2"
-			"03"						"item_sange_and_yasha;item_upgrade_core_3"
-			"04"						"item_sange_and_yasha;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_sange_and_yasha_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_sange_and_yasha;item_upgrade_core"
+      "02"                                                "item_sange_and_yasha;item_upgrade_core_2"
+      "03"                                                "item_sange_and_yasha;item_upgrade_core_3"
+      "04"                                                "item_sange_and_yasha;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Sange and Yasha 2
-	//=================================================================================================================
-	"item_sange_and_yasha_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"4033"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_sange_and_yasha"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/sange_and_yasha_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+  //=================================================================================================================
+  // Sange and Yasha 2
+  //=================================================================================================================
+  "item_sange_and_yasha_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "4033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_sange_and_yasha"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/sange_and_yasha_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6600"
-		"ItemShopTags"					"damage;str;agi;attack_speed;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"sny;s&y;sy;sange and yasha"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "6600"
+    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "sny;s&y;sy;sange and yasha"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"16 24"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"16 24"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"16 24"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"16"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"movement_speed_percent_bonus"	"16"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_chance"			"40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_movement"	"-26 -30"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_attack"		"-26 -30"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_movement_range"	"-13"
-			}			
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maim_slow_attack_range"	"-13"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"maim_duration"			"5.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "16 24"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "16 24"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "16 24"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "16"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_percent_bonus"                    "16"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_chance"                                     "40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_movement"                              "-26 -30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_attack"                                "-26 -30"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_movement_range"                        "-13"
+      }      
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maim_slow_attack_range"                          "-13"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "maim_duration"                                   "5.0"
+      }
+    }
+  }
 }

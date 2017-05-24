@@ -1,56 +1,56 @@
 "DOTAItems"
 {
 
-	//=================================================================================================================
-	// Decoy Courier (based on Courier)
-	//=================================================================================================================
-		"item_recipe_decoy_courier"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"197"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
+  //=================================================================================================================
+  // Decoy Courier (based on Courier)
+  //=================================================================================================================
+  "item_recipe_decoy_courier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "197"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "100"
+    "ItemShopTags"                                        ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_decoy_courier"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"02"						"item_courier"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_decoy_courier"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "02"                                                "item_courier"
+    }
+  }
 
-	//=================================================================================================================
-	// Decoy Courier (based on Courier)
-	//=================================================================================================================
-	"item_decoy_courier"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3314"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_courier"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
-		"AbilityTextureName"            "item_courier"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemAliases"					"donkey;chicken;animal courier"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"180.0"
-		"ItemSupport"					"1"
-		"IsTempestDoubleClonable"		"0"
+  //=================================================================================================================
+  // Decoy Courier (based on Courier)
+  //=================================================================================================================
+  "item_decoy_courier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3314"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_courier"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES"
+    "AbilityTextureName"                                  "item_courier"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "100"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "donkey;chicken;animal courier"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemStockMax"                                        "1"
+    "ItemStockTime"                                       "180.0"
+    "ItemSupport"                                         "1"
+    "IsTempestDoubleClonable"                             "0"
 
-	}
+  }
 }

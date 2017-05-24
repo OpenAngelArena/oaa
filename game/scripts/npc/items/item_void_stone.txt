@@ -1,0 +1,30 @@
+"DOTAItems"
+{
+  "item_void_stone"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "57"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "850"
+    "ItemShopTags"                                        "regen_mana"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "void stone"
+    "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "100"
+      }
+    }
+  }
+}

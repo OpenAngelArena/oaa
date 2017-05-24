@@ -1,85 +1,85 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Octarine Core 2
-	//=================================================================================================================
-	"item_recipe_octarine_core_2"
-	{
-		"ID"							"3178"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_octarine_core_2"
-		"ItemRequirements"
-		{
-			"01"						"item_octarine_core;item_upgrade_core"
-			"02"						"item_octarine_core;item_upgrade_core_2"
-			"03"						"item_octarine_core;item_upgrade_core_3"
-			"04"						"item_octarine_core;item_upgrade_core_4"
-		}
-	}
+  //=================================================================================================================
+  // Recipe: Octarine Core 2
+  //=================================================================================================================
+  "item_recipe_octarine_core_2"
+  {
+    "ID"                                                  "3178"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_octarine_core_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_octarine_core;item_upgrade_core"
+      "02"                                                "item_octarine_core;item_upgrade_core_2"
+      "03"                                                "item_octarine_core;item_upgrade_core_3"
+      "04"                                                "item_octarine_core;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Octarine Core 2
-	//=================================================================================================================
-	"item_octarine_core_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3179"		// unique ID
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/refresher_core.lua"
-		"AbilityBehavior"				        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/octarine_core_2"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9400"
-		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"mana;mb;octarine core"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+  //=================================================================================================================
+  // Octarine Core 2
+  //=================================================================================================================
+  "item_octarine_core_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3179"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/octarine_core_2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "9400"
+    "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "mana;mb;octarine core"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"25 35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"425 550"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"425 550"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"25 25"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"25 30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"5 10"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intelligence"                              "25 38"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "425 550"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "425 550"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "25 25"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_lifesteal"                                  "25 30"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "5 10"
+      }
+    }
+  }
 }

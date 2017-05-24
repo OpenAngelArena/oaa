@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ability: Earthshaker Totem
-	//=================================================================================================================
-	"earthshaker_enchant_totem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5024"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"6"
-		"HasScepterUpgrade"			"1"
-		
+  //=================================================================================================================
+  // Ability: Earthshaker Totem
+  //=================================================================================================================
+  "earthshaker_enchant_totem"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5024"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+    "HasScepterUpgrade"                                   "1"
+    
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.69 0.69 0.69 0.69 0.69 0.69"
-		"FightRecapLevel"				"1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.69 0.69 0.69 0.69 0.69 0.69"
+    "FightRecapLevel"                                     "1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
-		"AbilityDuration"				"14.0 14.0 14.0 14.0 14.0 14.0"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5.0"
+    "AbilityDuration"                                     "14.0 14.0 14.0 14.0 14.0 14.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0 0 0"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "0 0 0 0 0 0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20 30 40 50  70 150"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "20 30 40 50  70 150"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"totem_damage_percentage"	"100 200 300 400 600 1200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tooltip_duration"			"14.0 14.0 14.0 14.0 14.0 14.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance_scepter"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.75"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aftershock_range"			"300"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "totem_damage_percentage"                         "100 200 300 400 600 1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "14.0 14.0 14.0 14.0 14.0 14.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance_scepter"                                "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "0.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aftershock_range"                                "300"
+      }
+    }
+  }
 }

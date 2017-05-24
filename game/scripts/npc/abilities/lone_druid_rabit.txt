@@ -1,50 +1,50 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Lone Druid: Rabid
-	//=================================================================================================================
-	"lone_druid_rabid"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5413"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+  //=================================================================================================================
+  // Lone Druid: Rabid
+  //=================================================================================================================
+  "lone_druid_rabid"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5413"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50 50 50 50"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 50 50 50 50 50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_attack_speed"		"20 30 40 50 70 110"		
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_move_speed"	"10 15 20 25 30 35"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"rabid_duration"	"25"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "20 30 40 50 70 110"    
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "10 15 20 25 30 35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rabid_duration"                                  "25"
+      }
+    }
+  }
 
 }

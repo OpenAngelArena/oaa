@@ -1,64 +1,64 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Death Prophet: Carrion Swarm
-	//=================================================================================================================
-	"death_prophet_carrion_swarm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5090"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Death Prophet: Carrion Swarm
+  //=================================================================================================================
+  "death_prophet_carrion_swarm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5090"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5 0.5 0.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8 7 6 5 5 5"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8 7 6 5 5 5"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"75 150 225 300 450"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "75 150 225 300 450"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"105 120 140 165 200 350"		
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "105 120 140 165 200 350"    
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"110 110 110 110 110 110"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"300 300 300 300 300 300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"range"						"810 810 810 810 810 810"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"1100 1100 1100 1100 1100 1100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "110 110 110 110 110 110"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "300 300 300 300 300 300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "810 810 810 810 810 810"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1100 1100 1100 1100 1100 1100"
+      }
+    }
+  }
 }

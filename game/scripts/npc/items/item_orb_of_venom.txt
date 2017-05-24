@@ -1,0 +1,44 @@
+"DOTAItems"
+{
+  "item_orb_of_venom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "181"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "275"
+    "ItemShopTags"                                        "hard_to_tag"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "oov;orb of venom"
+    "SideShop"                                            "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "poison_damage"                                   "5.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "poison_movement_speed_melee"                     "-12"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "poison_movement_speed_range"                     "-4"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "poison_duration"                                 "3.0"
+      }
+    }
+  }
+}

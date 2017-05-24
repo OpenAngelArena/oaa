@@ -1,76 +1,76 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Death Prophet: Spirit Siphon
-	//=================================================================================================================
-	"death_prophet_spirit_siphon"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5685"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+  //=================================================================================================================
+  // Death Prophet: Spirit Siphon
+  //=================================================================================================================
+  "death_prophet_spirit_siphon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5685"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.1"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 65 60 55 50 50"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 65 60 55 50 50"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage"					"14"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"damage_pct"					"1.0 2.5 4.0 5.5 7 8.5"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"haunt_duration"				"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"					"5 10 15 20 25 30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"siphon_buffer"			"250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"1 2 3 4 5 6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_restore_time"	"45"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "14"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_pct"                                      "1.0 2.5 4.0 5.5 7 8.5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "haunt_duration"                                  "6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "5 10 15 20 25 30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siphon_buffer"                                   "250"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "1 2 3 4 5 6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "45"
+      }
+    }
+  }
 }

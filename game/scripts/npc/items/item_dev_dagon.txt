@@ -1,0 +1,43 @@
+"DOTAItems"
+{
+  //////
+  // Insta-kill Dagon for Developers to help in testing
+  //////
+  "item_devDagon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/dev_dagon.lua"
+    "AbilityTextureName"                                  "item_dagon_5"
+    "ID"                                                  "2010"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "20000"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "0.0"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1"
+    "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "super dagon"
+    "ItemPurchasable"                                     "0"
+    "SideShop"                                            "0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+    }
+  }
+}

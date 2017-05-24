@@ -1,102 +1,102 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Dark Seer: Wall of Replica
-	//=================================================================================================================
-	"dark_seer_wall_of_replica"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5258"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"2"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"6"
-		"LevelsBetweenUpgrades"			"6"
+  //=================================================================================================================
+  // Dark Seer: Wall of Replica
+  //=================================================================================================================
+  "dark_seer_wall_of_replica"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5258"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500 900 1300 1550 2000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500 900 1300 1550 2000"
+    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100.0 100.0 100.0 95.0 90.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100.0 100.0 100.0 95.0 90.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 250 375 625 1250"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 250 375 625 1250"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"45.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_outgoing"	"-40 -25 -10 20 140"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_outgoing"	"60 75 90 120 240"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_incoming"	"300 300 300 300 300"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_replica_total_damage_incoming"	"400 400 400 400 400"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"1000 1000 1000 1250 1500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_scale"	"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range_tooltip"			"500 900 1300 1550 2000"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_outgoing_scepter"	"0 20 40 80 240"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_outgoing_scepter"	"100 120 140 180 340"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"					"75"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"				"0.6 0.8 1.0 1.2 1.4"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "45.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replica_damage_outgoing"                         "-40 -25 -10 20 140"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_outgoing"                                "60 75 90 120 240"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replica_damage_incoming"                         "300 300 300 300 300"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_replica_total_damage_incoming"           "400 400 400 400 400"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "1000 1000 1000 1250 1500"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replica_scale"                                   "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range_tooltip"                                   "500 900 1300 1550 2000"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replica_damage_outgoing_scepter"                 "0 20 40 80 240"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_outgoing_scepter"                        "100 120 140 180 340"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "75"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.6 0.8 1.0 1.2 1.4"
+      }
+    }
+  }
 }

@@ -1,0 +1,30 @@
+"DOTAItems"
+{
+  // Eagle Horn / Eaglesong
+  "item_eagle"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "52"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3200"
+    "ItemShopTags"                                        "agi"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "eaglesong"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "25"
+      }
+    }
+  }
+}

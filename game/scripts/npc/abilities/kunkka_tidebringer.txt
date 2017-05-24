@@ -1,56 +1,56 @@
 "DOTAAbilities"
 {
 
-	//=================================================================================================================
-	// Kunkka: Tidebringer
-	//=================================================================================================================
-	"kunkka_tidebringer"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5032"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel"						"6"
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0 10.0 7.0 4.0 4.0 4.0"
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+  //=================================================================================================================
+  // Kunkka: Tidebringer
+  //=================================================================================================================
+  "kunkka_tidebringer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5032"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.    
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "6"
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0"
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{		
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"			"150"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"			"500 550 600 650 675 700"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"			"650 800 950 1100 1150 1200"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_bonus"				"25 45 65 85 125 200"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cleave_damage"				"100"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {    
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }      
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "500 550 600 650 675 700"
+      }      
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "650 800 950 1100 1150 1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bonus"                                    "25 45 65 85 125 200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_damage"                                   "100"
+      }
+    }
+  }
 }

@@ -1,0 +1,35 @@
+"DOTAItems"
+{
+  "item_point_booster"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "60"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1200"
+    "ItemShopTags"                                        "mana_pool;health_pool"
+    "ItemQuality"                                         "secret_shop"
+    "ItemAliases"                                         "point booster"
+    "SecretShop"                                          "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "175"
+      }
+
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "175"
+      }
+    }
+  }
+}

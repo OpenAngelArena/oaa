@@ -1,70 +1,70 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Rubick: Spell Steal
-	//=================================================================================================================
-	"rubick_spell_steal"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5452"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+  //=================================================================================================================
+  // Rubick: Spell Steal
+  //=================================================================================================================
+  "rubick_spell_steal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5452"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"1"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"                                     "1"
 
-		"HasScepterUpgrade"			"1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"5"
-		"RequiredLevel"						"6"
-		"LevelsBetweenUpgrades"		"6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0 18.0 16.0 15.0 14.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 18.0 16.0 15.0 14.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
 
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"180.0 240.0 300.0 360.0 420.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"projectile_speed"			"900"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter"			"1400"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cooldown_scepter"			"2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "180.0 240.0 300.0 360.0 420.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "900"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "1400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "2"
+      }
+    }
+  }
 
 }

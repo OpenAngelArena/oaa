@@ -1,69 +1,69 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Ember Spirit: Searing Chains
-	//=================================================================================================================
-	"ember_spirit_searing_chains"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5603"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"MaxLevel"						"6"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14.0 12.0 10.0 8.0 8.0 8.0"
+  //=================================================================================================================
+  // Ember Spirit: Searing Chains
+  //=================================================================================================================
+  "ember_spirit_searing_chains"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5603"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "6"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0"
+    
+    // Time    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14.0 12.0 10.0 8.0 8.0 8.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "110"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"1.0 2.0 2.0 3.0 3.5 4.0"
-				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_2"
-			}
-			
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"400"
-			}	
-			
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"80 60 120 100 175 250"
-			}				
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"total_damage_tooltip"			"80 120 240 300 450 1000"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"tick_interval"					"1.0"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"unit_count"					"2"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.0 2.0 2.0 3.0 3.5 4.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_2"
+      }
+      
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }  
+      
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chains_damage"                                   "80 60 120 100 175 250"
+      }        
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage_tooltip"                            "80 120 240 300 450 1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "1.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_count"                                      "2"
+      }
+    }
+  }
 }

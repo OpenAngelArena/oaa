@@ -1,54 +1,54 @@
 "DOTAAbilities"
 {
 "zuus_cloud"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"4"
-		"FightRecapLevel"				"1"
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "4"
+    "FightRecapLevel"                                     "1"
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.2"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 175 225 275"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125 175 225 275"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// just a ministun
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.1"  // just a ministun
 
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cloud_duration"	"20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cloud_bolt_interval"	"4.0 3.5 3.0 2.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cloud_radius"			"500"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cloud_duration"                                  "20 30 40 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cloud_bolt_interval"                             "4.0 3.5 3.0 2.5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cloud_radius"                                    "500"
+      }
+    }
+  }
 }

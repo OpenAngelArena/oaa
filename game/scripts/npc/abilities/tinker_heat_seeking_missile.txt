@@ -1,64 +1,64 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tinker: Heat Seeking Missile
-	//=================================================================================================================
-	"tinker_heat_seeking_missile"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5151"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
+  //=================================================================================================================
+  // Tinker: Heat Seeking Missile
+  //=================================================================================================================
+  "tinker_heat_seeking_missile"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5151"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+    "HasScepterUpgrade"                                   "1"
 
-		"MaxLevel"								"6"
-		"RequiredLevel"						"1"
-		"LevelsBetweenUpgrades"		"2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25.0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25.0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"125 200 275 350 500 1100"
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "125 200 275 350 500 1100"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 140 160 180 200 220"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120 140 160 180 200 220"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"targets"			"2"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"900"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"targets_scepter"	"4"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "2500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "targets"                                         "2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "targets_scepter"                                 "4"
+      }
+    }
+  }
 
 }
