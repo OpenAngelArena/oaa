@@ -19,7 +19,7 @@ function item_siege_mode:OnSpellStart()
 	-- if we have the modifier while this thing is "toggled"
 	-- ( which we should, but 'should' isn't a concept in programming )
 	-- remove it
-	if self.mod then
+	if self.mod and not self.mod:IsNull() then
 		self.mod:Destroy()
 		self.mod = nil
 
