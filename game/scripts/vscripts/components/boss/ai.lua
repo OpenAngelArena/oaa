@@ -194,6 +194,10 @@ function BossAI:Agro (state, target)
 end
 
 function BossAI:Think (state)
+  if state.handle:IsNull() then
+    -- return false
+  end
+
   local distance = (state.handle:GetAbsOrigin() - state.origin):Length()
   DebugPrint(distance)
 

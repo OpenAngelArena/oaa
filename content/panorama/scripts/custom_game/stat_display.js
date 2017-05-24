@@ -10,8 +10,8 @@ function onStatChange (table, key, data) {
   }
   var playerID = Game.GetLocalPlayerID();
   $.Msg('onStatChange:');
-  $.Msg(playerID + ' : ' + key + ' = ' + data.value[playerID]);
-  UpdateStatDisplay(key, data.value[playerID]);
+  $.Msg(playerID + ' : ' + key + ' = ' + JSON.stringify(data.value, null, 2));
+  UpdateStatDisplay(key, data.value[playerID] || 0);
 }
 
 function UpdateStatDisplay (name, value) {
