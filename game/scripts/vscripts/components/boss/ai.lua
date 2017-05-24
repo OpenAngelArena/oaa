@@ -101,7 +101,6 @@ function BossAI:DeathHandler (state, keys)
 
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
-    local needsZoneDisable = false
 
     if not BossAI.hasFarmingCore[team] then
       BossAI.hasFarmingCore[team] = true
@@ -127,9 +126,6 @@ function BossAI:DeathHandler (state, keys)
           end
         end
       end
-    end
-
-    if needsZoneDisable then
     end
 
   elseif state.tier == 2 then
