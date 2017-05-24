@@ -1,6 +1,6 @@
-tinker_rearm = class({})
+oaa_rearm = class({})
 
-function tinker_rearm:OnSpellStart()
+function oaa_rearm:OnSpellStart()
   local caster = self:GetCaster()
 
   EmitSoundOn("Hero_Tinker.Rearm", caster)
@@ -10,12 +10,12 @@ function tinker_rearm:OnSpellStart()
   ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack3", caster:GetOrigin(), true)
 end
 
-function tinker_rearm:GetChannelAnimation()
+function oaa_rearm:GetChannelAnimation()
   local animationLevel = math.min(self:GetLevel(), 3)
   return _G["ACT_DOTA_TINKER_REARM" .. animationLevel]
 end
 
-function tinker_rearm:OnChannelFinish(bInterrupted)
+function oaa_rearm:OnChannelFinish(bInterrupted)
   local caster = self:GetCaster()
 
   ParticleManager:DestroyParticle(self.particle, false)
@@ -26,7 +26,7 @@ function tinker_rearm:OnChannelFinish(bInterrupted)
 
   -- Put ability exemption in here
   local exempt_ability_table = {
-    tinker_rearm = true
+    oaa_rearm = true
   }
 
   -- Put item exemption in here
