@@ -101,7 +101,6 @@ function BossAI:DeathHandler (state, keys)
 
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
-    local needsZoneDisable = false
 
     if not BossAI.hasFarmingCore[team] then
       BossAI.hasFarmingCore[team] = true
@@ -127,9 +126,6 @@ function BossAI:DeathHandler (state, keys)
           end
         end
       end
-    end
-
-    if needsZoneDisable then
     end
 
   elseif state.tier == 2 then
@@ -194,6 +190,12 @@ function BossAI:Agro (state, target)
 end
 
 function BossAI:Think (state)
+  if state.handle:IsNull() then
+    -- this shouldn't happen, but sometimes other bugs can cause it
+    -- try to keep the bugged game running
+    return false
+  end
+
   local distance = (state.handle:GetAbsOrigin() - state.origin):Length()
   DebugPrint(distance)
 
