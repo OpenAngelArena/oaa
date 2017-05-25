@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 
 if Glyph == nil then
-  Debug.EnabledModules['filters:glyph'] = true
+  Debug.EnabledModules['filters:glyph'] = false
   DebugPrint('Creating new Glyph Filter Object')
   Glyph = class({})
 end
@@ -45,11 +45,11 @@ function Glyph:Filter(keys)
 end
 
 function Glyph:CastWard(playerID)
-  if self.ward.cooldowns[playerID] < 0 then
+  if self:GetWardCooldown(playerID) < 0 then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
     return
   end
-  self.ward.cooldowns[playerID] = self.ward.cooldown
+  self:ResetWardCooldown(playerID)
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
   local position = hero:GetAbsOrigin()
   --[[for i=0,256 do
@@ -64,6 +64,26 @@ function Glyph:CastWard(playerID)
   ward:AddNewModifier(ward, nil, "modifier_kill", { duration = 360 })
 end
 
-function Glyph:CastScan(playerID)
+function Glyph:ResetWardCooldown(playerID)
+  self:SetWardCooldown(playerID, self:GetWardCooldown())
+end
 
+function Glyph:SetWardCooldown(playerID, time)
+  local player = PlayerResource:GetPlayer(playerID)
+  time = time or 0
+
+  self.ward.cooldowns[playerID] = time
+  CustomGameEventManager:Send_ServerToPlayer(player, "glyph_ward_cooldown", { cooldown = time, maxCooldown = self:GetWardCooldown() })
+end
+
+function Glyph:GetWardCooldown(playerID)
+  if playerID then
+    return self.ward.cooldowns[playerID]
+  else
+    return self.ward.cooldown
+  end
+end
+
+function Glyph:CastScan(playerID)
+  return nil
 end
