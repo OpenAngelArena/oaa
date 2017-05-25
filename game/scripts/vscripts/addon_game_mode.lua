@@ -23,6 +23,7 @@ function Precache( context )
 
   PrecacheItemByNameSync("item_postactive", context)
   PrecacheItemByNameSync("item_preemptive_3c", context)
+  PrecacheItemByNameSync("item_stoneskin", context)
 
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
