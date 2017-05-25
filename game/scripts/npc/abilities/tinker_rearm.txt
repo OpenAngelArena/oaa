@@ -1,18 +1,18 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Tinker: Rearm
-	//=================================================================================================================
-	"oaa_rearm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					                                        "5153"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+  //=================================================================================================================
+  // Tinker: Rearm
+  //=================================================================================================================
+  "oaa_rearm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5153"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_rearm.lua"
     "AbilityTextureName"                                  "tinker_rearm"
-		"AbilityBehavior"				                              "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityType"					                                "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -27,18 +27,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				                              "100 200 300 500 1300"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				                                 "FIELD_FLOAT"
-				"channel_tooltip"			                             "3.0 1.5 0.75 0.5 0.25"
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 200 300 500 1300"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_tooltip"                                 "3.0 1.5 0.75 0.5 0.25"
+      }
+    }
+  }
 }
