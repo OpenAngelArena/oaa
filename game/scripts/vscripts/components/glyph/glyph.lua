@@ -45,7 +45,7 @@ function Glyph:Filter(keys)
 end
 
 function Glyph:CastWard(playerID)
-  if self:GetWardCooldown(playerID) < 0 then
+  if self:GetWardCooldown(playerID) > 0 then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
     return
   end
@@ -74,6 +74,9 @@ function Glyph:SetWardCooldown(playerID, time)
 
   self.ward.cooldowns[playerID] = time
   CustomGameEventManager:Send_ServerToPlayer(player, "glyph_ward_cooldown", { cooldown = time, maxCooldown = self:GetWardCooldown() })
+  Timers:CreateTimer(time, function ()
+    self.ward.cooldowns[playerID] = 0
+  end)
 end
 
 function Glyph:GetWardCooldown(playerID)
