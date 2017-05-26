@@ -76,7 +76,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
     location,
     nil,
-    1000,
+    800,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_CREEP,
     DOTA_UNIT_TARGET_FLAG_NONE,
