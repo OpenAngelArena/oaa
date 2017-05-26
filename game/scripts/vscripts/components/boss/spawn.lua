@@ -109,7 +109,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   local bossAI = BossAI:Create(bossHandle, {
     tier = bossTier,
-    customAgro = bossPrefix ~= 'npc_dota_boss_tier_',
+    customAgro = bossPrefix ~= 'npc_dota_boss_tier_' and bossPrefix ~= 'npc_dota_boss_simpl',
     owner = team,
     isProtected = isProtected
   })
