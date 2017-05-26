@@ -13,6 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +32,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "15 20 25 30"
+        "damage_per_stack"                                "30"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa"
       }
     }
