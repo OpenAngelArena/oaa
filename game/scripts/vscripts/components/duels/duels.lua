@@ -195,11 +195,8 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 1
     badGuy.duelNumber = 1
 
-    self:SafeTeleport(goodHero, spawn1, 150)
-    self:SafeTeleport(badHero, spawn2, 150)
-    --FindClearSpaceForUnit(goodHero, spawn1, true)
-    --FindClearSpaceForUnit(badHero, spawn2, true)
-
+    self:SafeTeleportAll(goodHero, spawn1, 150)
+    self:SafeTeleportAll(badHero, spawn2, 150)
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
@@ -237,8 +234,8 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 2
     badGuy.duelNumber = 2
 
-    FindClearSpaceForUnit(goodHero, spawn1, true)
-    FindClearSpaceForUnit(badHero, spawn2, true)
+    self:SafeTeleportAll(goodHero, spawn1, 150)
+    self:SafeTeleportAll(badHero, spawn2, 150)
 
     Duels.zone2.addPlayer(goodGuy.id)
     Duels.zone2.addPlayer(badGuy.id)
@@ -453,7 +450,15 @@ function Duels:AllPlayers (state, cb)
   end
 end
 
+function Duels:SafeTeleportAll(owner, location, maxDistance)
+  self:SafeTeleport(owner, location, maxDistance)
+  for child in ipairs(owner:GetChildren()) do
+    self:SafeTeleport(child, location, maxDistance)
+  end
+end
+
 function Duels:SafeTeleport(unit, location, maxDistance)
+  location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   local distance = (location - unit:GetAbsOrigin()):Length2D()
   if distance > maxDistance then
