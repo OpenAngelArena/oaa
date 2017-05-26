@@ -3,11 +3,12 @@
   //=================================================================================================================
   // Simple Boss Geostrike
   //=================================================================================================================
-  "meepo_geostrike"
+  "boss_geostrike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5432"
+    "BaseClass"                                           "meepo_geostrike"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
