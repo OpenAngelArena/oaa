@@ -11,39 +11,30 @@
 		<Label id="BriefDescription" text="#brief_description" />
 		<Label id="HowToPlayHeader" class="Header" html="true" text="#game_info_header_how_to_play" />
 
-		<Panel id="ThroneRow" class="InfoRow">
-			<Label id="ThroneText" html="true" text="#game_info_bosses" />
-			<Image id="ThroneImage" src="file://{images}/custom_game/game_info/reflex_core.psd" />
+    <Panel id="DuelsRow" class="InfoRow">
+      <Image id="DuelsImage" src="file://{images}/custom_game/game_info/duels.psd" />
+      <Label id="DuelsText" html="true" text="#game_info_duels" />
+    </Panel>
+		<Panel id="BossesRow" class="InfoRow">
+			<Label id="BossesText" html="true" text="#game_info_bosses" />
+			<Image id="BossesImage" src="file://{images}/custom_game/game_info/bosses.psd" />
 		</Panel>
-		<Panel id="CoinsRow" class="InfoRow">
-			<Image id="CoinsImage" src="file://{images}/custom_game/game_info/farming_core.psd" />
-			<Label id="CoinsText" html="true" text="#game_info_upgrade_core" />
-		</Panel>
-		<Panel id="ItemsRow" class="InfoRow">
-			<Label id="ItemsText" html="true" text="#game_info_reflex_core" />
-			<Image id="ItemsImage" src="file://{images}/custom_game/game_info/upgrade_core.psd" />
+    <Panel id="FarmingCoreRow" class="InfoRow">
+      <Image id="FarmingCoreImage" src="file://{images}/custom_game/game_info/farming_core.psd" />
+      <Label id="FarmingCoreText" html="true" text="#game_info_farming_core" />
+    </Panel>
+		<Panel id="ReflexCoreRow" class="InfoRow">
+			<Label id="ReflexCoreText" html="true" text="#game_info_reflex_core" />
+      <Image id="ReflexCoreImage" src="file://{images}/custom_game/game_info/reflex_core.psd" />
 		</Panel>
     <Panel id="FarmingCaveRow" class="InfoRow">
       <Image id="FarmingCaveImage" src="file://{images}/custom_game/game_info/farming_cave.psd" />
       <Label id="FarmingCaveText" html="true" text="#game_info_farming_cave" />
     </Panel>
-    <Panel id="DuelsRow" class="InfoRow">
-      <Label id="DuelsText" html="true" text="#game_info_duels" />
-      <Image id="DuelsImage" src="file://{images}/custom_game/game_info/duels.psd" />
+    <Panel id="UpgradeCoreRow" class="InfoRow">
+      <Label id="UpgradeCoreText" html="true" text="#game_info_upgrade_core" />
+      <Image id="UpgradeCoreImage" src="file://{images}/custom_game/game_info/upgrade_core.psd" />
     </Panel>
-
-
-
-
-
-
-		<Label id="TipsHeader" class="Header" html="true" text="#game_info_tips_header" />
-		<Panel id="TipsRow" class="InfoRow">
-			<Label id="TipText01" class="TipText" html="true" text="#game_info_tip01" />
-			<Label id="TipText02" class="TipText" html="true" text="#game_info_tip02" />
-			<Label id="TipText03" class="TipText" html="true" text="#game_info_tip03" />
-			<Label id="TipText04" class="TipText" html="true" text="#game_info_tip04" />
-		</Panel>
 	</Panel>
 </root>
 
