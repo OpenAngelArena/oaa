@@ -105,7 +105,16 @@ function cleanKVFile (file) {
 
     result += line + '\n';
   });
+
   lineReader.on('close', () => {
+    if (indent > 0) {
+      error = true;
+      console.error(chalk.red('ERR File "' + file + '" is missing a closing bracket \'}\'.'));
+    }
+    if (indent < 0) {
+      error = true;
+      console.error(chalk.red('ERR File "' + file + '" is missing an opening bracket \'{\'.'));
+    }
     if (!error) {
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) {

@@ -1,7 +1,7 @@
 item_greater_travel_boots = class({})
 modifier_item_greater_travel_boots = class({})
 
-LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/item_greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
   return "modifier_item_greater_travel_boots"

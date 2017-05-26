@@ -1,5 +1,5 @@
 if SellBlackList == nil then
-  Debug.EnabledModules['sellblacklist:*'] = false
+  Debug.EnabledModules['filters:sellblacklist'] = false
   DebugPrint('creating new SellBlackList object')
   SellBlackList = class({})
 end

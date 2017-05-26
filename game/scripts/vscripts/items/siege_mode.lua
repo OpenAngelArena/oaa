@@ -1,6 +1,6 @@
 item_siege_mode = class({})
 
-LinkLuaModifier( "modifier_item_siege_mode_siege", "items/item_siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ function item_siege_mode:OnSpellStart()
 	-- if we have the modifier while this thing is "toggled"
 	-- ( which we should, but 'should' isn't a concept in programming )
 	-- remove it
-	if self.mod then
+	if self.mod and not self.mod:IsNull() then
 		self.mod:Destroy()
 		self.mod = nil
 

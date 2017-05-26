@@ -22,96 +22,101 @@ end
 
 function modifier_boss_resistance:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
   }
 end
 
-function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
-  --[[
-[   VScript              ]: process_procs: true
-[   VScript              ]: order_type: 0
-[   VScript              ]: issuer_player_index: 1982289334
-[   VScript              ]: fail_type: 0
-[   VScript              ]: damage_category: 0
-[   VScript              ]: reincarnate: false
-[   VScript              ]: distance: 0
-[   VScript              ]: gain: 98.332176208496
-[   VScript              ]: attacker: table: 0x00636d38
-[   VScript              ]: ranged_attack: false
-[   VScript              ]: record: 5
-[   VScript              ]: activity: -1
-[   VScript              ]: do_not_consume: false
-[   VScript              ]: damage_type: 4
-[   VScript              ]: heart_regen_applied: false
-[   VScript              ]: diffusal_applied: false
-[   VScript              ]: no_attack_cooldown: false
-[   VScript              ]: cost: 0
-[   VScript              ]: inflictor: table: 0x004bfe30
-[   VScript              ]: damage_flags: 0
-[   VScript              ]: original_damage: 650
-[   VScript              ]: ignore_invis: false
-[   VScript              ]: damage: 650
-[   VScript              ]: basher_tested: false
-[   VScript              ]: target: table: 0x00524320
-
-  local percentBaseSpells = {
-    death_prophet_spirit_siphon = true,
-    life_stealer_feast = true
-  }
-
-  print('--')
-  for k,v in pairs(keys) do
-    print(k .. ': ' .. tostring(v))
-  end
-  print('--')
-
-  local hero = keys.attacker
-
-  if hero and hero:IsRealHero and hero:IsRealHero() then
-    hero:
-  end
-  if not keys.inflictor then
-    return 0
-  end
-
-  local name = keys.inflictor:GetAbilityName()
-  if percentBaseSpells[name] then
-    print('Reducing incoming damage')
-    return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  end
-]]
+function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  local parent = self:GetParent()
-  -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
-  local damageAmpModifiers = {
-    "modifier_bloodseeker_bloodrage",
-    "modifier_chen_penitence",
-    "modifier_shadow_demon_soul_catcher"
-  }
-  -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
-  local ampAbilitySpecialKeys = {
-    "damage_increase_pct",
-    "bonus_damage_taken",
-    "bonus_damage_taken"
-  }
-
-  -- Calculates a value that will counteract damage amplification from the named modifier such that
-  -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
-  local function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
-    local modifiers = parent:FindAllModifiersByName(modifierName)
-
-    local function CalculateAmp(modifier)
-      if modifier:IsNull() then
-        return 0
-      else
-        local modifierDamageAmp = modifier:GetAbility():GetSpecialValueFor(ampValueKey)
-        return (100 - damageReduction) / 100 * modifierDamageAmp - modifierDamageAmp
-      end
-    end
-
-    return sum(map(CalculateAmp, modifiers))
-  end
-
-  local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
-  return 0 - damageReduction + damageAmpReduction
+  return keys.damage * damageReduction / 100
 end
+
+-- function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
+--   --[[
+-- [   VScript              ]: process_procs: true
+-- [   VScript              ]: order_type: 0
+-- [   VScript              ]: issuer_player_index: 1982289334
+-- [   VScript              ]: fail_type: 0
+-- [   VScript              ]: damage_category: 0
+-- [   VScript              ]: reincarnate: false
+-- [   VScript              ]: distance: 0
+-- [   VScript              ]: gain: 98.332176208496
+-- [   VScript              ]: attacker: table: 0x00636d38
+-- [   VScript              ]: ranged_attack: false
+-- [   VScript              ]: record: 5
+-- [   VScript              ]: activity: -1
+-- [   VScript              ]: do_not_consume: false
+-- [   VScript              ]: damage_type: 4
+-- [   VScript              ]: heart_regen_applied: false
+-- [   VScript              ]: diffusal_applied: false
+-- [   VScript              ]: no_attack_cooldown: false
+-- [   VScript              ]: cost: 0
+-- [   VScript              ]: inflictor: table: 0x004bfe30
+-- [   VScript              ]: damage_flags: 0
+-- [   VScript              ]: original_damage: 650
+-- [   VScript              ]: ignore_invis: false
+-- [   VScript              ]: damage: 650
+-- [   VScript              ]: basher_tested: false
+-- [   VScript              ]: target: table: 0x00524320
+
+--   local percentBaseSpells = {
+--     death_prophet_spirit_siphon = true,
+--     life_stealer_feast = true
+--   }
+
+--   print('--')
+--   for k,v in pairs(keys) do
+--     print(k .. ': ' .. tostring(v))
+--   end
+--   print('--')
+
+--   local hero = keys.attacker
+
+--   if hero and hero:IsRealHero and hero:IsRealHero() then
+--     hero:
+--   end
+--   if not keys.inflictor then
+--     return 0
+--   end
+
+--   local name = keys.inflictor:GetAbilityName()
+--   if percentBaseSpells[name] then
+--     print('Reducing incoming damage')
+--     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+--   end
+-- ]]
+--   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+--   local parent = self:GetParent()
+--   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
+--   local damageAmpModifiers = {
+--     "modifier_bloodseeker_bloodrage",
+--     "modifier_chen_penitence",
+--     "modifier_shadow_demon_soul_catcher"
+--   }
+--   -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
+--   local ampAbilitySpecialKeys = {
+--     "damage_increase_pct",
+--     "bonus_damage_taken",
+--     "bonus_damage_taken"
+--   }
+
+--   -- Calculates a value that will counteract damage amplification from the named modifier such that
+--   -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
+--   local function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
+--     local modifiers = parent:FindAllModifiersByName(modifierName)
+
+--     local function CalculateAmp(modifier)
+--       if modifier:IsNull() then
+--         return 0
+--       else
+--         local modifierDamageAmp = modifier:GetAbility():GetSpecialValueFor(ampValueKey)
+--         return (100 - damageReduction) / 100 * modifierDamageAmp - modifierDamageAmp
+--       end
+--     end
+
+--     return sum(map(CalculateAmp, modifiers))
+--   end
+
+--   local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
+--   return 0 - damageReduction + damageAmpReduction
+-- end
