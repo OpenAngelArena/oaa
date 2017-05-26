@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Simple Boss Geostrike
+  //=================================================================================================================
+  "boss_geostrike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5432"
+    "BaseClass"                                           "meepo_geostrike"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilitySound"                                        "Hero_Meepo.Geostrike"
+    "MaxLevel"                                            "1"
+
+    "AbilityDamage"                                       "40"
+
+    "AbilityDuration"                                     "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "-20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "2.0"
+      }
+    }
+  }
+}
