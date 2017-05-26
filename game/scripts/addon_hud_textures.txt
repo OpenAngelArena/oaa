@@ -1,0 +1,54 @@
+""
+{
+    "TextureData"
+    {
+        "minimap_easy"
+        {
+            "file"     "materials/vgui/hud/minimap_green.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+        "minimap_medium"
+        {
+            "file"     "materials/vgui/hud/minimap_gold.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+        "minimap_hard"
+        {
+            "file"     "materials/vgui/hud/minimap_red.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+        "minimap_cave"
+        {
+            "file"     "materials/vgui/hud/minimap_cyan.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+        "minimap_boss"
+        {
+            "file"     "materials/vgui/hud/minimap_purple.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+        "minimap_spawn"
+        {
+            "file"     "materials/vgui/hud/minimap_white.vmat"
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+    }
+}
