@@ -13,8 +13,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilitySound"                                        "Hero_Meepo.Geostrike"
+    "MaxLevel"                                            "1"
 
-    "AbilityDamage"                                       "10 20 30 40"
+    "AbilityDamage"                                       "40"
 
     "AbilityDuration"                                     "2"
 
@@ -29,7 +30,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-5 -10 -15 -20"
+        "slow"                                            "-20"
       }
       "02"
       {
