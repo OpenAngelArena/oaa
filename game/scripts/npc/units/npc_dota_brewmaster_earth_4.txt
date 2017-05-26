@@ -4,7 +4,7 @@
 // Brewmaster Earth 4
 //=================================================================================
   "npc_dota_brewmaster_earth_4"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/brewmaster/brewmaster_earthspirit.vmdl"  // Model.
@@ -24,7 +24,7 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
     "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
     "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
-    "Ability4"                                            "brewmaster_thunder_clap"    // Ability 4  
+    "Ability4"                                            "brewmaster_thunder_clap"    // Ability 4
 
     // Armor
     //----------------------------------------------------------------
@@ -34,7 +34,7 @@
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "145"    // Damage range min.
-    "AttackDamageMax"                                     "155"    // Damage range max.  
+    "AttackDamageMax"                                     "155"    // Damage range max.
     "AttackRate"                                          "1.35"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -57,7 +57,7 @@
     "StatusHealthRegen"                                   "4"    // Health regeneration rate.
     "StatusMana"                                          "600"    // Base mana.
     "StatusManaRegen"                                     "2"      // Mana regeneration rate.
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -69,6 +69,6 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-  }  
+  }
 
 }
