@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Great Cleave
+  //=================================================================================================================
+  "boss_great_cleave"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5095"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "570"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "great_cleave_damage"                             "66"
+      }
+    }
+  }
+}
