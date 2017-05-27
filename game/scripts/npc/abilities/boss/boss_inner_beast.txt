@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Boss: Attack Speed Passive
+  // Boss: Inner Beast
   //=================================================================================================================
-  "boss_as_passive_6"
+  "boss_inner_beast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9172"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8172"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "beastmaster_inner_beast"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
