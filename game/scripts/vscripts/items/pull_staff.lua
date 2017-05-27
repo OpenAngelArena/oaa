@@ -48,6 +48,22 @@ function item_pull_staff:OnSpellStart()
   --DebugDrawLine(targetposition + Vector(0, 0, 64), targetposition + ProjectileManager:GetLinearProjectileVelocity(projectile) + Vector(0, 0, 64), 0, 0, 255, true, 10)
 end
 
+function item_pull_staff:CastFilterResultTarget(target)
+  if IsServer() then
+    local caster = self:GetCaster()
+    if target == caster then
+      return UF_FAIL_CUSTOM
+    end
+  end
+end
+
+function item_pull_staff:GetCustomCastErrorTarget(target)
+  local caster = self:GetCaster()
+  if target == caster then
+    return "#dota_hud_error_cant_cast_on_self"
+  end
+end
+
 function item_pull_staff:OnProjectileThink(vLocation)
   vLocation.z = GetGroundHeight(vLocation, self.target)
   self.target:SetAbsOrigin(vLocation)
