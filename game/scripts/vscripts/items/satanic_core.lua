@@ -80,7 +80,7 @@ function modifier_item_satanic_core:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
   return funcs
 end
@@ -105,13 +105,14 @@ function modifier_item_satanic_core:GetModifierPercentageCooldown()
   return self:GetAbility():GetSpecialValueFor( "bonus_cooldown" )
 end
 
-function modifier_item_satanic_core:OnAttackLanded( kv )
+function modifier_item_satanic_core:OnTakeDamage( kv )
   if IsServer() then
     local hCaster = self:GetParent()
-    if kv.attacker == hCaster then
+    -- Assume that no inflictor means damage was dealth from attack
+    if not kv.inflictor and kv.attacker == hCaster then
       local heal_percent = self.lifesteal_percent;
       if hCaster:HasModifier("modifier_item_satanic_unholy") then
-        heal_percent = self.unholy_lifesteal_percent
+        heal_percent = self.lifesteal_percent + self.unholy_lifesteal_percent
       end
       ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster )
       hCaster:Heal( kv.damage * heal_percent / 100, hCaster)
