@@ -1084,6 +1084,30 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Prevent disconnected Players from breaking the Game
 * Refix Infinite Death on Reconnect
 
+
+## Update 0.26.0
+[`6227f700d73612ba78d6ee1a9a9e3c3cc0f9ed90`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.26.0)
+* Generated Tooltips
+
+### Creeps
+* Made Black Dragon Ancient
+* Decreased Creep Count
+
+### Cave
+* Fixed Roshling Gold Formula
+* Decreased Creep Count
+* Increased Magical Armour from `10 30 50 70` to `25 40 55 70`
+* Fixed Teleport teleporting Players outside the Cave 
+
+### Heroes
+* Fixed Doom's Doom Level 4 Scepter Damage
+
+### Misc
+* Added Dutch to Translations
+* Disabled Skip Team Setup
+
+
+
 ## Template
 ```Markdown
 ## <Name> <Tag>
