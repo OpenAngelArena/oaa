@@ -36,7 +36,7 @@
     "AbilityTextureName"                                  "custom/postactive_2a"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "15.0"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "2"
@@ -75,6 +75,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.8"
       }
     }
 
