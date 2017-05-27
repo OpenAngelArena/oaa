@@ -1393,6 +1393,19 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Handle leveling up talents properly in the UI
 
 
+## Update 0.32.0
+[`cdac449b268d84717d1731972ab657288afa2117`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.32.0)
+
+### Items
+* Rewrite Stoneskin
+
+### Bosses
+* Fix Shilder's Shield due to boss resisitance
+
+### Misc
+* Changed Glyph to drop Ward instead
+
+
 
 
 
