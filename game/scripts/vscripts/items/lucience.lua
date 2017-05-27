@@ -16,14 +16,26 @@ function item_lucience:GetIntrinsicModifierName()
   return "modifier_item_lucience_aura_handler"
 end
 
-function item_lucience:OnToggle()
+function item_lucience:OnSpellStart()
+  local caster = self:GetCaster()
+
   self:StartCooldown(self:GetCooldown(self:GetLevel()))
 
-  local caster = self:GetCaster()
+  -- Switch state
+  self.serverLucienceState = not self.serverLucienceState
+
   -- Switch auras
   if self.auraHandler then
     self.auraHandler:OnRefresh()
   end
+end
+
+function item_lucience:GetToggleState()
+  if self.serverLucienceState == nil then
+    self.serverLucienceState = false
+  end
+
+  return self.serverLucienceState
 end
 
 function item_lucience:GetAbilityTextureName()
