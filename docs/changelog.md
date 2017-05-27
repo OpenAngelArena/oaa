@@ -1427,6 +1427,27 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Simple Boss 2
   * Simple Boss 5
 
+  
+## Update 0.34.0
+[`b8a4c62535b2ff12bdbf178e52611faf9eda27c9`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.34.0)
+* Generated Translations
+
+### Items
+* Fixed a bunch of Modifiers being purgable when they shouldn't be
+* Fixed Pull Staff to make sure you land in a decent spot 
+
+### Bosses
+* Fixed Simple Boss Abilities
+
+### Duels
+* Purge runes after Duel
+
+### UI
+* Added In-Game Info Panel for new Players
+
+### Map
+* Cleared out the Area near the new Camp
+
 
 ## Template
 ```Markdown
