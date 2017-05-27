@@ -1028,7 +1028,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.24.3
-`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`
+[`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`](#6fdeb8be99c701af9ac694d0f63cc3c40f07a758)
 ### Items
 * Heart of Tarrasque
   * Increased Health Regen from `3.25` tp `7`
@@ -1045,6 +1045,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ### Misc
 * Fixed Neutral Hero Kill increasing Points
+
+
 
 
 ## Template
