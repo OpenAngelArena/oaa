@@ -66,6 +66,10 @@ function modifier_item_heart_transplant:IsPurgable()
   return false
 end
 
+function modifier_item_heart_transplant:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_heart_transplant:GetModifierBonusStats_Strength()
   local parent = self:GetParent()
 
