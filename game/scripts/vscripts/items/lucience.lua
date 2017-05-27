@@ -7,8 +7,6 @@ LinkLuaModifier("modifier_item_lucience_movespeed_effect", "items/lucience.lua",
 -- Name constants
 local regenAuraName = "modifier_item_lucience_regen_aura"
 local movespeedAuraName = "modifier_item_lucience_movespeed_aura"
-local regenIconName = "custom/lucience"
-local movespeedIconName = "custom/lucience_movespeed"
 local auraTypeRegen = 1
 local auraTypeMovespeed = 2
 
@@ -30,11 +28,11 @@ end
 
 function item_lucience:GetAbilityTextureName()
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
-  if not self.auraHandler or self.auraHandler:IsNull() then
+  if not self.lucienceState then
     return baseIconName
-  elseif self.auraHandler:GetStackCount() == auraTypeRegen then
+  elseif self.lucienceState == auraTypeRegen then
     return baseIconName
-  elseif self.auraHandler:GetStackCount() == auraTypeMovespeed then
+  elseif self.lucienceState == auraTypeMovespeed then
     return baseIconName .. "_movespeed"
   else
     return baseIconName
@@ -132,6 +130,13 @@ function modifier_item_lucience_aura_handler:OnDestroy()
       local auraHandlers = parent:FindAllModifiersByName(self:GetName())
       foreach(RefreshHandler, auraHandlers)
     end
+  end
+end
+
+function modifier_item_lucience_aura_handler:OnStackCountChanged(numOldStacks)
+  if IsClient() then
+    local ability = self:GetAbility()
+    ability.lucienceState = self:GetStackCount()
   end
 end
 
@@ -243,7 +248,11 @@ function modifier_item_lucience_regen_effect:GetEffectName()
 end
 
 function modifier_item_lucience_regen_effect:GetTexture()
-  return regenIconName
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
+    return baseIconName
+  end
 end
 
 ------------------------------------------------------------------------
@@ -271,5 +280,9 @@ function modifier_item_lucience_movespeed_effect:GetEffectName()
 end
 
 function modifier_item_lucience_movespeed_effect:GetTexture()
-  return movespeedIconName
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
+    return baseIconName .. "_movespeed"
+  end
 end
