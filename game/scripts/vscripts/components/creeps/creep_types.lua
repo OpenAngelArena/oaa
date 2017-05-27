@@ -11,6 +11,14 @@ CreepTypes = {
       {"npc_dota_neutral_kobold_taskmaster",        560,    0,  16,    1,    26, 140},
       {"npc_dota_neutral_kobold",                   280,    0,  10,   0.5,   14,  70}
     },
+    {                                              --HP   MANA  DMG   ARM   GOLD  EXP
+      {"npc_dota_neutral_kobold",                   280,    0,  10,   0.5,   14,  70}, --expected gold is  46 and XP is 240
+      {"npc_dota_neutral_kobold_tunneler",          480,    0,  12,    1,    22, 120}
+    },
+    {
+      {"npc_dota_neutral_kobold_taskmaster",        560,    0,  16,    1,    26, 140},
+      {"npc_dota_neutral_kobold",                   280,    0,  10,   0.5,   14,  70}
+    },
     {
       {"npc_dota_neutral_ghost",                    480,    0,  12,    1,    31, 160},
       {"npc_dota_neutral_ghost",                    480,    0,  12,    1,    31, 160}
@@ -41,8 +49,20 @@ CreepTypes = {
       {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,   120},
       {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,   120},
     },
+    {                                          --HP   MANA   DMG   ARM  GOLD   EXP
+      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,   120}, --expected gold is 168 and XP is 240
+      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,   120},
+    },
+    {                                          --HP   MANA   DMG   ARM  GOLD   EXP
+      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,   120},
+      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,   120},
+    },
     {
       {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    32,    88},
+      {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    32,    88},
+      {"npc_dota_neutral_alpha_wolf",           1200, 480,   56,   5,   120,   108}
+    },
+    {
       {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    32,    88},
       {"npc_dota_neutral_alpha_wolf",           1200, 480,   56,   5,   120,   108}
     },
