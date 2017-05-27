@@ -1,53 +1,52 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Sange and Yasha 2
+  // Recipe: Sange and Yasha 3
   //=================================================================================================================
-  "item_recipe_sange_and_yasha_2"
+  "item_recipe_sange_and_yasha_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4032"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3839"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sange_and_yasha_2"
+    "ItemResult"                                          "item_sange_and_yasha_3"
     "ItemRequirements"
     {
-      "01"                                                "item_sange_and_yasha;item_upgrade_core"
-      "02"                                                "item_sange_and_yasha;item_upgrade_core_2"
-      "03"                                                "item_sange_and_yasha;item_upgrade_core_3"
-      "04"                                                "item_sange_and_yasha;item_upgrade_core_4"
+      "01"                                                "item_sange_and_yasha;item_upgrade_core_2"
+      "02"                                                "item_sange_and_yasha;item_upgrade_core_3"
+      "03"                                                "item_sange_and_yasha;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Sange and Yasha 2
+  // Sange and Yasha 3
   //=================================================================================================================
-  "item_sange_and_yasha_2"
+  "item_sange_and_yasha_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3840"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_sange_and_yasha"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/sange_and_yasha_2"
+    "AbilityTextureName"                                  "custom/sange_and_yasha_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6600"
+    "ItemCost"                                            "11000"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny;s&y;sy;sange and yasha"
