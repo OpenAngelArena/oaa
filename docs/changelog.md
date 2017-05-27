@@ -1246,6 +1246,36 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Moved Boss Pit Arena Entrances
 
 
+# Update 0.28.0
+[`b5a8bb33a3669ed4189059f5823b202f63198e56`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.0)
+* Generated Tooltips
+
+### Items
+* Removed Combiner
+* Added new Icons
+  * [Lotus Orb 2](https://github.com/OpenAngelArena/oaa/blob/954e65b899095652acd64aa5d46d8848d4e91557/game/resource/flash3/images/items/custom/lotus_orb_2.png)
+  * [Refresher Orb 2](https://github.com/OpenAngelArena/oaa/blob/954e65b899095652acd64aa5d46d8848d4e91557/game/resource/flash3/images/items/custom/refresher_orb_2%20.png)
+* Fixed Siege Mode 2 not doing anything on Activation
+* Deadalus
+  * Fixed Damage Progression being linear
+  * Fixed Crit Progression not being linear
+* Bloodthorn
+  * Fixed Damage Progression being linear
+  * Fixed Crit Progression not being linear
+
+### Heroes
+* Fixed a small Oversight in the Progression of Juggernaut's Blade Dance
+* Fixed Lycan's Shapeshift Crit Progression being ridiculous
+* Fixed Brewmaster's Drunken Brawler Crit Progression being more ridiculous
+* Fixed a small Oversight in the Progression of Phantom Assassin's Coup de Grace
+
+### Bosses
+* Uriel 
+  * Decreased Physical Armour from `250` to `75`
+  * Decreased Magical Armour from `200` to `20`
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
