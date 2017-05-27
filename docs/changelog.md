@@ -1353,6 +1353,11 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Massive Icon and Item related formatting and naming fixes
 
 
+## Hotfix 0.29.1 - Chrono breaks stuff
+[`f2fae07f265ad915e42d9ccd3a861246ba6ec334`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.29.1)
+
+### Items
+* Fixed Some Files pointing to renamed Files
 
 
 
