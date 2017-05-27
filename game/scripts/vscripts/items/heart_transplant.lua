@@ -9,11 +9,9 @@ function item_heart_transplant:GetIntrinsicModifierName()
 end
 
 function item_heart_transplant:CastFilterResultTarget(target)
-  if IsServer() then
-    local caster = self:GetCaster()
-    if target == caster then
-      return UF_FAIL_CUSTOM
-    end
+  local caster = self:GetCaster()
+  if target == caster then
+    return UF_FAIL_CUSTOM
   end
 end
 
