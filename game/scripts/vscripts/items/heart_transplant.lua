@@ -8,6 +8,22 @@ function item_heart_transplant:GetIntrinsicModifierName()
   return "modifier_item_heart"
 end
 
+function item_heart_transplant:CastFilterResultTarget(target)
+  if IsServer() then
+    local caster = self:GetCaster()
+    if target == caster then
+      return UF_FAIL_CUSTOM
+    end
+  end
+end
+
+function item_heart_transplant:GetCustomCastErrorTarget(target)
+  local caster = self:GetCaster()
+  if target == caster then
+    return "#dota_hud_error_cant_cast_on_self"
+  end
+end
+
 function item_heart_transplant:OnSpellStart()
   local charges = self:GetCurrentCharges()
   if charges <= 0 then
