@@ -1,0 +1,40 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/oaa_game_info.css" />
+	</styles>
+	<Panel class="OAAGameInfo">
+		<Panel id="Title">
+			<Label id="TitleName" text="#addon_game_name" />
+		</Panel>
+		<Label id="ObjectiveHeader" class="Header" html="true" text="#game_info_header_objective" />
+		<Label id="BriefDescription" text="#brief_description" />
+		<Label id="HowToPlayHeader" class="Header" html="true" text="#game_info_header_how_to_play" />
+
+    <Panel id="DuelsRow" class="InfoRow">
+      <Image id="DuelsImage" src="file://{images}/custom_game/game_info/duels.psd" />
+      <Label id="DuelsText" html="true" text="#game_info_duels" />
+    </Panel>
+		<Panel id="BossesRow" class="InfoRow">
+			<Label id="BossesText" html="true" text="#game_info_bosses" />
+			<Image id="BossesImage" src="file://{images}/custom_game/game_info/bosses.psd" />
+		</Panel>
+    <Panel id="FarmingCoreRow" class="InfoRow">
+      <Image id="FarmingCoreImage" src="file://{images}/custom_game/game_info/farming_core.psd" />
+      <Label id="FarmingCoreText" html="true" text="#game_info_farming_core" />
+    </Panel>
+		<Panel id="ReflexCoreRow" class="InfoRow">
+			<Label id="ReflexCoreText" html="true" text="#game_info_reflex_core" />
+      <Image id="ReflexCoreImage" src="file://{images}/custom_game/game_info/reflex_core.psd" />
+		</Panel>
+    <Panel id="FarmingCaveRow" class="InfoRow">
+      <Image id="FarmingCaveImage" src="file://{images}/custom_game/game_info/farming_cave.psd" />
+      <Label id="FarmingCaveText" html="true" text="#game_info_farming_cave" />
+    </Panel>
+    <Panel id="UpgradeCoreRow" class="InfoRow">
+      <Label id="UpgradeCoreText" html="true" text="#game_info_upgrade_core" />
+      <Image id="UpgradeCoreImage" src="file://{images}/custom_game/game_info/upgrade_core.psd" />
+    </Panel>
+	</Panel>
+</root>
+

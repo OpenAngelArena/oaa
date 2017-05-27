@@ -1,0 +1,199 @@
+.OAAGameInfo
+{
+    width:100%;
+    flow-children: down;
+}
+
+Label
+{
+    font-size: 16px;
+    color: #949494;
+    vertical-align: top;
+}
+
+#Title
+{
+    flow-children: right;
+}
+
+#TitleName
+{
+    color: #ffcc55;
+    font-size: 50px;
+    margin-left: 11px;
+    margin-top: -66px;
+    text-transform: uppercase;
+
+}
+
+#BriefDescription
+{
+}
+
+#DuelsText,
+#BossesText,
+#ReflexCoreText,
+#FarmingCoreText,
+#FarmingCaveText,
+#UpgradeCoreText
+{
+    width: 70%;
+}
+
+.Header
+{
+	  font-size: 26px;
+    font-weight: bold;
+	  margin-top: 10px;
+	  text-transform: uppercase;
+}
+
+#ObjectiveHeader
+{
+	margin-top: 0px;
+}
+
+/*====================| ROW A |=======================*/
+#DuelsRow
+{
+    margin-top: 25px;
+}
+
+#DuelsText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+	 text-align: left;
+}
+
+#DuelsImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+/*====================| ROW B |=======================*/
+#BossesRow
+{
+    margin-top: 25px;
+}
+
+#BossesImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+#BossesText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: right;
+}
+
+/*====================| ROW C |=======================*/
+
+#FarmingCoreRow
+{
+    margin-top: 25px;
+}
+
+#FarmingCoreImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+#FarmingCoreText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+/*====================| ROW D |=======================*/
+#ReflexCoreRow
+{
+    margin-top: 25px;
+}
+
+#ReflexCoreImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+#ReflexCoreText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: right;
+}
+
+
+/*====================| ROW E |=======================*/
+#FarmingCaveRow
+{
+    margin-top: 25px;
+}
+
+#FarmingCaveImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+#FarmingCaveText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+/*====================| ROW F |=======================*/
+#UpgradeCoreRow
+{
+    margin-top: 25px;
+}
+
+#UpgradeCoreImage
+{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+#UpgradeCoreText
+{
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: right;
+}
+
+.InfoRow
+{
+    flow-children: right;
+    width: 100%;
+}
+
+Label .duels,
+Label .bosses,
+Label .reflexcore,
+Label .farmingcore,
+Label .farmingcave,
+Label .upgradecore
+{
+    color: #aaccff;
+    font-weight: bold;
+}
