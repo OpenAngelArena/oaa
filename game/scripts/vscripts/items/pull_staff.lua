@@ -11,7 +11,12 @@ function item_pull_staff:OnSpellStart()
   local target = self:GetCursorTarget()
   self.target = target
   local caster = self:GetCaster()
-  if target == nil or caster == nil or target == caster then
+
+  if target:TriggerSpellAbsorb(self) then
+    return
+  end
+
+  if target == nil or caster == nil then
     self:StartCooldown(0)
     return
   end
