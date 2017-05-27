@@ -1406,8 +1406,26 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Changed Glyph to drop Ward instead
 
 
+## Update 0.33.0
+[`e02212ade6eb27bd18b90465da40abf905134ebf`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.33.0)
 
+### Creeps
+* Reduce existing Creep Search Range for Creep Spawner
 
+### Items
+* Fix modifier and channel icons for Greater Travel Boots
+* Added New Icons
+  * [Pull Staff](https://github.com/OpenAngelArena/oaa/blob/09fa69fd32b3e47d72163f564ac11f26472b1f89/game/resource/flash3/images/items/custom/pull_staff.png)
+  * [Force Staff](https://github.com/OpenAngelArena/oaa/blob/09fa69fd32b3e47d72163f564ac11f26472b1f89/game/resource/flash3/images/items/force_staff.png)
+
+### Shops 
+* Updated Main Shop Item List
+
+### Bosses
+* Added New Bosses to Tier 1.5
+  * Simple Boss 1
+  * Simple Boss 2
+  * Simple Boss 5
 
 
 ## Template
