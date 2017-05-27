@@ -70,6 +70,25 @@ end
 
 --------------------------------------------------------------------------------
 
+function modifier_item_greater_tranquil_boots:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	spell.tranqMod = self
+
+	if IsServer() then
+		self:SetDuration( spell:GetCooldownTime(), true )
+
+		self:StartIntervalThink( 0.1 )
+	end
+
+	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
+	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
+	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+end
+
+--------------------------------------------------------------------------------
+
 if IsServer() then
 	function modifier_item_greater_tranquil_boots:OnIntervalThink()
 		if self.storedDamage and self.storedDamage > 0 then

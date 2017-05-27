@@ -88,6 +88,21 @@ end
 
 --------------------------------------------------------------------------------
 
+function modifier_item_siege_mode_siege:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	spell.mod = self
+
+	self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
+	self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
+	self.atkDmg = spell:GetSpecialValueFor( "seige_damage_bonus" )
+	self.atkSpd = spell:GetSpecialValueFor( "siege_atkspd_bonus" )
+	self.splashRadius = spell:GetSpecialValueFor( "siege_aoe" )
+	self.splashDmg = spell:GetSpecialValueFor( "siege_splash" )
+end
+
+--------------------------------------------------------------------------------
+
 function modifier_item_siege_mode_siege:OnRemoved()
 	local spell = self:GetAbility()
 
