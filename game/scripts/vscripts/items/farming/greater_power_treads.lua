@@ -85,14 +85,36 @@ function modifier_item_greater_power_treads:OnCreated( event )
 	end
 
 	spell.treadMod = self
+
+	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
+	self.stat = spell:GetSpecialValueFor( "bonus_stat" )
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:OnDestroy()
+function modifier_item_greater_power_treads:OnRefresh( event )
 	local spell = self:GetAbility()
 
-	spell.treadMod = nil
+	if spell.attribute then
+		self:SetStackCount( spell.attribute )
+	end
+
+	spell.treadMod = self
+
+	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
+	self.stat = spell:GetSpecialValueFor( "bonus_stat" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_greater_power_treads:OnRemoved()
+	local spell = self:GetAbility()
+
+	if spell and not spell:IsNull() then
+		spell.treadMod = nil
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -126,7 +148,7 @@ if IsServer() then
 			local parentTeam = parent:GetTeamNumber()
 			local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
 			local targetType = bit.bor( DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC )
-			local targetFlags = DOTA_UNIT_TARGET_FLAG_NONE
+			local targetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 
 			-- if not, cancel
 			if UnitFilter( target, targetTeam, targetType, targetFlags, parentTeam ) ~= UF_SUCCESS then
@@ -140,7 +162,7 @@ if IsServer() then
 			-- set the targeting requirements for the actual targets
 			targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
 			targetType = DOTA_UNIT_TARGET_BASIC
-			targetFlags = DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO
+			targetFlags = bit.bor( DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO )
 
 			-- get the radius
 			local radius = spell:GetSpecialValueFor( "split_radius" )
@@ -215,7 +237,7 @@ end
 function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots( event )
 	local spell = self:GetAbility()
 
-	return spell:GetSpecialValueFor( "bonus_movement_speed" )
+	return self.moveSpd or spell:GetSpecialValueFor( "bonus_movement_speed" )
 end
 
 --------------------------------------------------------------------------------
@@ -223,7 +245,7 @@ end
 function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant( event )
 	local spell = self:GetAbility()
 
-	return spell:GetSpecialValueFor( "bonus_attack_speed" )
+	return self.atkSpd or spell:GetSpecialValueFor( "bonus_attack_speed" )
 end
 
 --------------------------------------------------------------------------------
@@ -233,7 +255,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Strength( even
 	local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
 
 	if attribute == DOTA_ATTRIBUTE_STRENGTH then
-		return spell:GetSpecialValueFor( "bonus_stat" )
+		return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
 	end
 
 	return 0
@@ -246,7 +268,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Agility( event
 	local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
 
 	if attribute == DOTA_ATTRIBUTE_AGILITY then
-		return spell:GetSpecialValueFor( "bonus_stat" )
+		return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
 	end
 
 	return 0
@@ -259,7 +281,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect( eve
 	local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
 
 	if attribute == DOTA_ATTRIBUTE_INTELLECT then
-		return spell:GetSpecialValueFor( "bonus_stat" )
+		return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
 	end
 
 	return 0

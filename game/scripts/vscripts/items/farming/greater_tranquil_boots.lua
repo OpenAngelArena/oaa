@@ -61,6 +61,30 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 		self:StartIntervalThink( 0.1 )
 	end
+
+	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
+	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
+	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_greater_tranquil_boots:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	spell.tranqMod = self
+
+	if IsServer() then
+		self:SetDuration( spell:GetCooldownTime(), true )
+
+		self:StartIntervalThink( 0.1 )
+	end
+
+	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
+	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
+	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
 end
 
 --------------------------------------------------------------------------------
@@ -168,10 +192,10 @@ function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Special_
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 then
-		return spell:GetSpecialValueFor( "bonus_movement_speed" )
+		return self.moveSpd or spell:GetSpecialValueFor( "bonus_movement_speed" )
 	end
 
-	return spell:GetSpecialValueFor( "broken_movement_speed" )
+	return self.moveSpdBroken or spell:GetSpecialValueFor( "broken_movement_speed" )
 end
 
 --------------------------------------------------------------------------------
@@ -179,7 +203,7 @@ end
 function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus( event )
 	local spell = self:GetAbility()
 
-	return spell:GetSpecialValueFor( "bonus_armor" )
+	return self.armor or spell:GetSpecialValueFor( "bonus_armor" )
 end
 
 --------------------------------------------------------------------------------
@@ -188,7 +212,7 @@ function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen( ev
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 then
-		return spell:GetSpecialValueFor( "bonus_health_regen" )
+		return self.healthRegen or spell:GetSpecialValueFor( "bonus_health_regen" )
 	end
 
 	return 0

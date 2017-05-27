@@ -49,8 +49,14 @@ end
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-	function modifier_item_greater_phase_boots_active:OnCreated( event )
+function modifier_item_greater_phase_boots_active:OnCreated( event )
+	local spell = self:GetAbility()
+
+	self.moveSpd = spell:GetSpecialValueFor( "phase_movement_speed" )
+	self.moveSpdRange = spell:GetSpecialValueFor( "phase_movement_speed_range" )
+	self.dmgReduction = spell:GetSpecialValueFor( "phase_attack_outgoing" ) - 100
+
+	if IsServer() then
 		-- set up the table that stores the targets already hit
 		self.hitTargets = {}
 
@@ -60,16 +66,26 @@ if IsServer() then
 		self:OnIntervalThink()
 		self:StartIntervalThink( 1 / 30 )
 	end
+end
 
-	--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
-	function modifier_item_greater_phase_boots_active:OnRefresh( event )
+function modifier_item_greater_phase_boots_active:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	self.moveSpd = spell:GetSpecialValueFor( "phase_movement_speed" )
+	self.moveSpdRange = spell:GetSpecialValueFor( "phase_movement_speed_range" )
+	self.dmgReduction = spell:GetSpecialValueFor( "phase_attack_outgoing" ) - 100
+
+	if IsServer() then
 		-- clear the tagets hit table on refresh
 		self.hitTargets = {}
 	end
+end
 
-	--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
+if IsServer() then
 	function modifier_item_greater_phase_boots_active:HasHitUnit( target )
 		for _, unit in pairs( self.hitTargets ) do
 			if unit == target then
@@ -80,7 +96,7 @@ if IsServer() then
 		return false
 	end
 
-	--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 	function modifier_item_greater_phase_boots_active:OnIntervalThink()
 		local parent = self:GetParent()
@@ -94,10 +110,14 @@ if IsServer() then
 			spell:GetSpecialValueFor( "phase_radius" ),
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_BASIC,
-			DOTA_UNIT_TARGET_FLAG_NONE,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 			FIND_ANY_ORDER,
 			false
 		)
+
+		-- tell this modifier to reduce the damage of any further attacks
+		-- aka, the instant attacks
+		self.doReduction = true
 
 		for _, unit in pairs( units ) do
 			-- we don't hit units that have already been hit by this cast
@@ -115,6 +135,9 @@ if IsServer() then
 				ParticleManager:ReleaseParticleIndex( part )
 			end
 		end
+
+		-- undo the damage reduction, so it doesn't leak into actual attacks
+		self.doReduction = false
 	end
 end
 
@@ -133,6 +156,7 @@ end
 function modifier_item_greater_phase_boots_active:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 	}
 
 	return funcs
@@ -145,10 +169,23 @@ function modifier_item_greater_phase_boots_active:GetModifierMoveSpeedBonus_Perc
 	local parent = self:GetParent()
 
 	if parent:IsRangedAttacker() then
-		return spell:GetSpecialValueFor( "phase_movement_speed_range" )
+		return self.moveSpdRange or spell:GetSpecialValueFor( "phase_movement_speed_range" )
 	end
 
-	return spell:GetSpecialValueFor( "phase_movement_speed" )
+	return self.moveSpd or spell:GetSpecialValueFor( "phase_movement_speed" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_greater_phase_boots_active:GetModifierDamageOutgoing_Percentage( event )
+	local spell = self:GetAbility()
+	local parent = self:GetParent()
+
+	if self.doReduction then
+		return self.dmgReduction or spell:GetSpecialValueFor( "phase_attack_outgoing" ) - 100
+	end
+
+	return 0
 end
 
 --------------------------------------------------------------------------------
