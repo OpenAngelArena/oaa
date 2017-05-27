@@ -1374,6 +1374,29 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Lock out enemy Players from Tier 1 Bosses
 
 
+## Hotfix 0.30.1
+[`37fd9ed8ee4cb1d9149f0bd07087d0994791c1e4`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.30.1)
+
+### Items
+* Fix Greater Travel Boots Pointing to renamed Files
+
+
+## Update 0.31.0
+[`e04c1ce79454e2b44ce6f0cd278997e91a2203b2`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.31.0)
+
+### Bosses
+* Make Boss Resistance use Damage Block
+* Set Charger Pillars to 1 Health
+
+### UI
+* Make Quick Stat Display more clear
+* Handle leveling up talents properly in the UI
+
+
+
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
