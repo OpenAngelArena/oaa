@@ -1246,7 +1246,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Moved Boss Pit Arena Entrances
 
 
-# Update 0.28.0
+## Update 0.28.0
 [`b5a8bb33a3669ed4189059f5823b202f63198e56`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.0)
 * Generated Tooltips
 
@@ -1257,23 +1257,47 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * [Refresher Orb 2](https://github.com/OpenAngelArena/oaa/blob/954e65b899095652acd64aa5d46d8848d4e91557/game/resource/flash3/images/items/custom/refresher_orb_2%20.png)
 * Fixed Siege Mode 2 not doing anything on Activation
 * Deadalus
-  * Fixed Damage Progression being linear
-  * Fixed Crit Progression not being linear
+  * Increased Bonus Damage from `80 105 130 155 180` to `80 120 180 270 360`
+  * Decreased Crit Chance from `30 35 40 45 50` to `30`
+  * Increased Crit Multiplier from `235 255 275 295 315` to `235 260 285 310 335`
 * Bloodthorn
-  * Fixed Damage Progression being linear
-  * Fixed Crit Progression not being linear
+  * Decreased Bonus Damage from `60 90 120 170 250` to `60 90 135 200 270`
+  * Decreased Crit Chance from `20 22 25 27 30` to `20`
+  * Increased Crit Multiplier from `175 190 210 230 250` to `175 195 215 235 255`
+  * Decreased Crit Multiplier on Target from `145 160 180 200 220` to `145 160 175 190 205`
 
 ### Heroes
-* Fixed a small Oversight in the Progression of Juggernaut's Blade Dance
-* Fixed Lycan's Shapeshift Crit Progression being ridiculous
-* Fixed Brewmaster's Drunken Brawler Crit Progression being more ridiculous
-* Fixed a small Oversight in the Progression of Phantom Assassin's Coup de Grace
+* Juggernaut
+  * Blade Dance
+    * Decreased Crit Chance from `20 25 30 35 40 50` to `20 25 30 35 40 45`
+* Lycan
+  * Shapeshift
+    * Decreased Crit Multiplier from `160 180 200 240 370` to `160 180 200 220 240`
+* Brewmaster
+  * Drunken Brawler
+    * Decreased Crit Multiplier from `230 230 230 230 280 330` to `230`
+* Phantom Assassin
+  * Coup de Grace
+    * Increased Crit Bonus from `230 340 450 560 750` to `230 340 450 560 770`
 
 ### Bosses
 * Uriel 
   * Decreased Physical Armour from `250` to `75`
   * Decreased Magical Armour from `200` to `20`
 
+## Hotfix 0.28.1
+[`617f671b8e9a1a212d828b4909280a2a169bedd5`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.1)
+
+### Items
+* Octarine Core
+  * Reduced Hero Lifesteal from `25 35` to `25 30`
+* Satanic 
+  * Increased Lifesteal from `25` to `25 30 35 40 45`
+  * Increased Unholy Lifesteal from `175` to `175 170 165 160 155`
+* Satanic Core
+  * Decreased Hero Lifesteal from `35 45 55` to `35`
+  * Decreased Unholy Creep Spellsteal from `200` to `190 180 170`
+  * Decreased Unholy Hero Spellsteal from `200` to `165`
 
 
 ## Template
