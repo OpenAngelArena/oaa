@@ -334,9 +334,25 @@ function Duels:EndDuel ()
 
       Duels:RestorePlayerState (hero, state)
       Duels:MoveCameraToPlayer(state.id, hero)
+      Duels:PurgeAfterDuel(hero)
     end)
     DuelEndEvent.broadcast(true)
   end)
+end
+
+function Duels:PurgeAfterDuel (hero)
+  local modifierList = {
+    "modifier_rune_haste",
+    "modifier_rune_doubledamage",
+    "modifier_rune_invis",
+    "modifier_rune_hill_tripledamage",
+  }
+  for _,modifierName in ipairs(modifierList) do
+    local modifier = hero:FindModifierByName(modifierName)
+    if modifier then
+      modifier:Destroy()
+    end
+  end
 end
 
 function Duels:ResetPlayerState (hero)

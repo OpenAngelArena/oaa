@@ -4,7 +4,7 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
-  Debug.EnabledModules['boss:spawn'] = false
+  Debug.EnabledModules['boss:spawn'] = true
 end
 
 function BossSpawner:Init ()
@@ -63,7 +63,8 @@ function BossSpawner:SpawnBossAtPit (pit)
   local bossTier = tierIndex - 1 + startTier
   local bossName = options[tierIndex]
   if type(bossName) ~= 'string' then
-    bossName = bossName[math.random(1, #bossName)]
+    DebugPrint('There are ' .. #bossName .. 'options for this boss')
+    bossName = bossName[math.random(#bossName)]
   end
   local isProtected = bossList == 1 and pit.killCount == 1
 
