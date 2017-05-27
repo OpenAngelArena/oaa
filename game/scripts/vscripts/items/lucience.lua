@@ -28,6 +28,12 @@ end
 
 function item_lucience:GetAbilityTextureName()
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
+
+  -- Update state based on stacks of the intrinsic modifier
+  if self.auraHandler and not self.auraHandler:IsNull() then
+    self.lucienceState = self.auraHandler:GetStackCount()
+  end
+
   if not self.lucienceState then
     return baseIconName
   elseif self.lucienceState == auraTypeRegen then
@@ -117,6 +123,12 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     local currentRegenAura = parent:FindModifierByName(regenAuraName)
     local currentMovespeedAura = parent:FindModifierByName(movespeedAuraName)
 
+    if ability:GetToggleState() then
+      self:SetStackCount(auraTypeMovespeed)
+    else
+      self:SetStackCount(auraTypeRegen)
+    end
+
     -- If the owner has a higher level Lucience Aura then don't do anything
     if currentRegenAura and ability:GetLevel() < currentRegenAura:GetAbility():GetLevel() then
       return
@@ -134,13 +146,6 @@ function modifier_item_lucience_aura_handler:OnDestroy()
       local auraHandlers = parent:FindAllModifiersByName(self:GetName())
       foreach(RefreshHandler, auraHandlers)
     end
-  end
-end
-
-function modifier_item_lucience_aura_handler:OnStackCountChanged(numOldStacks)
-  if IsClient() then
-    local ability = self:GetAbility()
-    ability.lucienceState = self:GetStackCount()
   end
 end
 
