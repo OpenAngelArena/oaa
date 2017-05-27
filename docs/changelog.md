@@ -42,7 +42,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 [`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.1.0)
 ### Items
 * Buffed Echo Sabre 
-  * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
+  * Decreased Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
 * Added Reverse Compatibility of Upgrade Cores to Reflex Cores
 * Changed Stoneskin Armour
   * Added 1.5 second delay to Toggle
@@ -60,7 +60,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Increased GPM from `60 120 240 480 960` to `150 300 600 1200 2400`
 * Added Pullstaff Item aka 'Reverse Force Staff'
 * Nerfed Greater Power Treads
-  * Reduced Split Damage from `40` to `10 20 30 40 50`
+  * Decreased Split Damage from `40` to `10 20 30 40 50`
 * Buffed Abyssal Blade
   * Increased Melee Damage Block from `70 75 80 85 90` to `70 100 140 200 280`
   * Increased Ranged Damage Block from `35 40 45 50 55` to `35 50 70 100 140`
@@ -104,16 +104,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased CastPoint from `3 3 3 3` to `3 3 3 3 3 1.5
 * Nerfed Bloodseeker
   * Bloodbath
-    * Reduced Duration from `3 4 5 6 8 10` to `3 4 5 6 7 8`
-    * Reduced Damage from `120 160 200 240 400 1000` to `120 160 200 240 400 800`
+    * Decreased Duration from `3 4 5 6 8 10` to `3 4 5 6 7 8`
+    * Decreased Damage from `120 160 200 240 400 1000` to `120 160 200 240 400 800`
 * Nerfed Centaur
   * Stampede
-    * Reduced Damage per Strength from `1.0 2.0 3.0 5.0 8.0` to `1.0 2.0 3.0 4.5 6.5`
+    * Decreased Damage per Strength from `1.0 2.0 3.0 5.0 8.0` to `1.0 2.0 3.0 4.5 6.5`
 * Nerfed Shadow Fiend
   * Necromastery
-    * Reduced Damage per Soul from `2 2 2 2 3 5` to `2 2 2 2 2 2`
+    * Decreased Damage per Soul from `2 2 2 2 3 5` to `2 2 2 2 2 2`
   * Requiem of Souls
-    * Reduced Damage from `80 120 160 320 1000` to `80 120 160 320 640`
+    * Decreased Damage from `80 120 160 320 1000` to `80 120 160 320 640`
 * Fixed Invoker Leveling Pattern
   * Invoker now gets an Ability Point for every Level
   * Invoker now can actually level his Abilities when he should
@@ -125,30 +125,30 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Added Level 5 and 6
 * Nerfed Antimage
   * Mana Break
-    * Reduced Mana per Hit from `28 40 52 64 88 184` to `28 40 52 64 78 96`
+    * Decreased Mana per Hit from `28 40 52 64 88 184` to `28 40 52 64 78 96`
   * Mana Void
-    * Reduced Damage per missing Mana from `0.6 0.85 1.1 1.6 3.6` to `0.6 0.85 1.1 1.4 1.9`
+    * Decreased Damage per missing Mana from `0.6 0.85 1.1 1.6 3.6` to `0.6 0.85 1.1 1.4 1.9`
 * Buffed Bristleback
   * Quill Spray
     * Increased Damage from `550.0` to `550.0 550.0 550.0 550.0 1100.0 2200.0`
 * Nerfed Dragon Knight
   * Dragon Tail
-    * Reduced Damage from `25 50 75 100 150 350` to `25 50 75 100 150 225`
+    * Decreased Damage from `25 50 75 100 150 350` to `25 50 75 100 150 225`
 * Nerfed Phantom Assasin
   * Coup de Grace
-    * Reduced Crit Damage from `230 340 450 650 1000` to `230 340 450 560 750`
+    * Decreased Crit Damage from `230 340 450 650 1000` to `230 340 450 560 750`
 * Nerfed Phantom Lancer
   * Juxtapose
-    * Reduced Max Illusions from `5 7 9 13 22` to `5 7 9 11 15`
+    * Decreased Max Illusions from `5 7 9 13 22` to `5 7 9 11 15`
 * Buffed Ursa
   * Enrage
-    * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
+    * Decreased Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
 ### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
-  * Reduced Damage from `3750` to `255`
-  * Reduced Health from `100000` to `75000`
+  * Decreased Damage from `3750` to `255`
+  * Decreased Health from `100000` to `75000`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
 
@@ -240,9 +240,9 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 [`d064f0f294f395eb84f0e759fe4a6e178ac7078e`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.0)
 ### Items
 * Nerfed Assault Cuirass
-  * Reduced Bonus Armour from `10 20 40` to `0 15 20`
-  * Reduced Aura Armour Buff from `5 10 20` to `5 6 7`
-  * Reduced Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
+  * Decreased Bonus Armour from `10 20 40` to `0 15 20`
+  * Decreased Aura Armour Buff from `5 10 20` to `5 6 7`
+  * Decreased Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
 * Buffed Lotus Orb
   * Increased Damage from `10 15` to `10 20`
   * Increased Armour from `10 15` to `10 20`
@@ -258,23 +258,23 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Increased Mana Regeneration from `150 225` to `300 375`
   * Decreased Block Cooldown from `13.0` to `9.0 7.0`
 * Nerfed Shivas Guard
-  * Reduced Bonus Armour from `15 40 70` to `15 20 25`
-  * Reduced Attack Speed from `-45 -70 -110` to `-45 -65 -85`
-  * Reduced Blast Damage from `200 400 600` to `200 300 450`
+  * Decreased Bonus Armour from `15 40 70` to `15 20 25`
+  * Decreased Attack Speed from `-45 -70 -110` to `-45 -65 -85`
+  * Decreased Blast Damage from `200 400 600` to `200 300 450`
 * Buffed Linkes Sphere
   * Decreased Block Cooldown from `13.0` to `13.0 11.0`
 
 ### Heroes
 * Nerfed Zeus
   * Nerfed Lightning Bolt
-    * Reduced Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
+    * Decreased Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
     * Increased Mana Cost from `75 95 115 135 175 335` to `75 95 115 135 275 500`
   * Nerfed Static Field
-    * Reduced Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
-    * Reduced Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
-    * Reduced Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
+    * Decreased Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
+    * Decreased Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
+    * Decreased Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
   * Nerfed Tundergods Wrath
-    * Reduced Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
+    * Decreased Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
 
 ### Bosses
 * Buffed All Bosses
@@ -282,7 +282,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Set Armour to `25`
   * Set Magical Resistance to `25`
 * Nerfed Tier 1
-  * Reduced Damage from `1000` to `500-600`
+  * Decreased Damage from `1000` to `500-600`
 
 
 ## Hotfix 0.4.1 2017-04-04
@@ -361,7 +361,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Heroes
 * Nerfed Luna
   * Nerfed Eclipse
-    * Reduced Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
+    * Decreased Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
 
 
 ## Update 0.6.0
@@ -438,7 +438,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
 ### Items
 * Fixed Trumps Fists
-  * Reduced Zombification of People
+  * Decreased Zombification of People
 
 
 ## Update 0.7.2 Public Testing #1
@@ -487,18 +487,18 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 [`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.9.1)
 ### Items
 * Nerfed Deadalus
-  * Reduced Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
+  * Decreased Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
 * Nerfed Octarine Core
-  * Reduced Bonus Cooldown from `25 30` to `25 25`
-  * Reduced Creep Lifesteal from `5 7` to `5 10`
-  * Reduced Hero Lifesteal from `25 35` to `25 30`
+  * Decreased Bonus Cooldown from `25 30` to `25 25`
+  * Decreased Creep Lifesteal from `5 7` to `5 10`
+  * Decreased Hero Lifesteal from `25 35` to `25 30`
 * Nerfed Refresher Core
   * Increased Hero Lifesteal from `25` to `30`
   * Increased Creep Lifesteal from `5` to `10`
 * Buffed Satanic Core
   * Fixed Unholy Spellsteal not working
   * Increased Strength from `32 33 34` to `38 55 75`
-  * Reduced Bonus Cooldown from `35 40 45` to `25 25 25`
+  * Decreased Bonus Cooldown from `35 40 45` to `25 25 25`
 * Nerfed Dark Seer
   * Ion Shell now only targets Heros - not Creeps
 
@@ -577,7 +577,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Rebalanced Creeps
 
 ### Bosses
-* Reduced Toilet Boss Modelsize
+* Decreased Toilet Boss Modelsize
 
 ### Heroes
 * Fixed Illusion Stats for Illusions created by a different Hero
@@ -634,7 +634,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Tooltips for Refresher Core, Power Treads and Phase Boots
 * Boots of Travel
   * Fixed Level 1 Recipe
-  * Reduced Level 2 Recipe Cost to 500
+  * Decreased Level 2 Recipe Cost to 500
 * Lucience
   * Increased Health Regen Aura from `75 100 150` to `150 300 600`
 * Radiance
@@ -698,7 +698,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Drum of Endurance
   * Level 2 now wont need any Upgrade Cores
 * Desolator
-  * Reduced Armour Corruption from `-7 -11 -16 -24 -32` to `-7 -9 -12 -16 -21`
+  * Decreased Armour Corruption from `-7 -11 -16 -24 -32` to `-7 -9 -12 -16 -21`
 * Pipe of Insight
   * Increased Damage Absorption from `400` to `400 800`
 * Radiance
@@ -823,7 +823,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ### Creeps
 * Tweaked Creep Progression
-  * Reduced Armour
+  * Decreased Armour
   Increased Damage
 * Fixed smaller Ancients being stronger
 * Slightly redistributed XP and Gold within camps. Total amounts per spawn still the same
@@ -839,7 +839,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Made Creeps Spread a bit
 * Added Moving Doors
 * Fixed Exponential Growth
-* Reduced Creeps in Easy and Medium Camps by one
+* Decreased Creeps in Easy and Medium Camps by one
 * Changed Progression to Buff 20~40 minutes, trying to keep lower Minutes' Multiplier the same
 * Changed Hard Camps to spawn different Groups of Creeps
 
@@ -858,7 +858,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased Miss Duration from `4.0 5.0 6.0 8.0 10.0` to `4.0 5.0 6.0 7.0 8.0`
 * Sladar
   * Amplify Damage
-    * Reduced Armour Reduction from `-10 -15 -20 -30 -50` to `-10 -15 -20 -25 -35`
+    * Decreased Armour Reduction from `-10 -15 -20 -30 -50` to `-10 -15 -20 -25 -35`
 * Luna
   * Eclipse
     * Decreased Beam Count from `5 8 11 17 40` to `5 8 11 13 15`
@@ -866,8 +866,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased Duration from `2.4 4.2 6.0 9.6 24.0` to `2.4 4.2 6.0 7.2 8.4`
     * Decreased Scepter Duration from `1.8 3.6 5.4 9.0 23.0` to `1.8 3.6 5.4 7.2 9.0`
   * Moon Glaive
-    * Reduced Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
-    * Increased Damage Reduced per Bounce from `35` to `35 35 35 35 30 25`
+    * Decreased Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
+    * Increased Damage Reduction per Bounce from `35` to `35 35 35 35 30 25`
 
 ### Bosses
 * Added "stop fighting yourself" aka "Uriel the Mirror of Creation"
@@ -943,7 +943,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Shield
     * Increased Damage Reduction from `10` to `15`
 * Boss Resistance
-  * Reduced Damage Reduction in Percent from `90` to `85`
+  * Decreased Damage Reduction in Percent from `90` to `85`
 * The Twins
   * Fixed not spawning
 
@@ -1049,11 +1049,40 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Update 0.25.0
 [`88545ec54884198a25e68a5570f361df67434f67`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.25.0)
+* Generated Tooltips
 
+### Creeps
+* Added Black Dragon to Hard Camps
+* Added Tomato Warrior to Medium Camps
+* Decreased Creep Count
+* Decreased Creep Base Stats
+* Decreased Creep Stat Progression
+* Made Easy Camps harder to farm with Magical Damage
+* Roshlings
+  * Decreased Health
+  * Increased Physical Armour
+  * Decreased Attack Damage
 
+### Items
+* Added new Icons
+  * [Black King Bar](https://github.com/OpenAngelArena/oaa/blob/bbc8b44e5c3a420d89173d34c6d025567abaad29/game/resource/flash3/images/items/black_king_bar.png)
+  * [Charge BKB](https://github.com/OpenAngelArena/oaa/blob/bbc8b44e5c3a420d89173d34c6d025567abaad29/game/resource/flash3/images/items/custom/charge_bkb.png)
+* Disabled Moonshard
+* Buff Reflex Cores
 
+### Heroes
+* Fix Fix for the Fix to Ability Upgrades
 
+### Duels
+* Fix sometimes hanging when a Player dies to a Neutral
+* Fix Bug with Reincarnation
 
+### UI
+* Don't show Ability Icons when you can't level up yet
+
+### Misc
+* Prevent disconnected Players from breaking the Game
+* Refix Infinite Death on Reconnect
 
 ## Template
 ```Markdown
