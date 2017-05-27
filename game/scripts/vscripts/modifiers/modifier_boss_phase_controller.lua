@@ -20,6 +20,10 @@ function modifier_boss_phase_controller:OnCreated (keys)
   self:StartIntervalThink( 0.5 )
 end
 
+function modifier_boss_phase_controller:IsPurgable()
+  return false
+end
+
 function modifier_boss_phase_controller:SetPhases (phases)
   self.phases = iter(phases)
 end

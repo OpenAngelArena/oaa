@@ -64,6 +64,10 @@ function modifier_item_lucience_aura_handler:IsHidden()
   return true
 end
 
+function modifier_item_lucience_aura_handler:IsPurgable()
+  return false
+end
+
 function modifier_item_lucience_aura_handler:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end

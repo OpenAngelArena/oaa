@@ -31,6 +31,10 @@ function modifier_item_shroud_passive:IsHidden()
 	return true
 end
 
+function modifier_item_shroud_passive:IsPurgable()
+  return false
+end
+
 function modifier_item_shroud_passive:OnCreated()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
 	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor( "bonus_attack_speed" )

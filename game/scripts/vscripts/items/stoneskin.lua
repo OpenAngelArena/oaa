@@ -98,6 +98,10 @@ function modifier_item_stoneskin:IsHidden()
   return true
 end
 
+function modifier_item_stoneskin:IsPurgable()
+  return false
+end
+
 function modifier_item_stoneskin:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
@@ -130,6 +134,10 @@ function modifier_item_stoneskin_stone_armor:GetTexture()
     local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
     return baseIconName
   end
+end
+
+function modifier_item_stoneskin_stone_armor:IsPurgable()
+  return false
 end
 
 function modifier_item_stoneskin_stone_armor:GetStatusEffectName()

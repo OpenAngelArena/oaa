@@ -42,6 +42,10 @@ function modifier_item_martyrs_mail_passive:IsHidden()
 	return true
 end
 
+function modifier_item_martyrs_mail_passive:IsPurgable()
+  return false
+end
+
 function modifier_item_martyrs_mail_passive:OnCreated()
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor( "bonus_armor" )
@@ -76,6 +80,10 @@ modifier_item_martyrs_mail_martyr_active = class({})
 
 function modifier_item_martyrs_mail_martyr_active:IsAura()
 	return true
+end
+
+function modifier_item_martyrs_mail_martyr_active:IsPurgable()
+  return false
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetModifierAura()
