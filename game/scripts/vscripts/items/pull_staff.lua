@@ -54,11 +54,9 @@ function item_pull_staff:OnSpellStart()
 end
 
 function item_pull_staff:CastFilterResultTarget(target)
-  if IsServer() then
-    local caster = self:GetCaster()
-    if target == caster then
-      return UF_FAIL_CUSTOM
-    end
+  local caster = self:GetCaster()
+  if target == caster then
+    return UF_FAIL_CUSTOM
   end
 end
 
