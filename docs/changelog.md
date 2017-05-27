@@ -32,17 +32,17 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.0.1 2017-03-24 
-`07a33e56577acdf503c608b4a5a966b5e4d3a403`
+[`07a33e56577acdf503c608b4a5a966b5e4d3a403`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.0.1)
 ### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
 
 
 ## Update 0.1.0 2017-03-27
-`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
+[`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.1.0)
 ### Items
 * Buffed Echo Sabre 
-  * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
+  * Decreased Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
 * Added Reverse Compatibility of Upgrade Cores to Reflex Cores
 * Changed Stoneskin Armour
   * Added 1.5 second delay to Toggle
@@ -60,7 +60,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Increased GPM from `60 120 240 480 960` to `150 300 600 1200 2400`
 * Added Pullstaff Item aka 'Reverse Force Staff'
 * Nerfed Greater Power Treads
-  * Reduced Split Damage from `40` to `10 20 30 40 50`
+  * Decreased Split Damage from `40` to `10 20 30 40 50`
 * Buffed Abyssal Blade
   * Increased Melee Damage Block from `70 75 80 85 90` to `70 100 140 200 280`
   * Increased Ranged Damage Block from `35 40 45 50 55` to `35 50 70 100 140`
@@ -104,16 +104,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased CastPoint from `3 3 3 3` to `3 3 3 3 3 1.5
 * Nerfed Bloodseeker
   * Bloodbath
-    * Reduced Duration from `3 4 5 6 8 10` to `3 4 5 6 7 8`
-    * Reduced Damage from `120 160 200 240 400 1000` to `120 160 200 240 400 800`
+    * Decreased Duration from `3 4 5 6 8 10` to `3 4 5 6 7 8`
+    * Decreased Damage from `120 160 200 240 400 1000` to `120 160 200 240 400 800`
 * Nerfed Centaur
   * Stampede
-    * Reduced Damage per Strength from `1.0 2.0 3.0 5.0 8.0` to `1.0 2.0 3.0 4.5 6.5`
+    * Decreased Damage per Strength from `1.0 2.0 3.0 5.0 8.0` to `1.0 2.0 3.0 4.5 6.5`
 * Nerfed Shadow Fiend
   * Necromastery
-    * Reduced Damage per Soul from `2 2 2 2 3 5` to `2 2 2 2 2 2`
+    * Decreased Damage per Soul from `2 2 2 2 3 5` to `2 2 2 2 2 2`
   * Requiem of Souls
-    * Reduced Damage from `80 120 160 320 1000` to `80 120 160 320 640`
+    * Decreased Damage from `80 120 160 320 1000` to `80 120 160 320 640`
 * Fixed Invoker Leveling Pattern
   * Invoker now gets an Ability Point for every Level
   * Invoker now can actually level his Abilities when he should
@@ -125,30 +125,30 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Added Level 5 and 6
 * Nerfed Antimage
   * Mana Break
-    * Reduced Mana per Hit from `28 40 52 64 88 184` to `28 40 52 64 78 96`
+    * Decreased Mana per Hit from `28 40 52 64 88 184` to `28 40 52 64 78 96`
   * Mana Void
-    * Reduced Damage per missing Mana from `0.6 0.85 1.1 1.6 3.6` to `0.6 0.85 1.1 1.4 1.9`
+    * Decreased Damage per missing Mana from `0.6 0.85 1.1 1.6 3.6` to `0.6 0.85 1.1 1.4 1.9`
 * Buffed Bristleback
   * Quill Spray
     * Increased Damage from `550.0` to `550.0 550.0 550.0 550.0 1100.0 2200.0`
 * Nerfed Dragon Knight
   * Dragon Tail
-    * Reduced Damage from `25 50 75 100 150 350` to `25 50 75 100 150 225`
+    * Decreased Damage from `25 50 75 100 150 350` to `25 50 75 100 150 225`
 * Nerfed Phantom Assasin
   * Coup de Grace
-    * Reduced Crit Damage from `230 340 450 650 1000` to `230 340 450 560 750`
+    * Decreased Crit Damage from `230 340 450 650 1000` to `230 340 450 560 750`
 * Nerfed Phantom Lancer
   * Juxtapose
-    * Reduced Max Illusions from `5 7 9 13 22` to `5 7 9 11 15`
+    * Decreased Max Illusions from `5 7 9 13 22` to `5 7 9 11 15`
 * Buffed Ursa
   * Enrage
-    * Reduced Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
+    * Decreased Scepter Cooldown from `30 24 18 18 18` to `30 24 18 15 12`
 
 ### Bosses
 * Added Reflex Cores as guaranteed Drop of Tier 1 Bosses
 * Nerfed Tier 2 Boss
-  * Reduced Damage from `3750` to `255`
-  * Reduced Health from `100000` to `75000`
+  * Decreased Damage from `3750` to `255`
+  * Decreased Health from `100000` to `75000`
 * Buffed all 6 Tiers of Bosses
   * Added Magical Resistance of `15 20 25 30 35 40`
 
@@ -166,13 +166,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.1.1 2017-03-27
-`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
+[`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.1.1)
 ### Items
 * Fixed Greater Travel Boots not working
 
 
 ## Update 0.2.0 2017-03-27
-`ac9347374cde1186dc45dc9f282f8de5f7be84a7`
+[`ac9347374cde1186dc45dc9f282f8de5f7be84a7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.2.0)
 ### Items
 * Added Matyr's Mail
 * Fixed Charge BKB Recipe
@@ -186,7 +186,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.3.0 2017-04-03
-`67397b7a2a648bdafecf645ebb9b6193183eb970`
+[`67397b7a2a648bdafecf645ebb9b6193183eb970`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.3.0)
 ### Creeps
 * Changed Creep XP
   * XP now also depends on Player Count
@@ -231,18 +231,18 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.3.1 2017-04-04
-`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`
+[`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.3.1)
 ### Duels
 * Fixed Major Bug in Duels
 
 
 ## Update 0.4.0 2017-04-04
-`d064f0f294f395eb84f0e759fe4a6e178ac7078e`
+[`d064f0f294f395eb84f0e759fe4a6e178ac7078e`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.0)
 ### Items
 * Nerfed Assault Cuirass
-  * Reduced Bonus Armour from `10 20 40` to `0 15 20`
-  * Reduced Aura Armour Buff from `5 10 20` to `5 6 7`
-  * Reduced Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
+  * Decreased Bonus Armour from `10 20 40` to `0 15 20`
+  * Decreased Aura Armour Buff from `5 10 20` to `5 6 7`
+  * Decreased Aura Armour Debuff from `-5 -7 -9` to `-5 -6 -7`
 * Buffed Lotus Orb
   * Increased Damage from `10 15` to `10 20`
   * Increased Armour from `10 15` to `10 20`
@@ -258,23 +258,23 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Increased Mana Regeneration from `150 225` to `300 375`
   * Decreased Block Cooldown from `13.0` to `9.0 7.0`
 * Nerfed Shivas Guard
-  * Reduced Bonus Armour from `15 40 70` to `15 20 25`
-  * Reduced Attack Speed from `-45 -70 -110` to `-45 -65 -85`
-  * Reduced Blast Damage from `200 400 600` to `200 300 450`
+  * Decreased Bonus Armour from `15 40 70` to `15 20 25`
+  * Decreased Attack Speed from `-45 -70 -110` to `-45 -65 -85`
+  * Decreased Blast Damage from `200 400 600` to `200 300 450`
 * Buffed Linkes Sphere
   * Decreased Block Cooldown from `13.0` to `13.0 11.0`
 
 ### Heroes
 * Nerfed Zeus
   * Nerfed Lightning Bolt
-    * Reduced Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
+    * Decreased Damage from `100 175 275 350 515 1180` to `100 175 275 350 515 980`
     * Increased Mana Cost from `75 95 115 135 175 335` to `75 95 115 135 275 500`
   * Nerfed Static Field
-    * Reduced Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
-    * Reduced Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
-    * Reduced Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
+    * Decreased Cast Range from `1200 1200 1200 1200 1400 1600` to `1200`
+    * Decreased Radius from `1200 1200 1200 1200 1400 1600` to `1200 1200 1200 1200 1300 1500`
+    * Decreased Percentage Damage from `4 6 8 10 11 12` to `4 6 8 10 10 10`
   * Nerfed Tundergods Wrath
-    * Reduced Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
+    * Decreased Damage from `225 325 425 625 1425` to `225 325 425 625 1025`
 
 ### Bosses
 * Buffed All Bosses
@@ -282,16 +282,16 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Set Armour to `25`
   * Set Magical Resistance to `25`
 * Nerfed Tier 1
-  * Reduced Damage from `1000` to `500-600`
+  * Decreased Damage from `1000` to `500-600`
 
 
 ## Hotfix 0.4.1 2017-04-04
-`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`
+[`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.1)
 ### Duels
 * Made Duels generally more stable
 
 ## Hotfix 0.4.2 2017-04-04
-`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`
+[`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.2)
 ### Items
 * Custom Bottle is now known as Infinity Bottle
 * Changed Infinity Bottle
@@ -299,7 +299,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.5.0
-`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`
+[`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.0)
 * Updated Translations
 
 ### Items
@@ -351,21 +351,21 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.5.1
-`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`
+[`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.1)
 * Updated Tooltips
 * Updated Translations
 
 
 ## Hotfix 0.5.2
-`4e162af2dab16a81759330dcedcca1a21280641c`
+[`4e162af2dab16a81759330dcedcca1a21280641c`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.2)
 ### Heroes
 * Nerfed Luna
   * Nerfed Eclipse
-    * Reduced Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
+    * Decreased Duration from `1.6 1.9 2.2 2.5 3.0 4.0` to `1.6 1.9 2.2 2.5 2.8 3.1`
 
 
 ## Update 0.6.0
-`22ed9cc2d9f6cd11589b967be9c7dcdd24914234`
+[`22ed9cc2d9f6cd11589b967be9c7dcdd24914234`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.3)
 ### Heroes
 * Updated Talents of all Heroes
 
@@ -393,7 +393,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.6.1
-`5fa599290f06e0b0be07c514d5b4fbe668354dc7`
+[`5fa599290f06e0b0be07c514d5b4fbe668354dc7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.6.1)
 * Updated Translations
 
 ### Items
@@ -401,7 +401,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.7.0 Public Testing #1
-`fe37f7c42eccb83ac42aad89d7284d5254eea9c7`
+[`fe37f7c42eccb83ac42aad89d7284d5254eea9c7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.0)
 ### Items
 * Nerfed Abyssal Blade
   * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
@@ -433,22 +433,22 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.7.1 Public Testing #1
-`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`
+[`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.1)
 ### Creeps
 * After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
 ### Items
 * Fixed Trumps Fists
-  * Reduced Zombification of People
+  * Decreased Zombification of People
 
 
 ## Update 0.7.2 Public Testing #1
-`f904de21df2699943df5b1079a750f36f6fb62e4`
+[`f904de21df2699943df5b1079a750f36f6fb62e4`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.2)
 ### Items
 * Added Icons to Trumps Fists
 
 
 ## Update 0.7.3
-`1d6919a30aac21c47720fb68c1b7e87c5166f671`
+[`1d6919a30aac21c47720fb68c1b7e87c5166f671`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.3)
 ### Items
 * Added Items to Shroud of Shadows
 * Changed Trumps Fists
@@ -460,7 +460,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.8.0
-`6d6205dce3d7d45776199d0d1d11b71cc14a88e3`
+[`6d6205dce3d7d45776199d0d1d11b71cc14a88e3`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.8.0)
 ### Items
 * Fixed Divine Dispel Orb Recipe
 * Fixed Divine Reduction Orb Recipe
@@ -468,7 +468,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.9.0
-`be69ee79cec319513320d915f90241e18bcfff13`
+[`be69ee79cec319513320d915f90241e18bcfff13`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.9.0)
 ### Creeps
 * Fixed 61 Minute Bug where Creep Power get scaled wrong at Minute 61
 
@@ -484,27 +484,27 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.9.1
-`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`
+[`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.9.1)
 ### Items
 * Nerfed Deadalus
-  * Reduced Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
+  * Decreased Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
 * Nerfed Octarine Core
-  * Reduced Bonus Cooldown from `25 30` to `25 25`
-  * Reduced Creep Lifesteal from `5 7` to `5 10`
-  * Reduced Hero Lifesteal from `25 35` to `25 30`
+  * Decreased Bonus Cooldown from `25 30` to `25 25`
+  * Decreased Creep Lifesteal from `5 7` to `5 10`
+  * Decreased Hero Lifesteal from `25 35` to `25 30`
 * Nerfed Refresher Core
   * Increased Hero Lifesteal from `25` to `30`
   * Increased Creep Lifesteal from `5` to `10`
 * Buffed Satanic Core
   * Fixed Unholy Spellsteal not working
   * Increased Strength from `32 33 34` to `38 55 75`
-  * Reduced Bonus Cooldown from `35 40 45` to `25 25 25`
+  * Decreased Bonus Cooldown from `35 40 45` to `25 25 25`
 * Nerfed Dark Seer
   * Ion Shell now only targets Heros - not Creeps
 
 
 ## Map Update 0.10.0
-`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
+[`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.10.0)
 * Updated Translation
 
 ### Map
@@ -516,13 +516,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.10.1
-`452dfb2215887ed24705169a3b560b49bdd5e905`
+[`452dfb2215887ed24705169a3b560b49bdd5e905`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.10.1)
 ### Map
 * Generated new Minimap
 
 
 ## Update 0.11.0
-`08c17310913a88e9a73b49aebf1c5285760e2efa`
+[`08c17310913a88e9a73b49aebf1c5285760e2efa`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.11.0)
 ### Items
 * Added Invisibility Crystal
 * Added Greater Enrage Crystal
@@ -532,7 +532,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.12.0
-`f19a269e32c9e246883969a8bf6b68b791837fbc`
+[`f19a269e32c9e246883969a8bf6b68b791837fbc`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.12.0)
 ### Cave
 * Added Farming Cave
 
@@ -548,7 +548,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.12.1
-`5c14ce2cc1bc607a002f11eb7e923df564d7a087`
+[`5c14ce2cc1bc607a002f11eb7e923df564d7a087`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.12.1)
 * Updated Translations
 
 ### Duels
@@ -556,7 +556,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.13.0
-`b9b2ef229d71bfd736c74513236878e6331c7612`
+[`b9b2ef229d71bfd736c74513236878e6331c7612`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.13.0)
 * Updated Tooltips
 
 ## Cave
@@ -571,13 +571,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.13.1
-`3d2e92c05c24777005e73bab82b7d11a2cd51032`
+[`3d2e92c05c24777005e73bab82b7d11a2cd51032`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.13.1)
 ### Cave
 * Added Magical Resistance for Creeps
 * Rebalanced Creeps
 
 ### Bosses
-* Reduced Toilet Boss Modelsize
+* Decreased Toilet Boss Modelsize
 
 ### Heroes
 * Fixed Illusion Stats for Illusions created by a different Hero
@@ -599,7 +599,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.14.0
-`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`
+[`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.14.0)
 * Updated Tooltips
 ### Map
 * [Video with Changes by Warpdragon](https://youtu.be/127ejnO1iIM)
@@ -610,7 +610,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.14.1
-`56de08ec510e9e480f666276f071f7f1428169f0`
+[`56de08ec510e9e480f666276f071f7f1428169f0`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.14.1)
 * Update Tooltips
 
 ### Items
@@ -623,7 +623,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.15.0
-`0461d693fecaf04328a537bd44ef75b23d01cde5`
+[`0461d693fecaf04328a537bd44ef75b23d01cde5`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.15.0)
 ### Cave
 * Fixed a Bug where you could get stuck between two rooms
 
@@ -634,7 +634,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Added Tooltips for Refresher Core, Power Treads and Phase Boots
 * Boots of Travel
   * Fixed Level 1 Recipe
-  * Reduced Level 2 Recipe Cost to 500
+  * Decreased Level 2 Recipe Cost to 500
 * Lucience
   * Increased Health Regen Aura from `75 100 150` to `150 300 600`
 * Radiance
@@ -661,7 +661,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.16.0 - Chris is back
-`d402627dc14afdf41f0b20bff261baa8488f9b25`
+[`d402627dc14afdf41f0b20bff261baa8488f9b25`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.16.0)
 ### Cave
 * Fixed Mini Rosh Leash
 
@@ -698,7 +698,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Drum of Endurance
   * Level 2 now wont need any Upgrade Cores
 * Desolator
-  * Reduced Armour Corruption from `-7 -11 -16 -24 -32` to `-7 -9 -12 -16 -21`
+  * Decreased Armour Corruption from `-7 -11 -16 -24 -32` to `-7 -9 -12 -16 -21`
 * Pipe of Insight
   * Increased Damage Absorption from `400` to `400 800`
 * Radiance
@@ -744,7 +744,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.17.0
-`d2f46c3790d72edbf0fa0dea44c35385fdc88908`
+[`d2f46c3790d72edbf0fa0dea44c35385fdc88908`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.17.0)
 ### Items
 * Fixed Bug where Bottle Counter gets increased when creating Illusions
 * Rewrite Lucience
@@ -752,7 +752,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.18.0
-`a1832aaa008d71b944e415a4a1c0ae375bf85399`
+[`a1832aaa008d71b944e415a4a1c0ae375bf85399`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.18.0)
 * Updated Tooltips
   
 ### Items
@@ -771,7 +771,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.19.0
-`6aea59c1c60eee01714fdc16e0b1920f1464ba15`
+[`6aea59c1c60eee01714fdc16e0b1920f1464ba15`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.19.0)
 * Update Tooltips
 
 ### Creeps
@@ -805,7 +805,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.20.0
-`b1ff4d9a37e6b562cfb5d3b3bbbf132b1d9211ea`
+[`b1ff4d9a37e6b562cfb5d3b3bbbf132b1d9211ea`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.20.0)
 * Update Tooltips
 
 ### Bosses
@@ -818,12 +818,12 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.21.0
-`9311104615207fafaf6e8976c879159191ce2e54`
+[`9311104615207fafaf6e8976c879159191ce2e54`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.21.0)
 * Updated Tooltips
 
 ### Creeps
 * Tweaked Creep Progression
-  * Reduced Armour
+  * Decreased Armour
   Increased Damage
 * Fixed smaller Ancients being stronger
 * Slightly redistributed XP and Gold within camps. Total amounts per spawn still the same
@@ -831,7 +831,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.22.0 - Chris is back again
-`38a53f9403710665a6455787f496ec51b09eb971`
+[`38a53f9403710665a6455787f496ec51b09eb971`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.22.0)
 * Generated Tooltips
 * Added new Languages
 
@@ -839,7 +839,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Made Creeps Spread a bit
 * Added Moving Doors
 * Fixed Exponential Growth
-* Reduced Creeps in Easy and Medium Camps by one
+* Decreased Creeps in Easy and Medium Camps by one
 * Changed Progression to Buff 20~40 minutes, trying to keep lower Minutes' Multiplier the same
 * Changed Hard Camps to spawn different Groups of Creeps
 
@@ -858,7 +858,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased Miss Duration from `4.0 5.0 6.0 8.0 10.0` to `4.0 5.0 6.0 7.0 8.0`
 * Sladar
   * Amplify Damage
-    * Reduced Armour Reduction from `-10 -15 -20 -30 -50` to `-10 -15 -20 -25 -35`
+    * Decreased Armour Reduction from `-10 -15 -20 -30 -50` to `-10 -15 -20 -25 -35`
 * Luna
   * Eclipse
     * Decreased Beam Count from `5 8 11 17 40` to `5 8 11 13 15`
@@ -866,8 +866,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * Decreased Duration from `2.4 4.2 6.0 9.6 24.0` to `2.4 4.2 6.0 7.2 8.4`
     * Decreased Scepter Duration from `1.8 3.6 5.4 9.0 23.0` to `1.8 3.6 5.4 7.2 9.0`
   * Moon Glaive
-    * Reduced Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
-    * Increased Damage Reduced per Bounce from `35` to `35 35 35 35 30 25`
+    * Decreased Bounces from `1 2 3 6 9 20` to `1 2 3 6 7 8`
+    * Increased Damage Reduction per Bounce from `35` to `35 35 35 35 30 25`
 
 ### Bosses
 * Added "stop fighting yourself" aka "Uriel the Mirror of Creation"
@@ -896,7 +896,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.23.0 - Icon Update
-`745f31338eb5ce263ff18b9270cac512995787f6`
+[`745f31338eb5ce263ff18b9270cac512995787f6`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.23.0)
 ### Items
 * Added Progressive Icons
   * Greater Power Treads, Grater Phase, Tranquil and Travel Boots
@@ -943,7 +943,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Shield
     * Increased Damage Reduction from `10` to `15`
 * Boss Resistance
-  * Reduced Damage Reduction in Percent from `90` to `85`
+  * Decreased Damage Reduction in Percent from `90` to `85`
 * The Twins
   * Fixed not spawning
 
@@ -952,7 +952,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.24.0
-`6cf270810ec8860d0dc6b34d374c9f992a1997e6`
+[`6cf270810ec8860d0dc6b34d374c9f992a1997e6`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.0)
 * Updated Tooltips
 
 ### Creeps
@@ -971,7 +971,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.24.1 - More Icons
-`d41f222edeab046ea0f43d6e58eff77e6c358708`
+[`d41f222edeab046ea0f43d6e58eff77e6c358708`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.1)
 ### Creeps
 * Fixed Creep Progression
 
@@ -996,7 +996,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Manta Style
   * Midas Hand
   * Mjollnir
-  * Neconomicon
+  * Necronomicon
   * Octarine Core
   * Pipe of Insight
   * Refresher Orb
@@ -1017,7 +1017,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Icon Hotfix 0.24.2
-`1f650bb51587cd658d76aa2a813175205db5cea8`
+[`1f650bb51587cd658d76aa2a813175205db5cea8`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.2)
 ### Items
 * Fixed Icons
   * Scythe of Vyse
@@ -1027,14 +1027,436 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Lucience
 
 
+## Hotfix 0.24.3
+[`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.3)
+### Items
+* Heart of Tarrasque
+  * Increased Health Regen from `3.25` tp `7`
+* Trump's Fists
+  * Made more consistent
+
+### Bosses
+* Shielder
+  * Decreased Health from `5500` to `3500`
+* Fixed Bug with Bloodrage and Boss Resistance
+
+### Duels
+* Fixed Bug where you potentially won't get teleported when casting a ability
+
+### Misc
+* Fixed Neutral Hero Kill increasing Points
+
+
+## Update 0.25.0
+[`88545ec54884198a25e68a5570f361df67434f67`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.25.0)
+* Generated Tooltips
+
+### Creeps
+* Added Black Dragon to Hard Camps
+* Added Tomato Warrior to Medium Camps
+* Decreased Creep Count
+* Decreased Creep Base Stats
+* Decreased Creep Stat Progression
+* Made Easy Camps harder to farm with Magical Damage
+* Roshlings
+  * Decreased Health
+  * Increased Physical Armour
+  * Decreased Attack Damage
+
+### Items
+* Added new Icons
+  * [Black King Bar](https://github.com/OpenAngelArena/oaa/blob/bbc8b44e5c3a420d89173d34c6d025567abaad29/game/resource/flash3/images/items/black_king_bar.png)
+  * [Charge BKB](https://github.com/OpenAngelArena/oaa/blob/bbc8b44e5c3a420d89173d34c6d025567abaad29/game/resource/flash3/images/items/custom/charge_bkb.png)
+* Disabled Moonshard
+* Buff Reflex Cores
+
+### Heroes
+* Fix Fix for the Fix to Ability Upgrades
+
+### Duels
+* Fix sometimes hanging when a Player dies to a Neutral
+* Fix Bug with Reincarnation
+
+### UI
+* Don't show Ability Icons when you can't level up yet
+
+### Misc
+* Prevent disconnected Players from breaking the Game
+* Refix Infinite Death on Reconnect
+
+
+## Update 0.26.0
+[`6227f700d73612ba78d6ee1a9a9e3c3cc0f9ed90`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.26.0)
+* Generated Tooltips
+
+### Creeps
+* Made Black Dragon Ancient
+* Decreased Creep Count
+
+### Cave
+* Fixed Roshling Gold Formula
+* Decreased Creep Count
+* Increased Magical Armour from `10 30 50 70` to `25 40 55 70`
+* Fixed Teleport teleporting Players outside the Cave 
+
+### Heroes
+* Fixed Doom's Doom Level 4 Scepter Damage
+
+### Misc
+* Added Dutch to Translations
+* Disabled Skip Team Setup
+
+
+## Update 0.27.0
+[`1e6af1f435bc492dbd15c70a6223ecd30986adf9`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.27.0)
+
+### Items
+* Applied patches 7.03 7.04 7.05
+* Added Siege Mode
+* Added New Icons
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_1.png)
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_2.png)
+  * [Abyssal Blade 1]https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_3.png()
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_4.png)
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_5.png)
+  * [Assault Cuirass 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_1.png)
+  * [Assault Cuirass 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_2.png)
+  * [Assault Cuirass 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_3.png)
+  * [Lotus Orb 1](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/lotus_orb_1.png)
+  * [Refresher Orb 1](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/refresher_orb_1.png)
+  * [Refresher Orb 2](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/refresher_orb_2.png)
+  * [Crimson Guard 2](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/crimson_guard_2.png)
+  * [Silver Edge 2](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_2.png)
+  * [Silver Edge 3](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_3.png)
+  * [Silver Edge 4](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_4.png)
+  * [Silver Edge 5](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_5.png)
+  * [Battle Fury 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_1.png)
+  * [Battle Fury 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_2.png)
+  * [Battle Fury 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_3.png)
+  * [Battle Fury 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_4.png)
+  * [Bloodstone 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_1.png)
+  * [Bloodstone 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_2.png)
+  * [Bloodstone 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_3.png)
+  * [Bloodstone 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_4.png)
+  * [Bloodstone 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_5.png)
+  * [Bloodthorn 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_1.png)
+  * [Bloodthorn 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_2.png)
+  * [Bloodthorn 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_3.png)
+  * [Bloodthorn 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_4.png)
+  * [Bloodthorn 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_5.png)
+  * [Desolator 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_1.png)
+  * [Desolator 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_2.png)
+  * [Desolator 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_3.png)
+  * [Desolator 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_4.png)
+  * [Desolator 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_5.png)
+  * [Drums of Endurance 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/drums_1.png)
+  * [Drums of Endurance 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/drums_2.png)
+  * [Echo Sabre 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_1.png)
+  * [Echo Sabre 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_2.png)
+  * [Echo Sabre 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_3.png)
+  * [Echo Sabre 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_4.png)
+  * [Heart of Tarrasque 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart.png)
+  * [Heart of Tarrasque 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_2.png)
+  * [Heart of Tarrasque 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_3.png)
+  * [Heart of Tarrasque 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_4.png)
+  * [Heart of Tarrasque 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_5.png)
+  * [Heart Transplant 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_transplant.png)
+  * [Heart Transplant 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_transplant_2.png)
+  * [Ethereal Blade 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade.png)
+  * [Ethereal Blade 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_2.png)
+  * [Ethereal Blade 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_3.png)
+  * [Ethereal Blade 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_4.png)
+  * [Ethereal Blade 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_5.png)
+  * [Greater Phase Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase.png)
+  * [Greater Phase Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_2.png)
+  * [Greater Phase Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_3.png)
+  * [Greater Phase Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_4.png)
+  * [Greater Phase Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_5.png)
+  * [Greater Power Treads 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads.png)
+  * [Greater Power Treads 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_2.png)
+  * [Greater Power Treads 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_3.png)
+  * [Greater Power Treads 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_4.png)
+  * [Greater Power Treads 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_5.png)
+  * [Greater Tranquil Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils.png)
+  * [Greater Tranquil Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_2.png)
+  * [Greater Tranquil Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_3.png)
+  * [Greater Tranquil Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_4.png)
+  * [Greater Tranquil Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_5.png)
+  * [Greater Travel Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels.png)
+  * [Greater Travel Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_2.png)
+  * [Greater Travel Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_3.png)
+  * [Greater Travel Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_4.png)
+  * [Greater Travel Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_5.png)
+  * [Linkes Sphere 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/linkens_sphere_2.png)
+  * [Pipe of Insight 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/pipe_of_insight_2.png)
+  * [Ring of Aquila 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila.png)
+  * [Ring of Aquila 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila_2.png)
+  * [Ring of Aquila 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila_3.png)
+  * [Sange and Yasha 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/sange_and_yasha_1.png)
+  * [Sange and Yasha 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/sange_and_yasha_2.png)
+  * [Scythe of Vyse 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_1.png)
+  * [Scythe of Vyse 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_2.png)
+  * [Scythe of Vyse 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_3.png)
+  * [Scythe of Vyse 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_4.png)
+  * [Scythe of Vyse 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_5.png)
+  * [Shivas Cuirass 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_cuirass.png)
+  * [Shivas Cuirass 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_cuirass.png)
+  * [Shivas Guard 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_1.png)
+  * [Shivas Guard 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_2.png)
+  * [Shivas Guard 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_3.png)
+  * [Solar Crest 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_1.png)
+  * [Solar Crest 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_2.png)
+  * [Solar Crest 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_3.png)
+  * [Solar Crest 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_4.png)
+  * [Veil of Discord 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/veil_of_discord_1.png)
+  * [Veil of Discord 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/veil_of_discord_2.png)
+  * [Phase Boots](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/phase_boots.png)
+  * [Power Treads](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/power_treads.png)
+  * [Tranquil Boots](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/tranquil_boots.png)
+  * [Trave Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/travel_boots_2.png)
+* Lucience
+  * Decreased Toggle Cooldown from `3` to `1`
+* Satanic Core
+  * Decreased Hero Lifesteal from `50 65 80` to `35 45 55`
+* Shivas Cuirass
+  * Increased Bonus Armour from `40` to `45 50`
+  * Increased Bonus Attack Speed from `30 40` to `50 60`
+  * Increased Blast Radius from `900` to `900 1100`
+  * Increased Aura Attack Speed Reduction from `-55` to `-85 -95`
+  * Increased Aura Armour Reduction from `-5` to `-9 11`
+  * Increased Aura Attack Speed Bonus from `25 30` to `35 45`
+  * Increased Aura Armour Bonus from `10` to `9 11`
+* Fixed Bubble Orb not removing Bubble
+* Fixed Bloodstone Interaction with Illusions, Reincarnations and distant Kills
+
+### Heroes
+* Applied Patch 7.06 Talents and Abilities A-D
+* Update Mass Serpent Wards to work properly with special Talents
+* Update Call of the Wild for Boar spawn Talent
+* Phoenix
+  * Sun Ray
+    * Decreased Damage in Percent from `1.5 3.25 5.0 6.75 10.0 20.0` to `1.5 3.25 5.0 6.75 6.75 6.75`
+    * Decreased Heal in Percent from `0.625 1.25 1.875 2.5 3.75 8.75` to `0.625 1.25 1.875 2.5 2.5 2.5`
+
+### Bosses
+* Add Handling for Chen's Penitence to Boss Resistance
+
+### Map
+* Added Arena Shop
+* Moved Boss Pit Arena Entrances
+
+
+## Update 0.28.0
+[`b5a8bb33a3669ed4189059f5823b202f63198e56`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.0)
+* Generated Tooltips
+
+### Items
+* Removed Combiner
+* Added new Icons
+  * [Lotus Orb 2](https://github.com/OpenAngelArena/oaa/blob/954e65b899095652acd64aa5d46d8848d4e91557/game/resource/flash3/images/items/custom/lotus_orb_2.png)
+  * [Refresher Orb 2](https://github.com/OpenAngelArena/oaa/blob/954e65b899095652acd64aa5d46d8848d4e91557/game/resource/flash3/images/items/custom/refresher_orb_2%20.png)
+* Fixed Siege Mode 2 not doing anything on Activation
+* Deadalus
+  * Increased Bonus Damage from `80 105 130 155 180` to `80 120 180 270 360`
+  * Decreased Crit Chance from `30 35 40 45 50` to `30`
+  * Increased Crit Multiplier from `235 255 275 295 315` to `235 260 285 310 335`
+* Bloodthorn
+  * Decreased Bonus Damage from `60 90 120 170 250` to `60 90 135 200 270`
+  * Decreased Crit Chance from `20 22 25 27 30` to `20`
+  * Increased Crit Multiplier from `175 190 210 230 250` to `175 195 215 235 255`
+  * Decreased Crit Multiplier on Target from `145 160 180 200 220` to `145 160 175 190 205`
+
+### Heroes
+* Juggernaut
+  * Blade Dance
+    * Decreased Crit Chance from `20 25 30 35 40 50` to `20 25 30 35 40 45`
+* Lycan
+  * Shapeshift
+    * Decreased Crit Multiplier from `160 180 200 240 370` to `160 180 200 220 240`
+* Brewmaster
+  * Drunken Brawler
+    * Decreased Crit Multiplier from `230 230 230 230 280 330` to `230`
+* Phantom Assassin
+  * Coup de Grace
+    * Increased Crit Bonus from `230 340 450 560 750` to `230 340 450 560 770`
+
+### Bosses
+* Uriel 
+  * Decreased Physical Armour from `250` to `75`
+  * Decreased Magical Armour from `200` to `20`
+
+
+## Hotfix 0.28.1
+[`617f671b8e9a1a212d828b4909280a2a169bedd5`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.1)
+
+### Items
+* Octarine Core
+  * Reduced Hero Lifesteal from `25 35` to `25 30`
+* Satanic 
+  * Increased Lifesteal from `25` to `25 30 35 40 45`
+  * Increased Unholy Lifesteal from `175` to `175 170 165 160 155`
+* Satanic Core
+  * Decreased Hero Lifesteal from `35 45 55` to `35`
+  * Decreased Unholy Creep Spellsteal from `200` to `190 180 170`
+  * Decreased Unholy Hero Spellsteal from `200` to `165`
+
+
+## Update 0.29.0 - Chris is back again again
+[`617f671b8e9a1a212d828b4909280a2a169bedd5`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.29.0)
+* Generated Tooltips
+
+### Cave
+* Roshlings
+  * Made Creep Heros
+
+### Items
+* Reworked Pull Staff to work more like Pudges Hook than a reverse Force Staff
+* Added Insta-Kill Dev-Dagon
+* Shivas Cuirass
+  * Decreased Bonus Armour from `45 50` to `40 45`
+  * Increased Aura Armour Reduction from `-9 11` to `-15 -20`
+  * Increased Aura Bonus Armour from `9 11` to `15 20`
+* Removed Proximity Radiance
+* Fixed Refresher Items not sharing a Cooldown
+* Octarine Core
+  * Increased Bonus Intelligence from `25 35` to `25 38`
+* Satanic Core
+  * Increased Bonus Strength from `38 55 75` to `28 45 65`
+  * Increased Bonus Intelligence from `25 35 45` to `28 45 65`
+  * Removed Bonus Damage
+* Crimson Guard
+  * Increased Active Melee Damage Block from `60` to `60 90`
+  * Increased Active Ranged Damage Block from `60` to `60 90`
+* Refresher
+  * Increased Bonus Health Regen from `12 16` to `12 18`
+* Refresher Core
+  * Changed Bonus Intelligence from `40 45 50` to `28 45 65`
+  * Decreased Bonus Health from `600 700 800` to `500`
+  * Decreased Bonus Mana from `600` to `500`
+
+### Shops
+* Disabled Universal Shop
+* Make Secret Shop Items purchasable in Home Shop
+* Make only Dust of Appearance and Sentry Wards purchasable from Arena Shop
+* Rearrange Item List in Home Shop
+
+### Heroes
+* Applied Patch 7.06b
+
+### UI
+* Added Quick Stat Display
+* Added Version Display in upper right Corner
+
+### Misc
+* Creeps now spawn 30 seconds after Game Start
+* PreGame Time increased to 30 seconds
+* Massive Icon and Item related formatting and naming fixes
+
+
+## Hotfix 0.29.1 - Chrono breaks stuff
+[`f2fae07f265ad915e42d9ccd3a861246ba6ec334`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.29.1)
+
+### Items
+* Fixed Some Files pointing to renamed Files
+
+
+## Update 0.30.0
+[`5852e4d64c20141bb0dd2adcdf239665cc37bd26`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.30.0)
+
+### Items
+* Fixed Siege Mode becoming unuseable if you die while it's active
+* Added Missing Spell Icons
+
+### Heroes
+* Rewrite Rearm and make it not refresh Reflex Items 
+
+### Bosses
+* Lock out enemy Players from Tier 1 Bosses
+
+
+## Hotfix 0.30.1
+[`37fd9ed8ee4cb1d9149f0bd07087d0994791c1e4`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.30.1)
+
+### Items
+* Fix Greater Travel Boots Pointing to renamed Files
+
+
+## Update 0.31.0
+[`e04c1ce79454e2b44ce6f0cd278997e91a2203b2`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.31.0)
+
+### Bosses
+* Make Boss Resistance use Damage Block
+* Set Charger Pillars to 1 Health
+
+### UI
+* Make Quick Stat Display more clear
+* Handle leveling up talents properly in the UI
+
+
+## Update 0.32.0
+[`cdac449b268d84717d1731972ab657288afa2117`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.32.0)
+
+### Items
+* Rewrite Stoneskin
+
+### Bosses
+* Fix Shilder's Shield due to boss resisitance
+
+### Misc
+* Changed Glyph to drop Ward instead
+
+
+## Update 0.33.0
+[`e02212ade6eb27bd18b90465da40abf905134ebf`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.33.0)
+
+### Creeps
+* Reduce existing Creep Search Range for Creep Spawner
+
+### Items
+* Fix modifier and channel icons for Greater Travel Boots
+* Added New Icons
+  * [Pull Staff](https://github.com/OpenAngelArena/oaa/blob/09fa69fd32b3e47d72163f564ac11f26472b1f89/game/resource/flash3/images/items/custom/pull_staff.png)
+  * [Force Staff](https://github.com/OpenAngelArena/oaa/blob/09fa69fd32b3e47d72163f564ac11f26472b1f89/game/resource/flash3/images/items/force_staff.png)
+
+### Shops 
+* Updated Main Shop Item List
+
+### Bosses
+* Added New Bosses to Tier 1.5
+  * Simple Boss 1
+  * Simple Boss 2
+  * Simple Boss 5
+
+  
+## Update 0.34.0
+[`b8a4c62535b2ff12bdbf178e52611faf9eda27c9`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.34.0)
+* Generated Translations
+
+### Items
+* Fixed a bunch of Modifiers being purgable when they shouldn't be
+* Fixed Pull Staff to make sure you land in a decent spot 
+
+### Bosses
+* Fixed Simple Boss Abilities
+
+### Duels
+* Purge runes after Duel
+
+### UI
+* Added In-Game Info Panel for new Players
+
+### Map
+* Cleared out the Area near the new Camp
+
 
 ## Template
 ```Markdown
-## <Name> <Tag>
-`<commit>`
+## <Type> <Tag> - <Name>
+[`<commit>`](link to tag)
 ### Creeps
 ### Cave
 ### Items
+### Shop
 ### Heroes
 ### Bosses
 ### Duels
