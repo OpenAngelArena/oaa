@@ -55,7 +55,10 @@ end
 
 function item_pull_staff:CastFilterResultTarget(target)
   local caster = self:GetCaster()
-  if target == caster then
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+  if defaultFilterResult ~= UF_SUCCESS then
+    return defaultFilterResult
+  elseif target == caster then
     return UF_FAIL_CUSTOM
   end
 end
