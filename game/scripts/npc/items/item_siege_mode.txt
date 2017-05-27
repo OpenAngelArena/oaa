@@ -99,9 +99,14 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_aoe"                                       "300"
+        "siege_cast_range"                                "0"
       }
       "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_aoe"                                       "300"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "siege_splash"                                    "100"
