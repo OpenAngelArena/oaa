@@ -11,7 +11,12 @@ function item_pull_staff:OnSpellStart()
   local target = self:GetCursorTarget()
   self.target = target
   local caster = self:GetCaster()
-  if target == nil or caster == nil or target == caster then
+
+  if target:TriggerSpellAbsorb(self) then
+    return
+  end
+
+  if target == nil or caster == nil then
     self:StartCooldown(0)
     return
   end
@@ -46,6 +51,23 @@ function item_pull_staff:OnSpellStart()
   --DebugDrawLine(targetposition, targetposition + vVelocity, 255, 0, 0, true, 10)
   --DebugDrawLine(targetposition + Vector(0, 0, 128), casterposition + Vector(0, 0, 128), 0, 255, 0, true, 10)
   --DebugDrawLine(targetposition + Vector(0, 0, 64), targetposition + ProjectileManager:GetLinearProjectileVelocity(projectile) + Vector(0, 0, 64), 0, 0, 255, true, 10)
+end
+
+function item_pull_staff:CastFilterResultTarget(target)
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+  if defaultFilterResult ~= UF_SUCCESS then
+    return defaultFilterResult
+  elseif target == caster then
+    return UF_FAIL_CUSTOM
+  end
+end
+
+function item_pull_staff:GetCustomCastErrorTarget(target)
+  local caster = self:GetCaster()
+  if target == caster then
+    return "#dota_hud_error_cant_cast_on_self"
+  end
 end
 
 function item_pull_staff:OnProjectileThink(vLocation)
