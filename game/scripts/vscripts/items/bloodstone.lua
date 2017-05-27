@@ -185,7 +185,7 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
       -- Charge gain
 
       local function IsItemBloodstone(item)
-        return string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
+        return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
       end
 
       local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
