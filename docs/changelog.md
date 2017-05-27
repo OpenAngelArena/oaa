@@ -1107,11 +1107,149 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Disabled Skip Team Setup
 
 
+## Update 0.27.0
+[`1e6af1f435bc492dbd15c70a6223ecd30986adf9`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.27.0)
+
+### Items
+* Applied patches 7.03 7.04 7.05
+* Added Siege Mode
+* Added New Icons
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_1.png)
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_2.png)
+  * [Abyssal Blade 1]https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_3.png()
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_4.png)
+  * [Abyssal Blade 1](https://github.com/OpenAngelArena/oaa/blob/a700db52d5b39a3e8072024b602502661ff991d8/game/resource/flash3/images/items/custom/Abyssal_Blade_5.png)
+  * [Assault Cuirass 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_1.png)
+  * [Assault Cuirass 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_2.png)
+  * [Assault Cuirass 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/assault_cuirass_3.png)
+  * [Lotus Orb 1](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/lotus_orb_1.png)
+  * [Refresher Orb 1](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/refresher_orb_1.png)
+  * [Refresher Orb 2](https://github.com/OpenAngelArena/oaa/blob/000c048125c5e4c67854cfcbe564c8bdd48d93e0/game/resource/flash3/images/items/custom/refresher_orb_2.png)
+  * [Crimson Guard 2](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/crimson_guard_2.png)
+  * [Silver Edge 2](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_2.png)
+  * [Silver Edge 3](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_3.png)
+  * [Silver Edge 4](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_4.png)
+  * [Silver Edge 5](https://github.com/OpenAngelArena/oaa/blob/3fa69ad8273d87d80c74e64562557331a47ba913/game/resource/flash3/images/items/custom/silver_edge_5.png)
+  * [Battle Fury 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_1.png)
+  * [Battle Fury 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_2.png)
+  * [Battle Fury 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_3.png)
+  * [Battle Fury 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/battle_fury_4.png)
+  * [Bloodstone 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_1.png)
+  * [Bloodstone 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_2.png)
+  * [Bloodstone 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_3.png)
+  * [Bloodstone 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_4.png)
+  * [Bloodstone 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodstone_5.png)
+  * [Bloodthorn 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_1.png)
+  * [Bloodthorn 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_2.png)
+  * [Bloodthorn 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_3.png)
+  * [Bloodthorn 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_4.png)
+  * [Bloodthorn 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/bloodthorn_5.png)
+  * [Desolator 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_1.png)
+  * [Desolator 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_2.png)
+  * [Desolator 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_3.png)
+  * [Desolator 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_4.png)
+  * [Desolator 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/desolator_5.png)
+  * [Drums of Endurance 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/drums_1.png)
+  * [Drums of Endurance 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/drums_2.png)
+  * [Echo Sabre 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_1.png)
+  * [Echo Sabre 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_2.png)
+  * [Echo Sabre 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_3.png)
+  * [Echo Sabre 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/echo_sabre_4.png)
+  * [Heart of Tarrasque 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart.png)
+  * [Heart of Tarrasque 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_2.png)
+  * [Heart of Tarrasque 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_3.png)
+  * [Heart of Tarrasque 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_4.png)
+  * [Heart of Tarrasque 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_5.png)
+  * [Heart Transplant 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_transplant.png)
+  * [Heart Transplant 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/heart_transplant_2.png)
+  * [Ethereal Blade 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade.png)
+  * [Ethereal Blade 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_2.png)
+  * [Ethereal Blade 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_3.png)
+  * [Ethereal Blade 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_4.png)
+  * [Ethereal Blade 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_ethereal_blade_5.png)
+  * [Greater Phase Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase.png)
+  * [Greater Phase Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_2.png)
+  * [Greater Phase Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_3.png)
+  * [Greater Phase Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_4.png)
+  * [Greater Phase Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_phase_5.png)
+  * [Greater Power Treads 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads.png)
+  * [Greater Power Treads 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_2.png)
+  * [Greater Power Treads 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_3.png)
+  * [Greater Power Treads 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_4.png)
+  * [Greater Power Treads 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_power_treads_5.png)
+  * [Greater Tranquil Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils.png)
+  * [Greater Tranquil Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_2.png)
+  * [Greater Tranquil Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_3.png)
+  * [Greater Tranquil Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_4.png)
+  * [Greater Tranquil Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_tranquils_5.png)
+  * [Greater Travel Boots 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels.png)
+  * [Greater Travel Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_2.png)
+  * [Greater Travel Boots 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_3.png)
+  * [Greater Travel Boots 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_4.png)
+  * [Greater Travel Boots 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/item_greater_travels_5.png)
+  * [Linkes Sphere 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/linkens_sphere_2.png)
+  * [Pipe of Insight 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/pipe_of_insight_2.png)
+  * [Ring of Aquila 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila.png)
+  * [Ring of Aquila 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila_2.png)
+  * [Ring of Aquila 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/ring_of_aquila_3.png)
+  * [Sange and Yasha 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/sange_and_yasha_1.png)
+  * [Sange and Yasha 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/sange_and_yasha_2.png)
+  * [Scythe of Vyse 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_1.png)
+  * [Scythe of Vyse 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_2.png)
+  * [Scythe of Vyse 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_3.png)
+  * [Scythe of Vyse 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_4.png)
+  * [Scythe of Vyse 5](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/scythe_of_vyse_5.png)
+  * [Shivas Cuirass 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_cuirass.png)
+  * [Shivas Cuirass 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_cuirass.png)
+  * [Shivas Guard 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_1.png)
+  * [Shivas Guard 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_2.png)
+  * [Shivas Guard 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/shivas_guard_3.png)
+  * [Solar Crest 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_1.png)
+  * [Solar Crest 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_2.png)
+  * [Solar Crest 3](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_3.png)
+  * [Solar Crest 4](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/solar_crest_4.png)
+  * [Veil of Discord 1](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/veil_of_discord_1.png)
+  * [Veil of Discord 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/custom/veil_of_discord_2.png)
+  * [Phase Boots](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/phase_boots.png)
+  * [Power Treads](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/power_treads.png)
+  * [Tranquil Boots](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/tranquil_boots.png)
+  * [Trave Boots 2](https://github.com/OpenAngelArena/oaa/blob/6c84c410bd1cc5da631b8a240d806659698a3f56/game/resource/flash3/images/items/travel_boots_2.png)
+* Lucience
+  * Decreased Toggle Cooldown from `3` to `1`
+* Satanic Core
+  * Decreased Hero Lifesteal from `50 65 80` to `35 45 55`
+* Shivas Cuirass
+  * Increased Bonus Armour from `40` to `45 50`
+  * Increased Bonus Attack Speed from `30 40` to `50 60`
+  * Increased Blast Radius from `900` to `900 1100`
+  * Increased Aura Attack Speed Reduction from `-55` to `-85 -95`
+  * Increased Aura Armour Reduction from `-5` to `-9 11`
+  * Increased Aura Attack Speed Bonus from `25 30` to `35 45`
+  * Increased Aura Armour Bonus from `10` to `9 11`
+* Fixed Bubble Orb not removing Bubble
+* Fixed Bloodstone Interaction with Illusions, Reincarnations and distant Kills
+
+### Heroes
+* Applied Patch 7.06 Talents and Abilities A-D
+* Update Mass Serpent Wards to work properly with special Talents
+* Update Call of the Wild for Boar spawn Talent
+* Phoenix
+  * Sun Ray
+    * Decreased Damage in Percent from `1.5 3.25 5.0 6.75 10.0 20.0` to `1.5 3.25 5.0 6.75 6.75 6.75`
+    * Decreased Heal in Percent from `0.625 1.25 1.875 2.5 3.75 8.75` to `0.625 1.25 1.875 2.5 2.5 2.5`
+
+### Bosses
+* Add Handling for Chen's Penitence to Boss Resistance
+
+### Map
+* Added Arena Shop
+* Moved Boss Pit Arena Entrances
+
 
 ## Template
 ```Markdown
-## <Name> <Tag>
-`<commit>`
+## <Type> <Tag> - <Name>
+[`<commit>`](link to tag)
 ### Creeps
 ### Cave
 ### Items
