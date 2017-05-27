@@ -1360,6 +1360,19 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Fixed Some Files pointing to renamed Files
 
 
+## Update 0.30.0
+[`5852e4d64c20141bb0dd2adcdf239665cc37bd26`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.30.0)
+
+### Items
+* Fixed Siege Mode becoming unuseable if you die while it's active
+* Added Missing Spell Icons
+
+### Heroes
+* Rewrite Rearm and make it not refresh Reflex Items 
+
+### Bosses
+* Lock out enemy Players from Tier 1 Bosses
+
 
 ## Template
 ```Markdown
