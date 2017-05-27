@@ -22,6 +22,10 @@ function modifier_ward_invisibility:CheckState()
   }
 end
 
+function modifier_ward_invisibility:IsHidden()
+  return true
+end
+
 --------------------------------------------------------------------------
 -- aura stuff
 
