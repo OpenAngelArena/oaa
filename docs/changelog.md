@@ -1285,6 +1285,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Decreased Physical Armour from `250` to `75`
   * Decreased Magical Armour from `200` to `20`
 
+
 ## Hotfix 0.28.1
 [`617f671b8e9a1a212d828b4909280a2a169bedd5`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.28.1)
 
@@ -1300,6 +1301,61 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * Decreased Unholy Hero Spellsteal from `200` to `165`
 
 
+## Update 0.29.0 - Chris is back again again
+[`617f671b8e9a1a212d828b4909280a2a169bedd5`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.29.0)
+* Generated Tooltips
+
+### Cave
+* Roshlings
+  * Made Creep Heros
+
+### Items
+* Reworked Pull Staff to work more like Pudges Hook than a reverse Force Staff
+* Added Insta-Kill Dev-Dagon
+* Shivas Cuirass
+  * Decreased Bonus Armour from `45 50` to `40 45`
+  * Increased Aura Armour Reduction from `-9 11` to `-15 -20`
+  * Increased Aura Bonus Armour from `9 11` to `15 20`
+* Removed Proximity Radiance
+* Fixed Refresher Items not sharing a Cooldown
+* Octarine Core
+  * Increased Bonus Intelligence from `25 35` to `25 38`
+* Satanic Core
+  * Increased Bonus Strength from `38 55 75` to `28 45 65`
+  * Increased Bonus Intelligence from `25 35 45` to `28 45 65`
+  * Removed Bonus Damage
+* Crimson Guard
+  * Increased Active Melee Damage Block from `60` to `60 90`
+  * Increased Active Ranged Damage Block from `60` to `60 90`
+* Refresher
+  * Increased Bonus Health Regen from `12 16` to `12 18`
+* Refresher Core
+  * Changed Bonus Intelligence from `40 45 50` to `28 45 65`
+  * Decreased Bonus Health from `600 700 800` to `500`
+  * Decreased Bonus Mana from `600` to `500`
+
+### Shops
+* Disabled Universal Shop
+* Make Secret Shop Items purchasable in Home Shop
+* Make only Dust of Appearance and Sentry Wards purchasable from Arena Shop
+* Rearrange Item List in Home Shop
+
+### Heroes
+* Applied Patch 7.06b
+
+### UI
+* Added Quick Stat Display
+* Added Version Display in upper right Corner
+
+### Misc
+* Creeps now spawn 30 seconds after Game Start
+* PreGame Time increased to 30 seconds
+* Massive Icon and Item related formatting and naming fixes
+
+
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
@@ -1307,6 +1363,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Creeps
 ### Cave
 ### Items
+### Shop
 ### Heroes
 ### Bosses
 ### Duels
