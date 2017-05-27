@@ -16,14 +16,26 @@ function item_lucience:GetIntrinsicModifierName()
   return "modifier_item_lucience_aura_handler"
 end
 
-function item_lucience:OnToggle()
+function item_lucience:OnSpellStart()
+  local caster = self:GetCaster()
+
   self:StartCooldown(self:GetCooldown(self:GetLevel()))
 
-  local caster = self:GetCaster()
+  -- Switch state
+  self.serverLucienceState = not self.serverLucienceState
+
   -- Switch auras
   if self.auraHandler then
     self.auraHandler:OnRefresh()
   end
+end
+
+function item_lucience:GetToggleState()
+  if self.serverLucienceState == nil then
+    self.serverLucienceState = false
+  end
+
+  return self.serverLucienceState
 end
 
 function item_lucience:GetAbilityTextureName()
@@ -52,7 +64,7 @@ end
 
 function item_lucience.RemoveLucienceEffects(ability, effectModifierName, unit)
   local effectModifier = unit:FindModifierByName(effectModifierName)
-  if effectModifier and ability:GetLevel() > effectModifier:GetAbility():GetLevel() then
+  if effectModifier then
     unit:RemoveModifierByName(effectModifierName)
   end
 end
@@ -76,6 +88,27 @@ function modifier_item_lucience_aura_handler:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
+function modifier_item_lucience_aura_handler:GetLuciences()
+  local caster = self:GetCaster()
+
+  local function IsItemLucience(item)
+    return item and string.sub(item:GetAbilityName(), 0, 13) == "item_lucience"
+  end
+
+  local inventoryItems = map(partial(caster.GetItemInSlot, caster), range(0, 5))
+  local lucienceItems = filter(IsItemLucience, inventoryItems)
+
+  return lucienceItems
+end
+
+function modifier_item_lucience_aura_handler:IsHighestLevelLucience(item)
+  local function IsLowerOrEqualLevel(item2)
+    return item2:GetLevel() <= item:GetLevel()
+  end
+
+  return every(IsLowerOrEqualLevel, self:GetLuciences())
+end
+
 function modifier_item_lucience_aura_handler:OnCreated()
   local ability = self:GetAbility()
   ability.auraHandler = self
@@ -84,8 +117,6 @@ function modifier_item_lucience_aura_handler:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
-    local currentRegenAura = parent:FindModifierByName(regenAuraName)
-    local currentMovespeedAura = parent:FindModifierByName(movespeedAuraName)
 
     -- Set stack count to update item icon
     if ability:GetToggleState() then
@@ -94,16 +125,14 @@ function modifier_item_lucience_aura_handler:OnCreated()
       self:SetStackCount(auraTypeRegen)
     end
 
-    -- If the owner has a higher level Lucience Aura then don't do anything
-    if currentRegenAura and ability:GetLevel() < currentRegenAura:GetAbility():GetLevel() then
-      return
-    elseif currentMovespeedAura and ability:GetLevel() < currentMovespeedAura:GetAbility():GetLevel() then
+    -- If the owner has a higher level Lucience then don't do anything
+    if not self:IsHighestLevelLucience(ability) then
       return
     end
 
-    item_lucience.RemoveLucienceAuras(parent)
     -- Delay adding the aura modifiers by a frame so that illusions won't always spawn with the regen aura
     Timers:CreateTimer(function()
+      item_lucience.RemoveLucienceAuras(parent)
       if ability:GetToggleState() then
         parent:AddNewModifier(caster, ability, movespeedAuraName, {})
       else
@@ -120,21 +149,12 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     local parent = self:GetParent()
 
     local ability = self:GetAbility()
-    local currentRegenAura = parent:FindModifierByName(regenAuraName)
-    local currentMovespeedAura = parent:FindModifierByName(movespeedAuraName)
 
-    if ability:GetToggleState() then
-      self:SetStackCount(auraTypeMovespeed)
-    else
-      self:SetStackCount(auraTypeRegen)
-    end
-
-    -- If the owner has a higher level Lucience Aura then don't do anything
-    if currentRegenAura and ability:GetLevel() < currentRegenAura:GetAbility():GetLevel() then
-      return
-    elseif currentMovespeedAura and ability:GetLevel() < currentMovespeedAura:GetAbility():GetLevel() then
+    -- If the owner has a higher level Lucience then don't do anything
+    if not self:IsHighestLevelLucience(ability) then
       return
     end
+
     local function RefreshHandler(modifier)
       modifier:OnRefresh()
     end
