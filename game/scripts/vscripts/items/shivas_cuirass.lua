@@ -41,6 +41,10 @@ function modifier_item_shivas_cuirass:IsAura()
 	return true
 end
 
+function modifier_item_shivas_cuirass:IsPurgable()
+  return false
+end
+
 function modifier_item_shivas_cuirass:GetAuraRadius()
 	return self.aura_radius
 end

@@ -23,6 +23,10 @@ function modifier_item_trumps_fists_passive:IsHidden()
   return true
 end
 
+function modifier_item_trumps_fists_passive:IsPurgable()
+  return false
+end
+
 function modifier_item_trumps_fists_passive:OnCreated()
   self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
   self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
