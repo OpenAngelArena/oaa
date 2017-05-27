@@ -61,7 +61,7 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 		self:StartIntervalThink( 0.1 )
 	end
-	
+
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )

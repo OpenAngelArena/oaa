@@ -85,7 +85,7 @@ function modifier_item_greater_power_treads:OnCreated( event )
 	end
 
 	spell.treadMod = self
-	
+
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
 	self.stat = spell:GetSpecialValueFor( "bonus_stat" )
@@ -95,7 +95,7 @@ end
 
 function modifier_item_greater_power_treads:OnRemoved()
 	local spell = self:GetAbility()
-	
+
 	if spell and not spell:IsNull() then
 		spell.treadMod = nil
 	end

@@ -34,7 +34,7 @@ function item_siege_mode:OnSpellStart()
 	-- ( which we should, but 'should' isn't a concept in programming )
 	-- remove it
 	local mod = caster:FindModifierByName( "modifier_item_siege_mode_siege" )
-	
+
 	if mod and not mod:IsNull() then
 		mod:Destroy()
 
@@ -77,7 +77,7 @@ function modifier_item_siege_mode_siege:OnCreated( event )
 	local spell = self:GetAbility()
 
 	spell.mod = self
-	
+
 	self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
 	self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
 	self.atkDmg = spell:GetSpecialValueFor( "seige_damage_bonus" )
@@ -90,7 +90,7 @@ end
 
 function modifier_item_siege_mode_siege:OnRemoved()
 	local spell = self:GetAbility()
-	
+
 	if spell and not spell:IsNull() then
 		spell.mod = nil
 	end

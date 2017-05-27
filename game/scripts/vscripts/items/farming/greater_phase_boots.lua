@@ -51,11 +51,11 @@ end
 
 function modifier_item_greater_phase_boots_active:OnCreated( event )
 	local spell = self:GetAbility()
-	
+
 	self.moveSpd = spell:GetSpecialValueFor( "phase_movement_speed" )
 	self.moveSpdRange = spell:GetSpecialValueFor( "phase_movement_speed_range" )
 	self.dmgReduction = spell:GetSpecialValueFor( "phase_attack_outgoing" ) - 100
-	
+
 	if IsServer() then
 		-- set up the table that stores the targets already hit
 		self.hitTargets = {}
@@ -72,11 +72,11 @@ end
 
 function modifier_item_greater_phase_boots_active:OnRefresh( event )
 	local spell = self:GetAbility()
-	
+
 	self.moveSpd = spell:GetSpecialValueFor( "phase_movement_speed" )
 	self.moveSpdRange = spell:GetSpecialValueFor( "phase_movement_speed_range" )
 	self.dmgReduction = spell:GetSpecialValueFor( "phase_attack_outgoing" ) - 100
-	
+
 	if IsServer() then
 		-- clear the tagets hit table on refresh
 		self.hitTargets = {}
@@ -114,7 +114,7 @@ if IsServer() then
 			FIND_ANY_ORDER,
 			false
 		)
-		
+
 		-- tell this modifier to reduce the damage of any further attacks
 		-- aka, the instant attacks
 		self.doReduction = true
@@ -135,7 +135,7 @@ if IsServer() then
 				ParticleManager:ReleaseParticleIndex( part )
 			end
 		end
-		
+
 		-- undo the damage reduction, so it doesn't leak into actual attacks
 		self.doReduction = false
 	end
