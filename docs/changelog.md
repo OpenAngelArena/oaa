@@ -32,14 +32,14 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.0.1 2017-03-24 
-`07a33e56577acdf503c608b4a5a966b5e4d3a403`
+[`07a33e56577acdf503c608b4a5a966b5e4d3a403`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.0.1)
 ### Items
 * Buff Travel Boots
   * Increased GPM from `60 90 120 150 180` to `60 120 240 480 960`
 
 
 ## Update 0.1.0 2017-03-27
-`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`
+[`b1ea9ff41c15c80b8ec50186aca7d4fa0e91a890`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.1.0)
 ### Items
 * Buffed Echo Sabre 
   * Reduced Cooldown from `5.0 5.0 5.0 5.0` to `5.0 4.0 3.0 2.0`
@@ -166,13 +166,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.1.1 2017-03-27
-`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`
+[`d664aa3b85f464b04ae5fe32a9b9c65fa645c6d9`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.1.1)
 ### Items
 * Fixed Greater Travel Boots not working
 
 
 ## Update 0.2.0 2017-03-27
-`ac9347374cde1186dc45dc9f282f8de5f7be84a7`
+[`ac9347374cde1186dc45dc9f282f8de5f7be84a7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.2.0)
 ### Items
 * Added Matyr's Mail
 * Fixed Charge BKB Recipe
@@ -186,7 +186,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.3.0 2017-04-03
-`67397b7a2a648bdafecf645ebb9b6193183eb970`
+[`67397b7a2a648bdafecf645ebb9b6193183eb970`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.3.0)
 ### Creeps
 * Changed Creep XP
   * XP now also depends on Player Count
@@ -231,13 +231,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.3.1 2017-04-04
-`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`
+[`f40d9fe53d4b75903f68eece7a4a85d6e7e00c63`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.3.1)
 ### Duels
 * Fixed Major Bug in Duels
 
 
 ## Update 0.4.0 2017-04-04
-`d064f0f294f395eb84f0e759fe4a6e178ac7078e`
+[`d064f0f294f395eb84f0e759fe4a6e178ac7078e`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.0)
 ### Items
 * Nerfed Assault Cuirass
   * Reduced Bonus Armour from `10 20 40` to `0 15 20`
@@ -286,12 +286,12 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.4.1 2017-04-04
-`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`
+[`c5240f33c3f78e8b7760efc2bf0d12e9a0eb0f73`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.1)
 ### Duels
 * Made Duels generally more stable
 
 ## Hotfix 0.4.2 2017-04-04
-`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`
+[`d4c5cbcd2948072592be1db4c90ae36c8ebf1d4a`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.4.2)
 ### Items
 * Custom Bottle is now known as Infinity Bottle
 * Changed Infinity Bottle
@@ -299,7 +299,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.5.0
-`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`
+[`622d721b54da759ae3d1cb5aaf668ef0fc5b9036`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.0)
 * Updated Translations
 
 ### Items
@@ -351,13 +351,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.5.1
-`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`
+[`587e82d5460e1dd2a13b5bf343c15a7b46dc0dca`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.1)
 * Updated Tooltips
 * Updated Translations
 
 
 ## Hotfix 0.5.2
-`4e162af2dab16a81759330dcedcca1a21280641c`
+[`4e162af2dab16a81759330dcedcca1a21280641c`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.2)
 ### Heroes
 * Nerfed Luna
   * Nerfed Eclipse
@@ -365,7 +365,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.6.0
-`22ed9cc2d9f6cd11589b967be9c7dcdd24914234`
+[`22ed9cc2d9f6cd11589b967be9c7dcdd24914234`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.5.3)
 ### Heroes
 * Updated Talents of all Heroes
 
@@ -393,7 +393,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.6.1
-`5fa599290f06e0b0be07c514d5b4fbe668354dc7`
+[`5fa599290f06e0b0be07c514d5b4fbe668354dc7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.6.1)
 * Updated Translations
 
 ### Items
@@ -401,7 +401,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.7.0 Public Testing #1
-`fe37f7c42eccb83ac42aad89d7284d5254eea9c7`
+[`fe37f7c42eccb83ac42aad89d7284d5254eea9c7`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.0)
 ### Items
 * Nerfed Abyssal Blade
   * Increased Health from `250 500 1000 2000 4000` to `250 500 750 1250 2000`
@@ -433,7 +433,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.7.1 Public Testing #1
-`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`
+[`1eb5f9d1b6c9320fd155fd4c35cb5eed941d975d`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.1)
 ### Creeps
 * After Minute `60` Experience per Creep get multiplied with `1.5 ^ (minute - 60)`
 ### Items
@@ -442,13 +442,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.7.2 Public Testing #1
-`f904de21df2699943df5b1079a750f36f6fb62e4`
+[`f904de21df2699943df5b1079a750f36f6fb62e4`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.2)
 ### Items
 * Added Icons to Trumps Fists
 
 
 ## Update 0.7.3
-`1d6919a30aac21c47720fb68c1b7e87c5166f671`
+[`1d6919a30aac21c47720fb68c1b7e87c5166f671`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.7.3)
 ### Items
 * Added Items to Shroud of Shadows
 * Changed Trumps Fists
@@ -460,7 +460,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.8.0
-`6d6205dce3d7d45776199d0d1d11b71cc14a88e3`
+[`6d6205dce3d7d45776199d0d1d11b71cc14a88e3`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.8.0)
 ### Items
 * Fixed Divine Dispel Orb Recipe
 * Fixed Divine Reduction Orb Recipe
@@ -468,7 +468,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.9.0
-`be69ee79cec319513320d915f90241e18bcfff13`
+[`be69ee79cec319513320d915f90241e18bcfff13`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.9.0)
 ### Creeps
 * Fixed 61 Minute Bug where Creep Power get scaled wrong at Minute 61
 
@@ -484,7 +484,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.9.1
-`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`
+[`da53ac0b4db318b8d0ca8896c36ae8585cbdfd5a`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.9.1)
 ### Items
 * Nerfed Deadalus
   * Reduced Crit Multiplier from `240 300 350 400 450` to `240 260 280 300 320`
@@ -504,7 +504,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Map Update 0.10.0
-`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`
+[`a5691afc1d671f04f0d6edcba7ab32bb0b14477c`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.10.0)
 * Updated Translation
 
 ### Map
@@ -516,13 +516,13 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.10.1
-`452dfb2215887ed24705169a3b560b49bdd5e905`
+[`452dfb2215887ed24705169a3b560b49bdd5e905`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.10.1)
 ### Map
 * Generated new Minimap
 
 
 ## Update 0.11.0
-`08c17310913a88e9a73b49aebf1c5285760e2efa`
+[`08c17310913a88e9a73b49aebf1c5285760e2efa`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.11.0)
 ### Items
 * Added Invisibility Crystal
 * Added Greater Enrage Crystal
@@ -532,7 +532,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.12.0
-`f19a269e32c9e246883969a8bf6b68b791837fbc`
+[`f19a269e32c9e246883969a8bf6b68b791837fbc`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.12.0)
 ### Cave
 * Added Farming Cave
 
@@ -548,7 +548,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.12.1
-`5c14ce2cc1bc607a002f11eb7e923df564d7a087`
+[`5c14ce2cc1bc607a002f11eb7e923df564d7a087`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.12.1)
 * Updated Translations
 
 ### Duels
@@ -556,7 +556,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.13.0
-`b9b2ef229d71bfd736c74513236878e6331c7612`
+[`b9b2ef229d71bfd736c74513236878e6331c7612`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.13.0)
 * Updated Tooltips
 
 ## Cave
@@ -571,7 +571,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.13.1
-`3d2e92c05c24777005e73bab82b7d11a2cd51032`
+[`3d2e92c05c24777005e73bab82b7d11a2cd51032`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.13.1)
 ### Cave
 * Added Magical Resistance for Creeps
 * Rebalanced Creeps
@@ -599,7 +599,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.14.0
-`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`
+[`f8f3fd346cb5a087f6a5cd0ec08baed85486dbd0`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.14.0)
 * Updated Tooltips
 ### Map
 * [Video with Changes by Warpdragon](https://youtu.be/127ejnO1iIM)
@@ -610,7 +610,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.14.1
-`56de08ec510e9e480f666276f071f7f1428169f0`
+[`56de08ec510e9e480f666276f071f7f1428169f0`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.14.1)
 * Update Tooltips
 
 ### Items
@@ -623,7 +623,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.15.0
-`0461d693fecaf04328a537bd44ef75b23d01cde5`
+[`0461d693fecaf04328a537bd44ef75b23d01cde5`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.15.0)
 ### Cave
 * Fixed a Bug where you could get stuck between two rooms
 
@@ -661,7 +661,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.16.0 - Chris is back
-`d402627dc14afdf41f0b20bff261baa8488f9b25`
+[`d402627dc14afdf41f0b20bff261baa8488f9b25`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.16.0)
 ### Cave
 * Fixed Mini Rosh Leash
 
@@ -744,7 +744,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.17.0
-`d2f46c3790d72edbf0fa0dea44c35385fdc88908`
+[`d2f46c3790d72edbf0fa0dea44c35385fdc88908`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.17.0)
 ### Items
 * Fixed Bug where Bottle Counter gets increased when creating Illusions
 * Rewrite Lucience
@@ -752,7 +752,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.18.0
-`a1832aaa008d71b944e415a4a1c0ae375bf85399`
+[`a1832aaa008d71b944e415a4a1c0ae375bf85399`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.18.0)
 * Updated Tooltips
   
 ### Items
@@ -771,7 +771,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.19.0
-`6aea59c1c60eee01714fdc16e0b1920f1464ba15`
+[`6aea59c1c60eee01714fdc16e0b1920f1464ba15`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.19.0)
 * Update Tooltips
 
 ### Creeps
@@ -805,7 +805,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.20.0
-`b1ff4d9a37e6b562cfb5d3b3bbbf132b1d9211ea`
+[`b1ff4d9a37e6b562cfb5d3b3bbbf132b1d9211ea`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.20.0)
 * Update Tooltips
 
 ### Bosses
@@ -818,7 +818,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.21.0
-`9311104615207fafaf6e8976c879159191ce2e54`
+[`9311104615207fafaf6e8976c879159191ce2e54`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.21.0)
 * Updated Tooltips
 
 ### Creeps
@@ -831,7 +831,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.22.0 - Chris is back again
-`38a53f9403710665a6455787f496ec51b09eb971`
+[`38a53f9403710665a6455787f496ec51b09eb971`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.22.0)
 * Generated Tooltips
 * Added new Languages
 
@@ -896,7 +896,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.23.0 - Icon Update
-`745f31338eb5ce263ff18b9270cac512995787f6`
+[`745f31338eb5ce263ff18b9270cac512995787f6`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.23.0)
 ### Items
 * Added Progressive Icons
   * Greater Power Treads, Grater Phase, Tranquil and Travel Boots
@@ -952,7 +952,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 0.24.0
-`6cf270810ec8860d0dc6b34d374c9f992a1997e6`
+[`6cf270810ec8860d0dc6b34d374c9f992a1997e6`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.0)
 * Updated Tooltips
 
 ### Creeps
@@ -971,7 +971,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ### Update 0.24.1 - More Icons
-`d41f222edeab046ea0f43d6e58eff77e6c358708`
+[`d41f222edeab046ea0f43d6e58eff77e6c358708`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.1)
 ### Creeps
 * Fixed Creep Progression
 
@@ -1017,7 +1017,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Icon Hotfix 0.24.2
-`1f650bb51587cd658d76aa2a813175205db5cea8`
+[`1f650bb51587cd658d76aa2a813175205db5cea8`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.2)
 ### Items
 * Fixed Icons
   * Scythe of Vyse
@@ -1028,7 +1028,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Hotfix 0.24.3
-[`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`](#6fdeb8be99c701af9ac694d0f63cc3c40f07a758)
+[`6fdeb8be99c701af9ac694d0f63cc3c40f07a758`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.24.3)
 ### Items
 * Heart of Tarrasque
   * Increased Health Regen from `3.25` tp `7`
@@ -1045,6 +1045,12 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ### Misc
 * Fixed Neutral Hero Kill increasing Points
+
+
+## Update 0.25.0
+[`88545ec54884198a25e68a5570f361df67434f67`]](https://github.com/OpenAngelArena/oaa/releases/tag/v0.25.0)
+
+
 
 
 
