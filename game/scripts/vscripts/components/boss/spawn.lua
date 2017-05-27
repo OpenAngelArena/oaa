@@ -4,7 +4,7 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
-  Debug.EnabledModules['boss:spawn'] = false
+  Debug.EnabledModules['boss:spawn'] = true
 end
 
 function BossSpawner:Init ()
@@ -63,7 +63,13 @@ function BossSpawner:SpawnBossAtPit (pit)
   local bossTier = tierIndex - 1 + startTier
   local bossName = options[tierIndex]
   if type(bossName) ~= 'string' then
-    bossName = bossName[math.random(1, #bossName)]
+    -- i had the worst luck today and got all simple_1 bosses in all 4 spots 2 games in a row and thought this was broken
+    -- so i removed the simple_1 from the list, and sure enough all 4 spots spawned with tier 2 bosses.
+    -- then i realized i only removed simple_1 from one of the two lists, reloaded once more and got all random
+    -- it was never broken
+    -- 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/2 * 1/2 * 1/3 * 1/3 oods
+    -- DebugPrint('There are ' .. #bossName .. 'options for this boss')
+    bossName = bossName[math.random(#bossName)]
   end
   local isProtected = bossList == 1 and pit.killCount == 1
 

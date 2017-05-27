@@ -15,7 +15,10 @@ Bosses = {
       "npc_dota_boss_simple_2",
       "npc_dota_boss_simple_5",
     },
-    "npc_dota_boss_twin",
+    {
+      "npc_dota_boss_twin",
+      "npc_dota_boss_shielder"
+    },
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
@@ -28,7 +31,10 @@ Bosses = {
       "npc_dota_boss_simple_2",
       "npc_dota_boss_simple_5",
     },
-    "npc_dota_boss_twin",
+    {
+      "npc_dota_boss_twin",
+      "npc_dota_boss_shielder"
+    },
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
