@@ -23,12 +23,22 @@ end
 function modifier_item_reactive_2b:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE
   }
 end
 
-function modifier_item_reactive_2b:GetModifierIncomingDamage_Percentage()
-  return -100
+function modifier_item_reactive_2b:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_item_reactive_2b:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_item_reactive_2b:GetAbsoluteNoDamagePure()
+  return 1
 end
 
 function modifier_item_reactive_2b:GetAbsorbSpell()
