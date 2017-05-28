@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5471"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -18,7 +18,7 @@
     "AbilityCastRange"                                    "1800"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0 10.0 10.0 10.0 10.0 10.0"
     "AbilityChannelTime"                                  "2.0 3.0 4.0 5.0 6.0 7.0"
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "100.0 100.0 100.0 100.0 100.0 100.0"
+        "damage_per_second"                               "100.0 100.0 100.0 100.0 120.0 215.0"
       }
       "02"
       {
@@ -55,7 +55,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "speed"                                           "1050.0"
-      }      
+      }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -67,12 +67,12 @@
         "vision_duration"                                 "3.34 3.34 3.34 3.34 3.34 3.34"
       }
       "08"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "channel_vision_radius"                           "375"
       }
       "09"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
         "channel_vision_interval"                         "0.5"
       }
@@ -89,7 +89,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 720 1500"
+        "total_damage"                                    "200 300 400 500 720 1505"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
     }
