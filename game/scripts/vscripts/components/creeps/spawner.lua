@@ -36,7 +36,9 @@ end
 
 function CreepCamps:CreepSpawnTimer ()
   if (10 > GameRules:GetDOTATime(false, false)) then
-    return 30
+    if not SKIP_TEAM_SETUP then
+      return 30
+    end
   end
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')

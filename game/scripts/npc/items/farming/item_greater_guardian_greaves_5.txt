@@ -35,7 +35,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3039"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_guardian_greaves"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_guardian_greaves.lua"
+
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/greater_guardian_greaves"
@@ -129,12 +131,12 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_damage"                                    "100 150 225 340 450"
+        "assist_percent"                                  "50 70 95 130 175"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_restore_per_creep"                          "25 40 60 85 110"
+        "assist_radius"                                   "1200 1300 1400 1500 1600"
       }
     }
   }
