@@ -83,6 +83,10 @@ function Duels:CheckDuelStatus (hero)
     if foundIt or player.id ~= playerId then
       return
     end
+    if not player.assigned or not player.duelNumber then
+      return
+    end
+
     foundIt = true
     local scoreIndex = player.team .. 'Living' .. player.duelNumber
     DebugPrint('Found dead player on ' .. player.team .. ' team with scoreindex ' .. scoreIndex)
@@ -421,7 +425,8 @@ function Duels:SavePlayerState (hero)
 end
 
 function Duels:RestorePlayerState (hero, state)
-  hero:SetAbsOrigin(state.location)
+  self:SafeTeleport(hero, state.location, 150)
+
   if state.hp > 0 then
     hero:SetHealth(state.hp)
   end
