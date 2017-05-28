@@ -36,13 +36,11 @@ end
 function modifier_item_satanic_core:OnCreated()
   self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
   self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
-  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
 function modifier_item_satanic_core:OnRefresh()
   self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
   self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
-  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
 function modifier_item_satanic_core:IsAura()
@@ -66,7 +64,7 @@ function modifier_item_satanic_core:GetAuraSearchFlags()
 end
 
 function modifier_item_satanic_core:GetAuraRadius()
-  return self.aura_radius
+  return 0
 end
 
 function modifier_item_satanic_core:IsPurgable()

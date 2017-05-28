@@ -71,22 +71,22 @@
       //----------------------------------
       // Glacing blow, when the charger strikes a hero indirectly and pushes them away
       //----------------------------------
-      "09"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glacing_damage"                                  "75 100 150"
       }
-      "10"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glacing_slow"                                    "10 30 50"
       }
-      "11"
+      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glacing_duration"                                "1 2 3"
       }
-      "12"
+      "13"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glacing_knockback"                               "200 250 300"

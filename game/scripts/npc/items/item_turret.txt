@@ -65,7 +65,9 @@
       "modifier_item_turret_summon"
       {
         "OnSpellStart"
-      {}
+        {
+          "SpawnUnit"                                     ""
+        }
       }
     }
 

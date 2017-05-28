@@ -35,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3221"    // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/satanic_core"
+    "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/satanic_core"

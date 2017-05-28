@@ -34,18 +34,6 @@ function modifier_item_trumps_fists_passive:OnCreated()
   self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
 
   self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
-
-  self.corruption_duration = self:GetAbility():GetSpecialValueFor( "corruption_duration" )
-
-  if IsServer() then
-    if self:GetParent():GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK then
-      self.cold_duration = self:GetAbility():GetSpecialValueFor( "cold_duration_melee" )
-    elseif self:GetParent():GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
-      self.cold_duration = self:GetAbility():GetSpecialValueFor( "cold_duration_ranged" )
-    else
-      self.cold_duration = 0
-    end
-  end
 end
 
 function modifier_item_trumps_fists_passive:DeclareFunctions()

@@ -11,7 +11,7 @@
     "ID"                                                  "5247"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "furion_force_of_nature"
-    "ScriptFile"                                          "abilities/oaa_force_of_nature"
+    "ScriptFile"                                          "abilities/oaa_force_of_nature.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
     // Stats
