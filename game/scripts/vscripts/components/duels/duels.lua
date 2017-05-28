@@ -452,8 +452,12 @@ end
 
 function Duels:SafeTeleportAll(owner, location, maxDistance)
   self:SafeTeleport(owner, location, maxDistance)
-  for child in ipairs(owner:GetChildren()) do
-    self:SafeTeleport(child, location, maxDistance)
+  for _,child in ipairs(owner:GetChildren()) do
+    if not child:IsNull() and child:IsAlive() and child.HasMovementCapability ~= nil and child:HasMovementCapability() then
+      if child:IsDominated() or child:IsIllusion() or child:IsTempestDouble() then
+        self:SafeTeleport(child, location, maxDistance)
+      end
+    end
   end
 end
 
