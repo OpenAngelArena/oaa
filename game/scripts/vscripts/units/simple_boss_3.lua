@@ -20,7 +20,7 @@ local function Think(state, target)
 
   if not ABILITY_tidebringer:IsActivated() then
     ExecuteOrderFromTable({
-      UnitIndex = caster:entindex(),
+      UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
       AbilityIndex = ABILITY_tidebringer:entindex(), --Optional.  Only used when casting abilities
       Queue = 0 --Optional.  Used for queueing up abilities
