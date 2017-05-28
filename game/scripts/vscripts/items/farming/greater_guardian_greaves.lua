@@ -161,5 +161,4 @@ function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
   else
     return self:GetAbility():GetSpecialValueFor("aura_armor")
   end
-  return self:GetAbility():GetSpecialValueFor("aura_armor")
 end
