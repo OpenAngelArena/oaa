@@ -43,7 +43,7 @@ end
 
 function modifier_item_reactive_2b:GetAbsorbSpell()
   if self.hasBlinked then
-    return true
+    return 1
   end
 
   local caster = self:GetCaster()
@@ -61,5 +61,5 @@ function modifier_item_reactive_2b:GetAbsorbSpell()
   local direction = (hTarget:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
   FindClearSpaceForUnit(caster, caster:GetAbsOrigin() + (direction * self:GetAbility():GetSpecialValueFor("distance")), false)
 
-  return true
+  return 1
 end
