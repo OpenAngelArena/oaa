@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Simple Boss 7: Desolate
+  //=================================================================================================================
+  "boss_desolate"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8335"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "spectre_desolate"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "65"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
+      }
+    }
+  }
+
+}

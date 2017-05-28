@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 
 if Glyph == nil then
   Debug.EnabledModules['filters:glyph'] = false
@@ -62,6 +63,7 @@ function Glyph:CastWard(playerID)
 
   local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, hero, hero:GetTeam())
   ward:AddNewModifier(ward, nil, "modifier_kill", { duration = 360 })
+  ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { })
 end
 
 function Glyph:ResetWardCooldown(playerID)

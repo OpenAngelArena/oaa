@@ -4,6 +4,20 @@ LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
+function item_siege_mode:GetAbilityTextureName()
+	local baseName = self.BaseClass.GetAbilityTextureName( self )
+
+	local activeName = ""
+
+	if self.mod and not self.mod:IsNull() then
+		activeName = "_active"
+	end
+
+	return baseName .. activeName
+end
+
+--------------------------------------------------------------------------------
+
 function item_siege_mode:GetIntrinsicModifierName()
 	-- we're not modifying the passive benefits at all
 	-- ( besides the numbers )
@@ -19,14 +33,15 @@ function item_siege_mode:OnSpellStart()
 	-- if we have the modifier while this thing is "toggled"
 	-- ( which we should, but 'should' isn't a concept in programming )
 	-- remove it
-	if self.mod and not self.mod:IsNull() then
-		self.mod:Destroy()
-		self.mod = nil
+	local mod = caster:FindModifierByName( "modifier_item_siege_mode_siege" )
+
+	if mod and not mod:IsNull() then
+		mod:Destroy()
 
 		caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
 	else
 		-- if it isn't toggled, add the modifier and keep track of it
-		self.mod = caster:AddNewModifier( caster, self, "modifier_item_siege_mode_siege", {} )
+		caster:AddNewModifier( caster, self, "modifier_item_siege_mode_siege", {} )
 
 		caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
 	end
@@ -58,6 +73,46 @@ end
 
 --------------------------------------------------------------------------------
 
+function modifier_item_siege_mode_siege:OnCreated( event )
+	local spell = self:GetAbility()
+
+	spell.mod = self
+
+	self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
+	self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
+	self.atkDmg = spell:GetSpecialValueFor( "siege_damage_bonus" )
+	self.atkSpd = spell:GetSpecialValueFor( "siege_atkspd_bonus" )
+	self.splashRadius = spell:GetSpecialValueFor( "siege_aoe" )
+	self.splashDmg = spell:GetSpecialValueFor( "siege_splash" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_siege_mode_siege:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	spell.mod = self
+
+	self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
+	self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
+	self.atkDmg = spell:GetSpecialValueFor( "siege_damage_bonus" )
+	self.atkSpd = spell:GetSpecialValueFor( "siege_atkspd_bonus" )
+	self.splashRadius = spell:GetSpecialValueFor( "siege_aoe" )
+	self.splashDmg = spell:GetSpecialValueFor( "siege_splash" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_siege_mode_siege:OnRemoved()
+	local spell = self:GetAbility()
+
+	if spell and not spell:IsNull() then
+		spell.mod = nil
+	end
+end
+
+--------------------------------------------------------------------------------
+
 function modifier_item_siege_mode_siege:CheckState()
 	local state = {
 		[MODIFIER_STATE_ROOTED] = true,
@@ -73,6 +128,7 @@ function modifier_item_siege_mode_siege:DeclareFunctions()
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+		MODIFIER_PROPERTY_CAST_RANGE_BONUS,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 
@@ -84,7 +140,7 @@ end
 function modifier_item_siege_mode_siege:GetModifierPreAttack_BonusDamage( event )
 	local spell = self:GetAbility()
 
-	return spell:GetSpecialValueFor( "siege_damage_bonus" )
+	return self.atkDmg or spell:GetSpecialValueFor( "siege_damage_bonus" )
 end
 
 --------------------------------------------------------------------------------
@@ -92,7 +148,7 @@ end
 function modifier_item_siege_mode_siege:GetModifierAttackSpeedBonus_Constant( event )
 	local spell = self:GetAbility()
 
-	return spell:GetSpecialValueFor( "siege_atkspd_bonus" )
+	return self.atkSpd or spell:GetSpecialValueFor( "siege_atkspd_bonus" )
 end
 
 --------------------------------------------------------------------------------
@@ -102,10 +158,18 @@ function modifier_item_siege_mode_siege:GetModifierAttackRangeBonus( event )
 	local parent = self:GetParent()
 
 	if parent:IsRangedAttacker() then
-		return spell:GetSpecialValueFor( "siege_attack_range" )
+		return self.atkRange or spell:GetSpecialValueFor( "siege_attack_range" )
 	end
 
 	return 0
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_siege_mode_siege:GetModifierCastRangeBonus( event )
+	local spell = self:GetAbility()
+
+	return self.castRange or spell:GetSpecialValueFor( "siege_cast_range" )
 end
 
 --------------------------------------------------------------------------------
@@ -140,7 +204,7 @@ if IsServer() then
 			targetFlags = spell:GetAbilityTargetFlags()
 
 			-- get the radius
-			local radius = spell:GetSpecialValueFor( "siege_aoe" )
+			local radius = self.splashRadius or spell:GetSpecialValueFor( "siege_aoe" )
 
 			-- find all appropriate targets around the initial target
 			local units = FindUnitsInRadius(
@@ -167,7 +231,7 @@ if IsServer() then
 			local damage = event.original_damage
 
 			-- get the damage modifier
-			local damageMod = spell:GetSpecialValueFor( "siege_splash" )
+			local damageMod = self.splashDmg or spell:GetSpecialValueFor( "siege_splash" )
 
 			damageMod = damageMod * 0.01
 

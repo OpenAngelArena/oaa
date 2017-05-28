@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Simple Boss: Jingu Mastery
+  //=================================================================================================================
+  "boss_jingu_mastery"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8723"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "1"
+    "MaxLevel"                                            "1"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "required_hits"                                   "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "counter_duration"                                "10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charges"                                         "4"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal"                                       "60"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_duration"                                    "25"
+      }
+    }
+  }
+}

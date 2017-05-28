@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Boss: Inner Beast
+  //=================================================================================================================
+  "boss_inner_beast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8172"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "beastmaster_inner_beast"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "MaxLevel"                                            "1"
+
+    // Casting
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "100"
+      }
+    }
+  }
+}

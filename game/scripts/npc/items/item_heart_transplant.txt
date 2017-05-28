@@ -39,7 +39,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/heart_transplant.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/heart_transplant"
@@ -50,8 +50,6 @@
     "AbilitySharedCooldown"                               "medallion"
 
     // "IsTempestDoubleClonable"                          "0"
-    "ItemInitialCharges"                                  "1"
-    "ItemRequiresCharges"                                 "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
