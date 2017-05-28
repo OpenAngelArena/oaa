@@ -1433,7 +1433,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Generated Translations
 
 ### Items
-* Fixed a bunch of Modifiers being purgable when they shouldn't be
+* Fixed a bunch of Modifiers being purgeable when they shouldn't be
 * Fixed Pull Staff to make sure you land in a decent spot 
 
 ### Bosses
@@ -1448,6 +1448,99 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Map
 * Cleared out the Area near the new Camp
 
+
+## Update 0.35.0
+[`3086a45785b41fd4526a00f4efe44993ba35bab9`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.35.0)
+* Generated Translations
+
+### Items
+* Satanic Core tweaks and fixes
+* Heart Transplant fixes
+* Fixed Lucience resetting on death
+* Fixed Greater Power Treads, Greater Tranquil Boots, and active Greater Phase Boots and Siege Mode spitting out errors when upgrading them.
+* Fixed Greater Power Treads splash damage not splashing off of or affecting spell immune creeps.
+* Fixed Greater Phase Boots phase attack not proccing on spell immune creeps.
+* Greater Phase Boots Phase attack now deals reduced damage
+* Siege Mode now uses its alternative icon while active
+* Make Pull Staff blockable by Linken's and similar effects
+* Greater Power Treads
+  * Increased Melee Split Damage from `10 20 30 40 50` to `20 30 40 50 60`
+  * Increased Ranged Split Damage from `10 20 30 40 50` to `20 30 40 50 60`
+* Invisibility Crystal
+  * Increased Cooldown from `10.0` to `15.0`
+  * Added Fade Delay of `0.8`
+* Regeneration Crystal
+  * Increased Cooldown from `10.0` to `20.0`
+
+### Bosses
+* Added Simple Boss 6 
+* Added Simple Boss 7
+
+### UI
+* Move Game Info Button
+
+## Update 0.35.1
+[`9f3f93646552852abb9b07a15cc5e042088b3b12`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.35.1)
+* Generated Translations
+
+### Items
+* Added Sange and Yasha 3 and 4
+
+### Shops
+* Fixed Bloodstone not apprearing
+* Replaced Maelstorm with Mjollnir
+
+
+## Update 0.35.2
+[`f398cd3867d32cc9f56c6fe7e92d04be1e2d8b5a`](https://github.com/OpenAngelArena/oaa/releases/tag/v0.35.2)
+* Generated Tooltips
+
+### Creeps
+* Reduced Creeps' initial power by 20%
+* Changed Progression so that the 20% weakening won't matter as much later
+* Changed Ghost Spawn Chance from 1/3 to 1/5 and Black Dragon Spawn Chance from 1/5 to 1/8
+
+### Items
+* Fixed Siege Mode Damage Bonus not applying
+
+### Heroes
+* Fixed Winter Wyvers Cold Embrace not working
+
+### Misc
+* Make wards invisible unless you get close to them
+
+
+## Update 1.0.0 - Public Alpha Release
+[`b03ed6c01a792354fb36abe1bd69cd92a6104866`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.0.0)
+* Generated Tooltips
+
+### Items
+* Added new Icons
+  * [Necronomicon 3](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/necronomicon_3.png)
+  * [Necronomicon 4](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/necronomicon_4.png)
+  * [Necronomicon 5](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/necronomicon_5.png)
+  * [Necronomicon 6](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/necronomicon_6.png)
+  * [Satanic Core 1](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/satanic_core_1.png)
+  * [Satanic Core 2](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/satanic_core_2.png)
+  * [Satanic Core 3](https://github.com/OpenAngelArena/oaa/blob/beccbb47d537c084599458716d5cff444385aa45/game/resource/flash3/images/items/custom/satanic_core_3.png)
+
+### Bosses
+* Added Simple Boss 3
+
+
+## Update 1.0.1
+[`e3a6ffc7eb9898f1b5b10987852a72aba1d6d4db`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.0.1)
+
+### Heroes
+* Keeper of The Light
+  * Illuminate
+    * Increased Damage per Second from `100.0 100.0 100.0 100.0 100.0 100.0` to `100.0 100.0 100.0 100.0 120.0 215.0`
+
+### Duels
+* Prevent people from getting stuck in trees or game ending after duel
+
+### Misc
+* Gave Fountain Auto Doom on Attack
 
 ## Template
 ```Markdown
