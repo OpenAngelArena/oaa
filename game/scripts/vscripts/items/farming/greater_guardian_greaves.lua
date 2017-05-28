@@ -54,6 +54,10 @@ end
 
 modifier_item_greater_guardian_greaves = class({})
 
+function modifier_item_greater_guardian_greaves:IsHidden()
+  return true
+end
+
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,

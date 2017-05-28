@@ -2,6 +2,10 @@ require('libraries/fun')()
 
 modifier_intrinsic_muliplexer = class({})
 
+function modifier_intrinsic_muliplexer:IsHidden()
+  return true
+end
+
 function modifier_intrinsic_muliplexer:OnCreated()
   self.modifiers = {}
   self:CreateModifiers()
