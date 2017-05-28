@@ -40,7 +40,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3226"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/shivas_cuirass"
+    "ScriptFile"                                          "items/shivas_cuirass.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/shivas_cuirass"

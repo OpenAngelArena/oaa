@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5081"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_shadow_shaman_mass_serpent_ward"
+    "ScriptFile"                                          "abilities/oaa_shadow_shaman_mass_serpent_ward.lua"
     "AbilityTextureName"                                  "shadow_shaman_mass_serpent_ward"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"

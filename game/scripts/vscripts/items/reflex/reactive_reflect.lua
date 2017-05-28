@@ -26,7 +26,6 @@ function item_reactive_3a:OnSpellStart()
     return false
   end
 
-  local maxCharges = self:GetSpecialValueFor( "max_charges" )
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor( "duration" )
 

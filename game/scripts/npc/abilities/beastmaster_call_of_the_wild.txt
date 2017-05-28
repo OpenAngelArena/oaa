@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5169"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_call_of_the_wild_hawk"
+    "ScriptFile"                                          "abilities/oaa_call_of_the_wild_hawk.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                                            "6"
