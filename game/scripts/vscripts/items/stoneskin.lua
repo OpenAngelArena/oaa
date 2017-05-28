@@ -23,10 +23,13 @@ function item_stoneskin:GetAbilityTextureName()
   end
 end
 
-function item_stoneskin:OnToggle()
+function item_stoneskin:OnSpellStart()
   local activationDelay = self:GetSpecialValueFor("start_delay")
   local cooldownAfterDelay = self:GetSpecialValueFor("cooldown_after_delay")
   local caster = self:GetCaster()
+
+  -- Toggle state
+  self.serverStoneskinState = not self.serverStoneskinState
 
   if self:GetToggleState() then
     self:StartCooldown(activationDelay + cooldownAfterDelay)
@@ -38,6 +41,36 @@ function item_stoneskin:OnToggle()
     end)
   else
     self:RemoveStoneskin()
+  end
+end
+
+function item_stoneskin:GetToggleState()
+  if self.serverStoneskinState == nil then
+    self.serverStoneskinState = false
+  end
+  return self.serverStoneskinState
+end
+
+-- Set no mana cost for toggle off
+function item_stoneskin:GetManaCost(level)
+  local baseManaCost = self.BaseClass.GetManaCost(self, level)
+  if IsServer() then
+    if self:GetToggleState() then
+      return 0
+    else
+      return baseManaCost
+    end
+  elseif IsClient() then
+    -- Update state based on stacks of the intrinsic modifier
+    if self.intrinsicModifier and not self.intrinsicModifier:IsNull() then
+      self.stoneskinState = self.intrinsicModifier:GetStackCount()
+    end
+
+    if self.stoneskinState == 2 then
+      return 0
+    else
+      return baseManaCost
+    end
   end
 end
 
