@@ -30,7 +30,8 @@ function modifier_reactive_immunity:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_PROPERTY_ABSORB_SPELL
   }
 end
 
@@ -43,5 +44,9 @@ function modifier_reactive_immunity:GetAbsoluteNoDamageMagical()
 end
 
 function modifier_reactive_immunity:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_reactive_immunity:GetAbsorbSpell()
   return 1
 end
