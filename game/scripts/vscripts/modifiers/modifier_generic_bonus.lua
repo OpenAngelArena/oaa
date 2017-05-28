@@ -39,7 +39,6 @@ function modifier_generic_bonus:Setup()
   for i,name in ipairs(attributesToCheck) do
     local value = ability:GetSpecialValueFor(name)
     if value ~= nil then
-      print('Using ' .. name)
       self[name] = value
     end
   end
