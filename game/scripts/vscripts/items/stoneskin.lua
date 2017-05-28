@@ -23,10 +23,13 @@ function item_stoneskin:GetAbilityTextureName()
   end
 end
 
-function item_stoneskin:OnToggle()
+function item_stoneskin:OnSpellStart()
   local activationDelay = self:GetSpecialValueFor("start_delay")
   local cooldownAfterDelay = self:GetSpecialValueFor("cooldown_after_delay")
   local caster = self:GetCaster()
+
+  -- Toggle state
+  self.serverStoneskinState = not self.serverStoneskinState
 
   if self:GetToggleState() then
     self:StartCooldown(activationDelay + cooldownAfterDelay)
@@ -41,6 +44,12 @@ function item_stoneskin:OnToggle()
   end
 end
 
+function item_stoneskin:GetToggleState()
+  if self.serverStoneskinState == nil then
+    self.serverStoneskinState = false
+  end
+  return self.serverStoneskinState
+end
 function item_stoneskin:ApplyStoneskin()
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {})
