@@ -50,6 +50,11 @@ function item_greater_guardian_greaves:GetIntrinsicModifierNames()
   }
 end
 
+item_greater_guardian_greaves_2 = item_greater_guardian_greaves
+item_greater_guardian_greaves_3 = item_greater_guardian_greaves
+item_greater_guardian_greaves_4 = item_greater_guardian_greaves
+item_greater_guardian_greaves_5 = item_greater_guardian_greaves
+
 ------------------------------------------------------------------------------
 
 modifier_item_greater_guardian_greaves = class({})
