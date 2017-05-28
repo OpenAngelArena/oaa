@@ -34,7 +34,7 @@ function item_greater_guardian_greaves:OnSpellStart()
 
   heroes = iter(heroes)
   heroes:each(function (hero)
-    hero:Heal(self:GetSpecialValueFor("replenish_health"), stone)
+    hero:Heal(self:GetSpecialValueFor("replenish_health"), self)
     hero:GiveMana(self:GetSpecialValueFor("replenish_mana"))
   end)
 

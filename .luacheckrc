@@ -11,6 +11,7 @@ globals = { -- these globals can be set and accessed.
 "GAME_TIME_ELAPSED",
 "GAME_WINNER_TEAM",
 "GameRules",
+"SKIP_TEAM_SETUP"
 }
 
 read_globals = { -- these globals can only be accessed.
