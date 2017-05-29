@@ -5,5 +5,5 @@
 }());
 
 function MoveGameInfo () {
-  FindDotaHudElement('GameInfoButton').style.transform = 'translateY(50%)';
+  FindDotaHudElement('GameInfoButton').style.transform = 'translateY(20%)';
 }
