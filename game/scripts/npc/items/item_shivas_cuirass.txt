@@ -70,12 +70,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "75 80"
+        "bonus_intellect"                                 "70 80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "40 45"
+        "bonus_armor"                                     "35 40"
       }
       "03"
       {
@@ -105,7 +105,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_radius"                                    "900 1100"
+        "blast_radius"                                    "650 1000"
       }
       "09"
       {
@@ -121,17 +121,17 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-15 -20"
+        "aura_negative_armor"                             "-7 -11"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed_bonus"                         "35 45"
+        "aura_attack_speed_bonus"                         "35 40"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "15 20"
+        "aura_positive_armor"                             "7 11"
       }
     }
   }
