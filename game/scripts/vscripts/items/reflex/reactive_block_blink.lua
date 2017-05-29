@@ -58,8 +58,18 @@ function modifier_item_reactive_2b:GetAbsorbSpell()
   local fountains = Entities:FindAllByClassname("ent_dota_fountain")
   local hTarget = head(filter(IsAlly, iter(fountains)))
 
+  local startParticleName = "particles/items_fx/blink_dagger_start.vpcf"
+  local endParticleName = "particles/items_fx/blink_dagger_end.vpcf"
+  local startParticle = ParticleManager:CreateParticle(startParticleName, PATTACH_ABSORIGIN, caster)
+  ParticleManager:ReleaseParticleIndex(startParticle)
+
   local direction = (hTarget:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
   FindClearSpaceForUnit(caster, caster:GetAbsOrigin() + (direction * self:GetAbility():GetSpecialValueFor("distance")), false)
+
+  local endParticle = ParticleManager:CreateParticle(endParticleName, PATTACH_ABSORIGIN, caster)
+  ParticleManager:ReleaseParticleIndex(endParticle)
+
+  EmitSoundOn("DOTA_Item.BlinkDagger.Activate", caster)
 
   return 1
 end
