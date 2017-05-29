@@ -174,7 +174,7 @@ function GameMode:_CaptureGameMode()
     --mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
-    mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
+    mode:SetBotThinkingEnabled( true )
     mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
 
     mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
