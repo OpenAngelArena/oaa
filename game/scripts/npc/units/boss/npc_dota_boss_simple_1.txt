@@ -10,7 +10,7 @@
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"  // Model.
     "SoundSet"                                            "Roshan"          // Name of sound set.
-    "ModelScale"                                          "1"
+    "ModelScale"                                          "2"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -29,8 +29,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "225"    // Damage range min.
-    "AttackDamageMax"                                     "250"    // Damage range max.
+    "AttackDamageMin"                                     "325"    // Damage range min.
+    "AttackDamageMax"                                     "350"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
@@ -57,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1000" // Base health
+    "StatusHealth"                                        "1300" // Base health
     "StatusHealthRegen"                                   "3.5"  // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
