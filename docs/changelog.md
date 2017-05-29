@@ -1542,6 +1542,22 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Misc
 * Gave Fountain Auto Doom on Attack
 
+
+## Update 1.1.0-0
+[`e3a6ffc7eb9898f1b5b10987852a72aba1d6d4db`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-1)
+* Generated Tool
+
+### Items
+* Fix refresher orb 2 not having an Icon
+* Rework Reflection Shards
+* Greater Guardian Greaves now give you Creep Assist Gold
+
+### Shops
+* Replaced Bloodstone with Bloodthorn
+
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
