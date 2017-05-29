@@ -21,7 +21,7 @@
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900 1050 1200 1300 1400"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.2 0.2 0.2"
     "AbilityChannelTime"                                  "10.0"
     
@@ -50,7 +50,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "900 1050 1200 1300 1400"
+        "cast_range_tooltip"                              "800"
       }
       "03"
       {
@@ -72,6 +72,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "0.25 0.25 0.25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "drain_buffer"                                    "200"
       }
     }
   }
