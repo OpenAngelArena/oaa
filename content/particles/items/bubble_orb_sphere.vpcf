@@ -30,6 +30,7 @@
 			m_flStartScale = 0.0
 			m_flBias = 0.0
 			m_nOpEndCapState = 0
+			m_flEndScale = 1.12
 		},
 		{
 			_class = "C_OP_RotateVector"
