@@ -482,6 +482,8 @@ function Duels:SafeTeleport(unit, location, maxDistance)
         Queue = 0 --Optional.  Used for queueing up abilities
       })
     end
+  elseif unit:IsOutOfGame() then
+    unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
   end
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
