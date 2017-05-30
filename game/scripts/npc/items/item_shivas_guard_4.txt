@@ -1,57 +1,56 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Shiva's Guard 3
+  // Recipe: Shiva's Guard 4
   //=================================================================================================================
-  "item_recipe_shivas_guard_3"
+  "item_recipe_shivas_guard_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4041"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3847"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_shivas_guard_3"
+    "ItemResult"                                          "item_shivas_guard_4"
     "ItemRequirements"
     {
-      "01"                                                "item_shivas_guard_2;item_upgrade_core_2"
-      "02"                                                "item_shivas_guard_2;item_upgrade_core_3"
-      "03"                                                "item_shivas_guard_2;item_upgrade_core_4"
+      "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
+      "02"                                                "item_shivas_guard_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Shiva's Guard 3
+  // Shiva's Guard 4
   //=================================================================================================================
-  "item_shivas_guard_3"
+  "item_shivas_guard_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4043"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3848"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_shivas_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/shivas_guard_3"
+    "AbilityTextureName"                                  "custom/shivas_guard_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "shivas"
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "225"
-    "ItemCost"                                            "9900"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard"
