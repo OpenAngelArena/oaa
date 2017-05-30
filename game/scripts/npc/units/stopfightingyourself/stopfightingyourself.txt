@@ -19,6 +19,7 @@
     "Ability2"                                            "boss_stopfightingyourself_dupe_items"
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_stopfightingyourself_dupe_heroes"
+    "Ability5"                                            "boss_cliffwalk"
 
     // Armor
     //----------------------------------------------------------------
@@ -52,7 +53,7 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"  // Type of locomotion - ground, air
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"  // Type of locomotion - ground, air
     "MovementSpeed"                                       "300"               // Speed
     "MovementTurnRate"                                    "2.0"               // Turning rate.
 

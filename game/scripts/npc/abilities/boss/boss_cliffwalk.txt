@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Boss Cliff Walk
+  //=================================================================================================================
+  "boss_cliffwalk"
+  {
+    "ID"                                                  "8823"
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityTextureName"                                  "winter_wyvern_arctic_burn"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "OnUpgrade"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_cliffwalk"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_cliffwalk"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "0"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        "States"
+        {
+          "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

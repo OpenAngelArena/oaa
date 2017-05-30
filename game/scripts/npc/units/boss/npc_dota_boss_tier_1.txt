@@ -21,6 +21,7 @@
     "Ability2"                                            "roshan_bash"
     "Ability3"                                            "roshan_slam"
     "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
 
     // Armor
     //----------------------------------------------------------------
@@ -52,7 +53,7 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"      // Type of locomotion - ground, air
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
     "MovementSpeed"                                       "420"    // Speed
     "MovementTurnRate"                                    "0.8"    // Turning rate.
 
