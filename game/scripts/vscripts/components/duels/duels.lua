@@ -452,11 +452,18 @@ end
 
 function Duels:SafeTeleportAll(owner, location, maxDistance)
   self:SafeTeleport(owner, location, maxDistance)
-  for _,child in ipairs(owner:GetChildren()) do
-    if not child:IsNull() and child:IsAlive() and child.HasMovementCapability ~= nil and child:HasMovementCapability() then
-      if child:IsDominated() or child:IsIllusion() or child:IsTempestDouble() then
-        self:SafeTeleport(child, location, maxDistance)
-      end
+  local children = FindUnitsInRadius(owner:GetTeam(),
+                                     owner:GetAbsOrigin(),
+                                     nil,
+                                     FIND_UNITS_EVERYWHERE,
+                                     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                                     DOTA_UNIT_TARGET_BASIC,
+                                     DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
+                                     FIND_ANY_ORDER,
+                                     false)
+  for _,child in pairs(children) do
+    if child:HasMovementCapability() then
+      self:SafeTeleport(child, location, maxDistance)
     end
   end
 end
