@@ -19,8 +19,7 @@
     //----------------------------------------------------------------
     "Ability1"                                            "boss_shielder_shield"
     "Ability2"                                            "boss_resistance"
-    "Ability3"                                            ""
-    "Ability4"                                            ""
+    "Ability3"                                            "boss_cliffwalk"
 
     // Armor
     //----------------------------------------------------------------
@@ -52,7 +51,7 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"         // Type of locomotion - ground, air
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
     "MovementSpeed"                                       "320"       // Speed
     "MovementTurnRate"                                    "0.8"       // Turning rate.
 

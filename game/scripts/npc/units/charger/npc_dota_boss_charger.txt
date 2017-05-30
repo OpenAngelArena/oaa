@@ -21,7 +21,7 @@
     "Ability1"                                            "boss_charger_summon_pillar"
     "Ability2"                                            "boss_charger_charge"
     "Ability3"                                            "boss_resistance"
-    "Ability4"                                            ""
+    "Ability4"                                            "boss_cliffwalk"
 
     // Armor
     //----------------------------------------------------------------
@@ -53,7 +53,7 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"         // Type of locomotion - ground, air
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
     "MovementSpeed"                                       "520"       // Speed
     "MovementTurnRate"                                    "0.8"       // Turning rate.
 
