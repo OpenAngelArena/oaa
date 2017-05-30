@@ -124,6 +124,10 @@ function modifier_item_greater_guardian_greaves:IsPurgable()
   return false
 end
 
+function modifier_item_greater_guardian_greaves:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_greater_guardian_greaves:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
