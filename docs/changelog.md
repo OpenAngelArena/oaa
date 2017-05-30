@@ -1544,7 +1544,7 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 
 ## Update 1.1.0-0
-[`5432a954a6a2522b49c9ee2f3ebd01aa01fd43b2`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-1)
+[`5432a954a6a2522b49c9ee2f3ebd01aa01fd43b2`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-0)
 * Generated Tooltips
 
 ### Items
@@ -1555,7 +1555,19 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 ### Shops
 * Replaced Bloodstone with Bloodthorn
 
+## Update 1.1.0-1
+[`06e762c0efb79e439131adf502685bb6c1d596a7`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-1)
+* Generated Tooltips
+* Applied Dota Patch 7.06c
 
+### Items
+* Added audiovisual effects for Teleportation Shard blink
+
+### Bosses
+* Buff Simple Bosses and increase their Model Size
+
+### UI
+* Move Info Panel Button to be closer to Stats Display
 
 
 ## Template
