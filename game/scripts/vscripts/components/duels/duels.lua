@@ -469,6 +469,18 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
 end
 
 function Duels:SafeTeleport(unit, location, maxDistance)
+  if unit:FindModifierByName("modifier_life_stealer_infest") then
+    DebugPrint("Found LS infesting.")
+    local ability = unit:FindAbilityByName("life_stealer_control")
+    if ability ~= nil then
+      ExecuteOrderFromTable({
+        UnitIndex = unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    end
+  end
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   local distance = (location - unit:GetAbsOrigin()):Length2D()
