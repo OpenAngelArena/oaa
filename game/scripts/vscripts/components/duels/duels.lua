@@ -463,7 +463,9 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
                                      false)
   for _,child in pairs(children) do
     if child:HasMovementCapability() then
-      self:SafeTeleport(child, location, maxDistance)
+      if child:GetPlayerOwner() == owner:GetPlayerOwner() then
+        self:SafeTeleport(child, location, maxDistance)
+      end
     end
   end
 end
