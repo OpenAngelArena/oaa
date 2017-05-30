@@ -91,7 +91,11 @@
 
     "Precache"
     {
-      "particle"                                          "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+      "particle"                                          "particles/items/bubble_orb_base.vpcf"
+      "particle"                                          "particles/items/bubble_orb_dark.vpcf"
+      "particle"                                          "particles/items/bubble_orb_light.vpcf"
+      "particle"                                          "particles/items/bubble_orb_ripple.vpcf"
+      "particle"                                          "particles/items/bubble_orb_sphere.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
     }
   }
