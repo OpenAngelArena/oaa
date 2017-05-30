@@ -31,7 +31,7 @@ function item_preemptive_3c:OnSpellStart()
 
   EmitSoundOnLocationWithCaster(targetPoint, "Hero_ArcWarden.MagneticField.Cast", caster)
   -- Particle effect
-  local bubbleEffectName = "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+  local bubbleEffectName = "particles/items/bubble_orb_base.vpcf"
   local bubbleEffect = ParticleManager:CreateParticle(bubbleEffectName, PATTACH_ABSORIGIN, caster)
   ParticleManager:SetParticleControl(bubbleEffect, 1, Vector(radius, radius, radius))
 
