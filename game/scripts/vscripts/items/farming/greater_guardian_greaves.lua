@@ -26,18 +26,75 @@ function item_greater_guardian_greaves:OnSpellStart()
     nil,
     self:GetSpecialValueFor("replenish_radius"),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
+    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_ANY_ORDER,
     false
   )
 
-  heroes = iter(heroes)
-  heroes:each(function (hero)
-    hero:Heal(self:GetSpecialValueFor("replenish_health"), self)
-    hero:GiveMana(self:GetSpecialValueFor("replenish_mana"))
-  end)
+  -- Apply basic dispel to caster
+  caster:Purge(false, true, false, false, false)
 
+  local function HasNoHealCooldown(hero)
+    return not hero:HasModifier("modifier_item_mekansm_noheal")
+  end
+
+  local function ReplenishMana(hero)
+    local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
+    hero:GiveMana(manaReplenishAmount)
+
+    local particleManaNumberName = "particles/msg_fx/msg_mana_add.vpcf"
+    local particleManaNumber = ParticleManager:CreateParticleForTeam(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, caster:GetTeamNumber())
+    ParticleManager:SetParticleControl(particleManaNumber, 0, hero:GetOrigin() + Vector(0, 0, 125))
+    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
+    ParticleManager:SetParticleControl(particleManaNumber, 1, Vector(0, manaReplenishAmount, 0))
+    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
+    ParticleManager:SetParticleControl(particleManaNumber, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
+    -- xyz is color in RGB values
+    ParticleManager:SetParticleControl(particleManaNumber, 3, Vector(17, 180, 233))
+    ParticleManager:ReleaseParticleIndex(particleManaNumber)
+  end
+
+  local function ReplenishHealth(hero)
+    local healAmount = self:GetSpecialValueFor("replenish_health")
+    hero:Heal(healAmount, self)
+    hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
+
+    local particleHealNumberName = "particles/msg_fx/msg_heal.vpcf"
+    local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
+    local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
+
+    local particleHealNumber = ParticleManager:CreateParticleForTeam(particleHealNumberName, PATTACH_CUSTOMORIGIN, hero, caster:GetTeamNumber())
+    ParticleManager:SetParticleControl(particleHealNumber, 0, hero:GetOrigin() + Vector(0, 0, 125))
+    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
+    ParticleManager:SetParticleControl(particleHealNumber, 1, Vector(0, healAmount, 0))
+    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
+    ParticleManager:SetParticleControl(particleHealNumber, 2, Vector(1.5, #tostring(healAmount) + 1, 0))
+    -- xyz is color in RGB values
+    ParticleManager:SetParticleControl(particleHealNumber, 3, Vector(14, 226, 37))
+    ParticleManager:ReleaseParticleIndex(particleHealNumber)
+
+    if hero:IsHero() then
+      local particleHeal = ParticleManager:CreateParticle(particleHealName, PATTACH_ABSORIGIN_FOLLOW, hero)
+      ParticleManager:ReleaseParticleIndex(particleHeal)
+    else
+      local particleHealNonHero = ParticleManager:CreateParticle(particleHealNonHeroName, PATTACH_ABSORIGIN_FOLLOW, hero)
+      ParticleManager:ReleaseParticleIndex(particleHealNonHero)
+    end
+
+    EmitSoundOn("Item.GuardianGreaves.Target", hero)
+  end
+
+  heroes = iter(heroes)
+  -- Give Mana to all heroes
+  foreach(ReplenishMana, heroes)
+  -- Only Heal heroes without the Heal Cooldown modifier
+  foreach(ReplenishHealth, filter(HasNoHealCooldown, heroes))
+
+  local particleCastName = "particles/items3_fx/warmage.vpcf"
+  local particleCast = ParticleManager:CreateParticle(particleCastName, PATTACH_ABSORIGIN, caster)
+  ParticleManager:ReleaseParticleIndex(particleCast)
+  EmitSoundOn("Item.GuardianGreaves.Activate", caster)
 end
 
 function item_greater_guardian_greaves:GetIntrinsicModifierName()
@@ -62,6 +119,40 @@ modifier_item_greater_guardian_greaves = class({})
 function modifier_item_greater_guardian_greaves:IsHidden()
   return true
 end
+
+function modifier_item_greater_guardian_greaves:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_guardian_greaves:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_greater_guardian_greaves:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    -- Remove effect modifiers from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAbility():GetSpecialValueFor("aura_radius"),
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveGuardianAuraEffect(unit)
+      unit:RemoveModifierByName("modifier_item_guardian_greaves_aura")
+    end
+
+    foreach(RemoveGuardianAuraEffect, units)
+  end
+end
+
+modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardian_greaves.OnCreated
 
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
@@ -104,7 +195,7 @@ function modifier_item_greater_guardian_greaves:IsAura()
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
+  return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchTeam()
@@ -116,14 +207,7 @@ function modifier_item_greater_guardian_greaves:GetAuraRadius()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierAura()
-  return "modifier_item_greater_guardian_greaves_aura"
-end
-
-function modifier_item_greater_guardian_greaves:GetAuraEntityReject(entity)
-  if entity:IsRealHero() then
-    return false
-  end
-  return true
+  return "modifier_item_guardian_greaves_aura"
 end
 
 ------------------------------------------------------------------------------
