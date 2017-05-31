@@ -51,7 +51,7 @@
 
     //Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
 
     // Special
@@ -61,12 +61,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50"
+        "bonus_attack_speed"                              "30 40 50 65 80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 20"
+        "bonus_armor"                                     "10 15 20 30 40"
       }
       "03"
       {
@@ -76,17 +76,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "25 30 35"
+        "aura_attack_speed"                               "25 30 35 50 60"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 7 9"
+        "aura_positive_armor"                             "5 6 7 9 12"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-5 -7 -9"
+        "aura_negative_armor"                             "-5 -6 -7 -9 -12"
       }
     }
   }

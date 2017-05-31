@@ -41,7 +41,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "shivas"
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
@@ -63,12 +63,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "30 45 70"
+        "bonus_intellect"                                 "30 45 70 100 150"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "15 20 25"
+        "bonus_armor"                                     "15 20 25 30 40"
       }
       "03"
       {
@@ -78,17 +78,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "-45 -65 -85"
+        "aura_attack_speed"                               "-45 -65 -85 -110 -140"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "200 300 450"
+        "blast_damage"                                    "200 300 450 700 1000"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_speed"                            "-40 -45 -50"
+        "blast_movement_speed"                            "-40 -45 -50 -65 -85"
       }
       "07"
       {

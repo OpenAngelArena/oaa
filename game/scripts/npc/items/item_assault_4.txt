@@ -1,46 +1,48 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Assault Cuirass
+  // Recipe: Assault Cuirass 4
   //=================================================================================================================
-  "item_recipe_assault"
+  "item_recipe_assault_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "111"    // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "3843"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1300"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_assault"
+    "ItemResult"                                          "item_assault_4"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_platemail;item_hyperstone;item_chainmail"
+      "01"                                                "item_assault_3;item_upgrade_core_3"
+      "02"                                                "item_assault_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Assault Cuirass
+  // Assault Cuirass 4
   //=================================================================================================================
-  "item_assault"
+  "item_assault_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "112"    // unique ID
+    "ID"                                                  "3844"    // unique ID
+    "BaseClass"                                           "item_assault"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityCastRange"                                    "900"
-    "AbilityTextureName"                                  "custom/assault_cuirass_1"
-
+    "AbilityTextureName"                                  "custom/assault_cuirass_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5250"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac;assault cuirass"
@@ -49,8 +51,7 @@
     //Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_assault;item_assault_2"
+    "ItemBaseLevel"                                       "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
