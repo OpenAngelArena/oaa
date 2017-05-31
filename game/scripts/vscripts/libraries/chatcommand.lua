@@ -281,6 +281,9 @@ function ChatCommand:OnPlayerChat(keys)
       local points = tonumber(splitted[2]) or 1
       PointsManager:AddPoints(teamID, points)
 
+    elseif string.find(text, "-chrono") then
+      hero:AddNewModifier(hero, nil, "modifier_doom_bringer_doom", { duration = 10 })
+
     end
   end
 end
