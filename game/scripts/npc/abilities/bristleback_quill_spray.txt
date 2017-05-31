@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5549"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
@@ -21,14 +21,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
     "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "3.0 3.0 3.0 3.0 3.0 3.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 35 35 35 35 35"
+    "AbilityManaCost"                                     "45 45 45 45 45 45"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "quill_base_damage"                               "20.0 40.0 60.0 80.0 120.0 280.0"
+        "quill_base_damage"                               "20.0 40.0 60.0 80.0 100.0 120.0"
       }
       "03"
       {
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_damage"                                      "550.0 550.0 550.0 550.0 1100.0 2200.0"
+        "max_damage"                                      "150.0 275.0 400.0 550.0 825.0 1100.0"
       }
       "06"
       {
