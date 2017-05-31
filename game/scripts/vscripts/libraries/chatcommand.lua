@@ -12,16 +12,9 @@ created by Zarnotox with a lot of constructive help from the mod data guys https
 
 ChatCommand = ChatCommand or {}
 
--- Begin Initialise
 function ChatCommand:Init()
-  self.initialised = true
   ListenToGameEvent("player_chat", Dynamic_Wrap(ChatCommand, 'OnPlayerChat'), self)
 end
-
-if not ChatCommand.initialised then
-    ChatCommand:Init()
-end
--- End Initialise
 
 -- Function to create the link
 function ChatCommand:LinkCommand(command, funcName, obj)
@@ -54,11 +47,11 @@ function ChatCommand:OnPlayerChat(keys)
     ----------------------------
     -- Debug/Cheat Commands
     ----------------------------
-  if IsInToolsMode() or Convars:GetBool("sv_cheats") then
+  if IsInToolsMode() or ConVars:GetBool("sv_cheats") then
 
     -- Test command to quickly test anything
     if string.find(text, "-list") or string.find(text, "-help") then
-      GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -startduel, -endduel, -addbots", 0, 0)
+      GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
       GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -noend, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
 
       -- Add bots to both teams
@@ -135,15 +128,6 @@ function ChatCommand:OnPlayerChat(keys)
           hero:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 1})
         end
       end
-
-
-    -- Force start of a duel
-    elseif string.find(text, "-startduel") then
-      Duels:StartDuel()
-
-    -- Force end of a duel
-    elseif string.find(text, "-endduel") then
-      Duels:EndDuel()
 
     -- Prints vector of current position of hero to console
     elseif string.find(text, "-getpos") then
