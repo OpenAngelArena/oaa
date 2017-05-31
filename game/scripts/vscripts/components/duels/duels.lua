@@ -199,11 +199,8 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 1
     badGuy.duelNumber = 1
 
-    self:SafeTeleport(goodHero, spawn1, 150)
-    self:SafeTeleport(badHero, spawn2, 150)
-    --FindClearSpaceForUnit(goodHero, spawn1, true)
-    --FindClearSpaceForUnit(badHero, spawn2, true)
-
+    self:SafeTeleportAll(goodHero, spawn1, 150)
+    self:SafeTeleportAll(badHero, spawn2, 150)
 
     Duels.zone1.addPlayer(goodGuy.id)
     Duels.zone1.addPlayer(badGuy.id)
@@ -241,8 +238,8 @@ function Duels:ActuallyStartDuel ()
     goodGuy.duelNumber = 2
     badGuy.duelNumber = 2
 
-    FindClearSpaceForUnit(goodHero, spawn1, true)
-    FindClearSpaceForUnit(badHero, spawn2, true)
+    self:SafeTeleportAll(goodHero, spawn1, 150)
+    self:SafeTeleportAll(badHero, spawn2, 150)
 
     Duels.zone2.addPlayer(goodGuy.id)
     Duels.zone2.addPlayer(badGuy.id)
@@ -474,7 +471,42 @@ function Duels:AllPlayers (state, cb)
   end
 end
 
+function Duels:SafeTeleportAll(owner, location, maxDistance)
+  self:SafeTeleport(owner, location, maxDistance)
+  local children = FindUnitsInRadius(owner:GetTeam(),
+                                     owner:GetAbsOrigin(),
+                                     nil,
+                                     FIND_UNITS_EVERYWHERE,
+                                     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                                     DOTA_UNIT_TARGET_BASIC,
+                                     DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
+                                     FIND_ANY_ORDER,
+                                     false)
+  for _,child in pairs(children) do
+    if child:HasMovementCapability() then
+      if child:GetPlayerOwner() == owner:GetPlayerOwner() then
+        self:SafeTeleport(child, location, maxDistance)
+      end
+    end
+  end
+end
+
 function Duels:SafeTeleport(unit, location, maxDistance)
+  if unit:FindModifierByName("modifier_life_stealer_infest") then
+    DebugPrint("Found LS infesting.")
+    local ability = unit:FindAbilityByName("life_stealer_control")
+    if ability ~= nil then
+      ExecuteOrderFromTable({
+        UnitIndex = unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    end
+  elseif unit:IsOutOfGame() then
+    unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
+  end
+  location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   local distance = (location - unit:GetAbsOrigin()):Length2D()
   if distance > maxDistance then

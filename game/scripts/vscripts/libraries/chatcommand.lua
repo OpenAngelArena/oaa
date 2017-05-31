@@ -281,6 +281,9 @@ function ChatCommand:OnPlayerChat(keys)
       local points = tonumber(splitted[2]) or 1
       PointsManager:AddPoints(teamID, points)
 
+    elseif string.find(text, "-tptest") then
+      Duels:SafeTeleportAll(hero, Vector(0, 0, 0), 150)
+
     end
   end
 end
