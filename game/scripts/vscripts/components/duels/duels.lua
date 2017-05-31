@@ -379,6 +379,9 @@ function Duels:ResetPlayerState (hero)
       item:EndCooldown()
     end
   end
+
+  -- purge modifiers
+  hero:Purge(true, true, false, true, true)
 end
 
 function Duels:SavePlayerState (hero)
