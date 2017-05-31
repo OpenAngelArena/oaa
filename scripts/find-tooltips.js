@@ -370,12 +370,21 @@ function findLinkLuaModifiersInFile (script, cb) {
         var modifierName = modifierParts[0].trim().substr(16).trim();
         modifierName = modifierName.substr(1, modifierName.length - 2);
         modifierPath = modifierPath.substr(1, modifierPath.length - 2);
+
         return [modifierName, modifierPath];
       });
-    var done = after(modifierList.length, function () {
+    var done = after(modifierList.length * 2, function () {
       cb(null, result);
     });
 
+    modifierList.forEach(function (modifier) {
+      fs.access(path.join(vscriptsDir, modifier[1]), function (err, data) {
+        if (err) {
+          console.error('LinkLuaModifier referenced non-existent file:', modifier);
+        }
+        return done(err);
+      });
+    });
     modifierList.forEach(function (modifier) {
       isModifierHidden(modifier, function (err, hidden) {
         if (!err && !hidden) {
