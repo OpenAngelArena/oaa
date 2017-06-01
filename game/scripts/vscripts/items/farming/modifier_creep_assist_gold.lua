@@ -58,6 +58,10 @@ function modifier_creep_assist_gold_aura:IsPurgable()
   return false
 end
 
+function modifier_creep_assist_gold_aura:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_creep_assist_gold_aura:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH
