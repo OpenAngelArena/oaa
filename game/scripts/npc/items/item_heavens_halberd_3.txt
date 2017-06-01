@@ -67,7 +67,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -91,22 +90,22 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement"                              "-20 -40 -60"
+        "maim_slow_movement"                              "-20 -30 -40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack"                                "-20 -30 -40"
+        "maim_slow_attack"                                "-20 -40 -60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement_range"                        "-10 -20 -30"
+        "maim_slow_movement_range"                        "-10 -15 -20"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack_range"                          "-10 -15 -20"
+        "maim_slow_attack_range"                          "-10 -20 -30"
       }
       "09"
       {

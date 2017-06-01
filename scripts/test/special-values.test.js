@@ -4,6 +4,7 @@ var path = require('path');
 var fs = require('fs');
 var after = require('after');
 var spok = require('spok');
+var partial = require('ap').partial;
 
 test('kv files dont repeat special values', function (t) {
   Lib.all(function (err, data) {
@@ -30,50 +31,52 @@ function checkKVData (test, name, data) {
       root = root.DOTAAbilities;
     }
     var keys = Object.keys(root).filter(a => a !== 'values');
-    var done = after(keys.length * 2, function (err) {
+    var done = after(keys.length, function (err) {
       t.notOk(err, 'no error at very end');
       t.end();
     });
-    keys.forEach(function (item) {
-      var values = root[item].values;
-      if (values.ScriptFile) {
-        fs.access(path.join(Lib.vscriptDir, values.ScriptFile), function (err, data) {
-          t.notOk(err, 'script file referenced from kv exists');
-          done();
-        });
-      } else {
-        t.pass(item + ' does not have a scriptfile entry, skipping check');
-        done();
-      }
-      var specials = root[item].AbilitySpecial;
+    keys.forEach(partial(testKVItem, t, root, done));
+  });
+}
 
-      if (specials) {
-        // check specials!
-        var rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
-        t.ok(rootItem, 'can parse basic item name out');
-        // var version = rootItem[2];
-        rootItem = rootItem[1];
-        if (!specialValuesForItem[rootItem]) {
-          testSpecialValues(t, specials);
-          specialValuesForItem[rootItem] = specials;
-        } else {
-          spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent for ' + item);
-        }
-        done();
-      } else {
-        t.pass(item + ' does not have a scriptfile entry, skipping check');
-        done();
-      }
+function testKVItem (t, root, cb, item) {
+  t.test(item, function (t) {
+    var done = after(2, function (err) {
+      t.notOk(err, 'no error at very end');
+      t.end();
+      cb(err);
     });
+    var values = root[item].values;
+    if (values.ScriptFile) {
+      fs.access(path.join(Lib.vscriptDir, values.ScriptFile), function (err, data) {
+        t.notOk(err, 'script file referenced from kv exists');
+        done();
+      });
+    } else {
+      done();
+    }
+    var specials = root[item].AbilitySpecial;
+
+    if (specials) {
+      // check specials!
+      var rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
+      t.ok(rootItem, 'can parse basic item name out');
+      // var version = rootItem[2];
+      rootItem = rootItem[1];
+      if (!specialValuesForItem[rootItem]) {
+        testSpecialValues(t, specials);
+        specialValuesForItem[rootItem] = specials;
+      } else {
+        spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
+      }
+      done();
+    } else {
+      done();
+    }
   });
 }
 
 function testSpecialValues (t, specials) {
-  var values = specialValuesToMap(t, specials);
-  console.log(values);
-}
-
-function specialValuesToMap (t, specials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
 
