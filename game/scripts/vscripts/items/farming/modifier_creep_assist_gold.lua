@@ -19,6 +19,10 @@ function modifier_creep_assist_gold:IsAura()
   return true
 end
 
+function modifier_creep_assist_gold:GetAuraDuration()
+  return self:GetAbility():GetSpecialValueFor("assist_stickiness")
+end
+
 function modifier_creep_assist_gold:GetAuraSearchType()
   return DOTA_UNIT_TARGET_HERO
 end
