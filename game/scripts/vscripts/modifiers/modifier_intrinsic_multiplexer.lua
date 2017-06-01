@@ -6,6 +6,10 @@ function modifier_intrinsic_multiplexer:IsHidden()
   return true
 end
 
+function modifier_intrinsic_multiplexer:IsPurgable()
+  return false
+end
+
 function modifier_intrinsic_multiplexer:OnCreated()
   self.modifiers = {}
   self:CreateModifiers()
