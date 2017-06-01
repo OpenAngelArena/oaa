@@ -6,7 +6,7 @@ Start by installing these programs:
  * Windows
  * [Steam](http://steampowered.com)
  * [nodejs](http://nodejs.org)
- * [Github client](http://desktop.github.com/)
+ * [Github client](http://desktop.github.com/) Use the download link at the bottom of the page
  * [Sublime Text 3](http://www.sublimetext.com/) **optional**
 
 Install the Dota 2 Workshop Tools.
@@ -50,7 +50,7 @@ Forking creates a simultaneous instance of oaa within your own GitHub repository
 - Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
 
 ## Cloning
-Now just Clone your Fork to your computer We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
+Now just Clone your Fork to \dota 2 beta\addons. We do this using the GitHub client. You can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). This will be explained later.
 
 - Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
 - Click settings.
@@ -72,6 +72,7 @@ You will see output about creating links for `oaa` game and content.
 ## Launch Tools
 Next we open the actual addon! This is done by right clicking on `Dota 2` from Steam and selecting "Launch Dota 2 - Tools". It should be the second option on the dropdown below "Play Game..."
 
-Select `oaa` below `Custom Games` and click `Launch Custom Game Tools`. `Dota 2` and `Asset Browser` will open. To start the game, open the Vconsole (click the monitor icon on the top) and type 'dota_launch_custom_game oaa oaa'. Switch to the `Dota 2` window, if everything worked the game will start loading. If you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Go back to 'Asset Browser' and click the hammer icon on the top left. Open one of the maps (probably oaa) and click the gamepad sybol to test the gamemode. Open `oaa.vmap` and click the gamepad icon on the top (or press `F9`). Untick `Load in engine after building` and click `Build`. This might take some time. Try to launch the game again.
+Select `oaa` below `Custom Games` and click `Launch Custom Game Tools`. `Dota 2` and `Asset Browser` will open. To start the game, open the Vconsole (click the monitor icon on the top) and type 'dota_launch_custom_game oaa oaa'. Switch to the `Dota 2` window, if everything worked the game will start loading. 
+If you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Go back to 'Asset Browser' and click the hammer icon on the top left. Open one of the maps (probably oaa) and click the gamepad sybol to test the gamemode. Open `oaa.vmap` and click the gamepad icon on the top (or press `F9`). Untick `Load in engine after building` and click `Build`. This might take some time. Try to launch the game again.
 
 Now you are ready to start developing. Read the [Github guide](/docs/github_for_noobs.md) to learn about contributing. In case you are already familiar with Github there are [other guides](/docs/).
