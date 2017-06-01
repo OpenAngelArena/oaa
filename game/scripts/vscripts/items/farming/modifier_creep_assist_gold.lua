@@ -8,6 +8,10 @@ function modifier_creep_assist_gold:IsHidden()
   return true
 end
 
+function modifier_creep_assist_gold:IsPurgable()
+  return false
+end
+
 --------------------------------------------------------------------------
 -- aura stuff
 
@@ -44,6 +48,10 @@ modifier_creep_assist_gold_aura = class({})
 
 function modifier_creep_assist_gold_aura:IsHidden()
   return true
+end
+
+function modifier_creep_assist_gold_aura:IsPurgable()
+  return false
 end
 
 function modifier_creep_assist_gold_aura:DeclareFunctions()
