@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_item_greater_guardian_greaves_aura", "items/farming/g
 
 LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
 
-LinkLuaModifier( "modifier_intrinsic_muliplexer", "modifiers/modifier_intrinsic_muliplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_guardian_greaves = class({})
 
@@ -98,7 +98,7 @@ function item_greater_guardian_greaves:OnSpellStart()
 end
 
 function item_greater_guardian_greaves:GetIntrinsicModifierName()
-  return "modifier_intrinsic_muliplexer"
+  return "modifier_intrinsic_multiplexer"
 end
 function item_greater_guardian_greaves:GetIntrinsicModifierNames()
   return {
