@@ -38,6 +38,6 @@ function CDOTA_PlayerResource:RandomHeroForPlayersWithoutHero()
   function ForceRandomHero(playerID)
     self:GetPlayer(playerID):MakeRandomHeroSelection()
   end
-  local playerIDsWithoutHero = filter(HasNotSelectedHero, self:GetAllTeamPlayerIDs())
+  local playerIDsWithoutHero = filter(HasNotSelectedHero, self:GetConnectedTeamPlayerIDs())
   foreach(ForceRandomHero, playerIDsWithoutHero)
 end
