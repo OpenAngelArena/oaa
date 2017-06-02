@@ -1,8 +1,6 @@
 if HeroProgression == nil then
     HeroProgression = class({})
     Debug.EnabledModules['progression:*'] = false
-
-    ChatCommand:LinkCommand("-levelup", "OnLevelUpChatCmd", HeroProgression)
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
@@ -149,12 +147,6 @@ function HeroProgression:ProcessAbilityPointGain(hero, level)
     DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
   end
-end
-
-function HeroProgression:OnLevelUpChatCmd(keys)
-  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
-  DebugPrint('Levelling up ' .. hero:GetName() .. ' now at level ' .. hero:GetLevel())
-  hero:HeroLevelUp(true)
 end
 
 function HeroProgression:ExperienceFilter(keys)

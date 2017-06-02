@@ -22,6 +22,10 @@ function PointsManager:Init ()
       self:AddPoints(keys.killer:GetTeam())
     end
   end)
+
+  -- Register chat commands
+  ChatCommand:LinkCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
+  ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 end
 
 function PointsManager:CheckWinCondition(teamID, points)
@@ -83,4 +87,27 @@ end
 
 function PointsManager:GetLimit()
   return CustomNetTables:GetTableValue('team_scores', 'limit').value
+end
+
+function PointsManager:SetLimit(killLimit)
+  CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit})
+end
+
+function PointsManager:AddPointsCommand(keys)
+  local text = string.lower(keys.text)
+  local splitted = split(text, " ")
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local teamID = hero:GetTeamNumber()
+  local pointsToAdd = tonumber(splitted[2]) or 1
+  self:AddPoints(teamID, pointsToAdd)
+end
+
+function PointsManager:SetLimitCommand(keys)
+  local text = string.lower(keys.text)
+  local splitted = split(text, " ")
+  if splitted[2] and tonumber(splitted[2]) then
+    self:SetLimit(tonumber(splitted[2]))
+  else
+    GameRules:SendCustomMessage("Usage is -kill_limit X, where X is the kill limit to set", 0, 0)
+  end
 end

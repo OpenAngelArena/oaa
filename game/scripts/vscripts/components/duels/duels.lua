@@ -4,8 +4,8 @@ if Duels == nil then
   Duels = class({})
   Debug.EnabledModules['duels:duels'] = true
 
-  ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
-  ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
+  ChatCommand:LinkCommand("-duel", Dynamic_Wrap(Duels, "StartDuel"), Duels)
+  ChatCommand:LinkCommand("-end_duel", Dynamic_Wrap(Duels, "EndDuel"), Duels)
 end
 
 --[[
