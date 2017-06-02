@@ -26,7 +26,7 @@ Typically, new items represent an item path containing multiple, related items o
 
 #### Basic Guidelines
 
-Items should comport with the Dota 2 icon style where possible. Icons of increasing tiers of items (eg. Heaven's Halberd 1-3) should build-off of the same basic source icon. This way, they appear very similar to each other whilst having simple "enhancements" at each increase of tier. Good enhancements often play-off of the innate style and purpose of the item (eg. giving a spiky item more spikes).
+Items should comport with the Dota 2 icon style where possible. Icons of increasing tiers of items (eg. Heaven's Halberd 1-3) should build-off of the same basic source icon. This way, they appear very similar to each other whilst having simple "enhancements" at each increase of tier. Good enhancements often play-off of the innate style and purpose of the item (eg. giving a spiky item more spikes). Glance value is key.
 
 #### Pips
 
