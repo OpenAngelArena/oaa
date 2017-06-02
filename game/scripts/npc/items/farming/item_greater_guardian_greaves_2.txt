@@ -143,6 +143,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "assist_radius"                                   "1200 1300 1400 1500 1600"
       }
+      "16"
+      {
+        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
+        "var_type"                                        "FIELD_FLOAT"
+        "assist_stickiness"                               "0.1"
+      }
     }
   }
 }

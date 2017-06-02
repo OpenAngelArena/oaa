@@ -8,6 +8,10 @@ function modifier_creep_assist_gold:IsHidden()
   return true
 end
 
+function modifier_creep_assist_gold:IsPurgable()
+  return false
+end
+
 --------------------------------------------------------------------------
 -- aura stuff
 
@@ -15,8 +19,12 @@ function modifier_creep_assist_gold:IsAura()
   return true
 end
 
+function modifier_creep_assist_gold:GetAuraDuration()
+  return self:GetAbility():GetSpecialValueFor("assist_stickiness")
+end
+
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
+  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
@@ -44,6 +52,14 @@ modifier_creep_assist_gold_aura = class({})
 
 function modifier_creep_assist_gold_aura:IsHidden()
   return true
+end
+
+function modifier_creep_assist_gold_aura:IsPurgable()
+  return false
+end
+
+function modifier_creep_assist_gold_aura:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_creep_assist_gold_aura:DeclareFunctions()
