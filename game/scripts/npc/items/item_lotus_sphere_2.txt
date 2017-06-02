@@ -74,7 +74,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "200 250"
+        "bonus_mana_regen"                                "300 375"
       }
       "05"
       {
@@ -103,9 +103,6 @@
         "var_type"                                        "FIELD_FLOAT"
         "block_cooldown"                                  "9.0 7.0"
       }
-
-
-
     }
   }
 }
