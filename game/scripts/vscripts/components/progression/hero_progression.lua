@@ -34,6 +34,7 @@ function HeroProgression:Init()
     "Intellect"
   }
 
+  FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroProgression, "ExperienceFilter"))
   self:RegisterCustomLevellingPatterns()
 end
 
@@ -154,4 +155,10 @@ function HeroProgression:OnLevelUpChatCmd(keys)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
   DebugPrint('Levelling up ' .. hero:GetName() .. ' now at level ' .. hero:GetLevel())
   hero:HeroLevelUp(true)
+end
+
+function HeroProgression:ExperienceFilter(keys)
+  local playerID = keys.player_id_const
+
+  return PlayerResource:GetConnectionState(playerID) ~= DOTA_CONNECTION_STATE_DISCONNECTED
 end
