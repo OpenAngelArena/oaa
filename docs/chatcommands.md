@@ -41,3 +41,5 @@ Commands to be used for debugging and testing purposes, currently requires the g
 -scepter x - Gives an Aghanim's Scepter of the specified level. Gives level 1 if no level specified.
 <br>
 -print_modifiers - Prints names of all modifiers on user's hero to console.
+<br>
+-tptest - Teleports all heroes to the middle of the map. Used for testing the Duel teleportation code.
