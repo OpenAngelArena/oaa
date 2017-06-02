@@ -160,5 +160,5 @@ end
 function HeroProgression:ExperienceFilter(keys)
   local playerID = keys.player_id_const
 
-  return PlayerResource:GetConnectionState(playerID) ~= DOTA_CONNECTION_STATE_DISCONNECTED
+  return PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED
 end
