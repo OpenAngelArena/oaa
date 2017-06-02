@@ -228,7 +228,7 @@ function DevCheats:GiveLoadout(keys)
       local RemoveItem = function(handle) hero:RemoveItem(handle) end
       local GetItemInSlot = function(slot) return hero:GetItemInSlot(slot) end
       local AddItemByName = function(item) hero:AddItemByName(item) end
-      -- BUG: Items don't get removed
+
       each(RemoveItem, map(GetItemInSlot, range(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6)))
       each(AddItemByName, iter(loadouts[splitted[2]]))
     end
