@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_creep_camp_tracker", "modifiers/modifier_creep_camp_tracker.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Taken from bb template
 if CreepCamps == nil then
     Debug.EnabledModules['creeps:*'] = false
@@ -121,13 +123,15 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     local currentUnitIndex = #self.LivingCreepsTable[locationString]
     self.LivingCreepsTable[locationString].count = self.LivingCreepsTable[locationString].count + 1
 
-    -- Set OnDeath event to clear creep from LivingCreepsTable
-    creepHandle:OnDeath(function ()
-      self.LivingCreepsTable[locationString][currentUnitIndex] = nil
-      self.LivingCreepsTable[locationString].count = self.LivingCreepsTable[locationString].count - 1
-    end)
+    -- Set modifier that will clear creep from LivingCreepsTable OnDeath or OnDominated
+    creepHandle:AddNewModifier(nil, nil, "modifier_creep_camp_tracker",
+      {
+        locationString = locationString,
+        creepIndex = currentUnitIndex
+      }
+    )
 
-    print(locationString .. ":" .. self.LivingCreepsTable[locationString].count)
+    --print(locationString .. ":" .. self.LivingCreepsTable[locationString].count)
 
     -- Increment spawn counter for camp
     if not self.NumberOfSpawnsTable[locationString] then

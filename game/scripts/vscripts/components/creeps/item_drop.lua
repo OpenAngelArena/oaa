@@ -86,6 +86,8 @@ function CreepItemDrop:AddFixedDropsToCamp(creeps, numberOfCreepsSpawned)
     return not (type(value) == "number")
   end
 
+  -- creeps table is not a sequence and has a count property
+  -- so we filter out the numeric count property and form the rest of the data into a sequence
   local sequencedCreeps = totable(filter(IsNotNumber, pairs(creeps)))
 
   local function AddItemToCamp(item)

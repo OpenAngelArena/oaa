@@ -23,11 +23,24 @@ function modifier_creep_loot:OnCreated(keys)
   self.drop = keys.drop
 end
 
-function modifier_creep_loot:OnDestroy()
-  local deathLocation = self:GetParent():GetAbsOrigin()
-  local function DropItem(itemName)
-    CreepItemDrop:CreateDrop(itemName, deathLocation)
-  end
+function modifier_creep_loot:CopyToUnit(unit)
+  unit:AddNewModifier(self:GetCaster(), self:GetAbility(), self:GetName(), {drop = self.drop})
+end
 
-  DropItem(self.drop)
+function modifier_creep_loot:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH
+  }
+end
+
+function modifier_creep_loot:OnDeath(keys)
+  local parent = self:GetParent()
+  if keys.unit == parent then
+    local deathLocation = parent:GetAbsOrigin()
+    local function DropItem(itemName)
+      CreepItemDrop:CreateDrop(itemName, deathLocation)
+    end
+
+    DropItem(self.drop)
+  end
 end
