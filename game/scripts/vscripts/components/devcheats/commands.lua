@@ -97,7 +97,7 @@ function DevCheats:TeleportHeroesToFountain(keys)
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     if hero ~= nil and IsValidEntity(hero) then
-      hero:AddNewModifier(caster, ability, "modifier_chen_test_of_faith_teleport", {duration = 1})
+      hero:AddNewModifier(nil, nil, "modifier_chen_test_of_faith_teleport", {duration = 1})
     end
   end)
 end
@@ -258,7 +258,6 @@ function DevCheats:SwitchHero(keys)
   local text = string.lower(keys.text)
   local splitted = split(text, " ")
   local playerID = keys.playerid
-  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
   if splitted[2] then
     local herolist = LoadKeyValues('scripts/npc/herolist.txt')
