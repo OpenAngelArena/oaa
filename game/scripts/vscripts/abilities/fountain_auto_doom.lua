@@ -46,6 +46,10 @@ function modifier_hyper_doom:IsDebuff()
   return true
 end
 
+function modifier_hyper_doom:RemoveOnDeath()
+  return false
+end
+
 function modifier_hyper_doom:GetTexture()
   return "doom_bringer_doom"
 end
