@@ -1,47 +1,48 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Manta Style
+  // Recipe: Manta Style 5
   //=================================================================================================================
-  "item_recipe_manta"
+  "item_recipe_manta_5"
   {
-    "ID"                                                  "146"    // unique ID
+    "ID"                                                  "3666"    // unique ID
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "900"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_manta"
+    "ItemResult"                                          "item_manta_5"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_yasha;item_ultimate_orb"
+      "01"                                                "item_manta_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Manta Style
+  // Manta Style 5
   //=================================================================================================================
-  "item_manta"
+  "item_manta_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3667"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_manta"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/manta_style_1"
+    "AbilityTextureName"                                  "custom/manta_style_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_manta;item_manta_2;item_manta_3"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "4950"
+    "ItemCost"                                            "37950"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "manta style"
