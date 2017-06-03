@@ -23,8 +23,8 @@ local BaseMultipliers = {
   hp = partial(MakeKFunctionForIndexPowerOffset, 2),
   damage = partial(MakeKFunctionForIndexPowerOffset, 4),
   armour = partial(MakeKFunctionForIndexPowerOffset, 5),
-  gold = partial(MakeKFunctionForIndexPowerOffset, 5),
-  exp = partial(MakeKFunctionForIndexPowerOffset, 6)
+  gold = partial(MakeKFunctionForIndexPowerOffset, 6),
+  exp = partial(MakeKFunctionForIndexPowerOffset, 7)
 }
 
 -- "creep name", Health, Mana, Damage, Armor, Gold Bounty, Exp Bounty
