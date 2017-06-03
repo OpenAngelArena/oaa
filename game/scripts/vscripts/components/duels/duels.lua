@@ -3,9 +3,6 @@ if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
   Debug.EnabledModules['duels:duels'] = true
-
-  ChatCommand:LinkCommand("-duel", "StartDuel", Duels)
-  ChatCommand:LinkCommand("-end_duel", "EndDuel", Duels)
 end
 
 --[[
@@ -60,6 +57,10 @@ function Duels:Init ()
   Timers:CreateTimer(1, function ()
     Duels:StartDuel()
   end)
+
+  ChatCommand:LinkCommand("-duel", Dynamic_Wrap(Duels, "StartDuel"), Duels)
+  ChatCommand:LinkCommand("-end_duel", Dynamic_Wrap(Duels, "EndDuel"), Duels)
+  ChatCommand:LinkCommand("-tptest", Dynamic_Wrap(Duels, "TestSafeTeleport"), Duels)
 end
 
 local DUEL_IS_STARTING = 21
@@ -514,4 +515,10 @@ function Duels:SafeTeleport(unit, location, maxDistance)
       self:SafeTeleport(unit, location, maxDistance)
     end)
   end
+end
+
+-- Test Duels:SafeTeleport function
+function Duels:TestSafeTeleport(keys)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  self:SafeTeleportAll(hero, Vector(0, 0, 0), 150)
 end
