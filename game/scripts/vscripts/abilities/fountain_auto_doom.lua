@@ -21,17 +21,22 @@ end
 
 function modifier_auto_doom:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK
+    MODIFIER_EVENT_ON_ATTACK_LANDED
   }
 end
 
-function modifier_auto_doom:OnAttack(keys)
+function modifier_auto_doom:OnAttackLanded(keys)
   local parent = self:GetParent()
-  -- Debug.EnabledModules["abilities:fountain_auto_doom"] = true
-  -- DebugPrintTable(keys)
   if keys.attacker and not keys.attacker:IsNull() and keys.attacker == parent then
     keys.target:AddNewModifier(parent, self, "modifier_hyper_doom", {duration = 1})
+    --keys.target:Kill(self, parent)
   end
+end
+
+function modifier_auto_doom:CheckState()
+  return {
+    [MODIFIER_STATE_CANNOT_MISS] = true
+  }
 end
 
 ------------------------------------------------------------------------
