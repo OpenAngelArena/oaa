@@ -14,7 +14,7 @@
     // Abilities
     //----------------------------------------------------------------
 
-    "Ability1"                                            "fountain_auto_doom" // Ability 1.
+    "Ability1"                                            ""          // Ability 1.
     "Ability2"                                            ""          // Ability 2.
     "Ability3"                                            ""          // Ability 3.
     "Ability4"                                            ""          // Ability 4.
@@ -30,7 +30,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NONE"
     "AttackDamageMin"                                     "25000"       // Damage range min.
     "AttackDamageMax"                                     "25000"       // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
