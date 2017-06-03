@@ -93,8 +93,8 @@ CaveTypes = {
   [4] = { -- 4 "Roashes Everywhere"
     {                                         --HP    MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_mini_roshan",               900,   0,    100,   2.5,   95,  120, 70},
-        {"npc_dota_mini_roshan",               900,   0,    100,   2.5,   95,  120, 70},
+        {"npc_dota_mini_roshan",               800,   0,     90,   2.5,   95,  120, 70},
+        {"npc_dota_mini_roshan",               800,   0,     90,   2.5,   95,  120, 70},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 6, CaveProgressionBuff), -- function (k) return 1 end,
