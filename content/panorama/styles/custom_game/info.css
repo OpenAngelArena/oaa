@@ -1,11 +1,11 @@
 .InfoContainer
 {
-  horizontal-align: right;
+  horizontal-align: left;
   vertical-align: top;
 }
 
 .InfoLabel
 {
-  color: #000000;
-  opacity: 0.8;
+  color: rgb(205,36,36);
+  color: rgba(205,36,36,.52);
 }
