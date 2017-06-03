@@ -43,6 +43,10 @@ end
 
 modifier_hyper_doom = class({})
 
+function modifier_hyper_doom:IsHidden()
+  return false
+end
+
 function modifier_hyper_doom:IsPurgable()
   return false
 end
