@@ -48,12 +48,13 @@
     "AbilityManaCost"                                     "100"
     "AbilityCastRange"                                    "900"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_pipe_2;item_pipe_3;item_pipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5400"
+    "ItemCost"                                            "4600"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight"
@@ -67,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_regen"                                    "8 12"
+        "health_regen"                                    "8 12 18 27 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "30 45"
+        "magic_resistance"                                "30 34 38 43 48"
       }
       "03"
       {
@@ -82,17 +83,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_resist"                                  "30"
+        "tooltip_resist"                                  "30 34 38 43 48"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "4 6"
+        "aura_health_regen"                               "4 6 9 14 21"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance_aura"                           "10 15"
+        "magic_resistance_aura"                           "10 11 12 14 16"
       }
       "07"
       {
@@ -102,7 +103,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 800"
+        "barrier_block"                                   "400 500 600 700 800"
       }
       "09"
       {

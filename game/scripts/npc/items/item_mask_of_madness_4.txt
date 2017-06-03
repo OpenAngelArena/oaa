@@ -1,34 +1,33 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Mask of Madness 3
+  // Recipe: Mask of Madness 4
   //=================================================================================================================
-  "item_recipe_mask_of_madness_3"
+  "item_recipe_mask_of_madness_4"
   {
-    "ID"                                                  "3081"    // unique ID
+    "ID"                                                  "3668"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_mask_of_madness_3"
+    "ItemResult"                                          "item_mask_of_madness_4"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_mask_of_madness_2;item_upgrade_core_2"
-      "02"                                                "item_mask_of_madness_2;item_upgrade_core_3"
-      "03"                                                "item_mask_of_madness_2;item_upgrade_core_4"
+      "01"                                                "item_mask_of_madness_3;item_upgrade_core_3"
+      "02"                                                "item_mask_of_madness_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Mask of Madness 3
+  // Mask of Madness 4
   //=================================================================================================================
-  "item_mask_of_madness_3"
+  "item_mask_of_madness_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3083"    // unique ID
+    "ID"                                                  "3669"    // unique ID
     "BaseClass"                                           "item_mask_of_madness"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
@@ -36,16 +35,16 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
-    "AbilityTextureName"                                  "custom/mask_of_madness_3"
+    "AbilityTextureName"                                  "custom/mask_of_madness_4"
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "6900"
+    "ItemCost"                                            "14900"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom;mask of madness"
