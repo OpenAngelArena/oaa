@@ -3,11 +3,14 @@
   //=================================================================================================================
   // Recipe: Bloodstone
   //=================================================================================================================
-  "item_recipe_bloodstone"
+  "item_recipe_bloodstone"                                "REMOVED"
+  "item_recipe_bloodstone_1"
   {
 
-    "ID"                                                  "120"       // unique ID
+    "ID"                                                  "3400"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "BaseClass"                                           "item_datadriven"
     "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -22,10 +25,7 @@
   //=================================================================================================================
   // Bloodstone
   //=================================================================================================================
-  "item_bloodstone"
-  {
-    "ItemPurchasable"                                     "0"
-  }
+  "item_bloodstone"                                       "REMOVED"
   "item_bloodstone_1"
   {
     // General
