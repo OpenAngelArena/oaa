@@ -1,60 +1,56 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Lotus Orb 2
+  // Recipe: Lotus Orb 5
   //=================================================================================================================
-  "item_recipe_lotus_orb_2"
+  "item_recipe_lotus_orb_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3188"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3194"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_lotus_orb_2"
+    "ItemResult"                                          "item_lotus_orb_5"
     "ItemRequirements"
     {
-      "01"                                                "item_lotus_orb;item_upgrade_core"
-      "02"                                                "item_lotus_orb;item_upgrade_core_2"
-      "03"                                                "item_lotus_orb;item_upgrade_core_3"
-      "04"                                                "item_lotus_orb;item_upgrade_core_4"
+      "01"                                                "item_lotus_orb_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Lotus Orb 2
+  // Lotus Orb 5
   //=================================================================================================================
-  "item_lotus_orb_2"
+  "item_lotus_orb_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3189"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3195"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lotus_orb"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/lotus_orb_2"
+    "AbilityTextureName"                                  "custom/lotus_orb_5"
     "AbilityCooldown"                                     "15.0"
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "2100"
     "AbilityManaCost"                                     "75"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_lotus_orb_2;item_lotus_orb_3;item_lotus_orb_4"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5500"
+    "ItemCost"                                            "37000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;lotus orb"

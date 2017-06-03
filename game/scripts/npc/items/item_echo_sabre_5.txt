@@ -1,58 +1,59 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Echo Sabre
+  // Recipe: Echo Sabre 5
   //=================================================================================================================
-  "item_recipe_echo_sabre"
+  "item_recipe_echo_sabre_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "251"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "3626"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_echo_sabre"
+    "ItemResult"                                          "item_echo_sabre_5"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_ogre_axe;item_oblivion_staff"
+      "01"                                                "item_echo_sabre_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Echo Sabre
+  // Echo Sabre 5
   //=================================================================================================================
-  "item_echo_sabre"
+  "item_echo_sabre_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "252"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3627"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_echo_sabre"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/echo_sabre_1"
+    "AbilityTextureName"                                  "custom/echo_sabre_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0"
+    "AbilityCooldown"                                     "1.6"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "2650"
+    "ItemCost"                                            "35650"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "echo sabre"
+    "ItemAliases"                                         "echo sabre 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_echo_sabre;item_echo_sabre_2;item_echo_sabre_3;item_echo_sabre_4"
+    "ItemBaseLevel"                                       "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

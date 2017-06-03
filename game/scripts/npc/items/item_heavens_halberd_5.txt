@@ -1,47 +1,45 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Heaven's Halberd 3
+  // Recipe: Heaven's Halberd 5
   //=================================================================================================================
-  "item_recipe_heavens_halberd_3"
+  "item_recipe_heavens_halberd_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3639"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3654"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_heavens_halberd_3"
+    "ItemResult"                                          "item_heavens_halberd_5"
     "ItemRequirements"
     {
-      "01"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      "02"                                                "item_heavens_halberd_2;item_upgrade_core_3"
-      "03"                                                "item_heavens_halberd_2;item_upgrade_core_4"
+      "01"                                                "item_heavens_halberd_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Heaven's Halberd 3
+  // Heaven's Halberd 5
   //=================================================================================================================
-  "item_heavens_halberd_3"
+  "item_heavens_halberd_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3641"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3655"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_heavens_halberd"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/Heavens_Halberd_3"
+    "AbilityTextureName"                                  "custom/Heavens_Halberd_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
@@ -52,16 +50,14 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 175 250 325 400"
-    "ItemCost"                                            "8500"
+    "ItemCost"                                            "36500"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "heaven's halberd 3"
+    "ItemAliases"                                         "heaven's halberd 5"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-
-    "UpgradesItems"                                       "item_heavens_halberd_3;item_heavens_halberd_4"
+    "ItemBaseLevel"                                       "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
