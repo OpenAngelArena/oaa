@@ -495,16 +495,22 @@ end
 function Duels:SafeTeleport(unit, location, maxDistance)
   if unit:FindModifierByName("modifier_life_stealer_infest") then
     DebugPrint("Found LS infesting.")
-    local ability = unit:FindAbilityByName("life_stealer_control")
-    if ability ~= nil then
+    local ability = unit:FindAbilityByName("life_stealer_consume")
+    if ability then
+      if not ability:IsActivated() then
+        error('Ability is not activated')
+      end
       ExecuteOrderFromTable({
         UnitIndex = unit:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
         Queue = 0 --Optional.  Used for queueing up abilities
       })
+    else
+      error('Missing Ability "life_stealer_consume"')
     end
-  elseif unit:IsOutOfGame() then
+  end
+  if unit:IsOutOfGame() then
     unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
   end
   location = GetGroundPosition(location, unit)
