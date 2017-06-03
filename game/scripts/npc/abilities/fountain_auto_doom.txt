@@ -5,35 +5,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "ability_datadriven"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/fountain_auto_doom.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_ALL"
     "AbilityTextureName"                                  "doom_bringer_doom"
-
-    "OnUpgrade"
-    {
-      "ApplyModifier"
-      {
-        "ModifierName"                                    "modifier_auto_doom"
-        "TARGET"                                          "CASTER"
-      }
-    }
-
-    "Modifiers"
-    {
-      "modifier_auto_doom"
-      {
-        "OnAttack"
-        {
-          "ApplyModifier"
-          {
-            "ModifierName"                                "modifier_doom_bringer_doom"
-            "Target"                                      "TARGET"
-          }
-        }
-      }
-    }
   }
 }
