@@ -10,18 +10,21 @@ end
 function item_hand_of_midas:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
+  local bonusGold = self:GetSpecialValueFor("bonus_gold")
+  local xpMult = self:GetSpecialValueFor("xp_multiplier")
+  local defaultMinGoldBounty = target:GetMinimumGoldBounty()
+  local defaultMaxGoldBounty = target:GetMaximumGoldBounty()
 
-  Gold:AddGoldWithMessage(caster, self:GetSpecialValueFor("bonus_gold"))
   if caster.AddExperience then
-    caster:AddExperience(target:GetDeathXP() * self:GetSpecialValueFor("xp_multiplier"), false, false)
+    caster:AddExperience(target:GetDeathXP() * xpMult, false, false)
   end
   EmitSoundOn("DOTA_Item.Hand_Of_Midas", target)
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
 
   target:SetDeathXP(0)
-  target:SetMinimumGoldBounty(0)
-  target:SetMaximumGoldBounty(0)
+  target:SetMinimumGoldBounty(math.max(defaultMinGoldBounty, bonusGold))
+  target:SetMaximumGoldBounty(math.max(defaultMaxGoldBounty, bonusGold))
   target:Kill(self, caster)
 end
 
