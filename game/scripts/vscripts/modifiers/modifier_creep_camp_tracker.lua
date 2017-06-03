@@ -61,8 +61,6 @@ function modifier_creep_camp_tracker:OnDestroy()
 end
 
 function modifier_creep_camp_tracker:OnDominated(keys)
-  Debug.EnabledModules["modifiers:modifier_creep_camp_tracker"] = true
-  -- DebugPrintTable(keys)
   if keys.unit and keys.unit == self:GetParent() then
     self:Destroy()
   end
