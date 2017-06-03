@@ -1570,6 +1570,33 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Move Info Panel Button to be closer to Stats Display
 
 
+## Update 1.1.0-2
+[`5b6207479210929ffe61efc074c4ed5a2bd5ef6a`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-2)
+* Generated Tooltips
+
+### Items
+* Added Custom Particles to Bubble Orb
+* Removed Shivas Cuirass
+* Added Level 4 and 5 of Shivas Guard and Assault Cuirass
+* Greater Guardian Greaves
+  * Added vanilla Guardian Greaves audiovisual effects
+  * Fixed Greater Guardian Greaves stacking with Guardian Greaves
+  * Added basic dispel on cast
+  * Make heal and aura apply to non-heroes as well
+  * Respect and apply Mekanism/Guardian Greaves Heal Cooldown modifier
+  * Make Greater Guardian Greaves passive item modifier unpurgable
+
+
+### Bosses
+* Fixed Cliff Walk making Bosses Fly
+
+### Duels
+* Now Summons and similar Units get teleported into the Cave
+* Fixed Life Stealer getting stuck in the ground when infesting a Creep
+* Fixed Units imprisoned by Astral Imprisonment getting weird teleports
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
