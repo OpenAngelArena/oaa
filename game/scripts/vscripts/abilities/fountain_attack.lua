@@ -9,12 +9,12 @@ function fountain_attack:OnUpgrade()
   self.fountain = {
     trigger = Entities:FindByName(nil, fountainName .. '_trigger'),
     effectName = "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
-    duration = 2
+    duration = self:GetSpecialValueFor("timetokill")
   }
 
   Timers:CreateTimer(function ()
     self:Think()
-    return 0.1
+    return self:GetSpecialValueFor("delay")
   end)
 end
 
@@ -29,14 +29,14 @@ function fountain_attack:Think()
     fountainOrigin,
     nil,
     searchRadius,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,
+    self:GetAbilityTargetTeam(),
+    self:GetAbilityTargetType(),
+    self:GetAbilityTargetFlags(),
     FIND_ANY_ORDER,
     false
   )
   for _,unit in ipairs(units) do
-    if self:IsInFountain(unit) then
+    if unit:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and self:IsInFountain(unit) then
       self:Attack(unit)
     end
   end
@@ -47,7 +47,7 @@ function fountain_attack:Attack(unit)
   local teamID = caster:GetTeamNumber()
   local killTime = self.fountain.duration
   local attackEffect = self.fountain.effectName
-  local killTicks = killTime / 0.1
+  local killTicks = killTime / self:GetSpecialValueFor("delay")
   local unitHealth = unit:GetHealth()
   local unitMaxHealth = unit:GetMaxHealth()
   local healthReductionAmount = unitMaxHealth / killTicks
