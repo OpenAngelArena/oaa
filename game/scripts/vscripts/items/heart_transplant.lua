@@ -93,8 +93,11 @@ end
 function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
   local heart = self:GetAbility()
+  local parentHasHeart = parent:HasModifier("modifier_item_heart")
+  local parentHasGivenHeartAway = parent:HasModifier("modifier_item_heart_transplant_debuff")
+  local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
 
-  if heart:IsCooldownReady() and not parent:IsIllusion() and not parent:HasModifier("modifier_item_heart_transplant_debuff") then
+  if heart:IsCooldownReady() and not parent:IsIllusion() and not parentHasGivenHeartAway and not parentHasHeart and isFirstHeartTransplantModifier then
     return heart:GetSpecialValueFor("health_regen_rate")
   else
     return 0
