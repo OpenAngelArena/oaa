@@ -7,6 +7,22 @@ function item_hand_of_midas:GetIntrinsicModifierName()
   return "modifier_item_hand_of_midas"
 end
 
+function item_hand_of_midas:CastFilterResultTarget(target)
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+  if defaultFilterResult ~= UF_SUCCESS then
+    return defaultFilterResult
+  -- Don't allow targeting Necronomicon units
+  elseif string.sub(target:GetUnitName(), 1, 21) == "npc_dota_necronomicon" then
+    return UF_FAIL_CUSTOM
+  elseif IsServer() then
+    return UF_SUCCESS
+  end
+end
+
+function item_hand_of_midas:GetCustomCastErrorTarget(target)
+  return "#dota_hud_error_cannot_transmute"
+end
+
 function item_hand_of_midas:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
