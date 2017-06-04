@@ -27,6 +27,9 @@ function Precache( context )
 
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
+  -- Fountain
+ PrecacheResource("particle", "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf", context)
+
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
   --PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
