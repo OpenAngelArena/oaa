@@ -1,63 +1,63 @@
 "DOTAItems"
 {
+    //=================================================================================================================
+	// Recipe: Force Staff
 	//=================================================================================================================
-	// Recipe: Magic Wand 5
-	//=================================================================================================================
-	"item_recipe_magic_wand_5"
+	"item_recipe_force_staff"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3706"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
+		"ID"							"101"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-        "AbilityTextureName"            "item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"	
+		"ItemCost"						"400"	
 		"ItemShopTags"					""
         "ItemRecipe"                    "1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_magic_wand_5"
+		"ItemResult"					"item_force_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_magic_wand_4;item_upgrade_core_4"
+			"01"						"item_staff_of_wizardry;item_ring_of_health"
 		}
 	}
 	
 	//=================================================================================================================
-	// Magic Wand 5
+	// Force Staff
 	//=================================================================================================================
-	"item_magic_wand_5"
+	"item_force_staff"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3707"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_magic_wand"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    	"AbilityTextureName"            "custom/magic_wand_5"
-		"Model"							"models/props_gameplay/magic_wand.vmdl"
-		
+		"ID"							"102"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    	"AbilityTextureName"            "custom/force_staff_1"
+		"FightRecapLevel"				"1"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9.0"
-		"AbilitySharedCooldown"			"magicwand"
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+		"AbilitySharedCooldown"			"force"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"33465"
-		"ItemShopTags"					"regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"magic wand"
-		"ItemRequiresCharges"			"1"
-		"ItemDisplayCharges"			"1"
+		"AbilityManaCost"				"25"
+		"ItemCost"						"2250"
+		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"fs;force staff"
     	"MaxUpgradeLevel"               "5"
-    	"ItemBaseLevel"                 "5"
-
+    	"ItemBaseLevel"                 "1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -65,22 +65,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"17"
+				"bonus_intellect"		"10 15 23 34 50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1200"
+				"bonus_health_regen"	"6 12 24 48 96"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"4 8 16 32 64"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"15 30 60 120 240"
+				"push_length"			"600"
 			}
 		}
 	}
