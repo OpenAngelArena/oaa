@@ -20,7 +20,7 @@ function DevCheats:Init()
   ChatCommand:LinkCommand("-give", Dynamic_Wrap(DevCheats, "GiveLevelledItem"), self)
   ChatCommand:LinkCommand("-loadout", Dynamic_Wrap(DevCheats, "GiveLoadout"), self)
   ChatCommand:LinkCommand("-scepter", Dynamic_Wrap(DevCheats, "GiveUltimateScepter"), self)
-  ChatCommand:LinkCommand("-devdagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
+  ChatCommand:LinkCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
 end
 
@@ -42,7 +42,7 @@ end
 function DevCheats:Help(keys)
   GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
   GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
-  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -devdagon", 0, 0)
+  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon", 0, 0)
 end
 
 -- Populate game with bots
