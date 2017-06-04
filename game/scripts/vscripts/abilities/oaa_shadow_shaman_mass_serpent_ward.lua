@@ -55,6 +55,7 @@ function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local function SpawnWard(point)
     local serpentWard = CreateUnitByName(unitName, point, true, caster, owner, casterTeam)
     serpentWard:SetControllableByPlayer(playerID, false)
+    serpentWard:SetOwner(caster)
     -- Give extra health from talent
     serpentWard:SetBaseMaxHealth(serpentWard:GetMaxHealth() + wardBonusHealth)
     serpentWard:AddNewModifier(caster, self, "modifier_shadow_shaman_serpent_ward", {duration = duration})
