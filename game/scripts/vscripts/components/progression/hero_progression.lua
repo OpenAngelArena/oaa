@@ -164,7 +164,7 @@ function HeroProgression:ExperienceFilter(keys)
   if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
     return true
   else
-    self.XPStorage[playerID] = self.XPStorage + experience
+    self.XPStorage[playerID] = self.XPStorage[playerID] + experience
     return false
   end
 end
