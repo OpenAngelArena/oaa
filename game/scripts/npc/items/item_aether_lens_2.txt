@@ -46,7 +46,7 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_aether_lens_2"
 
@@ -57,22 +57,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500"
+        "bonus_mana"                                      "250 350 500 700 1000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "100 150 250"
+        "bonus_mana_regen"                                "100 150 250 350 500"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "220 250 300"
+        "cast_range_bonus"                                "220 250 300 375 450"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "6 8 11"
+        "spell_amp"                                       "6 8 10 12 15"
       }
     }
   }
