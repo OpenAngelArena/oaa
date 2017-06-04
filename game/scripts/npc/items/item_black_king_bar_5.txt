@@ -1,39 +1,39 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Black King Bar
+  // Recipe: Black King Bar 5
   //=================================================================================================================
-  "item_recipe_black_king_bar"
+  "item_recipe_black_king_bar_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "3872"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_black_king_bar"
     "Model"                         "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "1375"
+    "ItemCost"                      "20000"
     "ItemShopTags"                  ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                    "1"
-    "ItemResult"                    "item_black_king_bar"
+    "ItemResult"                    "item_black_king_bar_5"
     "ItemRequirements"
     {
-      "01"                        "item_ogre_axe;item_mithril_hammer"
+      "01"                          "item_black_king_bar;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Black King Bar
+  // Black King Bar 5
   //=================================================================================================================
-  "item_black_king_bar"
+  "item_black_king_bar_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "3873"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"               "2"
 
@@ -42,12 +42,11 @@
     "AbilityCooldown"               "80 75 70 65 60 55"
     "AbilityTextureName"            "custom/black_king_bar"
     "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
-    "UpgradesItems"                 "item_black_king_bar;item_black_king_bar_2;item_black_king_bar_3;item_black_king_bar_4"
+    "ItemBaseLevel"                 "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3975"
+    "ItemCost"                      "36975"
     "ItemShopTags"                  "str;damage;hard_to_tag"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "bkb;black king bar"

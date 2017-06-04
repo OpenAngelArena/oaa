@@ -1,46 +1,45 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Blade Mail 3
+  // Recipe: Blade Mail 4
   //=================================================================================================================
-  "item_recipe_blade_mail_3"
+  "item_recipe_blade_mail_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3089"    // unique ID
+    "ID"                                                  "3874"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_blade_mail_3"
+    "ItemResult"                                          "item_blade_mail_4"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail_2;item_upgrade_core_2"
-      "02"                                                "item_blade_mail_2;item_upgrade_core_3"
-      "03"                                                "item_blade_mail_2;item_upgrade_core_4"
+      "01"                                                "item_blade_mail_3;item_upgrade_core_3"
+      "02"                                                "item_blade_mail_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Blade Mail 3
+  // Blade Mail 4
   //=================================================================================================================
-  "item_blade_mail_3"
+  "item_blade_mail_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3091"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3875"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_blade_mail"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/blade_mail_3"
+    "AbilityTextureName"                                  "custom/blade_mail_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
@@ -48,12 +47,12 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "8200"
+    "ItemCost"                                            "12700"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
