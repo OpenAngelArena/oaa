@@ -1,37 +1,28 @@
+require('internal/util')
 
-if Fountain == nil then
-  Debug.EnabledModules["fountain:fountain"] = true
-  DebugPrint("Created new Fountain Object")
-  Fountain = class({})
+fountain_attack = class({})
+
+function fountain_attack:OnUpgrade()
+  local caster = self:GetCaster()
+  local teamID = caster:GetTeamNumber()
+  local fountainName = 'fountain_' .. GetShortTeamName(teamID)
+  self.fountain = {
+    trigger = Entities:FindByName(nil, fountainName .. '_trigger'),
+    effectName = "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
+    duration = 2
+  }
+
+  Timers:CreateTimer(function ()
+    self:Think()
+    return 0.1
+  end)
 end
 
-function Fountain:Init()
-  self.fountains = {}
-  for teamID = DOTA_TEAM_GOODGUYS,DOTA_TEAM_BADGUYS do
-    local fountainName = 'fountain_' .. GetShortTeamName(teamID)
-    local attack = {
-      effectName = "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf",
-      attacker = Entities:FindByName(nil, fountainName .. '_attacker'),
-      duration = 2
-    }
-    self.fountains[teamID] = {
-      teamID = teamID,
-      trigger = Entities:FindByName(nil, fountainName .. '_trigger'),
-      attack = attack
-    }
-
-    Timers:CreateTimer(function ()
-      self:Think(self.fountains[teamID])
-      return 0.1
-    end)
-  end
-
-end
-
-function Fountain:Think(fountain)
-  local fountainOrigin = fountain.trigger:GetAbsOrigin()
-  local searchRadius = fountain.trigger:GetBoundingMaxs():Length2D()
-  local teamID = fountain.teamID
+function fountain_attack:Think()
+  local caster = self:GetCaster()
+  local fountainOrigin = self.fountain.trigger:GetAbsOrigin()
+  local searchRadius = self.fountain.trigger:GetBoundingMaxs():Length2D()
+  local teamID = caster:GetTeam()
 
   local units = FindUnitsInRadius(
     teamID,
@@ -45,17 +36,17 @@ function Fountain:Think(fountain)
     false
   )
   for _,unit in ipairs(units) do
-    if self:IsInFountain(fountain, unit) then
-      self:Attack(fountain, unit)
+    if self:IsInFountain(unit) then
+      self:Attack(unit)
     end
   end
 end
 
-function Fountain:Attack(fountain, unit)
-  local teamID = fountain.teamID
-  local killTime = fountain.attack.duration
-  local attacker = fountain.attack.attacker
-  local attackEffect = fountain.attack.effectName
+function fountain_attack:Attack(unit)
+  local caster = self:GetCaster()
+  local teamID = caster:GetTeamNumber()
+  local killTime = self.fountain.duration
+  local attackEffect = self.fountain.effectName
   local killTicks = killTime / 0.1
   local unitHealth = unit:GetHealth()
   local unitMaxHealth = unit:GetMaxHealth()
@@ -63,26 +54,23 @@ function Fountain:Attack(fountain, unit)
   local unitMaxMana = unit:GetMaxMana()
   local manaReductionAmount = unitMaxMana / killTicks
 
-  DebugPrint('Fountain of team ' .. teamID .. ' is attacking ' .. unit:GetName())
-
   unit:MakeVisibleDueToAttack(teamID)
   unit:Purge(true, false, false, false, true)
   unit:ReduceMana(manaReductionAmount)
   if unitHealth - healthReductionAmount < 1 then
-    unit:ForceKill(true)
-    --unit:Kill(nil, killer)
+    unit:Kill(self, caster)
   else
     unit:SetHealth(unitHealth - healthReductionAmount)
   end
 
   local particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN, nil)
-  ParticleManager:SetParticleControlEnt(particle, 0, fountain.trigger, PATTACH_POINT_FOLLOW, "attach_attack1", attacker:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
   ParticleManager:SetParticleControlEnt(particle, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 end
 
-function Fountain:IsInFountain (fountain, entity)
-  local fountainOrigin = fountain.trigger:GetAbsOrigin()
-  local bounds = fountain.trigger:GetBounds()
+function fountain_attack:IsInFountain(entity)
+  local fountainOrigin = self.fountain.trigger:GetAbsOrigin()
+  local bounds = self.fountain.trigger:GetBounds()
 
   local origin = entity
   if entity.GetAbsOrigin then

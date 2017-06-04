@@ -1,1 +1,0 @@
-require('components/fountain/fountain')
