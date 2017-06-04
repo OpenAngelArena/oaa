@@ -33,6 +33,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "100"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_cyclone"
+    "AbilityTextureName"            "custom/cyclone"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CUSTOM"
@@ -49,12 +51,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "175"
+    "AbilityManaCost"               "175 200 250 300 350"
     "ItemCost"                      "2750"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
     "ItemAliases"                   "cyclone euls;eul's scepter of divinity"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -63,17 +67,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "10"
+        "bonus_intellect"       "10 15 20 30 45"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_mana_regen"      "150"
+        "bonus_mana_regen"      "150 225 325 450 650"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "40"
+        "bonus_movement_speed"  "40 45 50 55 60"
       }
       "04"
       {

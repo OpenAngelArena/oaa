@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "3872"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_black_king_bar"
     "Model"                         "models/props_gameplay/recipe.vmdl"
 
     // Item Info
@@ -22,7 +21,7 @@
     "ItemResult"                    "item_black_king_bar_5"
     "ItemRequirements"
     {
-      "01"                          "item_black_king_bar;item_upgrade_core_4"
+      "01"                          "item_black_king_bar_4;item_upgrade_core_4"
     }
   }
 
@@ -34,13 +33,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "3873"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_black_king_bar"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "80 75 70 65 60 55"
-    "AbilityTextureName"            "custom/black_king_bar"
+    "AbilityTextureName"            "custom/black_king_bar_5"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "5"
 

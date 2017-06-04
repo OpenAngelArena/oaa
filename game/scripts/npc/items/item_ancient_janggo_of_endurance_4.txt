@@ -15,8 +15,8 @@
     "ItemResult"                                          "item_ancient_janggo_4"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo;upgrade_core_3"
-      "02"                                                "item_ancient_janggo;upgrade_core_4"
+      "01"                                                "item_ancient_janggo_3;upgrade_core_3"
+      "02"                                                "item_ancient_janggo_3;upgrade_core_4"
     }
   }
 
@@ -30,7 +30,7 @@
     "ID"                                                  "3857"    // unique ID
     "BaseClass"                                           "item_ancient_janggo"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/drums_2"
+    "AbilityTextureName"                                  "custom/drums_4"
     "ItemPermanent"                                       "1"
     "FightRecapLevel"                                     "1"
 

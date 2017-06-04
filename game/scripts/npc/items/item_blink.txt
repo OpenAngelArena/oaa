@@ -5,6 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "1"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_blink"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityTextureName"                                  "custom/blink"
 
@@ -23,6 +24,9 @@
     "ItemAliases"                                         "blink dagger"
     "SideShop"                                            "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_blink;item_blink_2;item_blink_3;item_blink_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_black_king_bar"
     "Model"                         "models/props_gameplay/recipe.vmdl"
 
     // Item Info
@@ -35,6 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                     "item_black_king_bar"
     "FightRecapLevel"               "2"
 
     // Stats

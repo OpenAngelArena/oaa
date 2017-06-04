@@ -64,9 +64,9 @@
     "ItemInitialCharges"                                  "8"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "6"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_diffusal_blade_3"
+    "UpgradesItems"                                       "item_diffusal_blade_3;item_diffusal_blade_4;item_diffusal_blade_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,12 +75,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 55 80"
+        "bonus_agility"                                   "25 35 55 80 120 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35"
+        "bonus_intellect"                                 "10 15 25 35 50 75"
       }
       "03"
       {
@@ -90,17 +90,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "50 50 75 115"
+        "feedback_mana_burn"                              "50 50 75 100 150 225"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 16 24 36"
+        "feedback_mana_burn_illusion_melee"               "16 16 24 33 50 75"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 8 12 18"
+        "feedback_mana_burn_illusion_ranged"              "8 8 12 16 20 30"
       }
       "07"
       {
