@@ -36,7 +36,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3186"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_hand_of_midas"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/hand_of_midas.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
@@ -47,6 +48,7 @@
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "100.0"
+    "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
