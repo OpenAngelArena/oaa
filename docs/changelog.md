@@ -1651,12 +1651,53 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Update 1.1.0
 [`c8402f8808089cb79be3d247d3ebe070fc38a481`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0)
+* Generated Tooltips
 
+### Cave
+* Fixed Armour using Gold Values and XP using Armour Values
 
+### Items
+* Added new Icons
+  * Dragon Lance 1
+  * Dragon Lance 2
+  * Dragon Lance 3
+  * Dragon Lance 4
+  * Guardian Greaves
+  * Greater Guardian Greaves 1
+  * Greater Guardian Greaves 2
+  * Greater Guardian Greaves 3
+  * Greater Guardian Greaves 4
+  * Greater Guardian Greaves 5
+  * Manta Style 1
+  * Manta Style 2
+  * Manta Style 3
+  * Manta Style 4
+  * Mjollnir 1
+  * Mjollnir 2
+  * Mjollnir 3
+  * Mjollnir 4
+  * Mjollnir 5
+* Fix Bloodstone build path
+* Fix higher level Hand of Midas not giving Bonus Gold and XP
+* Rename Trump's Fist to Confefe
 
+### Heroes
+* Fixed Bug where Abandoned Players still get XP
 
+### Duel
+* Fixed LS fix not working
 
+### UI
+* Move Version Display to the left and adjusted colors
+* Removed Battle Pass Towers (not tested)
 
+### Map
+* Tweak map to prevent cave cliff farming and towers in duels
+
+### Misc
+* Rework ChatCommand component
+  * Commands are now available when `sv_cheats 1`
+* Fix Fountain auto-doom
 
 
 
