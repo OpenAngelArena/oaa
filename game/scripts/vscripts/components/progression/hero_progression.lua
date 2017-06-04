@@ -1,6 +1,6 @@
 if HeroProgression == nil then
     HeroProgression = class({})
-    Debug.EnabledModules['progression:*'] = false
+    Debug.EnabledModules['progression:*'] = true
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
@@ -31,6 +31,14 @@ function HeroProgression:Init()
     "Agility",
     "Intellect"
   }
+  self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
+  GameEvents:OnPlayerReconnect(function(keys)
+    local playerID = keys.PlayerID
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+
+    hero:AddExperience(HeroProgression.XPStorage[playerID], DOTA_ModifyXP_Unspecified, false, true)
+    HeroProgression.XPStorage[playerID] = 0
+  end)
 
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroProgression, "ExperienceFilter"))
   self:RegisterCustomLevellingPatterns()
@@ -151,6 +159,12 @@ end
 
 function HeroProgression:ExperienceFilter(keys)
   local playerID = keys.player_id_const
+  local experience = keys.experience
 
-  return PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED
+  if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+    return true
+  else
+    self.XPStorage[playerID] = self.XPStorage[playerID] + experience
+    return false
+  end
 end
