@@ -8,11 +8,11 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
 
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
 
-local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-ParticleManager:SetParticleControl(particle, 0, self:GetAbsOrigin())
-ParticleManager:SetParticleControl(particle, 1, self:GetAbsOrigin())
-ParticleManager:SetParticleControl(particle, 2, self:GetAbsOrigin())
-ParticleManager:SetParticleControl(particle, 4, self:GetAbsOrigin())
+local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, thisEntity)
+ParticleManager:SetParticleControl(particle, 0, thisEntity:GetAbsOrigin())
+ParticleManager:SetParticleControl(particle, 1, thisEntity:GetAbsOrigin())
+ParticleManager:SetParticleControl(particle, 2, thisEntity:GetAbsOrigin())
+ParticleManager:SetParticleControl(particle, 4, thisEntity:GetAbsOrigin())
 ParticleManager:SetParticleControl(particle, 5, Vector(nil,0,0))
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_shield, "modifier_boss_phase_controller", {})
