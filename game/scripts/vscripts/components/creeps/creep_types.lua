@@ -42,33 +42,33 @@ CreepTypes = {
     -- 3 "hard camp"
   {
     {                                          --HP   MANA   DMG   ARM  GOLD   EXP
-      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,    49}, --expected gold is 168 and XP is 98
-      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,    49},
+      {"npc_dota_neutral_custom_big_horse",     1600, 400,   44,   3,   100,    49}, --expected gold is 168 and XP is 98
+      {"npc_dota_neutral_custom_small_horse",   1200, 240,   28,   2,    68,    49},
     },
     {
-      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,    49},
-      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,    49},
+      {"npc_dota_neutral_custom_big_horse",     1600, 400,   44,   3,   100,    49},
+      {"npc_dota_neutral_custom_small_horse",   1200, 240,   28,   2,    68,    49},
     },
     {
-      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,    49},
-      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,    49},
+      {"npc_dota_neutral_custom_big_horse",     1600, 400,   44,   3,   100,    49},
+      {"npc_dota_neutral_custom_small_horse",   1200, 240,   28,   2,    68,    49},
     },
     {
-      {"npc_dota_neutral_centaur_khan",         1600, 400,   44,   3,   100,    49},
-      {"npc_dota_neutral_centaur_outrunner",    1200, 240,   28,   2,    68,    49},
+      {"npc_dota_neutral_custom_big_horse",     1600, 400,   44,   3,   100,    49},
+      {"npc_dota_neutral_custom_small_horse",   1200, 240,   28,   2,    68,    49},
     },
     {
-      {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    36,    36},
-      {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    36,    36},
-      {"npc_dota_neutral_alpha_wolf",           1200, 480,   56,   5,   120,    50}
+      {"npc_dota_neutral_custom_small_pupper",   640, 160,   24,   3,    36,    36},
+      {"npc_dota_neutral_custom_small_pupper",   640, 160,   24,   3,    36,    36},
+      {"npc_dota_neutral_custom_big_pupper",    1200, 480,   56,   5,   120,    50}
     },
     {
-      {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    36,    36},
-      {"npc_dota_neutral_alpha_wolf",           1200, 480,   56,   5,   120,    50}
+      {"npc_dota_neutral_custom_small_pupper",   640, 160,   24,   3,    36,    36},
+      {"npc_dota_neutral_custom_big_pupper",    1200, 480,   56,   5,   120,    50}
     },
     {
-      {"npc_dota_neutral_giant_wolf",            640, 160,   24,   3,    36,    36},
-      {"npc_dota_neutral_alpha_wolf",           1200, 480,   56,   5,   120,    50}
+      {"npc_dota_neutral_custom_small_pupper",   640, 160,   24,   3,    36,    36},
+      {"npc_dota_neutral_custom_big_pupper",    1200, 480,   56,   5,   120,    50}
     },
     {
       {"npc_dota_neutral_custom_black_dragon",  1840,   0,   80,   3,   168,    98},
