@@ -541,12 +541,12 @@ function Duels:SafeTeleport(unit, location, maxDistance)
   end
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
-  local distance = (location - unit:GetAbsOrigin()):Length2D()
-  if distance > maxDistance then
-    Timers:CreateTimer(0.1, function()
+  Timers:CreateTimer(0.1, function()
+    local distance = (location - unit:GetAbsOrigin()):Length2D()
+    if distance > maxDistance then
       self:SafeTeleport(unit, location, maxDistance)
-    end)
-  end
+    end
+  end)
 end
 
 -- Test Duels:SafeTeleport function
