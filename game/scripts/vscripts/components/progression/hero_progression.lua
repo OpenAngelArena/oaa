@@ -161,10 +161,12 @@ function HeroProgression:ExperienceFilter(keys)
   local playerID = keys.player_id_const
   local experience = keys.experience
 
-  if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-    return true
-  else
-    self.XPStorage[playerID] = self.XPStorage[playerID] + experience
-    return false
+  if experience then
+    if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+      return true
+    else
+      self.XPStorage[playerID] = self.XPStorage[playerID] + experience
+      return false
+    end
   end
 end
