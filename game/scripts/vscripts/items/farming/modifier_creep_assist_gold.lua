@@ -24,7 +24,7 @@ function modifier_creep_assist_gold:GetAuraDuration()
 end
 
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
@@ -40,10 +40,20 @@ function modifier_creep_assist_gold:GetModifierAura()
 end
 
 function modifier_creep_assist_gold:GetAuraEntityReject(entity)
-  if entity:IsRealHero() then
+  local caster = self:GetCaster()
+  local playerOwnerID = caster:GetPlayerOwnerID()
+  local creepAssistModifiers = entity:FindAllModifiersByName("modifier_creep_assist_gold_aura")
+
+  local function IsFromSamePlayer(modifier)
+    return modifier:GetCaster():GetPlayerOwnerID() == playerOwnerID
+  end
+
+  -- Apply only one modifier per player and don't apply to units owned by the same player
+  if any(IsFromSamePlayer, creepAssistModifiers) or entity:GetPlayerOwnerID() == playerOwnerID then
+    return true
+  else
     return false
   end
-  return true
 end
 
 --------------------------------------------------------------------------
@@ -69,7 +79,8 @@ function modifier_creep_assist_gold_aura:DeclareFunctions()
 end
 
 function modifier_creep_assist_gold_aura:OnDeath(keys)
-  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster()  then
+  local attacked = keys.unit
+  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster() or not attacked:IsNeutralUnitType() then
     return
   end
   --[[
@@ -99,8 +110,8 @@ function modifier_creep_assist_gold_aura:OnDeath(keys)
 [   VScript              ]: distance: 0
   int ModifyGold(int playerID, int goldAmmt, bool reliable, int nReason)
 ]]
-  local bounty = keys.unit:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
-  local caster = self:GetCaster() -- caster is hero with boots,
+  local caster = self:GetCaster() -- caster is hero with boots
+  local bounty = attacked:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
 
   PlayerResource:ModifyGold(caster:GetPlayerID(), bounty, true, DOTA_ModifyGold_SharedGold)
 end
