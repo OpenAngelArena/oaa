@@ -463,6 +463,7 @@ function Duels:RestorePlayerState (hero, state)
         DebugPrint('Why is this ability broken?' .. abilityIndex)
         DebugPrintTable(state)
       else
+        ability:EndCooldown()
         ability:StartCooldown(state.abilities[abilityIndex].cooldown)
       end
     end
@@ -471,6 +472,7 @@ function Duels:RestorePlayerState (hero, state)
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil and state.items[itemIndex] then
+      item:EndCooldown()
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
   end
