@@ -6,6 +6,11 @@ item_greater_arcane_boots = class({})
 function item_greater_arcane_boots:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Prevent Meepo Clones from activating Greater Arcane Boots
+  if caster:IsClone() then
+    return false
+  end
+
   local heroes = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
