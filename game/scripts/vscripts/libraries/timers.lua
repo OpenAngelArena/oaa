@@ -9,12 +9,12 @@ TIMERS_VERSION = "1.05"
     end
   )
 
-  -- The same timer as above with a shorthand call 
+  -- The same timer as above with a shorthand call
   Timers(function()
     print ("Hello. I'm running immediately and then every second thereafter.")
     return 1.0
   end)
-  
+
 
   -- A timer which calls a function with a table context
   Timers:CreateTimer(GameMode.someFunction, GameMode)
@@ -85,7 +85,7 @@ end
 function Timers:start()
   Timers = self
   self.timers = {}
-  
+
   --local ent = Entities:CreateByClassname("info_target") -- Entities:FindByClassname(nil, 'CWorld')
   local ent = SpawnEntityFromTableSynchronous("info_target", {targetname="timers_lua_thinker"})
   ent:SetThink("Think", self, "timers", TIMERS_THINK)
@@ -125,7 +125,7 @@ function Timers:Think()
 
       Timers.runningTimer = k
       Timers.removeSelf = false
-      
+
       -- Run the callback
       local status, nextCall
       if v.context then
@@ -219,7 +219,7 @@ function Timers:CreateTimer(name, args, context)
 
   args.context = context
 
-  Timers.timers[name] = args 
+  Timers.timers[name] = args
 
   return name
 end
