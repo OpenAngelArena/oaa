@@ -27,29 +27,12 @@ function item_greater_arcane_boots:OnSpellStart()
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_amount")
     hero:GiveMana(manaReplenishAmount)
 
-    local particleManaNumberName = "particles/msg_fx/msg_mana_add.vpcf"
     local particleManaGainName = "particles/items_fx/arcane_boots_recipient.vpcf"
 
-    local particleManaNumberCaster = ParticleManager:CreateParticleForPlayer(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, caster:GetPlayerOwner())
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 0, hero:GetOrigin() + Vector(0, 0, 125))
-    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 1, Vector(0, manaReplenishAmount, 0))
-    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
-    -- xyz is color in RGB values
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 3, Vector(17, 180, 233))
-    ParticleManager:ReleaseParticleIndex(particleManaNumberCaster)
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
 
     if hero ~= caster then
-      local particleManaNumberRecipient = ParticleManager:CreateParticleForPlayer(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, hero:GetPlayerOwner())
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 0, hero:GetOrigin() + Vector(0, 0, 125))
-      -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 1, Vector(0, manaReplenishAmount, 0))
-      -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
-      -- xyz is color in RGB values
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 3, Vector(17, 180, 233))
-      ParticleManager:ReleaseParticleIndex(particleManaNumberRecipient)
+      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
     end
 
     local particleManaGain = ParticleManager:CreateParticle(particleManaGainName, PATTACH_ABSORIGIN_FOLLOW, hero)
