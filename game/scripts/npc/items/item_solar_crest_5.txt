@@ -1,49 +1,46 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Solar Crest 2
+  // Recipe: Solar Crest 5
   //=================================================================================================================
-  "item_recipe_solar_crest_2"
+  "item_recipe_solar_crest_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3612"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3679"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_solar_crest_2"
+    "ItemResult"                                          "item_solar_crest_5"
     "ItemRequirements"
     {
-      "01"                                                "item_solar_crest;item_upgrade_core"
-      "02"                                                "item_solar_crest;item_upgrade_core_2"
-      "03"                                                "item_solar_crest;item_upgrade_core_3"
-      "04"                                                "item_solar_crest;item_upgrade_core_4"
+      "01"                                                "item_solar_crest_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Solar Crest 2
+  // Solar Crest 5
   //=================================================================================================================
-  "item_solar_crest_2"
+  "item_solar_crest_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3615"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3680"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_solar_crest"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/solar_crest_2"
+    "AbilityTextureName"                                  "custom/solar_crest_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
@@ -52,14 +49,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4125"
+    "ItemCost"                                            "13125"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "solar crest 2"
+    "ItemAliases"                                         "solar crest 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "5"
     "UpgradesItems"                                       "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
 
     // Special
