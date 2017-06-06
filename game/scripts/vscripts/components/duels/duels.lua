@@ -317,8 +317,8 @@ function Duels:EndDuel ()
 
   local nextDuelIn = 300
   -- why dont these run?
+  Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
   Timers:CreateTimer(nextDuelIn - 50, function ()
-    self:StartDuel()
     Notifications:TopToAll({text="A duel will start in 1 minute!", duration=10.0})
   end)
 
