@@ -22,6 +22,7 @@ function DevCheats:Init()
   ChatCommand:LinkCommand("-scepter", Dynamic_Wrap(DevCheats, "GiveUltimateScepter"), self)
   ChatCommand:LinkCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
+  ChatCommand:LinkCommand("-lazor", Dynamic_Wrap(DevCheats, "AddDevLazor"), self)
 end
 
 -- Print all modifiers on player's hero to console
@@ -42,7 +43,7 @@ end
 function DevCheats:Help(keys)
   GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
   GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
-  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon", 0, 0)
+  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon, -lazor", 0, 0)
 end
 
 -- Populate game with bots
@@ -186,6 +187,11 @@ function DevCheats:AddAbility(keys)
     --   end
     -- end
   end
+end
+
+-- Adds the dev_lazor ability
+function DevCheats:AddDevLazor(keys)
+  PlayerResource:GetSelectedHeroEntity(keys.playerid):AddAbility("dev_lazor")
 end
 
 -- Give items. If you put a number after the name of the item, it will look for that level, e.g. "-give heart 3" gives lvl 3 heart
