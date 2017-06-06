@@ -40,10 +40,20 @@ function modifier_creep_assist_gold:GetModifierAura()
 end
 
 function modifier_creep_assist_gold:GetAuraEntityReject(entity)
-  if entity:IsRealHero() then
+  local caster = self:GetCaster()
+  local playerOwnerID = caster:GetPlayerOwnerID()
+  local creepAssistModifiers = entity:FindAllModifiersByName("modifier_creep_assist_gold_aura")
+
+  local function IsFromSamePlayer(modifier)
+    return modifier:GetCaster():GetPlayerOwnerID() == playerOwnerID
+  end
+
+  -- Apply only one modifier per player and don't apply to units owned by the same player
+  if any(IsFromSamePlayer, creepAssistModifiers) or entity:GetPlayerOwnerID() == playerOwnerID then
+    return true
+  else
     return false
   end
-  return true
 end
 
 --------------------------------------------------------------------------
