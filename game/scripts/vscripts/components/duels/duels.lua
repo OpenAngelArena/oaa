@@ -58,7 +58,7 @@ function Duels:Init ()
   end)
 
   Timers:CreateTimer(1, function ()
-    Duels:StartDuel()
+    Duels:StartDuel(5)
   end)
 
   ChatCommand:LinkCommand("-duel", Dynamic_Wrap(Duels, "StartDuel"), Duels)
@@ -98,7 +98,7 @@ function Duels:CheckDuelStatus (hero)
     Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] - 1
 
     if Duels.currentDuel[scoreIndex] <= 0 then
-      Duels.currentDuel['duelEnd' .. player.duelNumber] = true
+      Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
       DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
     end
 
@@ -109,11 +109,12 @@ function Duels:CheckDuelStatus (hero)
   end)
 end
 
-function Duels:StartDuel ()
+function Duels:StartDuel (teamSplit)
   if Duels.currentDuel then
     DebugPrint ('There is already a duel running')
     return
   end
+  Timers:RemoveTimer('EndDuel')
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
 
@@ -128,11 +129,11 @@ function Duels:StartDuel ()
     Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
     ZoneCleaner:CleanZone(Duels.zone1)
     ZoneCleaner:CleanZone(Duels.zone2)
-    Duels:ActuallyStartDuel()
+    Duels:ActuallyStartDuel(teamSplit)
   end)
 end
 
-function Duels:ActuallyStartDuel ()
+function Duels:ActuallyStartDuel (teamSplit)
   -- respawn everyone
   local goodPlayerIndex = 1
   local badPlayerIndex = 1
@@ -179,7 +180,7 @@ function Duels:ActuallyStartDuel ()
     return
   end
 
-  local playerSplitOffset = math.random(0, maxPlayers)
+  local playerSplitOffset = math.min(teamSplit, maxPlayers) or math.random(0, maxPlayers)
   -- local playerSplitOffset = maxPlayers
   local spawnLocations = math.random(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
@@ -286,7 +287,10 @@ function Duels:ActuallyStartDuel ()
   }
   DuelStartEvent.broadcast(self.currentDuel)
 
-  Timers:CreateTimer(90, Dynamic_Wrap(Duels, 'EndDuel'))
+  Timers:CreateTimer('EndDuel', {
+    endTime = 90,
+    callback = Dynamic_Wrap(Duels, 'EndDuel')
+  })
 end
 
 function Duels:MoveCameraToPlayer (playerId, entity)
@@ -364,7 +368,7 @@ function Duels:EndDuel ()
         PlayerResource:GetSelectedHeroEntity(player.id):RemoveModifierByName("modifier_out_of_duel")
       end
     end
-    DuelEndEvent.broadcast(true)
+    DuelEndEvent.broadcast(currentDuel)
   end)
 end
 
