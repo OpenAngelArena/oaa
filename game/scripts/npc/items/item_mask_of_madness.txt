@@ -35,7 +35,7 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_mask_of_madness;item_mask_of_madness_2"
     "AbilityTextureName"                                  "custom/mask_of_madness"
@@ -56,12 +56,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30 50"
+        "bonus_damage"                                    "20 30 50 75 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 25"
+        "bonus_attack_speed"                              "10 15 20 25 30"
       }
       "03"
       {
@@ -71,12 +71,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "110 135 160"
+        "berserk_bonus_attack_speed"                      "110 135 160 185 210"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "17 27 37"
+        "berserk_bonus_movement_speed"                    "17 23 29 35 41"
       }
       "06"
       {

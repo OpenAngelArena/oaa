@@ -1,0 +1,21 @@
+modifier_out_of_duel = class({})
+
+function modifier_out_of_duel:CheckState()
+  return {
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true
+  }
+end
+
+function modifier_out_of_duel:IsHidden()
+  return false
+end
+
+function modifier_out_of_duel:IsPurgeable()
+  return false
+end
+
+function modifier_out_of_duel:IsPurgeException()
+  return false
+end
