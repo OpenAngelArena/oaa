@@ -12,6 +12,37 @@ function modifier_creep_assist_gold:IsPurgable()
   return false
 end
 
+function modifier_creep_assist_gold:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      self:GetAuraSearchFlags(),
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function DestroyModifier(modifier)
+      modifier:Destroy()
+    end
+
+    local function DestroyCreepAssistModifiers(unit)
+      local modifiers = unit:FindAllModifiersByName("modifier_creep_assist_gold_aura")
+      foreach(DestroyModifier, modifiers)
+    end
+
+    -- Force refresh of all creep assist gold effect modifiers in area to avoid issues when items are upgraded
+    foreach(DestroyCreepAssistModifiers, units)
+  end
+end
+
+modifier_creep_assist_gold.OnRefresh = modifier_creep_assist_gold.OnCreated
+
 --------------------------------------------------------------------------
 -- aura stuff
 
