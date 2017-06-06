@@ -1,13 +1,13 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Sange and Yasha 4
+  // Recipe: Sange and Yasha 5
   //=================================================================================================================
-  "item_recipe_sange_and_yasha_4"
+  "item_recipe_sange_and_yasha_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3841"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3851"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
@@ -19,25 +19,24 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sange_and_yasha_4"
+    "ItemResult"                                          "item_sange_and_yasha_5"
     "ItemRequirements"
     {
-      "01"                                                "item_sange_and_yasha_3;item_upgrade_core_3"
-      "02"                                                "item_sange_and_yasha_3;item_upgrade_core_4"
+      "01"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Sange and Yasha 4
+  // Sange and Yasha 5
   //=================================================================================================================
-  "item_sange_and_yasha_4"
+  "item_sange_and_yasha_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3842"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3852"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_sange_and_yasha"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/sange_and_yasha_4"
+    "AbilityTextureName"                                  "custom/sange_and_yasha_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -45,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14900"
+    "ItemCost"                                            "37100"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny;s&y;sy;sange and yasha"
