@@ -6,6 +6,9 @@ if PointsManager == nil then
   PointsManager = class({})
 end
 
+local WinnerEvent = Event()
+PointsManager.onWinner = WinnerEvent.listen
+
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
 
@@ -36,13 +39,15 @@ function PointsManager:CheckWinCondition(teamID, points)
   local limit = CustomNetTables:GetTableValue('team_scores', 'limit').value
 
   if points >= limit then
-    Timers:CreateTimer(1, function()
-      GAME_WINNER_TEAM = teamID
-      GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
-      GameRules:SetGameWinner(teamID)
-    end)
-    self.hasGameEnded = true
+    WinnerEvent.broadcast(teamID)
   end
+end
+
+function PointsManager:SetWinner(teamID)
+  GAME_WINNER_TEAM = teamID
+  GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
+  GameRules:SetGameWinner(teamID)
+  self.hasGameEnded = true
 end
 
 function PointsManager:SetPoints(teamID, amount)
@@ -85,12 +90,16 @@ function PointsManager:GetPoints(teamID)
   end
 end
 
+function PointsManager:GetGameLength()
+  return CustomNetTables:GetTableValue('team_scores', 'limit').name
+end
+
 function PointsManager:GetLimit()
   return CustomNetTables:GetTableValue('team_scores', 'limit').value
 end
 
 function PointsManager:SetLimit(killLimit)
-  CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit})
+  CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
 end
 
 function PointsManager:AddPointsCommand(keys)

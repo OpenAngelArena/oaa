@@ -39,8 +39,6 @@ function customSchema:init()
     end
 end
 
-
-
 -------------------------------------
 
 -- In the statcollection/lib/utilities.lua, you'll find many useful functions to build your schema.
@@ -48,24 +46,21 @@ end
 
 -- Returns a table with our custom game tracking.
 function BuildGameArray()
-    local game = {}
+  local game = {
+    gl = math.floor(GAME_TIME_ELAPSED), -- Game length, from the horn sound, in seconds
+    wt = GAME_WINNER_TEAM, -- Winning team
 
-    -- Add game values here as game.someValue = GetSomeGameValue()
-    table.insert(game, {
-      gl = math.floor(GAME_TIME_ELAPSED), -- Game length, from the horn sound, in seconds
-      wt = GAME_WINNER_TEAM, -- Winning team
+    -- Score stats
+    sl = PointsManager:GetLimit(), -- Score limit
+    st1 = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS), -- score team 1
+    st2 = PointsManager:GetPoints(DOTA_TEAM_BADGUYS), -- score team 2
 
-      -- Score stats
-      sl = PointsManager:GetLimit(), -- Score limit
-      st1 = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS), -- score team 1
-      st2 = PointsManager:GetLimit(DOTA_TEAM_BADGUYS), -- score team 2
+    -- Cave Stats
+    cct1 = CaveHandler:GetCleares(DOTA_TEAM_GOODGUYS),
+    cct2 = CaveHandler:GetCleares(DOTA_TEAM_BADGUYS),
+  }
 
-      -- Cave Stats
-      cct1 = CaveHandler:GetCleares(DOTA_TEAM_GOODGUYS),
-      cct2 = CaveHandler:GetCleares(DOTA_TEAM_BADGUYS),
-    })
-
-    return game
+  return game
 end
 
 -- Returns a table containing data for every player in the game
