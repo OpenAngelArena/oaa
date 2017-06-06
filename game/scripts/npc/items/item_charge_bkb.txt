@@ -46,7 +46,7 @@
     "AbilityTextureName"                                  "custom/charge_bkb"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"    //RamonNZ: Baumi changed this from 10.0 to 20.0
+    "AbilityCooldown"                                     "20.0 18.0 16.0 13.0 8.0"    //RamonNZ: Baumi changed this from 10.0 to 20.0
     "AbilitySharedCooldown"                               "item_black_king_bar"
     "AbilityCastRange"                                    "1200"
 
@@ -60,6 +60,9 @@
     "ItemDisplayCharges"                                  "1"
     "ItemPermanent"                                       "1"
     "ItemInitialCharges"                                  "0"      //RamonNZ: This should be 0 when released, but having some initial charges is nice for testing purposes atm. -Warpdragon DONE
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_charge_bkb;item_charge_bkb_2;item_charge_bkb_3;item_charge_bkb_4"
     "AbilitySpecial"
     {
       //Wand Stats:
@@ -76,22 +79,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "4"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
+        "bonus_agility"                                   "4 6 9 13 20"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "4"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
+        "bonus_intellect"                                 "4 6 9 13 20"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "14"    //RamonNZ: +10 BKB +4 Wand
+        "bonus_strength"                                  "14 20 30 45 65"    //RamonNZ: +10 BKB +4 Wand
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24"
+        "bonus_damage"                                    "24 36 54 75 110"
       }
       "07"
       {

@@ -1570,6 +1570,141 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
 * Move Info Panel Button to be closer to Stats Display
 
 
+## Update 1.1.0-2
+[`5b6207479210929ffe61efc074c4ed5a2bd5ef6a`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-2)
+* Generated Tooltips
+
+### Items
+* Added Custom Particles to Bubble Orb
+* Removed Shivas Cuirass
+* Added Level 4 and 5 of Shivas Guard and Assault Cuirass
+* Greater Guardian Greaves
+  * Added vanilla Guardian Greaves audiovisual effects
+  * Fixed Greater Guardian Greaves stacking with Guardian Greaves
+  * Added basic dispel on cast
+  * Make heal and aura apply to non-heroes as well
+  * Respect and apply Mekanism/Guardian Greaves Heal Cooldown modifier
+  * Make Greater Guardian Greaves passive item modifier unpurgable
+* Assault Armour
+  * Decreased Bonus Armour from `10 15 20 30 40` to `10 14 18 21 28`
+  * Decreased Aura Attack Speed from `25 30 35 50 60` to `25 30 35 45 60`
+* Dagon
+  * Increased Bonus Intelligence from `13 16 19 22 25 28 31 34 37` to `13 16 19 22 25 50 100 150 210`
+  * Decreased Damage from `400 500 600 700 800 1000 1500 2250 3000` to `400 500 600 700 800 900 1100 1300 1500`
+* Desolator
+  * Increased Armour Corruption from `-7 -9 -12 -16 -21` to `-7 -10 -14 -19 -25`
+* Heart
+  * Decreased Bonus Health from `500 1000 2000 3500 5500` to `500 800 1800 3500 5500`
+* Lucience
+  * Decreased Regen Bonus from `75 150 300` to `65 130 260`
+* Monkey King Bar
+  * Increased Bonus Damage from `66 99 150 222 300` to `66 127 206 320 474`
+  * Decreased Bash Damage from `160 240 360 540 720` to `160 200 280 400 560`
+* Radiance
+  * Decreased Aura Damage from `60 120 180 270 420` to `60 90 150 240 360`
+  * Decreased Aura Damage by Illusions from `35 70 105 160 245` to `35 52 87 140 210`
+
+### Heroes
+* Bristleback
+  * Bristleback
+	* Added Cooldown `3.0 3.0 3.0 3.0 3.0 3.0`
+  * Quill Spray
+    * Increased Mana Cost from `35 35 35 35 35 35` to `45 45 45 45 45 45`
+	* Decreased Base Damage from `20.0 40.0 60.0 80.0 120.0 280.0` to `20.0 40.0 60.0 80.0 100.0 120.0`
+	* Decreased Max Damage from `550.0 550.0 550.0 550.0 1100.0 2200.0` to `150.0 275.0 400.0 550.0 825.0 1100.0`
+  * Viscous Nasal Key
+	* Decreased Armour per Stack from `1 1.4 1.8 2.2 3 6.2` to `1 1.4 1.8 2.2 3 4`
+  * Warpath
+	* Decreased Max Stacks from `5 7 9 13 25` to `5 7 9 11 13`
+
+### Bosses
+* Fixed Cliff Walk making Bosses Fly
+
+### Duels
+* Now Summons and similar Units get teleported into the Cave
+* Fixed Life Stealer getting stuck in the ground when infesting a Creep
+* Fixed Units imprisoned by Astral Imprisonment getting weird teleports
+
+
+## Update 1.1.0-3
+[`3aa183d7d51875e7ef7ad943e6cc176cbcde8afe`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0-3)
+
+### Items
+* Made Reflex Orbs Disassembalbe
+* Heavens Halberd
+  * Decreased Maim Movement Slow from `-20 -40 -60` to `-20 -30 -40`
+  * Increased Maim Attack Slow from `-20 -30 -40` to `-20 -40 -60`
+* Lotus Sphere
+  * Increased Bonus Mana Regen from `200 250` to `300 375`
+* Shroud of Shadows
+  * Increased Duration from `4.0` to `5.0`
+* Hand of Midas
+  * Increased XP Multiplier from `1.75 3 4.5` to `1.85 3 4.5`
+* Fixed Heavens Halberd 3 having wrong Values for Maim Range
+
+### Heroes
+* Prevent Disconnected Heroes from gaining XP
+
+### UI
+* Fixed Bug where the screen turns black if someone disconnects during Hero Pick
+
+
+## Update 1.1.0
+[`c8402f8808089cb79be3d247d3ebe070fc38a481`](https://github.com/OpenAngelArena/oaa/releases/tag/v1.1.0)
+* Generated Tooltips
+
+### Cave
+* Fixed Armour using Gold Values and XP using Armour Values
+
+### Items
+* Added new Icons
+  * Dragon Lance 1
+  * Dragon Lance 2
+  * Dragon Lance 3
+  * Dragon Lance 4
+  * Guardian Greaves
+  * Greater Guardian Greaves 1
+  * Greater Guardian Greaves 2
+  * Greater Guardian Greaves 3
+  * Greater Guardian Greaves 4
+  * Greater Guardian Greaves 5
+  * Manta Style 1
+  * Manta Style 2
+  * Manta Style 3
+  * Manta Style 4
+  * Mjollnir 1
+  * Mjollnir 2
+  * Mjollnir 3
+  * Mjollnir 4
+  * Mjollnir 5
+* Fix Bloodstone build path
+* Fix higher level Hand of Midas not giving Bonus Gold and XP
+* Rename Trump's Fist to Confefe
+
+### Heroes
+* Fixed Bug where Abandoned Players still get XP
+
+### Duel
+* Fixed LS fix not working
+
+### UI
+* Move Version Display to the left and adjusted colors
+* Removed Battle Pass Towers (not tested)
+
+### Map
+* Tweak map to prevent cave cliff farming and towers in duels
+
+### Misc
+* Rework ChatCommand component
+  * Commands are now available when `sv_cheats 1`
+* Fix Fountain auto-doom
+
+
+
+
+
+
+
 ## Template
 ```Markdown
 ## <Type> <Tag> - <Name>
