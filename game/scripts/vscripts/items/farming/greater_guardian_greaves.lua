@@ -20,6 +20,10 @@ item_greater_guardian_greaves = class({})
 function item_greater_guardian_greaves:OnSpellStart()
   local caster = self:GetCaster()
 
+  if caster:IsClone() then
+    return false
+  end
+
   local heroes = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
