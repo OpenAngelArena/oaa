@@ -47,27 +47,10 @@ function item_greater_guardian_greaves:OnSpellStart()
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
 
-    local particleManaNumberName = "particles/msg_fx/msg_mana_add.vpcf"
-    local particleManaNumberCaster = ParticleManager:CreateParticleForPlayer(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, caster:GetPlayerOwner())
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 0, hero:GetOrigin() + Vector(0, 0, 125))
-    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 1, Vector(0, manaReplenishAmount, 0))
-    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
-    -- xyz is color in RGB values
-    ParticleManager:SetParticleControl(particleManaNumberCaster, 3, Vector(17, 180, 233))
-    ParticleManager:ReleaseParticleIndex(particleManaNumberCaster)
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
 
     if hero ~= caster then
-      local particleManaNumberRecipient = ParticleManager:CreateParticleForPlayer(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, hero:GetPlayerOwner())
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 0, hero:GetOrigin() + Vector(0, 0, 125))
-      -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 1, Vector(0, manaReplenishAmount, 0))
-      -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
-      -- xyz is color in RGB values
-      ParticleManager:SetParticleControl(particleManaNumberRecipient, 3, Vector(17, 180, 233))
-      ParticleManager:ReleaseParticleIndex(particleManaNumberRecipient)
+      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
     end
   end
 
@@ -76,30 +59,13 @@ function item_greater_guardian_greaves:OnSpellStart()
     hero:Heal(healAmount, self)
     hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
 
-    local particleHealNumberName = "particles/msg_fx/msg_heal.vpcf"
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
 
-    local particleHealNumberCaster = ParticleManager:CreateParticleForPlayer(particleHealNumberName, PATTACH_CUSTOMORIGIN, caster, caster:GetPlayerOwner())
-    ParticleManager:SetParticleControl(particleHealNumberCaster, 0, hero:GetOrigin() + Vector(0, 0, 125))
-    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-    ParticleManager:SetParticleControl(particleHealNumberCaster, 1, Vector(0, healAmount, 0))
-    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-    ParticleManager:SetParticleControl(particleHealNumberCaster, 2, Vector(1.5, #tostring(healAmount) + 1, 0))
-    -- xyz is color in RGB values
-    ParticleManager:SetParticleControl(particleHealNumberCaster, 3, Vector(14, 226, 37))
-    ParticleManager:ReleaseParticleIndex(particleHealNumberCaster)
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
 
     if hero ~= caster then
-      local particleHealNumberRecipient = ParticleManager:CreateParticleForPlayer(particleHealNumberName, PATTACH_CUSTOMORIGIN, hero, hero:GetPlayerOwner())
-      ParticleManager:SetParticleControl(particleHealNumberRecipient, 0, hero:GetOrigin() + Vector(0, 0, 125))
-      -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-      ParticleManager:SetParticleControl(particleHealNumberRecipient, 1, Vector(0, healAmount, 0))
-      -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-      ParticleManager:SetParticleControl(particleHealNumberRecipient, 2, Vector(1.5, #tostring(healAmount) + 1, 0))
-      -- xyz is color in RGB values
-      ParticleManager:SetParticleControl(particleHealNumberRecipient, 3, Vector(14, 226, 37))
-      ParticleManager:ReleaseParticleIndex(particleHealNumberRecipient)
+      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
     end
 
     if hero:IsHero() then
