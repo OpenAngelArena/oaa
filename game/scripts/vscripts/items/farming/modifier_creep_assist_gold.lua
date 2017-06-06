@@ -142,7 +142,11 @@ function modifier_creep_assist_gold_aura:OnDeath(keys)
   int ModifyGold(int playerID, int goldAmmt, bool reliable, int nReason)
 ]]
   local caster = self:GetCaster() -- caster is hero with boots
+  local playerID = caster:GetPlayerID()
+  local player = PlayerResource:GetPlayer(playerID)
   local bounty = attacked:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
 
-  PlayerResource:ModifyGold(caster:GetPlayerID(), bounty, true, DOTA_ModifyGold_SharedGold)
+  PlayerResource:ModifyGold(playerID, bounty, true, DOTA_ModifyGold_SharedGold)
+
+  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, attacked, math.floor(bounty), player)
 end
