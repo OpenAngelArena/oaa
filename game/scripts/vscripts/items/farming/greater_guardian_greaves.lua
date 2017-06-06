@@ -177,9 +177,6 @@ end
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
   return self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
-function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
-  return self:GetAbility():GetSpecialValueFor("bonus_movement")
-end
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
