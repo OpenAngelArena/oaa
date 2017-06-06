@@ -35,10 +35,6 @@ function FinalDuel:Trigger (team)
 end
 
 function FinalDuel:PreparingDuelHandler (keys)
-  DebugPrint('self: ' .. tostring(self))
-  DebugPrint('keys: ' .. tostring(keys))
-  if self.needsFinalDuel then
-  end
 end
 
 function FinalDuel:StartDuelHandler (keys)
