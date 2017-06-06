@@ -41,7 +41,7 @@
     "AbilityCooldown"                                     "46.0"
     "AbilityCastRange"                                    "900"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_crimson_guard"
 
@@ -61,32 +61,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500"
+        "bonus_health"                                    "250 500 750 1000 1500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "8 12"
+        "bonus_health_regen"                              "8 12 18 25 35"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 3"
+        "bonus_all_stats"                                 "2 3 5 7 10"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7"
+        "bonus_armor"                                     "5 7 9 11 13"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100"
+        "block_damage_melee"                              "70 100 150 200 300"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 45"
+        "block_damage_ranged"                             "35 45 75 100 150"
       }
       "07"
       {
@@ -96,7 +96,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_armor"                                 "2 3"
+        "bonus_aoe_armor"                                 "2 3 4 5 6"
       }
       "09"
       {
@@ -111,12 +111,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90"
+        "block_damage_melee_active"                       "60 90 140 180 275"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90"
+        "block_damage_ranged_active"                      "60 90 140 180 275"
       }
       "13"
       {
