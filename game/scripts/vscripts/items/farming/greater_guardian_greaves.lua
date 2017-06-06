@@ -30,7 +30,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     nil,
     self:GetSpecialValueFor("replenish_radius"),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
     DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_ANY_ORDER,
     false
@@ -220,7 +220,7 @@ function modifier_item_greater_guardian_greaves:IsAura()
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
+  return bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchTeam()
