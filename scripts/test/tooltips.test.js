@@ -4,7 +4,6 @@ var findTooltips = require('../find-tooltips');
 test('can read in tooltip list', function (t) {
   var getTranslations = require('../parse-translation');
   t.ok(Object.keys(getTranslations().lang.Tokens.values).length, 'there are tokens');
-  console.log(Object.keys(getTranslations().lang.Tokens.values).length);
   t.end();
 });
 
@@ -12,7 +11,6 @@ test('can read list of items', function (t) {
   findTooltips.findAllItems(function (err, data) {
     t.notOk(err, 'no error');
     t.ok(data.length);
-    console.log(data.length);
     t.end();
   });
 });
