@@ -24,7 +24,7 @@ function modifier_creep_assist_gold:GetAuraDuration()
 end
 
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
