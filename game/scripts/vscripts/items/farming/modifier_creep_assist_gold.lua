@@ -79,7 +79,8 @@ function modifier_creep_assist_gold_aura:DeclareFunctions()
 end
 
 function modifier_creep_assist_gold_aura:OnDeath(keys)
-  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster()  then
+  local attacked = keys.unit
+  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster() or not attacked:IsNeutralUnitType() then
     return
   end
   --[[
@@ -109,8 +110,8 @@ function modifier_creep_assist_gold_aura:OnDeath(keys)
 [   VScript              ]: distance: 0
   int ModifyGold(int playerID, int goldAmmt, bool reliable, int nReason)
 ]]
-  local bounty = keys.unit:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
-  local caster = self:GetCaster() -- caster is hero with boots,
+  local caster = self:GetCaster() -- caster is hero with boots
+  local bounty = attacked:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
 
   PlayerResource:ModifyGold(caster:GetPlayerID(), bounty, true, DOTA_ModifyGold_SharedGold)
 end
