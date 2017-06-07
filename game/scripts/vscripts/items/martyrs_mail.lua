@@ -107,7 +107,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 	if IsServer() then
 		local hCaster = self:GetParent()
 
-    -- Prevent Infinite Loop
+    -- Prevent reflecting self-damage
     if kv.attacker == hCaster then
       return
     end
