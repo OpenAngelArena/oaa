@@ -32,6 +32,10 @@ function modifier_item_martyrs_mail_passive:IsPurgable()
   return false
 end
 
+function modifier_item_martyrs_mail_passive:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_martyrs_mail_passive:OnCreated()
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor( "bonus_armor" )
