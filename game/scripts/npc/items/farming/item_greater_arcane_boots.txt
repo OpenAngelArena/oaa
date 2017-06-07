@@ -1,0 +1,103 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Greater Arcane Boots
+  //=================================================================================================================
+  "item_recipe_greater_arcane_boots"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3358"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "100"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_greater_arcane_boots"
+    "ItemRequirements"
+    {
+      "01"                                                "item_arcane_boots;item_farming_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Greater Arcane Boots
+  //=================================================================================================================
+  "item_greater_arcane_boots"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3363"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_arcane_boots.lua"
+    "AbilityTextureName"                                  "custom/greater_arcanes"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "55.0"
+    "AbilityCastRange"                                    "900"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "2900"
+    "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "mana;mb;arcane boots"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAlertable"                                       "1"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement"                                  "55 61 68 75 83"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "350 420 500 600 700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_amount"                                "170 210 275 340 400"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_radius"                                "900"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "assist_percent"                                  "50 70 95 130 175"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "assist_radius"                                   "1200 1300 1400 1500 1600"
+      }
+      "07"
+      {
+        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
+        "var_type"                                        "FIELD_FLOAT"
+        "assist_stickiness"                               "0.1"
+      }
+    }
+  }
+}
