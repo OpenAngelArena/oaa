@@ -18,6 +18,8 @@ var stupidItemNames = [
   'nothing'
 ];
 
+var itemsFound = {};
+
 test('KV Values', function (t) {
   t.test('before', function (t) {
     t.plan(4);
@@ -38,6 +40,7 @@ test('KV Values', function (t) {
     Lib.items(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while item reading kvs');
+        itemsFound = {};
         return t.end();
       }
 
@@ -52,6 +55,7 @@ test('KV Values', function (t) {
     Lib.abilities(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while ability reading kvs');
+        itemsFound = {};
         return t.end();
       }
 
@@ -96,6 +100,10 @@ function testKVItem (t, root, isItem, cb, item) {
     cb(err);
   });
   var values = root[item].values;
+
+  t.notOk(itemsFound[item], 'can only be defined once');
+  itemsFound[item] = values;
+
   var icon = values.AbilityTextureName;
   if (icon && stupidItemNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
     if (icon.substr(-4) === '.png') {
@@ -116,6 +124,19 @@ function testKVItem (t, root, isItem, cb, item) {
     });
   } else {
     done();
+  }
+  if (!values.BaseClass) {
+    if (isItem) {
+      t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built in items');
+      if (dotaItems[item] && values.ID) {
+        t.equals(values.ID, dotaItems[item].values.ID, 'ID must not be changed from base dota item');
+      }
+    } else {
+      t.ok(dotaAbilities[item], 'missing baseclass only allowed when overriding built in abilities');
+      if (dotaAbilities[item] && values.ID) {
+        t.equals(values.ID, dotaAbilities[item].values.ID, 'ID must not be changed from base dota ability');
+      }
+    }
   }
   if (values.ScriptFile) {
     fs.access(path.join(Lib.vscriptDir, values.ScriptFile), function (err, data) {
