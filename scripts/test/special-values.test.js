@@ -20,7 +20,7 @@ var stupidItemNames = [
 
 var itemsFound = {};
 var idsFound = {};
-var nextAvailableId = 3000;
+var nextAvailableId = 5000;
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
