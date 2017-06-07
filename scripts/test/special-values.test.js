@@ -37,6 +37,10 @@ test('KV Values', function (t) {
     });
   });
   t.test('Testing all item KV values', function (t) {
+    dotaItems['item_lua'] = true;
+    dotaAbilities['ability_lua'] = true;
+    dotaItems['item_datadriven'] = true;
+    dotaAbilities['ability_datadriven'] = true;
     Lib.items(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while item reading kvs');
@@ -125,7 +129,13 @@ function testKVItem (t, root, isItem, cb, item) {
   } else {
     done();
   }
-  if (!values.BaseClass) {
+  if (values.BaseClass) {
+    if (isItem) {
+      t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
+    } else {
+      t.ok(dotaAbilities[values.BaseClass], 'base class ' + values.BaseClass + ' must be ability_datadriven, ability_lua, or a built in ability');
+    }
+  } else {
     if (isItem) {
       t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built in items');
       if (dotaItems[item] && values.ID) {

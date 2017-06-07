@@ -1,4 +1,4 @@
-"DOTAAbilities"
+  "DOTAAbilities"
 {
   //=================================================================================================================
   // Simple Boss: Jingu Mastery
@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8723"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "monkey_king_jingu_mastery"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
