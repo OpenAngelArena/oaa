@@ -42,6 +42,8 @@ function modifier_item_martyrs_mail_passive:OnCreated()
 	self.bonus_intellect = self:GetAbility():GetSpecialValueFor( "bonus_intellect" )
 end
 
+modifier_item_martyrs_mail_passive.OnRefresh = modifier_item_martyrs_mail_passive.OnCreated
+
 function modifier_item_martyrs_mail_passive:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
