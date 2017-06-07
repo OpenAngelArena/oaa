@@ -51,10 +51,11 @@ test('KV Values', function (t) {
       }
 
       var keys = Object.keys(data);
-      var done = after(keys.length, t.end);
+      var done = after(keys.length + 1, t.end);
       keys.forEach(function (name) {
         checkKVData(t, name, data[name], true, done);
       });
+      buildItemTree(t, data, done);
     });
   });
   t.test('Testing all ability KV values', function (t) {
@@ -128,23 +129,30 @@ function testKVItem (t, root, isItem, cb, item) {
   }
 
   var icon = values.AbilityTextureName;
-  if (icon && stupidItemNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
-    if (icon.substr(-4) === '.png') {
-      t.fail('AbilityTextureName should not contain file extension');
-    }
-    var iconParts = icon.split('/');
-    if (iconParts[0] === 'item_custom') {
-      iconParts[0] = 'custom';
-    }
-    if (iconParts[iconParts.length - 1].substr(0, 5) === 'item_') {
-      t.fail('AbilityTextureName should not start with item_');
-    }
-    icon = iconParts.join('/');
-    icon += '.png';
-    fs.access(path.join(Lib.gameDir, 'resource/flash3/images/', iconDirectory, icon), function (err, data) {
-      t.notOk(err, 'icon ' + icon + ' exists for ' + item);
+
+  if (icon) {
+    t.equal(values.AbilityTextureName.toLowerCase(), values.AbilityTextureName, 'Icon names must be lowercase');
+
+    if (stupidItemNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
+      if (icon.substr(-4) === '.png') {
+        t.fail('AbilityTextureName should not contain file extension');
+      }
+      var iconParts = icon.split('/');
+      if (iconParts[0] === 'item_custom') {
+        iconParts[0] = 'custom';
+      }
+      if (iconParts[iconParts.length - 1].substr(0, 5) === 'item_') {
+        t.fail('AbilityTextureName should not start with item_');
+      }
+      icon = iconParts.join('/');
+      icon += '.png';
+      fs.access(path.join(Lib.gameDir, 'resource/flash3/images/', iconDirectory, icon), function (err, data) {
+        t.notOk(err, 'icon ' + icon + ' exists for ' + item);
+        done();
+      });
+    } else {
       done();
-    });
+    }
   } else {
     done();
   }
@@ -234,4 +242,25 @@ function testSpecialValues (t, specials) {
   });
 
   return result;
+}
+
+// check upgrade paths and costs
+function buildItemTree (t, data, cb) {
+  var items = {};
+  t.test('item upgrade paths', function (t) {
+    Object.keys(data).forEach(function (fileName) {
+      var entry = data[fileName].DOTAItems;
+      var itemNames = Object.keys(entry).filter(a => a !== 'values');
+      itemNames.forEach(function (item) {
+        if (items[item]) {
+          t.fail(item + ' was defined twice, not bothing with tree');
+          return;
+        }
+        items[item] = entry[item];
+      });
+    });
+
+    t.end();
+    cb();
+  });
 }
