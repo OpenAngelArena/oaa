@@ -20,13 +20,17 @@ item_greater_guardian_greaves = class({})
 function item_greater_guardian_greaves:OnSpellStart()
   local caster = self:GetCaster()
 
+  if caster:IsClone() then
+    return false
+  end
+
   local heroes = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
     nil,
     self:GetSpecialValueFor("replenish_radius"),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
     DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_ANY_ORDER,
     false
@@ -43,16 +47,11 @@ function item_greater_guardian_greaves:OnSpellStart()
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
 
-    local particleManaNumberName = "particles/msg_fx/msg_mana_add.vpcf"
-    local particleManaNumber = ParticleManager:CreateParticleForTeam(particleManaNumberName, PATTACH_CUSTOMORIGIN, caster, caster:GetTeamNumber())
-    ParticleManager:SetParticleControl(particleManaNumber, 0, hero:GetOrigin() + Vector(0, 0, 125))
-    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-    ParticleManager:SetParticleControl(particleManaNumber, 1, Vector(0, manaReplenishAmount, 0))
-    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-    ParticleManager:SetParticleControl(particleManaNumber, 2, Vector(1.5, #tostring(manaReplenishAmount) + 1, 0))
-    -- xyz is color in RGB values
-    ParticleManager:SetParticleControl(particleManaNumber, 3, Vector(17, 180, 233))
-    ParticleManager:ReleaseParticleIndex(particleManaNumber)
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
+
+    if hero ~= caster then
+      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, hero, manaReplenishAmount, caster:GetPlayerOwner())
+    end
   end
 
   local function ReplenishHealth(hero)
@@ -60,19 +59,14 @@ function item_greater_guardian_greaves:OnSpellStart()
     hero:Heal(healAmount, self)
     hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
 
-    local particleHealNumberName = "particles/msg_fx/msg_heal.vpcf"
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
 
-    local particleHealNumber = ParticleManager:CreateParticleForTeam(particleHealNumberName, PATTACH_CUSTOMORIGIN, hero, caster:GetTeamNumber())
-    ParticleManager:SetParticleControl(particleHealNumber, 0, hero:GetOrigin() + Vector(0, 0, 125))
-    -- x-value controls prefix symbol, y-value controls number to show, z-value controls suffix value
-    ParticleManager:SetParticleControl(particleHealNumber, 1, Vector(0, healAmount, 0))
-    -- x-value controls duration, y-value controls number of characters to show, z-value doesn't seem to have an effect
-    ParticleManager:SetParticleControl(particleHealNumber, 2, Vector(1.5, #tostring(healAmount) + 1, 0))
-    -- xyz is color in RGB values
-    ParticleManager:SetParticleControl(particleHealNumber, 3, Vector(14, 226, 37))
-    ParticleManager:ReleaseParticleIndex(particleHealNumber)
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
+
+    if hero ~= caster then
+      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
+    end
 
     if hero:IsHero() then
       local particleHeal = ParticleManager:CreateParticle(particleHealName, PATTACH_ABSORIGIN_FOLLOW, hero)
@@ -177,9 +171,6 @@ end
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
   return self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
-function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
-  return self:GetAbility():GetSpecialValueFor("bonus_movement")
-end
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
@@ -195,7 +186,7 @@ function modifier_item_greater_guardian_greaves:IsAura()
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
+  return bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraSearchTeam()
