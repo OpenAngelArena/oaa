@@ -7,6 +7,7 @@ var spok = require('spok');
 var partial = require('ap').partial;
 
 var dotaItems = null;
+var dotaItemIDs = null;
 var dotaAbilities = null;
 var dotaItemList = null;
 var dotaAbilityList = null;
@@ -28,13 +29,24 @@ test('KV Values', function (t) {
     Lib.dotaItems(function (err, data) {
       t.notOk(err, 'no err while reading dota items');
       dotaItems = data;
-      dotaItemList = Object.keys(dotaItems);
+      dotaItemList = Object.keys(dotaItems).filter(a => a !== 'values');
+      dotaItemIDs = dotaItemList
+        .map(function (item) {
+          // console.log(dotaItems[item]);
+          return dotaItems[item].values.ID
+        })
+        .filter(a => !!a);
+
+      while (dotaItemIDs.indexOf(nextAvailableId) !== -1) {
+        nextAvailableId++;
+      }
+
       t.ok(Object.keys(data).length > 1, 'gets dota items from github');
     });
     Lib.dotaAbilities(function (err, data) {
       t.notOk(err, 'no err while reading dota abilities');
       dotaAbilities = data;
-      dotaAbilityList = Object.keys(dotaAbilities);
+      dotaAbilityList = Object.keys(dotaAbilities).filter(a => a !== 'values');
       t.ok(Object.keys(data).length > 1, 'gets dota abilities from github');
     });
   });
@@ -74,6 +86,7 @@ test('KV Values', function (t) {
     });
   });
   t.test('next available ID', function (t) {
+    t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
     t.end();
   });
@@ -119,12 +132,15 @@ function testKVItem (t, root, isItem, cb, item) {
   if (item !== 'ability_base_datadriven') {
     t.ok(isBuiltIn || values.ID, 'must have an item id');
     t.notOk(idsFound[values.ID], 'must have a unique ID');
+    if (!isBuiltIn) {
+      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+    }
   }
 
   itemsFound[item] = item;
   idsFound[values.ID] = item;
 
-  while (idsFound['' + nextAvailableId]) {
+  while (dotaItemIDs.indexOf(nextAvailableId) !== -1 || idsFound['' + nextAvailableId]) {
     nextAvailableId += 1;
   }
 
@@ -247,17 +263,141 @@ function testSpecialValues (t, specials) {
 // check upgrade paths and costs
 function buildItemTree (t, data, cb) {
   var items = {};
+  var recipes = {};
+  var recipesByResult = {};
+  var allItemNames = [];
+  var allRecipeNames = [];
   t.test('item upgrade paths', function (t) {
     Object.keys(data).forEach(function (fileName) {
       var entry = data[fileName].DOTAItems;
       var itemNames = Object.keys(entry).filter(a => a !== 'values');
       itemNames.forEach(function (item) {
+        var itemData = entry[item];
+        var purchasable = itemData.values.ItemPurchasable !== '0';
+        var itemCost = itemData.values.ItemCost;
+
+        if (!itemCost && dotaItems[item]) {
+          itemCost = dotaItems[item].values.ItemCost;
+        }
+
         if (items[item]) {
           t.fail(item + ' was defined twice, not bothing with tree');
           return;
         }
-        items[item] = entry[item];
+
+        if (itemData.values.ItemRecipe === '1') {
+          allRecipeNames.push(item);
+          recipes[item] = itemData;
+          t.notOk(recipesByResult[itemData.values.ItemResult], 'only 1 recipe per result')
+
+          recipesByResult[itemData.values.ItemResult] = item;
+        } else {
+          allItemNames.push(item);
+          items[item] = {
+            baseCost: purchasable
+              ? Number(itemCost)
+              : 0,
+            cost: purchasable
+              ? Number(itemCost)
+              : 0,
+            totalCost: Number(itemCost),
+            purchasable: purchasable,
+            children: [], // array of string names of items that can be created with this item in only 1 jump
+            recipes: [], // array of recipe objects that can create this item
+            item: itemData
+          };
+        }
+        // console.log(item, itemData);
+        /*
+        item_recipe_preemptive_3a { values:
+         { ID: '3807',
+           BaseClass: 'item_datadriven',
+           ItemCost: '20000',
+           ItemShopTags: '',
+           ItemRecipe: '1',
+           ItemResult: 'item_preemptive_3a',
+           AbilityTextureName: 'item_recipe' },
+        ItemRequirements:
+         { values:
+            { '01': 'item_preemptive_2a;item_upgrade_core_4',
+              '02': 'item_preemptive_2b;item_upgrade_core_4' } } }
+        */
       });
+    });
+    allItemNames.forEach(function (item) {
+      var itemNameParts = item.split('_');
+      var itemRecipeParts = itemNameParts.concat();
+      itemRecipeParts.splice(1, 0, 'recipe');
+      var probableRecipeName = itemRecipeParts.join('_');
+
+      var recipe = recipesByResult[item];
+      var recipeData = null;
+
+      if (!recipe) {
+        if (dotaItems[probableRecipeName]) {
+          recipe = probableRecipeName;
+          recipeData = dotaItems[recipe];
+        } else {
+          // this is a base item, either from dota (gloves, etc..) or mod (upgrade_core, etc...)
+          return;
+        }
+      } else {
+        recipeData = recipes[recipe];
+      }
+      var requirements = recipeData.ItemRequirements.values;
+      requirements = Object.keys(requirements).map(function (index) {
+        return requirements[index].split(/[;,]/g);
+      });
+
+      requirements.forEach(function (reqList) {
+        reqList.forEach(function (reqItem) {
+          var parentItem = items[reqItem];
+          if (!parentItem) {
+            if (!dotaItems[reqItem] && !recipes[reqItem]) {
+              t.fail('Item ' + item + ' is made out of an unknown item (' + reqList.join(';') + ')');
+              return;
+            }
+            var baseItem = recipes[reqItem] || dotaItems[reqItem];
+            parentItem = {
+              baseCost: baseItem.values.ItemCost,
+              cost: baseItem.values.ItemCost,
+              totalCost: baseItem.values.ItemCost,
+              item: baseItem
+            };
+            console.log(item, 'is made with', parentItem);
+          }
+        });
+      });
+
+      /*
+        item_preemptive_3a { values:
+           { ID: '3808',
+             BaseClass: 'item_lua',
+             AbilityBehavior: 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL',
+             AbilityTextureName: 'custom/preemptive_3a',
+             ScriptFile: 'items/reflex/preemptive_purge.lua',
+             FightRecapLevel: '1',
+             MaxUpgradeLevel: '3',
+             ItemBaseLevel: '3',
+             AbilityManaCost: '0',
+             AbilityCooldown: '20',
+             AbilitySharedCooldown: 'reflex',
+             AbilityCastPoint: '0.0',
+             ItemCost: '13900',
+             ItemShopTags: 'defense;support;mobility;hard_to_tag',
+             ItemQuality: 'epic',
+             ItemAliases: 'reflex;preemptive_3a;purge',
+             ItemDisassembleRule: 'DOTA_ITEM_DISASSEMBLE_ALWAYS',
+             ItemDeclarations: 'DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS' },
+          AbilitySpecial:
+           { values: {},
+             '01': { values: [Object] },
+             '02': { values: [Object] },
+             '03': { values: [Object] },
+             '04': { values: [Object] },
+             '05': { values: [Object] } } }
+      */
+      var itemData = items[item];
     });
 
     t.end();
