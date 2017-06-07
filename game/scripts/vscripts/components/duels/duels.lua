@@ -47,7 +47,7 @@ function Duels:Init ()
     local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-      if not Duels.currentDuel then
+      if hero and not Duels.currentDuel then
         hero:RemoveModifierByName("modifier_out_of_duel")
         hero:SetRespawnsDisabled(false)
         if not hero:IsAlive() then
