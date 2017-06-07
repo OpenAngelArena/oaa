@@ -131,6 +131,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 				victim = kv.attacker,
 				attacker = hCaster,
 				damage = kv.damage,
+				damage_flag = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
 				damage_type = kv.damage_type
 			}
 
