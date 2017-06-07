@@ -1,9 +1,11 @@
+var request = require('request');
 var parseKV = require('parse-kv');
 var fs = require('fs');
 var path = require('path');
 var after = require('after');
 
-var scriptDir = path.join(__dirname, '../game/scripts/');
+var gameDir = path.join(__dirname, '../game/');
+var scriptDir = path.join(gameDir, 'scripts/');
 var vscriptDir = path.join(scriptDir, 'vscripts');
 var npcDir = path.join(scriptDir, 'npc');
 var abilityDir = path.join(npcDir, 'abilities');
@@ -16,12 +18,39 @@ module.exports = {
   abilities: allAbilities,
   all: getAll,
 
+  gameDir: gameDir,
   scriptDir: scriptDir,
   vscriptDir: vscriptDir,
   npcDir: npcDir,
   abilityDir: abilityDir,
-  itemDir: itemDir
+  itemDir: itemDir,
+  dotaItems: dotaItems,
+  dotaAbilities: dotaAbilities
 };
+
+function dotaAbilities (cb) {
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_abilities.txt'
+  }, function (err, result) {
+    if (err) {
+      return cb(err);
+    }
+    var data = parseKV(result.body.replace(/[^\\/]\/ Damage/ig, '// Damage'));
+    cb(null, data.DOTAAbilities);
+  });
+}
+
+function dotaItems (cb) {
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/scripts/npc/items.txt'
+  }, function (err, result) {
+    if (err) {
+      return cb(err);
+    }
+    var data = parseKV(result.body);
+    cb(null, data.DOTAAbilities);
+  });
+}
 
 function getAll (cb) {
   var list = [];
