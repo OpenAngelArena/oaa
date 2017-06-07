@@ -113,7 +113,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
     end
 
     --Prevent reflecting damage with no-reflect flag
-    if bit.band(kv.damage_flag, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+    if bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
 	    return
     end
 
