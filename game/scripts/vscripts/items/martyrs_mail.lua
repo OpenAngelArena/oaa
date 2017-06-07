@@ -18,21 +18,7 @@ function item_martyrs_mail:OnSpellStart()
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
 end
 
---------------------------------------------------------------------------------
-
-item_martyrs_mail_2 = class({})
-
-function item_martyrs_mail_2:GetIntrinsicModifierName()
-	return "modifier_item_martyrs_mail_passive"
-end
-
-function item_martyrs_mail_2:OnSpellStart()
-	local hCaster = self:GetCaster()
-	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
-
-	EmitSoundOn( "DOTA_Item.BladeMail.Activate", hCaster )
-	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
-end
+item_martyrs_mail_2 = class(item_martyrs_mail)
 
 --------------------------------------------------------------------------------
 
