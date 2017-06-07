@@ -19,6 +19,8 @@ var stupidItemNames = [
 ];
 
 var itemsFound = {};
+var idsFound = {};
+var nextAvailableId = 3000;
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -70,6 +72,10 @@ test('KV Values', function (t) {
       });
     });
   });
+  t.test('next available ID', function (t) {
+    console.log('Next available ID is', nextAvailableId);
+    t.end();
+  });
 });
 
 var specialValuesForItem = {};
@@ -104,9 +110,22 @@ function testKVItem (t, root, isItem, cb, item) {
     cb(err);
   });
   var values = root[item].values;
+  var isBuiltIn = isItem
+    ? dotaItems[item] && dotaItems[item] !== true
+    : dotaAbilities[item] && dotaAbilities[item] !== true;
 
   t.notOk(itemsFound[item], 'can only be defined once');
-  itemsFound[item] = values;
+  if (item !== 'ability_base_datadriven') {
+    t.ok(isBuiltIn || values.ID, 'must have an item id');
+    t.notOk(idsFound[values.ID], 'must have a unique ID');
+  }
+
+  itemsFound[item] = item;
+  idsFound[values.ID] = item;
+
+  while (idsFound['' + nextAvailableId]) {
+    nextAvailableId += 1;
+  }
 
   var icon = values.AbilityTextureName;
   if (icon && stupidItemNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
@@ -148,6 +167,7 @@ function testKVItem (t, root, isItem, cb, item) {
       }
     }
   }
+
   if (values.ScriptFile) {
     fs.access(path.join(Lib.vscriptDir, values.ScriptFile), function (err, data) {
       t.notOk(err, 'script file referenced from kv exists');
