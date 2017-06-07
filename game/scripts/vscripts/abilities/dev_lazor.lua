@@ -1,12 +1,7 @@
-require('internal/util')
 
-fountain_attack = class({})
+dev_lazor = class({})
 
-function fountain_attack:OnUpgrade()
-  local caster = self:GetCaster()
-  local teamID = caster:GetTeamNumber()
-  local fountainName = 'fountain_' .. GetShortTeamName(teamID)
-  self.trigger = Entities:FindByName(nil, fountainName .. '_trigger')
+function dev_lazor:OnUpgrade()
   self.effectName = "particles/econ/items/lina/lina_ti6/lina_ti6_laguna_blade.vpcf"
 
   Timers:CreateTimer(function ()
@@ -15,17 +10,16 @@ function fountain_attack:OnUpgrade()
   end)
 end
 
-function fountain_attack:Think()
+function dev_lazor:Think()
   local caster = self:GetCaster()
-  local fountainOrigin = self.trigger:GetAbsOrigin()
-  local searchRadius = self.trigger:GetBoundingMaxs():Length2D()
+  local origin = caster:GetAbsOrigin()
   local teamID = caster:GetTeam()
 
   local units = FindUnitsInRadius(
     teamID,
-    fountainOrigin,
+    origin,
     nil,
-    searchRadius,
+    self:GetCastRange(),
     self:GetAbilityTargetTeam(),
     self:GetAbilityTargetType(),
     self:GetAbilityTargetFlags(),
@@ -33,13 +27,11 @@ function fountain_attack:Think()
     false
   )
   for _,unit in ipairs(units) do
-    if unit:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and self:IsInFountain(unit) then
-      self:Attack(unit)
-    end
+    self:Attack(unit)
   end
 end
 
-function fountain_attack:Attack(unit)
+function dev_lazor:Attack(unit)
   local caster = self:GetCaster()
   local teamID = caster:GetTeamNumber()
   local killTime = self:GetSpecialValueFor("timetokill")
@@ -63,33 +55,4 @@ function fountain_attack:Attack(unit)
   local particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN, nil)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
   ParticleManager:SetParticleControlEnt(particle, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
-end
-
-function fountain_attack:IsInFountain(entity)
-  local fountainOrigin = self.trigger:GetAbsOrigin()
-  local bounds = self.trigger:GetBounds()
-
-  local origin = entity
-  if entity.GetAbsOrigin then
-    origin = entity:GetAbsOrigin()
-  end
-
-  if origin.x < bounds.Mins.x + fountainOrigin.x then
-    -- DebugPrint('x is too small')
-    return false
-  end
-  if origin.y < bounds.Mins.y + fountainOrigin.y then
-    -- DebugPrint('y is too small')
-    return false
-  end
-  if origin.x > bounds.Maxs.x + fountainOrigin.x then
-    -- DebugPrint('x is too large')
-    return false
-  end
-  if origin.y > bounds.Maxs.y + fountainOrigin.y then
-    -- DebugPrint('y is too large')
-    return false
-  end
-
-  return true
 end
