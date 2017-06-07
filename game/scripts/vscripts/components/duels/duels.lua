@@ -180,7 +180,10 @@ function Duels:ActuallyStartDuel (teamSplit)
     return
   end
 
-  local playerSplitOffset = math.min(teamSplit, maxPlayers) or math.random(0, maxPlayers)
+  local playerSplitOffset = math.random(0, maxPlayers)
+  if teamSplit then
+    playerSplitOffset = math.min(teamSplit, maxPlayers)
+  end
   -- local playerSplitOffset = maxPlayers
   local spawnLocations = math.random(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
