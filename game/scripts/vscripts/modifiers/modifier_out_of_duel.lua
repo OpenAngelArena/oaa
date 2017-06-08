@@ -6,6 +6,7 @@ function modifier_out_of_duel:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_FROZEN] = true,
+    [MODIFIER_STATE_STUNNED] = true,
   }
 end
 
