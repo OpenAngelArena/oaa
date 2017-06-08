@@ -133,9 +133,10 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 
   t.notOk(itemsFound[item], 'can only be defined once');
   if (item !== 'ability_base_datadriven') {
-    t.ok(isBuiltIn || values.ID, 'must have an item id');
     t.notOk(idsFound[values.ID], 'must have a unique ID');
-    if (!isBuiltIn) {
+    if (!isBuiltIn && item !== 'item_dummy_datadriven') {
+      t.ok(values.ID, 'must have an item id');
+      t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
       t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
     }
   }
@@ -420,7 +421,7 @@ function buildItemTree (t, data, cb) {
       //     })
       //     .join('\n');
 
-      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' })
+      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
       // }
     });
 
@@ -458,7 +459,7 @@ function buildItemTree (t, data, cb) {
             return;
           }
           var baseItem = recipes[reqItem] || dotaItems[reqItem];
-          var baseItemCost = Number(baseItem.values.ItemCost || 0);
+          var baseItemCost = Number(baseItem.values.ItemCost);
           parentItem = {
             baseCost: baseItemCost,
             cost: baseItemCost,
