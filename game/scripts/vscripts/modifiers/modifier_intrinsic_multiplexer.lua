@@ -16,7 +16,11 @@ end
 
 function modifier_intrinsic_multiplexer:OnCreated()
   self.modifiers = {}
-  self:CreateModifiers()
+  if IsServer() then
+    Timers:CreateTimer(0.1, function ()
+      self:CreateModifiers()
+    end)
+  end
 end
 
 function modifier_intrinsic_multiplexer:OnRefresh()
