@@ -93,9 +93,15 @@ function bristleback_takedamage(params)
   local quill_spray = params.unit:FindAbilityByName("bristleback_quill_spray")
 
   -- If the amount of damage taken since the last Quill Spray proc is equal to or exceeds what's defined as the threshold, release a Quill Spray.
-  if params.unit.quill_threshold_counter >= ability:GetSpecialValueFor("quill_release_threshold") and quill_spray:IsCooldownReady() then
-    -- This should be Quill Spray, but in case something weird like AD is going on, we'll check anyway.
-    quill_spray:CastAbility()
+  if params.unit.quill_threshold_counter >= ability:GetSpecialValueFor("quill_release_threshold") and ability:IsCooldownReady() then
+    if quill_spray:IsCooldownReady() then
+      quill_spray:EndCooldown()
+    else
+      local cooldown = quill_spray:GetCooldownTimeRemaining()
+      quill_spray:CastAbility()
+      quill_spray:StartCooldown(cooldown)
+    end
+    ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
 
     params.unit.quill_threshold_counter = 0
   end
