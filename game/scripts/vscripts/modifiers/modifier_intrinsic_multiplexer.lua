@@ -16,7 +16,11 @@ end
 
 function modifier_intrinsic_multiplexer:OnCreated()
   self.modifiers = {}
-  self:CreateModifiers()
+  if IsServer() then
+    Timers:CreateTimer(0.1, function ()
+      self:CreateModifiers()
+    end)
+  end
 end
 
 function modifier_intrinsic_multiplexer:OnRefresh()
@@ -40,6 +44,7 @@ function modifier_intrinsic_multiplexer:CreateModifiers()
     return
   end
   local modifiers = ability:GetIntrinsicModifierNames(self)
+  --foreach(print, modifiers)
   iter(modifiers):each(function (modifierName)
     self.modifiers[modifierName] = hero:AddNewModifier(caster, ability, modifierName, {})
   end)
