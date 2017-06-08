@@ -44,7 +44,6 @@ function modifier_intrinsic_multiplexer:CreateModifiers()
     return
   end
   local modifiers = ability:GetIntrinsicModifierNames(self)
-  --foreach(print, modifiers)
   iter(modifiers):each(function (modifierName)
     self.modifiers[modifierName] = hero:AddNewModifier(caster, ability, modifierName, {})
   end)
