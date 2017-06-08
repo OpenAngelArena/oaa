@@ -351,7 +351,9 @@ function buildItemTree (t, data, cb) {
         }
       }
       var requirements = recipeData.ItemRequirements.values;
+      var numIndex = 1;
       requirements = Object.keys(requirements).map(function (index) {
+        t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
         return requirements[index].split(';').filter(a => !!a);
       });
 
@@ -362,6 +364,30 @@ function buildItemTree (t, data, cb) {
       itemData.purchasable = false;
 
       calculateCost(item);
+
+      var upgradeCores = [];
+      requirements.forEach(function (reqList) {
+        var coreTier = null;
+        reqList.forEach(function (reqItem) {
+          var match = reqItem.match(/item_upgrade_core_?([0-9])?/);
+          if (!match) {
+            return;
+          }
+          coreTier = Number(match[1] || 1);
+        });
+        if (coreTier) {
+          upgradeCores.push(coreTier);
+        }
+      });
+
+      if (upgradeCores.length) {
+        var minCore = upgradeCores.reduce((a,b) => Math.min(a, b), 5);
+        // console.log(item, 'is made with tier', minCore, 'items');
+
+        for (var i = minCore; i < 5; ++i) {
+          t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
+        }
+      }
 
       /*
         item_preemptive_3a { values:
