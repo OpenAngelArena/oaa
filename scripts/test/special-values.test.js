@@ -381,9 +381,8 @@ function buildItemTree (t, data, cb) {
       });
 
       if (upgradeCores.length) {
-        var minCore = upgradeCores.reduce((a,b) => Math.min(a, b), 5);
+        var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
-
         for (var i = minCore; i < 5; ++i) {
           t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
         }
