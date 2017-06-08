@@ -269,3 +269,32 @@ function GetShortTeamName (teamID)
   }
   return teamNames[teamID]
 end
+
+function IsInTrigger(entity, trigger)
+  local triggerOrigin = trigger:GetAbsOrigin()
+  local bounds = trigger:GetBounds()
+
+  local origin = entity
+  if entity.GetAbsOrigin then
+    origin = entity:GetAbsOrigin()
+  end
+
+  if origin.x < bounds.Mins.x + triggerOrigin.x then
+    -- DebugPrint('x is too small')
+    return false
+  end
+  if origin.y < bounds.Mins.y + triggerOrigin.y then
+    -- DebugPrint('y is too small')
+    return false
+  end
+  if origin.x > bounds.Maxs.x + triggerOrigin.x then
+    -- DebugPrint('x is too large')
+    return false
+  end
+  if origin.y > bounds.Maxs.y + triggerOrigin.y then
+    -- DebugPrint('y is too large')
+    return false
+  end
+
+  return true
+end

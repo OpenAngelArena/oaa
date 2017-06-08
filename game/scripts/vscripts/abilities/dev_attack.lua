@@ -1,60 +1,48 @@
 require("internal/util")
 
-LinkLuaModifier("modifier_fountain_attack", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_fountain_attack_aura", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dev_attack", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dev_attack_aura", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
-fountain_attack = class({})
+dev_attack = class({})
 
-function fountain_attack:GetIntrinsicModifierName()
-    return "modifier_fountain_attack"
+function dev_attack:GetIntrinsicModifierName()
+  return "modifier_dev_attack"
 end
 
 
-modifier_fountain_attack = class({})
+modifier_dev_attack = class({})
 
-function modifier_fountain_attack:OnCreated(keys)
-  if IsServer() then
-    local teamID = self:GetCaster():GetTeamNumber()
-    self.trigger = Entities:FindByName(nil, 'fountain_' .. GetShortTeamName(teamID) .. '_trigger')
-  end
-end
-
-function modifier_fountain_attack:IsAura()
-return true
-end
-
-function modifier_fountain_attack:IsHidden()
+function modifier_dev_attack:IsAura()
   return true
 end
 
-function modifier_fountain_attack:GetModifierAura()
-  return "modifier_fountain_attack_aura"
+function modifier_dev_attack:GetModifierAura()
+  return "modifier_dev_attack_aura"
 end
 
-function modifier_fountain_attack:GetAuraRadius()
-  return self.trigger:GetBoundingMaxs():Length2D()
+function modifier_dev_attack:GetAuraRadius()
+  return self:GetAbility():GetSpecialValueFor("radius")
 end
 
-function modifier_fountain_attack:GetAuraSearchFlags()
+function modifier_dev_attack:GetAuraSearchFlags()
   return self:GetAbility():GetAbilityTargetFlags()
 end
 
-function modifier_fountain_attack:GetAuraSearchTeam()
+function modifier_dev_attack:GetAuraSearchTeam()
   return self:GetAbility():GetAbilityTargetTeam()
 end
 
-function modifier_fountain_attack:GetAuraSearchType()
+function modifier_dev_attack:GetAuraSearchType()
   return self:GetAbility():GetAbilityTargetType()
 end
 
-function modifier_fountain_attack:GetAuraEntityReject(entity)
-  return entity:GetTeamNumber() == DOTA_TEAM_NEUTRALS or not IsInTrigger(entity, self.trigger)
+function modifier_dev_attack:GetTexture()
+  return "custom/shoopdawhoop"
 end
 
+modifier_dev_attack_aura = class({})
 
-modifier_fountain_attack_aura = class({})
-
-function modifier_fountain_attack_aura:OnCreated(keys)
+function modifier_dev_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()
   local target = self:GetParent()
   local attackEffect = "particles/fountain_lazor.vpcf"
@@ -68,10 +56,11 @@ function modifier_fountain_attack_aura:OnCreated(keys)
   end
 end
 
-function modifier_fountain_attack_aura:OnIntervalThink()
+function modifier_dev_attack_aura:OnIntervalThink()
   if IsServer() then
     local caster = self:GetCaster()
     local teamID = caster:GetTeamNumber()
+    local ability = self:GetAbility()
     local target = self:GetParent()
     local timetokill = self:GetAbility():GetSpecialValueFor("timetokill")
     local killTicks = timetokill / 0.1
@@ -84,18 +73,20 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     target:MakeVisibleDueToAttack(teamID)
     target:Purge(true, false, false, false, true)
     target:ReduceMana(manaReductionAmount)
+    caster:GiveMana(manaReductionAmount)
     if targetHealth - healthReductionAmount < 1 then
       target:Kill(self, caster)
     else
       target:SetHealth(targetHealth - healthReductionAmount)
+      caster:Heal(healthReductionAmount, ability)
     end
   end
 end
 
-function modifier_fountain_attack_aura:IsHidden()
+function modifier_dev_attack_aura:IsHidden()
   return true
 end
 
-function modifier_fountain_attack_aura:OnDestroy()
+function modifier_dev_attack_aura:OnDestroy()
   ParticleManager:DestroyParticle(self.particle, false)
 end

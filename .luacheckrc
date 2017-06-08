@@ -99,6 +99,7 @@ read_globals = { -- these globals can only be accessed.
 "HideWearables",
 "ShowWearables",
 "GetShortTeamName",
+"IsInTrigger",
 
 
 "ACT_MELEE_VM_RELOAD",
