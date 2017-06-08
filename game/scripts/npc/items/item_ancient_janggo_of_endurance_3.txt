@@ -15,9 +15,9 @@
     "ItemResult"                                          "item_ancient_janggo_3"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo_2;upgrade_core_2"
-      "02"                                                "item_ancient_janggo_2;upgrade_core_3"
-      "03"                                                "item_ancient_janggo_2;upgrade_core_4"
+      "01"                                                "item_ancient_janggo_2;item_upgrade_core_2"
+      "02"                                                "item_ancient_janggo_2;item_upgrade_core_3"
+      "03"                                                "item_ancient_janggo_2;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6500"
+    "ItemCost"                                            "7340"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance"

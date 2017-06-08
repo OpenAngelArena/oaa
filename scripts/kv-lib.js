@@ -103,7 +103,12 @@ function parseAllKVs (list, cb) {
       if (err) {
         return done(err);
       }
-      result[entry] = parseKV(data);
+      try {
+        result[entry] = parseKV(data);
+      } catch (err) {
+        console.log(entry, 'failed');
+        return done(err);
+      }
       done();
     });
   });

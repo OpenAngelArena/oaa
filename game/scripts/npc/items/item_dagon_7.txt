@@ -23,9 +23,9 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "02"                                                "item_dagon_6;item_upgrade_core_2"
-      "03"                                                "item_dagon_6;item_upgrade_core_3"
-      "04"                                                "item_dagon_6;item_upgrade_core_4"
+      "01"                                                "item_dagon_6;item_upgrade_core_2"
+      "02"                                                "item_dagon_6;item_upgrade_core_3"
+      "03"                                                "item_dagon_6;item_upgrade_core_4"
     }
   }
 
@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "14220"
+    "ItemCost"                                            "12720"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 7"

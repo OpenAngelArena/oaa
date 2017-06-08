@@ -23,8 +23,8 @@
     "ItemResult"                                          "item_stop_killing_yourself"
     "ItemRequirements"
     {
-      "01"                                                "item_lotus_sphere;item_bloodthorn_3;upgrade_core_3"
-      "02"                                                "item_lotus_sphere;item_bloodthorn_3;upgrade_core_4"
+      "01"                                                "item_lotus_sphere;item_bloodthorn_3;item_upgrade_core_3"
+      "02"                                                "item_lotus_sphere;item_bloodthorn_3;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "35545"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sky"
