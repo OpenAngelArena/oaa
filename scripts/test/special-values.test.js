@@ -21,6 +21,7 @@ var stupidItemNames = [
 
 var itemsFound = {};
 var idsFound = {};
+var itemFileMap = {};
 var nextAvailableId = 5000;
 
 test('KV Values', function (t) {
@@ -109,15 +110,17 @@ function checkKVData (t, name, data, isItem, cb) {
       t.end();
       cb(err);
     });
-    keys.forEach(partial(testKVItem, t, root, isItem, done));
+    keys.forEach(partial(testKVItem, t, root, isItem, name, done));
   });
 }
 
-function testKVItem (t, root, isItem, cb, item) {
+function testKVItem (t, root, isItem, fileName, cb, item) {
   var iconDirectory = isItem
     ? 'items'
     : 'spellicons';
   // t.test(item, function (t) {
+
+  itemFileMap[item] = fileName;
   var done = after(3, function (err) {
     t.notOk(err, 'no error at very end');
     // t.end();
@@ -300,6 +303,7 @@ function buildItemTree (t, data, cb) {
             cost: purchasable
               ? Number(itemCost)
               : 0,
+            // cost: Number(itemCost),
             totalCost: Number(itemCost),
             purchasable: purchasable,
             children: [], // array of string names of items that can be created with this item in only 1 jump
@@ -325,49 +329,38 @@ function buildItemTree (t, data, cb) {
       });
     });
     allItemNames.forEach(function (item) {
+      var itemData = items[item];
       var itemNameParts = item.split('_');
       var itemRecipeParts = itemNameParts.concat();
       itemRecipeParts.splice(1, 0, 'recipe');
       var probableRecipeName = itemRecipeParts.join('_');
 
       var recipe = recipesByResult[item];
-      var recipeData = null;
+      var recipeData = recipe
+        ? recipes[recipe]
+        : null;
 
-      if (!recipe) {
-        if (dotaItems[probableRecipeName]) {
-          recipe = probableRecipeName;
+      if (!recipe || !recipeData.values.ItemCost) {
+        recipe = recipe || probableRecipeName;
+        if (dotaItems[recipe]) {
           recipeData = dotaItems[recipe];
         } else {
           // this is a base item, either from dota (gloves, etc..) or mod (upgrade_core, etc...)
           return;
         }
-      } else {
-        recipeData = recipes[recipe];
       }
       var requirements = recipeData.ItemRequirements.values;
       requirements = Object.keys(requirements).map(function (index) {
-        return requirements[index].split(/[;,]/g);
+        return requirements[index].split(';').filter(a => !!a);
       });
 
-      requirements.forEach(function (reqList) {
-        reqList.forEach(function (reqItem) {
-          var parentItem = items[reqItem];
-          if (!parentItem) {
-            if (!dotaItems[reqItem] && !recipes[reqItem]) {
-              t.fail('Item ' + item + ' is made out of an unknown item (' + reqList.join(';') + ')');
-              return;
-            }
-            var baseItem = recipes[reqItem] || dotaItems[reqItem];
-            parentItem = {
-              baseCost: baseItem.values.ItemCost,
-              cost: baseItem.values.ItemCost,
-              totalCost: baseItem.values.ItemCost,
-              item: baseItem
-            };
-            console.log(item, 'is made with', parentItem);
-          }
-        });
-      });
+      itemData.cost = Number.MAX_VALUE;
+      itemData.totalCost = Number.MAX_VALUE;
+      itemData.recipes = requirements;
+      itemData.recipe = recipeData;
+      itemData.purchasable = false;
+
+      calculateCost(item);
 
       /*
         item_preemptive_3a { values:
@@ -397,10 +390,117 @@ function buildItemTree (t, data, cb) {
              '04': { values: [Object] },
              '05': { values: [Object] } } }
       */
-      var itemData = items[item];
     });
+
+    allItemNames.forEach(function (item) {
+      if (!items[item]) {
+        t.fail('missing item in items list ' + item);
+        return;
+      }
+      t.equal(items[item].baseCost, items[item].cost, 'cost is set correctly in kv for ' + item);
+
+      // this chunk of code will write the item costs in the file for you
+      // useful...
+      // if (items[item].baseCost !== items[item].cost) {
+      //   var fileName = itemFileMap[item];
+      //   var foundIt = false;
+      //   var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
+      //     .split('\n')
+      //     .map(function (line) {
+      //       var parts = line.split(/[\s ]+/).filter(a => a && a.length);
+      //       if (parts[0] === '"' + item + '"') {
+      //         foundIt = true;
+      //       }
+      //       if (foundIt && parts[0] === '"ItemCost"') {
+      //         // console.log(parts);
+      //         line = line.replace('' + items[item].baseCost, items[item].cost);
+      //         foundIt = false;
+      //       }
+      //       return line;
+      //     })
+      //     .join('\n');
+
+      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' })
+      // }
+    });
+
+    // output item costs in csv format (for haga usually)
+    // allItemNames.forEach(function (item) {
+    //   console.log([item, items[item].totalCost, items[item].cost].join(','));
+    // });
 
     t.end();
     cb();
+    // end of test
   });
+
+  function calculateCost (item, skipChildren) {
+    // console.log('Calculating the cost for', item);
+    var itemData = items[item];
+    var requirements = itemData.recipes;
+
+    requirements.forEach(function (reqList) {
+      var cost = Number(itemData.recipe.values.ItemCost);
+      var totalCost = Number(itemData.recipe.values.ItemCost);
+      reqList.forEach(function (reqItem) {
+        if (item === reqItem) {
+          // this item builds into itself
+          // probably charge refreshing by rebuying recipe
+          console.log(item, 'builds into itself');
+          cost = Number.MAX_VALUE;
+          totalCost = Number.MAX_VALUE;
+          return;
+        }
+        var parentItem = items[reqItem];
+        if (!parentItem) {
+          if (!dotaItems[reqItem] && !recipes[reqItem]) {
+            t.fail('Item ' + item + ' is made out of an unknown item ' + reqItem);
+            return;
+          }
+          var baseItem = recipes[reqItem] || dotaItems[reqItem];
+          var baseItemCost = Number(baseItem.values.ItemCost || 0);
+          parentItem = {
+            baseCost: baseItemCost,
+            cost: baseItemCost,
+            totalCost: baseItemCost,
+            item: baseItem,
+            children: []
+          };
+          // console.log(item, 'is made with', parentItem);
+        }
+        if (parentItem.totalCost < parentItem.cost) {
+          calculateCost(reqItem, true);
+          if (parentItem.totalCost < parentItem.cost) {
+            t.fail(reqItem + ' has invalid cost data');
+          }
+        }
+        // if (item === 'item_sphere') {
+        //   console.log('adding', parentItem);
+        //   console.log('to', cost, totalCost);
+        // }
+        cost = cost + parentItem.cost;
+        totalCost = totalCost + parentItem.totalCost;
+
+        if (parentItem.children.indexOf(item) == -1) {
+          parentItem.children.push(item);
+        }
+        if (cost > totalCost) {
+          console.log('Bad cost data', reqItem, cost, totalCost, item, parentItem);
+        }
+      });
+      if (cost > totalCost) {
+        t.fail(['Bad cost data', reqItem, cost, totalCost, item, parentItem].join(' '));
+      }
+      if (cost < itemData.cost) {
+        itemData.cost = cost;
+      }
+      if (totalCost < itemData.totalCost) {
+        itemData.totalCost = totalCost;
+      }
+    });
+    if (!skipChildren && itemData.children.length) {
+      itemData.children.forEach(calculateCost);
+    }
+
+  }
 }
