@@ -1,22 +1,20 @@
 "DOTAAbilities"
 {
-  "fountain_attack"
+  "dev_attack"
   {
-    "ID"                                                  "9001"
+    "ID"                                                  "9002"
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/fountain_attack.lua"
-    "AbilityTextureName"                                  "nothing"
+    "ScriptFile"                                          "abilities/dev_attack.lua"
+    "AbilityTextureName"                                  "custom/shoopdawhoop"
     "MaxLevel"                                            "1"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_ALL"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityCastPoint"                                    "0"
-    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
 
     "AbilitySpecial"
     {
@@ -24,6 +22,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "timetokill"                                      "2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "radius"                                          "900"
       }
     }
 
