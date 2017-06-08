@@ -34,7 +34,7 @@ test('KV Values', function (t) {
       dotaItemIDs = dotaItemList
         .map(function (item) {
           // console.log(dotaItems[item]);
-          return dotaItems[item].values.ID
+          return dotaItems[item].values.ID;
         })
         .filter(a => !!a);
 
@@ -291,7 +291,7 @@ function buildItemTree (t, data, cb) {
         if (itemData.values.ItemRecipe === '1') {
           allRecipeNames.push(item);
           recipes[item] = itemData;
-          t.notOk(recipesByResult[itemData.values.ItemResult], 'only 1 recipe per result')
+          t.notOk(recipesByResult[itemData.values.ItemResult], 'only 1 recipe per result');
 
           recipesByResult[itemData.values.ItemResult] = item;
         } else {
@@ -481,7 +481,7 @@ function buildItemTree (t, data, cb) {
         cost = cost + parentItem.cost;
         totalCost = totalCost + parentItem.totalCost;
 
-        if (parentItem.children.indexOf(item) == -1) {
+        if (parentItem.children.indexOf(item) === -1) {
           parentItem.children.push(item);
         }
         if (cost > totalCost) {
@@ -489,7 +489,7 @@ function buildItemTree (t, data, cb) {
         }
       });
       if (cost > totalCost) {
-        t.fail(['Bad cost data', reqItem, cost, totalCost, item, parentItem].join(' '));
+        t.fail(['Bad cost data', cost, totalCost, item].join(' '));
       }
       if (cost < itemData.cost) {
         itemData.cost = cost;
@@ -501,6 +501,5 @@ function buildItemTree (t, data, cb) {
     if (!skipChildren && itemData.children.length) {
       itemData.children.forEach(calculateCost);
     }
-
   }
 }
