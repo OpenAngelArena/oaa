@@ -97,7 +97,6 @@ function bristleback_takedamage(params)
     -- This should be Quill Spray, but in case something weird like AD is going on, we'll check anyway.
     quill_spray:CastAbility()
 
-    -- I'm not entirely sure if this is how Bristleback actually works, but this seems like a safe bet.
-    params.unit.quill_threshold_counter = params.unit.quill_threshold_counter - 250.0
+    params.unit.quill_threshold_counter = 0
   end
 end
