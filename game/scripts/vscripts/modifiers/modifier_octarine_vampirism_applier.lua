@@ -47,19 +47,19 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_applier:GetAuraRadius()
-  return self.aura_radius
+  return 0
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_applier:OnCreated( kv )
-  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
+  --self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_applier:OnRefresh( kv )
-  self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
+  --self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
 --------------------------------------------------------------------------------
