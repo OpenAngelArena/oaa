@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_creep_camp_tracker", "modifiers/modifier_creep_camp_tracker.lua", LUA_MODIFIER_MOTION_NONE)
+
 -- Taken from bb template
 if CreepCamps == nil then
     Debug.EnabledModules['creeps:*'] = false
@@ -27,6 +29,8 @@ local EXP_BOUNTY_ENUM = 7
 function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
+  self.NumberOfSpawnsTable = {}
+  self.LivingCreepsTable = {}
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
 end
 
@@ -68,34 +72,44 @@ function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
     CreepCamps:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
   end
 end
+
 function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   if creepProperties == nil then
     DebugPrint ('[creeps/spawner] unknown creep type ')
     return false
   end
 
+  -- String for identifying cams based on spawn location
+  local locationString = location.x .. "," .. location.y
+
+  if not self.LivingCreepsTable[locationString] then
+    self.LivingCreepsTable[locationString] = {count = 0}
+  end
+
   -- ( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
-  local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
-    location,
-    nil,
-    800,
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_CREEP,
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false)
+  -- local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
+  --   location,
+  --   nil,
+  --   800,
+  --   DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+  --   DOTA_UNIT_TARGET_CREEP,
+  --   DOTA_UNIT_TARGET_FLAG_NONE,
+  --   FIND_ANY_ORDER,
+  --   false)
 
   creepProperties = CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel )
 
-  if (maximumUnits and maximumUnits <= #units)
+  if (maximumUnits and maximumUnits <= self.LivingCreepsTable[locationString].count)
   then
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
-    for _,unit in pairs(units) do
-      local unitProperties = CreepCamps:GetCreepProperties(unit)
-      local distributedScale = 1.0 / maximumUnits
+    for key,unit in pairs(self.LivingCreepsTable[locationString]) do
+      if not (key == "count") then
+        local unitProperties = CreepCamps:GetCreepProperties(unit)
+        local distributedScale = 1.0 / maximumUnits
 
-      unitProperties = CreepCamps:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
-      CreepCamps:SetCreepPropertiesOnHandle(unit, unitProperties)
+        unitProperties = CreepCamps:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
+        CreepCamps:SetCreepPropertiesOnHandle(unit, unitProperties)
+      end
     end
     return false
   end
@@ -105,6 +119,28 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   if creepHandle ~= nil then
     CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
     creepHandle.Is_ItemDropEnabled = true
+    table.insert(self.LivingCreepsTable[locationString], creepHandle)
+    local currentUnitIndex = #self.LivingCreepsTable[locationString]
+    self.LivingCreepsTable[locationString].count = self.LivingCreepsTable[locationString].count + 1
+
+    -- Set modifier that will clear creep from LivingCreepsTable OnDeath or OnDominated
+    creepHandle:AddNewModifier(nil, nil, "modifier_creep_camp_tracker",
+      {
+        locationString = locationString,
+        creepIndex = currentUnitIndex
+      }
+    )
+
+    --print(locationString .. ":" .. self.LivingCreepsTable[locationString].count)
+
+    -- Increment spawn counter for camp
+    if not self.NumberOfSpawnsTable[locationString] then
+      self.NumberOfSpawnsTable[locationString] = 0
+    end
+    self.NumberOfSpawnsTable[locationString] = self.NumberOfSpawnsTable[locationString] + 1
+
+    -- Add per spawn drops
+    CreepItemDrop:AddFixedDropsToCamp(self.LivingCreepsTable[locationString], self.NumberOfSpawnsTable[locationString])
   end
 
   return true
