@@ -1,5 +1,9 @@
 oaa_rearm = class({})
 
+function oaa_rearm:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function oaa_rearm:OnSpellStart()
   local caster = self:GetCaster()
 

@@ -1,5 +1,9 @@
 item_devDagon = class({})
 
+function item_devDagon:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_devDagon:OnSpellStart()
   local target = self:GetCursorTarget()
   local caster = self:GetCaster()

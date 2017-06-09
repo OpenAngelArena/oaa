@@ -17,6 +17,10 @@ function item_shivas_cuirass:OnSpellStart()
 	CreateModifierThinker( hCaster, self, "modifier_item_shivas_guard_thinker", nil, hCaster:GetAbsOrigin(), hCaster:GetTeamNumber(), false )
 end
 
+function item_shivas_cuirass:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 --------------------------------------------------------------------------------
 
 item_shivas_cuirass_2 = item_shivas_cuirass --luacheck: ignore item_shivas_cuirass_2

@@ -3,6 +3,10 @@ LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic
 
 item_greater_arcane_boots = class({})
 
+function item_greater_arcane_boots:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_greater_arcane_boots:OnSpellStart()
   local caster = self:GetCaster()
 

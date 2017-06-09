@@ -3,7 +3,12 @@ LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_reple
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reactive_2a = class({})
-item_reactive_3a = class({})
+
+function item_reactive_2a:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
+item_reactive_3a = item_reactive_2a
 
 function item_reactive_2a:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

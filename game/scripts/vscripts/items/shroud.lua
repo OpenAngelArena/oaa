@@ -19,6 +19,10 @@ function item_shroud:OnSpellStart()
   hTarget:AddNewModifier( hTarget, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
 end
 
+function item_shroud:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 --------------------------------------------------------------------------------
 
 item_shroud_2 = item_shroud --luacheck: ignore item_shroud_2
