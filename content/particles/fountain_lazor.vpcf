@@ -67,6 +67,7 @@
 			_class = "C_INIT_RandomRadius"
 			m_flRadiusMax = 72.0
 			m_flRadiusMin = 56.0
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
