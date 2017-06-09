@@ -6,6 +6,10 @@ function modifier_octarine_vampirism_applier:IsHidden()
   return true
 end
 
+function modifier_octarine_vampirism_applier:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_applier:IsAura()
