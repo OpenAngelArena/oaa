@@ -28,6 +28,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_greater_power_treads", context)
 
   PrecacheUnitByNameSync("dota_fountain", context)
+  PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
   -- Particles can be precached individually or by folder
