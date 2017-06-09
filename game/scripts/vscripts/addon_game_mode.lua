@@ -24,7 +24,10 @@ function Precache( context )
   PrecacheItemByNameSync("item_postactive", context)
   PrecacheItemByNameSync("item_preemptive_3c", context)
   PrecacheItemByNameSync("item_stoneskin", context)
+  PrecacheItemByNameSync("item_greater_phase_boots", context)
+  PrecacheItemByNameSync("item_greater_power_treads", context)
 
+  PrecacheUnitByNameSync("dota_fountain", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
   -- Particles can be precached individually or by folder
