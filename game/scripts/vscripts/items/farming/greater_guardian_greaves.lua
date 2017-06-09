@@ -43,7 +43,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     return not hero:HasModifier("modifier_item_mekansm_noheal")
   end
 
-  local function ReplenishMana(heclass(ModifierBaseClass)
+  local function ReplenishMana(hero)
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
 
