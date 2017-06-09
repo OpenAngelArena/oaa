@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/grea
 
 --------------------------------------------------------------------------------
 
-function item_greater_tranquil_boots:GetAbilityTextureName(brokenAPI)
+function item_greater_tranquil_boots:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
 	local brokeName = ""

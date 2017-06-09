@@ -8,7 +8,7 @@ function item_stoneskin:GetIntrinsicModifierName()
   return "modifier_item_stoneskin"
 end
 
-function item_stoneskin:GetAbilityTextureName(brokenAPI)
+function item_stoneskin:GetAbilityTextureName()
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
 
   -- Update state based on stacks of the intrinsic modifier

@@ -7,10 +7,6 @@ LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic
 
 item_greater_guardian_greaves = class({})
 
-function item_greater_guardian_greaves:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
   --[[
       "14"
       {

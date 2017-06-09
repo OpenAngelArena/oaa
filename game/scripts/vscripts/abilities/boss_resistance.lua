@@ -2,10 +2,6 @@ LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA
 
 boss_resistance = class({})
 
-function boss_resistance:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function boss_resistance:GetIntrinsicModifierName()
   return "modifier_boss_resistance"
 end

@@ -4,10 +4,6 @@ LinkLuaModifier("modifier_boss_stopfightingyourself_dupe_items", "abilities/stop
 
 boss_stopfightingyourself_dupe_items = class({})
 
-function boss_stopfightingyourself_dupe_items:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function boss_stopfightingyourself_dupe_items:GetIntrinsicModifierName()
   return "modifier_boss_stopfightingyourself_dupe_items"
 end

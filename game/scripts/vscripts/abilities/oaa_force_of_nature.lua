@@ -8,11 +8,6 @@
   Date: 10.03.2017
 ]]
 furion_force_of_nature = class ({})
-
-function furion_force_of_nature:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 LinkLuaModifier( "modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE )
 
 function furion_force_of_nature:GetAOERadius()

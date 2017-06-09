@@ -3,10 +3,6 @@ LinkLuaModifier("modifier_item_bloodstone_oaa", "items/bloodstone.lua", LUA_MODI
 
 item_bloodstone_1 = class({})
 
-function item_bloodstone_1:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_bloodstone_1:GetIntrinsicModifierName()
   return "modifier_item_bloodstone_oaa"
 end

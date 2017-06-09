@@ -10,10 +10,6 @@ require('libraries/timers')
 
 item_preemptive_2b = class({})
 
-function item_preemptive_2b:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_preemptive_2b:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end

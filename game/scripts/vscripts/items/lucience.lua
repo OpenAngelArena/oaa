@@ -40,7 +40,7 @@ function item_lucience:GetToggleState()
   return self.serverLucienceState
 end
 
-function item_lucience:GetAbilityTextureName(brokenAPI)
+function item_lucience:GetAbilityTextureName()
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
 
   -- Update state based on stacks of the intrinsic modifier

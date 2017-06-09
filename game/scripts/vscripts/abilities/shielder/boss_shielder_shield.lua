@@ -2,10 +2,6 @@ LinkLuaModifier("modifier_boss_shielder_shielded_buff", "abilities/shielder/modi
 
 boss_shielder_shield = class({})
 
-function boss_shielder_shield:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function boss_shielder_shield:OnSpellStart()
 
 end

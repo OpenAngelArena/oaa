@@ -4,10 +4,6 @@ LinkLuaModifier( "modifier_bottle_regeneration", LUA_MODIFIER_MOTION_NONE )
 
 item_infinite_bottle = class({})
 
-function item_infinite_bottle:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_infinite_bottle:OnSpellStart()
 	local restore_time = self:GetSpecialValueFor( "restore_time" )
 

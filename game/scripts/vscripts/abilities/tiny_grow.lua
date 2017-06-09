@@ -16,10 +16,6 @@ LinkLuaModifier("modifier_tiny_grow_oaa", "abilities/tiny_grow.lua", LUA_MODIFIE
 
 local banana
 
-function tiny_grow_oaa:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function tiny_grow_oaa:GetIntrinsicModifierName()
   return "modifier_tiny_grow_oaa"
 end

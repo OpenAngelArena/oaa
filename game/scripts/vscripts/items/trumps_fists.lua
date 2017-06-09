@@ -7,13 +7,13 @@ function item_trumps_fists:GetIntrinsicModifierName()
   return "modifier_item_trumps_fists_passive"
 end
 
-function item_trumps_fists:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 --------------------------------------------------------------------------------
 
-item_trumps_fists_2 = item_trumps_fists
+item_trumps_fists_2 = class({})
+
+function item_trumps_fists_2:GetIntrinsicModifierName()
+  return "modifier_item_trumps_fists_passive"
+end
 
 --------------------------------------------------------------------------------
 

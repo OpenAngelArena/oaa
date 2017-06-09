@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-function item_siege_mode:GetAbilityTextureName(brokenAPI)
+function item_siege_mode:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
 	local activeName = ""

@@ -5,13 +5,10 @@ LinkLuaModifier("modifier_fountain_attack_aura", "abilities/fountain_attack.lua"
 
 fountain_attack = class({})
 
-function fountain_attack:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function fountain_attack:GetIntrinsicModifierName()
     return "modifier_fountain_attack"
 end
+
 
 modifier_fountain_attack = class({})
 

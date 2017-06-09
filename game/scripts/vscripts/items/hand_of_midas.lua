@@ -3,10 +3,6 @@
 
 item_hand_of_midas = class({})
 
-function item_hand_of_midas:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_hand_of_midas:GetIntrinsicModifierName()
   return "modifier_item_hand_of_midas"
 end

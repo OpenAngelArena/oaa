@@ -3,10 +3,6 @@ LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua"
 
 item_postactive_2a = class({})
 
-function item_postactive_2a:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_postactive_2a:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
