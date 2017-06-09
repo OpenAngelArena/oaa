@@ -32,7 +32,9 @@ function item_dagon:OnSpellStart()
 
 
   caster:EmitSound("DOTA_Item.Dagon.Activate")
-  target:EmitSound("DOTA_Item.Dagon5.Target")
+  if level >= 5 then
+    target:EmitSound("DOTA_Item.Dagon5.Target")
+  end
 
   ApplyDamage({
     victim = target,
