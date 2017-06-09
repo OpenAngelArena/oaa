@@ -4,6 +4,10 @@ LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarin
 
 item_octarine_core_2 = class({})
 
+function item_octarine_core_2:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_octarine_core_2:GetIntrinsicModifierName()
   return "modifier_octarine_vampirism_applier"
 end

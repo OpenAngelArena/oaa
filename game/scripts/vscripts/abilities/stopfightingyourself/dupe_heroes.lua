@@ -6,6 +6,10 @@ LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfi
 
 boss_stopfightingyourself_dupe_heroes = class({})
 
+function boss_stopfightingyourself_dupe_heroes:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function boss_stopfightingyourself_dupe_heroes:GetAOERadius()
   return self:GetSpecialValueFor('radius')
 end

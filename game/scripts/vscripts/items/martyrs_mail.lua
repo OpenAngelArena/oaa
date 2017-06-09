@@ -6,6 +6,10 @@ LinkLuaModifier( "modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.l
 
 item_martyrs_mail = class({})
 
+function item_martyrs_mail:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_martyrs_mail:GetIntrinsicModifierName()
 	return "modifier_item_martyrs_mail_passive"
 end

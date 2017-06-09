@@ -8,6 +8,10 @@ LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_b
 
 boss_charger_charge = class({})
 
+function boss_charger_charge:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function boss_charger_charge:OnChannelFinish(interupted)
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interupted then

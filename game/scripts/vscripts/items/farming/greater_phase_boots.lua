@@ -4,6 +4,10 @@ LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/grea
 
 --------------------------------------------------------------------------------
 
+function item_greater_phase_boots:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_greater_phase_boots:GetIntrinsicModifierName()
 	-- we're not modifying the passive benefits at all
 	-- ( besides the numbers )

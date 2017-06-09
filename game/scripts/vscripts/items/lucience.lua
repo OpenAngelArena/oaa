@@ -14,6 +14,10 @@ local auraTypeMovespeed = 2
 
 item_lucience = class({})
 
+function item_lucience:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_lucience:GetIntrinsicModifierName()
   return "modifier_item_lucience_aura_handler"
 end
@@ -40,7 +44,7 @@ function item_lucience:GetToggleState()
   return self.serverLucienceState
 end
 
-function item_lucience:GetAbilityTextureName()
+function item_lucience:GetAbilityTextureName(brokenAPI)
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
 
   -- Update state based on stacks of the intrinsic modifier

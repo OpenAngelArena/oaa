@@ -6,6 +6,10 @@ LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_M
 
 item_satanic_core = class({})
 
+function item_satanic_core:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_satanic_core:GetIntrinsicModifierName()
   return "modifier_item_satanic_core"
 end

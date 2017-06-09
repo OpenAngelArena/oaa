@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_greater_power_treads", "items/farming/greater_po
 
 --------------------------------------------------------------------------------
 
-function item_greater_power_treads:GetAbilityTextureName()
+function item_greater_power_treads:GetAbilityTextureName(brokenAPI)
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
 	local attribute = -1

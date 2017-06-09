@@ -1,6 +1,10 @@
 
 boss_charger_summon_pillar = class({})
 
+function boss_charger_summon_pillar:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function boss_charger_summon_pillar:OnSpellStart()
   local cursorPosition = self:GetCursorPosition()
   local caster = self:GetCaster()
