@@ -102,6 +102,16 @@ function modifier_item_refresher_core:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
+function modifier_item_refresher_core:OnCreated()
+  if IsServer() then
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
+    if caster:IsTempestDouble() then
+      ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+    end
+  end
+end
+
 function modifier_item_refresher_core:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
