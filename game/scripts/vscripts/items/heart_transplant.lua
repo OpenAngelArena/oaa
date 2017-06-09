@@ -6,6 +6,10 @@ local heartTransplantDebuffName = "modifier_item_heart_transplant_debuff"
 
 item_heart_transplant = class({})
 
+function item_heart_transplant:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_heart_transplant:GetIntrinsicModifierName()
   return "modifier_item_heart_transplant"
 end

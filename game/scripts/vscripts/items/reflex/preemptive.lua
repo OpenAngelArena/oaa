@@ -7,6 +7,10 @@ LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua
 
 item_preemptive = class({})
 
+function item_preemptive:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function item_preemptive:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end

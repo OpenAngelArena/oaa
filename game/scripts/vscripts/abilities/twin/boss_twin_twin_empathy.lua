@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_boss_twin_twin_empathy_buff", "abilities/twin/modifier
 
 boss_twin_twin_empathy = class({})
 
+function boss_twin_twin_empathy:GetAbilityTextureName (brokenAPI)
+  return self.BaseClass.GetAbilityTextureName(self)
+end
+
 function boss_twin_twin_empathy:GetBehavior ()
   return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
