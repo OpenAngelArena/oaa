@@ -2,7 +2,7 @@
 LinkLuaModifier( "modifier_octarine_vampirism_applier", "modifiers/modifier_octarine_vampirism_applier.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
 
-item_octarine_core_2 = class({})
+item_octarine_core_2 = class(ItemBaseClass)
 
 function item_octarine_core_2:GetIntrinsicModifierName()
   return "modifier_octarine_vampirism_applier"

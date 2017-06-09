@@ -1,4 +1,4 @@
-beastmaster_call_of_the_wild = class({})
+beastmaster_call_of_the_wild = class(AbilityBaseClass)
 
 function beastmaster_call_of_the_wild:OnSpellStart()
   local caster = self:GetCaster()

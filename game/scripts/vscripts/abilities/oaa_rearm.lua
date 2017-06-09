@@ -1,4 +1,4 @@
-oaa_rearm = class({})
+oaa_rearm = class(AbilityBaseClass)
 
 function oaa_rearm:OnSpellStart()
   local caster = self:GetCaster()

@@ -12,7 +12,7 @@ local movespeedAuraName = "modifier_item_lucience_movespeed_aura"
 local auraTypeRegen = 1
 local auraTypeMovespeed = 2
 
-item_lucience = class({})
+item_lucience = class(ItemBaseClass)
 
 function item_lucience:GetIntrinsicModifierName()
   return "modifier_item_lucience_aura_handler"
@@ -76,7 +76,7 @@ item_lucience_3 = class(item_lucience)
 
 ------------------------------------------------------------------------
 
-modifier_item_lucience_aura_handler = class({})
+modifier_item_lucience_aura_handler = class(ModifierBaseClass)
 
 function modifier_item_lucience_aura_handler:IsHidden()
   return true
@@ -183,7 +183,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_lucience_regen_aura = class({})
+modifier_item_lucience_regen_aura = class(ModifierBaseClass)
 
 function modifier_item_lucience_regen_aura:OnCreated()
   if IsServer() then
@@ -256,7 +256,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_lucience_regen_effect = class({})
+modifier_item_lucience_regen_effect = class(ModifierBaseClass)
 
 function modifier_item_lucience_regen_effect:OnCreated()
   self.regenBonus = self:GetAbility():GetSpecialValueFor("regen_bonus")
@@ -288,7 +288,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_lucience_movespeed_effect = class({})
+modifier_item_lucience_movespeed_effect = class(ModifierBaseClass)
 
 function modifier_item_lucience_movespeed_effect:OnCreated()
   self.movespeedBonus = self:GetAbility():GetSpecialValueFor("speed_bonus")

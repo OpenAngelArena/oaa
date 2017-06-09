@@ -1,7 +1,7 @@
 LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
-item_greater_arcane_boots = class({})
+item_greater_arcane_boots = class(ItemBaseClass)
 
 function item_greater_arcane_boots:OnSpellStart()
   local caster = self:GetCaster()

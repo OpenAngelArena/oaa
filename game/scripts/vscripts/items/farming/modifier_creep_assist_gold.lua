@@ -2,7 +2,7 @@ LinkLuaModifier( "modifier_creep_assist_gold_aura", "items/farming/modifier_cree
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold = class({})
+modifier_creep_assist_gold = class(ItemBaseClass)
 
 function modifier_creep_assist_gold:IsHidden()
   return true
@@ -89,7 +89,7 @@ end
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold_aura = class({})
+modifier_creep_assist_gold_aura = class(ModifierBaseClass)
 
 function modifier_creep_assist_gold_aura:IsHidden()
   return true

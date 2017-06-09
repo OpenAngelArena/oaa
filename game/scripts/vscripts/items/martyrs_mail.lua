@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.l
 
 --------------------------------------------------------------------------------
 
-item_martyrs_mail = class({})
+item_martyrs_mail = class(ItemBaseClass)
 
 function item_martyrs_mail:GetIntrinsicModifierName()
 	return "modifier_item_martyrs_mail_passive"
@@ -22,7 +22,7 @@ item_martyrs_mail_2 = class(item_martyrs_mail)
 
 --------------------------------------------------------------------------------
 
-modifier_item_martyrs_mail_passive = class({})
+modifier_item_martyrs_mail_passive = class(ModifierBaseClass)
 
 function modifier_item_martyrs_mail_passive:IsHidden()
 	return true
@@ -68,7 +68,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_martyrs_mail_martyr_active = class({})
+modifier_item_martyrs_mail_martyr_active = class(ModifierBaseClass)
 
 function modifier_item_martyrs_mail_martyr_active:IsAura()
 	return true
@@ -160,7 +160,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_martyrs_mail_martyr_aura = class({})
+modifier_item_martyrs_mail_martyr_aura = class(ModifierBaseClass)
 
 function modifier_item_martyrs_mail_martyr_aura:GetEffectName()
 	return "particles/world_shrine/radiant_shrine_active_ray.vpcf"

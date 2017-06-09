@@ -9,7 +9,7 @@ his existence alone is an extreme asset to our team. Thanks homie.
 Refactored heavily by chrisinajar
 
 ]]
-if tiny_grow_oaa == nil then tiny_grow_oaa = class({}) end
+if tiny_grow_oaa == nil then tiny_grow_oaa = class(AbilityBaseClass) end
 
 LinkLuaModifier("modifier_tiny_grow_oaa", "abilities/tiny_grow.lua", LUA_MODIFIER_MOTION_NONE) --- PATH WERY IMPORTANT
 
@@ -97,7 +97,7 @@ function tiny_grow_oaa:OnUpgrade()
   end
 end
 
-if modifier_tiny_grow_oaa == nil then modifier_tiny_grow_oaa = class({}) end
+if modifier_tiny_grow_oaa == nil then modifier_tiny_grow_oaa = class(ModifierBaseClass) end
 
 function modifier_tiny_grow_oaa:IsHidden()
   return true

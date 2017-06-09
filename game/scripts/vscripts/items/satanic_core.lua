@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-item_satanic_core = class({})
+item_satanic_core = class(ItemBaseClass)
 
 function item_satanic_core:GetIntrinsicModifierName()
   return "modifier_item_satanic_core"
@@ -28,7 +28,7 @@ item_satanic_core_3 = item_satanic_core --luacheck: ignore item_satanic_core_3
 
 --------------------------------------------------------------------------------
 
-modifier_item_satanic_core = class({})
+modifier_item_satanic_core = class(ModifierBaseClass)
 
 function modifier_item_satanic_core:IsHidden()
   return true
@@ -124,7 +124,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_satanic_core_unholy = class({})
+modifier_satanic_core_unholy = class(ModifierBaseClass)
 
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {

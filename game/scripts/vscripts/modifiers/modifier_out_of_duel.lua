@@ -1,4 +1,4 @@
-modifier_out_of_duel = class({})
+modifier_out_of_duel = class(ModifierBaseClass)
 
 function modifier_out_of_duel:CheckState()
   return {

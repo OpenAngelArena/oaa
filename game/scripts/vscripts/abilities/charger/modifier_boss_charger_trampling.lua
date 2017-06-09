@@ -1,5 +1,5 @@
 
-modifier_boss_charger_trampling = class({})
+modifier_boss_charger_trampling = class(ModifierBaseClass)
 
 function modifier_boss_charger_trampling:OnCreated (keys)
   self:StartIntervalThink(0.01)

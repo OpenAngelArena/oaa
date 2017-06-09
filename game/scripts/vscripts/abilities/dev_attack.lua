@@ -3,14 +3,14 @@ require("internal/util")
 LinkLuaModifier("modifier_dev_attack", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dev_attack_aura", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
-dev_attack = class({})
+dev_attack = class(AbilityBaseClass)
 
 function dev_attack:GetIntrinsicModifierName()
   return "modifier_dev_attack"
 end
 
 
-modifier_dev_attack = class({})
+modifier_dev_attack = class(ModifierBaseClass)
 
 function modifier_dev_attack:IsAura()
   return true
@@ -40,7 +40,7 @@ function modifier_dev_attack:GetTexture()
   return "custom/shoopdawhoop"
 end
 
-modifier_dev_attack_aura = class({})
+modifier_dev_attack_aura = class(ModifierBaseClass)
 
 function modifier_dev_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()

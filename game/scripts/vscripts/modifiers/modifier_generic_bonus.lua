@@ -1,5 +1,5 @@
 
-modifier_generic_bonus = class({})
+modifier_generic_bonus = class(ModifierBaseClass)
 
 --[[
 

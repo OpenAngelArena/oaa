@@ -1,4 +1,4 @@
-item_devDagon = class({})
+item_devDagon = class(ItemBaseClass)
 
 function item_devDagon:OnSpellStart()
   local target = self:GetCursorTarget()

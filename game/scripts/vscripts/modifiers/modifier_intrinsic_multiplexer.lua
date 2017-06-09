@@ -1,6 +1,6 @@
 require('libraries/fun')()
 
-modifier_intrinsic_multiplexer = class({})
+modifier_intrinsic_multiplexer = class(ModifierBaseClass)
 
 function modifier_intrinsic_multiplexer:IsHidden()
   return true

@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_ass
 
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
-item_greater_guardian_greaves = class({})
+item_greater_guardian_greaves = class(ItemBaseClass)
 
   --[[
       "14"
@@ -43,7 +43,7 @@ function item_greater_guardian_greaves:OnSpellStart()
     return not hero:HasModifier("modifier_item_mekansm_noheal")
   end
 
-  local function ReplenishMana(hero)
+  local function ReplenishMana(heclass(ModifierBaseClass)
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
 
@@ -108,7 +108,7 @@ item_greater_guardian_greaves_5 = item_greater_guardian_greaves
 
 ------------------------------------------------------------------------------
 
-modifier_item_greater_guardian_greaves = class({})
+modifier_item_greater_guardian_greaves = class(ModifierBaseClass)
 
 function modifier_item_greater_guardian_greaves:IsHidden()
   return true

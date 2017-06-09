@@ -1,7 +1,7 @@
 
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_pull_staff = class({})
+item_pull_staff = class(ItemBaseClass)
 
 function item_pull_staff:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

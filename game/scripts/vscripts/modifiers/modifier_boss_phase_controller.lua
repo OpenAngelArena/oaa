@@ -1,5 +1,5 @@
 
-modifier_boss_phase_controller = class({})
+modifier_boss_phase_controller = class(ModifierBaseClass)
 
 function modifier_boss_phase_controller:OnRefresh ()
   if not IsServer() then

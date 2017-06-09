@@ -1,7 +1,7 @@
 LinkLuaModifier( "modifier_item_reactive_2b", "items/reflex/reactive_block_blink.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reactive_2b = class({})
+item_reactive_2b = class(ItemBaseClass)
 
 function item_reactive_2b:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -14,7 +14,7 @@ function item_reactive_2b:OnSpellStart()
   caster:AddNewModifier( caster, self, "modifier_item_reactive_2b", { duration = duration } )
 end
 
-modifier_item_reactive_2b = class({})
+modifier_item_reactive_2b = class(ModifierBaseClass)
 
 function modifier_item_reactive_2b:IsHidden()
   return false

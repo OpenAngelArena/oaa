@@ -1,4 +1,4 @@
-item_greater_phase_boots = class({})
+item_greater_phase_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -25,7 +25,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_greater_phase_boots_active = class({})
+modifier_item_greater_phase_boots_active = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 

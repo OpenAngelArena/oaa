@@ -1,4 +1,4 @@
-item_greater_tranquil_boots = class({})
+item_greater_tranquil_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
@@ -25,7 +25,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_greater_tranquil_boots = class({})
+modifier_item_greater_tranquil_boots = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
@@ -220,7 +220,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_greater_tranquil_boots_sap = class({})
+modifier_item_greater_tranquil_boots_sap = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
