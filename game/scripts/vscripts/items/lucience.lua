@@ -14,10 +14,6 @@ local auraTypeMovespeed = 2
 
 item_lucience = class({})
 
-function item_lucience:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 function item_lucience:GetIntrinsicModifierName()
   return "modifier_item_lucience_aura_handler"
 end
