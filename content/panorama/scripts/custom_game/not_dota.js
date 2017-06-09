@@ -5,5 +5,5 @@ function hideBattlePassTowers () {
 }
 
 (function () {
-  hideBattlePassTowers();
+  //hideBattlePassTowers();
 })();
