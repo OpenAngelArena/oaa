@@ -54,6 +54,13 @@ end
 
 function modifier_octarine_vampirism_applier:OnCreated( kv )
   --self.aura_radius = self:GetAbility():GetSpecialValueFor( "radius" )
+  local parent = self:GetParent()
+  parent:RemoveModifierByName(self:GetModifierAura())
+end
+
+function modifier_octarine_vampirism_applier:OnDestroy()
+  local parent = self:GetParent()
+  parent:RemoveModifierByName(self:GetModifierAura())
 end
 
 --------------------------------------------------------------------------------
