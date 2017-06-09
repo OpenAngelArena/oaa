@@ -1,69 +1,57 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Shroud of Shadows
-  //=================================================================================================================
-  "item_recipe_shroud"
+  "item_recipe_shroud_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3232"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3937"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_shroud"
+    "ItemResult"                                          "item_shroud_3"
     "ItemRequirements"
     {
-      "01"                                                "item_ghost;item_glimmer_cape;item_upgrade_core"
-      "02"                                                "item_ghost;item_glimmer_cape;item_upgrade_core_2"
-      "03"                                                "item_ghost;item_glimmer_cape;item_upgrade_core_3"
-      "04"                                                "item_ghost;item_glimmer_cape;item_upgrade_core_4"
+      "01"                                                "item_shroud_2;item_upgrade_core_3"
+      "02"                                                "item_shroud_2;item_upgrade_core_4"
     }
   }
 
 
-
-
-  //=================================================================================================================
-  // Shroud of Shadows (Based on Ghost Scepter)
-  //=================================================================================================================
-  "item_shroud"
+  "item_shroud_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3234"                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3938"                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/shroud.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/shroud"
-
+    "AbilityTextureName"                                  "custom/shroud_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "ethereal"
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_shroud"
+    "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4850"
+    "ItemCost"                                            "16350"
     "ItemShopTags"                                        "int;agi;str;hard_to_tag"
     "ItemQuality"                                         "component"
-    "ItemAliases"                                         "shroud of Shadows;sos"
+    "ItemAliases"                                         "shroud of Shadows 3;sos;sos3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

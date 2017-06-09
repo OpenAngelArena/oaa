@@ -44,7 +44,7 @@
     "AbilityCooldown"                                     "20.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "ethereal"
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
@@ -52,7 +52,7 @@
     "ItemCost"                                            "8350"
     "ItemShopTags"                                        "int;agi;str;hard_to_tag"
     "ItemQuality"                                         "component"
-    "ItemAliases"                                         "shroud of Shadows"
+    "ItemAliases"                                         "shroud of Shadows 2;sos;sos2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -61,18 +61,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "8 10"
+        "bonus_all_stats"                                 "8 14 21 35"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 28"
+        "bonus_attack_speed"                              "25 30 35 40"
       }
       // Glimmer Cape Parameters
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor"                             "15 20"
+        "bonus_magical_armor"                             "15 20 25 30"
       }
       "04"
       {
@@ -92,7 +92,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_magical_armor"                            "30 35"
+        "active_magical_armor"                            "30 36 42 50"
       }
     }
   }
