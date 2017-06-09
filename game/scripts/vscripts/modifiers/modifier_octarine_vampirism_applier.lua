@@ -1,5 +1,7 @@
 -- thanks darklord
 
+LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
+
 modifier_octarine_vampirism_applier = class(ModifierBaseClass)
 
 function modifier_octarine_vampirism_applier:IsHidden()
