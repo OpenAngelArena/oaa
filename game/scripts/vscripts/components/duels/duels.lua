@@ -267,12 +267,16 @@ function Duels:ActuallyStartDuel (teamSplit)
   -- Stop Players who are not in a duel from doing anything
   for _,player in ipairs(badPlayers) do
     if player.assigned == nil then
-      PlayerResource:GetSelectedHeroEntity(player.id):AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+      hero:Stop()
+      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     end
   end
   for _,player in ipairs(goodPlayers) do
     if player.assigned == nil then
-      PlayerResource:GetSelectedHeroEntity(player.id):AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+      hero:Stop()
+      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     end
   end
 
