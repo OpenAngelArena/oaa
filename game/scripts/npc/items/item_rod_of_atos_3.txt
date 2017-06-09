@@ -51,15 +51,15 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 150 250"
+    "AbilityManaCost"                                     "50 150 250 350 450"
     "ItemCost"                                            "8080"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3"
+    "UpgradesItems"                                       "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3;item_rod_of_atos_4;item_rod_of_atos_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,32 +68,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 30 45"
+        "bonus_intellect"                                 "20 30 45 70 105"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 25 35"
+        "bonus_strength"                                  "15 25 35 45 55"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 9 14"
+        "bonus_agility"                                   "6 9 14 20 30"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9 14"
+        "bonus_damage"                                    "6 9 14 20 30"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "root_radius"                                     "0 0 200"
+        "root_radius"                                     "0 0 200 200 400"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 3.0"
+        "duration"                                        "2.0 3.0 3.0 4.0 4.0"
       }
     }
   }
