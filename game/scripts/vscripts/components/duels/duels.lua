@@ -57,6 +57,17 @@ function Duels:Init ()
     end
   end)
 
+  GameEvents:OnPlayerDisconnect(function(keys)
+    local playerID = keys.userid
+    if playerID then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      if hero and Duels.currentDuel then
+        hero:Stop()
+        hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+      end
+    end
+  end)
+
   Timers:CreateTimer(1, function ()
     Duels:StartDuel(5)
   end)
@@ -265,7 +276,21 @@ function Duels:ActuallyStartDuel (teamSplit)
   end
 
   -- Stop Players who are not in a duel from doing anything
-  for _,player in ipairs(badPlayers) do
+  for _,playerID in pairs(PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS)) do
+    if not (badPlayers[playerID] and badPlayers[playerID].assigned == true) then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      hero:Stop()
+      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    end
+  end
+  for _,playerID in pairs(PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS)) do
+    if not (goodPlayers[playerID] and goodPlayers[playerID].assigned == true) then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      hero:Stop()
+      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    end
+  end
+  --[[for _,player in ipairs(badPlayers) do
     if player.assigned == nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
@@ -278,7 +303,7 @@ function Duels:ActuallyStartDuel (teamSplit)
       hero:Stop()
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     end
-  end
+  end]]
 
   self.currentDuel = {
     goodLiving1 = playerSplitOffset,
