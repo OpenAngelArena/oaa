@@ -7,7 +7,7 @@ function boss_shielder_shield:GetAbilityTextureName (brokenAPI)
 end
 
 function boss_shielder_shield:OnSpellStart()
-  self:particle = ParticleManager:CreateParticle("TheWarpiestOfShields.vpcf", PATTACH_ABSORIGIN_FOLLOW, thisEntity)
+  local particle = ParticleManager:CreateParticle("TheWarpiestOfShields.vpcf", PATTACH_ABSORIGIN_FOLLOW, thisEntity)
   ParticleManager:SetParticleControl(particle, 0, thisEntity:GetAbsOrigin())
   ParticleManager:SetParticleControl(particle, 1, thisEntity:GetAbsOrigin())
 end
