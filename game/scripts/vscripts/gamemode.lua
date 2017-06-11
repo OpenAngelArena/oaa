@@ -156,6 +156,7 @@ function GameMode:OnPreGame()
   InitModule(ReactiveFilter)
   InitModule(NGP)
   InitModule(Doors)
+  InitModule(HeroKillGold)
 end
 
 --[[
