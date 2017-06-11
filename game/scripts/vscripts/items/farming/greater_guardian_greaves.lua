@@ -225,7 +225,7 @@ function modifier_item_greater_guardian_greaves_aura:GetModifierConstantHealthRe
   end
 end
 
-function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
+function modifier_item_greater_guardian_greaves_aura:GetModifierPhysicalArmorBonus()
   local hero = self:GetParent()
   if not hero or not hero.GetHealth then
     return
