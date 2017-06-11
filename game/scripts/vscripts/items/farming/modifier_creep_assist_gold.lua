@@ -55,11 +55,15 @@ function modifier_creep_assist_gold:GetAuraDuration()
 end
 
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_creep_assist_gold:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
 end
 
 function modifier_creep_assist_gold:GetAuraRadius()
