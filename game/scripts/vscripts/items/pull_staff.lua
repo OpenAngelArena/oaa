@@ -81,3 +81,7 @@ function item_pull_staff:OnProjectileHit(hTarget, vLocation)
   FindClearSpaceForUnit(self.target, vLocation, true)
   return true
 end
+
+item_pull_staff_2 = item_pull_staff
+item_pull_staff_3 = item_pull_staff
+item_pull_staff_4 = item_pull_staff
