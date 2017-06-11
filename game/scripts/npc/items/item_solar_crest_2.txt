@@ -58,7 +58,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "solar crest 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4"
 
@@ -69,12 +69,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 23 34"
+        "bonus_armor"                                     "10 15 23 34 45"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen_pct"                            "75 125 175 250"
+        "bonus_mana_regen_pct"                            "75 125 175 250 325"
       }
       "03"
       {
