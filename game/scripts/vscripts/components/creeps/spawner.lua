@@ -26,6 +26,7 @@ function CreepCamps:Init ()
   CreepCamps = self
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
   Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+  ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
 function CreepCamps:SetPowerLevel (powerLevel)

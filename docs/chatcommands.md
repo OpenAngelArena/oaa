@@ -20,7 +20,7 @@ Commands to be used for debugging and testing purposes, currently requires the g
 <br>
 -dagger - Gives global blink dagger.
 <br>
--devdagon - Gives insta-kill dagon.
+-dagon - Gives insta-kill dagon.
 <br>
 -core x - Can be used to give upgrade cores, core 1, core 2, core 3, core 4, -core by itself gives core level 1.
 <br>
@@ -43,3 +43,7 @@ Commands to be used for debugging and testing purposes, currently requires the g
 -print_modifiers - Prints names of all modifiers on user's hero to console.
 <br>
 -tptest - Teleports all heroes to the middle of the map. Used for testing the Duel teleportation code.
+<br>
+-lazer - Gives the user the HP/Mana drain laser ability that the Fountain uses.
+<br>
+-spawncamps - Forces neutral creep camps to spawn
