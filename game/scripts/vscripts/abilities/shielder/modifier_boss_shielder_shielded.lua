@@ -1,11 +1,19 @@
 LinkLuaModifier("modifier_boss_shielder_shield", "abilities/shielder/boss_shielder_shield.lua", LUA_MODIFIER_MOTION_NONE) --- BATHS HEAVY IMPORTED
 
-modifier_boss_shielder_shielded_buff = class(ModifierBaseClass)
+modifier_boss_shielder_shielded_buff = class({})
 
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
-  return {
+  return
+  {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
   }
+end
+
+function modifier_boss_shielder_shielded_buff:OnCreated()
+  local caster = self:GetCaster()
+  local particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 end
 
 function modifier_boss_shielder_shielded_buff:IsHidden()
@@ -18,31 +26,31 @@ end
 
 function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percentage(keys)
  --[[
-process_procs: true
-order_type: 0
-issuer_player_index: 1982289334
-fail_type: 0
-damage_category: 0
-reincarnate: false
-distance: 0
-gain: 98.332176208496
-attacker: table: 0x00636d38
-ranged_attack: false
-record: 5
-activity: -1
-do_not_consume: false
-damage_type: 4
-heart_regen_applied: false
-diffusal_applied: false
-no_attack_cooldown: false
-cost: 0
-inflictor: table: 0x004bfe30
-damage_flags: 0
-original_damage: 650
-ignore_invis: false
-damage: 650
-basher_tested: false
-target: table: 0x00524320
+[   VScript              ]: process_procs: true
+[   VScript              ]: order_type: 0
+[   VScript              ]: issuer_player_index: 1982289334
+[   VScript              ]: fail_type: 0
+[   VScript              ]: damage_category: 0
+[   VScript              ]: reincarnate: false
+[   VScript              ]: distance: 0
+[   VScript              ]: gain: 98.332176208496
+[   VScript              ]: attacker: table: 0x00636d38
+[   VScript              ]: ranged_attack: false
+[   VScript              ]: record: 5
+[   VScript              ]: activity: -1
+[   VScript              ]: do_not_consume: false
+[   VScript              ]: damage_type: 4
+[   VScript              ]: heart_regen_applied: false
+[   VScript              ]: diffusal_applied: false
+[   VScript              ]: no_attack_cooldown: false
+[   VScript              ]: cost: 0
+[   VScript              ]: inflictor: table: 0x004bfe30
+[   VScript              ]: damage_flags: 0
+[   VScript              ]: original_damage: 650
+[   VScript              ]: ignore_invis: false
+[   VScript              ]: damage: 650
+[   VScript              ]: basher_tested: false
+[   VScript              ]: target: table: 0x00524320
 ]]
 --  for k,v in pairs(keys) do
 --    print(k .. ': ' .. tostring(v))
