@@ -21,7 +21,9 @@ end
 
 --------------------------------------------------------------------------------
 
-item_shroud_2 = item_shroud --luacheck: ignore item_shroud_2
+item_shroud_2 = item_shroud
+item_shroud_3 = item_shroud
+item_shroud_4 = item_shroud
 
 --------------------------------------------------------------------------------
 
