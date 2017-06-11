@@ -27,7 +27,11 @@ function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
   self.CampPRDCounters = {}
-  Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+  if not SKIP_TEAM_SETUP then
+    Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+  else
+    Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+  end
   ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
@@ -36,12 +40,6 @@ function CreepCamps:SetPowerLevel (powerLevel)
 end
 
 function CreepCamps:CreepSpawnTimer ()
-  if not self.hasSpawnedFirstWave then
-    self.hasSpawnedFirstWave = true
-    if not SKIP_TEAM_SETUP then
-      return INITIAL_CREEP_DELAY
-    end
-  end
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
