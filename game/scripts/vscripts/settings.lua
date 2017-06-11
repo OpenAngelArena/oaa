@@ -1,6 +1,32 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 
+-----------------------------------------------------------------------------------
+-- OAA specific settings
+
+-- Duels
+INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
+DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
+DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
+DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
+FIRST_DUEL_TIMEOUT = 110                -- Timeout for the level 1 duel at the start of them game
+FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
+DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
+DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
+DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+
+-- Bosses
+BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
+BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
+BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
+
+-- Creeps
+CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
+INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
+
+-- end OAA specific settings
+-----------------------------------------------------------------------------------
+
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false              -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same hero as each other

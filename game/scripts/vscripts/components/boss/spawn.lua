@@ -125,7 +125,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
-    Timers:CreateTimer(60, function()
+    Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)
   end)

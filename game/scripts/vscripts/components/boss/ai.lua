@@ -21,8 +21,8 @@ function BossAI:Create (unit, options)
   local state = {
     handle = unit,
     origin = unit:GetAbsOrigin(),
-    leash = options.leash or 1500,
-    agroDamage = options.agroDamage or 100 * options.tier,
+    leash = options.leash or BOSS_LEASH_SIZE,
+    agroDamage = options.agroDamage or BOSS_AGRO_FACTOR * options.tier,
     tier = options.tier,
     currentDamage = 0,
     state = BossAI.IDLE,
