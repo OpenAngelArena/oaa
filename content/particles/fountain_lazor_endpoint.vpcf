@@ -28,28 +28,57 @@
 		},
 		{
 			_class = "C_OP_Decay"
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
 			m_flFadeOutTime = 1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_OscillateScalar"
+			m_RateMin = 8000.0
+			m_RateMax = 8000.0
+			m_FrequencyMin = 4.0
+			m_FrequencyMax = 6.0
+			m_nField = 3
+			m_bProportionalOp = false
+			m_flEndTime_min = 100000000000.0
+			m_flEndTime_max = 100000000000.0
+			m_nOpEndCapState = 0
+		},
+		{
+			_class = "C_OP_ClampScalar"
+			m_nOpEndCapState = 0
+			m_flOutputMin = 100.0
+			m_flOutputMax = 850.0
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flStartScale = 7.0
 			m_flBias = 0.95
-			m_bDisableOperator = true
+			m_flEndScale = 3.0
+			m_flEndTime = 0.2
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
 			m_flFadeStartTime = 0.6
 			m_ColorFade = [ 7, 18, 237, 255 ]
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_PositionLock"
 			m_nControlPointNumber = 1
 		},
 		{
-			_class = "C_OP_OscillateScalar"
+			_class = "C_OP_RadiusDecay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -2500.0
+			m_flEndTime = 100000000000.0
+			m_nOpEndCapState = 1
 		},
 	]
 	m_Initializers = 
@@ -80,16 +109,23 @@
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flEmitRate = 4.0
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flStartTime = 0.3
 			m_flEmitRate = 4.0
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_ContinuousEmitter"
 			m_flStartTime = 0.6
 			m_flEmitRate = 4.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 3
 		},
 	]
 	m_ConstantColor = [ 197, 215, 255, 255 ]
