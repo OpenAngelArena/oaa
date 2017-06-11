@@ -3,6 +3,7 @@
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
 local OnDisconnectEvent = CreateGameEvent('OnDisconnect')
+GameEvents.OnPlayerDisconnect = GameEvents.OnDisconnect
 function GameMode:OnDisconnect(keys)
   OnDisconnectEvent(keys)
   DebugPrint('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))

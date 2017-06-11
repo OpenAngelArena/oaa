@@ -33,12 +33,16 @@ function DuelRunes:Init ()
   DuelRunes.zone2.onStartTouch(DuelRunes.StartTouch)
   DuelRunes.zone2.onEndTouch(DuelRunes.EndTouch)
 
+  Duels.onEnd(function()
+    Timers:RemoveTimer('DuelRunes')
+  end)
+
   Duels.onStart(function()
     DuelRunes.active = false
 
     Timers:RemoveTimer('DuelRunes')
     Timers:CreateTimer('DuelRunes', {
-      endTime = 30,
+      endTime = DUEL_RUNE_TIMER,
       callback = function()
         if not Duels.currentDuel then
           return

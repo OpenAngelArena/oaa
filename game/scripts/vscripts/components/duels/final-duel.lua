@@ -30,7 +30,10 @@ function FinalDuel:Trigger (team)
     return
   end
 
-  Duels:StartDuel(5)
+  Duels:StartDuel({
+    players = 5,
+    timeout = FINAL_DUEL_TIMEOUT
+  })
 end
 
 function FinalDuel:PreparingDuelHandler (keys)

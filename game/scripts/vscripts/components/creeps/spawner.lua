@@ -8,9 +8,6 @@ end
 --creep power level is from CREEP_POWER_LEVEL_MIN to CREEP_POWER_LEVEL_MAX
 local CreepPowerLevel = 0.0
 
--- how often we spawn creeps
-local CreepSpawnInterval = 60.0
-
 --creep properties enumerations
 local NAME_ENUM = 1
 local HEALTH_ENUM = 2
@@ -35,9 +32,10 @@ function CreepCamps:SetPowerLevel (powerLevel)
 end
 
 function CreepCamps:CreepSpawnTimer ()
-  if (10 > GameRules:GetDOTATime(false, false)) then
+  if not CreepCamps.hasSpawnedFirstWave then
+    CreepCamps.hasSpawnedFirstWave = true
     if not SKIP_TEAM_SETUP then
-      return 30
+      return INITIAL_CREEP_DELAY
     end
   end
   -- scan for creep camps and spawn them
@@ -50,10 +48,10 @@ function CreepCamps:CreepSpawnTimer ()
   CreepCamps:UpgradeCreeps()
 
 
-  if (50 > GameRules:GetDOTATime(false, false)) then
-    return 30
+  if GameRules:GetDOTATime(false, false) < CREEP_SPAWN_INTERVAL then
+    return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
-  return CreepSpawnInterval
+  return CREEP_SPAWN_INTERVAL
 end
 
 function CreepCamps:UpgradeCreeps ()
