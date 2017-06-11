@@ -5,6 +5,8 @@ if CreepCamps == nil then
     CreepCamps = class({})
 end
 
+LinkLuaModifier("modifier_creep_loot", "modifiers/modifier_creep_loot.lua", LUA_MODIFIER_MOTION_NONE)
+
 --creep power level is from CREEP_POWER_LEVEL_MIN to CREEP_POWER_LEVEL_MAX
 local CreepPowerLevel = 0.0
 
@@ -24,7 +26,7 @@ local EXP_BOUNTY_ENUM = 7
 function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
-  Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
+  self.CampPRDCounters = {}
   Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
@@ -100,10 +102,15 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   end
 
   local creepHandle = CreateUnitByName(creepProperties[NAME_ENUM], location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  local locationString = location.x .. "," .. location.y
+
+  if not self.CampPRDCounters[locationString] then
+    self.CampPRDCounters[locationString] = 1
+  end
 
   if creepHandle ~= nil then
-    creepHandle.Is_ItemDropEnabled = true
     self:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
+    creepHandle:AddNewModifier(nil, nil, "modifier_creep_loot", {locationString = locationString})
   end
 
   return true
