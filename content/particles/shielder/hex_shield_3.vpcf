@@ -28,22 +28,6 @@
 		{
 			_class = "C_OP_Decay"
 		},
-		{
-			_class = "C_OP_FadeInSimple"
-			m_nOpEndCapState = 1
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_OP_FadeOutSimple"
-			m_nOpEndCapState = 1
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_OP_OscillateVector"
-			m_RateMax = [ 1.0, 1.0, 1.0 ]
-			m_bDisableOperator = true
-			m_RateMin = [ -1.0, -1.0, -1.0 ]
-		},
 	]
 	m_Renderers = 
 	[
@@ -80,43 +64,29 @@
 			m_OffsetMax = [ 0.0, 0.0, 110.0 ]
 		},
 	]
-	m_Emitters = 
-	[
-		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 500.0
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 5
-			m_nScaleControlPointField = 2
-			m_bDisableOperator = true
-		},
-	]
 	m_ConstantColor = [ 255, 0, 0, 255 ]
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/hex_1.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_1.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_2.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_2.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_3.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_3.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_4.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_4.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_5.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_5.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_6.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_6.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hex_7.vpcf"
+			m_ChildRef = resource:"particles/shielder/hex_7.vpcf"
 		},
 	]
 }
