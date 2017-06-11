@@ -3,7 +3,10 @@ LinkLuaModifier("modifier_boss_shielder_shielded_buff", "abilities/shielder/modi
 boss_shielder_shield = class(AbilityBaseClass)
 
 function boss_shielder_shield:OnSpellStart()
-
+  local caster = self:GetCaster()
+  local particle = ParticleManager:CreateParticle("TheWarpiestOfShields.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 end
 
 function boss_shielder_shield:GetIntrinsicModifierName()
