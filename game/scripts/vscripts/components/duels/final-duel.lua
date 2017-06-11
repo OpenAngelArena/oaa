@@ -56,7 +56,7 @@ function FinalDuel:StartDuelHandler (keys)
         extraMessage = "The game will end if Radiant wins"
       end
     else
-      extraMessage = "The game will end if Radiant wins"
+      extraMessage = "The game will end if Dire wins"
     end
 
     Notifications:TopToAll({text="Final duel! " .. extraMessage, duration=10.0})
