@@ -30,7 +30,10 @@ function FinalDuel:Trigger (team)
     return
   end
 
-  Duels:StartDuel(5)
+  Duels:StartDuel({
+    players = 5,
+    timeout = FINAL_DUEL_TIMEOUT
+  })
 end
 
 function FinalDuel:PreparingDuelHandler (keys)
@@ -56,7 +59,7 @@ function FinalDuel:StartDuelHandler (keys)
         extraMessage = "The game will end if Radiant wins"
       end
     else
-      extraMessage = "The game will end if Radiant wins"
+      extraMessage = "The game will end if Dire wins"
     end
 
     Notifications:TopToAll({text="Final duel! " .. extraMessage, duration=10.0})
