@@ -44,7 +44,7 @@ function Duels:Init ()
   end)
 
   GameEvents:OnPlayerReconnect(function (keys)
-    local playerID = keys.PlayerID
+    local playerID = keys.userid
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if hero and not Duels.currentDuel then
@@ -426,6 +426,8 @@ function Duels:EndDuel ()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
         hero:RespawnHero(false,false,false)
+      else
+        hero:RemoveModifierByName("modifier_out_of_duel")
       end
 
       if not state.assigned then
