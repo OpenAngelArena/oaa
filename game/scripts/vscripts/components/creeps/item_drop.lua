@@ -37,7 +37,7 @@ function CreepItemDrop:Init ()
   CreepItemDrop = self
 
   ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
-  Timers:CreateTimer(Dynamic_Wrap(CreepItemDrop, 'ItemDropUpgradeTimer'))
+  Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)
 end
 
 function CreepItemDrop:SetPowerLevel (powerLevel)
@@ -46,7 +46,7 @@ end
 
 function CreepItemDrop:ItemDropUpgradeTimer ()
   -- upgrade creeps power level every time it triggers
-  CreepItemDrop:SetPowerLevel(ItemPowerLevel + 1)
+  self:SetPowerLevel(ItemPowerLevel + 1)
 
   return 10.0
 end

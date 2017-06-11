@@ -25,6 +25,7 @@ function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
   Timers:CreateTimer(Dynamic_Wrap(CreepCamps, 'CreepSpawnTimer'))
+  Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
 function CreepCamps:SetPowerLevel (powerLevel)
@@ -32,8 +33,8 @@ function CreepCamps:SetPowerLevel (powerLevel)
 end
 
 function CreepCamps:CreepSpawnTimer ()
-  if not CreepCamps.hasSpawnedFirstWave then
-    CreepCamps.hasSpawnedFirstWave = true
+  if not self.hasSpawnedFirstWave then
+    self.hasSpawnedFirstWave = true
     if not SKIP_TEAM_SETUP then
       return INITIAL_CREEP_DELAY
     end
@@ -42,10 +43,10 @@ function CreepCamps:CreepSpawnTimer ()
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
   for _,camp in pairs(camps) do
-    CreepCamps:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
+    self:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
-  CreepCamps:UpgradeCreeps()
+  self:UpgradeCreeps()
 
 
   if GameRules:GetDOTATime(false, false) < CREEP_SPAWN_INTERVAL then
@@ -56,14 +57,14 @@ end
 
 function CreepCamps:UpgradeCreeps ()
   -- upgrade creeps power level every time it triggers
-  CreepCamps:SetPowerLevel(CreepPowerLevel + 1)
+  self:SetPowerLevel(CreepPowerLevel + 1)
 end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
   local creepCategory = CreepTypes[difficulty]
   local creepGroup = creepCategory[math.random(#creepCategory)]
   for i=1, #creepGroup do
-    CreepCamps:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
+    self:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
   end
 end
 function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
@@ -83,17 +84,16 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     FIND_ANY_ORDER,
     false)
 
-  creepProperties = CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel )
+  creepProperties = self:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel )
 
-  if (maximumUnits and maximumUnits <= #units)
-  then
+  if (maximumUnits and maximumUnits <= #units) then
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
     for _,unit in pairs(units) do
-      local unitProperties = CreepCamps:GetCreepProperties(unit)
+      local unitProperties = self:GetCreepProperties(unit)
       local distributedScale = 1.0 / maximumUnits
 
-      unitProperties = CreepCamps:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
-      CreepCamps:SetCreepPropertiesOnHandle(unit, unitProperties)
+      unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
+      self:SetCreepPropertiesOnHandle(unit, unitProperties)
     end
     return false
   end
@@ -101,8 +101,8 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   local creepHandle = CreateUnitByName(creepProperties[NAME_ENUM], location, true, nil, nil, DOTA_TEAM_NEUTRALS)
 
   if creepHandle ~= nil then
-    CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
     creepHandle.Is_ItemDropEnabled = true
+    self:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   end
 
   return true
