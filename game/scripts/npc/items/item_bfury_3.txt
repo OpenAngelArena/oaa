@@ -62,7 +62,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 13 20 28"
+        "bonus_health_regen"                              "6 12 24 48 96"
       }
       "03"
       {
@@ -92,12 +92,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "300"
+        "cleave_ending_width"                             "300 315 330 345 360"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "570"
+        "cleave_distance"                                 "570 600 630 660 690"
       }
       "10"
       {

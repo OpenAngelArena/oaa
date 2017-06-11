@@ -67,13 +67,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_creeps"                                   "6 9 12 15 32 64"
+        "damage_creeps"                                   "6 9 12 15 21 39"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_heroes"                                   "15 30 45 60 150 300"
+        "damage_heroes"                                   "15 30 45 60 90 210"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan"
         "CalculateSpellDamageTooltip"                     "0"
       }
