@@ -11,7 +11,7 @@ end
 
 function modifier_boss_shielder_shielded_buff:OnCreated()
   local caster = self:GetCaster()
-  local particle = ParticleManager:CreateParticle("particles/hex_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  local particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
   ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 end
