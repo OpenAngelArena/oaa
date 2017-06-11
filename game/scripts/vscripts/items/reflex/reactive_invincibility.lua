@@ -1,11 +1,7 @@
 LinkLuaModifier("modifier_reactive_immunity", "items/reflex/reactive_invincibility.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reactive = class({})
-
-function item_reactive:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_reactive = class(ItemBaseClass)
 
 function item_reactive:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -20,14 +16,14 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_reactive_immunity = class({})
+modifier_reactive_immunity = class(ModifierBaseClass)
 
 function modifier_reactive_immunity:GetEffectName()
   return "particles/items_fx/black_king_bar_avatar.vpcf"
 end
 
 function modifier_reactive_immunity:GetTexture()
-  return self:GetAbility():GetAbilityTextureName(true)
+  return self:GetAbility():GetAbilityTextureName()
 end
 
 function modifier_reactive_immunity:DeclareFunctions()

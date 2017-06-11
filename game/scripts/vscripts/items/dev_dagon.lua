@@ -1,8 +1,4 @@
-item_devDagon = class({})
-
-function item_devDagon:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_devDagon = class(ItemBaseClass)
 
 function item_devDagon:OnSpellStart()
   local target = self:GetCursorTarget()

@@ -6,11 +6,7 @@ LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LU
 
 
 
-boss_stopfightingyourself_debuff_mirror = class({})
-
-function boss_stopfightingyourself_debuff_mirror:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+boss_stopfightingyourself_debuff_mirror = class(AbilityBaseClass)
 
 function boss_stopfightingyourself_debuff_mirror:GetIntrinsicModifierName()
   return "modifier_boss_stopfightingyourself_debuff_mirror"
@@ -22,7 +18,7 @@ end
 
 
 
-modifier_boss_stopfightingyourself_debuff_mirror = class({})
+modifier_boss_stopfightingyourself_debuff_mirror = class(ModifierBaseClass)
 
 function modifier_boss_stopfightingyourself_debuff_mirror:DeclareFunctions()
   return {

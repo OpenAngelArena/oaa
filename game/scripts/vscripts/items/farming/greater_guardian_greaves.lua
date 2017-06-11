@@ -5,11 +5,7 @@ LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_ass
 
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
-item_greater_guardian_greaves = class({})
-
-function item_greater_guardian_greaves:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_greater_guardian_greaves = class(ItemBaseClass)
 
   --[[
       "14"
@@ -112,7 +108,7 @@ item_greater_guardian_greaves_5 = item_greater_guardian_greaves
 
 ------------------------------------------------------------------------------
 
-modifier_item_greater_guardian_greaves = class({})
+modifier_item_greater_guardian_greaves = class(ModifierBaseClass)
 
 function modifier_item_greater_guardian_greaves:IsHidden()
   return true

@@ -1,8 +1,4 @@
-shadow_shaman_mass_serpent_ward = class({})
-
-function shadow_shaman_mass_serpent_ward:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+shadow_shaman_mass_serpent_ward = class(AbilityBaseClass)
 
 function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local caster = self:GetCaster()

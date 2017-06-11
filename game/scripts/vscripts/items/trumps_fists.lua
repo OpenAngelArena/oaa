@@ -1,4 +1,4 @@
-item_trumps_fists = class({})
+item_trumps_fists = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_trumps_fists_passive", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_trumps_fists_frostbite", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
@@ -7,17 +7,11 @@ function item_trumps_fists:GetIntrinsicModifierName()
   return "modifier_item_trumps_fists_passive"
 end
 
-function item_trumps_fists:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
---------------------------------------------------------------------------------
-
 item_trumps_fists_2 = item_trumps_fists
 
 --------------------------------------------------------------------------------
 
-modifier_item_trumps_fists_passive = class({})
+modifier_item_trumps_fists_passive = class(ModifierBaseClass)
 
 function modifier_item_trumps_fists_passive:IsHidden()
   return true
@@ -83,7 +77,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_trumps_fists_frostbite = class({})
+modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then

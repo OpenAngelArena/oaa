@@ -1,10 +1,10 @@
-item_siege_mode = class({})
+item_siege_mode = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function item_siege_mode:GetAbilityTextureName(brokenAPI)
+function item_siege_mode:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
 	local activeName = ""
@@ -49,7 +49,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_siege_mode_siege = class({})
+modifier_item_siege_mode_siege = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 

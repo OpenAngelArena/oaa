@@ -1,8 +1,4 @@
-beastmaster_call_of_the_wild = class({})
-
-function beastmaster_call_of_the_wild:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+beastmaster_call_of_the_wild = class(AbilityBaseClass)
 
 function beastmaster_call_of_the_wild:OnSpellStart()
   local caster = self:GetCaster()

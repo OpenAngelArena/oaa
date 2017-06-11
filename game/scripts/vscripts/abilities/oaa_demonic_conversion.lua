@@ -1,8 +1,4 @@
-enigma_demonic_conversion = class({})
-
-function enigma_demonic_conversion:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+enigma_demonic_conversion = class(AbilityBaseClass)
 
 function enigma_demonic_conversion:OnSpellStart()
   local target = self:GetCursorTarget()

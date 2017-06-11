@@ -1,4 +1,4 @@
-modifier_bottle_counter = class({})
+modifier_bottle_counter = class(ModifierBaseClass)
 
 function modifier_bottle_counter:OnRefresh(kv)
   if IsServer() then

@@ -1,11 +1,7 @@
 LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive = class({})
-
-function item_postactive:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_postactive = class(ItemBaseClass)
 
 function item_postactive:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

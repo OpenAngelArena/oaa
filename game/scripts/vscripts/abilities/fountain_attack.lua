@@ -3,17 +3,14 @@ require("internal/util")
 LinkLuaModifier("modifier_fountain_attack", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fountain_attack_aura", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
-fountain_attack = class({})
-
-function fountain_attack:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+fountain_attack = class(AbilityBaseClass)
 
 function fountain_attack:GetIntrinsicModifierName()
     return "modifier_fountain_attack"
 end
 
-modifier_fountain_attack = class({})
+
+modifier_fountain_attack = class(ModifierBaseClass)
 
 function modifier_fountain_attack:OnCreated(keys)
   if IsServer() then
@@ -55,7 +52,7 @@ function modifier_fountain_attack:GetAuraEntityReject(entity)
 end
 
 
-modifier_fountain_attack_aura = class({})
+modifier_fountain_attack_aura = class(ModifierBaseClass)
 
 function modifier_fountain_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()

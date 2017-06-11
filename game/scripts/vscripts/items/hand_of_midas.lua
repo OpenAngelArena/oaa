@@ -1,11 +1,7 @@
 -- Re-implementation of Hand of Midas because vanilla code doesn't work with multiple levels for whatever reason
 -- Code adapted from Angel Arena Blackstar's implementation of Hand of Midas
 
-item_hand_of_midas = class({})
-
-function item_hand_of_midas:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_hand_of_midas = class(ItemBaseClass)
 
 function item_hand_of_midas:GetIntrinsicModifierName()
   return "modifier_item_hand_of_midas"

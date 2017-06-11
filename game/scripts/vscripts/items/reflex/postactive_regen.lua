@@ -1,11 +1,7 @@
 LinkLuaModifier( "modifier_item_postactive_regen", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive_3c = class({})
-
-function item_postactive_3c:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_postactive_3c = class(ItemBaseClass)
 
 function item_postactive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -18,7 +14,7 @@ function item_postactive_3c:OnSpellStart()
   })
 end
 
-modifier_item_postactive_regen = class({})
+modifier_item_postactive_regen = class(ModifierBaseClass)
 
 function modifier_item_postactive_regen:DeclareFunctions()
   return {

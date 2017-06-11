@@ -2,13 +2,13 @@ require( "libraries/Timers" )	--needed for the timers.
 LinkLuaModifier("modifier_item_stoneskin", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stoneskin_stone_armor", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_stoneskin = class({})
+item_stoneskin = class(ItemBaseClass)
 
 function item_stoneskin:GetIntrinsicModifierName()
   return "modifier_item_stoneskin"
 end
 
-function item_stoneskin:GetAbilityTextureName(brokenAPI)
+function item_stoneskin:GetAbilityTextureName()
   local baseIconName = self.BaseClass.GetAbilityTextureName(self)
 
   -- Update state based on stacks of the intrinsic modifier
@@ -90,7 +90,7 @@ end
 
 item_stoneskin_2 = class(item_stoneskin)
 ------------------------------------------------------------------------
-modifier_item_stoneskin = class({})
+modifier_item_stoneskin = class(ModifierBaseClass)
 
 function modifier_item_stoneskin:OnCreated()
   local ability = self:GetAbility()
@@ -165,7 +165,7 @@ function modifier_item_stoneskin:GetModifierBonusStats_Intellect()
   return self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 ------------------------------------------------------------------------
-modifier_item_stoneskin_stone_armor = class({})
+modifier_item_stoneskin_stone_armor = class(ModifierBaseClass)
 
 function modifier_item_stoneskin_stone_armor:GetTexture()
   local ability = self:GetAbility()

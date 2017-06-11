@@ -1,4 +1,4 @@
-modifier_octarine_vampirism_buff = class({})
+modifier_octarine_vampirism_buff = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 function modifier_octarine_vampirism_buff:DeclareFunctions(params)

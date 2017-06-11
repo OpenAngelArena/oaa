@@ -2,13 +2,8 @@ LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflex/reactive_reflec
 LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reactive_2a = class({})
-
-function item_reactive_2a:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
-item_reactive_3a = item_reactive_2a
+item_reactive_2a = class(ItemBaseClass)
+item_reactive_3a = class(ItemBaseClass)
 
 function item_reactive_2a:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -48,7 +43,7 @@ function item_reactive_3a:OnSpellStart()
   caster:AddNewModifier( caster, self, "modifier_item_lotus_orb_active", { duration = duration } )
 end
 
-modifier_item_reactive_reflect = class({})
+modifier_item_reactive_reflect = class(ModifierBaseClass)
 
 function modifier_item_reactive_reflect:IsHidden()
   return false

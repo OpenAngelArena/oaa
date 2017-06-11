@@ -1,11 +1,7 @@
 
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_pull_staff = class({})
-
-function item_pull_staff:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_pull_staff = class(ItemBaseClass)
 
 function item_pull_staff:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

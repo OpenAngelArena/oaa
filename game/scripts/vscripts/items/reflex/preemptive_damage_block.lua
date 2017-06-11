@@ -8,11 +8,7 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_preemptive_2b = class({})
-
-function item_preemptive_2b:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_preemptive_2b = class(ItemBaseClass)
 
 function item_preemptive_2b:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
@@ -46,7 +42,7 @@ item_preemptive_3b = item_preemptive_2b
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive_damage_reduction = class({})
+modifier_item_preemptive_damage_reduction = class(ModifierBaseClass)
 
 function modifier_item_preemptive_damage_reduction:IsHidden()
   return false

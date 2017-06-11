@@ -1,6 +1,6 @@
 -- thanks darklord
 
-modifier_octarine_vampirism_applier = class({})
+modifier_octarine_vampirism_applier = class(ModifierBaseClass)
 
 function modifier_octarine_vampirism_applier:DeclareFunctions()
   return {

@@ -14,11 +14,7 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_preemptive_3c = class({})
-
-function item_preemptive_3c:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_preemptive_3c = class(ItemBaseClass)
 
 function item_preemptive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -48,7 +44,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive_bubble_aura_block = class({})
+modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_aura_block:IsHidden()
   return true
@@ -152,7 +148,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive_bubble_block = class({})
+modifier_item_preemptive_bubble_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_block:IsHidden()
   return false

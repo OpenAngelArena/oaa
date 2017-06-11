@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_shroud_passive", "items/shroud.lua", LUA_MODIFIE
 
 --------------------------------------------------------------------------------
 
-item_shroud = class({})
+item_shroud = class(ItemBaseClass)
 
 function item_shroud:GetIntrinsicModifierName()
   return "modifier_item_shroud_passive"
@@ -19,17 +19,13 @@ function item_shroud:OnSpellStart()
   hTarget:AddNewModifier( hTarget, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
 end
 
-function item_shroud:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
-
 --------------------------------------------------------------------------------
 
 item_shroud_2 = item_shroud --luacheck: ignore item_shroud_2
 
 --------------------------------------------------------------------------------
 
-modifier_item_shroud_passive = class({})
+modifier_item_shroud_passive = class(ModifierBaseClass)
 
 function modifier_item_shroud_passive:IsHidden()
   return true

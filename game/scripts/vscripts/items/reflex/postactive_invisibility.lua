@@ -1,11 +1,7 @@
 LinkLuaModifier( "modifier_item_glimmer_cape_fade", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive_2a = class({})
-
-function item_postactive_2a:GetAbilityTextureName (brokenAPI)
-  return self.BaseClass.GetAbilityTextureName(self)
-end
+item_postactive_2a = class(ItemBaseClass)
 
 function item_postactive_2a:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

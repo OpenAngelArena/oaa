@@ -1,5 +1,5 @@
 
-modifier_boss_charger_pillar_debuff = class({})
+modifier_boss_charger_pillar_debuff = class(ModifierBaseClass)
 
 function modifier_boss_charger_pillar_debuff:OnCreated(keys)
   if not IsServer() then
