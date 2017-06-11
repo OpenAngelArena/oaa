@@ -97,7 +97,3 @@ function modifier_charge_bkb_on_created(keys)
 --      return 10.0
 --   end)
 end
-
-item_charge_bkb_2 = item_charge_bkb
-item_charge_bkb_3 = item_charge_bkb
-item_charge_bkb_4 = item_charge_bkb
