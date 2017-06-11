@@ -25,6 +25,14 @@ item_shroud_2 = item_shroud --luacheck: ignore item_shroud_2
 
 --------------------------------------------------------------------------------
 
+item_shroud_3 = item_shroud --luacheck: ignore item_shroud_3
+
+--------------------------------------------------------------------------------
+
+item_shroud_4 = item_shroud --luacheck: ignore item_shroud_4
+
+--------------------------------------------------------------------------------
+
 modifier_item_shroud_passive = class(ModifierBaseClass)
 
 function modifier_item_shroud_passive:IsHidden()
