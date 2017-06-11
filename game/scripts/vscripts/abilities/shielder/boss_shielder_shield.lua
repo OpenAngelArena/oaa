@@ -6,10 +6,6 @@ function boss_shielder_shield:GetAbilityTextureName (brokenAPI)
   return self.BaseClass.GetAbilityTextureName(self)
 end
 
-function boss_shielder_shield:OnSpellStart()
-
-end
-
 function boss_shielder_shield:GetIntrinsicModifierName()
   return "modifier_boss_shielder_shielded_buff"
 end
