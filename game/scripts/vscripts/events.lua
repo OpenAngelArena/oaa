@@ -3,7 +3,8 @@
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
 local OnDisconnectEvent = CreateGameEvent('OnDisconnect')
-GameEvents.OnPlayerDisconnect = GameEvents.OnDisconnect
+-- GameEvents is usually read only, so we luacheck ignore :D
+GameEvents.OnPlayerDisconnect = GameEvents.OnDisconnect -- luacheck: ignore
 function GameMode:OnDisconnect(keys)
   OnDisconnectEvent(keys)
   DebugPrint('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))

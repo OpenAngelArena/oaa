@@ -11,7 +11,16 @@ globals = { -- these globals can be set and accessed.
 "GAME_TIME_ELAPSED",
 "GAME_WINNER_TEAM",
 "GameRules",
-"SKIP_TEAM_SETUP"
+"SKIP_TEAM_SETUP",
+"INITIAL_DUEL_DELAY",
+"DUEL_START_WARN_TIME",
+"DUEL_START_COUNTDOWN",
+"DUEL_TIMEOUT",
+"FIRST_DUEL_TIMEOUT",
+"FINAL_DUEL_TIMEOUT",
+"DUEL_END_COUNTDOWN",
+"DUEL_RUNE_TIMER",
+"DUEL_INTERVAL"
 }
 
 read_globals = { -- these globals can only be accessed.
