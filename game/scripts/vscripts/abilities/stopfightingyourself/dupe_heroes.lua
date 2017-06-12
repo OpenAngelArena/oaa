@@ -143,7 +143,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
 
       -- Randomly play sound to player (10% chance)
       -- NOTE this doesn't seem to work
-      if math.random(100) <= 10 then
+      if RandomFloat(0, 1) < 0.1 then
         --EmitAnnouncerSoundForPlayer('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd', unit:GetPlayerID())
         illusion:EmitSound('sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd')
       end

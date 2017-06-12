@@ -92,7 +92,7 @@ function CreepItemDrop:RandomDropItemName(campLocationString)
   local CampPRDCounters = CreepCamps.CampPRDCounters
 
   --first we need to check against the drop percentage.
-  if math.random() > math.min(1, PRD_C * CampPRDCounters[campLocationString]) then
+  if RandomFloat(0, 1) > math.min(1, PRD_C * CampPRDCounters[campLocationString]) then
     -- Increment PRD counter if nothing was dropped
     CampPRDCounters[campLocationString] = CampPRDCounters[campLocationString] + 1
     return ""
@@ -114,7 +114,7 @@ function CreepItemDrop:RandomDropItemName(campLocationString)
   end
 
   local passedItemsCumulativeChance = 0.0
-  local dropChance = math.random() * totalChancePool
+  local dropChance = RandomFloat(0, 1) * totalChancePool
 
   for i=1, #filteredItemTable do
     passedItemsCumulativeChance = passedItemsCumulativeChance + 1.0 / filteredItemTable[i][RARITY_ENUM]

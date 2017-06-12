@@ -69,7 +69,7 @@ function BossSpawner:SpawnBossAtPit (pit)
     -- it was never broken
     -- 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/3 * 1/2 * 1/2 * 1/3 * 1/3 oods
     -- DebugPrint('There are ' .. #bossName .. 'options for this boss')
-    bossName = bossName[math.random(#bossName)]
+    bossName = bossName[RandomInt(1, #bossName)]
   end
   local isProtected = bossList == 1 and pit.killCount == 1
 

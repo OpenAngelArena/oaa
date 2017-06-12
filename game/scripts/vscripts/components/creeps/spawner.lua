@@ -63,7 +63,7 @@ end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
   local creepCategory = CreepTypes[difficulty]
-  local creepGroup = creepCategory[math.random(#creepCategory)]
+  local creepGroup = creepCategory[RandomInt(1, #creepCategory)]
   for i=1, #creepGroup do
     self:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
   end

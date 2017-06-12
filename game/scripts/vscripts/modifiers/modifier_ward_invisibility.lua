@@ -9,11 +9,11 @@ end
 
 function modifier_ward_invisibility:OnCreated()
   self.isInvis = true
-  self.id = "ward_" .. tostring(math.random())
+  self.id = DoUniqueString("ward_")
 end
 function modifier_ward_invisibility:OnRefresh()
   self.isInvis = true
-  self.id = "ward_" .. tostring(math.random())
+  self.id = DoUniqueString("ward_")
 end
 
 function modifier_ward_invisibility:CheckState()
