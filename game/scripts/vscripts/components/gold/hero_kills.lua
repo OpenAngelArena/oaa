@@ -24,14 +24,17 @@ function HeroKillGold:HeroDeathHandler (keys)
     return
   end
 
-  local killerPlayer = keys.killer:GetPlayer()
+  local killerPlayer = keys.killer:GetPlayerOwner()
   if not killerPlayer then
     return
   end
-  local killedPlayer = keys.killed:GetPlayer()
+  local killedPlayer = keys.killed:GetPlayerOwner()
   if not killedPlayer then
     return
   end
 
-  DebugPrint('')
+  local killedHero = killedPlayer:GetAssignedHero()
+  local killerHero = killerPlayer:GetAssignedHero()
+
+  DebugPrint(GetNetworth(killedHero))
 end
