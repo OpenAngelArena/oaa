@@ -26,6 +26,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_stoneskin", context)
   PrecacheItemByNameSync("item_greater_phase_boots", context)
   PrecacheItemByNameSync("item_greater_power_treads", context)
+  PrecacheItemByNameSync("item_dagon", context)
 
   PrecacheUnitByNameSync("dota_fountain", context)
   PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
@@ -38,8 +39,6 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_boss_simple_6", context)
   PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
-
-  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed

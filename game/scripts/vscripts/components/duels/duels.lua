@@ -231,12 +231,12 @@ function Duels:ActuallyStartDuel (options)
     return
   end
 
-  local playerSplitOffset = math.random(0, maxPlayers)
+  local playerSplitOffset = RandomInt(0, maxPlayers)
   if options.players then
     playerSplitOffset = math.min(options.players, maxPlayers)
   end
   -- local playerSplitOffset = maxPlayers
-  local spawnLocations = math.random(0, 1) == 1
+  local spawnLocations = RandomInt(0, 1) == 1
   local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_1_spawn_2'):GetAbsOrigin()
 
@@ -368,7 +368,7 @@ end
 
 function Duels:GetUnassignedPlayer (group, max)
   while true do
-    local playerIndex = math.random(1, max)
+    local playerIndex = RandomInt(1, max)
     if group[playerIndex].assignable and group[playerIndex].assigned == nil then
       group[playerIndex].assigned = true
       return group[playerIndex]
