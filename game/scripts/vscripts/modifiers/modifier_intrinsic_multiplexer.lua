@@ -33,6 +33,11 @@ function modifier_intrinsic_multiplexer:OnDestroy()
 end
 
 function modifier_intrinsic_multiplexer:CreateModifiers()
+  -- Exit if self has been deleted because for some reason this happens with Tempest Double
+  if self:IsNull() then
+    return
+  end
+
   local hero = self:GetParent()
   if not hero or not hero.AddNewModifier then
     return
