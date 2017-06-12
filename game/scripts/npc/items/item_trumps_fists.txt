@@ -23,8 +23,8 @@
     "ItemResult"                                          "item_trumps_fists"
     "ItemRequirements"
     {
-      "01"                                                "item_desolator_3;item_skadi_3;item_upgrade_core_3"
-      "02"                                                "item_desolator_3;item_skadi_3;item_upgrade_core_4"
+      "01"                                                "item_skadi_3;item_upgrade_core_3"
+      "02"                                                "item_skadi_3;item_upgrade_core_4"
 
     }
   }
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "27275"
+    "ItemCost"                                            "18775"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps_fists"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "200 350"
+        "bonus_damage"                                    "150 250"
       }
       "02"
       {

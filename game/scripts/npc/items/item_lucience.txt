@@ -25,9 +25,9 @@
     "ItemResult"                                          "item_lucience"
     "ItemRequirements"
     {
-      "01"                                                "item_radiance;item_upgrade_core_2"
-      "02"                                                "item_radiance;item_upgrade_core_3"
-      "03"                                                "item_radiance;item_upgrade_core_4"
+      "01"                                                "item_radiance_2;item_upgrade_core_2"
+      "02"                                                "item_radiance_2;item_upgrade_core_3"
+      "03"                                                "item_radiance_2;item_upgrade_core_4"
     }
   }
 
@@ -51,7 +51,7 @@
     "ItemBaseLevel"                                       "1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8650"
+    "ItemCost"                                            "10150"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience"

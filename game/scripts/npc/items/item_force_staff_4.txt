@@ -11,12 +11,12 @@
     	"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
     	"AbilityTextureName"            "item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"	
+		"ItemCost"						"8000"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -27,7 +27,7 @@
 			"02"						"item_force_staff_3;item_upgrade_core_4"
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Force Staff 4
 	//=================================================================================================================
@@ -47,7 +47,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"14.0"
+		"AbilityCooldown"				"20.0 17.5 15.0 12.5 10.0"
 		"AbilitySharedCooldown"			"force"
 
 		// Item Info
@@ -60,8 +60,8 @@
     	"MaxUpgradeLevel"               "5"
     	"ItemBaseLevel"                 "4"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
