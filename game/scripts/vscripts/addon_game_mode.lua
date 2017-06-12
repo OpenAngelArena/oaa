@@ -8,6 +8,8 @@ require('gamemode')
 -- DotaStats
 require("statcollection/init")
 
+statCollection:setFlags({version = GAME_VERSION})
+
 function Precache( context )
 --[[
   This function is used to precache resources/units/items/abilities that will be needed
