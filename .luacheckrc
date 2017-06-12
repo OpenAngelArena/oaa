@@ -25,7 +25,8 @@ globals = { -- these globals can be set and accessed.
 "BOSS_AGRO_FACTOR",
 "CREEP_SPAWN_INTERVAL",
 "INITIAL_CREEP_DELAY",
-"DUEL_INTERVAL"
+"DUEL_INTERVAL",
+"FindHeroesInRadius"
 }
 
 read_globals = { -- these globals can only be accessed.
