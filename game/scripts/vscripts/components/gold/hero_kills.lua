@@ -26,6 +26,11 @@ local StreakTable = {
   max = 10
 }
 
+--[[
+The following parameters are use in this way:
+[base + (1 × dying hero's level) + (0.0225 × dying hero's NW × newMult) + (advantageMult × team NW disadvantage / advantageFactor)] × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × nwRankingFactor[heroNWRank]
+]]
+
 local AssistGoldTable = {
     [1] = {
       base = 140,
