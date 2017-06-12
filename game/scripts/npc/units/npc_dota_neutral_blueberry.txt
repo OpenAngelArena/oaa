@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-  "npc_dota_neutral_tomato"
-  {                                       
+  "npc_dota_neutral_blueberry"
+  {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"   // Model.
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"   // Model.
     "BaseClass"                                           "npc_dota_creep_neutral"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "5"
@@ -26,13 +26,13 @@
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "49"        // Damage range min.
-    "AttackDamageMax"                                     "55"        // Damage range max.    
+    "AttackDamageMax"                                     "55"        // Damage range max.
     "AttackRate"                                          "1.55"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
     "AttackRange"                                         "100"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"         // Speed of projectile.        
+    "ProjectileSpeed"                                     "0"         // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -55,8 +55,8 @@
     "StatusHealth"                                        "950"       // Base health.
     "StatusHealthRegen"                                   "1"         // Health regeneration rate.
     "StatusMana"                                          "300"       // Base mana.
-    "StatusManaRegen"                                     "1.0"       // Mana regeneration rate.       
-    
+    "StatusManaRegen"                                     "1.0"       // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "800"       // Range of vision during day light.
@@ -68,5 +68,5 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-  }   
+  }
 }
