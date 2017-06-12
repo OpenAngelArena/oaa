@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_day"                                    "2.0 2.0 2.0 2.0"
+        "duration_day"                                    "1.25"
       }
       "02"
       {
@@ -48,12 +48,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow"                                  "-50 -50 -50 -50"
+        "movespeed_slow"                                  "-50"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attackspeed_slow"                                "-50 -50 -50 -50"
+        "attackspeed_slow"                                "-50"
       }
     }
   }
