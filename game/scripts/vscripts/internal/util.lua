@@ -298,3 +298,16 @@ function IsInTrigger(entity, trigger)
 
   return true
 end
+
+function FindHeroesInRadius (...)
+  local units = FindUnitsInRadius(...)
+
+  local function isHero (hero)
+    if hero.IsRealHero and hero:IsRealHero() then
+      return true
+    end
+    return false
+  end
+
+  return totable(filter(isHero, iter(units)))
+end

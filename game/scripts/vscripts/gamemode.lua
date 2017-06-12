@@ -49,6 +49,8 @@ require('libraries/chatcommand')
 require('libraries/playerresource')
 -- Extensions to CDOTA_BaseNPC
 require('libraries/basenpc')
+-- Extensions to CDOTA_BaseNPC_Hero
+require('libraries/basehero')
 -- extension functions to GameRules
 require('libraries/gamerules')
 
@@ -156,6 +158,7 @@ function GameMode:OnPreGame()
   InitModule(ReactiveFilter)
   InitModule(NGP)
   InitModule(Doors)
+  InitModule(HeroKillGold)
 end
 
 --[[
