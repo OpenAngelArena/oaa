@@ -39,8 +39,6 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
-  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts", context)
-
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
   --PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
