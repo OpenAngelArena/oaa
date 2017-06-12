@@ -144,12 +144,12 @@ local function Think(state, target)
   end
 
   if thisEntity:IsIdle() and IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
-    local dice = math.random(100)
+    local dice = RandomFloat(0, 1)
     local healthpct = thisEntity:GetMaxHealth() / thisEntity:GetHealth()
-    if dice <= 33 and healthpct <= 33 then
+    if dice <= 0.33 and healthpct <= 33 then
       UseRandomItem()
       return 0.5
-    elseif dice <= 66 and healthpct <= 66 then
+    elseif dice <= 0.66 and healthpct <= 66 then
       IllusionsCast()
       return 1
     end

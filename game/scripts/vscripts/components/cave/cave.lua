@@ -75,7 +75,7 @@ function CaveHandler:SpawnRoom (teamID, roomID)
 
   local cave = self.caves[teamID]
   local room = cave.rooms[roomID]
-  local creepList = CaveTypes[roomID][math.random(#CaveTypes[roomID])]
+  local creepList = CaveTypes[roomID][RandomInt(1, #CaveTypes[roomID])]
 
   for _, creep in ipairs(creepList.units) do -- spawn all creeps in list
     -- get properties for the creep
