@@ -21,6 +21,7 @@ if COLLECT_STATS or TESTING then
 
             if PlayerResource:GetPlayerCount() >= MIN_PLAYERS or TESTING then
                 -- Init stat collection
+                statCollection:setFlags({ version = GAME_VERSION })
                 statCollection:init()
                 customSchema:init()
             end
