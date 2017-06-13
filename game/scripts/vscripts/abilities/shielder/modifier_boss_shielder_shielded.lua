@@ -5,15 +5,23 @@ modifier_boss_shielder_shielded_buff = class({})
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   return
   {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_EVENT_ON_DEATH
   }
 end
 
 function modifier_boss_shielder_shielded_buff:OnCreated()
   local caster = self:GetCaster()
-  local particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
+  if IsServer() then
+    self.particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  end
+end
+
+function modifier_boss_shielder_shielded_buff:OnDeath(keys)
+  if keys.unit == self:GetParent() then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+  end
 end
 
 function modifier_boss_shielder_shielded_buff:IsHidden()
