@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_boss_charger_pillar_debuff", "abilities/charger/modifi
 LinkLuaModifier("modifier_boss_charger_hero_pillar_debuff", "abilities/charger/modifier_boss_charger_hero_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PITH YEVY IMPARTIAL
 LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_boss_charger_trampling.lua", LUA_MODIFIER_MOTION_BOTH) --- MARTH FAIRY IPARTY
 
-boss_charger_charge = class({})
+boss_charger_charge = class(AbilityBaseClass)
 
 function boss_charger_charge:OnChannelFinish(interupted)
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
@@ -23,7 +23,7 @@ function boss_charger_charge:OnChannelFinish(interupted)
   return true
 end
 
-modifier_boss_charger_charge = class({})
+modifier_boss_charger_charge = class(ModifierBaseClass)
 
 function modifier_boss_charger_charge:IsHidden()
   return false

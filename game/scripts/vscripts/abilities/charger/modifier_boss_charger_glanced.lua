@@ -1,2 +1,2 @@
 
-modifier_boss_charger_glanced = class({})
+modifier_boss_charger_glanced = class(ModifierBaseClass)

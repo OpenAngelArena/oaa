@@ -1,5 +1,5 @@
 
-boss_charger_summon_pillar = class({})
+boss_charger_summon_pillar = class(AbilityBaseClass)
 
 function boss_charger_summon_pillar:OnSpellStart()
   local cursorPosition = self:GetCursorPosition()

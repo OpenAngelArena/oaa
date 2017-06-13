@@ -266,11 +266,11 @@ end
 exports.ones = ones
 
 local rands_gen = function(param_x, _state_x)
-  return 0, math.random(param_x[1], param_x[2])
+  return 0, RandomInt(param_x[1], param_x[2])
 end
 
 local rands_nil_gen = function(_param_x, _state_x)
-  return 0, math.random()
+  return 0, RandomFloat(0, 1)
 end
 
 local rands = function(n, m)

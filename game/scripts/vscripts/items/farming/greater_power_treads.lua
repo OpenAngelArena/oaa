@@ -1,4 +1,4 @@
-item_greater_power_treads = class({})
+item_greater_power_treads = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_power_treads", "items/farming/greater_power_treads.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -55,7 +55,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_greater_power_treads = class({})
+modifier_item_greater_power_treads = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 

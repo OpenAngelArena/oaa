@@ -78,14 +78,14 @@ function NGP:FinishVoting (item)
 
   if #needVotes > 0 then
     -- someone voted need! decide between them...
-    local winningPlayer = needVotes[math.random(1, #needVotes)]
+    local winningPlayer = needVotes[RandomInt(1, #needVotes)]
     DebugPrint(winningPlayer .. ' won!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return
   end
   if #greedVotes > 0 then
     -- someone voted need! decide between them...
-    local winningPlayer = greedVotes[math.random(1, #greedVotes)]
+    local winningPlayer = greedVotes[RandomInt(1, #greedVotes)]
     DebugPrint(winningPlayer .. ' won!!')
     NGP:GiveItemToPlayer(item, winningPlayer)
     return

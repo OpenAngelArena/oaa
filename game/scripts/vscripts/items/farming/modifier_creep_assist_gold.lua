@@ -2,7 +2,7 @@ LinkLuaModifier( "modifier_creep_assist_gold_aura", "items/farming/modifier_cree
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold = class({})
+modifier_creep_assist_gold = class(ItemBaseClass)
 
 function modifier_creep_assist_gold:IsHidden()
   return true
@@ -11,6 +11,37 @@ end
 function modifier_creep_assist_gold:IsPurgable()
   return false
 end
+
+function modifier_creep_assist_gold:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      self:GetAuraSearchFlags(),
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function DestroyModifier(modifier)
+      modifier:Destroy()
+    end
+
+    local function DestroyCreepAssistModifiers(unit)
+      local modifiers = unit:FindAllModifiersByName("modifier_creep_assist_gold_aura")
+      foreach(DestroyModifier, modifiers)
+    end
+
+    -- Force refresh of all creep assist gold effect modifiers in area to avoid issues when items are upgraded
+    foreach(DestroyCreepAssistModifiers, units)
+  end
+end
+
+modifier_creep_assist_gold.OnRefresh = modifier_creep_assist_gold.OnCreated
 
 --------------------------------------------------------------------------
 -- aura stuff
@@ -24,11 +55,15 @@ function modifier_creep_assist_gold:GetAuraDuration()
 end
 
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_creep_assist_gold:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
 end
 
 function modifier_creep_assist_gold:GetAuraRadius()
@@ -40,15 +75,25 @@ function modifier_creep_assist_gold:GetModifierAura()
 end
 
 function modifier_creep_assist_gold:GetAuraEntityReject(entity)
-  if entity:IsRealHero() then
+  local caster = self:GetCaster()
+  local playerOwnerID = caster:GetPlayerOwnerID()
+  local creepAssistModifiers = entity:FindAllModifiersByName("modifier_creep_assist_gold_aura")
+
+  local function IsFromSamePlayer(modifier)
+    return modifier:GetCaster():GetPlayerOwnerID() == playerOwnerID
+  end
+
+  -- Apply only one modifier per player and don't apply to units owned by the same player
+  if any(IsFromSamePlayer, creepAssistModifiers) or entity:GetPlayerOwnerID() == playerOwnerID then
+    return true
+  else
     return false
   end
-  return true
 end
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold_aura = class({})
+modifier_creep_assist_gold_aura = class(ModifierBaseClass)
 
 function modifier_creep_assist_gold_aura:IsHidden()
   return true
@@ -69,7 +114,8 @@ function modifier_creep_assist_gold_aura:DeclareFunctions()
 end
 
 function modifier_creep_assist_gold_aura:OnDeath(keys)
-  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster()  then
+  local attacked = keys.unit
+  if keys.attacker ~= self:GetParent() or self:GetParent() == self:GetCaster() or not attacked:IsNeutralUnitType() then
     return
   end
   --[[
@@ -99,8 +145,12 @@ function modifier_creep_assist_gold_aura:OnDeath(keys)
 [   VScript              ]: distance: 0
   int ModifyGold(int playerID, int goldAmmt, bool reliable, int nReason)
 ]]
-  local bounty = keys.unit:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
-  local caster = self:GetCaster() -- caster is hero with boots,
+  local caster = self:GetCaster() -- caster is hero with boots
+  local playerID = caster:GetPlayerID()
+  local player = PlayerResource:GetPlayer(playerID)
+  local bounty = attacked:GetGoldBounty() * self:GetAbility():GetSpecialValueFor("assist_percent") / 100
 
-  PlayerResource:ModifyGold(caster:GetPlayerID(), bounty, true, DOTA_ModifyGold_SharedGold)
+  PlayerResource:ModifyGold(playerID, bounty, true, DOTA_ModifyGold_SharedGold)
+
+  SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, attacked, math.floor(bounty), player)
 end

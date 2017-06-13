@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive_3b = class({})
+item_postactive_3b = class(ItemBaseClass)
 
 function item_postactive_3b:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

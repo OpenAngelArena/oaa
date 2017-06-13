@@ -49,12 +49,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "jumps"                                           "10 10 10 10 10"
+        "jumps"                                           "10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "jump_range"                                      "575 575 575 575 575"
+        "jump_range"                                      "600"
       }      
       "04"
       {
@@ -89,7 +89,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "850 850 850 850 850"
+        "cast_range_scepter"                              "850"
       }    
     }      
   }

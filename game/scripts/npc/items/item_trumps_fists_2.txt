@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "26000"
+    "ItemCost"                                            "38775"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps_fists 2"
@@ -53,22 +53,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "125 150"
+        "bonus_damage"                                    "150 250"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "35 40"
+        "bonus_all_stats"                                 "45 55"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "500 750"
+        "bonus_health"                                    "750 1250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "600 800"
+        "bonus_mana"                                      "800 1000"
       }
       "05"
       {
@@ -78,7 +78,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_duration"                           "2"
+        "heal_prevent_duration"                           "2 3"
       }
     }
   }

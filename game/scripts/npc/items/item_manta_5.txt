@@ -1,0 +1,153 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Manta Style 5
+  //=================================================================================================================
+  "item_recipe_manta_5"
+  {
+    "ID"                                                  "3666"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "FightRecapLevel"                                     "1"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_manta_5"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemRequirements"
+    {
+      "01"                                                "item_manta_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Manta Style 5
+  //=================================================================================================================
+  "item_manta_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3667"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_manta"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityTextureName"                                  "custom/manta_style_5"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "45.0"
+    "AbilityCastPoint"                                    "0.0"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125"
+    "ItemCost"                                            "38000"
+    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "manta style"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "10 14 19 25 32"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "26 31 38 47 58"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 14 19 25 32"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "15 20 25 30 35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "10 12 15 18 22"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_count"                                    "2"       //needs rework to go over 2
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_illusion_duration"                       "20"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_do_damage_percent_melee"                  "-67"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_damage_outgoing_melee"                   "33"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_take_damage_percent_melee"                "250"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_damage_incoming_melee_total_pct"         "350"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_do_damage_percent_ranged"                 "-72"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_damage_outgoing_ranged"                  "28"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_take_damage_percent_ranged"               "300"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_damage_incoming_ranged_total_pct"        "400"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_melee"                                  "30"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_ranged_tooltip"                         "45"
+      }
+      "18"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "invuln_duration"                                 "0.1"
+      }
+      "19"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "1000"
+      }
+    }
+  }
+}

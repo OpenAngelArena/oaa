@@ -1,5 +1,5 @@
-item_greater_travel_boots = class({})
-modifier_item_greater_travel_boots = class({})
+item_greater_travel_boots = class(ItemBaseClass)
+modifier_item_greater_travel_boots = class(ModifierBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 

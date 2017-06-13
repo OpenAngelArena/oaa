@@ -1,6 +1,6 @@
 require('libraries/fun')()
 
-modifier_intrinsic_multiplexer = class({})
+modifier_intrinsic_multiplexer = class(ModifierBaseClass)
 
 function modifier_intrinsic_multiplexer:IsHidden()
   return true
@@ -10,9 +10,17 @@ function modifier_intrinsic_multiplexer:IsPurgable()
   return false
 end
 
+function modifier_intrinsic_multiplexer:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_intrinsic_multiplexer:OnCreated()
   self.modifiers = {}
-  self:CreateModifiers()
+  if IsServer() then
+    Timers:CreateTimer(0.1, function ()
+      self:CreateModifiers()
+    end)
+  end
 end
 
 function modifier_intrinsic_multiplexer:OnRefresh()
@@ -25,6 +33,11 @@ function modifier_intrinsic_multiplexer:OnDestroy()
 end
 
 function modifier_intrinsic_multiplexer:CreateModifiers()
+  -- Exit if self has been deleted because for some reason this happens with Tempest Double
+  if self:IsNull() then
+    return
+  end
+
   local hero = self:GetParent()
   if not hero or not hero.AddNewModifier then
     return

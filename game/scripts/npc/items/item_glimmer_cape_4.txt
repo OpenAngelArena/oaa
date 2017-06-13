@@ -1,0 +1,93 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Glimmer Cape 4
+  //=================================================================================================================
+  "item_recipe_glimmer_cape_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3734"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+  
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "8000" 
+    "ItemShopTags"          ""
+    
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_glimmer_cape_4"
+    "ItemRequirements"
+    {
+      "01"                                                "item_glimmer_cape_3;item_upgrade_core_3"
+      "02"                                                "item_glimmer_cape_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Glimmer Cape 4
+  //=================================================================================================================
+  "item_glimmer_cape_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "3735"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                   "item_glimmer_cape"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"             "1"
+    "AbilityTextureName"          "custom/glimmer_cape_4"
+
+    // Stats    
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"            "800"
+    "AbilityCooldown"             "14.0"
+    "AbilityManaCost"             "90"
+    
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "14850"
+    "ItemShopTags"                ""
+    "ItemQuality"                 "rare"
+    "ItemAliases"                 "glimmer cape"
+    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "MaxUpgradeLevel"             "5"
+    "ItemBaseLevel"               "4"
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {     
+      "01"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_attack_speed"      "20 25 30 35 40"
+      }
+      "02"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_magical_armor"     "15 16 17 18 20"
+      }
+      "03"
+      {
+        "var_type"                "FIELD_FLOAT"
+        "fade_delay"              "0.6"
+      }
+      "04"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "active_magical_armor"    "45 48 51 55 60"
+      }
+      "05"
+      {
+        "var_type"                "FIELD_FLOAT"
+        "duration"                "5"
+      }
+    }
+  }
+}

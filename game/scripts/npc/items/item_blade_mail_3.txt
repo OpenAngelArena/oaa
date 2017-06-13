@@ -47,13 +47,14 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_blade_mail_3;item_blade_mail_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "8200"
+    "ItemCost"                                            "7200"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -66,17 +67,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35 50"
+        "bonus_damage"                                    "22 35 50 75 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 12"
+        "bonus_armor"                                     "6 9 12 15 18"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 22"
+        "bonus_intellect"                                 "10 15 22 32 45"
       }
       "04"
       {

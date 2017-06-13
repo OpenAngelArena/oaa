@@ -1,4 +1,4 @@
-shadow_shaman_mass_serpent_ward = class({})
+shadow_shaman_mass_serpent_ward = class(AbilityBaseClass)
 
 function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local caster = self:GetCaster()

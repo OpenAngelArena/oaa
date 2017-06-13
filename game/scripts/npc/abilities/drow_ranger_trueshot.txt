@@ -16,7 +16,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0 0 0 0 0 0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "100"
     "AbilityDuration"                                     "30.0"
@@ -28,7 +28,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "trueshot_ranged_damage"                          "20 26 32 38 50 100"
+        "trueshot_ranged_damage"                          "20 26 32 38 47 59"
         "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_1"
       }
     }

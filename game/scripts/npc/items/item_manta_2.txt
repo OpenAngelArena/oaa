@@ -39,13 +39,13 @@
     "AbilityCooldown"                                     "45.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_manta_2;item_manta_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "7250"
+    "ItemCost"                                            "6500"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "manta style"
@@ -59,32 +59,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25"
+        "bonus_strength"                                  "10 14 19 25 32"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 30 35 40"
+        "bonus_agility"                                   "26 31 38 47 58"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 20 25"
+        "bonus_intellect"                                 "10 14 19 25 32"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15 20 23 26"
+        "bonus_attack_speed"                              "15 20 25 30 35"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "10 12 15 18"
+        "bonus_movement_speed"                            "10 12 15 18 22"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2 2 2 3"
+        "images_count"                                    "2"       //needs rework to go over 2
       }
       "07"
       {

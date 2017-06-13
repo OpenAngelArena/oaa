@@ -1,6 +1,6 @@
 -- Modifier that grants complete damage immunity. Mainly for protecting "purge tester" units, like in
 -- items/reflex/postactive.lua
-modifier_purgetester = class({})
+modifier_purgetester = class(ModifierBaseClass)
 
 function modifier_purgetester:DeclareFunctions()
   return {

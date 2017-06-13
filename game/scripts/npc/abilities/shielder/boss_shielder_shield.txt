@@ -6,7 +6,7 @@
   "boss_shielder_shield"
   {
 
-    "ID"                                                  "9900"
+    "ID"                                                  "9904"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/shielder/boss_shielder_shield.lua"
     "AbilityTextureName"                                  "tidehunter_kraken_shell"
@@ -29,8 +29,14 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheild_width"                                    "0.707 0 -0.707" // In terms of cosine
+        "sheild_width"                                    "0.5 -0.173 -0.766" // In terms of cosine
       }
+    }
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hex_shield.vpcf"
     }
   }
 }

@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_ward_invisibility_enemy', 'modifiers/modifier_ward_invisibility.lua', LUA_MODIFIER_MOTION_NONE)
 
-modifier_ward_invisibility = class({})
-modifier_ward_invisibility_enemy = class({})
+modifier_ward_invisibility = class(ModifierBaseClass)
+modifier_ward_invisibility_enemy = class(ModifierBaseClass)
 
 function modifier_ward_invisibility_enemy:IsHidden()
   return true
@@ -9,11 +9,11 @@ end
 
 function modifier_ward_invisibility:OnCreated()
   self.isInvis = true
-  self.id = "ward_" .. tostring(math.random())
+  self.id = DoUniqueString("ward_")
 end
 function modifier_ward_invisibility:OnRefresh()
   self.isInvis = true
-  self.id = "ward_" .. tostring(math.random())
+  self.id = DoUniqueString("ward_")
 end
 
 function modifier_ward_invisibility:CheckState()

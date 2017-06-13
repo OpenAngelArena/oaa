@@ -1,6 +1,6 @@
 --LinkLuaModifier("modifier_boss_twin_twin_empathy_buff", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_boss_twin_twin_empathy_buff = class({})
+modifier_boss_twin_twin_empathy_buff = class(AbilityBaseClass)
 
 --This may need to be in the abil not the mod
 function modifier_boss_twin_twin_empathy_buff:OnCreated()

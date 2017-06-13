@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua
 
 ------------------------------------------------------------------------
 
-item_preemptive = class({})
+item_preemptive = class(ItemBaseClass)
 
 function item_preemptive:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
@@ -26,7 +26,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive = class({})
+modifier_item_preemptive = class(ModifierBaseClass)
 
 function modifier_item_preemptive:IsHidden()
   return false

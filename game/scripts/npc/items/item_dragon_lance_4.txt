@@ -16,11 +16,6 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "4"
-
-
-
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
@@ -28,8 +23,8 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "02"                                                "item_dragon_lance_3;item_upgrade_core_3"
-      "03"                                                "item_dragon_lance_3;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_3;item_upgrade_core_3"
+      "02"                                                "item_dragon_lance_3;item_upgrade_core_4"
 
     }
   }
@@ -48,14 +43,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16000"
+    "ItemCost"                                            "14900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "dragon lance"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-
+    "UpgradesItems"                                       "item_dragon_lance_3;item_dragon_lance_4"
 
 
     // Special
@@ -65,17 +60,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 16 19 21"
+        "bonus_agility"                                   "12 15 18 25 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 15 18 20"
+        "bonus_strength"                                  "12 15 18 25 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "140 180 240 280"
+        "base_attack_range"                               "140 180 240 280 320"
       }
     }
   }

@@ -2,14 +2,14 @@
 LinkLuaModifier("modifier_boss_stopfightingyourself_dupe_items", "abilities/stopfightingyourself/dupe_items.lua", LUA_MODIFIER_MOTION_NONE)
 
 
-boss_stopfightingyourself_dupe_items = class({})
+boss_stopfightingyourself_dupe_items = class(AbilityBaseClass)
 
 function boss_stopfightingyourself_dupe_items:GetIntrinsicModifierName()
   return "modifier_boss_stopfightingyourself_dupe_items"
 end
 
 
-modifier_boss_stopfightingyourself_dupe_items = class({})
+modifier_boss_stopfightingyourself_dupe_items = class(ModifierBaseClass)
 
 function modifier_boss_stopfightingyourself_dupe_items:DeclareFunctions()
   return {

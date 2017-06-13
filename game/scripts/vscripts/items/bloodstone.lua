@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_item_bloodstone_oaa", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_bloodstone_1 = class({})
+item_bloodstone_1 = class(ItemBaseClass)
 
 function item_bloodstone_1:GetIntrinsicModifierName()
   return "modifier_item_bloodstone_oaa"
@@ -20,7 +20,7 @@ item_bloodstone_5 = item_bloodstone_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_item_bloodstone_oaa = class({})
+modifier_item_bloodstone_oaa = class(ModifierBaseClass)
 
 function modifier_item_bloodstone_oaa:OnCreated()
   if IsServer() then

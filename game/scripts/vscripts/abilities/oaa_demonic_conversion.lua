@@ -1,4 +1,4 @@
-enigma_demonic_conversion = class({})
+enigma_demonic_conversion = class(AbilityBaseClass)
 
 function enigma_demonic_conversion:OnSpellStart()
   local target = self:GetCursorTarget()

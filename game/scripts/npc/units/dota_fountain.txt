@@ -10,11 +10,12 @@
     "SoundSet"                                            "dota_fountain"                 // Name of sound set.
     "MinimapIcon"                                         "minimap_ward_obs"
     "MinimapIconSize"                                     "1"
+    "Level"                                               "30"
 
     // Abilities
     //----------------------------------------------------------------
 
-    "Ability1"                                            "fountain_auto_doom" // Ability 1.
+    "Ability1"                                            "fountain_attack"          // Ability 1.
     "Ability2"                                            ""          // Ability 2.
     "Ability3"                                            ""          // Ability 3.
     "Ability4"                                            ""          // Ability 4.
@@ -30,32 +31,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "25000"       // Damage range min.
-    "AttackDamageMax"                                     "25000"       // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "0.05"      // Speed of attack.
-    "AttackAnimationPoint"                                "0.0"       // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "800"      // Range within a target can be acquired.
-    "AttackRange"                                         "800"      // Range within a target can be attacked. (was 690)
-    "ProjectileModel"                                     "particles/base_attacks/fountain_attack.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                                     "2500"      // Speed of projectile.
-
-    // Attributes
-    //----------------------------------------------------------------
-    "AttributePrimary"                                    "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"                               "0"         // Base strength
-    "AttributeStrengthGain"                               "0"         // Strength bonus per level.
-    "AttributeBaseIntelligence"                           "0"         // Base intelligence
-    "AttributeIntelligenceGain"                           "0"         // Intelligence bonus per level.
-    "AttributeBaseAgility"                                "0"         // Base agility
-    "AttributeAgilityGain"                                "0"         // Agility bonus per level.
-
-    // Bounty
-    //----------------------------------------------------------------
-    "BountyXP"                                            "0"     // Experience earn.
-    "BountyGoldMin"                                       "0"     // Gold earned min.
-    "BountyGoldMax"                                       "0"     // Gold earned max.
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NONE"
 
     // Bounds
     //----------------------------------------------------------------

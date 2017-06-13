@@ -1,4 +1,4 @@
-modifier_disable_control = class({})
+modifier_disable_control = class(ModifierBaseClass)
 
 function modifier_disable_control:CheckState()
   local state = {

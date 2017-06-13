@@ -48,10 +48,10 @@
     "AbilityTextureName"                                  "custom/siege_mode_1"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "8.0"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17000"
+    "ItemCost"                                            "18700"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "dragon lance"
@@ -92,7 +92,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_atkspd_bonus"                              "0"
+        "siege_atkspd_bonus"                              "-150"
         // meant for negative bonus
         // aka a self-slow
       }

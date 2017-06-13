@@ -1,0 +1,97 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Cyclone 4
+  //=================================================================================================================
+  "item_recipe_cyclone_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+      "ID"                            "3896"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+      "BaseClass"                     "item_datadriven"
+      "Model"                         "models/props_gameplay/recipe.mdl"
+      "AbilityTextureName"            "item_recipe"
+
+      // Item Info
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemCost"                      "8000"
+      "ItemShopTags"                  ""
+
+      // Recipe
+      //-------------------------------------------------------------------------------------------------------------
+      "ItemRecipe"                    "1"
+      "ItemResult"                    "item_cyclone_4"
+      "ItemRequirements"
+      {
+      "01"                                                "item_cyclone_3;item_upgrade_core_3"
+      "02"                                                "item_cyclone_3;item_upgrade_core_4"
+      }
+    }
+
+  //=================================================================================================================
+  // Cyclone 4
+  //=================================================================================================================
+  "item_cyclone_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "3897"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_cyclone"
+    "AbilityTextureName"            "custom/cyclone_4"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CUSTOM"
+    "FightRecapLevel"               "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "575"
+    "AbilityCastPoint"              "0.0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "23.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "175 200 250 300 350"
+    "ItemCost"                      "15750"
+    "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                   "rare"
+    "ItemAliases"                   "cyclone euls;eul's scepter of divinity"
+    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_intellect"       "10 15 20 30 45"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_mana_regen"      "150 225 325 450 650"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_movement_speed"  "40 45 50 55 60"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "cyclone_duration"      "2.5"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "cast_range_tooltip"        "575"
+      }
+    }
+  }
+}

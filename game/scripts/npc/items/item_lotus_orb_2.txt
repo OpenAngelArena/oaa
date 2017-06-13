@@ -45,15 +45,16 @@
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/lotus_orb_2"
     "AbilityCooldown"                                     "15.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "900 1200 1500 1800 2100"
     "AbilityManaCost"                                     "75"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_lotus_orb_2;item_lotus_orb_3;item_lotus_orb_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7500"
+    "ItemCost"                                            "5500"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;lotus orb"
@@ -67,27 +68,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 20"
+        "bonus_damage"                                    "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 20"
+        "bonus_armor"                                     "10 17.5 25 32.5 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9"
+        "bonus_health_regen"                              "6 9 14 21 32"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "125 175"
+        "bonus_mana_regen"                                "125 175 250 350 500"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350"
+        "bonus_mana"                                      "250 350 500 700 1000"
       }
       "06"
       {
@@ -97,7 +98,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cast_range_tooltip"                              "900 1200"
+        "cast_range_tooltip"                              "900 1200 1500 1800 2100"
       }
     }
   }

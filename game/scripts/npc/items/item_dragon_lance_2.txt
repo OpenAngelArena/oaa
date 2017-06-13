@@ -45,14 +45,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4000"
+    "ItemCost"                                            "3400"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "dragon lance"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_dragon_lance_2;item_dragon_lance_3"
+    "UpgradesItems"                                       "item_dragon_lance_2;item_dragon_lance_3;item_dragon_lance_4"
 
 
 
@@ -63,17 +63,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 16 19 21"
+        "bonus_agility"                                   "12 15 18 25 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 15 18 20"
+        "bonus_strength"                                  "12 15 18 25 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "140 180 240 280"
+        "base_attack_range"                               "140 180 240 280 320"
       }
     }
   }

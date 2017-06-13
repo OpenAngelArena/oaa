@@ -1,13 +1,21 @@
-LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_octarine_vampirism_applier", "modifiers/modifier_octarine_vampirism_applier.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-item_satanic_core = class({})
+item_satanic_core = class(ItemBaseClass)
 
 function item_satanic_core:GetIntrinsicModifierName()
-  return "modifier_item_satanic_core"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_satanic_core:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_satanic_core",
+    "modifier_octarine_vampirism_applier"
+  }
 end
 
 function item_satanic_core:OnSpellStart()
@@ -28,7 +36,7 @@ item_satanic_core_3 = item_satanic_core --luacheck: ignore item_satanic_core_3
 
 --------------------------------------------------------------------------------
 
-modifier_item_satanic_core = class({})
+modifier_item_satanic_core = class(ModifierBaseClass)
 
 function modifier_item_satanic_core:IsHidden()
   return true
@@ -42,30 +50,6 @@ end
 function modifier_item_satanic_core:OnRefresh()
   self.lifesteal_percent = self:GetAbility():GetSpecialValueFor( "lifesteal_percent" )
   self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor( "unholy_lifesteal_percent" )
-end
-
-function modifier_item_satanic_core:IsAura()
-  return true
-end
-
-function modifier_item_satanic_core:GetModifierAura()
-  return "modifier_octarine_vampirism_buff"
-end
-
-function modifier_item_satanic_core:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_item_satanic_core:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
-end
-
-function modifier_item_satanic_core:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
-end
-
-function modifier_item_satanic_core:GetAuraRadius()
-  return 0
 end
 
 function modifier_item_satanic_core:IsPurgable()
@@ -124,7 +108,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_satanic_core_unholy = class({})
+modifier_satanic_core_unholy = class(ModifierBaseClass)
 
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {

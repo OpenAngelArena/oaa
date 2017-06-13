@@ -3,7 +3,7 @@
 Base health and damage is checked only on first application of modifier
 Primary use of this modifier is for Nature's Prophet 2x Treant health/damage talent
 ]]
-modifier_treant_bonus_oaa = class({})
+modifier_treant_bonus_oaa = class(ModifierBaseClass)
 
 function modifier_treant_bonus_oaa:DeclareFunctions()
   local funcs = {

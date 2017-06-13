@@ -1,0 +1,116 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Drums of Endurance 3
+  //=================================================================================================================
+  "item_recipe_ancient_janggo_3"
+  {
+    "ID"                                                  "3854"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_ancient_janggo_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_ancient_janggo_2;item_upgrade_core_2"
+      "02"                                                "item_ancient_janggo_2;item_upgrade_core_3"
+      "03"                                                "item_ancient_janggo_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Drums of Endurance 3
+  //=================================================================================================================
+  "item_ancient_janggo_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3855"    // unique ID
+    "BaseClass"                                           "item_ancient_janggo"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/drums_3"
+    "ItemPermanent"                                       "1"
+    "FightRecapLevel"                                     "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30.0"
+    "AbilityCastRange"                                    "900"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_ancient_janggo_3;item_ancient_janggo_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "7340"
+    "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "drum of endurance"
+    "ItemInitialCharges"                                  "6"
+    "ItemDisplayCharges"                                  "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemRequiresCharges"                                 "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "6 9 14 20 30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "6 9 14 20 30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agi"                                       "3 5 10 15 20"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "3 5 10 15 20"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "50 75 100 150 225"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_aura_movement_speed"                       "20 25 30 35 40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed_pct"                          "25 27 30 32 35"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_pct"                        "13 14 15 16 17"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6 7 8 9 10"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+    }
+  }
+}

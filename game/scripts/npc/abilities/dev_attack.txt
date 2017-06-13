@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+  "dev_attack"
+  {
+    "ID"                                                  "9002"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/dev_attack.lua"
+    "AbilityTextureName"                                  "custom/shoopdawhoop"
+    "MaxLevel"                                            "1"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_ALL"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "timetokill"                                      "2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "radius"                                          "900"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/fountain_lazor.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+    }
+  }
+}

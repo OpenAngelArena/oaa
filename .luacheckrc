@@ -11,11 +11,27 @@ globals = { -- these globals can be set and accessed.
 "GAME_TIME_ELAPSED",
 "GAME_WINNER_TEAM",
 "GameRules",
-"SKIP_TEAM_SETUP"
+"SKIP_TEAM_SETUP",
+"INITIAL_DUEL_DELAY",
+"DUEL_START_WARN_TIME",
+"DUEL_START_COUNTDOWN",
+"DUEL_TIMEOUT",
+"FIRST_DUEL_TIMEOUT",
+"FINAL_DUEL_TIMEOUT",
+"DUEL_END_COUNTDOWN",
+"DUEL_RUNE_TIMER",
+"BOSS_RESPAWN_TIMER",
+"BOSS_LEASH_SIZE",
+"BOSS_AGRO_FACTOR",
+"CREEP_SPAWN_INTERVAL",
+"INITIAL_CREEP_DELAY",
+"DUEL_INTERVAL",
+"FindHeroesInRadius"
 }
 
 read_globals = { -- these globals can only be accessed.
 -- luafun
+"statCollection",
 "wrap",
 "iter",
 "each",
@@ -99,6 +115,7 @@ read_globals = { -- these globals can only be accessed.
 "HideWearables",
 "ShowWearables",
 "GetShortTeamName",
+"IsInTrigger",
 
 
 "ACT_MELEE_VM_RELOAD",

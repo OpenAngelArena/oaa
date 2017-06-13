@@ -1,0 +1,37 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Punching Bag
+  //=================================================================================
+  "npc_dota_punching_bag"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/props_structures/tower_upgrade/tower_upgrade.vmdl"  // Model.
+    "MaterialGroup"                                       "dire_level6"
+
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "damage_display"
+    "Ability2"                                            "boss_cliffwalk"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"      // Physical protection.
+    "MagicalResistance"                                   "0"      // Magical protection (percentage).
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NONE"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1000000" // Base health
+    "StatusHealthRegen"                                   "10000"  // Health regeneration rate.
+    "StatusMana"                                          "10000"    // Base mana.
+    "StatusManaRegen"                                     "1000"    // Mana regeneration rate.
+  }
+}

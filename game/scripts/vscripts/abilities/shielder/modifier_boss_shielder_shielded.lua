@@ -9,6 +9,13 @@ function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   }
 end
 
+function modifier_boss_shielder_shielded_buff:OnCreated()
+  local caster = self:GetCaster()
+  local particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
+end
+
 function modifier_boss_shielder_shielded_buff:IsHidden()
   return true
 end
@@ -62,7 +69,7 @@ function modifier_boss_shielder_shielded_buff:GetModifierIncomingDamage_Percenta
   --DebugPrint(angleCos .. ' : ' .. self:GetAbility():GetSpecialValueFor("sheild_width"))
   if (angleCos > (self:GetAbility():GetSpecialValueFor("sheild_width"))) then
     local target = self:GetParent()
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_POINT_FOLLOW, target)
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(nil,0,0))
     return 0 - self:GetAbility():GetSpecialValueFor("percent_damage_reduce")

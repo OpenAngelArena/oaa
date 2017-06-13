@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_shroud_passive", "items/shroud.lua", LUA_MODIFIE
 
 --------------------------------------------------------------------------------
 
-item_shroud = class({})
+item_shroud = class(ItemBaseClass)
 
 function item_shroud:GetIntrinsicModifierName()
   return "modifier_item_shroud_passive"
@@ -21,11 +21,13 @@ end
 
 --------------------------------------------------------------------------------
 
-item_shroud_2 = item_shroud --luacheck: ignore item_shroud_2
+item_shroud_2 = item_shroud
+item_shroud_3 = item_shroud
+item_shroud_4 = item_shroud
 
 --------------------------------------------------------------------------------
 
-modifier_item_shroud_passive = class({})
+modifier_item_shroud_passive = class(ModifierBaseClass)
 
 function modifier_item_shroud_passive:IsHidden()
   return true
