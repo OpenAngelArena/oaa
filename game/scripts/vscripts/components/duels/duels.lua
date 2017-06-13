@@ -19,6 +19,10 @@ Duels.onStart = DuelStartEvent.listen
 Duels.onPreparing = DuelPreparingEvent.listen
 Duels.onEnd = DuelEndEvent.listen
 
+local function RefreshAbilityFilter (ability)
+  return ability:GetAbilityType() ~= 1
+end
+
 function Duels:Init ()
   DebugPrint('Init duels')
 
@@ -228,6 +232,7 @@ function Duels:ActuallyStartDuel (options)
   if maxPlayers < 1 then
     DebugPrint('There aren\'t enough players to start the duel')
     Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
+    self.currentDuel = nil
     return
   end
 
@@ -484,7 +489,7 @@ function Duels:ResetPlayerState (hero)
   -- Reset cooldown for abilities
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability ~= nil then
+    if ability ~= nil and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
     end
   end
@@ -521,7 +526,7 @@ function Duels:SavePlayerState (hero)
 
   for abilityIndex = 0,hero:GetAbilityCount()-1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability ~= nil then
+    if ability ~= nil and RefreshAbilityFilter(ability) then
       state.abilities[abilityIndex] = {
         cooldown = ability:GetCooldownTimeRemaining()
       }
@@ -549,7 +554,7 @@ function Duels:RestorePlayerState (hero, state)
 
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability ~= nil then
+    if ability ~= nil and RefreshAbilityFilter(ability) then
       if state.abilities[abilityIndex] == nil then
         DebugPrint('Why is this ability broken?' .. abilityIndex)
         DebugPrintTable(state)
