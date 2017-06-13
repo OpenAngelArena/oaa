@@ -35,6 +35,11 @@
 			m_nOpEndCapState = 1
 		},
 		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 4.0
+			m_flStartScale = 0.1
+		},
+		{
 			_class = "C_OP_PositionLock"
 			m_flPrevPosScale = 0.0
 			m_bLockRot = true
