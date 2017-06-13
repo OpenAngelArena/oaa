@@ -25,7 +25,23 @@
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_Decay"
+			_class = "C_OP_Orient2DRelToCP"
+			m_flRotOffset = 90.0
+		},
+		{
+			_class = "C_OP_RadiusDecay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -400.0
+			m_flEndTime = 100000000000.0
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flPrevPosScale = 0.0
+			m_bLockRot = true
 		},
 	]
 	m_Renderers = 
@@ -64,14 +80,9 @@
 	m_Emitters = 
 	[
 		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 500.0
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
 		},
 	]
 	m_ConstantColor = [ 255, 98, 30, 255 ]
-	m_Children = 
-	[
-		{
-		},
-	]
 }
