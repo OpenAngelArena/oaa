@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"
@@ -30,7 +30,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6 7 8 9 11 19"
+        "mana_pool_damage_pct"                            "6 7 8 9 10 11"
       }
       "02"
       {
@@ -49,5 +49,5 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
     }
-  }  
+  }
 }
