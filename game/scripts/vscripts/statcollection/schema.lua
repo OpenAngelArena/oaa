@@ -3,10 +3,7 @@ customSchema = class({})
 function customSchema:init()
 
     -- Check the schema_examples folder for different implementations
-
-    -- Flag Example
-    statCollection:setFlags({version = GAME_VERSION})
-
+  
     -- Listen for changes in the current state
     ListenToGameEvent('game_rules_state_change', function(keys)
         local state = GameRules:State_Get()
