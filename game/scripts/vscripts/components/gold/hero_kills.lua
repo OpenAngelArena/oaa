@@ -48,7 +48,7 @@ local AssistGoldTable = {
       advantageFactor = 4000,
       nwMultBase = 1.2,
       nwMultMult = 0.1,
-      nwRankingFactor = { 1.25, 0.75 }
+      nwRankingFactor = { 0.75, 1.25 }
     },
     [3] = {
       base = 35,
@@ -57,7 +57,7 @@ local AssistGoldTable = {
       advantageFactor = 4000,
       nwMultBase = 1.2,
       nwMultMult = 0.1,
-      nwRankingFactor = { 1.25, 1, 0.75 }
+      nwRankingFactor = { 0.75, 1, 1.25 }
     },
     [4] = {
       base = 25,
@@ -66,7 +66,7 @@ local AssistGoldTable = {
       advantageFactor = 4000,
       nwMultBase = 1.2,
       nwMultMult = 0.1,
-      nwRankingFactor = { 1.25, 1.25, 0.75, 0.75 }
+      nwRankingFactor = { 0.75, 0.75, 1.25, 1.25 }
     },
     [5] = {
       base = 20,
@@ -75,7 +75,7 @@ local AssistGoldTable = {
       advantageFactor = 4000,
       nwMultBase = 1.2,
       nwMultMult = 0.1,
-      nwRankingFactor = { 1.25, 1.25, 1, 0.75, 0.75 }
+      nwRankingFactor = { 0.75, 0.75, 1, 1.25, 1.25 }
     },
     max = 5
   }
