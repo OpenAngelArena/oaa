@@ -35,7 +35,7 @@ CreepTypes = {
       {"npc_dota_neutral_harpy_storm",              560,  320,  24,    2,    35,   71}
     },
     {
-      {"npc_dota_neutral_polar_fulborg_champion",   480,    0,  28,    2,    32,   63},
+      {"npc_dota_neutral_polar_furbolg_champion",   480,    0,  28,    2,    32,   63},
       {"npc_dota_neutral_tomato",                   800,    0,  28,    2,    32,   63},
     }
   },
