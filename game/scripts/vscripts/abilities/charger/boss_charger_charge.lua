@@ -8,19 +8,30 @@ LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_b
 
 boss_charger_charge = class(AbilityBaseClass)
 
+function boss_charger_charge:OnSpellStart()
+  self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
+end
+
 function boss_charger_charge:OnChannelFinish(interupted)
+  local caster = self:GetCaster()
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interupted then
     self:StartCooldown(self:GetSpecialValueFor('cooldown') / 2)
+    caster:StopSound("Boss_Charger.Charge.Begin")
     return
   end
-  local caster = self:GetCaster()
 
   caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {
     duration = self:GetSpecialValueFor( "charge_duration" )
   })
 
+  caster:EmitSound("Boss_Charger.Charge.Movement")
+
   return true
+end
+
+function boss_charger_charge:OnOwnerDied()
+  self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
 end
 
 modifier_boss_charger_charge = class(ModifierBaseClass)
@@ -85,6 +96,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       if not hero:HasModifier('modifier_boss_charger_trampling') then
         hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
         table.insert(self.draggedHeroes, hero)
+        caster:EmitSound("Boss_Charger.Charge.HeroImpact")
       end
     end)
   end
@@ -114,6 +126,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       })
     end
 
+    caster:EmitSound("Boss_Charger.Charge.TowerImpact")
     return self:EndCharge()
   end
 end

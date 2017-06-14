@@ -91,5 +91,11 @@
 
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/charger.vsndevts"
+      "particle"                                          "particles/charger/charger_charge_debuff.vpcf"
+    }
   }
 }
