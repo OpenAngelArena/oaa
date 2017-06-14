@@ -29,7 +29,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3177"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_manta"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/manta.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_4"
     // Stats

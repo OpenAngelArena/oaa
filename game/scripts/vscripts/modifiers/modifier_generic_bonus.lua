@@ -1,25 +1,6 @@
 
 modifier_generic_bonus = class(ModifierBaseClass)
 
---[[
-
-  "04"
-  {
-    "var_type"        "FIELD_INTEGER"
-    "bonus_health"        "4000"
-  }
-  "05"
-  {
-    "var_type"        "FIELD_INTEGER"
-    "bonus_armor"     "20"
-  }
-  "06"
-  {
-    "var_type"        "FIELD_INTEGER"
-    "magic_resistance"    "20"
-  }
-]]
-
 function modifier_generic_bonus:OnCreated()
   self:Setup()
 end

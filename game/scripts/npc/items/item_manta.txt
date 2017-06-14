@@ -27,6 +27,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/manta.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
@@ -80,17 +82,17 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2"       //needs rework to go over 2
+        "images_count"                                    "2 2 2 2 3"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_duration"                       "20"
+        "illusion_duration"                               "20"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-67"
+        "damage_outgoing_melee"                           "-67"
       }
       "09"
       {
@@ -100,17 +102,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_melee"                "250"
+        "damage_incoming_melee"                           "250"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_melee_total_pct"         "350"
+        "tooltip_damage_incoming_melee_total"             "350"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-72"
+        "damage_outgoing_ranged"                          "-72"
       }
       "13"
       {
@@ -120,12 +122,12 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_ranged"               "300"
+        "tdamage_incoming_ranged"                         "300"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_ranged_total_pct"        "400"
+        "tooltip_damage_incoming_ranged_total"            "400"
       }
       "16"
       {
@@ -146,6 +148,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "vision_radius"                                   "1000"
+      }
+      "20"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "1.0"
       }
     }
   }
