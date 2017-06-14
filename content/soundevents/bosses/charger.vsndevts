@@ -1,0 +1,225 @@
+"Boss_Charger.Charge.Begin"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"                                        "sos_reference_stack"
+        "reference_stack"                                 "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"                                    "sounds/weapons/hero/spirit_breaker/nether_strike_in.vsnd"
+            }
+            "volume"
+            {
+              "value"                                     "1.00000"
+            }
+            "pitch_rand_min"
+            {
+              "value"                                     "-0.05000"
+            }
+            "pitch_rand_max"
+            {
+              "value"                                     "0.050000"
+            }
+            "pitch"
+            {
+              "value"                                     "1.000000"
+            }
+            "soundlevel"
+            {
+              "value"                                     "81.00000"
+            }
+            "distance_max"
+            {
+              "value"                                     "1600.000"
+            }
+            "event_type"
+            {
+              "value"                                     "1.000000"
+            }
+            "mixgroup"
+            {
+              "value"                                     "Weapons"
+            }
+            "volume_fade_out"
+            {
+              "value"                                     "0.600000"
+            }
+            "spread_radius"
+            {
+              "value"                                     "300.000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+"Boss_Charger.Charge.Movement"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"                                        "sos_reference_stack"
+        "reference_stack"                                 "dota_src1_3d"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"                                    "sounds/physics/movement/hero/spirit_breaker/charge01.vsnd"
+              "value1"                                    "sounds/physics/movement/hero/spirit_breaker/charge02.vsnd"
+              "value2"                                    "sounds/physics/movement/hero/spirit_breaker/charge03.vsnd"
+            }
+            "volume"
+            {
+              "value"                                     "1.00000"
+            }
+            "pitch_rand_min"
+            {
+              "value"                                     "-0.05000"
+            }
+            "pitch_rand_max"
+            {
+              "value"                                     "0.050000"
+            }
+            "pitch"
+            {
+              "value"                                     "1.000000"
+            }
+            "soundlevel"
+            {
+              "value"                                     "84.00000"
+            }
+            "distance_max"
+            {
+              "value"                                     "1600.000"
+            }
+            "event_type"
+            {
+              "value"                                     "1.000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+"Boss_Charger.Charge.HeroImpact"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"                                        "sos_reference_stack"
+        "reference_stack"                                 "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"                                    "sounds/weapons/hero/spirit_breaker/charge_impact.vsnd"
+            }
+            "volume"
+            {
+              "value"                                     "1.00000"
+            }
+            "pitch_rand_min"
+            {
+              "value"                                     "-0.05000"
+            }
+            "pitch_rand_max"
+            {
+              "value"                                     "0.050000"
+            }
+            "pitch"
+            {
+              "value"                                     "1.000000"
+            }
+            "soundlevel"
+            {
+              "value"                                     "84.00000"
+            }
+            "mixgroup"
+            {
+              "value"                                     "Weapons"
+            }
+            "spread_radius"
+            {
+              "value"                                     "600.000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+"Boss_Charger.Charge.TowerImpact"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"                                        "sos_reference_stack"
+        "reference_stack"                                 "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"                                    "sounds/weapons/hero/spirit_breaker/nether_strike_out.vsnd"
+            }
+            "volume"
+            {
+              "value"                                     "1.00000"
+            }
+            "pitch_rand_min"
+            {
+              "value"                                     "-0.05000"
+            }
+            "pitch_rand_max"
+            {
+              "value"                                     "0.050000"
+            }
+            "pitch"
+            {
+              "value"                                     "1.000000"
+            }
+            "soundlevel"
+            {
+              "value"                                     "81.00000"
+            }
+            "mixgroup"
+            {
+              "value"                                     "Weapons"
+            }
+            "spread_radius"
+            {
+              "value"                                     "300.000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}
