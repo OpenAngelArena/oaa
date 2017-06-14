@@ -32,12 +32,12 @@ CaveTypes = {
   [1] = { -- 1 "Howl's it Going?"
     {                                            --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
-        {"npc_dota_neutral_alpha_wolf",           400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
+        {"npc_dota_neutral_custom_big_pupper",    400,  0,    45,   1,    32,   40, 25},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 0, CaveProgressionBuff), -- function (k) return 1 end,
@@ -53,12 +53,12 @@ CaveTypes = {
   [2] = { -- 2 "Horse Tomatina"
     {                                                    --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   300,  0,    60,   1,    32,   40, 40},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   300,  0,    60,   1,    32,   40, 40},
-        {"npc_dota_neutral_polar_furbolg_ursa_warrior",   300,  0,    60,   1,    32,   40, 40},
-        {"npc_dota_neutral_centaur_khan",                 500,  0,    25,   2,    32,   40, 40},
-        {"npc_dota_neutral_centaur_khan",                 500,  0,    25,   2,    32,   40, 40},
-        {"npc_dota_neutral_centaur_khan",                 500,  0,    25,   2,    32,   40, 40},
+        {"npc_dota_neutral_custom_cave_tomato",           300,  0,    60,   1,    32,   40, 40},
+        {"npc_dota_neutral_custom_cave_tomato",           300,  0,    60,   1,    32,   40, 40},
+        {"npc_dota_neutral_custom_cave_tomato",           300,  0,    60,   1,    32,   40, 40},
+        {"npc_dota_neutral_custom_big_horse",             500,  0,    25,   2,    32,   40, 40},
+        {"npc_dota_neutral_custom_big_horse",             500,  0,    25,   2,    32,   40, 40},
+        {"npc_dota_neutral_custom_big_horse",             500,  0,    25,   2,    32,   40, 40},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 2, CaveProgressionBuff), -- function (k) return 1 end,
