@@ -1,225 +1,66 @@
-"Boss_Charger.Charge.Begin"
-{
-  "operator_stacks"
-  {
-    "update_stack"
-    {
-      "reference_operator"
-      {
-        "operator"                                        "sos_reference_stack"
-        "reference_stack"                                 "dota_update_default"
-        "operator_variables"
-        {
-          "vsnd_files"
-          {
-            "value"
-            {
-              "value0"                                    "sounds/weapons/hero/spirit_breaker/nether_strike_in.vsnd"
-            }
-            "volume"
-            {
-              "value"                                     "1.00000"
-            }
-            "pitch_rand_min"
-            {
-              "value"                                     "-0.05000"
-            }
-            "pitch_rand_max"
-            {
-              "value"                                     "0.050000"
-            }
-            "pitch"
-            {
-              "value"                                     "1.000000"
-            }
-            "soundlevel"
-            {
-              "value"                                     "81.00000"
-            }
-            "distance_max"
-            {
-              "value"                                     "1600.000"
-            }
-            "event_type"
-            {
-              "value"                                     "1.000000"
-            }
-            "mixgroup"
-            {
-              "value"                                     "Weapons"
-            }
-            "volume_fade_out"
-            {
-              "value"                                     "0.600000"
-            }
-            "spread_radius"
-            {
-              "value"                                     "300.000000"
-            }
-          }
-        }
-      }
-    }
-  }
-}
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 
-"Boss_Charger.Charge.Movement"
 {
-  "operator_stacks"
-  {
-    "update_stack"
-    {
-      "reference_operator"
-      {
-        "operator"                                        "sos_reference_stack"
-        "reference_stack"                                 "dota_src1_3d"
-        "operator_variables"
-        {
-          "vsnd_files"
-          {
-            "value"
-            {
-              "value0"                                    "sounds/physics/movement/hero/spirit_breaker/charge01.vsnd"
-              "value1"                                    "sounds/physics/movement/hero/spirit_breaker/charge02.vsnd"
-              "value2"                                    "sounds/physics/movement/hero/spirit_breaker/charge03.vsnd"
-            }
-            "volume"
-            {
-              "value"                                     "1.00000"
-            }
-            "pitch_rand_min"
-            {
-              "value"                                     "-0.05000"
-            }
-            "pitch_rand_max"
-            {
-              "value"                                     "0.050000"
-            }
-            "pitch"
-            {
-              "value"                                     "1.000000"
-            }
-            "soundlevel"
-            {
-              "value"                                     "84.00000"
-            }
-            "distance_max"
-            {
-              "value"                                     "1600.000"
-            }
-            "event_type"
-            {
-              "value"                                     "1.000000"
-            }
-          }
-        }
-      }
-    }
+  Boss_Charger.Charge.Begin = {
+      type = "dota_update_default"
+      vsnd_files =
+      [
+        "sounds/weapons/hero/spirit_breaker/nether_strike_in.vsnd"
+      ]
+      volume = "1.000000"
+      pitch_rand_min = "-0.050000"
+      pitch_rand_max = "0.050000"
+      pitch = "1.000000"
+      soundlevel = "81.000000"
+      mixgroup = "Weapons"
+      volume_fade_out = "0.600000"
+      spread_radius = "300.000000"
   }
-}
 
-"Boss_Charger.Charge.HeroImpact"
-{
-  "operator_stacks"
-  {
-    "update_stack"
-    {
-      "reference_operator"
-      {
-        "operator"                                        "sos_reference_stack"
-        "reference_stack"                                 "dota_update_default"
-        "operator_variables"
-        {
-          "vsnd_files"
-          {
-            "value"
-            {
-              "value0"                                    "sounds/weapons/hero/spirit_breaker/charge_impact.vsnd"
-            }
-            "volume"
-            {
-              "value"                                     "1.00000"
-            }
-            "pitch_rand_min"
-            {
-              "value"                                     "-0.05000"
-            }
-            "pitch_rand_max"
-            {
-              "value"                                     "0.050000"
-            }
-            "pitch"
-            {
-              "value"                                     "1.000000"
-            }
-            "soundlevel"
-            {
-              "value"                                     "84.00000"
-            }
-            "mixgroup"
-            {
-              "value"                                     "Weapons"
-            }
-            "spread_radius"
-            {
-              "value"                                     "600.000000"
-            }
-          }
-        }
-      }
-    }
+  Boss_Charger.Charge.Movement = {
+      type = "dota_src1_3d"
+      vsnd_files =
+      [
+        "sounds/physics/movement/hero/spirit_breaker/charge01.vsnd",
+        "sounds/physics/movement/hero/spirit_breaker/charge02.vsnd",
+        "sounds/physics/movement/hero/spirit_breaker/charge03.vsnd"
+      ]
+      volume = "1.000000"
+      pitch_rand_min = "-0.050000"
+      pitch_rand_max = "0.050000"
+      pitch = "1.000000"
+      soundlevel = "81.000000"
+      distance_max = "3000.000000"
+      event_type = "1.000000"
   }
-}
 
-"Boss_Charger.Charge.TowerImpact"
-{
-  "operator_stacks"
-  {
-    "update_stack"
-    {
-      "reference_operator"
-      {
-        "operator"                                        "sos_reference_stack"
-        "reference_stack"                                 "dota_update_default"
-        "operator_variables"
-        {
-          "vsnd_files"
-          {
-            "value"
-            {
-              "value0"                                    "sounds/weapons/hero/spirit_breaker/nether_strike_out.vsnd"
-            }
-            "volume"
-            {
-              "value"                                     "1.00000"
-            }
-            "pitch_rand_min"
-            {
-              "value"                                     "-0.05000"
-            }
-            "pitch_rand_max"
-            {
-              "value"                                     "0.050000"
-            }
-            "pitch"
-            {
-              "value"                                     "1.000000"
-            }
-            "soundlevel"
-            {
-              "value"                                     "81.00000"
-            }
-            "mixgroup"
-            {
-              "value"                                     "Weapons"
-            }
-            "spread_radius"
-            {
-              "value"                                     "300.000000"
-            }
-          }
-        }
-      }
-    }
+  Boss_Charger.Charge.HeroImpact = {
+      type = "dota_update_default"
+      vsnd_files =
+      [
+        "sounds/weapons/hero/spirit_breaker/charge_impact.vsnd"
+      ]
+      volume = "1.000000"
+      pitch_rand_min = "-0.050000"
+      pitch_rand_max = "0.050000"
+      pitch = "1.000000"
+      soundlevel = "84.000000"
+      mixgroup = "Weapons"
+      spread_radius = "600.000000"
+  }
+
+  Boss_Charger.Charge.TowerImpact = {
+      type = "dota_update_default"
+      vsnd_files =
+      [
+        "sounds/weapons/hero/spirit_breaker/nether_strike_out.vsnd"
+      ]
+      volume = "1.000000"
+      pitch_rand_min = "-0.050000"
+      pitch_rand_max = "0.050000"
+      pitch = "1.000000"
+      soundlevel = "81.000000"
+      mixgroup = "Ultimates"
+      spread_radius = "300.000000"
   }
 }
