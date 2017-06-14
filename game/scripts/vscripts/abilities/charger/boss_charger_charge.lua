@@ -30,6 +30,10 @@ function boss_charger_charge:OnChannelFinish(interupted)
   return true
 end
 
+function boss_charger_charge:OnOwnerDied()
+  self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
+end
+
 modifier_boss_charger_charge = class(ModifierBaseClass)
 
 function modifier_boss_charger_charge:IsHidden()
