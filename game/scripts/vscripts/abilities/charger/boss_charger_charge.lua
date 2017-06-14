@@ -9,7 +9,7 @@ LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_b
 boss_charger_charge = class(AbilityBaseClass)
 
 function boss_charger_charge:OnSpellStart()
-  self:GetCaster():EmitSound("Hero_Spirit_Breaker.NetherStrike.Begin")
+  self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
 end
 
 function boss_charger_charge:OnChannelFinish(interupted)
@@ -24,7 +24,7 @@ function boss_charger_charge:OnChannelFinish(interupted)
     duration = self:GetSpecialValueFor( "charge_duration" )
   })
 
-  caster:EmitSound("Hero_Spirit_Breaker.Charge.Movement")
+  caster:EmitSound("Boss_Charger.Charge.Movement")
 
   return true
 end
@@ -91,7 +91,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       if not hero:HasModifier('modifier_boss_charger_trampling') then
         hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
         table.insert(self.draggedHeroes, hero)
-        caster:EmitSound("Hero_Spirit_Breaker.Charge.Impact")
+        caster:EmitSound("Boss_Charger.Charge.HeroImpact")
       end
     end)
   end
@@ -121,7 +121,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       })
     end
 
-    caster:EmitSound("Hero_Spirit_Breaker.NetherStrike.End")
+    caster:EmitSound("Boss_Charger.Charge.TowerImpact")
     return self:EndCharge()
   end
 end
