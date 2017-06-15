@@ -7,7 +7,7 @@ end
 
 local BaseCreepPowerMultiplier = 8
 local BaseCreepXPGOLDMultiplier = 8
-local CaveProgressionBuff = 8
+local CaveProgressionBuff = 6
 
 local BaseMultipliers = {
   -- CreepPower:GetPowerForMinute
