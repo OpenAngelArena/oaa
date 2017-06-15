@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/charge_bkb_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0 18.0 16.0 13.0 8.0"
+    "AbilityCooldown"                                     "20.0 18.0 16.0 13.0"
     "AbilitySharedCooldown"                               "item_black_king_bar"
     "AbilityCastRange"                                    "1200"
 
@@ -75,22 +75,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "4 6 9 13 20"
+        "bonus_agility"                                   "4 6 9 13"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "4 6 9 13 20"
+        "bonus_intellect"                                 "4 6 9 13"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "14 20 30 45 65"
+        "bonus_strength"                                  "14 20 30 45"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 36 54 75 110"
+        "bonus_damage"                                    "24 36 54 75"
       }
       "07"
       {
@@ -120,7 +120,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "30 34 38 42 45"     // Percentage over model scale
+        "model_scale"                                     "34 38 42 45"     // Percentage over model scale
       }
     }
   }
