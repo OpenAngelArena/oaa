@@ -5,12 +5,10 @@
     "ScriptFile"                                          "abilities/visage_gravekeepers_cloak.lua"
     "AbilityTextureName"                                  "visage_gravekeepers_cloak"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "HasScepterUpgrade"                                   "1"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
