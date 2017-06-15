@@ -123,6 +123,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_time_per_charge"                        "5"    //RamonNZ: New KV requested by Baumi to increase the cooldown this much extra per charge
       }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "30 34 38 42 45"     // Percentage over model scale
+      }
     }
   }
 }
