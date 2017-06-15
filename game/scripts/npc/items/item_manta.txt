@@ -82,7 +82,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2 2 2 2 3"
+        "images_count"                                    "2 2 2 3 3"
       }
       "07"
       {
@@ -154,6 +154,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "1.0"
       }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/items2_fx/manta_phase.vpcf"
     }
   }
 }

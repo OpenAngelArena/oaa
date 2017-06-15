@@ -17,6 +17,8 @@ function modifier_generic_bonus:Setup()
     'bonus_agility',
     'bonus_intellect',
     'bonus_all_stats',
+    'bonus_attack_speed',
+    'bonus_movement_speed',
     'spell_amp'
   }
 
@@ -38,6 +40,8 @@ function modifier_generic_bonus:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
   }
 end
@@ -64,6 +68,14 @@ end
 
 function modifier_generic_bonus:GetModifierBonusStats_Intellect()
   return (self.bonus_all_stats or 0) + (self.bonus_intellect or 0)
+end
+
+function modifier_generic_bonus:GetModifierAttackSpeedBonus_Constant()
+  return self.bonus_attack_speed or 0
+end
+
+function modifier_generic_bonus:GetModifierMoveSpeedBonus_Constant()
+  return self.bonus_movement_speed or 0
 end
 
 function modifier_generic_bonus:GetModifierSpellAmplify_Percentage()
