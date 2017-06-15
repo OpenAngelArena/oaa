@@ -5,7 +5,7 @@
 	m_BoundingBoxMax = [ 256.0, 256.0, 256.0 ]
 	m_nTopology = "PARTICLE_TOPOLOGY_POINTS"
 	m_ConstantNormal = [ 1.0, 0.0, 0.0 ]
-	m_flConstantRadius = 35.0
+	m_flConstantRadius = 42.0
 	m_flConstantLifespan = 0.04
 	m_controlPointConfigurations = 
 	[
@@ -64,7 +64,7 @@
 			_class = "C_INIT_RingWave"
 			m_flParticlesPerOrbit = 1.0
 			m_flInitialRadius = 100.0
-			m_flYaw = -36.0
+			m_flYaw = -40.0
 			m_bEvenDistribution = true
 		},
 		{
