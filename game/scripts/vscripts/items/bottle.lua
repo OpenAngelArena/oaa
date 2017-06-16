@@ -11,7 +11,7 @@ function item_infinite_bottle:OnSpellStart()
   -- TODO: This needs testing if executing on Clients only fixed the 'ghost bottle' issue
   EmitSoundOn("Bottle.Drink", caster)
 
-  self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_bottle_regeneration", { duration = restore_time })
+  caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
   if self:GetCurrentCharges() - 1 <= 0 then
     caster:RemoveItem(self)
