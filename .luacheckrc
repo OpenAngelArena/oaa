@@ -26,6 +26,7 @@ globals = { -- these globals can be set and accessed.
 "CREEP_SPAWN_INTERVAL",
 "INITIAL_CREEP_DELAY",
 "DUEL_INTERVAL",
+"BOTTLE_DESPAWN_TIME",
 "FindHeroesInRadius"
 }
 

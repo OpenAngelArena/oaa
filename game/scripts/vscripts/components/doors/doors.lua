@@ -87,6 +87,9 @@ function Doors.OpenDoors(gate, settings)
   local stepSize = settings.openingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, -distance)
 
+  EmitSoundOn("Ambient.Doors.Open", gate.props.gate)
+  --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
+
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -stepSize))
     traveled = traveled + stepSize
@@ -94,6 +97,7 @@ function Doors.OpenDoors(gate, settings)
       return delay
     end
     gate.props.gate:SetOrigin(targetOrigin)
+    StopSoundOn("Ambient.Doors.Open", gate.props.gate)
     gate.state = DOOR_STATE_OPEN
   end)
 end
@@ -113,6 +117,9 @@ function Doors.CloseDoors(gate, settings)
   local stepSize = settings.closingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, distance)
 
+  EmitSoundOn("Ambient.Doors.Close ", gate.props.gate)
+  --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
+
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
     traveled = traveled + stepSize
@@ -120,6 +127,7 @@ function Doors.CloseDoors(gate, settings)
       return delay
     end
     gate.props.gate:SetOrigin(targetOrigin)
+    StopSoundOn("Ambient.Doors.Close ", gate.props.gate)
     gate.state = DOOR_STATE_CLOSED
   end)
 end

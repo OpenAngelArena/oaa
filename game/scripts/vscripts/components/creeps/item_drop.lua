@@ -65,7 +65,7 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
 
-  Timers:CreateTimer(60, function ()
+  Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
     -- check if safe to destroy
     if IsValidEntity(newItem) then
       if newItem:GetContainer() ~= nil then
