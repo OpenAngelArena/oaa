@@ -23,6 +23,7 @@ BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage befo
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
 INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
+BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -173,4 +174,3 @@ CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 5
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_6] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_7] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_8] = 1
-
