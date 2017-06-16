@@ -64,7 +64,7 @@ function modifier_fountain_attack_aura:OnCreated(keys)
   ParticleManager:SetParticleControlEnt(self.particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 
   EmitSoundOn("Hero_Phoenix.SunRay.Cast", caster)
-  caster:EmitSound("Hero_Phoenix.SunRay.Loop")
+  EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
 
   if IsServer() then
     self:StartIntervalThink(0.1)
@@ -103,6 +103,6 @@ function modifier_fountain_attack_aura:OnDestroy()
   local caster = self:GetCaster()
 
   ParticleManager:DestroyParticle(self.particle, false)
-  caster:StopSound("Hero_Phoenix.SunRay.Loop")
+  StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
   EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
 end
