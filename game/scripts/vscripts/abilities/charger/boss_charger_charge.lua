@@ -12,10 +12,10 @@ function boss_charger_charge:OnSpellStart()
   self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
 end
 
-function boss_charger_charge:OnChannelFinish(interupted)
+function boss_charger_charge:OnChannelFinish(interrupted) --You misspelled "Interrupted"
   local caster = self:GetCaster()
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
-  if interupted then
+  if interrupted then
     self:StartCooldown(self:GetSpecialValueFor('cooldown') / 2)
     caster:StopSound("Boss_Charger.Charge.Begin")
     return
