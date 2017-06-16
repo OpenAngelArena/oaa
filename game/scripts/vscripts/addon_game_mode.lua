@@ -41,7 +41,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
 
   -- Ambient Sounds
-  PrecacheResource("soundfile", "soundevents/ambient/doors.vcndevts", context)
+  PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
