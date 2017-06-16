@@ -73,7 +73,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "300 600 1200 2400 4800"
+        "assist_percent"                                  "50 70 95 130 175"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "assist_radius"                                   "1200 1300 1400 1500 1600"
+      }
+      "04"
+      {
+        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
+        "var_type"                                        "FIELD_FLOAT"
+        "assist_stickiness"                               "0.1"
       }
     }
   }
