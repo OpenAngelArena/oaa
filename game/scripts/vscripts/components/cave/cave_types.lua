@@ -74,10 +74,10 @@ CaveTypes = {
   [3] = { -- 3 "Draggin' it Around"
     {                                        --HP  MANA  DMG   ARM   GOLD  EXP RESIST
       units = {
-        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   45, 55},
-        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   45, 55},
-        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   45, 55},
-        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   45, 55},
+        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   60, 55},
+        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   60, 55},
+        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   60, 55},
+        {"npc_dota_neutral_black_drake",       600,  0,   70,   1,   144,   60, 55},
       },
       multiplier = {
         mana = BaseMultipliers.mana(BaseCreepPowerMultiplier, 4, CaveProgressionBuff), -- function (k) return 1 end,
