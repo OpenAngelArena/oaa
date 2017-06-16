@@ -10,9 +10,13 @@ boss_charger_charge = class(AbilityBaseClass)
 
 function boss_charger_charge:OnSpellStart()
   self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
+  local caster = self:GetCaster()
+  local particle = ParticleManager:CreateParticle("particles/charger/charget_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 end
 
-function boss_charger_charge:OnChannelFinish(interupted)
+function boss_charger_charge:OnChannelFinish(interupted) --You misspelled "Interrupted"
   local caster = self:GetCaster()
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interupted then
