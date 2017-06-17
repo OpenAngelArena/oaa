@@ -90,7 +90,7 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
     -- Exclude the original attack target from list of units to splinter to
     table.remove(units, index(keys.target, units))
     -- Take the first splinter_number units to split to
-    units = take_n(ability:GetSpecialValueFor("splinter_number"), units)
+    units = take_n(ability:GetSpecialValueFor("splinter_count"), units)
 
     -- Default to Drow Ranger's projectile
     local projectileName = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
