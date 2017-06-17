@@ -127,6 +127,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "splinter_number"                                 "2"
       }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "melee_splinter_speed"                            "1250" // The projectile speed to use for splinters from melee heroes
+      }
     }
   }
 }

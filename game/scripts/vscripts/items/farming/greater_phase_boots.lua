@@ -94,7 +94,7 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
 
     -- Default to Drow Ranger's projectile
     local projectileName = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
-    local projectileSpeed = 1250
+    local projectileSpeed = ability:GetSpecialValueFor("melee_splinter_speed")
 
     if parent:IsRangedAttacker() then
       projectileName = parent:GetRangedProjectileName()
