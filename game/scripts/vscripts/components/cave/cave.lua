@@ -279,80 +279,100 @@ function CaveHandler:IsInFarmingCave (teamID, entity)
 end
 
 function CaveHandler:KickPlayers (teamID)
-DebugPrint('Kicking Players out of the cave.')
+  DebugPrint('Kicking Players out of the cave.')
 
-local cave = CaveHandler.caves[teamID]
-local spawns = {
-  [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
-  [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
-}
-local units = {}
+  local cave = CaveHandler.caves[teamID]
+  local spawns = {
+    [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
+    [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
+  }
+  local units = {}
 
--- get all heroes in all rooms
-for roomID, room in pairs(cave.rooms) do
-  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
+  -- get all heroes in all rooms
+  for roomID, room in pairs(cave.rooms) do
+    DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
-  for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-    local result = FindUnitsInRadius(
-      team, -- team
-      room.zone.origin, -- location
-      nil, -- cache
-      room.radius, -- radius
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
-      DOTA_UNIT_TARGET_ALL, -- type filter
-      DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
-      FIND_ANY_ORDER, -- order
-      false -- can grow cache
-    )
-    for _, unit in pairs(result) do
-      if CaveHandler:IsInFarmingCave(teamID, unit) then
-        table.insert(units, unit)
+    for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+      local result = FindUnitsInRadius(
+        team, -- team
+        room.zone.origin, -- location
+        nil, -- cache
+        room.radius, -- radius
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
+        DOTA_UNIT_TARGET_ALL, -- type filter
+        DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+        FIND_ANY_ORDER, -- order
+        false -- can grow cache
+      )
+      for _, unit in pairs(result) do
+        if CaveHandler:IsInFarmingCave(teamID, unit) then
+          table.insert(units, unit)
+        end
       end
     end
   end
-end
 
-DebugPrint('Teleporting units now')
+  DebugPrint('Teleporting units now')
 
-for _, unit in pairs(units) do
-  local origin = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
-    PATTACH_ABSORIGIN_FOLLOW, -- attach point
-    unit -- owner
-  )
-
-  local target = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
-    PATTACH_CUSTOMORIGIN, -- attach point
-    unit -- owner
-  )
-  ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
-
-  Timers:CreateTimer(3, function ()
-    FindClearSpaceForUnit(
-    unit, -- unit
-    spawns[unit:GetTeamNumber()], -- location
-    false -- ???
-  )
-
-  if unit:IsHero() then
-    PlayerResource:SetCameraTarget(unit:GetPlayerID(), unit)
-    Timers:CreateTimer(1, function ()
-      PlayerResource:SetCameraTarget(unit:GetPlayerID(), nil)
-    end)
-  end
-
-  Timers:CreateTimer(0, function ()
-    ParticleManager:DestroyParticle(origin, false)
-    ParticleManager:DestroyParticle(target, true)
+  Timers:CreateTimer(function()
+    if not Duels.currentDuel then
+      self:TeleportAll(units, spawns)
+    else
+      self:QuickTeleportAll(units, spawns)
+    end
   end)
-
-  -- stand still
-  unit:Stop()
-end)
-end
 end
 
 function CaveHandler:GetCleares (teamID)
   return self.caves[teamID].timescleared
+end
+
+function CaveHandler:TeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    local origin = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
+      PATTACH_ABSORIGIN_FOLLOW, -- attach point
+      unit -- owner
+    )
+
+    local target = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
+      PATTACH_CUSTOMORIGIN, -- attach point
+      unit -- owner
+    )
+    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
+
+    Timers:CreateTimer(3, function ()
+      FindClearSpaceForUnit(
+        unit, -- unit
+        spawns[unit:GetTeamNumber()], -- location
+        false -- ???
+      )
+
+      MoveCameraToPlayer(unit)
+
+      Timers:CreateTimer(0, function ()
+        ParticleManager:DestroyParticle(origin, false)
+        ParticleManager:DestroyParticle(target, true)
+      end)
+
+      -- stand still
+      unit:Stop()
+    end)
+  end
+end
+
+function CaveHandler:QuickTeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    FindClearSpaceForUnit(
+      unit, -- unit
+      spawns[unit:GetTeamNumber()], -- location
+      false -- ???
+    )
+
+    MoveCameraToPlayer(unit)
+
+    -- stand still
+    unit:Stop()
+  end
 end
