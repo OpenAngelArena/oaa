@@ -82,7 +82,7 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
       nil,
       ability:GetSpecialValueFor("splinter_radius"),
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_BASIC,
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
       FIND_ANY_ORDER,
       false
