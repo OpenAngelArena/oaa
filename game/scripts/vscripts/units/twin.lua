@@ -2,13 +2,71 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 
 local ABILITY_empathy = nil
 
-local function SpawnDumbTwin()
+
+local function FarthestHeroInRange(position, range)
+  return FindUnitsInRadius(
+    DOTA_TEAM_NEUTRALS,
+    position,
+    nil,
+    range,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_FARTHEST,
+    false
+  )[1]
+end
+
+local function FindTwin()
+  return FindUnitsInRadius(
+    DOTA_TEAM_NEUTRALS,
+    thisEntity:GetAbsOrigin(),
+    nil,
+    1000,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+    )[1]
+--[[
+  if #unitsInRange == 0 then
+    return nil
+  end
+
+  local i = 1
+  while i <= #unitsInRange do
+    if unitsInRange[i]:GetUnitName() == "npc_dota_boss_twin_dumb" then
+      return unitsInRange[i]
+    end
+  end
+
+  return nil]]
+end
+
+local function HurtHandler(keys)
+  local twin = FindTwin()
+  if twin == nil then
+    return
+  end
+  local target = FarthestHeroInRange(twin:GetAbsOrigin(), 1000)
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+    Position = target:GetAbsOrigin(),
+    Queue = 0
+  })
+end
+
+local function TwinStartup()
+  thisEntity:OnHurt(HurtHandler)
+
   local twin = CreateUnitByName("npc_dota_boss_twin_dumb", thisEntity:GetAbsOrigin(), true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
   twin:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_twin_twin_empathy_buff", {})
 end
 
-function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
+function Spawn (entityKeyValues)
+  thisEntity:SetContextThink( "TwinStartup", partial(TwinStartup, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   ABILITY_empathy = thisEntity:FindAbilityByName("boss_twin_twin_empathy")
