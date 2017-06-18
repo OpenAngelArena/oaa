@@ -1,0 +1,79 @@
+Layer0
+{
+    shader "hero.vfx"
+
+    //---- Effect Proxies ----
+    F_USE_HERO_EFFECTS_PROXY 1
+    F_USE_STATUS_EFFECTS_PROXY 1
+
+    //---- Masks ----
+    F_MASKS_1 1
+    F_MASKS_2 1
+
+    //---- Translucency ----
+    F_TRANSLUCENT 1
+
+    //---- Blend To Full ----
+    g_flEnvMapBlendToFull "0.000"
+    g_flMetalnessBlendToFull "0.000"
+    g_flReflectionsTintByBaseBlendToNone "0.000"
+    g_flSelfIllumBlendToFull "0.000"
+    g_flSpecularBlendToFull "0.000"
+    g_flSpecularExponentBlendToFull "0.000"
+
+    //---- Cloak ----
+    g_flCloakBlurAmount "0.005"
+    g_flCloakIntensity "0.850"
+    g_flCloakRefractAmount "0.100"
+    g_flMaterialCloakFactor "0.000"
+    g_vCloakColorTint "[1.000 1.000 1.000]"
+
+    //---- Color ----
+    g_flDiffuseModulationAmount "1.000"
+    g_flTexCoordRotation "0.000"
+    g_vTexCoordOffset "[0.000 0.000]"
+    g_vTexCoordScale "[1.000 1.000]"
+    TextureColor "materials/models/creeps/neutral_creeps/neutral_black_dragon_color.psd"
+
+    //---- Detail 1 ----
+    g_vDetailTexCoordScale "[1.000 1.000]"
+
+    //---- Detail 2 ----
+    g_flDetail2BlendFactor "0.000"
+    TextureDetail2 "materials/default/default_detail2.tga"
+
+    //---- Fresnel ----
+    TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
+    TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
+    TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
+
+    //---- Lighting ----
+    g_flAmbientScale "1.000"
+    g_flBloomScale "0.000"
+    g_flBloomShift "0.000"
+    g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Mask 1 ----
+    TextureSelfIllumMask "materials/models/props_structures/tower_dragon_black_selfillummask.tga"
+
+    //---- Mask 2 ----
+    TextureRimMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_rimmask.psd"
+    TextureSpecularExponent "materials/models/creeps/neutral_creeps/neutral_black_dragon_specexp.psd"
+    TextureSpecularMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_specmask.psd"
+    TextureTintByBaseMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_basetintmask.psd"
+
+    //---- Normal Map ----
+    TextureNormal "materials/models/creeps/neutral_creeps/neutral_black_dragon_normal.psd"
+
+    //---- Rim ----
+    g_flRimLightScale "1.000"
+    g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Specular ----
+    g_flSpecularExponent "32.000"
+    g_flSpecularScale "1.000"
+    g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Translucency ----
+
+}
