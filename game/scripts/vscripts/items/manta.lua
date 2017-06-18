@@ -61,6 +61,10 @@ end
 function modifier_item_manta_splitted:OnCreated()
 end
 
+function modifier_item_manta_splitted:IsHidden()
+  return true
+end
+
 function modifier_item_manta_splitted:IsDebuff()
   return false
 end
@@ -71,7 +75,7 @@ end
 
 function modifier_item_manta_splitted:OnDestroy()
   local ability = self:GetAbility()
-  local caster = self:GetCaster()
+  local caster = ability:GetCaster()
   local playerID = caster:GetPlayerID()
   local teamID = caster:GetTeam()
   local forwardVector = caster:GetForwardVector()
@@ -107,7 +111,7 @@ function modifier_item_manta_splitted:OnDestroy()
     local position = GetImageLocation(origin, casterIndex, false, imageIndex, images_count)
 
   -- Recasting this replaces the illusions from the previous cast which are currently under the owner's control.
-    if image ~= nil and not IsValidEntity(image) then
+    if image ~= nil and IsValidEntity(image) then
       if image:IsAlive() then
         image:ForceKill(false)
       end
@@ -198,14 +202,8 @@ function GetImageLocation(origin, blockedIndex, ignoreBlock, imageIndex, imageCo
      end
    end
 
-   local distance = Vector(360, 360, 0)
-   local theta = (360 / (imageCount - 1)) * imageIndex
-   local cosTheta = math.cos(theta)
-   local sinTheta = math.sin(theta)
-   local position = Vector(0, 0, 0)
+  local distance = 180
+  local theta = (360 / (imageCount - 1)) * imageIndex
 
-   position.x = (origin.x * cosTheta) - (origin.y * sinTheta)
-   position.y = (origin.x * sinTheta) - (origin.y * cosTheta)
-
-   return (origin + position):Normalized()
+  return origin + Vector(math.cos(theta), math.sin(theta)) * distance
 end
