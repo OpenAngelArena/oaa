@@ -175,6 +175,7 @@ function modifier_item_manta_splitted:OnDestroy()
     caster:RemoveNoDraw()
 
     ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
 
     -- Manta Style End
     caster:EmitSound("DOTA_Item.Manta.End")
