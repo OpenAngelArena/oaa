@@ -91,7 +91,7 @@ if IsServer() then
 
 		-- because talents are dumb we need to manually get its value
 		local chanceTalent = 0
-		
+
 		local talent = parent:FindAbilityByName( "special_bonus_unique_slardar" )
 
 		-- we also have to manually check if it's been skilled or not
@@ -100,7 +100,7 @@ if IsServer() then
 		end
 
 		local chance = spell:GetSpecialValueFor( "chance" ) + chanceTalent
-		
+
 		-- we're using the modifier's stack to store the amount of prng failures
 		-- this could be something else but since this modifier is hidden anyway ...
 		local prngMult = self:GetStackCount() + 1
