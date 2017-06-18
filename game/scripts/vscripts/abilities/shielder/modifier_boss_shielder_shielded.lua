@@ -72,15 +72,19 @@ target: hScript
   --DebugPrint(angleCos .. ' : ' .. self:GetAbility():GetSpecialValueFor("sheild_width"))
   if (angleCos > (self:GetAbility():GetSpecialValueFor("shield_width"))) then
     -- Return Damage
-    local damage_return = damage * (ability:GetSpecialValueFor("damage_return_pct"))
-    ApplyDamage({
-      victim = attacker,
-      attacker = parent,
-      damage = damage_return,
-      damage_type = damage_type,
-      damage_flags = damage_flags,
-      ability = ability
-    })
+
+    if not bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+      local damage_return = damage * (ability:GetSpecialValueFor("damage_return_pct"))
+      damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION)
+      ApplyDamage({
+        victim = attacker,
+        attacker = parent,
+        damage = damage_return,
+        damage_type = damage_type,
+        damage_flags = damage_flags,
+        ability = ability
+      })
+    end
 
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
