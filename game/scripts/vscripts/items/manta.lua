@@ -109,9 +109,7 @@ function modifier_item_manta_splitted:OnDestroy()
   -- Recasting this replaces the illusions from the previous cast which are currently under the owner's control.
     if image ~= nil and not IsValidEntity(image) then
       if image:IsAlive() then
-        position = image:GetAbsOrigin()
         image:ForceKill(false)
-        image = nil
       end
     end
 
