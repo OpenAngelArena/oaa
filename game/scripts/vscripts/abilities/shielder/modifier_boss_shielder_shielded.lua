@@ -73,7 +73,7 @@ target: hScript
   if (angleCos > (self:GetAbility():GetSpecialValueFor("shield_width"))) then
     -- Return Damage
 
-    if not bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+    if not bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
       local damage_return = damage * (ability:GetSpecialValueFor("damage_return_pct"))
       damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION)
       ApplyDamage({
