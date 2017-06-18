@@ -27,6 +27,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_greater_phase_boots", context)
   PrecacheItemByNameSync("item_greater_power_treads", context)
   PrecacheItemByNameSync("item_dagon", context)
+  PrecacheItemByNameSync("item_manta", context)
 
   PrecacheUnitByNameSync("dota_fountain", context)
   PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
