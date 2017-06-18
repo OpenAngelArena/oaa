@@ -89,8 +89,13 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
     )
     -- Exclude the original attack target from list of units to splinter to
     table.remove(units, index(keys.target, units))
+    -- Take only neutral unit types to avoid targeting summons
+    local function IsNeutralUnitType(unit)
+      return unit:IsNeutralUnitType()
+    end
+    neutralUnits = filter(IsNeutralUnitType, units)
     -- Take the first splinter_number units to split to
-    units = take_n(ability:GetSpecialValueFor("splinter_count"), units)
+    nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
 
     -- Default to Drow Ranger's projectile
     local projectileName = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
@@ -118,7 +123,7 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
       ProjectileManager:CreateTrackingProjectile(projectileData)
     end
 
-    foreach(CreateSplinterProjectile, units)
+    foreach(CreateSplinterProjectile, nUnits)
   end
 end
 
