@@ -7,11 +7,11 @@ Layer0
     F_USE_STATUS_EFFECTS_PROXY 1
 
     //---- Masks ----
-    F_MASKS_1 1
+    F_MASKS_1 0
     F_MASKS_2 1
 
     //---- Translucency ----
-    F_TRANSLUCENT 1
+    F_TRANSLUCENT 0
 
     //---- Blend To Full ----
     g_flEnvMapBlendToFull "0.000"
@@ -33,19 +33,14 @@ Layer0
     g_flTexCoordRotation "0.000"
     g_vTexCoordOffset "[0.000 0.000]"
     g_vTexCoordScale "[1.000 1.000]"
-    TextureColor "materials/models/creeps/neutral_creeps/neutral_black_dragon_color.psd"
+    TextureColor "materials/models/creeps/neutral_creeps/neutral_black_dragon_color_psd_53913b73.png"
 
     //---- Detail 1 ----
     g_vDetailTexCoordScale "[1.000 1.000]"
 
     //---- Detail 2 ----
-    g_flDetail2BlendFactor "0.000"
-    TextureDetail2 "materials/default/default_detail2.tga"
 
     //---- Fresnel ----
-    TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
-    TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
-    TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
 
     //---- Lighting ----
     g_flAmbientScale "1.000"
@@ -54,16 +49,12 @@ Layer0
     g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
     //---- Mask 1 ----
-    TextureSelfIllumMask "materials/models/props_structures/tower_dragon_black_selfillummask.tga"
 
     //---- Mask 2 ----
-    TextureRimMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_rimmask.psd"
-    TextureSpecularExponent "materials/models/creeps/neutral_creeps/neutral_black_dragon_specexp.psd"
-    TextureSpecularMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_specmask.psd"
-    TextureTintByBaseMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_basetintmask.psd"
+    TextureSpecularMask "materials/models/creeps/neutral_creeps/neutral_black_dragon_specmask_psd_5026c504.png"
 
     //---- Normal Map ----
-    TextureNormal "materials/models/creeps/neutral_creeps/neutral_black_dragon_normal.psd"
+    TextureNormal "materials/models/creeps/neutral_creeps/neutral_black_dragon_normal_psd_c1e268d2.png"
 
     //---- Rim ----
     g_flRimLightScale "1.000"

@@ -11,7 +11,7 @@ Layer0
     F_MASKS_2 1
 
     //---- Translucency ----
-    F_TRANSLUCENT 1
+    F_TRANSLUCENT 0
 
     //---- Blend To Full ----
     g_flEnvMapBlendToFull "0.000"
@@ -39,13 +39,8 @@ Layer0
     g_vDetailTexCoordScale "[1.000 1.000]"
 
     //---- Detail 2 ----
-    g_flDetail2BlendFactor "0.000"
-    TextureDetail2 "materials/default/default_detail2.tga"
 
     //---- Fresnel ----
-    TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
-    TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
-    TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
 
     //---- Lighting ----
     g_flAmbientScale "1.000"
@@ -54,18 +49,13 @@ Layer0
     g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
     //---- Mask 1 ----
-    TextureDetailMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_detailmask.tga"
-    TextureMetalnessMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_metalnessmask.tga"
-    TextureSelfIllumMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_selfillummask.tga"
+    TextureDetailMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_detailmask_tga_b5116f59.png"
 
     //---- Mask 2 ----
-    TextureRimMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_rimmask.tga"
-    TextureSpecularExponent "materials/models/creeps/neutral_creeps/neutral_kobold_a_specexp.tga"
-    TextureSpecularMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_specmask.tga"
-    TextureTintByBaseMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_basetintmask.tga"
+    TextureSpecularMask "materials/models/creeps/neutral_creeps/neutral_kobold_a_specmask_tga_c5247dc3.png"
 
     //---- Normal Map ----
-    TextureNormal "materials/models/creeps/neutral_creeps/neutral_kobold_a_normal.psd"
+    TextureNormal "materials/models/creeps/neutral_creeps/neutral_kobold_a_normal_psd_24e009be.png"
 
     //---- Rim ----
     g_flRimLightScale "1.000"
