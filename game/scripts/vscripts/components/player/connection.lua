@@ -4,11 +4,6 @@ if PlayerConnection == nil then
   PlayerConnection = class({})
 end
 
-function PlayerConnection:Init()
-  Timers:CreateTimer(Dynamic_Wrap(self, Think))
-  self.countdown = nil
-end
-
 function PlayerConnection:Think()
   local goodTeamPlayerCount = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
   local badTeamPlayerCount = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
@@ -16,7 +11,7 @@ function PlayerConnection:Think()
   local emptyTeam = nil
 
   if goodTeamPlayerCount == 0 and badTeamPlayerCount == 0 then
-    MakeTeamLose(DOTA_TEAM_GOODGUYS) -- don't trigger GDS and end game
+    GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS) -- don't trigger GDS and end game
   elseif goodTeamPlayerCount == 0 then
     emptyTeam = DOTA_TEAM_GOODGUYS
   elseif badTeamPlayerCount == 0 then
@@ -43,4 +38,9 @@ function PlayerConnection:Think()
   end
 
   return 1
+end
+
+function PlayerConnection:Init()
+  Timers:CreateTimer(Dynamic_Wrap(self, Think))
+  self.countdown = nil
 end
