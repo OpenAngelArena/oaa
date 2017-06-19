@@ -4,6 +4,13 @@ if PlayerConnection == nil then
   PlayerConnection = class({})
 end
 
+function PlayerConnection:Init()
+  Timers:CreateTimer(function()
+    return self:Think()
+  end)
+  self.countdown = nil
+end
+
 function PlayerConnection:Think()
   local goodTeamPlayerCount = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
   local badTeamPlayerCount = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
@@ -38,9 +45,4 @@ function PlayerConnection:Think()
   end
 
   return 1
-end
-
-function PlayerConnection:Init()
-  Timers:CreateTimer(Dynamic_Wrap(self, Think))
-  self.countdown = nil
 end
