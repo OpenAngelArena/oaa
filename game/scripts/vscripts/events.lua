@@ -11,26 +11,9 @@ function GameMode:OnDisconnect(keys)
   DebugPrintTable(keys)
 
   local name = keys.name
-  local networkID = keys.networkid
+  local networkid = keys.networkid
   local reason = keys.reason
-  local userID = keys.userid
-  local playerID = keys.playerid
-  local teamID = PlayerResource:GetTeam(playerID)
-  local opposingTeamID = DOTA_TEAM_GOODGUYS
-  if teamID == DOTA_TEAM_GOODGUYS then
-    opposingTeamID = DOTA_TEAM_BADGUYS
-  end
-  local teamConnectedPlayers = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(teamID))
-
-  if teamConnectedPlayers == 0 then
-    Timers:CreateTimer(300, function()
-      teamConnectedPlayers = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(teamID))
-
-      if teamConnectedPlayers == 0 then
-        PointsManager:SetWinner(opposingTeamID)
-      end
-    end)
-  end
+  local userid = keys.userid
 end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange

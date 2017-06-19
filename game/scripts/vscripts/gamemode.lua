@@ -179,6 +179,7 @@ function GameMode:OnGameInProgress()
   InitModule(BottleCounter)
   InitModule(DuelRunes)
   InitModule(FinalDuel)
+  InitModule(PlayerConnection)
 end
 
 function InitModule(myModule)
