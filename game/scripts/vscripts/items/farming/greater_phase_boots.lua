@@ -93,9 +93,9 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
     local function IsNeutralUnitType(unit)
       return unit:IsNeutralUnitType()
     end
-    neutralUnits = filter(IsNeutralUnitType, units)
+    local neutralUnits = filter(IsNeutralUnitType, units)
     -- Take the first splinter_number units to split to
-    nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
+    local nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
 
     -- Default to Drow Ranger's projectile
     local projectileName = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
