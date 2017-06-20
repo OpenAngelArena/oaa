@@ -4,8 +4,6 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 local ABILITY_shield = nil
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  thisEntity:FindAbilityByName("boss_shielder_shield")
-
   ABILITY_shield = thisEntity:FindAbilityByName("boss_shielder_shield")
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_shield, "modifier_boss_phase_controller", {})
