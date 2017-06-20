@@ -16,13 +16,16 @@ function PlayerConnection:Think()
   local badTeamPlayerCount = length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
 
   local emptyTeam = nil
+  local otherTeam = nil
 
   if goodTeamPlayerCount == 0 and badTeamPlayerCount == 0 then
     GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS) -- don't trigger GDS and end game
   elseif goodTeamPlayerCount == 0 then
     emptyTeam = DOTA_TEAM_GOODGUYS
+    otherTeam = DOTA_TEAM_BADGUYS
   elseif badTeamPlayerCount == 0 then
     emptyTeam = DOTA_TEAM_BADGUYS
+    otherTeam = DOTA_TEAM_GOODGUYS
   end
 
   if not emptyTeam then
@@ -40,7 +43,7 @@ function PlayerConnection:Think()
     })
     self.countdown = self.countdown - 1
   elseif self.countdown == 0 then
-    PointsManager:SetWinner(emptyTeam)
+    PointsManager:SetWinner(otherTeam)
     return -- don't loop again
   end
 
