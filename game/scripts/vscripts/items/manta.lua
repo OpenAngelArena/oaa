@@ -52,12 +52,14 @@ function modifier_item_manta_splitted:CheckState()
 end
 
 function modifier_item_manta_splitted:OnCreated()
-  self.particle = ParticleManager:CreateParticle("particles/items2_fx/manta_phase.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
-  ParticleManager:SetParticleControl(self.particle, 0, self:GetCaster():GetAbsOrigin())
+  if IsServer() then
+    self.particle = ParticleManager:CreateParticle("particles/items2_fx/manta_phase.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+    ParticleManager:SetParticleControl(self.particle, 0, self:GetCaster():GetAbsOrigin())
+  end
 end
 
 function modifier_item_manta_splitted:IsHidden()
-  return true
+  return false
 end
 
 function modifier_item_manta_splitted:IsDebuff()
