@@ -5,7 +5,7 @@
 	m_BoundingBoxMax = [ 256.0, 256.0, 256.0 ]
 	m_nTopology = "PARTICLE_TOPOLOGY_POINTS"
 	m_ConstantNormal = [ 1.0, 0.0, 0.0 ]
-	m_flConstantRadius = 33.0
+	m_flConstantRadius = 42.0
 	m_flConstantLifespan = 0.04
 	m_controlPointConfigurations = 
 	[
@@ -25,7 +25,28 @@
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_Decay"
+			_class = "C_OP_RadiusDecay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -300.0
+			m_flEndTime = 100000000000.0
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 4.0
+			m_flStartScale = 0.1
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flPrevPosScale = 0.0
+			m_bLockRot = true
+		},
+		{
+			_class = "C_OP_Orient2DRelToCP"
+			m_flRotOffset = 90.0
 		},
 	]
 	m_Renderers = 
@@ -43,7 +64,7 @@
 			_class = "C_INIT_RingWave"
 			m_flParticlesPerOrbit = 1.0
 			m_flInitialRadius = 100.0
-			m_flYaw = -108.0
+			m_flYaw = -120.0
 			m_bEvenDistribution = true
 		},
 		{
@@ -65,14 +86,9 @@
 	m_Emitters = 
 	[
 		{
-			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 500.0
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
 		},
 	]
 	m_ConstantColor = [ 213, 0, 31, 255 ]
-	m_Children = 
-	[
-		{
-		},
-	]
 }

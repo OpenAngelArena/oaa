@@ -1,19 +1,54 @@
-LinkLuaModifier("modifier_boss_shielder_shield", "abilities/shielder/boss_shielder_shield.lua", LUA_MODIFIER_MOTION_NONE) --- BATHS HEAVY IMPORTED
-
-modifier_boss_shielder_shielded_buff = class({})
+modifier_boss_shielder_shielded_buff = class(ModifierBaseClass)
 
 function modifier_boss_shielder_shielded_buff:DeclareFunctions()
   return
   {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_EVENT_ON_DEATH
   }
 end
 
+function modifier_boss_shielder_shielded_buff:CreateParticle(level)
+  local particleIndexKey = "particlePhase" .. level
+  if not self[particleIndexKey] then
+    local caster = self:GetCaster()
+    local particleName = "particles/shielder/hex_shield_" .. level .. ".vpcf"
+    self[particleIndexKey] = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
+  end
+end
+
+function modifier_boss_shielder_shielded_buff:DestroyParticle(level)
+  local particleIndexKey = "particlePhase" .. level
+  if self[particleIndexKey] then
+    ParticleManager:DestroyParticle(self[particleIndexKey], false)
+    ParticleManager:ReleaseParticleIndex(self[particleIndexKey])
+    self[particleIndexKey] = nil
+  end
+end
+
 function modifier_boss_shielder_shielded_buff:OnCreated()
-  local caster = self:GetCaster()
-  local particle = ParticleManager:CreateParticle("particles/shielder/hex_shield_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-  ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
+  if IsServer() then
+    self:GetAbility().intrinsicMod = self
+    self:CreateParticle(1)
+  end
+end
+
+function modifier_boss_shielder_shielded_buff:OnRefresh()
+  if IsServer() then
+    self:GetAbility().intrinsicMod = self
+  end
+end
+
+function modifier_boss_shielder_shielded_buff:OnPhaseChanged(level)
+  local levelsToCreate, levelsToDestroy = span(partial(op.ge, level), range(3))
+  foreach(partial(self.DestroyParticle, self), levelsToDestroy)
+  foreach(partial(self.CreateParticle, self), levelsToCreate)
+end
+
+function modifier_boss_shielder_shielded_buff:OnDeath(keys)
+  if keys.unit == self:GetParent() then
+    foreach(partial(self.DestroyParticle, self), range(3))
+  end
 end
 
 function modifier_boss_shielder_shielded_buff:IsHidden()
