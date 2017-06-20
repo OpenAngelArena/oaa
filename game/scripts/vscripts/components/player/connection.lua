@@ -38,7 +38,7 @@ function PlayerConnection:Think()
   if self.countdown and self.countdown > 0 then
     -- TODO: Show Nice Message
     Notifications:TopToAll({
-      text=self.countdown .. " seconds until " .. GetTeamName(emptyTeam) .. " will win",
+      text=self.countdown .. " seconds until " .. GetTeamName(otherTeam) .. " will win",
       duration=1
     })
     self.countdown = self.countdown - 1
