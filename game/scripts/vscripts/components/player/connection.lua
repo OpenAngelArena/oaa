@@ -19,7 +19,7 @@ function PlayerConnection:Think()
   local otherTeam = nil
 
   if goodTeamPlayerCount == 0 and badTeamPlayerCount == 0 then
-    GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS) -- don't trigger GDS and end game
+    PointsManager:SetWinner(DOTA_TEAM_NEUTRALS)
   elseif goodTeamPlayerCount == 0 then
     emptyTeam = DOTA_TEAM_GOODGUYS
     otherTeam = DOTA_TEAM_BADGUYS
