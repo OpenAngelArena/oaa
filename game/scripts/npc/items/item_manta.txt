@@ -6,7 +6,8 @@
   "item_recipe_manta"  "REMOVED"
   "item_recipe_manta_1"
   {
-    "ID"                                                  "3146"    // unique ID
+    "ID"                                                  "3646"    // unique ID
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
     "FightRecapLevel"                                     "1"
@@ -28,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3647"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/manta.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
