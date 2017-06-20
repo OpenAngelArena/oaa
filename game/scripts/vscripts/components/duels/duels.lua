@@ -269,8 +269,8 @@ function Duels:ActuallyStartDuel (options)
     self.zone1.addPlayer(goodGuy.id)
     self.zone1.addPlayer(badGuy.id)
 
-    self:MoveCameraToPlayer(goodGuy.id, goodHero)
-    self:MoveCameraToPlayer(badGuy.id, badHero)
+    MoveCameraToPlayer(goodHero)
+    MoveCameraToPlayer(badHero)
 
     -- stop player action
     goodHero:Stop()
@@ -308,8 +308,8 @@ function Duels:ActuallyStartDuel (options)
     self.zone2.addPlayer(goodGuy.id)
     self.zone2.addPlayer(badGuy.id)
 
-    self:MoveCameraToPlayer(goodGuy.id, goodHero)
-    self:MoveCameraToPlayer(badGuy.id, badHero)
+    MoveCameraToPlayer(goodHero)
+    MoveCameraToPlayer(badHero)
 
     -- stop player action
     goodHero:Stop()
@@ -361,14 +361,6 @@ function Duels:ActuallyStartDuel (options)
       end
     })
   end
-end
-
-function Duels:MoveCameraToPlayer (playerId, entity)
-  PlayerResource:SetCameraTarget(playerId, entity)
-
-  Timers:CreateTimer(1, function ()
-    PlayerResource:SetCameraTarget(playerId, nil)
-  end)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
@@ -449,7 +441,7 @@ function Duels:EndDuel ()
       end
 
       self:RestorePlayerState (hero, state)
-      self:MoveCameraToPlayer(state.id, hero)
+      MoveCameraToPlayer(hero)
       self:PurgeAfterDuel(hero)
     end)
     -- Remove Modifier

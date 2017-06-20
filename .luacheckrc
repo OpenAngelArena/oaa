@@ -117,6 +117,8 @@ read_globals = { -- these globals can only be accessed.
 "ShowWearables",
 "GetShortTeamName",
 "IsInTrigger",
+"MoveCameraToPlayer",
+"MoveCameraToEntity",
 
 
 "ACT_MELEE_VM_RELOAD",
