@@ -3,16 +3,17 @@
   //=================================================================================================================
   // Recipe: Manta Style
   //=================================================================================================================
-  "item_recipe_manta"
+  "item_recipe_manta"  "REMOVED"
+  "item_recipe_manta_1"
   {
-    "ID"                                                  "146"    // unique ID
+    "ID"                                                  "3146"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
     "FightRecapLevel"                                     "1"
     "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_manta"
-    "AbilityTextureName"                                  "item_recipe"
+    "ItemResult"                                          "item_manta_1"
     "ItemRequirements"
     {
       "01"                                                "item_yasha;item_ultimate_orb"
@@ -22,13 +23,14 @@
   //=================================================================================================================
   // Manta Style
   //=================================================================================================================
-  "item_manta"
+  "item_manta"  "REMOVED"
+  "item_manta_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    //"BaseClass"                                           "item_lua"
-    //"ScriptFile"                                          "items/manta.lua"
+    "ID"                                                  "3147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/manta.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
@@ -38,7 +40,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_manta;item_manta_2;item_manta_3"
+    "UpgradesItems"                                       "item_manta_1;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

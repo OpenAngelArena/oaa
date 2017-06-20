@@ -16,10 +16,10 @@
     "ItemResult"                                          "item_manta_2"
     "ItemRequirements"
     {
-      "01"                                                "item_manta;item_upgrade_core"
-      "02"                                                "item_manta;item_upgrade_core_2"
-      "03"                                                "item_manta;item_upgrade_core_3"
-      "04"                                                "item_manta;item_upgrade_core_4"
+      "01"                                                "item_manta_1;item_upgrade_core"
+      "02"                                                "item_manta_1;item_upgrade_core_2"
+      "03"                                                "item_manta_1;item_upgrade_core_3"
+      "04"                                                "item_manta_1;item_upgrade_core_4"
     }
   }
 
@@ -42,7 +42,8 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_manta_2;item_manta_3"
+    "UpgradesItems"                                       "item_manta_2;item_manta_3;item_manta_4;item_manta_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"

@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_illusion", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_manta_splitted", "items/manta.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_manta = class(ItemBaseClass)
+item_manta_1 = item_manta
 item_manta_2 = item_manta
 item_manta_3 = item_manta
 item_manta_4 = item_manta

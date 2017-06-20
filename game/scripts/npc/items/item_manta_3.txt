@@ -8,12 +8,12 @@
     "ID"                                                  "3173"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
     "FightRecapLevel"                                     "1"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_manta_3"
-    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
       "01"                                                "item_manta_2;item_upgrade_core_2"
@@ -41,7 +41,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_manta_3"
+    "UpgradesItems"                                       "item_manta_3;item_manta_4;item_manta_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
