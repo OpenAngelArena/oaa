@@ -18,7 +18,7 @@
     "HasScepterUpgrade"                                   "1"
 
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
-    "AbilityCooldown"                                     "60 50 40 30 20"
+    "AbilityCooldown"                                     "60 50 40 35 30"
     "AbilityManaCost"                                     "150 75 0 0 0"  
     
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "16 16 16 12 8"
+        "cooldown_scepter"                                "16 16 16 14 12"
       }  
       "02"
       {
