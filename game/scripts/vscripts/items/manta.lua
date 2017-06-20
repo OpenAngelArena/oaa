@@ -59,7 +59,7 @@ function modifier_item_manta_splitted:OnCreated()
 end
 
 function modifier_item_manta_splitted:IsHidden()
-  return false
+  return true
 end
 
 function modifier_item_manta_splitted:IsDebuff()
@@ -99,7 +99,7 @@ function modifier_item_manta_splitted:OnDestroy()
     -- Place Caster
     FindClearSpaceForUnit(caster, GetImageLocation(caster:GetAbsOrigin(), casterIndex, true, casterIndex, images_count), true)
 
-    --DebugDrawSphere(origin, Vector(255, 0, 0), 255, 360, true, 20)
+    --DebugDrawSphere(origin, Vector(255, 0, 0), 255, 256, true, 20)
 
     for imageIndex = 0,images_count do
       local image = ability.images[imageIndex]
@@ -201,8 +201,9 @@ function GetImageLocation(origin, blockedIndex, ignoreBlock, imageIndex, imageCo
     end
   end
 
-  local distance = 128
-  local theta = (360 / (imageCount - 1)) * imageIndex
+  local distance = 256
+  local theta = (360 / imageCount) * (imageIndex - 1)
+  --print(theta .. " = (360 / " .. imageCount .. ") * (" .. imageIndex .. " - 1)")
 
   return origin + Vector(math.cos(theta), math.sin(theta)) * distance
 end
