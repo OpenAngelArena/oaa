@@ -129,7 +129,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 			}
 
 			ApplyDamage( damageTable )
-			EmitSoundOn( "DOTA_Item.BladeMail.Damage", kv.attacker )
+			EmitSoundOnClient( "DOTA_Item.BladeMail.Damage", kv.attacker:GetPlayerOwner() )
 
 			local martyr_heal_aoe = self:GetAbility():GetSpecialValueFor( "martyr_heal_aoe" )
 			local martyr_heal_percent = self:GetAbility():GetSpecialValueFor( "martyr_heal_percent" )
