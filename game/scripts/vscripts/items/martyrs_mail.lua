@@ -112,15 +112,11 @@ end
 function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 	if IsServer() then
 		local hCaster = self:GetParent()
+    local shouldNotReflect = kv.attacker == hCaster or -- Prevent reflecting self-damage
+      bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION -- Prevent reflecting damage with no-reflect flag
 
-    -- Prevent reflecting self-damage
-    if kv.attacker == hCaster then
+    if shouldNotReflect then
       return
-    end
-
-    --Prevent reflecting damage with no-reflect flag
-    if bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-	    return
     end
 
 		if kv.unit == hCaster then
