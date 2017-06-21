@@ -14,7 +14,6 @@ function GameMode:OnDisconnect(keys)
   local networkid = keys.networkid
   local reason = keys.reason
   local userid = keys.userid
-
 end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
