@@ -123,8 +123,8 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 			local damageTable = {
 				victim = kv.attacker,
 				attacker = hCaster,
-				damage_flag = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
 				damage = kv.original_damage,
+				damage_flag = bit.bor(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
 				damage_type = kv.damage_type
 			}
 
