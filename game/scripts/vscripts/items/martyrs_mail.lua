@@ -112,28 +112,24 @@ end
 function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 	if IsServer() then
 		local hCaster = self:GetParent()
+    local shouldNotReflect = kv.attacker == hCaster or -- Prevent reflecting self-damage
+      bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION -- Prevent reflecting damage with no-reflect flag
 
-    -- Prevent reflecting self-damage
-    if kv.attacker == hCaster then
+    if shouldNotReflect then
       return
-    end
-
-    --Prevent reflecting damage with no-reflect flag
-    if bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-	    return
     end
 
 		if kv.unit == hCaster then
 			local damageTable = {
 				victim = kv.attacker,
 				attacker = hCaster,
-				damage = kv.damage,
-				damage_flag = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
+				damage = kv.original_damage,
+				damage_flag = bit.bor(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
 				damage_type = kv.damage_type
 			}
 
 			ApplyDamage( damageTable )
-			EmitSoundOn( "DOTA_Item.BladeMail.Damage", kv.attacker )
+			EmitSoundOnClient( "DOTA_Item.BladeMail.Damage", kv.attacker:GetPlayerOwner() )
 
 			local martyr_heal_aoe = self:GetAbility():GetSpecialValueFor( "martyr_heal_aoe" )
 			local martyr_heal_percent = self:GetAbility():GetSpecialValueFor( "martyr_heal_percent" )
