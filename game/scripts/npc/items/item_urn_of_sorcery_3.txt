@@ -141,7 +141,8 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"OnSpellStart"
 	{
-		"SpendCharge" {}
+		"SpendCharge" 
+		{}
 		"ApplyModifier"
 		{	
 			"ModifierName"                                "modifier_item_urn_of_sorcery_3_heal"
