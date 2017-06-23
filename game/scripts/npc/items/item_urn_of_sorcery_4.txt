@@ -1,39 +1,37 @@
 "DOTAItems"
 {
-  "item_recipe_urn_of_sorcery_2"
+  "item_recipe_urn_of_sorcery_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3237"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3267"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "19500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_urn_of_sorcery_2"
+    "ItemResult"                                          "item_urn_of_sorcery_4"
     "ItemRequirements"
     {
-      "01"                                                "item_urn_of_sorcery;item_upgrade_core_2"
-      "02"                                                "item_urn_of_sorcery;item_upgrade_core_3"
-      "03"                                                "item_urn_of_sorcery;item_upgrade_core_4"
+      "01"                                                "item_urn_of_sorcery_3;item_upgrade_core_4"
     }
   }
 
-  "item_urn_of_sorcery_2"
+  "item_urn_of_sorcery_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3239"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3269"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/urn_of_sorcery_2"
+    "AbilityTextureName"                                  "custom/urn_of_sorcery_4"
 	
 	
 	"AbilityCooldown"                                     "13.0"
@@ -41,14 +39,14 @@
     "AbilityCastRange"                                    "1400"
 	
 	
-    "ItemCost"                                            "8715"
+    "ItemCost"                                            "36715"
 	"ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "magic wand"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
 	"MaxUpgradeLevel"                                     "4"
-	"ItemBaseLevel"                                       "2"
+	"ItemBaseLevel"                                       "4"
 	"ItemAlertable"                                       "1"
 	"ItemSellable"                                        "1"
 	
@@ -147,7 +145,7 @@
 		}
 		"ApplyModifier"
 		{	
-			"ModifierName"                                "modifier_item_urn_of_sorcery_2_heal"
+			"ModifierName"                                "modifier_item_urn_of_sorcery_4_heal"
 			"Target"
             {
                 "Center"                                  "CASTER"
@@ -159,7 +157,7 @@
 		}
 		"ApplyModifier"
 		{	
-			"ModifierName"                                "modifier_item_urn_of_sorcery_2_damage"
+			"ModifierName"                                "modifier_item_urn_of_sorcery_4_damage"
 			"Target"
             {
                 "Center"                                  "CASTER"
@@ -193,7 +191,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"Modifiers"
 	{
-	  "modifier_item_urn_of_sorcery_2"
+	  "modifier_item_urn_of_sorcery_4"
 	  {
 	    "Passive"                                         "1"
 		"IsHidden"                                        "1"
@@ -208,7 +206,7 @@
 		  "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_all_stats"
 		}
 	  }
-	  "modifier_item_urn_of_sorcery_2_heal"
+	  "modifier_item_urn_of_sorcery_4_heal"
 	  {
 	    "Duration"                                        "%soul_heal_duration"
 		"Passive"                                         "0"
@@ -228,11 +226,11 @@
 		    "ScriptFile"                                  "items/urn_of_sorcery.lua"
 		    "Function"                                    "urn_of_sorcery_on_damage_taken"
 			"Damage"                                      "%attack_damage"
-			"ModifierName"                                "modifier_item_urn_of_sorcery_2_heal"
+			"ModifierName"                                "modifier_item_urn_of_sorcery_4_heal"
 		  }
 		}
 	  }
-	  "modifier_item_urn_of_sorcery_2_damage"
+	  "modifier_item_urn_of_sorcery_4_damage"
 	  {
 	    "Duration"                                        "%soul_damage_duration"
 		"Passive"                                         "0"
@@ -253,17 +251,17 @@
 		}
 	  }
 	
-	  "modifier_item_urn_of_sorcery_2_charge_aura_emitter"
+	  "modifier_item_urn_of_sorcery_4_charge_aura_emitter"
 	  {
 	    "Passive"				                          "1"
 	    "IsHidden"				                          "1"	
-	    "Aura" 					                          "modifier_item_urn_of_sorcery_2_charge_aura"
+	    "Aura" 					                          "modifier_item_urn_of_sorcery_4_charge_aura"
 	    "Aura_Radius" 			                          "%charge_radius"
 	    "Aura_Teams" 			                          "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "Aura_Types" 			                          "DOTA_UNIT_TARGET_HERO"
 	    "Aura_ApplyToCaster" 	                          "0"
 	  }
-	  "modifier_item_urn_of_sorcery_2_charge_aura"
+	  "modifier_item_urn_of_sorcery_4_charge_aura"
 	  {
 	    "Passive"                                         "0"
 	    "IsHidden"                                        "1"
@@ -279,20 +277,20 @@
 		  }
 	    }
 	  }
-	  "modifier_item_urn_of_sorcery_2_heal_aura_emitter"
+	  "modifier_item_urn_of_sorcery_4_heal_aura_emitter"
 	  {
 	    "Passive"                                         "1"
 		"IsHidden"                                        "1"
 		
 		
-		"Aura"                                            "modifier_item_urn_of_sorcery_2_heal_aura"
+		"Aura"                                            "modifier_item_urn_of_sorcery_4_heal_aura"
 		"Aura_Radius"                                     "%heal_aura_radius"
 		"Aura_Teams"                                      "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"Aura_Types"                                      "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"Aura_Flags"                                      "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"Aura_ApplyToCaster" 	                          "1"
 	  }
-	  "modifier_item_urn_of_sorcery_2_heal_aura"
+	  "modifier_item_urn_of_sorcery_4_heal_aura"
 	  {
 	    "Passive"                                         "0"
 		"IsHidden"                                        "0"
