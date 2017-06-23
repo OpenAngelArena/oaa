@@ -59,5 +59,5 @@ function CheckLevelUpOnSelectionChange (data) {
     player: player,
     selectedEntity: selectedEntity,
     level: level
-  })
+  });
 }
