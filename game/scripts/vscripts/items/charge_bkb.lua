@@ -113,16 +113,12 @@ function modifier_item_charge_bkb:OnAbilityFullyCast(keys)
   )
 
   -- Only allow 1 Charge BKB to gain charges
-  local function IsFirstCBKBModifier()
-    return parent:FindModifierByName("modifier_item_charge_bkb") == self
-  end
+  local isFirstCBKBModifier = parent:FindModifierByName("modifier_item_charge_bkb") == self
 
-  local function UnitIsInRange()
-    local distanceToUnit = #(parent:GetAbsOrigin() - keys.unit:GetAbsOrigin())
-    return distanceToUnit <= chargeBkb:GetSpecialValueFor("charge_radius")
-  end
+  local distanceToUnit = #(parent:GetAbsOrigin() - keys.unit:GetAbsOrigin())
+  local unitIsInRange = distanceToUnit <= chargeBkb:GetSpecialValueFor("charge_radius")
 
-  if filterResult == UF_SUCCESS and IsFirstCBKBModifier() and keys.ability:ProcsMagicStick() and UnitIsInRange() then
+  if filterResult == UF_SUCCESS and isFirstCBKBModifier and keys.ability:ProcsMagicStick() and unitIsInRange then
     chargeBkb:SetCurrentCharges(chargeBkb:GetCurrentCharges() + 1)
     chargeBkb:StartChargeResetTimer()
   end
