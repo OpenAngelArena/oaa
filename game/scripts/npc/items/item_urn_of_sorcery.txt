@@ -42,7 +42,7 @@
     "ID"                                                  "3238"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "item_urn_of_shadows"
+    "AbilityTextureName"                                  "custom/urn_of_sorcery_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0"
