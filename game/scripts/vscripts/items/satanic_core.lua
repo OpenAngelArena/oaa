@@ -1,5 +1,5 @@
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_octarine_vampirism_applier", "modifiers/modifier_octarine_vampirism_applier.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -14,7 +14,7 @@ end
 function item_satanic_core:GetIntrinsicModifierNames()
   return {
     "modifier_item_satanic_core",
-    "modifier_octarine_vampirism_applier"
+    "modifier_octarine_vampirism_buff"
   }
 end
 
