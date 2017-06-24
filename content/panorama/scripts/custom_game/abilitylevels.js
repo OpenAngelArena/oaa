@@ -33,7 +33,7 @@ function CheckLevelUpBubbles (data) {
       if (requiredLevel === -1 || data.level < requiredLevel) {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 0;
-        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = 0;
+        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = 'collapse';
         var levelDot = abilityPanel.FindChildrenWithClassTraverse('next_level')[0];
         if (levelDot) {
           levelDot.style['border'] = '0px none black';
@@ -43,7 +43,7 @@ function CheckLevelUpBubbles (data) {
       } else {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = null;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = null;
-        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = null;
+        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = null;
       }
     });
   });
