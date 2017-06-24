@@ -14,13 +14,16 @@
 
 -PlayerResource:RandomHeroForPlayersWithoutHero()
   Forcibly randoms a hero for any player that has not yet picked a hero
+
+-PlayerResource:IsBotOrPlayerConnected(int id)
+  Returns true if the given player ID is a connected bot or player
 ]]
 function CDOTA_PlayerResource:GetAllTeamPlayerIDs()
   return filter(partial(self.IsValidPlayerID, self), range(0, self:GetPlayerCount()))
 end
 
 function CDOTA_PlayerResource:GetConnectedTeamPlayerIDs()
-  return filter(function(id) return self:GetConnectionState(id) == 2 end, self:GetAllTeamPlayerIDs())
+  return filter(partial(self.IsBotOrPlayerConnected, self), self:GetAllTeamPlayerIDs())
 end
 
 function CDOTA_PlayerResource:GetPlayerIDsForTeam(team)
@@ -28,7 +31,7 @@ function CDOTA_PlayerResource:GetPlayerIDsForTeam(team)
 end
 
 function CDOTA_PlayerResource:GetConnectedTeamPlayerIDsForTeam(team)
-  return filter(function(id) return self:GetConnectionState(id) == 2 end, self:GetPlayerIDsForTeam(team))
+  return filter(partial(self.IsBotOrPlayerConnected, self), self:GetPlayerIDsForTeam(team))
 end
 
 function CDOTA_PlayerResource:RandomHeroForPlayersWithoutHero()
@@ -40,4 +43,9 @@ function CDOTA_PlayerResource:RandomHeroForPlayersWithoutHero()
   end
   local playerIDsWithoutHero = filter(HasNotSelectedHero, self:GetConnectedTeamPlayerIDs())
   foreach(ForceRandomHero, playerIDsWithoutHero)
+end
+
+function CDOTA_PlayerResource:IsBotOrPlayerConnected(id)
+  local connectionState = self:GetConnectionState(id)
+  return connectionState == 2 or connectionState == 1
 end
