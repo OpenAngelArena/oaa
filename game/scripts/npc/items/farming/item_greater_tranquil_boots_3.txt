@@ -61,20 +61,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "95 105 115 125 135"
+        "bonus_movement_speed"                            "90 95 105 115 125"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 5 7 9 11"
+        "bonus_armor"                                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "18 25 35 45 55"
+        "bonus_health_regen"                              "14 18 25 35 45"
       }
       "04"
       {
