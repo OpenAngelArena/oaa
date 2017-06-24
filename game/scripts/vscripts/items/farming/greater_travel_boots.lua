@@ -16,18 +16,6 @@ function item_greater_travel_boots:GetIntrinsicModifierNames()
   }
 end
 
-function item_greater_travel_boots:IsHidden()
-  return true
-end
-
-function item_greater_travel_boots:IsDebuff()
-  return false
-end
-
-function item_greater_travel_boots:IsPurgable()
-  return false
-end
-
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
     local hCaster = self:GetCaster()
@@ -137,6 +125,14 @@ end
 
 function modifier_item_greater_travel_boots:IsHidden()
   return true
+end
+
+function modifier_item_greater_travel_boots:IsDebuff()
+  return false
+end
+
+function modifier_item_greater_travel_boots:IsPurgable()
+  return false
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
