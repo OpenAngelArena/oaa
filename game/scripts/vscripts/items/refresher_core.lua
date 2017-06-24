@@ -64,7 +64,7 @@ function item_refresher_core:OnSpellStart()
   for i = 0, caster:GetAbilityCount() - 1 do
     local ability = caster:GetAbilityByIndex(i)
     if ability and not exempt_ability_table[ability:GetAbilityName()] then
-      local timeLeft = ability:GetCooldownTimeRemaining()
+      ability:RefreshCharges()
       ability:EndCooldown()
     end
   end
