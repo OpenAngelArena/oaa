@@ -1,10 +1,12 @@
-/* global GameEvents, $, FindDotaHudElement */
+/* global GameEvents, $, FindDotaHudElement, Entities */
 
 'use strict';
 
 (function () {
   GameEvents.Subscribe('ability_level_error', DisplayAbilityLevelError);
   GameEvents.Subscribe('check_level_up', CheckLevelUpBubbles);
+  // Handle unit selection changes clientside because server can't get a player's selected units
+  GameEvents.Subscribe('dota_player_update_selected_unit', CheckLevelUpOnSelectionChange);
 }());
 
 function DisplayAbilityLevelError (data) {
@@ -19,18 +21,43 @@ function CheckLevelUpBubbles (data) {
   var canLevelUp = data.canLevelUp;
 
   var abilitiesPanel = FindDotaHudElement('abilities');
+  abilitiesPanel.ApplyStyles(false);
   $.Schedule(0.1, function () {
     abilitiesPanel.Children().forEach(function (abilityPanel, i) {
       var requiredLevel = canLevelUp[i + 1];
-      if (!abilityPanel.BHasClass('could_level_up') || requiredLevel === -1 || data.level < requiredLevel) {
+      abilityPanel.FindChildTraverse('AbilityLevelContainer').Children().forEach(function (levelDot) {
+        levelDot.style['border'] = null;
+        levelDot.style['border-radius'] = null;
+        levelDot.style['box-shadow'] = null;
+      });
+      if (requiredLevel === -1 || data.level < requiredLevel) {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 0;
-        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = 0;
+        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = 'collapse';
+        var levelDot = abilityPanel.FindChildrenWithClassTraverse('next_level')[0];
+        if (levelDot) {
+          levelDot.style['border'] = '0px none black';
+          levelDot.style['border-radius'] = '1px';
+          levelDot.style['box-shadow'] = 'none';
+        }
       } else {
-        abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 1;
-        abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 1;
-        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.opacity = 1;
+        abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = null;
+        abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = null;
+        abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = null;
       }
     });
+  });
+  abilitiesPanel.ApplyStyles(true);
+}
+
+function CheckLevelUpOnSelectionChange (data) {
+  var player = Players.GetLocalPlayer();
+  var selectedEntity = Players.GetSelectedEntities(player)[0];
+  var level = Entities.GetLevel(selectedEntity);
+
+  GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
+    player: player,
+    selectedEntity: selectedEntity,
+    level: level
   });
 }
