@@ -40,10 +40,17 @@ function PlayerConnection:Think()
 
   if self.countdown and self.countdown > 0 then
     -- TODO: Show Nice Message
-    Notifications:TopToAll({
-      text=self.countdown .. " seconds until " .. GetTeamName(otherTeam) .. " will win",
-      duration=1
-    })
+    if otherTeam == DOTA_TEAM_GOODGUYS then
+      Notifications:TopToAll({
+        text=self.countdown .. " seconds until Radiant will win",
+        duration=1
+      })
+    elseif otherTeam == DOTA_TEAM_BADGUYS then
+      Notifications:TopToAll({
+        text=self.countdown .. " seconds until Dire will win",
+        duration=1
+      })
+    end
     self.countdown = self.countdown - 1
   elseif self.countdown == 0 then
     PointsManager:SetWinner(otherTeam)
