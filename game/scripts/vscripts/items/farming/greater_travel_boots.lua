@@ -135,6 +135,10 @@ function modifier_item_greater_travel_boots:IsPurgable()
   return false
 end
 
+function modifier_item_greater_travel_boots:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPE
+end
+
 function modifier_item_greater_travel_boots:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE
