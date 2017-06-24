@@ -9,13 +9,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"35"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
         "ItemRecipe"                    "1"
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -25,7 +25,7 @@
 			"01"						"item_circlet;item_branches;item_branches;item_magic_stick"
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Magic Wand
 	//=================================================================================================================
@@ -37,10 +37,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     	"AbilityTextureName"            "custom/magic_wand_1"
 		"Model"							"models/props_gameplay/magic_wand.vmdl"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0 12.0 11.0 10.0 9.0"
+		"AbilityCooldown"				"13.0 10.0 7.0 4.0 1.0"
 		"AbilitySharedCooldown"			"magicwand"
 		"AbilityCastRange"				"1200"
 
@@ -56,7 +56,7 @@
     	"ItemBaseLevel"                 "1"
         "UpgradesItems"                 "item_magic_wand;item_magic_wand_2;item_magic_wand_3;item_magic_wand_4"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -73,7 +73,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"4 8 16 32 64"
+				"bonus_all_stats"		"4 12 24 48 96"
 			}
 			"04"
 			{
