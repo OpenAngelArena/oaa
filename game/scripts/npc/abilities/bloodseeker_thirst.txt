@@ -22,22 +22,22 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "min_bonus_pct"                                   "75"
-      }      
+      }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "16 24 32 40 48 80"
-      }      
+        "bonus_movement_speed"                            "16 24 32 40 48 64"
+      }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 40 56 120"
-      }    
+        "bonus_damage"                                    "16 24 32 40 48 64"
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_bonus_pct"                                   "25"
-      }  
+      }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
