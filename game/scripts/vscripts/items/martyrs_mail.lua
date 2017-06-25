@@ -19,6 +19,8 @@ function item_martyrs_mail:OnSpellStart()
 end
 
 item_martyrs_mail_2 = class(item_martyrs_mail)
+item_martyrs_mail_3 = class(item_martyrs_mail)
+item_martyrs_mail_4 = class(item_martyrs_mail)
 
 --------------------------------------------------------------------------------
 
