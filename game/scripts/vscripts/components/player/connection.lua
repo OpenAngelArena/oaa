@@ -20,7 +20,7 @@ function PlayerConnection:Think()
 
   -- First check that players exist on both teams and don't start countdown if either team has no players
   if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) == 0 or PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS) == 0 then
-    -- Don't do anything
+    return 1-- Don't do anything
   elseif goodTeamPlayerCount == 0 and badTeamPlayerCount == 0 then
     PointsManager:SetWinner(DOTA_TEAM_NEUTRALS)
   elseif goodTeamPlayerCount == 0 then
