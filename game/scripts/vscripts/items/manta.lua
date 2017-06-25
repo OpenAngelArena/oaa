@@ -159,6 +159,29 @@ function modifier_item_manta_splitted:OnDestroy()
         end
       end
 
+      -- Note: Does not copy duration or other internal data of modifiers
+      -- Primarily for copying Invoker orb modifiers
+      local function CopyModifiers(modifierName, abilityName)
+        local numberOfInstances = #caster:FindAllModifiersByName(modifierName)
+        for i=1,numberOfInstances do
+          image:AddNewModifier(image, image:FindAbilityByName(abilityName), modifierName, {})
+        end
+      end
+      -- Copy Invoker's orbs to image
+      if caster:GetUnitName() == "npc_dota_hero_invoker" then
+        local modifierNames = {
+          "modifier_invoker_quas_instance",
+          "modifier_invoker_wex_instance",
+          "modifier_invoker_exort_instance"
+        }
+        local abilityNames = {
+          "invoker_quas",
+          "invoker_wex",
+          "invoker_exort"
+        }
+        foreach(CopyModifiers, zip(modifierNames, abilityNames))
+      end
+
       --Recreate the caster's items for the image.
       for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_5 do
         local casterItem = caster:GetItemInSlot(itemSlot)
