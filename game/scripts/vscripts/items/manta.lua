@@ -131,7 +131,7 @@ function modifier_item_manta_splitted:OnDestroy()
         position,             --vLocation
         true,                 --bFindClearSpace
         caster,               --hNPCOwner
-        caster:GetPlayerOwner(),                  --hUnitOwner
+        caster:GetOwner(),                  --hUnitOwner
         teamID                --iTeamNumber
       )
 
