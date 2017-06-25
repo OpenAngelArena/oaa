@@ -100,8 +100,10 @@ function modifier_item_manta_splitted:OnDestroy()
     -- Get Caster Position Index
     local casterIndex = RandomInt(1, images_count)
 
+    -- Choose a random north, south, east, west position in the formation
+    local imageOffset = RandomInt(1, 4)
     -- Place Caster
-    FindClearSpaceForUnit(caster, GetImageLocation(caster:GetAbsOrigin(), casterIndex, true, casterIndex, images_count), true)
+    FindClearSpaceForUnit(caster, self.GetImageLocation(origin, casterIndex, true, casterIndex, imageOffset), true)
 
     --DebugDrawSphere(origin, Vector(255, 0, 0), 255, 256, true, 20)
 
@@ -110,7 +112,6 @@ function modifier_item_manta_splitted:OnDestroy()
 
     -- The formation of the owner and the illusions is always the same. One spawns on the owner's cast location and the others randomly on north, east, south or west side each.
     -- Though the formation is always the same, the owner and the illusions take a random position in the formation and have all the same facing angle.
-      local position = GetImageLocation(origin, casterIndex, false, imageIndex, images_count)
 
     -- Recasting this replaces the illusions from the previous cast which are currently under the owner's control.
       if image ~= nil and IsValidEntity(image) then
@@ -118,6 +119,7 @@ function modifier_item_manta_splitted:OnDestroy()
           image:ForceKill(false)
         end
       end
+      local position = self.GetImageLocation(origin, casterIndex, false, imageIndex, imageOffset)
 
       --DebugDrawLine(origin, position, 255, 0, 0, true, 20)
 
@@ -189,24 +191,22 @@ function modifier_item_manta_splitted:OnDestroy()
   end
 end
 
--- Vector GetImageLocation(Vector origin, Integer blockedIndex, Boolean ignoreBlock, Integer imageIndex, Integer imageCount)
-function GetImageLocation(origin, blockedIndex, ignoreBlock, imageIndex, imageCount)
+-- Vector GetImageLocation(Vector origin, Integer blockedIndex, Boolean ignoreBlock, Integer imageIndex, Integer startOffset)
+function modifier_item_manta_splitted.GetImageLocation(origin, blockedIndex, ignoreBlock, imageIndex, startOffset)
   --[[
-  0: Position of Caster
+  1: Position of Caster
   ]]
 
-  if imageIndex == 0 then
+  if not ignoreBlock and imageIndex >= blockedIndex then
+    imageIndex = imageIndex + 1
+  end
+
+  if imageIndex == 1 then
     return origin
   end
 
-  if imageIndex >= blockedIndex then
-    if not ignoreBlock then
-      imageIndex = imageIndex + 1
-    end
-  end
-
-  local distance = 256
-  local theta = (360 / imageCount) * (imageIndex - 1)
+  local distance = 100
+  local theta = (2*math.pi / 4) * (startOffset + imageIndex)
   --print(theta .. " = (360 / " .. imageCount .. ") * (" .. imageIndex .. " - 1)")
 
   return origin + Vector(math.cos(theta), math.sin(theta)) * distance
