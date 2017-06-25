@@ -9,14 +9,19 @@ item_manta_3 = item_manta
 item_manta_4 = item_manta
 item_manta_5 = item_manta
 
+-- Has 30 seconds cooldown for melee heroes and 45 seconds cooldown for ranged heroes.
+function item_manta:GetCooldown(level)
+  local caster = self:GetCaster()
+  if not caster:IsRangedAttacker() then
+    -- Don't use GetLevelSpecialValueFor because for some reason that function doesn't exist on clientside
+    return self:GetSpecialValueFor("cooldown_melee")
+  else
+    return self.BaseClass.GetCooldown(self, level)
+  end
+end
+
 function item_manta:OnSpellStart()
   local caster = self:GetCaster()
-
-  -- Has 30 seconds cooldown for melee heroes and 45 seconds cooldown for ranged heroes.
-  if not caster:IsRangedAttacker() then
-    self:EndCooldown()
-    self:StartCooldown(self:GetSpecialValueFor("cooldown_melee"))
-  end
 
   -- Disjoints projectiles upon cast.
   ProjectileManager:ProjectileDodge(caster)
