@@ -57,8 +57,8 @@ end
 
 function modifier_item_manta_splitted:OnCreated()
   if IsServer() then
-    self.particle = ParticleManager:CreateParticle("particles/items2_fx/manta_phase.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
-    ParticleManager:SetParticleControl(self.particle, 0, self:GetCaster():GetAbsOrigin())
+    local caster = self:GetCaster()
+    self.particle = ParticleManager:CreateParticle("particles/items2_fx/manta_phase.vpcf", PATTACH_ABSORIGIN, caster)
   end
 end
 
