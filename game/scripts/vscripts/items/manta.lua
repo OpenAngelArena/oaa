@@ -84,12 +84,12 @@ function modifier_item_manta_splitted:OnDestroy()
     local origin = caster:GetAbsOrigin()
 
     local images_count = ability:GetSpecialValueFor("images_count")
-    local image_outgoing_damage = ability:GetSpecialValueFor("damage_outgoing_melee")
-    local image_incoming_damage = ability:GetSpecialValueFor("damage_incoming_melee")
+    local image_outgoing_damage = ability:GetSpecialValueFor("damage_outgoing_melee_pct")
+    local image_incoming_damage = ability:GetSpecialValueFor("damage_incoming_melee_pct")
 
     if caster:IsRangedAttacker() then
-      image_outgoing_damage = ability:GetSpecialValueFor("damage_outgoing_ranged")
-      image_incoming_damage = ability:GetSpecialValueFor("damage_incoming_ranged")
+      image_outgoing_damage = ability:GetSpecialValueFor("damage_outgoing_ranged_pct")
+      image_incoming_damage = ability:GetSpecialValueFor("damage_incoming_ranged_pct")
     end
 
 
