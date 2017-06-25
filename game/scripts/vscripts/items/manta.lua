@@ -143,6 +143,7 @@ function modifier_item_manta_splitted:OnDestroy()
       local level = caster:GetLevel()
       for i = 1, level - 1 do
         image:HeroLevelUp(false)
+        HeroProgression:ReduceStatGain(image, i + 1)
       end
 
       --Set the image's available skill points to 0 and teach it the abilities the caster has.
