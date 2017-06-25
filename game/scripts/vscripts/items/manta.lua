@@ -125,90 +125,94 @@ function modifier_item_manta_splitted:OnDestroy()
 
       --DebugDrawLine(origin, position, 255, 0, 0, true, 20)
 
-      image = CreateUnitByName(
-        caster:GetUnitName(), --szUnitName
-        position,             --vLocation
-        true,                 --bFindClearSpace
-        caster,               --hNPCOwner
-        caster:GetOwner(),                  --hUnitOwner
-        teamID                --iTeamNumber
-      )
+      local function ProcessImage(image)
+        image:SetForwardVector(forwardVector)
 
-      image:SetForwardVector(forwardVector)
+        image:SetControllableByPlayer(playerID, true)
 
-      image:SetControllableByPlayer(playerID, true)
+        --Level up the image to the caster's level.
+        local level = caster:GetLevel()
+        for i = 1, level - 1 do
+          image:HeroLevelUp(false)
+          HeroProgression:ReduceStatGain(image, i + 1)
+        end
 
-      --Level up the image to the caster's level.
-      local level = caster:GetLevel()
-      for i = 1, level - 1 do
-        image:HeroLevelUp(false)
-        HeroProgression:ReduceStatGain(image, i + 1)
-      end
-
-      --Set the image's available skill points to 0 and teach it the abilities the caster has.
-      image:SetAbilityPoints(0)
-      for abilityIndex = 0, caster:GetAbilityCount() - 1 do
-        local casterAbility = caster:GetAbilityByIndex(abilityIndex)
-        if casterAbility ~= nil then
-          local imageAbility = image:FindAbilityByName(casterAbility:GetAbilityName())
-          local casterAbilityLevel = casterAbility:GetLevel()
-          if imageAbility ~= nil and casterAbilityLevel > 0 then
-            imageAbility:SetLevel(casterAbility:GetLevel())
+        --Set the image's available skill points to 0 and teach it the abilities the caster has.
+        image:SetAbilityPoints(0)
+        for abilityIndex = 0, caster:GetAbilityCount() - 1 do
+          local casterAbility = caster:GetAbilityByIndex(abilityIndex)
+          if casterAbility ~= nil then
+            local imageAbility = image:FindAbilityByName(casterAbility:GetAbilityName())
+            local casterAbilityLevel = casterAbility:GetLevel()
+            if imageAbility ~= nil and casterAbilityLevel > 0 then
+              imageAbility:SetLevel(casterAbility:GetLevel())
+            end
           end
         end
-      end
 
-      -- Note: Does not copy duration or other internal data of modifiers
-      -- Primarily for copying Invoker orb modifiers
-      local function CopyModifiers(modifierName, abilityName)
-        local numberOfInstances = #caster:FindAllModifiersByName(modifierName)
-        for i=1,numberOfInstances do
-          image:AddNewModifier(image, image:FindAbilityByName(abilityName), modifierName, {})
+        -- Note: Does not copy duration or other internal data of modifiers
+        -- Primarily for copying Invoker orb modifiers
+        local function CopyModifiers(modifierName, abilityName)
+          local numberOfInstances = #caster:FindAllModifiersByName(modifierName)
+          for i=1,numberOfInstances do
+            image:AddNewModifier(image, image:FindAbilityByName(abilityName), modifierName, {})
+          end
         end
-      end
-      -- Copy Invoker's orbs to image
-      if caster:GetUnitName() == "npc_dota_hero_invoker" then
-        local modifierNames = {
-          "modifier_invoker_quas_instance",
-          "modifier_invoker_wex_instance",
-          "modifier_invoker_exort_instance"
-        }
-        local abilityNames = {
-          "invoker_quas",
-          "invoker_wex",
-          "invoker_exort"
-        }
-        foreach(CopyModifiers, zip(modifierNames, abilityNames))
-      end
-
-      --Recreate the caster's items for the image.
-      for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_5 do
-        local casterItem = caster:GetItemInSlot(itemSlot)
-        if casterItem ~= nil then
-          local imageItem = CreateItem(casterItem:GetName(), image, image)
-          image:AddItem(imageItem)
-          imageItem:SetCurrentCharges(casterItem:GetCurrentCharges())
+        -- Copy Invoker's orbs to image
+        if caster:GetUnitName() == "npc_dota_hero_invoker" then
+          local modifierNames = {
+            "modifier_invoker_quas_instance",
+            "modifier_invoker_wex_instance",
+            "modifier_invoker_exort_instance"
+          }
+          local abilityNames = {
+            "invoker_quas",
+            "invoker_wex",
+            "invoker_exort"
+          }
+          foreach(CopyModifiers, zip(modifierNames, abilityNames))
         end
-      end
 
-      -- Set Status
-      image:SetHealth(caster:GetHealth())
-      image:SetMana(caster:GetMana())
+        --Recreate the caster's items for the image.
+        for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_5 do
+          local casterItem = caster:GetItemInSlot(itemSlot)
+          if casterItem ~= nil then
+            local imageItem = CreateItem(casterItem:GetName(), image, image)
+            image:AddItem(imageItem)
+            imageItem:SetCurrentCharges(casterItem:GetCurrentCharges())
+          end
+        end
 
-      -- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
-      image:AddNewModifier(caster, ability, "modifier_illusion", {
-        duration = ability:GetSpecialValueFor("illusion_duration"),
-        outgoing_damage = image_outgoing_damage,
-        incoming_damage = image_incoming_damage
-      })
+        -- Set Status
+        image:SetHealth(caster:GetHealth())
+        image:SetMana(caster:GetMana())
 
-      image:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
+        -- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
+        image:AddNewModifier(caster, ability, "modifier_illusion", {
+          duration = ability:GetSpecialValueFor("illusion_duration"),
+          outgoing_damage = image_outgoing_damage,
+          incoming_damage = image_incoming_damage
+        })
+
+        image:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
+
         image:OnDeath(function()
           image:RemoveSelf()
           image:Destroy()
         end)
 
-      ability.images[imageIndex] = image
+        ability.images[imageIndex] = image
+      end
+
+      CreateUnitByNameAsync(
+        caster:GetUnitName(), --szUnitName
+        position,             --vLocation
+        true,                 --bFindClearSpace
+        caster,               --hNPCOwner
+        caster:GetOwner(),                  --hUnitOwner
+        teamID,                --iTeamNumber
+        ProcessImage
+      )
     end
 
     ParticleManager:DestroyParticle(self.particle, false)
