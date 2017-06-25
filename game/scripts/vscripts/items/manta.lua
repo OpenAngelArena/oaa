@@ -105,7 +105,7 @@ function modifier_item_manta_splitted:OnDestroy()
 
     --DebugDrawSphere(origin, Vector(255, 0, 0), 255, 256, true, 20)
 
-    for imageIndex = 0,images_count do
+    for imageIndex = 1,images_count do
       local image = ability.images[imageIndex]
 
     -- The formation of the owner and the illusions is always the same. One spawns on the owner's cast location and the others randomly on north, east, south or west side each.
