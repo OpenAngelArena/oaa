@@ -152,7 +152,8 @@ function modifier_item_manta_splitted:OnDestroy()
         local casterAbility = caster:GetAbilityByIndex(abilityIndex)
         if casterAbility ~= nil then
           local imageAbility = image:FindAbilityByName(casterAbility:GetAbilityName())
-          if imageAbility ~= nil then
+          local casterAbilityLevel = casterAbility:GetLevel()
+          if imageAbility ~= nil and casterAbilityLevel > 0 then
             imageAbility:SetLevel(casterAbility:GetLevel())
           end
         end
