@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_illusion", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_manta_splitted", "items/manta.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_manta = class(ItemBaseClass)
