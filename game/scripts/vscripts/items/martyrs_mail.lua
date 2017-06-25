@@ -138,7 +138,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 			if #allies > 1 then
 				for _,ally in pairs(allies) do
 					if ally ~= hCaster then
-						ally:Heal( kv.damage * martyr_heal_percent / 100, hCaster )
+						ally:Heal( kv.original_damage * martyr_heal_percent / 100, hCaster )
 					end
 				end
 			end
