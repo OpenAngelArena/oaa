@@ -50,9 +50,8 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_martyrs_mail"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
@@ -69,17 +68,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35"
+        "bonus_damage"                                    "22 35 50 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9"
+        "bonus_armor"                                     "6 14 22 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15"
+        "bonus_intellect"                                 "10 15 22 32"
       }
       "04"
       {
@@ -94,7 +93,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_percent"                             "50 80"
+        "martyr_heal_percent"                             "50 60 75 100"
       }
     }
   }
