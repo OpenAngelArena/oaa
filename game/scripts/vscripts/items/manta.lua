@@ -102,6 +102,16 @@ function modifier_item_manta_splitted:OnDestroy()
 
     -- Choose a random north, south, east, west position in the formation
     local imageOffset = RandomInt(1, 4)
+
+    local function KillImage(image)
+      if IsValidEntity(image) and image:IsAlive() then
+        image:ForceKill(false)
+        image:Destroy()
+      end
+    end
+    -- Kill illusions from previous cast
+    foreach(KillImage, ability.images)
+
     -- Place Caster
     FindClearSpaceForUnit(caster, self.GetImageLocation(origin, casterIndex, true, casterIndex, imageOffset), true)
 
@@ -112,13 +122,6 @@ function modifier_item_manta_splitted:OnDestroy()
 
     -- The formation of the owner and the illusions is always the same. One spawns on the owner's cast location and the others randomly on north, east, south or west side each.
     -- Though the formation is always the same, the owner and the illusions take a random position in the formation and have all the same facing angle.
-
-    -- Recasting this replaces the illusions from the previous cast which are currently under the owner's control.
-      if image ~= nil and IsValidEntity(image) then
-        if image:IsAlive() then
-          image:ForceKill(false)
-        end
-      end
       local position = self.GetImageLocation(origin, casterIndex, false, imageIndex, imageOffset)
 
       --DebugDrawLine(origin, position, 255, 0, 0, true, 20)
