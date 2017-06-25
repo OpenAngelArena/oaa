@@ -164,6 +164,7 @@ function modifier_item_manta_splitted:OnDestroy()
         if casterItem ~= nil then
           local imageItem = CreateItem(casterItem:GetName(), image, image)
           image:AddItem(imageItem)
+          imageItem:SetCurrentCharges(casterItem:GetCurrentCharges())
         end
       end
 
