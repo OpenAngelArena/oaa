@@ -148,7 +148,7 @@ function modifier_item_manta_splitted:OnDestroy()
 
       --Set the image's available skill points to 0 and teach it the abilities the caster has.
       image:SetAbilityPoints(0)
-      for abilityIndex = 0, 15 do
+      for abilityIndex = 0, caster:GetAbilityCount() - 1 do
         local casterAbility = caster:GetAbilityByIndex(abilityIndex)
         if casterAbility ~= nil then
           local imageAbility = image:FindAbilityByName(casterAbility:GetAbilityName())
