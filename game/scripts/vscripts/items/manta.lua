@@ -131,13 +131,12 @@ function modifier_item_manta_splitted:OnDestroy()
         position,             --vLocation
         true,                 --bFindClearSpace
         caster,               --hNPCOwner
-        nil,                  --hUnitOwner
+        caster:GetPlayerOwner(),                  --hUnitOwner
         teamID                --iTeamNumber
       )
 
       image:SetForwardVector(forwardVector)
 
-      image:SetPlayerID(playerID)
       image:SetControllableByPlayer(playerID, true)
 
       --Level up the image to the caster's level.
@@ -183,9 +182,6 @@ function modifier_item_manta_splitted:OnDestroy()
 
       ability.images[imageIndex] = image
     end
-
-    -- Allow Render of Caster
-    caster:RemoveNoDraw()
 
     ParticleManager:DestroyParticle(self.particle, false)
     ParticleManager:ReleaseParticleIndex(self.particle)
