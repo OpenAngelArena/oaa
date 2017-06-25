@@ -106,7 +106,6 @@ function modifier_item_manta_splitted:OnDestroy()
     local function KillImage(image)
       if IsValidEntity(image) and image:IsAlive() then
         image:ForceKill(false)
-        image:Destroy()
       end
     end
     -- Kill illusions from previous cast
@@ -204,6 +203,10 @@ function modifier_item_manta_splitted:OnDestroy()
       })
 
       image:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
+        image:OnDeath(function()
+          image:RemoveSelf()
+          image:Destroy()
+        end)
 
       ability.images[imageIndex] = image
     end
