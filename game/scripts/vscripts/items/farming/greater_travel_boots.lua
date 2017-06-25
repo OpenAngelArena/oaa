@@ -136,7 +136,7 @@ function modifier_item_greater_travel_boots:IsPurgable()
 end
 
 function modifier_item_greater_travel_boots:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
