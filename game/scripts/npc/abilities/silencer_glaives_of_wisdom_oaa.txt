@@ -44,12 +44,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "steal_range"                                     "925" // Might or might not have any effect without custom int steal modifier
+        "steal_range"                                     "925"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "steal_amount"                                    "2" // Has no effect currently. Needs custom int steal modifier.
+        "steal_amount"                                    "2"
       }
       "04"
       {
