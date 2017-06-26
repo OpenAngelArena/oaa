@@ -28,7 +28,7 @@ function modifier_oaa_int_steal:OnDeath(keys)
     parent:GetTeamNumber()
   )
   local isWithinRange = #(keys.unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
-  if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) then
+  if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and keys.unit:IsRealHero() and not keys.unit:IsClone() then
     local oldIntellect = keys.unit:GetBaseIntellect()
     keys.unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))
     keys.unit:CalculateStatBonus()
