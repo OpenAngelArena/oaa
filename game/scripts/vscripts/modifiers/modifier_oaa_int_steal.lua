@@ -19,7 +19,6 @@ function modifier_oaa_int_steal:OnDeath(keys)
   local ability = self:GetAbility()
   local stealRange = ability:GetLevelSpecialValueFor("steal_range", math.max(1, ability:GetLevel()))
   local stealAmount = ability:GetLevelSpecialValueFor("steal_amount", math.max(1, ability:GetLevel()))
-  Debug.EnabledModules["modifiers:modifier_oaa_int_steal"] = true
   local filterResult = UnitFilter(
     keys.unit,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -29,13 +28,21 @@ function modifier_oaa_int_steal:OnDeath(keys)
   )
   local isWithinRange = #(keys.unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
   if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) then
-    DebugPrint("Int Steal")
     local oldIntellect = keys.unit:GetBaseIntellect()
     keys.unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))
     keys.unit:CalculateStatBonus()
     local intellectDifference = oldIntellect - keys.unit:GetBaseIntellect()
     parent:ModifyIntellect(intellectDifference)
     self:SetStackCount(self:GetStackCount() + intellectDifference)
-    -- TODO: Add message number particles
+
+    local plusIntParticleName = "particles/units/heroes/hero_silencer/silencer_last_word_steal_count.vpcf"
+    local plusIntParticle = ParticleManager:CreateParticle(plusIntParticleName, PATTACH_OVERHEAD_FOLLOW, parent)
+    ParticleManager:SetParticleControl(plusIntParticle, 1, Vector(10 + intellectDifference, 0, 0))
+    ParticleManager:ReleaseParticleIndex(plusIntParticle)
+
+    local minusIntParticleName = "particles/units/heroes/hero_silencer/silencer_last_word_victim_count.vpcf"
+    local minusIntParticle = ParticleManager:CreateParticle(minusIntParticleName, PATTACH_OVERHEAD_FOLLOW, keys.unit)
+    ParticleManager:SetParticleControl(minusIntParticle, 1, Vector(10 + intellectDifference, 0, 0))
+    ParticleManager:ReleaseParticleIndex(minusIntParticle)
   end
 end
