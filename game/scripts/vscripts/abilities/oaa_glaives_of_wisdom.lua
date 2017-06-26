@@ -1,12 +1,12 @@
 LinkLuaModifier("modifier_oaa_glaives_of_wisdom", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 
-oaa_glaives_of_wisdom = class(AbilityBaseClass)
+silencer_glaives_of_wisdom_oaa = class(AbilityBaseClass)
 
-function oaa_glaives_of_wisdom:GetIntrinsicModifierName()
+function silencer_glaives_of_wisdom_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_glaives_of_wisdom"
 end
 
-function oaa_glaives_of_wisdom:CastFilterResultTarget(target)
+function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
   local caster = self:GetCaster()
   if caster:HasScepter() and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then

@@ -60,7 +60,7 @@ function GameMode:OnNPCSpawned(keys)
     LinkLuaModifier("modifier_oaa_int_steal", "modifiers/modifier_oaa_int_steal.lua", LUA_MODIFIER_MOTION_NONE)
     Timers:CreateTimer(function()
       npc:RemoveModifierByName("modifier_silencer_int_steal")
-      npc:AddNewModifier(npc, npc:FindAbilityByName("oaa_glaives_of_wisdom"), "modifier_oaa_int_steal", {})
+      npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
     end)
   end
 end
