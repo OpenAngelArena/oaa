@@ -54,6 +54,15 @@ function GameMode:OnNPCSpawned(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
   DecorateNPC(npc)
+
+  -- Replace Silencer's int steal with a custom modifier
+  if npc:GetUnitName() == "npc_dota_hero_silencer" then
+    LinkLuaModifier("modifier_oaa_int_steal", "modifiers/modifier_oaa_int_steal.lua", LUA_MODIFIER_MOTION_NONE)
+    Timers:CreateTimer(function()
+      npc:RemoveModifierByName("modifier_silencer_int_steal")
+      npc:AddNewModifier(npc, npc:FindAbilityByName("oaa_glaives_of_wisdom"), "modifier_oaa_int_steal", {})
+    end)
+  end
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
