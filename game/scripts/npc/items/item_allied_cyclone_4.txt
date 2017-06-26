@@ -1,49 +1,37 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Allied cyclone
-  //=================================================================================================================
-  "item_recipe_allied_cyclone"
+  "item_recipe_allied_cyclone_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3316"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3343"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "15000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_allied_cyclone"
+    "ItemResult"                                          "item_allied_cyclone_4"
     "ItemRequirements"
     {
-      "01"                                                "item_cyclone;item_upgrade_core"
-      "02"                                                "item_cyclone;item_upgrade_core_2"
-      "03"                                                "item_cyclone;item_upgrade_core_3"
-      "04"                                                "item_cyclone;item_upgrade_core_4"
-
+      "01"                                                "item_allied_cyclone_3;item_upgrade_core_4"
     }
   }
 
-
-  //=================================================================================================================
-  // Allied cyclone
-  //=================================================================================================================
-  "item_allied_cyclone"
+  "item_allied_cyclone_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3318"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3345"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/cyclone_2"
-
+    "AbilityTextureName"                                  "custom/cyclone_5"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
     "FightRecapLevel"                                     "1"
@@ -53,8 +41,7 @@
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.0"
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-
+    "ItemBaseLevel"                                       "4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "175"
-    "ItemCost"                                            "4250"
+    "ItemCost"                                            "7750"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "allied_cyclone euls;eul's scepter of divinity"
@@ -105,13 +92,13 @@
       "ApplyModifier"
       {
         "Target"                                          "TARGET"
-        "ModifierName"                                    "modifier_item_allied_cyclone_active"
+        "ModifierName"                                    "modifier_item_allied_cyclone_4_active"
         "Duration"                                        "%allied_cyclone_duration"
       }
     }
     "Modifiers"
     {
-      "modifier_item_allied_cyclone"
+      "modifier_item_allied_cyclone_4"
       {
         "Passive"                                         "1"
         "IsHidden"                                        "1"
@@ -122,7 +109,7 @@
           "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
         }
       }
-      "modifier_item_allied_cyclone_active"
+      "modifier_item_allied_cyclone_4_active"
       {
         "Passive"                                          "0"
         "IsHidden"                                         "1"
