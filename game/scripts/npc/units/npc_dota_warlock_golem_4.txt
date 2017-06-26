@@ -27,14 +27,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "18"    // Physical protection.
+    "ArmorPhysical"                                       "25"    // Physical protection.
     "MagicalResistance"                                   "35"    // Magical protection. 
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "175"    // Damage range min.
-    "AttackDamageMax"                                     "175"    // Damage range max.  
+    "AttackDamageMin"                                     "250"    // Damage range min.
+    "AttackDamageMax"                                     "250"    // Damage range max.  
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -59,7 +59,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "3000"    // Base health.
+    "StatusHealth"                                        "5000"    // Base health.
     "StatusHealthRegen"                                   "125"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
@@ -90,7 +90,7 @@
     "SoundSet"                                            "Hero_WarlockGolem"
     "IsSummoned"                                          "1"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1.0"
+    "ModelScale"                                          "1.2"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "golem"
     "wearable"                                            "8362"
@@ -104,14 +104,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15"      // Physical protection.
+    "ArmorPhysical"                                       "25"      // Physical protection.
     "MagicalResistance"                                   "35"  
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "131"    // Damage range min.
-    "AttackDamageMax"                                     "131"    // Damage range max.  
+    "AttackDamageMin"                                     "187"    // Damage range min.
+    "AttackDamageMax"                                     "187"    // Damage range max.  
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -132,11 +132,11 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "320"    // Speed.
+    "MovementSpeed"                                       "360"    // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2250"    // Base health.
+    "StatusHealth"                                        "3750"    // Base health.
     "StatusHealthRegen"                                   "125"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.     

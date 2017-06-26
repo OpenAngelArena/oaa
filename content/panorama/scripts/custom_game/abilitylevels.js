@@ -53,11 +53,13 @@ function CheckLevelUpBubbles (data) {
 function CheckLevelUpOnSelectionChange (data) {
   var player = Players.GetLocalPlayer();
   var selectedEntity = Players.GetSelectedEntities(player)[0];
-  var level = Entities.GetLevel(selectedEntity);
 
-  GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
-    player: player,
-    selectedEntity: selectedEntity,
-    level: level
-  });
+  if (selectedEntity !== undefined) {
+    var level = Entities.GetLevel(selectedEntity);
+    GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
+      player: player,
+      selectedEntity: selectedEntity,
+      level: level
+    });
+  }
 }
