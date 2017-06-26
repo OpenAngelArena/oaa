@@ -105,9 +105,15 @@
       "ApplyModifier"
       {
         "Target"                                          "TARGET"
-        "ModifierName"                                    "modifier_item_allied_cyclone_active"
+        "ModifierName"                                    "modifier_eul_cyclone"
         "Duration"                                        "%allied_cyclone_duration"
       }
+      "RunScript"
+        {
+          "ScriptFile"                                    "items/allied_cyclone.lua"
+          "Function"                                      "allied_cyclone_Purge"
+          "target"                                        "TARGET"
+        }
     }
     "Modifiers"
     {
@@ -115,45 +121,12 @@
       {
         "Passive"                                         "1"
         "IsHidden"                                        "1"
+        "Attributes"                                      "MODIFIER_ATTRIBUTE_MULTIPLE"
         "Properties"
         {
           "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"         "%bonus_intellect"
           "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"         "%bonus_mana_regen"
           "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
-        }
-      }
-      "modifier_item_allied_cyclone_active"
-      {
-        "Passive"                                          "0"
-        "IsHidden"                                         "1"
-        "IsPurgable"                                       "0"
-        "Duration"                                         "%allied_cyclone_duration"
-
-        "OnCreated"
-        {
-          "ApplyModifier"
-          {
-            "Target"                                        "TARGET"
-            "ModifierName"                                  "modifier_cyclone"
-            "Duration"                                      "%allied_cyclone_duration"
-          }
-          "RunScript"
-          {
-            "ScriptFile"                                     "items/allied_cyclone.lua"
-            "Function"                                       "allied_cyclone_Purge"
-            "target"                                         "TARGET"
-          }
-        }
-
-        "OnDestroy"
-        {
-          "RunScript"
-          {
-            "ScriptFile"                                     "items/allied_cyclone.lua"
-            "Function"                                       "allied_cyclone_damage"
-            "Damage"                                         "50.0"
-            "target"                                         "TARGET"
-          }
         }
       }
     }
