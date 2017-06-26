@@ -10,8 +10,7 @@ end
 
 function modifier_oaa_int_steal:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_DEATH,
-    MODIFIER_EVENT_ON_RESPAWN
+    MODIFIER_EVENT_ON_DEATH
   }
 end
 
@@ -45,13 +44,5 @@ function modifier_oaa_int_steal:OnDeath(keys)
     local minusIntParticle = ParticleManager:CreateParticle(minusIntParticleName, PATTACH_OVERHEAD_FOLLOW, keys.unit)
     ParticleManager:SetParticleControl(minusIntParticle, 1, Vector(10 + intellectDifference, 0, 0))
     ParticleManager:ReleaseParticleIndex(minusIntParticle)
-  end
-end
-
--- Remove vanilla int steal modifier since apparently it reapplies on respawn for some reason
-function modifier_oaa_int_steal:OnRespawn(keys)
-  local parent = self:GetParent()
-  if keys.unit == parent then
-    parent:RemoveModifierByName("modifier_silencer_int_steal")
   end
 end
