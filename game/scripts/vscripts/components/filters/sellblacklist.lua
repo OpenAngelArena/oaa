@@ -6,7 +6,8 @@ end
 
 local ItemSellBlackList = {
   "item_upgrade_core",
-  "item_infinite_bottle"
+  "item_infinite_bottle",
+  "item_farming_core"
 }
 
 function SellBlackList:Init ()
