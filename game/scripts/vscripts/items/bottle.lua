@@ -8,8 +8,7 @@ function item_infinite_bottle:OnSpellStart()
   local restore_time = self:GetSpecialValueFor("restore_time")
   local caster = self:GetCaster()
 
-  -- TODO: This needs testing if executing on Clients only fixed the 'ghost bottle' issue
-  EmitSoundOn("Bottle.Drink", caster)
+  EmitSoundOnClient("Bottle.Drink", caster:GetPlayerOwner())
 
   caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
