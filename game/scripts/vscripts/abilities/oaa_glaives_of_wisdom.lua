@@ -6,13 +6,13 @@ function oaa_glaives_of_wisdom:GetIntrinsicModifierName()
   return "modifier_oaa_glaives_of_wisdom"
 end
 
-function oaa_glaives_of_wisdom:GetAbilityTargetFlags()
-  local defaultFlags = self.BaseClass.GetAbilityTargetFlags(self)
+function oaa_glaives_of_wisdom:CastFilterResultTarget(target)
+  local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
   local caster = self:GetCaster()
-  if caster:HasScepter() then
-    return bit.bor(defaultFlags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+  if caster:HasScepter() and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
+    return UF_SUCCESS
   else
-    return defaultFlags
+    return defaultResult
   end
 end
 
@@ -57,7 +57,7 @@ end
 function modifier_oaa_glaives_of_wisdom:OnAttackStart(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  if keys.attacker == parent and (keys.gain == 0 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() then
+  if keys.attacker == parent and (keys.gain == 0 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
     -- Set projectile
     parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
   end
@@ -75,7 +75,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   local ability = self:GetAbility()
   -- keys.gain ~= keys.gain is to check if it is NaN which seems to always be the case when
   -- an attack modifier ability is cast manually
-  if keys.attacker == parent and (keys.gain ~= keys.gain or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() then
+  if keys.attacker == parent and (keys.gain ~= keys.gain or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
     -- Enable proc for this attack record number
     self.procRecords[keys.record] = true
     -- Using attack modifier abilities doesn't actually fire any cast events so we have to spend the mana here
