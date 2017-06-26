@@ -124,6 +124,16 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
+
+  -- Replace Silencer's int steal with a custom modifier
+  if hero:GetUnitName() == "npc_dota_hero_silencer" then
+    LinkLuaModifier("modifier_oaa_int_steal", "modifiers/modifier_oaa_int_steal.lua", LUA_MODIFIER_MOTION_NONE)
+    Timers:CreateTimer(function()
+      hero:RemoveModifierByName("modifier_silencer_int_steal")
+      hero:AddNewModifier(hero, hero:FindAbilityByName("oaa_glaives_of_wisdom"), "modifier_oaa_int_steal", {})
+    end)
+  end
+
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   --hero:SetGold(500, false)
 
