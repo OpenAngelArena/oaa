@@ -1,9 +1,9 @@
 "DOTAUnits"
 {
 //=================================================================================
-// Warlock: Golem 4
+// Warlock: Golem 3
 //=================================================================================
-  "npc_dota_warlock_golem_4"
+  "npc_dota_warlock_golem_3"
   {                    
     // General
     //----------------------------------------------------------------
@@ -13,7 +13,7 @@
     "IdleSoundLoop"                                       "Hero_WarlockGolem.Spawn_Loop"
     "IsSummoned"                                          "1"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1.2"
+    "ModelScale"                                          "1.1"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "golem"
     "wearable"                                            "8362"
@@ -27,14 +27,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"    // Physical protection.
-    "MagicalResistance"                                   "35"    // Magical protection. 
+    "ArmorPhysical"                                       "15"    // Physical protection.
+    "MagicalResistance"                                   "33"    // Magical protection. 
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "250"    // Damage range min.
-    "AttackDamageMax"                                     "250"    // Damage range max.  
+    "AttackDamageMin"                                     "150"    // Damage range min.
+    "AttackDamageMax"                                     "150"    // Damage range max.  
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -59,8 +59,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "5000"    // Base health.
-    "StatusHealthRegen"                                   "125"    // Health regeneration rate.
+    "StatusHealth"                                        "2500"    // Base health.
+    "StatusHealthRegen"                                   "75"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
     
@@ -81,7 +81,7 @@
     "HasInventory"                                        "0"
   }  
 
-  "npc_dota_warlock_golem_scepter_4"
+  "npc_dota_warlock_golem_scepter_3"
   {                    
     // General
     //----------------------------------------------------------------
@@ -90,7 +90,7 @@
     "SoundSet"                                            "Hero_WarlockGolem"
     "IsSummoned"                                          "1"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1.2"
+    "ModelScale"                                          "1.1"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "golem"
     "wearable"                                            "8362"
@@ -104,14 +104,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "35"  
+    "ArmorPhysical"                                       "15"      // Physical protection.
+    "MagicalResistance"                                   "33"  
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "187"    // Damage range min.
-    "AttackDamageMax"                                     "187"    // Damage range max.  
+    "AttackDamageMin"                                     "112"    // Damage range min.
+    "AttackDamageMax"                                     "112"    // Damage range max.  
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -136,8 +136,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "3750"    // Base health.
-    "StatusHealthRegen"                                   "125"    // Health regeneration rate.
+    "StatusHealth"                                        "1875"    // Base health.
+    "StatusHealthRegen"                                   "75"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
     
