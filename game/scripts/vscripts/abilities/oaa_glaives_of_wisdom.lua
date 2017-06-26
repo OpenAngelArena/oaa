@@ -103,7 +103,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
     }
     ApplyDamage(damageTable)
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, bonusDamage, player)
-    EmitSoundOn("Hero_Silencer.GlaivesOfWisdom.Damage", keys.target)
+    keys.target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
     self.procRecords[keys.record] = nil
   end
 end
