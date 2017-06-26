@@ -38,7 +38,7 @@ function modifier_oaa_glaives_of_wisdom:OnCreated()
       self.procRecords = {}
     end
     self.parentOriginalProjectile = self:GetParent():GetRangedProjectileName()
-    Debug.EnabledModules["abilities:oaa_glaives_of_wisdom"] = true
+    Debug.EnabledModules["abilities:oaa_glaives_of_wisdom"] = false
   end
 end
 
