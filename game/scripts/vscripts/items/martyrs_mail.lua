@@ -14,7 +14,7 @@ function item_martyrs_mail:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
 
-	EmitSoundOn( "DOTA_Item.BladeMail.Activate", hCaster )
+	hCaster:EmitSound( "DOTA_Item.BladeMail.Activate" )
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
 end
 

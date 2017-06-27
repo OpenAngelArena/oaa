@@ -76,7 +76,7 @@ function item_greater_guardian_greaves:OnSpellStart()
       ParticleManager:ReleaseParticleIndex(particleHealNonHero)
     end
 
-    EmitSoundOn("Item.GuardianGreaves.Target", hero)
+    hero:EmitSound("Item.GuardianGreaves.Target")
   end
 
   heroes = iter(heroes)
@@ -88,7 +88,7 @@ function item_greater_guardian_greaves:OnSpellStart()
   local particleCastName = "particles/items3_fx/warmage.vpcf"
   local particleCast = ParticleManager:CreateParticle(particleCastName, PATTACH_ABSORIGIN, caster)
   ParticleManager:ReleaseParticleIndex(particleCast)
-  EmitSoundOn("Item.GuardianGreaves.Activate", caster)
+  caster:EmitSound("Item.GuardianGreaves.Activate")
 end
 
 function item_greater_guardian_greaves:GetIntrinsicModifierName()

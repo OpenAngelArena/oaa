@@ -32,7 +32,7 @@ function item_charge_bkb:OnSpellStart()
   caster:Purge(RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
   caster:AddNewModifier(caster, self, "modifier_black_king_bar_immune", {duration = modifier_duration})
-  EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
+  caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
 
   local modified_cooldown = self:GetSpecialValueFor("cooldown_time_per_charge") * self:GetCurrentCharges() + self:GetCooldown(self:GetLevel())
   self:SetCurrentCharges(0)

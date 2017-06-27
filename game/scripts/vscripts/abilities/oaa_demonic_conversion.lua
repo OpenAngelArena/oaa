@@ -36,7 +36,7 @@ function enigma_demonic_conversion:OnSpellStart()
     eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount})
   end
 
-  EmitSoundOn("Hero_Enigma.Demonic_Conversion", target)
+  target:EmitSound("Hero_Enigma.Demonic_Conversion")
 end
 
 -- Add the filter to disallow use on big creeps (level >= 5)

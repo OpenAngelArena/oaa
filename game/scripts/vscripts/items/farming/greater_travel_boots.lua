@@ -69,8 +69,8 @@ function item_greater_travel_boots:OnSpellStart()
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
 
   -- Teleport sounds
-  EmitSoundOn("Portal.Loop_Disappear", hCaster)
-  EmitSoundOn("Portal.Loop_Appear", hTarget)
+  hCaster:EmitSound("Portal.Loop_Disappear")
+  hTarget:EmitSound("Portal.Loop_Appear")
 
   -- Particle effects
   local teleportFromEffectName = "particles/items2_fx/teleport_start.vpcf"
@@ -118,7 +118,7 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
-  EmitSoundOn("Portal.Hero_Appear", self.targetEntity)
+  self.targetEntity:EmitSound("Portal.Hero_Appear")
 
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
