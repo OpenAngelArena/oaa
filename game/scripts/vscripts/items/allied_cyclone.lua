@@ -11,6 +11,7 @@ function allied_cyclone_damage(keys)
 end
 
 function allied_cyclone_Purge(keys)
+  keys.target:EmitSound("DOTA_Item.Cyclone.Activate")
 	if keys.caster:GetTeam() == keys.target:GetTeam() then
 		keys.target:Purge(false,true,false,false,false)
 	end
