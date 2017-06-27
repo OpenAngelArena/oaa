@@ -87,9 +87,8 @@
         "cast_range_tooltip"                              "575"
       }
     }
-      "OnSpellStart"
+    "OnSpellStart"
     {
-
       "ApplyModifier"
       {
         "Target"                                          "TARGET"
@@ -97,7 +96,7 @@
         "Duration"                                        "%allied_cyclone_duration"
       }
       "RunScript"
-      { 
+      {
         "ScriptFile"                                      "items/allied_cyclone.lua"
         "Function"                                        "allied_cyclone_Purge"
         "target"                                          "TARGET"
