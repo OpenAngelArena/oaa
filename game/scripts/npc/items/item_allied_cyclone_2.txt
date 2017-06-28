@@ -88,13 +88,12 @@
         "cast_range_tooltip"                              "575"
       }
     }
-      "OnSpellStart"
+    "OnSpellStart"
     {
-
       "ApplyModifier"
       {
         "Target"                                          "TARGET"
-        "ModifierName"                                    "modifier_item_allied_cyclone_active"
+        "ModifierName"                                    "modifier_eul_cyclone"
         "Duration"                                        "%allied_cyclone_duration"
       }
       "RunScript"
