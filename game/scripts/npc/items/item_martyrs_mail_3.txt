@@ -1,13 +1,13 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Martyr's Mail
+  // Recipe: Martyr's Mail 3
   //=================================================================================================================
-  "item_recipe_martyrs_mail"
+  "item_recipe_martyrs_mail_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3334"    // unique ID
+    "ID"                                                  "3368"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
@@ -15,33 +15,31 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_martyrs_mail"
+    "ItemResult"                                          "item_martyrs_mail_3"
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail;item_upgrade_core;item_relic"    //item added so that it doesn't clash with blade mail
-      "02"                                                "item_blade_mail;item_upgrade_core_2;item_relic"  //item added so that it doesn't clash with blade mail
-      "03"                                                "item_blade_mail;item_upgrade_core_3;item_relic"  //item added so that it doesn't clash with blade mail
-      "04"                                                "item_blade_mail;item_upgrade_core_4;item_relic"  //item added so that it doesn't clash with blade mail
+      "01"                                                "item_martyrs_mail_2;item_upgrade_core_3"
+      "02"                                                "item_martyrs_mail_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Martyr's Mail
+  // Martyr's Mail 3
   //=================================================================================================================
-  "item_martyrs_mail"
+  "item_martyrs_mail_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3336"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3369"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/martyrs_mail_1"
+    "AbilityTextureName"                                  "custom/martyrs_mail_3"
     "ScriptFile"                                          "items/martyrs_mail.lua"
 
     // Stats
@@ -52,11 +50,12 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
+    "ItemBaseLevel"                                       "3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "7500"
+    "ItemCost"                                            "19000"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;martyrs mail;martyrsmail"
