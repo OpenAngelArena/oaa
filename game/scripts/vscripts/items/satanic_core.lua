@@ -22,7 +22,7 @@ function item_satanic_core:OnSpellStart()
   local hCaster = self:GetCaster()
   local unholy_duration = self:GetSpecialValueFor( "unholy_duration" )
 
-  EmitSoundOn( "DOTA_Item.Satanic.Activate", hCaster )
+  hCaster:EmitSound( "DOTA_Item.Satanic.Activate" )
   hCaster:AddNewModifier( hCaster, self, "modifier_satanic_core_unholy", { duration = unholy_duration } )
 end
 

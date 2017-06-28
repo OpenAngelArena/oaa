@@ -12,5 +12,5 @@ function item_postactive_2a:OnSpellStart()
   local shroud_duration = self:GetSpecialValueFor( "duration" )
 
   caster:AddNewModifier( caster, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
-  EmitSoundOn( "Item.GlimmerCape.Activate", caster )
+  caster:EmitSound( "Item.GlimmerCape.Activate" )
 end

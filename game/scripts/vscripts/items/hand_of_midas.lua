@@ -34,7 +34,7 @@ function item_hand_of_midas:OnSpellStart()
   if caster.AddExperience then
     caster:AddExperience(target:GetDeathXP() * xpMult, false, false)
   end
-  EmitSoundOn("DOTA_Item.Hand_Of_Midas", target)
+  target:EmitSound("DOTA_Item.Hand_Of_Midas")
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
 

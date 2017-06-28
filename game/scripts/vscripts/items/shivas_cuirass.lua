@@ -13,7 +13,7 @@ end
 function item_shivas_cuirass:OnSpellStart()
 	local hCaster = self:GetCaster()
 
-	EmitSoundOn( "DOTA_Item.ShivasGuard.Activate", hCaster )
+	hCaster:EmitSound( "DOTA_Item.ShivasGuard.Activate" )
 	CreateModifierThinker( hCaster, self, "modifier_item_shivas_guard_thinker", nil, hCaster:GetAbsOrigin(), hCaster:GetTeamNumber(), false )
 end
 
