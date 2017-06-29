@@ -32,7 +32,9 @@ function item_refresher_core:OnSpellStart()
 
   -- Put ability exemption in here
   local exempt_ability_table = {
-    tinker_rearm = true
+    tinker_rearm = true,
+    riki_permanent_invisibility = true,
+    brewmaster_drunken_brawler = true
   }
 
   -- Put item exemption in here
