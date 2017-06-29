@@ -44,9 +44,5 @@ function item_hand_of_midas:OnSpellStart()
   target:Kill(self, caster)
 end
 
-function item_hand_of_midas:IsRefreshable()
-  return false
-end
-
 item_hand_of_midas_2 = class(item_hand_of_midas)
 item_hand_of_midas_3 = class(item_hand_of_midas)
