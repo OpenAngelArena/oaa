@@ -232,8 +232,11 @@ function CaveHandler:GiveBounty (teamID, k)
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
+  local BaseCreepXPGOLDMultiplier = 8
+  local CaveXPGOLDBuff = 2
+  local ExpectClear = BaseCreepXPGoldMultiplier * k + 6
 
-  local pool = (8 * k + 6) * roshGold * roshCount
+  local pool = round((1 + CaveXPGOLDBuff * ((23 * ExpectClear^2 + 375 * ExpectClear + 7116) / 7116-1)) * roshGold * roshCount)
   local bounty = round(pool / playerCount)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
