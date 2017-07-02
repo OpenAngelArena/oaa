@@ -103,7 +103,7 @@ CaveTypes = {
         damage = BaseMultipliers.damage(BaseCreepPowerMultiplier, 10, CaveProgressionBuff), -- function (k) return 1 end,
         armour = BaseMultipliers.armour(BaseCreepPowerMultiplier, 10, CaveProgressionBuff), -- function (k) return 1 end,
         gold = function (k) return 0 end,
-        exp = BaseMultipliers.exp(BaseCreepXPGOLDMultiplier, 10, CaveXPGoldBuff), -- function (k) return (56 * k^2 + 85 * k + 37) / 37 end,
+        exp = BaseMultipliers.exp(BaseCreepXPGOLDMultiplier, 10, CaveXPGOLDBuff), -- function (k) return (56 * k^2 + 85 * k + 37) / 37 end,
         magicResist = function(k) return 1 end,
       }
     }
