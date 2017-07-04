@@ -20,11 +20,11 @@
     // Time    
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 18.0 16.0 14.0 14.0 14.0"
-    "AbilityDuration"                                     "19.0 19.0 19.0 19.0 19.0 19.0"
+    "AbilityDuration"                                     "19.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 250 450"
+    "AbilityManaCost"                                     "150"
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,32 +44,32 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "revolution_time"                                 "5.0 5.0 5.0 5.0 5.0 5.0"
+        "revolution_time"                                 "5.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_range"                                       "100 100 100 100 100 100"
+        "min_range"                                       "100"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_range"                                       "875 875 875 875 875 875"
+        "max_range"                                       "875"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_hit_radius"                                 "70 70 70 70 70 70"
+        "hero_hit_radius"                                 "70"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "explode_radius"                                  "300 300 300 300 300 300"
+        "explode_radius"                                  "300"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_radius"                                      "150 150 150 150 150 150"
+        "hit_radius"                                      "150"
       }
       "10"
       {
@@ -79,12 +79,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_movement_rate"                            "250 250 250 250 250 250"
+        "spirit_movement_rate"                            "250"
       }
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spirit_duration"                                 "19.0 19.0 19.0 19.0 19.0 19.0"
+        "spirit_duration"                                 "19.0"
       }
     }
   }  
