@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700 700 700 700 700"
+        "radius"                                          "700"
       }
       "02"
       {
@@ -49,17 +49,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_speed"                                    "500 500 500 500 500"
+        "spirit_speed"                                    "500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "2000 2000 2000 2000 2000"
+        "max_distance"                                    "2000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "give_up_distance"                                "1200 1200 1200 1200 1200"
+        "give_up_distance"                                "1200"
       }
       "06"
       {
@@ -74,12 +74,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "25 25 25 25 25"
+        "heal_percent"                                    "25"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "58 58 58 58 58"
+        "average_damage"                                  "58"
       }
       "10"
       {

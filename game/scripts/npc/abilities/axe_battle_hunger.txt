@@ -64,6 +64,11 @@
         "damage_per_second"                               "16 24 32 40 56 120"
         "LinkedSpecialBonus"                              "special_bonus_unique_axe"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction_scepter"                        "30"
+      }
     }    
   }
 }

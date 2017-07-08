@@ -15,7 +15,7 @@
     "MaxLevel"                                            "6"    
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1"
+    "AbilityCastPoint"                                    "0.1"
     "AbilityCastRange"                                    "3000"
 
     // Time    
@@ -59,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34 3.34 3.34 3.34"
+        "vision_duration"                                 "3.34"
       }
     }
   }
