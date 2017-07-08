@@ -22,7 +22,7 @@
     
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +35,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400 400 400 400 400 400"
+        "radius"                                          "400"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "100 175 250 300 450 1050"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_2"
       }
       "03"
       {
@@ -61,7 +62,8 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_creeps"                                 "8.0 8.0 8.0 8.0 8.0 8.0"
+        "duration_creeps"                                 "8.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
       }      
     }
   }
