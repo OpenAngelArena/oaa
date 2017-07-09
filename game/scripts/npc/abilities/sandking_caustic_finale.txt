@@ -34,29 +34,24 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage_expire_tooltip"            "45 65 85 110 155 335"
+        "caustic_finale_damage_expire"                    "20 50 80 110 170 410"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "caustic_finale_damage_reduced"                   "50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "caustic_finale_duration"                         "6"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "caustic_finale_slow"                             "-30"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "caustic_finale_slow_duration"                    "3"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "caustic_finale_expire_dmg_pct_tooltip"           "50"
