@@ -31,17 +31,17 @@ function item_urn_of_sorcery:OnSpellStart()
     false
   )
 
-  function ApplyHealModifier(unit)
+  local function ApplyHealModifier(unit)
     local healDuration = self:GetSpecialValueFor("soul_heal_duration")
     unit:AddNewModifier(caster, self, "modifier_item_urn_of_sorcery_heal", {duration = healDuration})
   end
 
-  function ApplyDamageModifier(unit)
+  local function ApplyDamageModifier(unit)
     local damageDuration = self:GetSpecialValueFor("soul_damage_duration")
     unit:AddNewModifier(caster, self, "modifier_item_urn_of_sorcery_damage", {duration = damageDuration})
   end
 
-  function IsAlly(unit)
+  local function IsAlly(unit)
     return not unit:IsOpposingTeam(casterTeam)
   end
 
