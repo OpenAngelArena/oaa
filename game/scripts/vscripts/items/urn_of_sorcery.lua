@@ -172,18 +172,20 @@ function modifier_item_urn_of_sorcery_damage:OnTooltip()
   return self.damagePerSecond
 end
 
-function modifier_item_urn_of_sorcery_damage:OnCreated()
-  local ability = self:GetAbility()
-  local damageAmount = ability:GetSpecialValueFor("soul_damage_amount")
-  local damageDuration = ability:GetSpecialValueFor("soul_damage_duration")
-  local tickRate = ability:GetSpecialValueFor("soul_damage_interval")
-  self.damagePerSecond = damageAmount / damageDuration
-  self.damagePerTick = self.damagePerSecond * tickRate
+if IsServer() then
+  function modifier_item_urn_of_sorcery_damage:OnCreated()
+    local ability = self:GetAbility()
+    local damageAmount = ability:GetSpecialValueFor("soul_damage_amount")
+    local damageDuration = ability:GetSpecialValueFor("soul_damage_duration")
+    local tickRate = ability:GetSpecialValueFor("soul_damage_interval")
+    self.damagePerSecond = damageAmount / damageDuration
+    self.damagePerTick = self.damagePerSecond * tickRate
 
-  self:StartIntervalThink(tickRate)
+    self:StartIntervalThink(tickRate)
+  end
+
+  modifier_item_urn_of_sorcery_damage.OnRefresh = modifier_item_urn_of_sorcery_damage.OnCreated
 end
-
-modifier_item_urn_of_sorcery_damage.OnRefresh = modifier_item_urn_of_sorcery_damage.OnCreated
 
 function modifier_item_urn_of_sorcery_damage:OnIntervalThink()
   local parent = self:GetParent()
