@@ -86,7 +86,7 @@ modifier_item_urn_of_sorcery.OnRefresh = modifier_item_urn_of_sorcery.OnCreated
 function modifier_item_urn_of_sorcery:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED
   }
 end
 
@@ -95,7 +95,7 @@ function modifier_item_urn_of_sorcery:GetModifierConstantManaRegen()
 end
 
 -- Add charges when abilities are cast by nearby visible enemies
-function modifier_item_urn_of_sorcery:OnAbilityFullyCast(keys)
+function modifier_item_urn_of_sorcery:OnAbilityExecuted(keys)
   local parent = self:GetParent()
   local sorceryUrn = self:GetAbility()
   -- Only add charges for abilities cast by visible enemies
