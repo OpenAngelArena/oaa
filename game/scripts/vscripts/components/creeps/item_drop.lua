@@ -9,7 +9,12 @@ end
 local ItemPowerLevel = 1.0
 
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
-local DROP_CHANCE = 0.25
+--local DROP_CHANCE = 0.25
+
+-- The C initial chance parameter for the pseudo-random distribution function
+-- Set for average chance of 25%. Functions for calculation and a bunch of pre-calculated values can be found here:
+-- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
+PRD_C = 0.084744091852316990275274806
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -36,8 +41,8 @@ function CreepItemDrop:Init ()
   DebugPrint ( '[creeps/item_drop] Initialize' )
   CreepItemDrop = self
 
-  ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
-  Timers:CreateTimer(Dynamic_Wrap(CreepItemDrop, 'ItemDropUpgradeTimer'))
+  --ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
+  Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)
 end
 
 function CreepItemDrop:SetPowerLevel (powerLevel)
@@ -46,7 +51,7 @@ end
 
 function CreepItemDrop:ItemDropUpgradeTimer ()
   -- upgrade creeps power level every time it triggers
-  CreepItemDrop:SetPowerLevel(ItemPowerLevel + 1)
+  self:SetPowerLevel(ItemPowerLevel + 1)
 
   return 10.0
 end
@@ -60,7 +65,7 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
 
-  Timers:CreateTimer(60, function ()
+  Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
     -- check if safe to destroy
     if IsValidEntity(newItem) then
       if newItem:GetContainer() ~= nil then
@@ -70,23 +75,26 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   end)
 end
 
-function CreepItemDrop:OnEntityKilled (event)
-  local killedEntity = EntIndexToHScript(event.entindex_killed)
+-- function CreepItemDrop:OnEntityKilled (event)
+--   local killedEntity = EntIndexToHScript(event.entindex_killed)
 
-  if killedEntity ~= nil then
-    if killedEntity.Is_ItemDropEnabled then
-      local itemToDrop = CreepItemDrop:RandomDropItemName()
-      if itemToDrop ~= "" and itemToDrop ~= nil then
-        CreepItemDrop:CreateDrop(itemToDrop, killedEntity:GetAbsOrigin())
-      end
-    end
-  end
-end
+--   if killedEntity ~= nil then
+--     if killedEntity.Is_ItemDropEnabled then
+--       local itemToDrop = CreepItemDrop:RandomDropItemName()
+--       if itemToDrop ~= "" and itemToDrop ~= nil then
+--         CreepItemDrop:CreateDrop(itemToDrop, killedEntity:GetAbsOrigin())
+--       end
+--     end
+--   end
+-- end
 
-function CreepItemDrop:RandomDropItemName( property_enum, powerLevel )
+function CreepItemDrop:RandomDropItemName(campLocationString)
+  local CampPRDCounters = CreepCamps.CampPRDCounters
 
   --first we need to check against the drop percentage.
-  if math.random() > DROP_CHANCE then
+  if RandomFloat(0, 1) > math.min(1, PRD_C * CampPRDCounters[campLocationString]) then
+    -- Increment PRD counter if nothing was dropped
+    CampPRDCounters[campLocationString] = CampPRDCounters[campLocationString] + 1
     return ""
   end
 
@@ -106,11 +114,13 @@ function CreepItemDrop:RandomDropItemName( property_enum, powerLevel )
   end
 
   local passedItemsCumulativeChance = 0.0
-  local dropChance = math.random() * totalChancePool
+  local dropChance = RandomFloat(0, 1) * totalChancePool
 
   for i=1, #filteredItemTable do
     passedItemsCumulativeChance = passedItemsCumulativeChance + 1.0 / filteredItemTable[i][RARITY_ENUM]
     if passedItemsCumulativeChance >= dropChance then
+      -- Reset PRD counter on successful drop roll
+      CampPRDCounters[campLocationString] = 1
       return filteredItemTable[i][NAME_ENUM]
     end
   end

@@ -1,5 +1,5 @@
 
-modifier_boss_charger_pillar_debuff = class({})
+modifier_boss_charger_pillar_debuff = class(ModifierBaseClass)
 
 function modifier_boss_charger_pillar_debuff:OnCreated(keys)
   if not IsServer() then
@@ -41,7 +41,7 @@ function modifier_boss_charger_pillar_debuff:IsStunDebuff()
 end
 
 function modifier_boss_charger_pillar_debuff:GetEffectName()
-  return "particles/generic_gameplay/generic_stunned.vpcf"
+  return "particles/charger/charger_charge_debuff.vpcf"
 end
 
 function modifier_boss_charger_pillar_debuff:GetEffectAttachType()

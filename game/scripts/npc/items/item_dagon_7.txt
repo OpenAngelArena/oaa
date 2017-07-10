@@ -23,9 +23,9 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "02"                                                "item_dagon_6;item_upgrade_core_2"
-      "03"                                                "item_dagon_6;item_upgrade_core_3"
-      "04"                                                "item_dagon_6;item_upgrade_core_4"
+      "01"                                                "item_dagon_6;item_upgrade_core_2"
+      "02"                                                "item_dagon_6;item_upgrade_core_3"
+      "03"                                                "item_dagon_6;item_upgrade_core_4"
     }
   }
 
@@ -37,7 +37,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "4021"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_dagon_5"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/dagon.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -56,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "14220"
+    "ItemCost"                                            "12720"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 7"
@@ -70,7 +71,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 16 19 22 25 50 100 150 210"
+        "bonus_intellect"                                 "13 16 19 22 25 35 50 70 90"
       }
       "02"
       {
@@ -97,6 +98,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "0 0 0 0 0 2 4 7 10"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items/dagon_oaa.vpcf"
     }
   }
 }

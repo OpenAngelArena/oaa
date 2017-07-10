@@ -12,7 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"    
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
@@ -26,7 +26,7 @@
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 85 70 65 60"
+    "AbilityCooldown"                                     "90 80 70 65 60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_health"                               "0.6 0.75 0.9 1.2 1.5"
+        "damage_per_health"                               "0.6 0.75 0.9 1.05 1.2"
       }
       "02"
       {

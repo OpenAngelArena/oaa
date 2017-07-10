@@ -49,7 +49,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "225"
-    "ItemCost"                                            "30000"
+    "ItemCost"                                            "37750"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard"
@@ -78,7 +78,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "-45 -65 -85 -110 -140"
+        "aura_attack_speed"                               "-45 -60 -75 -95 -120"
       }
       "05"
       {

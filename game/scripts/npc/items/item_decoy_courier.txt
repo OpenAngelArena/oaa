@@ -24,7 +24,7 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "02"                                                "item_courier"
+      "01"                                                "item_courier"
     }
   }
 
@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "item_courier"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "200"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "consumable"
     "ItemAliases"                                         "donkey;chicken;animal courier"

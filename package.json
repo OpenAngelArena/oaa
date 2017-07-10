@@ -1,10 +1,13 @@
 {
   "name": "open_angel_arena",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
-    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape './scripts/test/*test.js' | tap-summary --no-progress"
+    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape \"./scripts/test/*test.js\" | tap-summary --no-progress",
+    "semistandard": "semistandard",
+    "tape": "tape",
+    "tap-summary": "tap-summary"
   },
   "repository": {
     "type": "git",

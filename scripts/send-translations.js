@@ -59,9 +59,5 @@ request.get({
       throw err;
     }
     console.log(data.body);
-    if (!data.body.redirect) {
-      console.error(data);
-      throw data.body;
-    }
   });
 });

@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "23195"
+    "ItemCost"                                            "40195"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "orchid malevolence"
@@ -109,7 +109,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "145 160 175 190 205"
+        "target_crit_multiplier"                          "140 155 170 185 200"
       }
     }
   }

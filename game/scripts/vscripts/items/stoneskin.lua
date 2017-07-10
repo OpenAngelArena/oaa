@@ -2,7 +2,7 @@ require( "libraries/Timers" )	--needed for the timers.
 LinkLuaModifier("modifier_item_stoneskin", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stoneskin_stone_armor", "items/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_stoneskin = class({})
+item_stoneskin = class(ItemBaseClass)
 
 function item_stoneskin:GetIntrinsicModifierName()
   return "modifier_item_stoneskin"
@@ -35,7 +35,7 @@ function item_stoneskin:OnSpellStart()
     self:StartCooldown(activationDelay + cooldownAfterDelay)
     self.intrinsicModifier:SetStackCount(2)
 
-    EmitSoundOn("Hero_EarthSpirit.RollingBoulder.Loop", caster)
+    caster:EmitSound("Hero_EarthSpirit.RollingBoulder.Loop")
     Timers:CreateTimer(activationDelay, function()
       self:ApplyStoneskin()
     end)
@@ -77,8 +77,8 @@ end
 function item_stoneskin:ApplyStoneskin()
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {})
-  StopSoundOn("Hero_EarthSpirit.RollingBoulder.Loop", caster)
-  EmitSoundOn("Hero_EarthSpirit.Petrify", caster)
+  caster:StopSound("Hero_EarthSpirit.RollingBoulder.Loop")
+  caster:EmitSound("Hero_EarthSpirit.Petrify")
   self.intrinsicModifier:SetStackCount(2)
 end
 
@@ -90,7 +90,7 @@ end
 
 item_stoneskin_2 = class(item_stoneskin)
 ------------------------------------------------------------------------
-modifier_item_stoneskin = class({})
+modifier_item_stoneskin = class(ModifierBaseClass)
 
 function modifier_item_stoneskin:OnCreated()
   local ability = self:GetAbility()
@@ -165,7 +165,7 @@ function modifier_item_stoneskin:GetModifierBonusStats_Intellect()
   return self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 ------------------------------------------------------------------------
-modifier_item_stoneskin_stone_armor = class({})
+modifier_item_stoneskin_stone_armor = class(ModifierBaseClass)
 
 function modifier_item_stoneskin_stone_armor:GetTexture()
   local ability = self:GetAbility()

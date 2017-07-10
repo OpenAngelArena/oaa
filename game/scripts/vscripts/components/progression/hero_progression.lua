@@ -5,8 +5,15 @@ end
 
 GameEvents:OnPlayerLevelUp(function(keys)
   local player = EntIndexToHScript(keys.player)
+  local playerLevel = PlayerResource:GetLevel(player:GetPlayerID())
   local level = keys.level
   local hero = player:GetAssignedHero()
+
+  -- Skip processing if the level of the unit is reported as less than the player level
+  -- This is to prevent levelling of illusions from causing repeated processing on main hero
+  if level <= playerLevel then
+    return
+  end
 
   HeroProgression:ReduceStatGain(hero, level)
   HeroProgression:ProcessAbilityPointGain(hero, level)
@@ -165,6 +172,9 @@ function HeroProgression:ExperienceFilter(keys)
     if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
       return true
     else
+      if not self.XPStorage[playerID] then
+        self.XPStorage[playerID] = 0
+      end
       self.XPStorage[playerID] = self.XPStorage[playerID] + experience
       return false
     end

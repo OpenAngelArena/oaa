@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_heart_transplant_buff", "items/heart_transplant.
 
 local heartTransplantDebuffName = "modifier_item_heart_transplant_debuff"
 
-item_heart_transplant = class({})
+item_heart_transplant = class(ItemBaseClass)
 
 function item_heart_transplant:GetIntrinsicModifierName()
   return "modifier_item_heart_transplant"
@@ -47,7 +47,7 @@ item_heart_transplant_2 = item_heart_transplant
 
 ------------------------------------------------------------------------------------------
 
-modifier_item_heart_transplant = class({})
+modifier_item_heart_transplant = class(ModifierBaseClass)
 
 function modifier_item_heart_transplant:DeclareFunctions()
   return {
@@ -119,7 +119,7 @@ end
 
 ------------------------------------------------------------------------------------------
 
-modifier_item_heart_transplant_debuff = class({})
+modifier_item_heart_transplant_debuff = class(ModifierBaseClass)
 
 function modifier_item_heart_transplant_debuff:IsDebuff()
   return true
@@ -150,7 +150,7 @@ end
 
 ------------------------------------------------------------------------------------------
 
-modifier_item_heart_transplant_buff = class({})
+modifier_item_heart_transplant_buff = class(ModifierBaseClass)
 
 function modifier_item_heart_transplant_buff:DeclareFunctions()
   return {

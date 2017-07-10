@@ -42,7 +42,7 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45.0"
+		"AbilityCooldown"				"65.0 60.0 55.0 50.0 45.0"
 		"AbilityCastRange"				"900"
     	"MaxUpgradeLevel"               "5"
     	"ItemBaseLevel"                 "5"
@@ -50,7 +50,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"225"
-		"ItemCost"						"36375"
+		"ItemCost"						"35375"
 		"ItemShopTags"					"agi;int;str;armor;boost_health"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mechanism;mekansm"

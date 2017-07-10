@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "1.3.0"
+GAME_VERSION = "2.0.0"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
 require('internal/util')
@@ -24,8 +24,25 @@ function Precache( context )
   PrecacheItemByNameSync("item_postactive", context)
   PrecacheItemByNameSync("item_preemptive_3c", context)
   PrecacheItemByNameSync("item_stoneskin", context)
+  PrecacheItemByNameSync("item_greater_phase_boots", context)
+  PrecacheItemByNameSync("item_greater_power_treads", context)
+  PrecacheItemByNameSync("item_dagon", context)
+  PrecacheItemByNameSync("item_manta_1", context)
 
+  PrecacheUnitByNameSync("dota_fountain", context)
+  PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
+  PrecacheUnitByNameSync("npc_dota_boss_charger", context)
+  PrecacheUnitByNameSync("npc_dota_boss_charger_pillar", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_1", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_2", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_3", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_5", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_6", context)
+  PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
+
+  -- Ambient Sounds
+  PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed

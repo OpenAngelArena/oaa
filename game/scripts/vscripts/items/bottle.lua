@@ -1,21 +1,26 @@
-LinkLuaModifier( "modifier_bottle_regeneration", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_bottle_regeneration", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
-item_infinite_bottle = class({})
+item_infinite_bottle = class(ItemBaseClass)
 
 function item_infinite_bottle:OnSpellStart()
-	local restore_time = self:GetSpecialValueFor( "restore_time" )
+  local restore_time = self:GetSpecialValueFor("restore_time")
+  local caster = self:GetCaster()
 
-	EmitSoundOn( "Bottle.Drink", self:GetCaster() )
+  EmitSoundOnClient("Bottle.Drink", caster:GetPlayerOwner())
 
-	self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_bottle_regeneration", { duration = restore_time } )
+  caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
   if self:GetCurrentCharges() - 1 <= 0 then
-    self:GetCaster():RemoveItem(self)
+    caster:RemoveItem(self)
   else
-    self:SetCurrentCharges( self:GetCurrentCharges() - 1 )
+    self:SetCurrentCharges(self:GetCurrentCharges() - 1)
   end
+end
+
+function item_infinite_bottle:GetAbilityTextureName()
+  return "item_bottle"
 end
 
 --------------------------------------------------------------------------------

@@ -1,13 +1,43 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 
+-----------------------------------------------------------------------------------
+-- OAA specific settings
+
+-- Duels
+INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
+DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
+DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
+DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
+FIRST_DUEL_TIMEOUT = 110                -- Timeout for the level 1 duel at the start of them game
+FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
+DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
+DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
+DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+
+-- Bosses
+BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
+BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
+BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
+
+-- Creeps
+CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
+INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
+BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
+
+-- Player
+GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
+
+-- end OAA specific settings
+-----------------------------------------------------------------------------------
+
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
-UNIVERSAL_SHOP_MODE = false              -- Should the main shop contain Secret Shop items as well as regular items
+UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same hero as each other
 
 CUSTOM_GAME_SETUP_TIME = 30.0           -- How long to show custom game setup? 0 disables
 HERO_SELECTION_TIME = 30.0              -- How long should we let people select their hero?
-PRE_GAME_TIME = 10.0                     -- How long after people select their heroes should the horn blow and the game start?
+PRE_GAME_TIME = 10.0                    -- How long after people select their heroes should the horn blow and the game start?
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
@@ -29,7 +59,7 @@ BUYBACK_ENABLED = false                 -- Should we allow people to buyback whe
 DISABLE_FOG_OF_WAR_ENTIRELY = false     -- Should we disable fog of war entirely for both teams?
 USE_UNSEEN_FOG_OF_WAR = false           -- Should we make unseen and fogged areas of the map completely black until uncovered by each team?
                                             -- Note: DISABLE_FOG_OF_WAR_ENTIRELY must be false for USE_UNSEEN_FOG_OF_WAR to work
-USE_STANDARD_DOTA_BOT_THINKING = true  -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
+USE_STANDARD_DOTA_BOT_THINKING = true   -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
@@ -40,7 +70,7 @@ ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection 
 REMOVE_ILLUSIONS_ON_DEATH = false       -- Should we remove all illusions if the main hero dies?
 DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when players get gold?
 
-END_GAME_ON_KILLS = false                -- Should the game end after a certain number of kills?
+END_GAME_ON_KILLS = false               -- Should the game end after a certain number of kills?
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
@@ -96,7 +126,7 @@ MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum at
 
 GAME_END_DELAY = -1                     -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)
 VICTORY_MESSAGE_DURATION = 3            -- How long should we wait after the victory message displays to show the End Screen?  Use
-STARTING_GOLD = 500                     -- How much starting gold should we give to each player?
+STARTING_GOLD = 625                     -- How much starting gold should we give to each player?
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Shuold we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
@@ -147,4 +177,3 @@ CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 5
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_6] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_7] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_8] = 1
-

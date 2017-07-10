@@ -1,22 +1,19 @@
-item_greater_travel_boots = class({})
-modifier_item_greater_travel_boots = class({})
+item_greater_travel_boots = class(ItemBaseClass)
+modifier_item_greater_travel_boots = class(ModifierBaseClass)
 
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
-  return "modifier_item_greater_travel_boots"
+  return "modifier_intrinsic_multiplexer"
 end
 
-function item_greater_travel_boots:IsHidden()
-  return false
-end
-
-function item_greater_travel_boots:IsDebuff()
-  return false
-end
-
-function item_greater_travel_boots:IsPurgable()
-  return false
+function item_greater_travel_boots:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_greater_travel_boots",
+    "modifier_creep_assist_gold"
+  }
 end
 
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
@@ -72,8 +69,8 @@ function item_greater_travel_boots:OnSpellStart()
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
 
   -- Teleport sounds
-  EmitSoundOn("Portal.Loop_Disappear", hCaster)
-  EmitSoundOn("Portal.Loop_Appear", hTarget)
+  hCaster:EmitSound("Portal.Loop_Disappear")
+  hTarget:EmitSound("Portal.Loop_Appear")
 
   -- Particle effects
   local teleportFromEffectName = "particles/items2_fx/teleport_start.vpcf"
@@ -121,9 +118,25 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
-  EmitSoundOn("Portal.Hero_Appear", self.targetEntity)
+  self.targetEntity:EmitSound("Portal.Hero_Appear")
 
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
+end
+
+function modifier_item_greater_travel_boots:IsHidden()
+  return true
+end
+
+function modifier_item_greater_travel_boots:IsDebuff()
+  return false
+end
+
+function modifier_item_greater_travel_boots:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_travel_boots:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
@@ -134,20 +147,6 @@ end
 
 function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Boots()
   return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
-end
-
-function modifier_item_greater_travel_boots:OnCreated()
-  self:StartIntervalThink(1)
-end
-
-function modifier_item_greater_travel_boots:OnIntervalThink ()
-  if not PlayerResource then
-    -- sometimes for no reason the player resource isn't there, usually only at the start of games in tools mode
-    return
-  end
-  local caster = self:GetCaster()
-  local gpm = self:GetAbility():GetSpecialValueFor('bonus_gold_per_minute')
-  PlayerResource:ModifyGold(caster:GetPlayerID(), gpm / 60, true, DOTA_ModifyGold_GameTick)
 end
 
 --------------------------------------------------------------------------------

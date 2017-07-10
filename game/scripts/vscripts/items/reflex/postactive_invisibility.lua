@@ -1,7 +1,7 @@
 LinkLuaModifier( "modifier_item_glimmer_cape_fade", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive_2a = class({})
+item_postactive_2a = class(ItemBaseClass)
 
 function item_postactive_2a:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -12,5 +12,5 @@ function item_postactive_2a:OnSpellStart()
   local shroud_duration = self:GetSpecialValueFor( "duration" )
 
   caster:AddNewModifier( caster, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
-  EmitSoundOn( "Item.GlimmerCape.Activate", caster )
+  caster:EmitSound( "Item.GlimmerCape.Activate" )
 end

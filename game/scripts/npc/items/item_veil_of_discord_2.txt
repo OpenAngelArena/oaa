@@ -51,14 +51,14 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "4740"
+    "ItemCost"                                            "3840"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod;veil of discord 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-//    "UpgradesItems"                                     "item_veil_of_discord;item_veil_of_discord_2"
+    "UpgradesItems"                                       "item_veil_of_discord;item_veil_of_discord_2;item_veil_of_discord_3;item_veil_of_discord_4;item_veil_of_discord_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,37 +67,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9"
+        "bonus_health_regen"                              "6 9 15 23 35"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9"
+        "bonus_armor"                                     "6 9 13 20 29"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6 9"
+        "bonus_agi"                                       "6 9 14 21 28"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 9"
+        "bonus_str"                                       "6 9 14 22 32"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9"
+        "bonus_damage"                                    "6 9 15 24 36"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "12 18"
+        "bonus_int"                                       "12 18 27 40 60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30"
+        "resist_debuff"                                   "-25 -30 -36 -42 -50"
       }
       "08"
       {

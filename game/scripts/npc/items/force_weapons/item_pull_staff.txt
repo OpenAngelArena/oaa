@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: pull Staff
+  // Recipe: Pull Staff
   //=================================================================================================================
   "item_recipe_pull_staff"
   {
@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2000"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -29,7 +29,9 @@
       "04"                                                "item_force_staff;item_upgrade_core_4"
     }
   }
-
+  //=================================================================================================================
+  // Pull Staff
+  //=================================================================================================================
   // Author: Chronophylos
   // Pull Staff Rework
   // ==================================
@@ -41,10 +43,12 @@
   //===================================
   "item_pull_staff"
   {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3341"           // Default ID by Valve is "102"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/pull_staff.lua"
-    "AbilityTextureName"                                  "custom/pull_staff"
+    "AbilityTextureName"                                  "custom/pull_staff_1"
     "Model"                                               "models/props_gameplay/red_box.vmdl"
     "Effect"                                              "particles/generic_gameplay/dropped_item.vpcf"
     "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
@@ -53,11 +57,17 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
     "CastFilterRejectCaster"                              "1"
     "FightRecapLevel"                                     "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "20.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "3750"
 
     "ItemKillable"                                        "0"
     "ItemSellable"                                        "1"
@@ -74,6 +84,11 @@
     "ItemPermanent"                                       "1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
       "soundfile"                                         "soundevents/game_sounds_items.vsndevts"
@@ -86,12 +101,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15"
+        "bonus_intellect"                                 "15 23 34 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "8"
+        "bonus_health_regen"                              "12 18 27 40"
       }
       "03"
       {

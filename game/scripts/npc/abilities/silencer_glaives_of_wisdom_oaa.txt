@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Silencer: Glaives of Wisdom
+  //=================================================================================================================
+  "silencer_glaives_of_wisdom_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85185"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_glaives_of_wisdom.lua"
+    "AbilityTextureName"                                  "silencer_glaives_of_wisdom"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "HasScepterUpgrade"                                   "1"
+
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "0.0"
+    "AbilityCastRange"                                    "600"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "15 15 15 15 30 60"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "intellect_damage_pct"                            "35 50 65 80 85 90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "steal_range"                                     "925"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "steal_amount"                                    "2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_damage_multiplier"                       "2"
+      }
+    }
+  }
+}
+

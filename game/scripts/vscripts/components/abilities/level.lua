@@ -6,30 +6,35 @@ if AbilityLevels == nil then
 end
 
 function AbilityLevels:Init ()
-  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(AbilityLevels, "FilterAbilityUpgradeOrder"))
-  GameEvents:OnPlayerLevelUp(AbilityLevels.CheckAbilityLevels)
-  GameEvents:OnPlayerLearnedAbility(AbilityLevels.CheckAbilityLevels)
+  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterAbilityUpgradeOrder"))
+  GameEvents:OnPlayerLevelUp(partial(self.CheckAbilityLevels, self))
+  GameEvents:OnPlayerLearnedAbility(partial(self.CheckAbilityLevels, self))
+  CustomGameEventManager:RegisterListener("check_level_up_selection", function(_, keys)
+    -- Change the player ID to an entity index
+    keys.player = PlayerResource:GetPlayer(keys.player):entindex()
+    self:CheckAbilityLevels(keys)
+  end)
 end
 
-function AbilityLevels.CheckAbilityLevels (keys)
+function AbilityLevels:CheckAbilityLevels (keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
-  local hero = player:GetAssignedHero()
+  local hero
+  if keys.selectedEntity then
+    hero = EntIndexToHScript(keys.selectedEntity)
+  else
+    hero = player:GetAssignedHero()
+  end
   if not level then
     level = hero:GetLevel()
   end
   local canLevelUp = {}
-  local hasNoPoints = hero:GetAbilityPoints() == 0
 
   for index = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(index)
-    if ability then
+    if ability and not ability:IsHidden() then
       local abilityName = ability:GetAbilityName()
-      if hasNoPoints then
-        table.insert(canLevelUp, -1)
-      else
-        table.insert(canLevelUp, AbilityLevels:GetRequiredLevel(hero, abilityName))
-      end
+      table.insert(canLevelUp, self:GetRequiredLevel(hero, abilityName))
     end
   end
 
@@ -83,12 +88,6 @@ function AbilityLevels:FilterAbilityUpgradeOrder (keys)
   local requirement = AbilityLevels:GetRequiredLevel(hero, abilityName)
 
   if heroLevel >= requirement then
-    Timers:CreateTimer(function()
-      AbilityLevels.CheckAbilityLevels({
-        player = player:GetEntityIndex(),
-        level = heroLevel
-      })
-    end)
     return true
   else
     -- Send event to client to display error message about hero level requirement

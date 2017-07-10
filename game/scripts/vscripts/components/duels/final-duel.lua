@@ -30,15 +30,22 @@ function FinalDuel:Trigger (team)
     return
   end
 
-  self.isCurrentlyFinalDuel = true
-  Duels:StartDuel(5)
+  Duels:StartDuel({
+    players = 5,
+    timeout = FINAL_DUEL_TIMEOUT
+  })
 end
 
 function FinalDuel:PreparingDuelHandler (keys)
+  if self.needsFinalDuel then
+    self.isCurrentlyFinalDuel = true
+    self.needsFinalDuel = false
+    Notifications:TopToAll({text="Final Duel!", duration=4.0})
+  end
 end
 
 function FinalDuel:StartDuelHandler (keys)
-  if self.needsFinalDuel then
+  if self.isCurrentlyFinalDuel then
     local limit = PointsManager:GetLimit()
     local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
     local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
@@ -52,11 +59,10 @@ function FinalDuel:StartDuelHandler (keys)
         extraMessage = "The game will end if Radiant wins"
       end
     else
-      extraMessage = "The game will end if Radiant wins"
+      extraMessage = "The game will end if Dire wins"
     end
 
-    Notifications:TopToAll({text="Final duel! " .. extraMessage, duration=4.0})
-    self.needsFinalDuel = false
+    Notifications:TopToAll({text="Final duel! " .. extraMessage, duration=10.0})
   end
 end
 

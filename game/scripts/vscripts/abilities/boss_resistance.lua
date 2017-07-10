@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
 
-boss_resistance = class({})
+boss_resistance = class(AbilityBaseClass)
 
 function boss_resistance:GetIntrinsicModifierName()
   return "modifier_boss_resistance"
@@ -10,7 +10,7 @@ function boss_resistance:GetBehavior ()
   return DOTA_ABILITY_BEHAVIOR_PASSIVE
 end
 
-modifier_boss_resistance = class({})
+modifier_boss_resistance = class(ModifierBaseClass)
 
 function modifier_boss_resistance:IsHidden()
   return true

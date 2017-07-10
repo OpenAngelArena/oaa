@@ -40,6 +40,10 @@ function Gold:UpdatePlayerGold(unitvar, newGold)
     local tableGold = PlayerTables:GetTableValue("gold", "gold")
     tableGold[playerID] = newGold
     PlayerTables:SetTableValue("gold", "gold", tableGold)
+
+    newGold = math.min(GOLD_CAP, newGold)
+    PlayerResource:SetGold(playerID, newGold, false)
+    PlayerResource:SetGold(playerID, 0, true)
   end
 end
 

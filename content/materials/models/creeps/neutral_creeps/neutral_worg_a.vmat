@@ -1,0 +1,67 @@
+Layer0
+{
+    shader "hero.vfx"
+
+    //---- Effect Proxies ----
+    F_USE_HERO_EFFECTS_PROXY 1
+    F_USE_STATUS_EFFECTS_PROXY 1
+
+    //---- Masks ----
+
+    //---- Translucency ----
+    F_TRANSLUCENT 0
+
+    //---- Blend To Full ----
+    g_flEnvMapBlendToFull "0.000"
+    g_flMetalnessBlendToFull "0.000"
+    g_flReflectionsTintByBaseBlendToNone "0.000"
+    g_flSelfIllumBlendToFull "0.000"
+    g_flSpecularBlendToFull "0.000"
+    g_flSpecularExponentBlendToFull "0.000"
+
+    //---- Cloak ----
+    g_flCloakBlurAmount "0.005"
+    g_flCloakIntensity "0.850"
+    g_flCloakRefractAmount "0.100"
+    g_flMaterialCloakFactor "0.000"
+    g_vCloakColorTint "[1.000 1.000 1.000]"
+
+    //---- Color ----
+    g_flDiffuseModulationAmount "1.000"
+    g_flTexCoordRotation "0.000"
+    g_vTexCoordOffset "[0.000 0.000]"
+    g_vTexCoordScale "[1.000 1.000]"
+    TextureColor "materials/models/creeps/neutral_creeps/neutral_worg_a_color_psd_bd5ce951.png"
+
+    //---- Detail 1 ----
+    g_vDetailTexCoordScale "[1.000 1.000]"
+
+    //---- Detail 2 ----
+
+    //---- Fresnel ----
+
+    //---- Lighting ----
+    g_flAmbientScale "1.000"
+    g_flBloomScale "0.000"
+    g_flBloomShift "0.000"
+    g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Mask 1 ----
+
+    //---- Mask 2 ----
+
+    //---- Normal Map ----
+    TextureNormal "materials/models/creeps/neutral_creeps/neutral_worg_a_normal_psd_9d65bb1b.png"
+
+    //---- Rim ----
+    g_flRimLightScale "1.000"
+    g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Specular ----
+    g_flSpecularExponent "32.000"
+    g_flSpecularScale "1.000"
+    g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+    //---- Translucency ----
+
+}

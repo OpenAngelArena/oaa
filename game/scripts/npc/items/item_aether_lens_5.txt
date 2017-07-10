@@ -35,7 +35,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "28050"
+    "ItemCost"                                            "35350"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "aether lens"
@@ -68,7 +68,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "6 8 10 12 15"
+        "spell_amp"                                       "6 12 18 24 30"
       }
     }
   }

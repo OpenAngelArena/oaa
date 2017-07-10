@@ -1,7 +1,7 @@
 LinkLuaModifier( "modifier_charge_replenishing", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_charge_replenisher = class({})
+modifier_charge_replenisher = class(ModifierBaseClass)
 
 function modifier_charge_replenisher:IsHidden()
   return true
@@ -55,7 +55,7 @@ function modifier_charge_replenisher:OnIntervalThink()
   end
 end
 
-modifier_charge_replenishing = class({})
+modifier_charge_replenishing = class(ModifierBaseClass)
 
 function modifier_charge_replenishing:IsHidden()
   return false

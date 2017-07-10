@@ -2,7 +2,7 @@ LinkLuaModifier( "modifier_creep_assist_gold_aura", "items/farming/modifier_cree
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold = class({})
+modifier_creep_assist_gold = class(ItemBaseClass)
 
 function modifier_creep_assist_gold:IsHidden()
   return true
@@ -55,11 +55,15 @@ function modifier_creep_assist_gold:GetAuraDuration()
 end
 
 function modifier_creep_assist_gold:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_creep_assist_gold:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_creep_assist_gold:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
 end
 
 function modifier_creep_assist_gold:GetAuraRadius()
@@ -89,7 +93,7 @@ end
 
 --------------------------------------------------------------------------
 
-modifier_creep_assist_gold_aura = class({})
+modifier_creep_assist_gold_aura = class(ModifierBaseClass)
 
 function modifier_creep_assist_gold_aura:IsHidden()
   return true

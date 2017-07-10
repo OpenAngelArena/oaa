@@ -75,7 +75,7 @@ function CaveHandler:SpawnRoom (teamID, roomID)
 
   local cave = self.caves[teamID]
   local room = cave.rooms[roomID]
-  local creepList = CaveTypes[roomID][math.random(#CaveTypes[roomID])]
+  local creepList = CaveTypes[roomID][RandomInt(1, #CaveTypes[roomID])]
 
   for _, creep in ipairs(creepList.units) do -- spawn all creeps in list
     -- get properties for the creep
@@ -232,8 +232,11 @@ function CaveHandler:GiveBounty (teamID, k)
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
+  local BaseCreepXPGOLDMultiplier = 12
+  local CaveXPGOLDBuff = 2
+  local ExpectClear = BaseCreepXPGOLDMultiplier * k + 10
 
-  local pool = (8 * k + 6) * roshGold * roshCount
+  local pool = round((1 + CaveXPGOLDBuff * ((23 * ExpectClear^2 + 375 * ExpectClear + 7116) / 7116 - 1)) * roshGold * roshCount)
   local bounty = round(pool / playerCount)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
@@ -279,80 +282,100 @@ function CaveHandler:IsInFarmingCave (teamID, entity)
 end
 
 function CaveHandler:KickPlayers (teamID)
-DebugPrint('Kicking Players out of the cave.')
+  DebugPrint('Kicking Players out of the cave.')
 
-local cave = CaveHandler.caves[teamID]
-local spawns = {
-  [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
-  [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
-}
-local units = {}
+  local cave = CaveHandler.caves[teamID]
+  local spawns = {
+    [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
+    [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
+  }
+  local units = {}
 
--- get all heroes in all rooms
-for roomID, room in pairs(cave.rooms) do
-  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
+  -- get all heroes in all rooms
+  for roomID, room in pairs(cave.rooms) do
+    DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
-  for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-    local result = FindUnitsInRadius(
-      team, -- team
-      room.zone.origin, -- location
-      nil, -- cache
-      room.radius, -- radius
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
-      DOTA_UNIT_TARGET_ALL, -- type filter
-      DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
-      FIND_ANY_ORDER, -- order
-      false -- can grow cache
-    )
-    for _, unit in pairs(result) do
-      if CaveHandler:IsInFarmingCave(teamID, unit) then
-        table.insert(units, unit)
+    for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+      local result = FindUnitsInRadius(
+        team, -- team
+        room.zone.origin, -- location
+        nil, -- cache
+        room.radius, -- radius
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
+        DOTA_UNIT_TARGET_ALL, -- type filter
+        DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+        FIND_ANY_ORDER, -- order
+        false -- can grow cache
+      )
+      for _, unit in pairs(result) do
+        if CaveHandler:IsInFarmingCave(teamID, unit) then
+          table.insert(units, unit)
+        end
       end
     end
   end
-end
 
-DebugPrint('Teleporting units now')
+  DebugPrint('Teleporting units now')
 
-for _, unit in pairs(units) do
-  local origin = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
-    PATTACH_ABSORIGIN_FOLLOW, -- attach point
-    unit -- owner
-  )
-
-  local target = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
-    PATTACH_CUSTOMORIGIN, -- attach point
-    unit -- owner
-  )
-  ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
-
-  Timers:CreateTimer(3, function ()
-    FindClearSpaceForUnit(
-    unit, -- unit
-    spawns[unit:GetTeamNumber()], -- location
-    false -- ???
-  )
-
-  if unit:IsHero() then
-    PlayerResource:SetCameraTarget(unit:GetPlayerID(), unit)
-    Timers:CreateTimer(1, function ()
-      PlayerResource:SetCameraTarget(unit:GetPlayerID(), nil)
-    end)
-  end
-
-  Timers:CreateTimer(0, function ()
-    ParticleManager:DestroyParticle(origin, false)
-    ParticleManager:DestroyParticle(target, true)
+  Timers:CreateTimer(function()
+    if not Duels.currentDuel then
+      self:TeleportAll(units, spawns)
+    else
+      self:QuickTeleportAll(units, spawns)
+    end
   end)
-
-  -- stand still
-  unit:Stop()
-end)
-end
 end
 
 function CaveHandler:GetCleares (teamID)
   return self.caves[teamID].timescleared
+end
+
+function CaveHandler:TeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    local origin = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
+      PATTACH_ABSORIGIN_FOLLOW, -- attach point
+      unit -- owner
+    )
+
+    local target = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
+      PATTACH_CUSTOMORIGIN, -- attach point
+      unit -- owner
+    )
+    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
+
+    Timers:CreateTimer(3, function ()
+      FindClearSpaceForUnit(
+        unit, -- unit
+        spawns[unit:GetTeamNumber()], -- location
+        false -- ???
+      )
+
+      MoveCameraToPlayer(unit)
+
+      Timers:CreateTimer(0, function ()
+        ParticleManager:DestroyParticle(origin, false)
+        ParticleManager:DestroyParticle(target, true)
+      end)
+
+      -- stand still
+      unit:Stop()
+    end)
+  end
+end
+
+function CaveHandler:QuickTeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    FindClearSpaceForUnit(
+      unit, -- unit
+      spawns[unit:GetTeamNumber()], -- location
+      false -- ???
+    )
+
+    MoveCameraToPlayer(unit)
+
+    -- stand still
+    unit:Stop()
+  end
 end

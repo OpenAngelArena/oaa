@@ -1,5 +1,5 @@
 
-modifier_rune_hill_tripledamage = class({})
+modifier_rune_hill_tripledamage = class(ModifierBaseClass)
 
 function modifier_rune_hill_tripledamage:DeclareFunctions()
   return {

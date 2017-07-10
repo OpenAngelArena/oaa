@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_item_shivas_cuirass_aura", "items/shivas_cuirass.lua"
 
 --------------------------------------------------------------------------------
 
-item_shivas_cuirass = class({})
+item_shivas_cuirass = class(ItemBaseClass)
 
 function item_shivas_cuirass:GetIntrinsicModifierName()
 	return "modifier_item_shivas_cuirass"
@@ -13,7 +13,7 @@ end
 function item_shivas_cuirass:OnSpellStart()
 	local hCaster = self:GetCaster()
 
-	EmitSoundOn( "DOTA_Item.ShivasGuard.Activate", hCaster )
+	hCaster:EmitSound( "DOTA_Item.ShivasGuard.Activate" )
 	CreateModifierThinker( hCaster, self, "modifier_item_shivas_guard_thinker", nil, hCaster:GetAbsOrigin(), hCaster:GetTeamNumber(), false )
 end
 
@@ -23,7 +23,7 @@ item_shivas_cuirass_2 = item_shivas_cuirass --luacheck: ignore item_shivas_cuira
 
 --------------------------------------------------------------------------------
 
-modifier_item_shivas_cuirass = class({})
+modifier_item_shivas_cuirass = class(ModifierBaseClass)
 
 function modifier_item_shivas_cuirass:OnCreated()
 	self.bonus_intellect = self:GetAbility():GetSpecialValueFor( "bonus_intellect" )
@@ -84,7 +84,7 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_shivas_cuirass_aura = class({})
+modifier_item_shivas_cuirass_aura = class(ModifierBaseClass)
 
 function modifier_item_shivas_cuirass_aura:OnCreated()
 	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor( "aura_attack_speed" )

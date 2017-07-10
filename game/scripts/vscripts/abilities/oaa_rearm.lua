@@ -1,9 +1,9 @@
-oaa_rearm = class({})
+oaa_rearm = class(AbilityBaseClass)
 
 function oaa_rearm:OnSpellStart()
   local caster = self:GetCaster()
 
-  EmitSoundOn("Hero_Tinker.Rearm", caster)
+  caster:EmitSound("Hero_Tinker.Rearm")
   local particleName = "particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
   self.particle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(self.particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetOrigin(), true)
@@ -22,7 +22,7 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
   ParticleManager:ReleaseParticleIndex(self.particle)
   self.particle = nil
 
-  StopSoundOn("Hero_Tinker.Rearm", caster)
+  caster:StopSound("Hero_Tinker.Rearm")
 
   -- Put ability exemption in here
   local exempt_ability_table = {

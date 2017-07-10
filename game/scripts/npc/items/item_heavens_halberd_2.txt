@@ -42,7 +42,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/Heavens_Halberd_2"
+    "AbilityTextureName"                                  "custom/heavens_halberd_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 175 250 325 400"
-    "ItemCost"                                            "5000"
+    "ItemCost"                                            "4900"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd 2"
@@ -116,7 +116,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "5.5"
+        "disarm_range"                                    "5"
       }
       "11"
       {

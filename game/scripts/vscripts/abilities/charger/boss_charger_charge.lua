@@ -6,24 +6,35 @@ LinkLuaModifier("modifier_boss_charger_pillar_debuff", "abilities/charger/modifi
 LinkLuaModifier("modifier_boss_charger_hero_pillar_debuff", "abilities/charger/modifier_boss_charger_hero_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PITH YEVY IMPARTIAL
 LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_boss_charger_trampling.lua", LUA_MODIFIER_MOTION_BOTH) --- MARTH FAIRY IPARTY
 
-boss_charger_charge = class({})
+boss_charger_charge = class(AbilityBaseClass)
 
-function boss_charger_charge:OnChannelFinish(interupted)
+function boss_charger_charge:OnSpellStart()
+  self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
+end
+
+function boss_charger_charge:OnChannelFinish(interrupted) --You misspelled "Interrupted"
+  local caster = self:GetCaster()
   self:StartCooldown(self:GetSpecialValueFor('cooldown'))
-  if interupted then
+  if interrupted then
     self:StartCooldown(self:GetSpecialValueFor('cooldown') / 2)
+    caster:StopSound("Boss_Charger.Charge.Begin")
     return
   end
-  local caster = self:GetCaster()
 
   caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {
     duration = self:GetSpecialValueFor( "charge_duration" )
   })
 
+  caster:EmitSound("Boss_Charger.Charge.Movement")
+
   return true
 end
 
-modifier_boss_charger_charge = class({})
+function boss_charger_charge:OnOwnerDied()
+  self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
+end
+
+modifier_boss_charger_charge = class(ModifierBaseClass)
 
 function modifier_boss_charger_charge:IsHidden()
   return false
@@ -85,6 +96,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       if not hero:HasModifier('modifier_boss_charger_trampling') then
         hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
         table.insert(self.draggedHeroes, hero)
+        caster:EmitSound("Boss_Charger.Charge.HeroImpact")
       end
     end)
   end
@@ -114,6 +126,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
       })
     end
 
+    caster:EmitSound("Boss_Charger.Charge.TowerImpact")
     return self:EndCharge()
   end
 end

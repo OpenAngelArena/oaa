@@ -22,7 +22,7 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "02"                                                "item_dagon_4;item_recipe_dagon"
+      "01"                                                "item_dagon_4;item_recipe_dagon"
     }
   }
 
@@ -34,6 +34,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "204"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/dagon.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -66,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 16 19 22 25 50 100 150 210"
+        "bonus_intellect"                                 "13 16 19 22 25 35 50 70 90"
       }
       "02"
       {
@@ -93,6 +95,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "0 0 0 0 0 2 4 7 10"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items/dagon_oaa.vpcf"
     }
   }
 }

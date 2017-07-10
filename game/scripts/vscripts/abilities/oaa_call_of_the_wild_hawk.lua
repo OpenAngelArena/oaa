@@ -1,4 +1,4 @@
-beastmaster_call_of_the_wild = class({})
+beastmaster_call_of_the_wild = class(AbilityBaseClass)
 
 function beastmaster_call_of_the_wild:OnSpellStart()
   local caster = self:GetCaster()
@@ -21,7 +21,7 @@ function beastmaster_call_of_the_wild:OnSpellStart()
   ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
   ParticleManager:ReleaseParticleIndex(particle1)
 
-  EmitSoundOn("Hero_Beastmaster.Call.Hawk", caster)
+  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
 end
 
 function beastmaster_call_of_the_wild:OnUpgrade()

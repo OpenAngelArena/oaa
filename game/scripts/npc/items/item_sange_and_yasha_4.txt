@@ -40,12 +40,12 @@
     "AbilityTextureName"                                  "custom/sange_and_yasha_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18000"
+    "ItemCost"                                            "14900"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny;s&y;sy;sange and yasha"
@@ -60,17 +60,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 48"
+        "bonus_damage"                                    "16 24 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48"
+        "bonus_strength"                                  "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48"
+        "bonus_agility"                                   "16 24 32 48 72"
       }
       "04"
       {
@@ -90,12 +90,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement"                              "-26 -30 -36 -45"
+        "maim_slow_movement"                              "-26 -30 -36 -45 -60"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack"                                "-26 -30 -36 -45"
+        "maim_slow_attack"                                "-26 -30 -36 -45 -60"
       }
       "09"
       {

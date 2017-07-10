@@ -1,14 +1,23 @@
-item_greater_phase_boots = class({})
+item_greater_phase_boots = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
 function item_greater_phase_boots:GetIntrinsicModifierName()
-	-- we're not modifying the passive benefits at all
-	-- ( besides the numbers )
-	-- so we can just reuse the normal phase boot modifier
-	return "modifier_item_phase_boots"
+	return "modifier_intrinsic_multiplexer"
+end
+
+function item_greater_phase_boots:GetIntrinsicModifierNames()
+  return {
+    -- we're not modifying the passive benefits at all
+    -- ( besides the numbers )
+    -- so we can just reuse the normal phase boot modifier
+    "modifier_item_phase_boots",
+    "modifier_item_greater_phase_boots_splinter_shot"
+  }
 end
 
 --------------------------------------------------------------------------------
@@ -19,13 +28,119 @@ function item_greater_phase_boots:OnSpellStart()
 	-- play the sound
 	caster:EmitSound( "DOTA_Item.PhaseBoots.Activate" )
 
-	-- add the new phase modifier
-	caster:AddNewModifier( caster, self, "modifier_item_greater_phase_boots_active", { duration = self:GetSpecialValueFor( "phase_duration" ) } )
+	-- add the vanilla phase active modifier
+	caster:AddNewModifier( caster, self, "modifier_item_phase_boots_active", { duration = self:GetSpecialValueFor( "phase_duration" ) } )
+end
+
+function item_greater_phase_boots:OnProjectileHit(target, location)
+  if target and not target:IsNull() then
+    local caster = self:GetCaster()
+    -- Make the modifier reduce damage for the attack
+    self.splinterMod.doReduction = true
+    caster:PerformAttack(target, true, true, true, false, false, false, false)
+
+    -- Reset the damage reduction after the attack is done
+    self.splinterMod.doReduction = false
+  end
 end
 
 --------------------------------------------------------------------------------
 
-modifier_item_greater_phase_boots_active = class({})
+modifier_item_greater_phase_boots_splinter_shot = class(ModifierBaseClass)
+
+function modifier_item_greater_phase_boots_splinter_shot:IsHidden()
+  return true
+end
+
+function modifier_item_greater_phase_boots_splinter_shot:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_phase_boots_splinter_shot:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
+  }
+end
+
+function modifier_item_greater_phase_boots_splinter_shot:OnCreated()
+  if IsServer() then
+    self:GetAbility().splinterMod = self
+  end
+end
+
+modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greater_phase_boots_splinter_shot.OnCreated
+
+function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
+  local parent = self:GetParent()
+  if keys.attacker == parent and not keys.no_attack_cooldown then
+    local ability = self:GetAbility()
+
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      keys.target:GetAbsOrigin(),
+      nil,
+      ability:GetSpecialValueFor("splinter_radius"),
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_BASIC,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
+      FIND_ANY_ORDER,
+      false
+    )
+    -- Exclude the original attack target from list of units to splinter to
+    table.remove(units, index(keys.target, units))
+    -- Take only neutral unit types to avoid targeting summons
+    local function IsNeutralUnitType(unit)
+      return unit:IsNeutralUnitType()
+    end
+    local neutralUnits = filter(IsNeutralUnitType, units)
+    -- Take the first splinter_number units to split to
+    local nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
+
+    -- Default to Drow Ranger's projectile
+    local projectileName = "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+    local projectileSpeed = ability:GetSpecialValueFor("melee_splinter_speed")
+
+    if parent:IsRangedAttacker() then
+      projectileName = parent:GetRangedProjectileName()
+      projectileSpeed = parent:GetProjectileSpeed()
+    end
+
+    local function CreateSplinterProjectile(target)
+      local projectileData = {
+        Target = target,
+        Ability = ability,
+        EffectName = projectileName,
+        iMoveSpeed = projectileSpeed,
+        vSourceLoc = keys.target:GetAbsOrigin(),
+        bDrawsOnMinimap = false,
+        bDodgeable = true,
+        bIsAttack = true,
+        bVisibleToEnemies = true,
+        bReplaceExisting = false,
+        bProvidesVision = false
+      }
+      ProjectileManager:CreateTrackingProjectile(projectileData)
+    end
+
+    foreach(CreateSplinterProjectile, nUnits)
+  end
+end
+
+function modifier_item_greater_phase_boots_splinter_shot:GetModifierDamageOutgoing_Percentage( event )
+ local spell = self:GetAbility()
+ local parent = self:GetParent()
+
+ if self.doReduction then
+   return spell:GetSpecialValueFor( "splinter_attack_outgoing" ) - 100
+ end
+
+ return 0
+end
+
+--------------------------------------------------------------------------------
+--[[ Old mini-Shukuchi Greater Phase Boots effect
+modifier_item_greater_phase_boots_active = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
@@ -187,7 +302,7 @@ function modifier_item_greater_phase_boots_active:GetModifierDamageOutgoing_Perc
 
 	return 0
 end
-
+]]--
 --------------------------------------------------------------------------------
 
 item_greater_phase_boots_2 = item_greater_phase_boots

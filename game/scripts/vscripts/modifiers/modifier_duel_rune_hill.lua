@@ -1,8 +1,8 @@
 LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_rune_hill_tripledamage', 'modifiers/modifier_rune_hill_tripledamage.lua', LUA_MODIFIER_MOTION_NONE)
 
-modifier_duel_rune_hill = class({})
-modifier_duel_rune_hill_enemy = class({})
+modifier_duel_rune_hill = class(ModifierBaseClass)
+modifier_duel_rune_hill_enemy = class(ModifierBaseClass)
 
 function modifier_duel_rune_hill_enemy:IsHidden()
   return true

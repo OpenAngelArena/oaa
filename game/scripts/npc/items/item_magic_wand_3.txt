@@ -11,13 +11,13 @@
 		"BaseClass"                     "item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
         "AbilityTextureName"            "item_recipe"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"	
+		"ItemCost"						"3500"
 		"ItemShopTags"					""
         "ItemRecipe"                    "1"
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -29,7 +29,7 @@
 			"03"						"item_magic_wand_2;item_upgrade_core_4"
 		}
 	}
-	
+
 	//=================================================================================================================
 	// Magic Wand 3
 	//=================================================================================================================
@@ -42,10 +42,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     	"AbilityTextureName"            "custom/magic_wand_3"
 		"Model"							"models/props_gameplay/magic_wand.vmdl"
-		
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11.0"
+		"AbilityCooldown"				"13.0 10.0 7.0 4.0 1.0"
 		"AbilitySharedCooldown"			"magicwand"
 		"AbilityCastRange"				"1200"
 
@@ -61,7 +61,7 @@
     	"ItemBaseLevel"                 "3"
         "UpgradesItems"                 "item_magic_wand_3;item_magic_wand_4"
 
-		// Special	
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -78,7 +78,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"4 8 16 32 64"
+				"bonus_all_stats"		"4 12 24 48 96"
 			}
 			"04"
 			{

@@ -1,0 +1,146 @@
+dragon_knight_elder_dragon_form_oaa = class( AbilityBaseClass )
+
+LinkLuaModifier( "modifier_dragon_knight_elder_dragon_form_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+
+--------------------------------------------------------------------------------
+
+-- this makes the ability passive when it hits level 5
+function dragon_knight_elder_dragon_form_oaa:GetBehavior()
+	if self:GetLevel() >= 5 then
+		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+	end
+
+	return self.BaseClass.GetBehavior( self )
+end
+
+--------------------------------------------------------------------------------
+
+-- this is meant to accompany the above, removing the mana cost and cooldown
+-- from the tooltip when it becomes passive
+function dragon_knight_elder_dragon_form_oaa:GetCooldown( level )
+	if self:GetLevel() >= 5 or level >= 5 then
+		return 0
+	end
+
+	return self.BaseClass.GetCooldown( self, level )
+end
+
+--------------------------------------------------------------------------------
+
+function dragon_knight_elder_dragon_form_oaa:GetManaCost( level )
+	if self:GetLevel() >= 5 or level >= 5 then
+		return 0
+	end
+
+	return self.BaseClass.GetManaCost( self, level )
+end
+
+--------------------------------------------------------------------------------
+
+function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
+	local caster = self:GetCaster()
+	local level = self:GetLevel()
+	local duration = self:GetSpecialValueFor( "duration" )
+
+	-- apply the standard dragon form modifier ( for movespeed and the model change )
+	caster:AddNewModifier( caster, self, "modifier_dragon_knight_dragon_form", { duration = duration, } )
+
+	-- apply the corrosive breath modifier, don't need to check its level really
+	caster:AddNewModifier( caster, self, "modifier_dragon_knight_corrosive_breath", { duration = duration, } )
+
+	-- apply the leveled modifiers
+	if level >= 2 then
+		caster:AddNewModifier( caster, self, "modifier_dragon_knight_splash_attack", { duration = duration, } )
+	end
+
+	if level >= 3 then
+		caster:AddNewModifier( caster, self, "modifier_dragon_knight_frost_breath", { duration = duration, } )
+	end
+end
+
+--------------------------------------------------------------------------------
+
+function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()
+	-- adds the modifier in change of automatically transforming dk
+	-- when edf hits level 5
+	if self:GetLevel() >= 5 then
+		return "modifier_dragon_knight_elder_dragon_form_oaa"
+	end
+end
+
+--------------------------------------------------------------------------------
+
+modifier_dragon_knight_elder_dragon_form_oaa = class( ModifierBaseClass )
+
+-- table of edf modifiers
+modifier_dragon_knight_elder_dragon_form_oaa.edfMods = {
+	"modifier_dragon_knight_dragon_form",
+	"modifier_dragon_knight_corrosive_breath",
+	"modifier_dragon_knight_splash_attack",
+	"modifier_dragon_knight_frost_breath",
+}
+
+--------------------------------------------------------------------------------
+
+function modifier_dragon_knight_elder_dragon_form_oaa:IsHidden()
+	return true
+end
+
+function modifier_dragon_knight_elder_dragon_form_oaa:IsDebuff()
+	return false
+end
+
+function modifier_dragon_knight_elder_dragon_form_oaa:IsPurgable()
+	return false
+end
+
+function modifier_dragon_knight_elder_dragon_form_oaa:RemoveOnDeath()
+	return false
+end
+
+--------------------------------------------------------------------------------
+
+if IsServer() then
+	function modifier_dragon_knight_elder_dragon_form_oaa:OnCreated( event )
+		local parent = self:GetParent()
+		local spell = self:GetAbility()
+
+		-- apply all the edf modifiers
+		for _, modName in pairs( self.edfMods ) do
+			local mod = parent:FindModifierByName( modName )
+
+			if not mod then
+				parent:AddNewModifier( parent, spell, modName, {} )
+			else
+				-- if dk already has 'em, just set their duration to "permanent"
+				-- so no special effect happens on level up if he's already transformed
+				mod:SetDuration( -1, true )
+			end
+		end
+	end
+
+--------------------------------------------------------------------------------
+
+	function modifier_dragon_knight_elder_dragon_form_oaa:DeclareFunctions()
+		local funcs = {
+			MODIFIER_EVENT_ON_RESPAWN,
+		}
+
+		return funcs
+	end
+
+--------------------------------------------------------------------------------
+
+	function modifier_dragon_knight_elder_dragon_form_oaa:OnRespawn( event )
+		local parent = self:GetParent()
+
+		if event.unit == parent then
+			local spell = self:GetAbility()
+
+			-- apply the edf modifiers on respawn
+			for _, modName in pairs( self.edfMods ) do
+				parent:AddNewModifier( parent, spell, modName, {} )
+			end
+		end
+	end
+end

@@ -1,4 +1,4 @@
-beastmaster_call_of_the_wild_boar = class({})
+beastmaster_call_of_the_wild_boar = class(AbilityBaseClass)
 
 function beastmaster_call_of_the_wild_boar:OnSpellStart()
   local caster = self:GetCaster()
@@ -36,7 +36,7 @@ function beastmaster_call_of_the_wild_boar:OnSpellStart()
   end
   foreach(SpawnBoar, range(spawnCount))
 
-  EmitSoundOn("Hero_Beastmaster.Call.Boar", caster)
+  caster:EmitSound("Hero_Beastmaster.Call.Boar")
 end
 
 function beastmaster_call_of_the_wild_boar:OnUpgrade()

@@ -269,3 +269,74 @@ function GetShortTeamName (teamID)
   }
   return teamNames[teamID]
 end
+
+function IsInTrigger(entity, trigger)
+  local triggerOrigin = trigger:GetAbsOrigin()
+  local bounds = trigger:GetBounds()
+
+  local origin = entity
+  if entity.GetAbsOrigin then
+    origin = entity:GetAbsOrigin()
+  end
+
+  if origin.x < bounds.Mins.x + triggerOrigin.x then
+    -- DebugPrint('x is too small')
+    return false
+  end
+  if origin.y < bounds.Mins.y + triggerOrigin.y then
+    -- DebugPrint('y is too small')
+    return false
+  end
+  if origin.x > bounds.Maxs.x + triggerOrigin.x then
+    -- DebugPrint('x is too large')
+    return false
+  end
+  if origin.y > bounds.Maxs.y + triggerOrigin.y then
+    -- DebugPrint('y is too large')
+    return false
+  end
+
+  return true
+end
+
+function FindHeroesInRadius (...)
+  local units = FindUnitsInRadius(...)
+
+  local function isHero (hero)
+    if hero.IsRealHero and hero:IsRealHero() then
+      return true
+    end
+    return false
+  end
+
+  return totable(filter(isHero, iter(units)))
+end
+
+function MoveCameraToPlayer(handle)
+  local playerID = nil
+  local entity = nil
+  if IsValidEntity(handle) and handle:IsPlayer() then
+    playerID = handle:GetPlayerID()
+    entity = handle:GetAssignedHero()
+  elseif IsValidEntity(handle) and handle:IsOwnedByAnyPlayer() then
+    playerID = handle:GetPlayerOwnerID()
+    entity = handle
+  elseif tonumber(handle) and PlayerResource:IsValidPlayerID(handle) then
+    playerID = handle
+    entity = PlayerResource:GetSelectedHeroEntity(handle)
+  else
+    return
+  end
+  if playerID and entity then
+    MoveCameraToEntity(playerID, entity)
+  end
+end
+
+function MoveCameraToEntity(playerID, entity)
+  if IsValidEntity(entity) and PlayerResource:IsValidPlayerID(playerID) then
+    PlayerResource:SetCameraTarget(playerID, entity)
+    Timers:CreateTimer(0.5, function ()
+      PlayerResource:SetCameraTarget(playerID, nil)
+    end)
+  end
+end

@@ -41,7 +41,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "975"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "tranquil boots"
@@ -58,17 +58,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "85"
+        "bonus_movement_speed"                            "90"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "3"
+        "bonus_armor"                                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "12"
+        "bonus_health_regen"                              "14"
       }
       "04"
       {
@@ -103,7 +103,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "55"
+        "broken_movement_speed"                           "65"
       }
     }
   }

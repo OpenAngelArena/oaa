@@ -22,6 +22,7 @@ function DevCheats:Init()
   ChatCommand:LinkCommand("-scepter", Dynamic_Wrap(DevCheats, "GiveUltimateScepter"), self)
   ChatCommand:LinkCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
+  ChatCommand:LinkCommand("-lazer", Dynamic_Wrap(DevCheats, "AddDevAttack"), self)
 end
 
 -- Print all modifiers on player's hero to console
@@ -42,7 +43,7 @@ end
 function DevCheats:Help(keys)
   GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
   GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
-  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon", 0, 0)
+  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon, -lazer, -spawncamps", 0, 0)
 end
 
 -- Populate game with bots
@@ -188,6 +189,10 @@ function DevCheats:AddAbility(keys)
   end
 end
 
+function DevCheats:AddDevAttack(keys)
+  PlayerResource:GetSelectedHeroEntity(keys.playerid):AddAbility("dev_attack")
+end
+
 -- Give items. If you put a number after the name of the item, it will look for that level, e.g. "-give heart 3" gives lvl 3 heart
 -- NOTE: Partial item name matching is a little funny, e.g. "-give heart" gives item_heart_transplant. Not sure this is fixable
 function DevCheats:GiveLevelledItem(keys)
@@ -218,7 +223,7 @@ end
 function DevCheats:GiveLoadout(keys)
   local loadouts = {
     ['tank'] = {"item_heart_5", "item_stoneskin_2", "item_satanic_core_3"},
-    ['damage'] = {"item_greater_crit_5", "item_desolator_5", "item_moon_shard"},
+    ['damage'] = {"item_greater_crit_5", "item_desolator_5", "item_mjollnir_5", "item_monkey_king_bar_5"},
   }
   local text = string.lower(keys.text)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)

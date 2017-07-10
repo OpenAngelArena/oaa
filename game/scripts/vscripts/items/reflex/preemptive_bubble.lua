@@ -14,7 +14,7 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_preemptive_3c = class({})
+item_preemptive_3c = class(ItemBaseClass)
 
 function item_preemptive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -44,7 +44,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive_bubble_aura_block = class({})
+modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_aura_block:IsHidden()
   return true
@@ -148,7 +148,7 @@ end
 
 ------------------------------------------------------------------------
 
-modifier_item_preemptive_bubble_block = class({})
+modifier_item_preemptive_bubble_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_block:IsHidden()
   return false
@@ -225,5 +225,5 @@ function modifier_item_preemptive_bubble_block:PlayBlockEffect()
   local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
   ParticleManager:ReleaseParticleIndex(blockEffect)
 
-  EmitSoundOn("DOTA_Item.LinkensSphere.Activate", parent)
+  parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
 end

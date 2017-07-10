@@ -1,0 +1,31 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+  Ambient.Doors.Open = {
+    type = "dota_update_default"
+    vsnd_files = [
+      "sounds/addons/dungeon/stone_gate_move.vsnd"
+    ]
+    volume = "1.000000"
+    pitch_rand_min = "-0.050000"
+    pitch_rand_max = "0.050000"
+    pitch = "1.000000"
+    soundlevel = "100.000000"
+    spread_radius = "1000.000000"
+    volume_fade_out = "0.200000"
+  }
+
+  Ambient.Doors.Close = {
+    type = "dota_update_default"
+    vsnd_files = [
+      "sounds/addons/dungeon/stone_gate_move.vsnd"
+    ]
+    volume = "1.000000"
+    pitch_rand_min = "-0.050000"
+    pitch_rand_max = "0.050000"
+    pitch = "1.000000"
+    soundlevel = "100.000000"
+    spread_radius = "1000.000000"
+    volume_fade_out = "0.200000"
+  }
+}

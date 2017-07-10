@@ -37,7 +37,7 @@ local function CheckPillars ()
   local towerLocation = Vector(0,0,0)
   while towerLocation:Length() < 700 do
     -- sometimes rng fails us
-    towerLocation = Vector(math.random(-1,1), math.random(-1,1), 0):Normalized() * 800
+    towerLocation = RandomVector(1):Normalized() * RandomFloat(700, 800)
   end
 
   towerLocation = towerLocation + GLOBAL_origin

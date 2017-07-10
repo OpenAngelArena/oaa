@@ -41,19 +41,19 @@
     "AbilityTextureName"                                  "custom/linkens_sphere_1"
 
     "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "13.0"
+    "AbilityCooldown"                                     "13.0 11.0 9.0 8.0 7.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "4850"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;linken's sphere"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
-    "UpgradesItems"                                       "item_sphere;item_sphere_2"
+    "UpgradesItems"                                       "item_sphere;item_sphere_2;item_sphere_3;item_sphere_4;item_sphere_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,27 +62,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "15 22"
+        "bonus_all_stats"                                 "15 25 35 45 55"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9"
+        "bonus_health_regen"                              "6 10 18 30 45"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225"
+        "bonus_mana_regen"                                "150 225 325 450 600"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25"
+        "bonus_damage"                                    "15 25 35 45 55"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "block_cooldown"                                  "13.0 11.0"
+        "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
       }
     }
   }

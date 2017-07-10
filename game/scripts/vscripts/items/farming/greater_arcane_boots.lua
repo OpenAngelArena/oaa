@@ -1,7 +1,8 @@
-LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_passive_gpm", "items/farming/modifier_passive_gpm.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_arcane_boots", LUA_MODIFIER_MOTION_NONE )
 
-item_greater_arcane_boots = class({})
+item_greater_arcane_boots = class(ItemBaseClass)
 
 function item_greater_arcane_boots:OnSpellStart()
   local caster = self:GetCaster()
@@ -46,7 +47,7 @@ function item_greater_arcane_boots:OnSpellStart()
   local particleArcaneActivateName = "particles/items_fx/arcane_boots.vpcf"
   local particleArcaneActivate = ParticleManager:CreateParticle(particleArcaneActivateName, PATTACH_ABSORIGIN_FOLLOW, caster)
 
-  EmitSoundOn("DOTA_Item.ArcaneBoots.Activate", caster)
+  caster:EmitSound("DOTA_Item.ArcaneBoots.Activate")
 end
 
 function item_greater_arcane_boots:GetIntrinsicModifierName()
@@ -56,7 +57,7 @@ end
 function item_greater_arcane_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_arcane_boots",
-    "modifier_creep_assist_gold"
+    "modifier_passive_gpm"
   }
 end
 

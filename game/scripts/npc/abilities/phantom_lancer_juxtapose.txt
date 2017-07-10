@@ -10,7 +10,7 @@
     "ID"                                                  "5067"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "MaxLevel"                                            "5"    
+    "MaxLevel"                                            "5"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "6 8 10 12 16"
+        "max_illusions"                                   "6 8 10 10 10"
       }
       "02"
       {
@@ -29,7 +29,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_proc_chance_pct"                        "8"
-      }      
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -38,12 +38,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-84"
+        "illusion_damage_out_pct"                         "-84 -84 -84 -84 -80 -76"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "16"
+        "tooltip_illusion_damage"                         "16 16 16 16 20 24"
       }
       "07"
       {

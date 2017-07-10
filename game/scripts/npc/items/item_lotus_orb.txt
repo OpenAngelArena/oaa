@@ -40,7 +40,7 @@
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/lotus_orb_1"
     "AbilityCooldown"                                     "15.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "900 1200 1500 1800 2100"
     "AbilityManaCost"                                     "75"
 
     "MaxUpgradeLevel"                                     "5"
@@ -68,7 +68,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 13 17 22 29"
+        "bonus_armor"                                     "10 17.5 25 32.5 40"
       }
       "03"
       {
