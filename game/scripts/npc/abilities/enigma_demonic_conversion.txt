@@ -19,16 +19,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0 35.0 35.0 35.0 35.0 35.0"
-    "AbilityDuration"                                     "35.0 35.0 35.0 35.0 35.0 35.0"
+    "AbilityCooldown"                                     "35.0"
+    "AbilityDuration"                                     "35.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170 170 170 170 170 170"
+    "AbilityManaCost"                                     "170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spawn_count"                                     "3 3 3 3 3 3"
+        "spawn_count"                                     "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_attack_count"                              "6 6 6 6 6 6"
+        "split_attack_count"                              "6"
       }
       "03"
       {
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "life_extension"                                  "2.0 2.0 2.0 2.0 2.0 2.0"
+        "life_extension"                                  "2.0"
       }
       "05"
       {

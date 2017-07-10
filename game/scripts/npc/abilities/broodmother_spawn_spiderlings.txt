@@ -25,9 +25,9 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
-    "AbilityCooldown"                                     "10.0 10.0 10.0 10.0 10.0"
-    "AbilityManaCost"                                     "120 120 120 120 120 120"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCooldown"                                     "10.0"
+    "AbilityManaCost"                                     "120"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,17 +40,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "2.0 2.0 2.0 2.0 2.0 2.0"
+        "buff_duration"                                   "2.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spiderling_duration"                             "60.0 60.0 60.0 60.0 60.0 60.0"
+        "spiderling_duration"                             "60.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "70 140 210 280 420 980"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {

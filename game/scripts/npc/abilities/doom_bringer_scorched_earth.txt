@@ -16,11 +16,11 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 600 600 600 600 600"
+    "AbilityCastRange"                                    "600"
     "AbilityCooldown"                                     "55"
 
     // Cost
@@ -35,11 +35,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_second"                               "16 24 32 40 56 120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600 600 600 600 600 600"
+        "radius"                                          "600"
       }
       "03"
       {

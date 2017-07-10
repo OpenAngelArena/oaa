@@ -233,14 +233,18 @@ function testSpecialValues (t, specials) {
     var value = specials[num].values;
     t.ok(value.var_type, 'has a var_type ' + num);
     var hasLinkedSpecial = !!value.LinkedSpecialBonus;
+    var hasLinkedSpecialField = !!value.LinkedSpecialBonusField;
     var hasLinkedSpecialOperation = !!value.LinkedSpecialBonusOperation;
-
     var hasSpellDamageTooltip = !!value.CalculateSpellDamageTooltip;
     var hasLevelkey = !!value.levelkey;
+
     var keyNames = Object.keys(value).filter(a => a !== 'var_type');
 
     if (hasLinkedSpecial) {
       keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonus');
+    }
+    if (hasLinkedSpecialField) {
+      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusField');
     }
     if (hasLinkedSpecialOperation) {
       keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusOperation');
