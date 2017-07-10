@@ -80,7 +80,7 @@ function modifier_item_charge_bkb:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED
   }
 end
 
@@ -101,7 +101,7 @@ function modifier_item_charge_bkb:GetModifierBonusStats_Intellect()
 end
 
 -- Add charges when abilities are cast by nearby visible enemies
-function modifier_item_charge_bkb:OnAbilityFullyCast(keys)
+function modifier_item_charge_bkb:OnAbilityExecuted(keys)
   local parent = self:GetParent()
   local chargeBkb = self:GetAbility()
   -- Only add charges for abilities cast by visible enemies
