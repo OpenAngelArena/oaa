@@ -70,8 +70,8 @@ if IsServer() then
 	function modifier_faceless_void_time_lock_oaa:GetModifierProcAttack_BonusDamage_Magical( event )
 		local parent = self:GetParent()
 
-		-- no bash while broken
-		if parent:PassivesDisabled() then
+		-- no bash while broken or illusion
+		if parent:PassivesDisabled() or parent:IsIllusion() then
 			return 0
 		end
 
