@@ -1,7 +1,7 @@
 
 function MakeKFunctionForIndexPowerOffset (index, speed, offset, power)
   return function (k)
-    return 1 + power*(CreepPower:GetPowerForMinute(k * speed + offset)[index] - 1)
+    return 1 + power*(CreepPower:GetBasePowerForMinute(k * speed + offset, 1)[index] - 1)
   end
 end
 
@@ -11,7 +11,7 @@ local CaveProgressionBuff = 4
 local CaveXPGOLDBuff = 2
 
 local BaseMultipliers = {
-  -- CreepPower:GetPowerForMinute
+  -- CreepPower:GetBasePowerForMinute
 
   --  minute,                                   -- minute
   --  ((minute / 8) ^ 2 / 75) + 1,              -- hp
