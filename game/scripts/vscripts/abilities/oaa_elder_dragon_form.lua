@@ -244,8 +244,6 @@ if IsServer() then
 		local spell = self:GetAbility()
 
 		if event.unit == parent and spell:GetLevel() >= 5 then
-			local spell = self:GetAbility()
-
 			-- apply the edf modifiers on respawn
 			for _, modName in pairs( self.edfMods ) do
 				parent:AddNewModifier( parent, spell, modName, {} )
