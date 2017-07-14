@@ -53,10 +53,10 @@
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance"
-    "ItemInitialCharges"                                  "6"
-    "ItemDisplayCharges"                                  "1"
+    "ItemInitialCharges"                                  "-1"
+    "ItemDisplayCharges"                                  "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemRequiresCharges"                                 "1"
+    "ItemRequiresCharges"                                 "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
