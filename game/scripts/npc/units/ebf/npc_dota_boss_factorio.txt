@@ -1,0 +1,97 @@
+"DOTAUnits"
+{
+  //------------------------------------------------------------------------------
+  // Automata Factory
+  // Credit: EBF by yahnich
+  //------------------------------------------------------------------------------
+  "npc_dota_boss_factorio"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"          "npc_dota_creature"          // Class of entity of link to.
+    "Model"            "models/items/rattletrap/clockmaster_cog/clockmaster_cog.vmdl"    // Model.
+    "SoundSet"          "Hero_Tinker"                          // Name of sound set.
+    "GameSoundsFile"      "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+    "ModelScale"         "1.6"
+    "Level"            "8"
+    "CanBeDominated"      "0"
+    "ConsideredHero"      "1"
+    "IsCore"          "1"
+    "IsSpawner"          "1"
+    "vscripts"          "units/factorio.lua"
+
+    // Armor
+    //-------------------------------------------------------------------------------------------------------------
+    "ArmorPhysical"        "20"                // Physical protection.
+
+    "AbilityLayout"        "6"
+    "Ability1"          "boss_factorio_spawn_techies"      // Ability 1.
+
+    // Attack
+    //-------------------------------------------------------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"        "120"
+    //"HealthBarOffset"      "500"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "8000"    // Experience earn.
+    "BountyGoldMin"        "0"    // Gold earned min.
+    "BountyGoldMax"        "0"    // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"        "0"    // Speed.
+    "MovementTurnRate"      "0"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "60000"    // Base health.
+    "StatusHealthRegen"      "40"      // Health regeneration rate.
+    "StatusMana"        "3000"    // Base mana.
+    "StatusManaRegen"      "5.0"    // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "1400"    // Range of vision during day HERO.
+    "VisionNighttimeRange"    "800"    // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"              // Team name.
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    //Precache
+    //---------------------------------------------------------------------
+    "VoiceFile"        "soundevents/voscripts/game_sounds_vo_tinker.vsndevts"
+    "GameSoundsFile"    "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+
+
+    // Creature Data
+    //----------------------------------------------------------------------------------------------------------------------
+    "Creature"
+    {
+    "CanRespawn"        "0"
+
+      //HERO AI State
+      //-----------------------------------------------------------------
+      "DefaultState"        "Invade"
+      "States"
+      {
+        "Invade"
+        {
+          "Name"        "Invade"
+          "Aggression"    "100.0"
+          "Avoidance"      "0.0"
+          "Support"      "0.0"
+        }
+      }
+    }
+  }
+}

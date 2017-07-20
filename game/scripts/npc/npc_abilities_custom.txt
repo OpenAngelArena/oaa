@@ -1,11 +1,14 @@
+/// Custom Abilities
+
+// Remade Vanilla
 #base "abilities/tiny_grow_oaa.txt"
 #base "abilities/bristleback_bristleback_oaa.txt"
-
 #base "abilities/faceless_void_time_lock_oaa.txt"
 #base "abilities/silencer_glaives_of_wisdom_oaa.txt"
 #base "abilities/slardar_bash_oaa.txt"
 #base "abilities/dragon_knight_elder_dragon_form_oaa.txt"
 
+// Bosses
 #base "abilities/boss/boss_great_cleave.txt"
 #base "abilities/boss/boss_geostrike.txt"
 #base "abilities/boss/boss_juxtapose.txt"
@@ -18,14 +21,20 @@
 #base "abilities/boss/boss_tidebringer.txt"
 #base "abilities/boss/boss_cliffwalk.txt"
 
+// OAA Bosses
 #base "abilities/charger/boss_charger_charge.txt"
 #base "abilities/charger/boss_charger_summon_pillar.txt"
 #base "abilities/shielder/boss_shielder_shield.txt"
 #base "abilities/twin/boss_twin_twin_empathy.txt"
-
 #base "abilities/stopfightingyourself/dupe_heroes.txt"
 #base "abilities/stopfightingyourself/debuff_mirror.txt"
 #base "abilities/stopfightingyourself/dupe_items.txt"
 
+// EBF Bosses
+#base "abilities/ebf/boss_automaton_proximity.txt"
+#base "abilities/ebf/boss_automaton_suicide.txt"
+#base "abilities/ebf/boss_factorio_spawn_techies.txt"
+
+// Other
 #base "abilities/fountain_attack.txt"
 #base "abilities/dev_attack.txt"
