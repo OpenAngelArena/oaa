@@ -75,7 +75,7 @@ function AICore:BeingAttacked( entity )
 
   for _,enemy in pairs(enemies) do
     if enemy:IsAlive() and enemy:IsAttackingEntity(entity) then
-      minRange = distanceToEnemy
+      -- minRange = distanceToEnemy -- Chronophylos: Looks like a CopyPasta Fragment
       count = count + 1
     end
   end
@@ -112,7 +112,7 @@ function AICore:AttackHighestPriority( entity )
     end
     if not target then
       local minHP = nil
-      local target = nil
+      target = nil -- Chronophylos: Removed 'local'
       enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range*2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flag, 0, false )
       for _,enemy in pairs(enemies) do
         local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
@@ -126,7 +126,7 @@ function AICore:AttackHighestPriority( entity )
     end
     if not target then
       local minRange = 9999
-      local target = nil
+      target = nil -- Chronophylos: Removed 'local'
       enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, minRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flag, 0, false )
       for _,enemy in pairs(enemies) do
         local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length2D()
@@ -168,7 +168,7 @@ end
 
 -- Modified by Chronophylos to support max Lenght
 function AICore:RunToRandomPosition( entity, spasticness, maxLenght )
-  position = entity:GetOrigin() + RandomVector(maxLenght or 1000)
+  local position = entity:GetOrigin() + RandomVector(maxLenght or 1000)
 
   if RollPercentage(spasticness) then
     ExecuteOrderFromTable({
@@ -180,7 +180,7 @@ function AICore:RunToRandomPosition( entity, spasticness, maxLenght )
 end
 
 function AICore:RunToRandomPositionLocation(entity, location, spasticness, maxLenght)
-  position = location + RandomVector(maxLenght or 1000)
+  local position = location + RandomVector(maxLenght or 1000)
 
   if RollPercentage(spasticness) then
     ExecuteOrderFromTable({
@@ -259,9 +259,6 @@ end
 
 function AICore:OptimalHitPosition(entity, range, radius)
   local flags = 0
-  if magic_immune then
-    flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-  end
   local enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
   local meanPos
   for _,enemy in pairs(enemies) do
@@ -277,7 +274,7 @@ function AICore:OptimalHitPosition(entity, range, radius)
   return meanPos
 end
 
-function AICore:TotalNotDisabledEnemyHeroesInRange( entity, range , magic_immune)
+function AICore:TotalNotDisabledEnemyHeroesInRange( entity, range, magic_immune)
   local flags = 0
   if magic_immune then
     flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
@@ -297,8 +294,7 @@ function AICore:TotalNotDisabledEnemyHeroesInRange( entity, range , magic_immune
 end
 
 function AICore:TotalUnitsInRange( entity, range )
-
-  flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+  local flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
   local enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
 
   local count = 0
@@ -312,7 +308,7 @@ function AICore:TotalUnitsInRange( entity, range )
   return count
 end
 
-function AICore:TotalAlliedUnitsInRange( entity, range  )
+function AICore:TotalAlliedUnitsInRange( entity, range )
   local enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false )
 
   local count = 0
@@ -398,7 +394,7 @@ function AICore:EnemiesInLine(entity, range, width, magic_immune)
   end
 end
 
-function AICore:WeakestEnemyHeroInRange( entity, range , magic_immune)
+function AICore:WeakestEnemyHeroInRange( entity, range, magic_immune)
   local flags = 0
   if magic_immune then
     flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
@@ -420,7 +416,7 @@ function AICore:WeakestEnemyHeroInRange( entity, range , magic_immune)
   return target
 end
 
-function AICore:StrongestEnemyHeroInRange( entity, range , magic_immune)
+function AICore:StrongestEnemyHeroInRange( entity, range, magic_immune)
   local flags = 0
   if magic_immune then
     flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
@@ -465,26 +461,23 @@ function AICore:HighestThreatHeroInRange(entity, range, basethreat, magic_immune
 end
 
 function AICore:CreateBehaviorSystem( behaviors )
-  local BehaviorSystem = {}
+  local BehaviorSystem = class({})
 
   BehaviorSystem.possibleBehaviors = behaviors
   BehaviorSystem.thinkDuration = 1.0
   BehaviorSystem.repeatedlyIssueOrders = true -- if you're paranoid about dropped orders, leave this true
 
-  BehaviorSystem.currentBehavior =
-  {
+  BehaviorSystem.currentBehavior = {
     endTime = 0,
     order = { OrderType = DOTA_UNIT_ORDER_NONE }
   }
 
-  function BehaviorSystem:Think()
+  function BehaviorSystem:Think() -- luacheck: ignore
     if GameRules:GetGameTime() >= self.currentBehavior.endTime then
       local newBehavior = self:ChooseNextBehavior()
-      if newBehavior == nil then
-        -- Do nothing here... this covers possible problems with ChooseNextBehavior
-      elseif newBehavior == self.currentBehavior then
+      if newBehavior == self.currentBehavior then
         self.currentBehavior:Continue()
-      else
+      elseif newBehavior ~= nil then
         if self.currentBehavior.End then self.currentBehavior:End() end
         self.currentBehavior = newBehavior
         self.currentBehavior:Begin()
@@ -510,7 +503,7 @@ function AICore:CreateBehaviorSystem( behaviors )
     return self.thinkDuration
   end
 
-  function BehaviorSystem:ChooseNextBehavior()
+  function BehaviorSystem:ChooseNextBehavior() -- luacheck: ignore
     local result = nil
     local bestDesire = nil
     for _,behavior in pairs( self.possibleBehaviors ) do
@@ -524,8 +517,8 @@ function AICore:CreateBehaviorSystem( behaviors )
     return result
   end
 
-  function BehaviorSystem:Deactivate()
-    print("End")
+  function BehaviorSystem:Deactivate() -- luacheck: ignore
+    -- print("End")
     if self.currentBehavior.End then self.currentBehavior:End() end
   end
 
