@@ -184,7 +184,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
       local bounty = self:GiveBounty(teamID, cave.timescleared)
 
       -- teleport player back to base
-      self:KickPlayers(teamID)
+      -- self:KickPlayers(teamID)
 
       -- reset cave
       Timers:CreateTimer(4, function ()
