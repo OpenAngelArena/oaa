@@ -15,6 +15,7 @@ end
 
 function AIThink()
   -- TODO: Prevent roaming
+  local target
   if not thisEntity:IsDominated() and not thisEntity:IsChanneling() then
     if not thisEntity:IsChanneling() then
       local radius = thisEntity.crush:GetSpecialValueFor("crush_radius")
