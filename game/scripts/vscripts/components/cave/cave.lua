@@ -38,6 +38,16 @@ function CaveHandler:Init ()
         doors = {},
         radius = 1600
       }
+      self.caves[teamID].rooms[0] = {
+        handle = nil,
+        creepCount = nil,
+        zone = ZoneControl:CreateZone(caveName .. "_zone_0", {
+          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+        }),
+        doors = nil,
+        radius = 1600
+      }
       for doorID=1,MAX_DOORS do
         self.caves[teamID].rooms[roomID].doors[doorID] = Doors:UseDoors(caveName .. '_door_' .. roomID .. '_' .. doorID, {
           state = DOOR_STATE_CLOSED,
@@ -60,6 +70,7 @@ end
 
 function CaveHandler:InitCave (teamID)
   self:ResetCave(teamID)
+  self.caves[teamID].rooms[0].zone.disable()
 end
 
 function CaveHandler:ResetCave (teamID)
@@ -265,8 +276,8 @@ function CaveHandler:GiveBounty (teamID, k)
 end
 
 function CaveHandler:IsInFarmingCave (teamID, entity)
-  local caveOrigin = self.caves[teamID].rooms[1].zone.origin
-  local bounds = self.caves[teamID].rooms[1].zone.bounds
+  local caveOrigin = self.caves[teamID].rooms[0].zone.origin
+  local bounds = self.caves[teamID].rooms[0].zone.bounds
 
   local origin = entity
   if entity.GetAbsOrigin then
