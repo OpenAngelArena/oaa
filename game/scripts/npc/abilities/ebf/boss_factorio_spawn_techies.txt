@@ -4,7 +4,7 @@
   "boss_factorio_spawn_techies"
   {
     "BaseClass"            "ability_datadriven"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "ID"                      "5005"
+    "ID"                      "5021"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"      "techies_focused_detonate"
     "AbilityChannelTime"      "5 4.5 4 3.5"
