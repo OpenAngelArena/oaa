@@ -1,10 +1,11 @@
 "DOTAAbilities"
 {
-  "true_sight_boss"
+  "boss_true_sight"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"            "ability_datadriven"
+    "ID"                   "5000"
     "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
