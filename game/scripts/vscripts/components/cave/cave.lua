@@ -63,10 +63,8 @@ function CaveHandler:ResetCave (teamID)
 
   for roomID, room in pairs(cave.rooms) do
     self:SpawnRoom(teamID, roomID)
-    if roomID > 1 then
-      room.zone.enable()
-      room.door.Close()
-    end
+    room.zone.enable()
+    room.door.Close()
   end
 end
 
@@ -220,9 +218,7 @@ end
 function CaveHandler:CloseDoors(teamID)
   local cave = self.caves[teamID]
   for roomID, room in pairs(cave.rooms) do
-    if roomID > 1 then
-      room.door.Close()
-    end
+    room.door.Close()
   end
 end
 
