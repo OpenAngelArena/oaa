@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityName"          "creature_fire_breath"
+    "BaseClass"               "creature_fire_breath"
     "ID"                      "5000"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
