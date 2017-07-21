@@ -227,7 +227,7 @@ function CaveHandler:CloseDoors(teamID)
 end
 
 function CaveHandler:GiveBounty (teamID, k)
-  local roshGold = CaveTypes[4][1].units[1][7]
+  local roshGold = CaveTypes[4][1].units[1][6]
   local roshCount = #CaveTypes[4][1].units
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
