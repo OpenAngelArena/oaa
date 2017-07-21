@@ -165,8 +165,12 @@ function CaveHandler:CreepDeath (teamID, roomID)
     if roomID < 4 then -- not last room
       -- let players advance to next room
       DebugPrint('Opening room.')
-      cave.rooms[roomID].door.Open()
-      cave.rooms[roomID].zone.disable()
+      if cave.rooms[roomID].door then
+        cave.rooms[roomID].door.Open()
+      end
+      if cave.rooms[roomID].zone then
+        cave.rooms[roomID].zone.disable()
+      end
 
       -- inform players
       Notifications:TopToTeam(teamID, {
