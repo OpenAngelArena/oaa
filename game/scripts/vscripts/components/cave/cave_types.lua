@@ -1,4 +1,13 @@
 
+CAVE_TYPE_STATS_HEALTH = 2
+CAVE_TYPE_STATS_MANA = 3
+CAVE_TYPE_STATS_DAMAGE = 4
+CAVE_TYPE_STATS_ARMOUR = 5
+CAVE_TYPE_STATS_GOLD = 6
+CAVE_TYPE_STATS_EXP = 7
+CAVE_TYPE_STATS_RESITS = 8
+
+
 function MakeKFunctionForIndexPowerOffset (index, speed, offset, power)
   return function (k)
     return 1 + power*(CreepPower:GetBasePowerForMinute(k * speed + offset, 1)[index] - 1)
@@ -20,12 +29,12 @@ local BaseMultipliers = {
   --  minute ^ 0.5,                             -- armor
   --  (minute / 2) + 1,                         -- gold
   --  ((21 * minute^2 - 19 * minute + 3002) / 3002) * self.numPlayersXPFactor * multFactor -- xp
-  mana = partial(MakeKFunctionForIndexPowerOffset, 3),
-  hp = partial(MakeKFunctionForIndexPowerOffset, 2),
-  damage = partial(MakeKFunctionForIndexPowerOffset, 4),
-  armour = partial(MakeKFunctionForIndexPowerOffset, 5),
-  gold = partial(MakeKFunctionForIndexPowerOffset, 6),
-  exp = partial(MakeKFunctionForIndexPowerOffset, 7)
+  hp = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_HEALTH),
+  mana = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_MANA),
+  damage = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_DAMAGE),
+  armour = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_ARMOUR),
+  gold = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_GOLD),
+  exp = partial(MakeKFunctionForIndexPowerOffset, CAVE_TYPE_STATS_EXP)
 }
 
 -- "creep name", Health, Mana, Damage, Armor, Gold Bounty, Exp Bounty
