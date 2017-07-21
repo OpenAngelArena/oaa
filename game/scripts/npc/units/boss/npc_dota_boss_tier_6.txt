@@ -63,14 +63,13 @@
     "StatusMana"                                          "0"         // Base mana.
     "StatusManaRegen"                                     "0"         // Mana regeneration rate.
 
-    // Creature data
-
+    // Creature Data
+    //----------------------------------------------------------------------------------------------------------------------
     "Creature"
     {
       //Makes it only have 25% remaining of applied crowd control
       "DisableResistance"                                 "75.0"
     }
-
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
@@ -85,5 +84,4 @@
 
     "HasInventory"                                        "1"
   }
-
 }

@@ -55,18 +55,6 @@
     "StatusMana"        "3000"    // Base mana.
     "StatusManaRegen"      "5.0"    // Mana regeneration rate.
 
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"    "1400"    // Range of vision during day HERO.
-    "VisionNighttimeRange"    "800"    // Range of vision at night time.
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"          "DOTA_TEAM_BADGUYS"              // Team name.
-    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
     //Precache
     //---------------------------------------------------------------------
     "VoiceFile"        "soundevents/voscripts/game_sounds_vo_tinker.vsndevts"
@@ -77,21 +65,21 @@
     //----------------------------------------------------------------------------------------------------------------------
     "Creature"
     {
-    "CanRespawn"        "0"
-
-      //HERO AI State
-      //-----------------------------------------------------------------
-      "DefaultState"        "Invade"
-      "States"
-      {
-        "Invade"
-        {
-          "Name"        "Invade"
-          "Aggression"    "100.0"
-          "Avoidance"      "0.0"
-          "Support"      "0.0"
-        }
-      }
+      //Makes it only have 25% remaining of applied crowd control
+      "DisableResistance"                                 "75.0"
     }
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+
+    "HasInventory"                                        "1"
   }
 }

@@ -93,11 +93,13 @@ function AICore:AttackHighestPriority( entity )
     local minThreat = 0
     if entity.previoustarget and not entity.previoustarget:IsNull() then
       target = entity.previoustarget
+      AICore:UpdateThreat(target)
       target.threat = target.threat or 0
       minThreat = target.threat
     end
     for _,enemy in pairs(enemies) do
       local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
+      AICore:UpdateThreat(enemy)
       if not enemy.threat then enemy.threat = 0 end
       if not minThreat then minThreat = 0 end
       if enemy:IsAlive() and (enemy.threat or 0) > minThreat and distanceToEnemy < range and not entity.previoustarget then
@@ -113,7 +115,7 @@ function AICore:AttackHighestPriority( entity )
     if not target then
       local minHP = nil
       target = nil -- Chronophylos: Removed 'local'
-      enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range*2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flag, 0, false )
+      enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range * 2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flag, 0, false )
       for _,enemy in pairs(enemies) do
         local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
         local HP = enemy:GetHealth()
@@ -125,7 +127,7 @@ function AICore:AttackHighestPriority( entity )
       end
     end
     if not target then
-      local minRange = 9999
+      local minRange = 900 -- Chronophylos: 9999 is too big
       target = nil -- Chronophylos: Removed 'local'
       enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, minRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flag, 0, false )
       for _,enemy in pairs(enemies) do
@@ -145,7 +147,7 @@ function AICore:AttackHighestPriority( entity )
       })
       return 0.5
     else
-      AICore:RunToRandomPosition( entity, 5 )
+      AICore:RunToRandomPosition( entity, 5, 900 ) -- Chronophylos: We don't want roaming Bosses, but let's give this a different try
       return 0.1
     end
   end
@@ -154,13 +156,13 @@ end
 function AICore:BeAHugeCoward( entity, runbuffer )
   local nearest = AICore:NearestEnemyHeroInRange( entity, 99999, true )
   if nearest then
-    local direction = (nearest:GetOrigin()-entity:GetOrigin()):Normalized()
-    local distance = (nearest:GetOrigin()-entity:GetOrigin()):Length2D()
+    local direction = (nearest:GetOrigin() - entity:GetOrigin()):Normalized()
+    local distance = (nearest:GetOrigin() - entity:GetOrigin()):Length2D()
     if distance < runbuffer then
       ExecuteOrderFromTable({
         UnitIndex = entity:entindex(),
         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-        Position = (-direction)*distance
+        Position = (-direction) * distance
       })
     end
   end
@@ -222,7 +224,7 @@ function AICore:FarthestEnemyHeroInRange( entity, range , magic_immune)
   return target
 end
 
-function AICore:NearestDisabledEnemyHeroInRange( entity, range , magic_immune)
+function AICore:NearestDisabledEnemyHeroInRange(entity, range, magic_immune)
   local flags = 0
   if magic_immune then
     flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
@@ -234,7 +236,8 @@ function AICore:NearestDisabledEnemyHeroInRange( entity, range , magic_immune)
   local target = nil
   for _,enemy in pairs(enemies) do
     local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length2D()
-    if enemy:IsAlive() and distanceToEnemy < minRange and enemy:IsDisabled() then
+    --if enemy:IsAlive() and distanceToEnemy < minRange and enemy:IsDisabled() then -- Chronophylos: IsDisabled seems to be a custom function we do not have
+    if enemy:IsAlive() and distanceToEnemy < minRange then
       minRange = distanceToEnemy
       target = enemy
     end
@@ -242,7 +245,7 @@ function AICore:NearestDisabledEnemyHeroInRange( entity, range , magic_immune)
   return target
 end
 
-function AICore:TotalEnemyHeroesInRange( entity, range)
+function AICore:TotalEnemyHeroesInRange(entity, range)
   local flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
   local enemies = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
 
@@ -286,7 +289,8 @@ function AICore:TotalNotDisabledEnemyHeroesInRange( entity, range, magic_immune)
 
   for _,enemy in pairs(enemies) do
     local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
-    if enemy:IsAlive() and distanceToEnemy < range and not enemy:IsDisabled() then
+    --if enemy:IsAlive() and distanceToEnemy < range and enemy:IsDisabled() then -- Chronophylos: IsDisabled seems to be a custom function we do not have
+    if enemy:IsAlive() and distanceToEnemy < range then
       count = count + 1
     end
   end
@@ -449,6 +453,7 @@ function AICore:HighestThreatHeroInRange(entity, range, basethreat, magic_immune
   local minThreat = basethreat
   for _,enemy in pairs(enemies) do
     local distanceToEnemy = (entity:GetOrigin() - enemy:GetOrigin()):Length()
+    AICore:UpdateThreat(enemy)
     if not enemy.threat then enemy.threat = 0 end
     local threat = enemy.threat
     if enemy:IsAlive() and (minThreat == nil or threat > minThreat) and distanceToEnemy < range then
@@ -458,6 +463,11 @@ function AICore:HighestThreatHeroInRange(entity, range, basethreat, magic_immune
   end
 
   return target
+end
+
+function AICore:UpdateThreat(unit)
+  -- Chronophylos: We just need this to make the threat evaluation above working
+  unit.threat = (unit.basethreat or 0) + unit:GetAttackDamage() * unit:GetAttacksPerSecond()
 end
 
 function AICore:CreateBehaviorSystem( behaviors )
