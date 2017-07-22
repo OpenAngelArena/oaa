@@ -82,7 +82,7 @@ function CaveHandler:ResetCave (teamID)
       self:SpawnRoom(teamID, roomID)
       self:CloseDoors(teamID, roomID)
       if roomID > 1 then
-        self:DisableZones()
+        self:DisableZones(teamID, roomID)
       end
     end
   end
@@ -187,9 +187,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
       -- let players advance to next room
       DebugPrint('Opening room.')
       self:OpenDoors(teamID, roomID)
-      if room.zone then
-        room.zone.disable()
-      end
+      self:DisableZones(teamID, roomID)
 
       -- inform players
       Notifications:TopToTeam(teamID, {
@@ -199,6 +197,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
     else -- roomID >= 4
       -- close doors
       self:CloseCaveDoors(teamID)
+      self:EnableCaveZones(teamID)
 
       -- give all players gold
       local bounty = self:GiveBounty(teamID, cave.timescleared)
