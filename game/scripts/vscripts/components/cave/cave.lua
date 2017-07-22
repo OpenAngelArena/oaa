@@ -44,7 +44,7 @@ function CaveHandler:Init ()
         radius = 1600
       }
       for zoneID=1,MAX_ZONES do
-        self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
+        self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
         })
