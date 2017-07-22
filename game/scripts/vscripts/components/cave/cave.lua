@@ -35,7 +35,7 @@ function CaveHandler:Init ()
         doors = {},
         radius = 1600
       }
-      if #Entities:FindAllByName(name) > 0 then
+      if #Entities:FindAllByName(caveName .. "_zone_" .. roomID) > 0 then
         self.caves[teamID].rooms[roomID].zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
