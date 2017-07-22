@@ -34,7 +34,7 @@ function CaveHandler:Init ()
         zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        }),,
+        }),
         doors = {},
         radius = 1600
       }
