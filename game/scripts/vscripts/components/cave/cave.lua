@@ -383,7 +383,7 @@ function CaveHandler:KickPlayers (teamID)
       for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
         local result = FindUnitsInRadius(
           team, -- team
-          room.zone.origin, -- location
+          room.zones[1].origin, -- location
           nil, -- cache
           room.radius, -- radius
           DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
