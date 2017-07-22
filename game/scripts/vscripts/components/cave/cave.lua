@@ -27,7 +27,7 @@ function CaveHandler:Init ()
       rooms = {}
     }
 
-    for roomID = 1, 4 do
+    for roomID = 1,4 do
       self.caves[teamID].rooms[roomID] = {
         handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
@@ -80,10 +80,12 @@ function CaveHandler:ResetCave (teamID)
   local cave = self.caves[teamID]
 
   for roomID, room in pairs(cave.rooms) do
-    self:SpawnRoom(teamID, roomID)
-    self:CloseDoors(teamID, roomID)
-    if roomID > 1 then
-      room.zone.enable()
+    if roomID ~= 0 then
+      self:SpawnRoom(teamID, roomID)
+      self:CloseDoors(teamID, roomID)
+      if roomID > 1 then
+        room.zone.enable()
+      end
     end
   end
 end
@@ -95,7 +97,7 @@ function CaveHandler:SpawnRoom (teamID, roomID)
   local room = cave.rooms[roomID]
   local creepList = CaveTypes[roomID][RandomInt(1, #CaveTypes[roomID])]
 
-  for _, creep in ipairs(creepList.units) do -- spawn all creeps in list
+  for _,creep in ipairs(creepList.units) do -- spawn all creeps in list
     -- get properties for the creep
     local creepProperties = self:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
 
@@ -238,7 +240,9 @@ end
 function CaveHandler:CloseCaveDoors(teamID)
   local cave = self.caves[teamID]
   for roomID,_ in pairs(cave.rooms) do
-    self:CloseDoors(teamID, roomID)
+    if roomID ~= 0 then
+      self:CloseDoors(teamID, roomID)
+    end
   end
 end
 
@@ -254,7 +258,9 @@ end
 function CaveHandler:OpenCaveDoors(teamID)
   local cave = self.caves[teamID]
   for roomID,_ in pairs(cave.rooms) do
-    self:OpenDoors(teamID, roomID)
+    if roomID ~= 0 then
+      self:OpenDoors(teamID, roomID)
+    end
   end
 end
 
@@ -332,25 +338,27 @@ function CaveHandler:KickPlayers (teamID)
   }
   local units = {}
 
-  -- get all heroes in all rooms
-  for roomID, room in pairs(cave.rooms) do
-    DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
+  -- get all heroes in the cave
+  for roomID,room in pairs(cave.rooms) do
+    if roomID ~= 0 then
+      DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
-    for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-      local result = FindUnitsInRadius(
-        team, -- team
-        room.zone.origin, -- location
-        nil, -- cache
-        room.radius, -- radius
-        DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
-        DOTA_UNIT_TARGET_ALL, -- type filter
-        DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
-        FIND_ANY_ORDER, -- order
-        false -- can grow cache
-      )
-      for _, unit in pairs(result) do
-        if CaveHandler:IsInFarmingCave(teamID, unit) then
-          table.insert(units, unit)
+      for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+        local result = FindUnitsInRadius(
+          team, -- team
+          room.zone.origin, -- location
+          nil, -- cache
+          room.radius, -- radius
+          DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
+          DOTA_UNIT_TARGET_ALL, -- type filter
+          DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+          FIND_ANY_ORDER, -- order
+          false -- can grow cache
+        )
+        for _,unit in pairs(result) do
+          if CaveHandler:IsInFarmingCave(teamID, unit) then
+            table.insert(units, unit)
+          end
         end
       end
     end
@@ -372,7 +380,7 @@ function CaveHandler:GetCleares (teamID)
 end
 
 function CaveHandler:TeleportAll(units, spawns)
-  for _, unit in pairs(units) do
+  for _,unit in pairs(units) do
     local origin = ParticleManager:CreateParticle(
       'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
       PATTACH_ABSORIGIN_FOLLOW, -- attach point
