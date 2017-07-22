@@ -31,13 +31,16 @@ function CaveHandler:Init ()
       self.caves[teamID].rooms[roomID] = {
         handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
-        zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
-          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        }),
+        zone = nil,
         doors = {},
         radius = 1600
       }
+      if #Entities:FindAllByName(name) > 0 then
+        self.caves[teamID].rooms[roomID].zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
+          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+        })
+      end
       self.caves[teamID].rooms[0] = {
         handle = nil,
         creepCount = nil,
