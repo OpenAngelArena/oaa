@@ -1,5 +1,6 @@
 
 local MAX_DOORS = 2
+local MAX_ZONES = 2
 
 if CaveHandler == nil then
   Debug.EnabledModules['cave:cave'] = true
@@ -31,10 +32,7 @@ function CaveHandler:Init ()
       self.caves[teamID].rooms[roomID] = {
         handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
-        zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
-          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        }),
+        zones = {},
         doors = {},
         radius = 1600
       }
@@ -58,6 +56,12 @@ function CaveHandler:Init ()
           closingStepSize = 2,
         })
       end
+      for zoneID=1,MAX_ZONES do
+        self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
+          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+        })
+      end
     end
   end
 
@@ -78,13 +82,11 @@ function CaveHandler:ResetCave (teamID)
 
   for roomID, room in pairs(cave.rooms) do
     self:SpawnRoom(teamID, roomID)
-    for doorID=1,MAX_DOORS do
-      if cave.rooms[roomID].doors[doorID] then
-        cave.rooms[roomID].doors[doorID].Close()
+    self:CloseDoors(teamID, roomID)
+    for zoneID=1,MAX_ZONES do
+      if cave.rooms[roomID].zones[zoneID] then
+        cave.rooms[roomID].zones[zoneID].enable()
       end
-    end
-    if cave.rooms[roomID].zone then
-      cave.rooms[roomID].zone.enable()
     end
   end
 end
@@ -187,13 +189,11 @@ function CaveHandler:CreepDeath (teamID, roomID)
     if roomID < 4 then -- not last room
       -- let players advance to next room
       DebugPrint('Opening room.')
-      for doorID=1,MAX_DOORS do
-        if cave.rooms[roomID].doors[doorID] then
-          cave.rooms[roomID].doors[doorID].Open()
+      self:OpenDoors(teamID, roomID)
+      for zoneID=1,MAX_ZONES do
+        if cave.rooms[roomID].zones[zoneID] then
+          cave.rooms[roomID].zones[zoneID].disable()
         end
-      end
-      if cave.rooms[roomID].zone then
-        cave.rooms[roomID].zone.disable()
       end
 
       -- inform players
@@ -203,7 +203,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
       })
     else -- roomID >= 4
       -- close doors
-      self:CloseDoors(teamID)
+      self:CloseCaveDoors(teamID)
 
       -- give all players gold
       local bounty = self:GiveBounty(teamID, cave.timescleared)
@@ -242,10 +242,35 @@ function CaveHandler:CreepDeath (teamID, roomID)
   end
 end
 
-function CaveHandler:CloseDoors(teamID)
+function CaveHandler:CloseCaveDoors(teamID)
   local cave = self.caves[teamID]
-  for roomID, room in pairs(cave.rooms) do
-    room.door.Close()
+  for roomID,_ in pairs(cave.rooms) do
+    self:CloseDoors(teamID, roomID)
+  end
+end
+
+function CaveHandler:CloseDoors(teamID, roomID)
+  local room = self.caves[teamID].rooms[roomID]
+  for doorID=1,MAX_DOORS do
+    if room.doors[doorID] then
+      room.doors[doorID].Close()
+    end
+  end
+end
+
+function CaveHandler:OpenCaveDoors(teamID)
+  local cave = self.caves[teamID]
+  for roomID,_ in pairs(cave.rooms) do
+    self:OpenDoors(teamID, roomID)
+  end
+end
+
+function CaveHandler:OpenDoors(teamID, roomID)
+  local room = self.caves[teamID].rooms[roomID]
+  for doorID=1,MAX_DOORS do
+    if room.doors[doorID] then
+      room.doors[doorID].Open()
+    end
   end
 end
 
