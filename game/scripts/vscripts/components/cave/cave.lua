@@ -1,5 +1,6 @@
 
 local MAX_DOORS = 2
+local MAX_ZONES = 2
 
 if CaveHandler == nil then
   Debug.EnabledModules['cave:cave'] = true
@@ -31,26 +32,23 @@ function CaveHandler:Init ()
       self.caves[teamID].rooms[roomID] = {
         handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
-        zone = nil,
+        zones = {},
         doors = {},
         radius = 1600
       }
-      if #Entities:FindAllByName(caveName .. "_zone_" .. roomID) > 0 then
-        self.caves[teamID].rooms[roomID].zone = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
-          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        })
-      end
       self.caves[teamID].rooms[0] = {
-        handle = nil,
-        creepCount = nil,
         zone = ZoneControl:CreateZone(caveName .. "_zone_0", {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
           players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
         }),
-        doors = nil,
         radius = 1600
       }
+      for zoneID=1,MAX_ZONES do
+        self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID, {
+          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+        })
+      end
       for doorID=1,MAX_DOORS do
         self.caves[teamID].rooms[roomID].doors[doorID] = Doors:UseDoors(caveName .. '_door_' .. roomID .. '_' .. doorID, {
           state = DOOR_STATE_CLOSED,
@@ -84,9 +82,7 @@ function CaveHandler:ResetCave (teamID)
       self:SpawnRoom(teamID, roomID)
       self:CloseDoors(teamID, roomID)
       if roomID > 1 then
-        if room.zone then
-          room.zone.enable()
-        end
+        self:DisableZones()
       end
     end
   end
@@ -273,6 +269,42 @@ function CaveHandler:OpenDoors(teamID, roomID)
   for doorID=1,MAX_DOORS do
     if room.doors[doorID] then
       room.doors[doorID].Open()
+    end
+  end
+end
+
+function CaveHandler:DisableCaveZones(teamID)
+  local cave = self.caves[teamID]
+  for roomID,_ in pairs(cave.rooms) do
+    if roomID ~= 0 then
+      self:DisableZones(teamID, roomID)
+    end
+  end
+end
+
+function CaveHandler:DisableZones(teamID, roomID)
+  local room = self.caves[teamID].rooms[roomID]
+  for zoneID=1,MAX_ZONES do
+    if room.zones[zoneID] then
+      room.zones[zoneID].disable()
+    end
+  end
+end
+
+function CaveHandler:EnableCaveZones(teamID)
+  local cave = self.caves[teamID]
+  for roomID,_ in pairs(cave.rooms) do
+    if roomID ~= 0 then
+      self:EnableZones(teamID, roomID)
+    end
+  end
+end
+
+function CaveHandler:EnableZones(teamID, roomID)
+  local room = self.caves[teamID].rooms[roomID]
+  for zoneID=1,MAX_ZONES do
+    if room.zones[zoneID] then
+      room.zones[zoneID].enable()
     end
   end
 end
