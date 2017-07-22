@@ -84,7 +84,9 @@ function CaveHandler:ResetCave (teamID)
       self:SpawnRoom(teamID, roomID)
       self:CloseDoors(teamID, roomID)
       if roomID > 1 then
-        room.zone.enable()
+        if room.zone then
+          room.zone.enable()
+        end
       end
     end
   end
@@ -189,7 +191,9 @@ function CaveHandler:CreepDeath (teamID, roomID)
       -- let players advance to next room
       DebugPrint('Opening room.')
       self:OpenDoors(teamID, roomID)
-      room.zone.disable()
+      if room.zone then
+        room.zone.disable()
+      end
 
       -- inform players
       Notifications:TopToTeam(teamID, {
