@@ -44,10 +44,12 @@ function CaveHandler:Init ()
         radius = 1600
       }
       for zoneID=1,MAX_ZONES do
-        self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
-          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        })
+        if Entities:FindByName(nil, caveName .. "_zone_" .. roomID .. '_' .. zoneID) then
+          self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
+            mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+            players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+          })
+        end
       end
       for doorID=1,MAX_DOORS do
         self.caves[teamID].rooms[roomID].doors[doorID] = Doors:UseDoors(caveName .. '_door_' .. roomID .. '_' .. doorID, {
