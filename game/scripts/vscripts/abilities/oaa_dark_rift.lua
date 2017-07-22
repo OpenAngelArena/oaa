@@ -55,6 +55,7 @@ end
 if IsServer() then
 	function modifier_abyssal_underlord_dark_rift_oaa_portal:OnCreated( event )
 		local parent = self:GetParent()
+		local caster = self:GetCaster()
 		local spell = self:GetAbility()
 
 		self.radius = spell:GetSpecialValueFor( "radius" )
@@ -151,7 +152,7 @@ if IsServer() then
 
 		-- if the unit hasn't been telported by a previous portal, retain its old position and put it at its new one
 		for _, unit in pairs( unitsPortal1 ) do
-			if not FindInTable( unitsAll, target ) and not unit:IsRooted() then
+			if not FindInTable( unitsAll, unit ) and not unit:IsRooted() then
 				unit.tempOriginOld = unit:GetAbsOrigin()
 				local vectorOffset = unit:GetAbsOrigin() - originParent
 				unit:SetAbsOrigin( self.originSecond + vectorOffset )
@@ -161,7 +162,7 @@ if IsServer() then
 		end
 
 		for _, unit in pairs( unitsPortal2 ) do
-			if not FindInTable( unitsAll, target ) and not unit:IsRooted() then
+			if not FindInTable( unitsAll, unit ) and not unit:IsRooted() then
 				unit.tempOriginOld = unit:GetAbsOrigin()
 				local vectorOffset = unit:GetAbsOrigin() - self.originSecond
 				unit:SetAbsOrigin( originParent + vectorOffset )
