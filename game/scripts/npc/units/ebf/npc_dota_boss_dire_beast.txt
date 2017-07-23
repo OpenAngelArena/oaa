@@ -8,7 +8,8 @@
   {
     // General
     //
-    "BaseClass"          "npc_dota_creep_neutral"  // Class of entity of link to.
+    //"BaseClass"          "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creep_neutral"
     "Model"            "models/creeps/roshan/roshan.vmdl"  // Model.
     "SoundSet"          "Roshan"          // Name of sound set.
     "ModelScale"        "1.4"

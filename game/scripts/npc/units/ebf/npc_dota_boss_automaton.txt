@@ -8,7 +8,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"          "npc_dota_creature"          // Class of entity of link to.
+    //"BaseClass"          "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creep_neutral"
     "Model"            "models/heroes/techies/techies.vmdl"    // Model.
     "SoundSet"          "Hero_Tinker"                          // Name of sound set.
     "GameSoundsFile"      "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"

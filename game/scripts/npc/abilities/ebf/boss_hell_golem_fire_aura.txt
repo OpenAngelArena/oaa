@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  "boss_hell_golem_fire_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"      "custom/hell_golem_fire_aura"
+
+    "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"              "FIELD_INTEGER"
+          "armor_debuff"                "-200"
+        }
+        "02"
+        {
+          "var_type"              "FIELD_INTEGER"
+          "radius"                "800"
+        }
+      }
+
+      "Modifiers"
+      {
+        "fire_aura"
+        {
+        "Passive" "1"
+        "IsHidden" "1"
+        "Aura" "fire_aura_debuff"
+        "Aura_Radius" "%radius"
+        "Aura_Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Aura_Types" "DOTA_UNIT_TARGET_ALL"
+      }
+      "fire_aura_debuff"
+      {
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%armor_debuff"
+          "MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+        }
+      }
+    }
+  }
+}

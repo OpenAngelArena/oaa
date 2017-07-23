@@ -1,0 +1,200 @@
+"DOTAAbilities"
+{
+  "boss_hell_golem_melee_fire_orb"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"      "DAMAGE_TYPE_PURE"
+    "AbilityTextureName"      "ember_spirit_flame_guard"
+
+    "precache"
+    {
+      "particle"        "particles/nyx_assassin_impale.vpcf"
+      "particle"        "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+      "soundfile"        "soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "2000"
+
+    "AbilityCastAnimation"      "ACT_DOTA_SPAWN"  // Activity
+    "AnimationPlaybackRate"      "0.4"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "30"
+    "AbilityCastPoint"        "1.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"        "0 0 0 0"
+
+    "OnAbilityPhaseStart"
+    {
+      "CreateThinker"
+        {
+          "ModifierName"  "target_telegraph_fx"
+          "Target"    "CASTER"
+        }
+    }
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"  "stun_skill"
+        "Target"  "CASTER"
+      }
+      "CreateThinker"
+      {
+        "ModifierName"  "spike_think"
+        "Target"    "CASTER"
+      }
+
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "impact_radius"      "1000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "stun_duration"      "1.0"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage"        "9999999"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "think_time"      "2.0"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "think_time_extra"      "2.5"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "speed"      "200"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "air_time"      "1.0"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "width"      "150"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "spike_damage"        "10000"
+      }
+    }
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+      "stun_skill"
+      {
+        "duration" "1.5"
+        "IsDebuff"  "1"
+        "IsPurgable"  "1"
+        "IsStunDebuff"  "1"
+        "States"
+        {
+          "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+      "target_telegraph_fx"
+      {
+        "OnCreated"
+        {
+          "FireSound"
+          {
+          "EffectName"    "sounds/vo/warlock_golem/wargol_laugh_12.vsnd"
+          "Target"      "CASTER"
+          }
+          "AttachEffect"
+          {
+            "EffectName"    "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"      "CASTER"
+            "ControlPoints"
+            {
+              "00" "0 0 0"
+              "01" "%impact_radius 0 0"
+              "02" "6 0 1" // telegraph
+              "03" "200 0 0"
+              "04" "0 0 0"
+            }
+          }
+        }
+      }
+      "spike_think"
+      {
+        "Duration"          "%think_time" // Should work without the added time but appears to have a off by one error so time added so it doesnt destroy itself before occuring
+        "ThinkInterval"        "1.0"
+
+        "OnIntervalThink"
+        {
+          "IsCasterAlive"
+          {
+            "OnSuccess"
+            {
+              "LinearProjectile"
+              {
+                "Target"
+                {
+                  "Center" "CASTER"
+                  "Radius" "5000"
+                  "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "ExcludeTypes" "DOTA_UNIT_TARGET_COURIER"
+                  "MaxTargets" "1"
+                  "Random"  "1"
+                }
+                "EffectName"        "particles/nyx_assassin_impale.vpcf"
+                "StartRadius"       "200"
+                "EndRadius"         "275"
+                "MoveSpeed"         "%speed"
+                "TargetTeams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "TargetTypes"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                "FixedDistance"     "10000"
+                "ProvidesVision"    "0"
+                "HasFrontalCone"    "0"
+              }
+            }
+          }
+        }
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"           "0"
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Function" "KillTarget"
+        "Target"            "TARGET"
+      }
+    }
+  }
+}
