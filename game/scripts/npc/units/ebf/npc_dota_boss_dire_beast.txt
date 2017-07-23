@@ -20,14 +20,10 @@
     // Abilities
     //----------------------------------------------------------------
     "AbilityLayout"        "6"
-    "Ability1"          "creature_fire_breath"  // Ability 1.
-    "Ability2"          "boss_mana_break2"      // Ability 2. // BUG: Ability does not exist in EBF
-    "Ability3"          "creature_slithereen_crush"      // Ability 3.
-    "Ability4"          "boss_true_sight"    // Ability 4.
-    "Ability5"          ""      // Ability 5.
-    "Ability6"          ""      // Ability 6 - Extra.
-    "Ability7"          ""      // Ability 7 - Extra.
-    "Ability8"          ""      // Ability 8 - Extra.
+    "Ability1"          "creature_fire_breath"
+    "Ability2"          "creature_slithereen_crush"
+    "Ability3"          "boss_true_sight"
+    "Ability4"          "copied_from_ebf"
 
     // Armor
     //----------------------------------------------------------------

@@ -1,0 +1,204 @@
+"DOTAAbilities"
+{
+//------------------------------------------------------------------------------
+// Nyx Slayer: Melee Impale B
+//------------------------------------------------------------------------------
+  "boss_nyx_slayer_melee_impale_b"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                     "5039"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"      "DAMAGE_TYPE_PURE"
+    "AbilityTextureName"      "nyx_assassin_impale"
+
+    "precache"
+    {
+      "particle_folder"        "particles/test_particle"
+      "particle"        "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+      "soundfile"             "soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+      "particle"              "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+      "soundfile"          "soundevents/game_sounds/ability_melee_smash.vsndevts"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "800"
+
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"  // Activity
+    "AnimationPlaybackRate"      "0.7"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"        "0 0 0 0"
+
+    "OnSpellStart"
+    {
+      "CreateThinker"
+      {
+        "ModifierName"  "spike_think"
+        "Target"    "CASTER"
+      }
+
+    }
+
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "impact_radius"      "1000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "stun_duration"      "2.0"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage"        "10000"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "think_time"      "1.0"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "think_time_extra"      "1.5"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "speed"      "500"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "air_time"      "1.0"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "width"      "150"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "spike_damage"        "20000"
+      }
+    }
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+      "spike_think"
+      {
+        "Duration"          "%think_time_extra" // Should work without the added time but appears to have a off by one error so time added so it doesnt destroy itself before occuring
+        "ThinkInterval"        "1.0"
+
+        "OnIntervalThink"
+        {
+          "IsCasterAlive"
+          {
+            "OnSuccess"
+            {
+              "FireSound"
+              {
+                  "Target"            "CASTER"
+                  "EffectName"        "Hero_NyxAssassin.Impale"
+              }
+              "LinearProjectile"
+              {
+                "Target"
+                {
+                  "Center" "CASTER"
+                  "Radius" "5000"
+                  "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "ExcludeTypes" "DOTA_UNIT_TARGET_COURIER"
+                  "MaxTargets" "1"
+                  "Random"  "1"
+                }
+                "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf"
+                "StartRadius"       "200"
+                "EndRadius"         "%width "
+                "MoveSpeed"         "%speed"
+                "TargetTeams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "TargetTypes"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                "FixedDistance"     "10000"
+                "ProvidesVision"    "0"
+                "HasFrontalCone"    "0"
+              }
+            }
+          }
+        }
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"           "0"
+
+      "FireSound"
+      {
+        "Target"            "TARGET"
+        "EffectName"        "Hero_NyxAssassin.Impale.Target"
+      }
+
+      "RemoveModifier"
+      {
+        "Target"            "TARGET"
+        "ModifierName"      "modifier_knockback"
+      }
+
+      "Knockback"
+      {
+        "Target"            "TARGET"
+        "Center"            "CASTER"
+        "Distance"          "0"
+        "Duration"          "%air_time"
+        "Height"            "500"
+        "IsFixedDistance"   "1"
+      }
+
+      "Stun"
+      {
+        "Target"            "TARGET"
+        "Duration"          "%duration"
+      }
+
+      "DelayedAction"
+      {
+        "Delay"             "%air_time"
+        "Action"
+        {
+          "FireSound"
+          {
+            "Target"            "TARGET"
+            "EffectName"        "Hero_NyxAssassin.Impale.TargetLand"
+          }
+
+          "Damage"
+          {
+            "Target"            "TARGET"
+            "Damage"            "%spike_damage"
+            "Type"              "DAMAGE_TYPE_MAGICAL"
+          }
+        }
+      }
+    }
+  }
+}
