@@ -12,6 +12,7 @@ end
 
 
 function AIThink()
+  -- TODO stop roaming
   if not thisEntity:IsDominated() then
     local radius = 500
     if AICore:TotalNotDisabledEnemyHeroesInRange( thisEntity, radius, false ) <= AICore:TotalEnemyHeroesInRange( thisEntity, radius )

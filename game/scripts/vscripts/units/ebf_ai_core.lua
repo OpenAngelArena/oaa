@@ -203,7 +203,7 @@ function AICore:RunToTarget( entity, target )
   })
 end
 
-function AICore:FarthestEnemyHeroInRange( entity, range , magic_immune)
+function AICore:FarthestEnemyHeroInRange( entity, range, magic_immune)
   local flags = 0
   if magic_immune then
     flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES

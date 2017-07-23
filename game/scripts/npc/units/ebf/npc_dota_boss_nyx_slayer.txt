@@ -80,23 +80,6 @@
     //----------------------------------------------------------------
     "Creature"
     {
-      //HERO AI State
-      //------------------------------------------------------------
-      "DefaultState"        "Invade"
-      "States"
-      {
-        "Invade"
-        {
-          "Name"        "Invade"
-          "Aggression"    "100.0"
-          "Avoidance"      "0.0"
-          "Support"      "0.0"
-        }
-      }
-
-
-      "DefaultState"        "Invade"
-
       "AttachWearables"
       {
         "Wearable1" { "ItemDef" "8114" }
