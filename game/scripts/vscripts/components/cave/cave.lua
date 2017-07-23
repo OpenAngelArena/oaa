@@ -342,16 +342,13 @@ function CaveHandler:TeleportAll(units, spawns)
     ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
 
     Timers:CreateTimer(3, function ()
-        
       if not Duels.currentDuel then
         FindClearSpaceForUnit(
           unit, -- unit
           spawns[unit:GetTeamNumber()], -- location
           false -- ???
         )
-
         MoveCameraToPlayer(unit)
-
         unit:Stop()
       end
       Timers:CreateTimer(0, function ()
@@ -371,11 +368,8 @@ function CaveHandler:QuickTeleportAll(units, spawns)
         spawns[unit:GetTeamNumber()], -- location
         false -- ???
       )
-
       MoveCameraToPlayer(unit)
-      
-      -- stand still
-      unit:Stop() 
+      unit:Stop() -- stand still
     end
   end
 end
