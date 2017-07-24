@@ -49,7 +49,7 @@ function CaveHandler:Init ()
   self:InitCave(DOTA_TEAM_GOODGUYS)
   self:InitCave(DOTA_TEAM_BADGUYS)
 
-  CustomNetTables:SetTableValue('stat_display', 'CC', { value = {} })
+  CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = {} })
 end
 
 
@@ -193,7 +193,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
 
       cave.timescleared = cave.timescleared + 1
       for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
-        local statTable = CustomNetTables:GetTableValue('stat_display', 'CC').value
+        local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
         if statTable[tostring(playerID)] then
           statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
@@ -201,7 +201,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
           statTable[tostring(playerID)] = 1
         end
 
-        CustomNetTables:SetTableValue('stat_display', 'CC', { value = statTable })
+        CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
       end
       -- inform players
       Notifications:TopToTeam(teamID, {
