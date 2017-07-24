@@ -100,13 +100,13 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
   local round = math.floor
   return {
     name = creep[1],
-    hp = round(multiplier.hp(k) * creep[2]),
-    mana = round(multiplier.mana(k) * creep[3]),
-    damage = round(multiplier.damage(k) * creep[4]),
-    armour = round(multiplier.armour(k) * creep[5]),
-    gold = round(multiplier.gold(k) * creep[6]),
-    exp = round(multiplier.exp(k) * creep[7]),
-    magicResist = round(multiplier.magicResist(k) * creep[8]),
+    hp = round(multiplier.hp(k) * creep[CAVE_TYPE_STATS_HEALTH]),
+    mana = round(multiplier.mana(k) * creep[CAVE_TYPE_STATS_MANA]),
+    damage = round(multiplier.damage(k) * creep[CAVE_TYPE_STATS_DAMAGE]),
+    armour = round(multiplier.armour(k) * creep[CAVE_TYPE_STATS_ARMOUR]),
+    gold = round(multiplier.gold(k) * creep[CAVE_TYPE_STATS_GOLD]),
+    exp = round(multiplier.exp(k) * creep[CAVE_TYPE_STATS_EXP]),
+    magicResist = round(multiplier.magicResist(k) * creep[CAVE_TYPE_STATS_RESITS]),
   }
 end
 
@@ -227,7 +227,7 @@ function CaveHandler:CloseDoors(teamID)
 end
 
 function CaveHandler:GiveBounty (teamID, k)
-  local roshGold = CaveTypes[4][1].units[1][7]
+  local roshGold = CaveTypes[4][1].units[1][CAVE_TYPE_STATS_GOLD]
   local roshCount = #CaveTypes[4][1].units
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
