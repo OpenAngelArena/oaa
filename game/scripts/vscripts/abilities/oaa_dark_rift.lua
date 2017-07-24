@@ -150,7 +150,7 @@ if IsServer() then
 		
 		local function CheckRiftTeleport( unit, unitTable )
 			local parent = self:GetParent()
-			
+
 			return not FindInTable( unitTable, unit ) and not unit:IsRooted() and ( not unit:IsOpposingTeam( parent:GetTeamNumber() ) or not unit:HasModifier( "modifier_fountain_aura_buff" ) )
 		end
 
