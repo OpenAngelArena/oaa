@@ -28,7 +28,14 @@ globals = { -- these globals can be set and accessed.
 "DUEL_INTERVAL",
 "BOTTLE_DESPAWN_TIME",
 "GAME_ABANDON_TIME",
-"FindHeroesInRadius"
+"FindHeroesInRadius",
+"CAVE_TYPE_STATS_HEALTH",
+"CAVE_TYPE_STATS_MANA",
+"CAVE_TYPE_STATS_DAMAGE",
+"CAVE_TYPE_STATS_ARMOUR",
+"CAVE_TYPE_STATS_GOLD",
+"CAVE_TYPE_STATS_EXP",
+"CAVE_TYPE_STATS_RESITS"
 }
 
 read_globals = { -- these globals can only be accessed.

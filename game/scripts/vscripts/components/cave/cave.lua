@@ -49,7 +49,7 @@ function CaveHandler:Init ()
   self:InitCave(DOTA_TEAM_GOODGUYS)
   self:InitCave(DOTA_TEAM_BADGUYS)
 
-  CustomNetTables:SetTableValue('stat_display', 'CC', { value = {} })
+  CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = {} })
 end
 
 
@@ -100,13 +100,13 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
   local round = math.floor
   return {
     name = creep[1],
-    hp = round(multiplier.hp(k) * creep[2]),
-    mana = round(multiplier.mana(k) * creep[3]),
-    damage = round(multiplier.damage(k) * creep[4]),
-    armour = round(multiplier.armour(k) * creep[5]),
-    gold = round(multiplier.gold(k) * creep[6]),
-    exp = round(multiplier.exp(k) * creep[7]),
-    magicResist = round(multiplier.magicResist(k) * creep[8]),
+    hp = round(multiplier.hp(k) * creep[CAVE_TYPE_STATS_HEALTH]),
+    mana = round(multiplier.mana(k) * creep[CAVE_TYPE_STATS_MANA]),
+    damage = round(multiplier.damage(k) * creep[CAVE_TYPE_STATS_DAMAGE]),
+    armour = round(multiplier.armour(k) * creep[CAVE_TYPE_STATS_ARMOUR]),
+    gold = round(multiplier.gold(k) * creep[CAVE_TYPE_STATS_GOLD]),
+    exp = round(multiplier.exp(k) * creep[CAVE_TYPE_STATS_EXP]),
+    magicResist = round(multiplier.magicResist(k) * creep[CAVE_TYPE_STATS_RESITS]),
   }
 end
 
@@ -193,7 +193,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
 
       cave.timescleared = cave.timescleared + 1
       for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
-        local statTable = CustomNetTables:GetTableValue('stat_display', 'CC').value
+        local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
         if statTable[tostring(playerID)] then
           statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
@@ -201,7 +201,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
           statTable[tostring(playerID)] = 1
         end
 
-        CustomNetTables:SetTableValue('stat_display', 'CC', { value = statTable })
+        CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
       end
       -- inform players
       Notifications:TopToTeam(teamID, {
@@ -227,7 +227,7 @@ function CaveHandler:CloseDoors(teamID)
 end
 
 function CaveHandler:GiveBounty (teamID, k)
-  local roshGold = CaveTypes[4][1].units[1][7]
+  local roshGold = CaveTypes[4][1].units[1][CAVE_TYPE_STATS_GOLD]
   local roshCount = #CaveTypes[4][1].units
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
@@ -318,11 +318,7 @@ function CaveHandler:KickPlayers (teamID)
   DebugPrint('Teleporting units now')
 
   Timers:CreateTimer(function()
-    if not Duels.currentDuel then
       self:TeleportAll(units, spawns)
-    else
-      self:QuickTeleportAll(units, spawns)
-    end
   end)
 end
 
@@ -346,36 +342,34 @@ function CaveHandler:TeleportAll(units, spawns)
     ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
 
     Timers:CreateTimer(3, function ()
-      FindClearSpaceForUnit(
-        unit, -- unit
-        spawns[unit:GetTeamNumber()], -- location
-        false -- ???
-      )
-
-      MoveCameraToPlayer(unit)
-
+      if not Duels.currentDuel then
+        FindClearSpaceForUnit(
+          unit, -- unit
+          spawns[unit:GetTeamNumber()], -- location
+          false -- ???
+        )
+        MoveCameraToPlayer(unit)
+        unit:Stop()
+      end
       Timers:CreateTimer(0, function ()
         ParticleManager:DestroyParticle(origin, false)
         ParticleManager:DestroyParticle(target, true)
       end)
 
-      -- stand still
-      unit:Stop()
     end)
   end
 end
 
 function CaveHandler:QuickTeleportAll(units, spawns)
   for _, unit in pairs(units) do
-    FindClearSpaceForUnit(
-      unit, -- unit
-      spawns[unit:GetTeamNumber()], -- location
-      false -- ???
-    )
-
-    MoveCameraToPlayer(unit)
-
-    -- stand still
-    unit:Stop()
+    if not Duels.currentDuel then
+      FindClearSpaceForUnit(
+        unit, -- unit
+        spawns[unit:GetTeamNumber()], -- location
+        false -- ???
+      )
+      MoveCameraToPlayer(unit)
+      unit:Stop() -- stand still
+    end
   end
 end
