@@ -24,7 +24,7 @@ function onQueryChange () {
 function onGoldChange (table, data) {
   var unit = Players.GetLocalPlayerPortraitUnit();
   var localPlayerID = Game.GetLocalPlayerID();
-  var playerID = GetPlayerIDFromEntityIndex(unit);
+  var playerID = Entities.GetHeroPlayerOwner(unit);
 
   if (playerID === -1 || Entities.GetTeamNumber(unit) !== Players.GetTeam(localPlayerID)) {
     playerID = localPlayerID;
@@ -59,14 +59,6 @@ function UpdateGoldTooltip (gold) {
     label = tooltipLabels.GetChild(1);
     label.style.visibility = 'collapse';
   } catch (e) {}
-}
-
-function GetPlayerIDFromEntityIndex (entityIndex) {
-  // HACK because volvo doesn't give us a function for this
-  for (var playerID = 0; playerID < 20; playerID++) {
-    if (Players.GetPlayerHeroEntityIndex(playerID) === entityIndex) return playerID;
-  }
-  return -1;
 }
 
 /*
