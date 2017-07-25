@@ -5,6 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"            "ability_datadriven"
+    "ID"                    "5200"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
