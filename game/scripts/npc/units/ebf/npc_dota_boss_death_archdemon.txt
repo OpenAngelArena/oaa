@@ -1,0 +1,88 @@
+"DOTAUnits"
+{
+  "npc_dota_boss_death_archdemon"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"            "models/heroes/necrolyte/necrolyte.vmdl"  // Model.
+    //"BaseClass"          "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creep_neutral"
+    "GameSoundsFile"      "soundevents/game_sounds_creeps.vsndevts"
+    "Level"            "99"
+    "ModelScale"         "2.0"
+    "ConsideredHero"      "1"
+    "MinimapIcon"        "minimap_enemyicon"
+    "MinimapIconSize"      "350"
+    "IsCore"          "1"
+    "vscripts"          "units/death_archdemon"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "AbilityLayout"        "6"
+    "Ability1"          "boss_death_archdemon_death_orb"      // Ability 1.
+    "Ability2"          "boss_death_archdemon_death_time"      // Ability 2.
+    "Ability3"          "boss_death_archdemon_blink_on_far"      // Ability 3.
+    "Ability4"          "copied_from_ebf"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"        "250"      // Physical protection.
+    "MagicalResistance"      "30"    // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"      "500000"    // Damage range min.
+    "AttackDamageMax"      "500000"    // Damage range max.
+    "AttackRate"        "1.5"    // Speed of attack.
+    "AttackAnimationPoint"    "0.4"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
+    "AttackRange"        "900"    // Range within a target can be attacked.
+    "ProjectileModel"      "particles/base_attacks/ranged_tower_bad.vpcf"              // Particle system model for projectile.
+    "ProjectileSpeed"      "300"                  // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"        "300"
+    "HealthBarOffset"      "320"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "60000"    // Experience earn.
+    "BountyGoldMin"        "0"      // Gold earned min.
+    "BountyGoldMax"        "0"      // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"        "0"    // Speed.
+    "MovementTurnRate"      "0"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "10000000"    // Base health.
+    "StatusHealthRegen"      "15000"      // Health regeneration rate.
+    "StatusMana"        "500"      // Base mana.
+    "StatusManaRegen"      "50"      // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "800"    // Range of vision during day HERO.
+    "VisionNighttimeRange"    "800"    // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "StunResistance"      "90.0"
+    }
+  }
+}
