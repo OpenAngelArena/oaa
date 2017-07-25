@@ -138,6 +138,8 @@ if IsServer() then
 			false
 		)
 
+		local unitsAll = {}
+
 		local function FindInTable( t, target )
 			for k, v in pairs( t ) do
 				if v == target then
@@ -148,11 +150,13 @@ if IsServer() then
 			return nil
 		end
 
-		local unitsAll = {}
+		local function CheckRiftTeleport( unit )
+			return not FindInTable( unitsAll, unit ) and not unit:IsRooted() and ( not unit:IsOpposingTeam( parent:GetTeamNumber() ) or not unit:HasModifier( "modifier_fountain_aura_buff" ) )
+		end
 
 		-- if the unit hasn't been telported by a previous portal, retain its old position and put it at its new one
 		for _, unit in pairs( unitsPortal1 ) do
-			if not FindInTable( unitsAll, unit ) and not unit:IsRooted() then
+			if CheckRiftTeleport( unit ) then
 				unit.tempOriginOld = unit:GetAbsOrigin()
 				local vectorOffset = unit:GetAbsOrigin() - originParent
 				unit:SetAbsOrigin( self.originSecond + vectorOffset )
@@ -162,7 +166,7 @@ if IsServer() then
 		end
 
 		for _, unit in pairs( unitsPortal2 ) do
-			if not FindInTable( unitsAll, unit ) and not unit:IsRooted() then
+			if CheckRiftTeleport( unit ) then
 				unit.tempOriginOld = unit:GetAbsOrigin()
 				local vectorOffset = unit:GetAbsOrigin() - self.originSecond
 				unit:SetAbsOrigin( originParent + vectorOffset )
