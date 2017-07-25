@@ -89,10 +89,10 @@
     // Modifiers
     //-------------------------------------------------------------------------------------------------------------
     "OnProjectileHitUnit"
-      {
-        "DeleteOnHit"                   "1"
+    {
+      "DeleteOnHit"                   "1"
 
-        "RunScript"
+      "RunScript"
       {
           "ScriptFile" "abilities/ebf_datadriven.lua"
           "Function" "death_archdemon_death_orbs_hit"

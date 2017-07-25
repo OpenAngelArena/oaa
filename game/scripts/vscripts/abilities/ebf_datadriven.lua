@@ -75,7 +75,7 @@ function death_archdemon_death_orbs(event)
       for i=0,projectile_count,1 do
         angle = (projectiles_launched - 1) * 2 + angle
         info.vVelocity = RotatePosition(Vector(0, 0, 0), QAngle(0, angle, 0), caster:GetForwardVector()) * speed
-        projectile = ProjectileManager:CreateLinearProjectile(info)
+        local projectile = ProjectileManager:CreateLinearProjectile(info)
       end
     end
     if projectiles_launched <= projectiles_to_launch then return 0.5 end
@@ -100,7 +100,7 @@ function boss_death_archdemon_death_time(keys)
   local caster = keys.caster
   local origin = caster:GetAbsOrigin()
   local ability = keys.ability
-  local timer = 6.0
+  local timer = 5.0
   local Death_range = ability:GetTalentSpecialValueFor("radius")
   local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
   local targetType = DOTA_UNIT_TARGET_ALL
@@ -119,28 +119,28 @@ function boss_death_archdemon_death_time(keys)
     FIND_CLOSEST,
     false)
 
-  for _,unit in pairs(units) do
-    local particle = ParticleManager:CreateParticle("particles/generic_aoe_persistent_circle_1/death_timer_glow_rev.vpcf",PATTACH_POINT_FOLLOW,unit)
-    if GameRules.gameDifficulty > 2 then timer = 5.0 else timer = 6.0 end
-    ability:ApplyDataDrivenModifier( caster, unit, "target_warning", { duration = timer } )
-    blink_ability:StartCooldown(timer + 1)
+  --for _,unit in pairs(units) do
+  local unit = units[1]
+  local particle = ParticleManager:CreateParticle("particles/generic_aoe_persistent_circle_1/death_timer_glow_rev.vpcf",PATTACH_POINT_FOLLOW,unit)
+  ability:ApplyDataDrivenModifier( caster, unit, "target_warning", { duration = timer } )
+  blink_ability:StartCooldown(timer + 1)
 
-    Timers:CreateTimer(timer, function()
-      local vDiff = unit:GetAbsOrigin() - death_position
-      caster:RemoveModifierByName("caster_chrono_fx")
+  Timers:CreateTimer(timer, function()
+    local vDiff = unit:GetAbsOrigin() - death_position
+    caster:RemoveModifierByName("caster_chrono_fx")
 
-      if vDiff:Length2D() < Death_range and caster:IsAlive() then
-        unit:RemoveModifierByName("modifier_tauntmail")
-        unit.NoTombStone = true
-        unit:KillTarget()
+    if vDiff:Length2D() < Death_range and caster:IsAlive() then
+      unit:RemoveModifierByName("modifier_tauntmail")
+      unit.NoTombStone = true
+      unit:KillTarget()
 
-        Timers:CreateTimer(timer, function()
-          unit.NoTombStone = false
-        end)
-      end
-    end)
-    break
-  end
+      Timers:CreateTimer(timer, function()
+        unit.NoTombStone = false
+      end)
+    end
+  end)
+  --  break
+  --end
 end
 
 function boss_death_archdemon_blink_on_far( keys )

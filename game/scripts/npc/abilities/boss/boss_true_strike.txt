@@ -37,7 +37,9 @@
               "Target"     "CASTER"
             }
            }
-           "OnFailure" {}
+           // I'm not sure if this is needed
+           "OnFailure" {
+           }
           }
         }
         "OnAttackLanded"
