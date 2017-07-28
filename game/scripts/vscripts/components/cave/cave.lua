@@ -28,19 +28,19 @@ function CaveHandler:Init ()
       rooms = {}
     }
 
+    self.caves[teamID].rooms[0] = {
+      zone = ZoneControl:CreateZone(caveName .. "_zone_0", {
+        mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+        players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+      }),
+      radius = 1600
+    }
     for roomID = 1,4 do
       self.caves[teamID].rooms[roomID] = {
         handle = Entities:FindByName(nil, caveName .. "_room_" .. roomID),
         creepCount = 0,
         zones = {},
         doors = {},
-        radius = 1600
-      }
-      self.caves[teamID].rooms[0] = {
-        zone = ZoneControl:CreateZone(caveName .. "_zone_0", {
-          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-        }),
         radius = 1600
       }
       for zoneID=1,MAX_ZONES do
@@ -83,9 +83,7 @@ function CaveHandler:ResetCave (teamID)
     if roomID ~= 0 then
       self:SpawnRoom(teamID, roomID)
       self:CloseDoors(teamID, roomID)
-      if roomID > 1 then
-        self:DisableZones(teamID, roomID)
-      end
+      self:DisableZones(teamID, roomID)
     end
   end
 end
@@ -376,28 +374,20 @@ function CaveHandler:KickPlayers (teamID)
   local units = {}
 
   -- get all heroes in the cave
-  for roomID,room in pairs(cave.rooms) do
-    if roomID ~= 0 then
-      DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
-
-      for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-        local result = FindUnitsInRadius(
-          team, -- team
-          room.zones[1].origin, -- location
-          nil, -- cache
-          room.radius, -- radius
-          DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
-          DOTA_UNIT_TARGET_ALL, -- type filter
-          DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
-          FIND_ANY_ORDER, -- order
-          false -- can grow cache
-        )
-        for _,unit in pairs(result) do
-          if CaveHandler:IsInFarmingCave(teamID, unit) then
-            table.insert(units, unit)
-          end
-        end
-      end
+  local result = FindUnitsInRadius(
+    teamID, -- team
+    cave.rooms[4].zones[1].origin, -- location
+    nil, -- cache
+    3000, -- radius
+    DOTA_UNIT_TARGET_TEAM_BOTH, -- team filter
+    DOTA_UNIT_TARGET_ALL, -- type filter
+    DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+    FIND_ANY_ORDER, -- order
+    false -- can grow cache
+  )
+  for _,unit in pairs(result) do
+    if CaveHandler:IsInFarmingCave(teamID, unit) then
+      table.insert(units, unit)
     end
   end
 
@@ -429,12 +419,12 @@ function CaveHandler:TeleportAll(units, spawns)
       PATTACH_CUSTOMORIGIN, -- attach point
       unit -- owner
     )
-    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
+    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
 
     Timers:CreateTimer(3, function ()
       FindClearSpaceForUnit(
         unit, -- unit
-        spawns[unit:GetTeamNumber()], -- location
+        spawns[unit:GetTeam()], -- location
         false -- ???
       )
 
@@ -455,7 +445,7 @@ function CaveHandler:QuickTeleportAll(units, spawns)
   for _, unit in pairs(units) do
     FindClearSpaceForUnit(
       unit, -- unit
-      spawns[unit:GetTeamNumber()], -- location
+      spawns[unit:GetTeam()], -- location
       false -- ???
     )
 
