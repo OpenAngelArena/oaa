@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, Game, PlayerTables */
+/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities */
 /*
   Author:
     Chronophylos
@@ -13,10 +13,23 @@ var useFormatting = 'half';
 
 (function () {
   PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
+  GameEvents.Subscribe('dota_player_update_query_unit', onQueryChange); // This doesn't work but I'm leaving it in
+  GameEvents.Subscribe('dota_player_update_selected_unit', onQueryChange);
 }());
 
+function onQueryChange () {
+  onGoldChange('gold', PlayerTables.GetAllTableValues('gold'));
+}
+
 function onGoldChange (table, data) {
-  var playerID = Game.GetLocalPlayerID();
+  var unit = Players.GetLocalPlayerPortraitUnit();
+  var localPlayerID = Game.GetLocalPlayerID();
+  var playerID = Entities.GetHeroPlayerOwner(unit);
+
+  if (playerID === -1 || Entities.GetTeamNumber(unit) !== Players.GetTeam(localPlayerID)) {
+    playerID = localPlayerID;
+  }
+
   var gold = data.gold[playerID];
 
   UpdateGoldHud(gold);
@@ -47,6 +60,7 @@ function UpdateGoldTooltip (gold) {
     label.style.visibility = 'collapse';
   } catch (e) {}
 }
+
 /*
   Author:
     Noya
