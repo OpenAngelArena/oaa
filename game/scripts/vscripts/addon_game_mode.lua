@@ -29,6 +29,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_dagon", context)
   PrecacheItemByNameSync("item_manta_1", context)
 
+  PrecacheUnitByNameSync("npc_dota_visage_familiar", context)
   PrecacheUnitByNameSync("dota_fountain", context)
   PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
   PrecacheUnitByNameSync("npc_dota_boss_charger", context)
