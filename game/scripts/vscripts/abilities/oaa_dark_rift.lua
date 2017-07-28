@@ -1,11 +1,43 @@
 abyssal_underlord_dark_rift_oaa = class( AbilityBaseClass )
 
+LinkLuaModifier( "modifier_abyssal_underlord_dark_rift_oaa_timer", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_abyssal_underlord_dark_rift_oaa_portal", "abilities/oaa_dark_rift.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function abyssal_underlord_dark_rift_oaa:GetAOERadius()
 	return self:GetSpecialValueFor( "radius" )
+end
+
+--------------------------------------------------------------------------------
+
+function abyssal_underlord_dark_rift_oaa:GetCastAnimation()
+	return ACT_DOTA_CAST_ABILITY_4
+end
+
+--------------------------------------------------------------------------------
+
+function abyssal_underlord_dark_rift_oaa:GetAssociatedPrimaryAbilities()
+	return "abyssal_underlord_cancel_dark_rift_oaa"
+end
+
+--------------------------------------------------------------------------------
+
+function abyssal_underlord_dark_rift_oaa:OnUpgrade()
+	local caster = self:GetCaster()
+	
+	local spell = caster:FindAbilityByName( self:GetAssociatedPrimaryAbilities() )
+	
+	if spell then
+		-- if the spell hasn't be upgraded yet
+		-- init the disabled state
+		if spell:GetLevel() then
+			spell:SetActivated( false )
+		end
+
+		-- upgrade the subspell
+		spell:SetLevel( self:GetLevel() )
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -25,11 +57,86 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
 	end
 
 	local thinker1 = CreateModifierThinker( caster, self, "modifier_abyssal_underlord_dark_rift_oaa_portal", {
-		duration = duration,
 		targetX = pos.x,
 		targetY = pos.y,
 	},
 	originCaster, team, false )
+
+	-- for the sake of sanity in regards to the cancel subspell
+	-- as well as a neat detail where you can keep track of the portals' duration
+	-- we'll add a timer modifier that actually handles the portals' duration
+	-- instead of, y'know, making the portals handle it themselves
+	local mod = caster:AddNewModifier( caster, self, "modifier_abyssal_underlord_dark_rift_oaa_timer", {
+		duration = duration,
+	} )
+
+	-- link the modifiers together
+	-- CreateModifierThinker returns the thinker unit, not the modifier
+	mod.modPortal = thinker1:FindModifierByName( "modifier_abyssal_underlord_dark_rift_oaa_portal" )
+end
+
+--------------------------------------------------------------------------------
+
+modifier_abyssal_underlord_dark_rift_oaa_timer = class( ModifierBaseClass )
+
+--------------------------------------------------------------------------------
+
+function modifier_abyssal_underlord_dark_rift_oaa_timer:IsHidden()
+	return false
+end
+
+function modifier_abyssal_underlord_dark_rift_oaa_timer:IsDebuff()
+	return false
+end
+
+function modifier_abyssal_underlord_dark_rift_oaa_timer:IsPurgable()
+	return false
+end
+
+function modifier_abyssal_underlord_dark_rift_oaa_timer:RemoveOnDeath()
+	return false
+end
+
+function modifier_abyssal_underlord_dark_rift_oaa_timer:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+--------------------------------------------------------------------------------
+
+if IsServer() then
+	function modifier_abyssal_underlord_dark_rift_oaa_timer:OnCreated( event )
+		local caster = self:GetCaster()
+		local spell = self:GetAbility()
+
+		local spell2 = caster:FindAbilityByName( spell:GetAssociatedPrimaryAbilities() )
+
+		-- activate the sub spell		
+		if spell2 then
+			spell2:SetActivated( true )
+		end
+	end
+
+--------------------------------------------------------------------------------
+
+	function modifier_abyssal_underlord_dark_rift_oaa_timer:OnDestroy()
+		local caster = self:GetCaster()
+
+		-- if the linked portals exists, destroy them
+		if self.modPortal and not self.modPortal:IsNull() then
+			self.modPortal:Destroy()
+		end
+
+		local spell = self:GetAbility()
+		local spell2 = caster:FindAbilityByName( spell:GetAssociatedPrimaryAbilities() )
+
+		if spell2 then
+			-- don't deactivate subspell if caster has a second
+			-- instance of this modifier
+			if not caster:HasModifier( self:GetName() ) then
+				spell2:SetActivated( false )
+			end
+		end
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -186,6 +293,9 @@ if IsServer() then
 			ParticleManager:SetParticleControl( part, 5, unit.tempOriginOld )
 
 			unit.tempOriginOld = nil
+
+			-- interrupt the unit, so that channeled abilities won't keep channeling
+			unit:Interrupt()
 		end
 	end
 
