@@ -15,13 +15,13 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
-	"AbilityTextureName"                                  "abyssal_underlord_dark_rift"
+    "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityCastRange"                                    "100000"
+    //"AbilityCastRange"                                    "100000"
     "AbilityCastPoint"                                    "0.6"
 
     // Time
@@ -35,11 +35,11 @@
 
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_range_tooltip"                              "100000"
-      }
+      //"01"
+      //{
+      //  "var_type"                                        "FIELD_FLOAT"
+      //  "cast_range_tooltip"                              "100000"
+      //}
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,6 +61,10 @@
         "minimum_range"                                   "900.0"
       }
     }
-  }
 
+    "Precache"
+    {
+      "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
+	}
+  }
 }
