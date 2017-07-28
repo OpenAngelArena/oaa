@@ -8,12 +8,12 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"163"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
+		"ItemCost"						"0"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -22,7 +22,7 @@
 		{
 			"01"						"item_gloves;item_headdress;item_ring_of_health"
 		}
-	}	
+	}
 
 	//=================================================================================================================
 	// Helm of the Dominator
@@ -54,46 +54,46 @@
 		"ItemAliases"					"hotd;helm of the dominator"
 	    "MaxUpgradeLevel"               "5"
 	    "ItemBaseLevel"                 "1"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stats"			"2 8 17 35 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"10 15 20 25 30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed_aura"		"10 15 20 25 30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_aura"			"10 15 25 40 60"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_min"			"1500 2500 4000 6000 8500"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_base"			"425"
-			}
+        "var_type"        "FIELD_INTEGER"
+        "bonus_stats"     "2 15 30 50 70"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed"      "10 20 35 50 70"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed_aura"   "10 20 35 50 70"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "hp_regen_aura"     "10 15 25 40 60"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "aura_radius"     "900"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "health_min"      "1500 3000 6000 12000 24000"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "speed_base"      "425"
+      }
 		}
 	}
 }
