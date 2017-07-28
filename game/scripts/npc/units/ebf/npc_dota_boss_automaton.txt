@@ -8,8 +8,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    //"BaseClass"          "npc_dota_creature"
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"          "npc_dota_creature"
     "Model"            "models/heroes/techies/techies.vmdl"    // Model.
     "SoundSet"          "Hero_Tinker"                          // Name of sound set.
     "GameSoundsFile"      "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
@@ -18,6 +17,7 @@
     "CanBeDominated"      "0"
     "ConsideredHero"      "1"
     "vscripts"          "units/automaton.lua"
+    "UseNeutralCreepBehavior"   "1"
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
@@ -87,12 +87,30 @@
       //-----------------------------------------------------------------
       "AttachWearables"
       {
-        "Wearable1" { "ItemDef" "394" }
-        "Wearable2" { "ItemDef" "487" }
-        "Wearable3" { "ItemDef" "489" }
-        "Wearable4" { "ItemDef" "490" }
-        "Wearable5" { "ItemDef" "491" }
-        "Wearable6" { "ItemDef" "492" }
+        "Wearable1"
+        {
+          "ItemDef" "394"
+        }
+        "Wearable2"
+        {
+          "ItemDef" "487"
+        }
+        "Wearable3"
+        {
+          "ItemDef" "489"
+        }
+        "Wearable4"
+        {
+          "ItemDef" "490"
+        }
+        "Wearable5"
+        {
+          "ItemDef" "491"
+        }
+        "Wearable6"
+        {
+          "ItemDef" "492"
+        }
       }
     }
   }

@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  "boss_demon_king_doomraze"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "ID"                        "5204"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"      "nevermore_shadowraze2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.67"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "14.0"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                 "400000"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage" "400000"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+    }
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Function" "boss_demon_king_doomraze"
+      }
+    }
+  }
+}

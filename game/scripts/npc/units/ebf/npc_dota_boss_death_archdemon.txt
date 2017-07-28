@@ -5,16 +5,16 @@
     // General
     //----------------------------------------------------------------
     "Model"            "models/heroes/necrolyte/necrolyte.vmdl"  // Model.
-    //"BaseClass"          "npc_dota_creature"
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"          "npc_dota_creature"
     "GameSoundsFile"      "soundevents/game_sounds_creeps.vsndevts"
     "Level"            "99"
     "ModelScale"         "2.0"
     "ConsideredHero"      "1"
-    "MinimapIcon"        "minimap_enemyicon"
+    "MinimapIcon"        "minimap_boss"
     "MinimapIconSize"      "350"
     "IsCore"          "1"
     "vscripts"          "units/death_archdemon"
+    "UseNeutralCreepBehavior"   "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -44,7 +44,7 @@
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
-    "RingRadius"        "300"
+    "RingRadius"        "900"
     "HealthBarOffset"      "320"
 
     // Bounty

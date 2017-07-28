@@ -8,8 +8,7 @@
   {
     // General
     //
-    //"BaseClass"          "npc_dota_creature"
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"          "npc_dota_creature"
     "Model"            "models/creeps/roshan/roshan.vmdl"  // Model.
     "SoundSet"          "Roshan"          // Name of sound set.
     "ModelScale"        "1.4"
@@ -17,6 +16,9 @@
     "ConsideredHero"      "1"
     "IsCore"          "1"
     "vscripts"          "units/dire_beast"
+    "UseNeutralCreepBehavior"   "1"
+    "MinimapIcon"        "minimap_boss"
+    "MinimapIconSize"   "275"
 
     // Abilities
     //----------------------------------------------------------------
@@ -39,7 +41,7 @@
     "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"        "2.7"      // Speed of attack.
     "AttackAnimationPoint"    "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"  "512"    // Range within a target can be acquired. -- Chronophylos: 18000 is a stupid value
+    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired. -- Chronophylos: 18000 is a stupid value
     "AttackRange"        "256"    // Range within a target can be attacked.
     "ProjectileModel"      "particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"      "1000"    // Speed of projectile.

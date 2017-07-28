@@ -6,17 +6,17 @@
     // General
     //----------------------------------------------------------------
     "Model"            "models/heroes/nerubian_assassin/nerubian_assassin.mdl"
-    //"BaseClass"          "npc_dota_creature"
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"          "npc_dota_creature"
     "SoundSet"          "n_creep_Melee"
     "GameSoundsFile"      "soundevents/game_sounds_creeps.vsndevts"
     "Level"            "60"
     "ModelScale"         "1.5"
     "ConsideredHero"      "1"
-    "MinimapIcon"        "minimap_enemyicon"
+    "MinimapIcon"        "minimap_boss"
     "MinimapIconSize"      "275"
     "IsCore"          "1"
     "vscripts"          "units/nyx_slayer"
+    "UseNeutralCreepBehavior"   "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -36,14 +36,14 @@
     "AttackDamageMax"      "200000"    // Damage range max.
     "AttackRate"        "1.2"    // Speed of attack.
     "AttackAnimationPoint"    "0.2"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"  "15000"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
     "AttackRange"        "200"    // Range within a target can be attacked.
     "ProjectileModel"      ""      // Particle system model for projectile.
     "ProjectileSpeed"      "0"      // Speed of projectile.
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
-    "RingRadius"        "100"
+    "RingRadius"        "200"
     "HealthBarOffset"      "320"
 
     // Bounty

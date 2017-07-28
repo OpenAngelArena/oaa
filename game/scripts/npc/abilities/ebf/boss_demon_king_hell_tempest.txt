@@ -1,0 +1,106 @@
+"DOTAAbilities"
+{
+  "boss_demon_king_hell_tempest"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "ID"                    "5203"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"      "doom_bringer_doom"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"              "1.66"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "36.66"
+
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "666"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "precache"
+    {
+      "particle"  "particles/fire_tornado.vpcf"
+      "particle"  "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+    }
+
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Function" "boss_demon_king_hell_tempest"
+      }
+    }
+    "OnAbilityPhaseStart"
+    {
+      "CreateThinker"
+      {
+        "ModifierName"  "target_telegraph_fx"
+        "Target"    "CASTER"
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Function" "boss_demon_king_hell_tempest_hit"
+      }
+    }
+    "Modifiers"
+    {
+      "onspawn"
+      {
+        "passive" "1"
+        "IsHidden"  "1"
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile" "abilities/ebf_datadriven.lua"
+            "Function" "boss_demon_king_hell_tempest_charge"
+          }
+        }
+        "OnTakeDamage"
+        {
+          "RunScript"
+          {
+            "ScriptFile" "abilities/ebf_datadriven.lua"
+            "Function" "boss_demon_king_hell_tempest_charge_damage"
+          }
+        }
+      }
+      "target_telegraph_fx"
+      {
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"    "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"      "CASTER"
+            "ControlPoints"
+            {
+              "00" "0 0 0"
+              "01" "2000 0 0"
+              "02" "6 0 1" // telegraph
+              "03" "255 0 255"
+              "04" "0 0 0"
+            }
+          }
+        }
+      }
+    }
+  }
+}

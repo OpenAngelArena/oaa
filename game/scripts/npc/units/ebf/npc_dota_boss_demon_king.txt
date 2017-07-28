@@ -1,0 +1,120 @@
+"DOTAUnits"
+{
+  "npc_dota_boss_demon_king"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"            "models/heroes/doom/doom.vmdl"  // Model.
+    "BaseClass"          "npc_dota_creature"
+    "GameSoundsFile"      "soundevents/game_sounds_creeps.vsndevts"
+    "Level"            "666"
+    "ModelScale"         "1.80"
+    "ConsideredHero"      "1"
+    "MinimapIcon"        "minimap_boss"
+    "MinimapIconSize"      "66.6"
+    "IsCore"          "1"
+    "vscripts"          "units/demon_king"
+    "UseNeutralCreepBehavior"   "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "AbilityLayout"        "6"
+    "Ability1"              "boss_demon_king_doom_bring"      // Ability 1.
+    "Ability2"              "boss_demon_king_doomraze"      // Ability 2.
+    "Ability3"              "boss_demon_king_hell_tempest"      // Ability 2.
+    "Ability4"              "copied_from_ebf"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"        "275"      // Physical protection.
+    "MagicalResistance"      "66.6"    // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"      "1160000"    // Damage range min.
+    "AttackDamageMax"      "1666666"    // Damage range max.
+    "AttackRate"        "1.8"    // Speed of attack.
+    "AttackAnimationPoint"    "0.4"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
+    "AttackRange"        "666"    // Range within a target can be attacked.
+    "ProjectileModel"      ""              // Particle system model for projectile.
+    "ProjectileSpeed"      "0"                  // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"        "666"
+    "HealthBarOffset"      "666"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "60000"    // Experience earn.
+    "BountyGoldMin"        "0"      // Gold earned min.
+    "BountyGoldMax"        "0"      // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"        "666"    // Speed.
+    "MovementTurnRate"      "66.6"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "16666666"    // Base health.
+    "StatusHealthRegen"      "6666"      // Health regeneration rate.
+    "StatusMana"        "666"      // Base mana.
+    "StatusManaRegen"      "0"      // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "666"    // Range of vision during day HERO.
+    "VisionNighttimeRange"    "666"    // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "Wearable1"
+        {
+          "ItemDef"      "4783"
+        }
+        "Wearable2"
+        {
+          "ItemDef"      "6274"
+        }
+        "Wearable3"
+        {
+          "ItemDef"      "6888"
+        }
+        "Wearable4"
+        {
+          "ItemDef"      "6276"
+        }
+        "Wearable5"
+        {
+          "ItemDef"      "4905"
+        }
+        "Wearable6"
+        {
+          "ItemDef"      "6278"
+        }
+        "Wearable7"
+        {
+          "ItemDef"      "6279"
+        }
+      }
+
+      "StunResistance"      "99.0"
+    }
+  }
+}

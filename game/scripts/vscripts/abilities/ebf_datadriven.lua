@@ -144,14 +144,203 @@ function boss_death_archdemon_death_time(keys)
 end
 
 function boss_death_archdemon_blink_on_far( keys )
-    local caster = keys.caster
-	local target = keys.target
-    local origin = caster:GetAbsOrigin()
-    local ability = keys.ability
+  local caster = keys.caster
+  local target = keys.target
+  local origin = caster:GetAbsOrigin()
+  local ability = keys.ability
 
-    ProjectileManager:ProjectileDodge(keys.caster)  --Disjoints disjointable incoming projectiles.
+  ProjectileManager:ProjectileDodge(keys.caster)  --Disjoints disjointable incoming projectiles.
 
-    ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, keys.caster)
-    keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
-	FindClearSpaceForUnit(caster, target:GetAbsOrigin(), true)
+  ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, keys.caster)
+  keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
+  FindClearSpaceForUnit(caster, target:GetAbsOrigin(), true)
+end
+
+function boss_demon_king_doom_bring( event )
+  local target = event.target
+  local caster = event.caster
+  local time = GameRules:GetGameTime()
+  event.ability:ApplyDataDrivenModifier(caster, target, "fuckingdoomed", { duration = 10 })
+  Timers:CreateTimer(0.1, function()
+    if target:GetHealth() > target:GetMaxHealth() * 0.025 * GameRules.gameDifficulty and GameRules:GetGameTime() <= time + 10 then
+      target:SetHealth(target:GetHealth() * (1 - 0.01 * GameRules.gameDifficulty))
+      return 0.5
+    else
+      if GameRules:GetGameTime() <= time + 10 and caster:IsAlive() then
+        target:KillTarget()
+      end
+    end
+  end)
+end
+
+function boss_demon_king_doomraze( event )
+    local caster = event.caster
+    local ability = event.ability
+    local fv = caster:GetForwardVector()
+    local rv = caster:GetRightVector()
+    local location = caster:GetAbsOrigin() + fv*200
+    caster.charge = caster.charge - 50
+    if caster.charge < 0 then caster.Charge = 0 end
+    local damage = ability:GetTalentSpecialValueFor("damage")
+    location = location - caster:GetRightVector() * 1000
+    if GameRules._NewGamePlus == true then damage = damage*10 end
+    local created_line = 0
+    Timers:CreateTimer(0.25, function()
+      created_line = created_line + 1
+      for i=1,8,1 do
+        createAOEDamage(
+          event,
+          "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf",
+          location,
+          250,
+          damage,
+          DAMAGE_TYPE_PURE,
+          2,
+          "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts")
+        location = location + rv * 250
+      end
+      location = location - rv * 2000 + fv * 400
+      if created_line <= 4 then
+        return 1.0
+      end
+  end)
+end
+
+function createAOEDamage(keys, particlesname, location, size, damage, damage_type, duration, sound)
+  duration = duration or 3
+  damage = damage or 5000
+  size = size or 250
+  damage_type = damage_type or DAMAGE_TYPE_MAGICAL
+  if sound ~= nil then
+    StartSoundEventFromPosition(sound, location)
+  end
+
+  local AOE_effect = ParticleManager:CreateParticle(particlesname, PATTACH_ABSORIGIN  , keys.caster)
+  ParticleManager:SetParticleControl(AOE_effect, 0, location)
+  ParticleManager:SetParticleControl(AOE_effect, 1, location)
+
+  Timers:CreateTimer(duration, function()
+    ParticleManager:DestroyParticle(AOE_effect, false)
+  end)
+
+  local nearbyUnits = FindUnitsInRadius(keys.caster:GetTeam(),
+    location,
+    nil,
+    size,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_ALL,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false)
+
+  for _,unit in pairs(nearbyUnits) do
+    if unit ~= keys.caster then
+      if unit:GetUnitName()~="npc_dota_courier" and unit:GetUnitName()~="npc_dota_flying_courier" then
+         ApplyDamage({
+          victim = unit,
+          attacker = keys.caster,
+          damage = damage,
+          damage_type = damage_type,
+          ability = keys.ability
+        })
+      end
+    end
+  end
+end
+
+function boss_demon_king_hell_tempest( keys )
+  local ability = keys.ability
+  local caster = keys.caster
+  caster.charge = 0
+  local casterPoint = caster:GetAbsOrigin()
+  local delay = 7
+  local messageinfo = {
+    message = "The boss is casting Hell Tempest, get in the water!",
+    duration = 2
+  }
+  if caster.warning == nil then messageinfo.duration = 5 caster.warning = true end
+  FireGameEvent("show_center_message", messageinfo)
+
+  -- Spawn projectile
+  Timers:CreateTimer(delay, function()
+    local projectileTable = {
+      Ability = ability,
+      EffectName = "particles/fire_tornado.vpcf",
+      vSpawnOrigin = casterPoint - caster:GetForwardVector()*4000,
+      fDistance = 5000,
+      fStartRadius = 250,
+      fEndRadius = 250,
+      fExpireTime = GameRules:GetGameTime() + 10,
+      Source = caster,
+      bHasFrontalCone = true,
+      bReplaceExisting = false,
+      bProvidesVision = false,
+      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      iUnitTargetType = DOTA_UNIT_TARGET_ALL,
+      bDeleteOnHit = false,
+      vVelocity = caster:GetRightVector() * 1000,
+      vAcceleration = caster:GetForwardVector() * 200
+    }
+
+    local created_projectile = 0
+    Timers:CreateTimer(0.05, function()
+      created_projectile = created_projectile + 1
+      projectileTable.vSpawnOrigin = projectileTable.vSpawnOrigin + caster:GetForwardVector()*(8000/30)
+      projectileTable.vVelocity = caster:GetRightVector() * 1000
+      fire_tornado_projectile = ProjectileManager:CreateLinearProjectile( projectileTable )
+      if created_projectile <= 15 then
+        return 0.05
+      end
+    end)
+
+    local created_projectile_bis = 0
+    Timers:CreateTimer(0.05, function()
+      created_projectile_bis = created_projectile_bis + 1
+      projectileTable.vSpawnOrigin = projectileTable.vSpawnOrigin + caster:GetForwardVector()*(8000/30)
+      projectileTable.vVelocity = caster:GetRightVector() * -1000
+      fire_tornado_projectile = ProjectileManager:CreateLinearProjectile( projectileTable )
+      if created_projectile_bis <= 15 then
+        return 0.05
+      end
+    end)
+  end)
+end
+
+function boss_demon_king_hell_tempest_hit( event )
+  local target = event.target
+  if target.InWater ~= true and event.caster:IsAlive() then
+    if target:GetUnitName()~="npc_dota_courier" and target:GetUnitName()~="npc_dota_flying_courier" then
+      target:KillTarget()
+    end
+  end
+end
+
+function hboss_demon_king_hell_tempest_damage( event )
+  local caster = event.caster
+  caster.charge = caster.charge + 1
+  if caster.charge>=caster:GetMaxMana() then caster.charge = caster:GetMaxMana() end
+end
+
+function boss_demon_king_hell_tempest_charge( event )
+  local caster = event.caster
+  if caster.charge == nil then
+    caster.charge = 0
+    caster:SetMana(0)
+  elseif caster.charge < 0 then
+    caster.charge = 0
+  else
+    return
+  end
+
+  Timers:CreateTimer(0.1, function()
+    if caster.charge < caster:GetMaxMana() then
+      caster.charge = caster.charge + 0.25
+      caster:SetMana(math.ceil(caster.charge))
+      return 0.03
+    else
+      caster:SetMana(math.ceil(caster.charge))
+      return 0.03
+    end
+  end)
 end
