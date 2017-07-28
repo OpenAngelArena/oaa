@@ -25,9 +25,9 @@ end
 
 function abyssal_underlord_dark_rift_oaa:OnUpgrade()
 	local caster = self:GetCaster()
-	
+
 	local spell = caster:FindAbilityByName( self:GetAssociatedPrimaryAbilities() )
-	
+
 	if spell then
 		-- if the spell hasn't be upgraded yet
 		-- init the disabled state
@@ -110,7 +110,7 @@ if IsServer() then
 
 		local spell2 = caster:FindAbilityByName( spell:GetAssociatedPrimaryAbilities() )
 
-		-- activate the sub spell		
+		-- activate the sub spell
 		if spell2 then
 			spell2:SetActivated( true )
 		end
