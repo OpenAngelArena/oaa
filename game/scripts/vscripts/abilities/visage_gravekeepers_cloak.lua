@@ -55,6 +55,13 @@ function modifier_visage_gravekeepers_cloak_oaa:GetModifierTotal_ConstantBlock(k
   return keys.damage * damageReduction / 100
 end
 
+function modifier_visage_gravekeepers_cloak_oaa:IsPurgable()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa:RemoveOnDeath()
+  return false
+end
 
 --------------------------------------------------------------------------
 -- aura stuff
@@ -90,10 +97,6 @@ end
 ---------------------------------------------------------------
 
 modifier_visage_gravekeepers_cloak_oaa_aura = class(ModifierBaseClass)
-
-function modifier_visage_gravekeepers_cloak_oaa_aura:GetDuration()
-  return 1
-end
 
 function modifier_visage_gravekeepers_cloak_oaa_aura:DeclareFunctions()
   return {
