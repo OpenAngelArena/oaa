@@ -18,13 +18,13 @@
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "115.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"    
+    "AbilityManaCost"                                     "50"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -67,12 +67,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "150 225 300 350 375"
+        "splash_radius"                                   "150 225 300"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "100 75 50 50 50"
+        "splash_damage_percent"                           "100 75 50"
       }
       "09"
       {
@@ -94,7 +94,17 @@
         "var_type"                                        "FIELD_FLOAT"
         "frost_aoe"                                       "300"
       }
-      
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rage_chance"                                     "20"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rage_duration"                                   "2.0"
+      }
+
     }
   }
 }

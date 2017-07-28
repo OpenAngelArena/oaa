@@ -159,6 +159,7 @@ function GameMode:OnPreGame()
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
+  InitModule(EntityStatProvider)
 end
 
 --[[

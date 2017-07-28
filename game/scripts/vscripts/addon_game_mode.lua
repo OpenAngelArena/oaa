@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.1.1"
+GAME_VERSION = "2.4.0"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
 require('internal/util')
@@ -29,6 +29,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_dagon", context)
   PrecacheItemByNameSync("item_manta_1", context)
 
+  PrecacheUnitByNameSync("npc_dota_visage_familiar", context)
   PrecacheUnitByNameSync("dota_fountain", context)
   PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
   PrecacheUnitByNameSync("npc_dota_boss_charger", context)

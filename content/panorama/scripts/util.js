@@ -16,8 +16,7 @@ if (typeof module !== 'undefined' && module.exports) {
 var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
 function FindDotaHudElement (id) {
-  var hud = GetDotaHud();
-  return hud.FindChildTraverse(id);
+  return GetDotaHud().FindChildTraverse(id);
 }
 
 function GetDotaHud () {

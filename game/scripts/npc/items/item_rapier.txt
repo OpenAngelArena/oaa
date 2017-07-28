@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "150000"
+    "ItemCost"                                            "50000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,8 @@
     "ItemResult"                                          "item_rapier"
     "ItemRequirements"
     {
-      "01"                                                "item_relic;item_demon_edge;item_upgrade_core_4"
+      "01"                                                "item_relic;item_demon_edge;item_upgrade_core_4;item_upgrade_core_3"
+      "02"                                                "item_relic;item_demon_edge;item_upgrade_core_4;item_upgrade_core_4"
     }
   }
 
@@ -39,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "156000"
+    "ItemCost"                                            "56000"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "divine rapier"
