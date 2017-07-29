@@ -288,7 +288,7 @@ function boss_demon_king_hell_tempest( keys )
       created_projectile = created_projectile + 1
       projectileTable.vSpawnOrigin = projectileTable.vSpawnOrigin + caster:GetForwardVector()*(8000/30)
       projectileTable.vVelocity = caster:GetRightVector() * 1000
-      fire_tornado_projectile = ProjectileManager:CreateLinearProjectile( projectileTable )
+      ProjectileManager:CreateLinearProjectile( projectileTable )
       if created_projectile <= 15 then
         return 0.05
       end
@@ -299,7 +299,7 @@ function boss_demon_king_hell_tempest( keys )
       created_projectile_bis = created_projectile_bis + 1
       projectileTable.vSpawnOrigin = projectileTable.vSpawnOrigin + caster:GetForwardVector()*(8000/30)
       projectileTable.vVelocity = caster:GetRightVector() * -1000
-      fire_tornado_projectile = ProjectileManager:CreateLinearProjectile( projectileTable )
+      ProjectileManager:CreateLinearProjectile( projectileTable )
       if created_projectile_bis <= 15 then
         return 0.05
       end

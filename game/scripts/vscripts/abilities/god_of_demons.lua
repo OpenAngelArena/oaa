@@ -160,10 +160,10 @@ function hell_on_earth(keys)
   if not caster:IsAlive() then return end
     created_projectile = created_projectile + 1
     createAOEDamage(keys,"particles/doom_ring.vpcf",position,200,damage,DAMAGE_TYPE_PURE,2.1,"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts",1.5)
-    angle = (created_projectile*1200)/total_projectile
-    position = GetGroundPosition(RotatePosition(Vector(0,0,0), QAngle(0,angle,0), fv) * distance + origin,nil)
+    local angle = (created_projectile * 1200) / total_projectile
+    position = GetGroundPosition(RotatePosition(Vector(0, 0, 0), QAngle(0, angle, 0), fv) * distance + origin, nil)
 
-    distance = distance +shift
+    distance = distance + shift
     if created_projectile <=total_projectile then
       return 0.09
     end

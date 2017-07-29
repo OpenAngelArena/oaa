@@ -3,11 +3,12 @@
   //=================================================================================================================
   // Creature: Fire Breath
   //=================================================================================================================
-  "creature_fire_breath"
+  "creature_fire_breath_"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                    "5037"
+    "BaseClass"            "creature_fire_breath"
     "AbilityName"          "creature_fire_breath"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"

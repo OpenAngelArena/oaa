@@ -54,7 +54,6 @@ function AIThink()
       AICore:AttackHighestPriority( thisEntity )
       return 0.25
     end
-    return 0.25
   end
   return 0.25
 end
