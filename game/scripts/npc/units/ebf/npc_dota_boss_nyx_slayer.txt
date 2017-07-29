@@ -1,6 +1,5 @@
 "DOTAUnits"
 {
-
   "npc_dota_boss_nyx_slayer"
   {
     // General
@@ -24,6 +23,8 @@
     "Ability1"          "boss_nyx_slayer_melee_impale"
     "Ability2"          "boss_nyx_slayer_melee_impale_b"
     "Ability3"          "copied_from_ebf"
+    "Ability4"                                            "boss_resistance"
+    "Ability7"                                            "boss_cliffwalk"
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"        "220"      // Physical protection.

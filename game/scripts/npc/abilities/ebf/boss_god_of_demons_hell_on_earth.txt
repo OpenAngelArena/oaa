@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  "boss_god_of_demons_hell_on_earth"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                    "5206"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"      "DAMAGE_TYPE_PURE"
+    "AbilityTextureName"      "custom/boss_god_of_demons_hell_on_earth"
+
+    "precache"
+      {
+        "particle"  "particles/shadow_doom_ring.vpcf"
+      }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1500"
+    "AbilityManaCost"               "200"
+
+    "AbilityCastAnimation"      "ACT_DOTA_ATTACK"  // Activity
+    "AnimationPlaybackRate"      "0.2"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "10"
+    "AbilityCastPoint"        "0.5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "damage"             "100000 200000 300000"  //The meteor lands on the ground this many seconds after it was cast.
+      }
+    }
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"                                "abilities/god_of_demons.lua"
+        "Function"                                  "hell_on_earth"
+      }
+    }
+  }
+}
