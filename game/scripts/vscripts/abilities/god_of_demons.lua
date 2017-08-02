@@ -2,7 +2,7 @@ function create_shield_particle(keys)
 
   local origin = keys.caster:GetAbsOrigin()
   local size = Vector(300,300,0)
-  keys.caster.shield_particle = ParticleManager:CreateParticle("particles/demon_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW  , keys.caster)
+  keys.caster.shield_particle = ParticleManager:CreateParticle("particles/ebf/god_of_demons_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW  , keys.caster)
   ParticleManager:SetParticleControl(keys.caster.shield_particle, 0, origin)
   ParticleManager:SetParticleControl(keys.caster.shield_particle, 1, size)
   ParticleManager:SetParticleControl(keys.caster.shield_particle, 6, origin)
@@ -159,7 +159,7 @@ function hell_on_earth(keys)
   Timers:CreateTimer(0.09, function()
   if not caster:IsAlive() then return end
     created_projectile = created_projectile + 1
-    createAOEDamage(keys,"particles/doom_ring.vpcf",position,200,damage,DAMAGE_TYPE_PURE,2.1,"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts",1.5)
+    createAOEDamage(keys,"particles/ebf/god_of_demons_ring.vpcf",position,200,damage,DAMAGE_TYPE_PURE,2.1,"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts",1.5)
     local angle = (created_projectile * 1200) / total_projectile
     position = GetGroundPosition(RotatePosition(Vector(0, 0, 0), QAngle(0, angle, 0), fv) * distance + origin, nil)
 
@@ -205,20 +205,9 @@ function createAOEDamage(keys,particlesname,location,size,damage,damage_type,dur
       DOTA_UNIT_TARGET_FLAG_NONE,
       FIND_ANY_ORDER,
       false)
-    if GameRules.gameDifficulty > 2 then
-      nearbyUnits = FindUnitsInRadius(keys.caster:GetTeam(),
-        location,
-        nil,
-        size,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_ALL,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        FIND_ANY_ORDER,
-        false)
-    end
    for _,unit in pairs(nearbyUnits) do
      if unit ~= keys.caster then
-        if unit:GetUnitName()~="npc_dota_courier" and unit:GetUnitName()~="npc_dota_flying_courier" then
+        if unit:GetUnitName() ~= "npc_dota_courier" and unit:GetUnitName() ~= "npc_dota_flying_courier" then
           ApplyDamage({
             victim = unit,
             attacker = keys.caster,
@@ -234,7 +223,7 @@ end
 function Charge_damage( event )
   local caster = event.caster
   if not caster.weak and caster.Charge > 0 then
-    caster.Charge = caster.Charge - 1 - (4 - GameRules.gameDifficulty)
+    caster.Charge = caster.Charge - 5
   end
   if caster.Charge <= 0 then caster.Charge = 0 end
 end
