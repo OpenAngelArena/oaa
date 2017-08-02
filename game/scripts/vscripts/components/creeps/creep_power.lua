@@ -20,6 +20,14 @@ function CreepPower:GetPowerForMinute (minute)
     multFactor = 1.5 ^ (minute - ExponentialGrowthOnset[PointsManager:GetGameLength()])
   end
 
+  return CreepPower:GetBasePowerForMinute(minute, multFactor)
+end
+
+function CreepPower:GetBasePowerForMinute (minute, multFactor)
+  if minute == 0 then
+    return {   0,        1.0,      1.0,      1.0,      1.0,      1.0,      1.0 * self.numPlayersXPFactor}
+  end
+
   return {
     minute,                                   -- minute
     (55 * ((minute / 100) ^ 4) - 45 * ((minute/100) ^ 3) + 25 * ((minute/100) ^ 2) - 0 * (minute/100)) + 1,   -- hp

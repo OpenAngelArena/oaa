@@ -69,7 +69,7 @@ function modifier_item_reactive_2b:GetAbsorbSpell()
   local endParticle = ParticleManager:CreateParticle(endParticleName, PATTACH_ABSORIGIN, caster)
   ParticleManager:ReleaseParticleIndex(endParticle)
 
-  EmitSoundOn("DOTA_Item.BlinkDagger.Activate", caster)
+  caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 
   return 1
 end

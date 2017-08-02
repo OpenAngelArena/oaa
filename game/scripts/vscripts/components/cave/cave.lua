@@ -49,7 +49,7 @@ function CaveHandler:Init ()
   self:InitCave(DOTA_TEAM_GOODGUYS)
   self:InitCave(DOTA_TEAM_BADGUYS)
 
-  CustomNetTables:SetTableValue('stat_display', 'CC', { value = {} })
+  CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = {} })
 end
 
 
@@ -100,13 +100,13 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
   local round = math.floor
   return {
     name = creep[1],
-    hp = round(multiplier.hp(k) * creep[2]),
-    mana = round(multiplier.mana(k) * creep[3]),
-    damage = round(multiplier.damage(k) * creep[4]),
-    armour = round(multiplier.armour(k) * creep[5]),
-    gold = round(multiplier.gold(k) * creep[6]),
-    exp = round(multiplier.exp(k) * creep[7]),
-    magicResist = round(multiplier.magicResist(k) * creep[8]),
+    hp = round(multiplier.hp(k) * creep[CAVE_TYPE_STATS_HEALTH]),
+    mana = round(multiplier.mana(k) * creep[CAVE_TYPE_STATS_MANA]),
+    damage = round(multiplier.damage(k) * creep[CAVE_TYPE_STATS_DAMAGE]),
+    armour = round(multiplier.armour(k) * creep[CAVE_TYPE_STATS_ARMOUR]),
+    gold = round(multiplier.gold(k) * creep[CAVE_TYPE_STATS_GOLD]),
+    exp = round(multiplier.exp(k) * creep[CAVE_TYPE_STATS_EXP]),
+    magicResist = round(multiplier.magicResist(k) * creep[CAVE_TYPE_STATS_RESITS]),
   }
 end
 
@@ -193,7 +193,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
 
       cave.timescleared = cave.timescleared + 1
       for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
-        local statTable = CustomNetTables:GetTableValue('stat_display', 'CC').value
+        local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
         if statTable[tostring(playerID)] then
           statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
@@ -201,7 +201,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
           statTable[tostring(playerID)] = 1
         end
 
-        CustomNetTables:SetTableValue('stat_display', 'CC', { value = statTable })
+        CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
       end
       -- inform players
       Notifications:TopToTeam(teamID, {
@@ -227,13 +227,16 @@ function CaveHandler:CloseDoors(teamID)
 end
 
 function CaveHandler:GiveBounty (teamID, k)
-  local roshGold = CaveTypes[4][1].units[1][7]
+  local roshGold = CaveTypes[4][1].units[1][CAVE_TYPE_STATS_GOLD]
   local roshCount = #CaveTypes[4][1].units
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
+  local BaseCreepXPGOLDMultiplier = 12
+  local CaveXPGOLDBuff = 2
+  local ExpectClear = BaseCreepXPGOLDMultiplier * k + 10
 
-  local pool = (8 * k + 6) * roshGold * roshCount
+  local pool = round((1 + CaveXPGOLDBuff * ((23 * ExpectClear^2 + 375 * ExpectClear + 7116) / 7116 - 1)) * roshGold * roshCount)
   local bounty = round(pool / playerCount)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
@@ -279,80 +282,94 @@ function CaveHandler:IsInFarmingCave (teamID, entity)
 end
 
 function CaveHandler:KickPlayers (teamID)
-DebugPrint('Kicking Players out of the cave.')
+  DebugPrint('Kicking Players out of the cave.')
 
-local cave = CaveHandler.caves[teamID]
-local spawns = {
-  [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
-  [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
-}
-local units = {}
+  local cave = CaveHandler.caves[teamID]
+  local spawns = {
+    [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
+    [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
+  }
+  local units = {}
 
--- get all heroes in all rooms
-for roomID, room in pairs(cave.rooms) do
-  DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
+  -- get all heroes in all rooms
+  for roomID, room in pairs(cave.rooms) do
+    DebugPrint('Looking for units in room ' .. roomID .. ' in a ' .. room.radius .. ' radius.')
 
-  for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-    local result = FindUnitsInRadius(
-      team, -- team
-      room.zone.origin, -- location
-      nil, -- cache
-      room.radius, -- radius
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
-      DOTA_UNIT_TARGET_ALL, -- type filter
-      DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
-      FIND_ANY_ORDER, -- order
-      false -- can grow cache
-    )
-    for _, unit in pairs(result) do
-      if CaveHandler:IsInFarmingCave(teamID, unit) then
-        table.insert(units, unit)
+    for team = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+      local result = FindUnitsInRadius(
+        team, -- team
+        room.zone.origin, -- location
+        nil, -- cache
+        room.radius, -- radius
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
+        DOTA_UNIT_TARGET_ALL, -- type filter
+        DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+        FIND_ANY_ORDER, -- order
+        false -- can grow cache
+      )
+      for _, unit in pairs(result) do
+        if CaveHandler:IsInFarmingCave(teamID, unit) then
+          table.insert(units, unit)
+        end
       end
     end
   end
-end
 
-DebugPrint('Teleporting units now')
+  DebugPrint('Teleporting units now')
 
-for _, unit in pairs(units) do
-  local origin = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
-    PATTACH_ABSORIGIN_FOLLOW, -- attach point
-    unit -- owner
-  )
-
-  local target = ParticleManager:CreateParticle(
-    'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
-    PATTACH_CUSTOMORIGIN, -- attach point
-    unit -- owner
-  )
-  ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
-
-  Timers:CreateTimer(3, function ()
-    FindClearSpaceForUnit(
-    unit, -- unit
-    spawns[unit:GetTeamNumber()], -- location
-    false -- ???
-  )
-
-  if unit:IsHero() then
-    PlayerResource:SetCameraTarget(unit:GetPlayerID(), unit)
-    Timers:CreateTimer(1, function ()
-      PlayerResource:SetCameraTarget(unit:GetPlayerID(), nil)
-    end)
-  end
-
-  Timers:CreateTimer(0, function ()
-    ParticleManager:DestroyParticle(origin, false)
-    ParticleManager:DestroyParticle(target, true)
+  Timers:CreateTimer(function()
+      self:TeleportAll(units, spawns)
   end)
-
-  -- stand still
-  unit:Stop()
-end)
-end
 end
 
 function CaveHandler:GetCleares (teamID)
   return self.caves[teamID].timescleared
+end
+
+function CaveHandler:TeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    local origin = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
+      PATTACH_ABSORIGIN_FOLLOW, -- attach point
+      unit -- owner
+    )
+
+    local target = ParticleManager:CreateParticle(
+      'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
+      PATTACH_CUSTOMORIGIN, -- attach point
+      unit -- owner
+    )
+    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
+
+    Timers:CreateTimer(3, function ()
+      if not Duels.currentDuel then
+        FindClearSpaceForUnit(
+          unit, -- unit
+          spawns[unit:GetTeamNumber()], -- location
+          false -- ???
+        )
+        MoveCameraToPlayer(unit)
+        unit:Stop()
+      end
+      Timers:CreateTimer(0, function ()
+        ParticleManager:DestroyParticle(origin, false)
+        ParticleManager:DestroyParticle(target, true)
+      end)
+
+    end)
+  end
+end
+
+function CaveHandler:QuickTeleportAll(units, spawns)
+  for _, unit in pairs(units) do
+    if not Duels.currentDuel then
+      FindClearSpaceForUnit(
+        unit, -- unit
+        spawns[unit:GetTeamNumber()], -- location
+        false -- ???
+      )
+      MoveCameraToPlayer(unit)
+      unit:Stop() -- stand still
+    end
+  end
 end

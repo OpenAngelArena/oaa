@@ -35,7 +35,7 @@ function item_stoneskin:OnSpellStart()
     self:StartCooldown(activationDelay + cooldownAfterDelay)
     self.intrinsicModifier:SetStackCount(2)
 
-    EmitSoundOn("Hero_EarthSpirit.RollingBoulder.Loop", caster)
+    caster:EmitSound("Hero_EarthSpirit.RollingBoulder.Loop")
     Timers:CreateTimer(activationDelay, function()
       self:ApplyStoneskin()
     end)
@@ -77,8 +77,8 @@ end
 function item_stoneskin:ApplyStoneskin()
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, "modifier_item_stoneskin_stone_armor", {})
-  StopSoundOn("Hero_EarthSpirit.RollingBoulder.Loop", caster)
-  EmitSoundOn("Hero_EarthSpirit.Petrify", caster)
+  caster:StopSound("Hero_EarthSpirit.RollingBoulder.Loop")
+  caster:EmitSound("Hero_EarthSpirit.Petrify")
   self.intrinsicModifier:SetStackCount(2)
 end
 

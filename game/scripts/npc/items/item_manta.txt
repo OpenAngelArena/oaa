@@ -3,16 +3,18 @@
   //=================================================================================================================
   // Recipe: Manta Style
   //=================================================================================================================
-  "item_recipe_manta"
+  "item_recipe_manta"  "REMOVED"
+  "item_recipe_manta_1"
   {
-    "ID"                                                  "146"    // unique ID
+    "ID"                                                  "4047"    // unique ID
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
     "FightRecapLevel"                                     "1"
     "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_manta"
-    "AbilityTextureName"                                  "item_recipe"
+    "ItemResult"                                          "item_manta_1"
     "ItemRequirements"
     {
       "01"                                                "item_yasha;item_ultimate_orb"
@@ -22,21 +24,25 @@
   //=================================================================================================================
   // Manta Style
   //=================================================================================================================
-  "item_manta"
+  "item_manta"  "REMOVED"
+  "item_manta_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "147"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4048"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/manta.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "manta"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_manta;item_manta_2;item_manta_3"
+    "UpgradesItems"                                       "item_manta_1;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -80,27 +86,27 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2"       //needs rework to go over 2
+        "images_count"                                    "2 2 2 3 3"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_duration"                       "20"
+        "illusion_duration"                               "20"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-67"
+        "damage_outgoing_melee_pct"                       "-67"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "33"
+        "tooltip_damage_outgoing_melee_pct"               "33"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_melee"                "250"
+        "damage_incoming_melee_pct"                       "250"
       }
       "11"
       {
@@ -110,17 +116,17 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-72"
+        "damage_outgoing_ranged_pct"                      "-72"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "28"
+        "tooltip_damage_outgoing_ranged_pct"              "28"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_ranged"               "300"
+        "damage_incoming_ranged_pct"                      "300"
       }
       "15"
       {
@@ -147,6 +153,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "vision_radius"                                   "1000"
       }
+      "20"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "1.0"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/items2_fx/manta_phase.vpcf"
     }
   }
 }

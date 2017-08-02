@@ -36,7 +36,7 @@ CreepTypes = {
     },
     {
       {"npc_dota_neutral_polar_furbolg_champion",   480,    0,  28,    2,    96,   63},
-      {"npc_dota_neutral_blueberry",                800,    0,  28,    2,    96,   63},
+      {"npc_dota_neutral_beardude",                 800,    0,  28,    2,    96,   63},
     }
   },
     -- 3 "hard camp"

@@ -72,42 +72,42 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "60 66 73 80 88"
+        "bonus_movement"                                  "55 60 66 73 80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "350 420 500 600 700"
+        "bonus_mana"                                      "250 350 560 840 1260"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 20 25 30"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 12 15 18"
+        "bonus_armor"                                     "5 7 10 12 15"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "6 9 12 15 18"
+        "aura_health_regen"                               "4 6 9 12 15"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor"                                      "3 4 5 6 7"
+        "aura_armor"                                      "2 3 4 5 6"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "20 25 30 35 40"
+        "aura_health_regen_bonus"                         "15 20 25 30 35"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "17 20 23 26 29"
+        "aura_armor_bonus"                                "15 17 20 23 26"
       }
       "09"
       {
@@ -122,12 +122,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "350 450 550 650 750"
+        "replenish_health"                                "250 300 475 750 1100"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "200 250 325 400 475"
+        "replenish_mana"                                  "160 200 300 475 700"
       }
       "13"
       {

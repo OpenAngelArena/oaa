@@ -48,13 +48,13 @@ tools_asset_info.bin
 # Dota 2 compiled files
 panorama_debugger.cfg
 
-*.vmat_c
-*.vpcf_c
-*.vtex_c
-*.vxml_c
-*.vjs_c
-*.vcss_c
-*.vsndevts_c
+game/maps/
+game/materials/
+game/panorama/
+game/particles/
+game/soundevents/
+game/sounds/
+
 *.vpk
 
 # DotaStats

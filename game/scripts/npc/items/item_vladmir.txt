@@ -57,22 +57,22 @@
   	"01"
   	{
   		"var_type"				"FIELD_INTEGER"
-  		"bonus_all_stats"		"2 4 7 14 28"
+  		"bonus_all_stats"		"2 4 8 16 32"
   	}
   	"02"
   	{
   		"var_type"				"FIELD_INTEGER"
-  		"hp_regen"				"3 5 7 10 15"
+  		"hp_regen"				"3 6 12 24 48"
   	}
   	"03"
   	{
   		"var_type"				"FIELD_FLOAT"
-  		"mana_regen_aura"		"0.8 1.2 1.8 2.7 4.0"
+  		"mana_regen_aura"		"0.8 2.0 4.0 6.0 8.0"
   	}
   	"04"
   	{
   		"var_type"				"FIELD_INTEGER"
-  		"armor_aura"			"4 6 8 10 12"
+  		"armor_aura"			"4 8 12 16 20"
   	}
   	"05"
   	{

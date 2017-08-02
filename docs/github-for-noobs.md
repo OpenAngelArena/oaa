@@ -148,7 +148,7 @@ To https://GitHub.com/Chronophylos/oaa
 
 ## Creating a PR
 
-To create a PR goto [OpenAngelArena/oaa] on GitHub
+To create a PR goto [OpenAngelArena/oaa](https://GitHub.com/OpenAngelArena/oaa) on GitHub
 - Click 'New Pull Request'
 - Click `compare across forks`
 - Click `head fork` and choose your Repository

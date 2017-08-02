@@ -16,3 +16,5 @@ require('components/cave/index') -- must be after creeps
 require('components/doors/index')
 require('components/glyph/index')
 require('components/devcheats/index')
+require('components/player/index')
+require('components/statprovider/index')

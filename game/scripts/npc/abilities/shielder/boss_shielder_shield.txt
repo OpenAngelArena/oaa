@@ -24,19 +24,26 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "percent_damage_reduce"                           "100"
+        "damage_reduction_pct"                            "100"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheild_width"                                    "0.5 -0.173 -0.766" // In terms of cosine
+        "shield_width"                                    "0.5 -0.173 -0.766" // In terms of cosine
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_return_pct"                               "50"
       }
     }
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/hex_shield.vpcf"
+      "particle"                                          "particles/shielder/hex_shield_1.vpcf"
+      "particle"                                          "particles/shielder/hex_shield_2.vpcf"
+      "particle"                                          "particles/shielder/hex_shield_3.vpcf"
     }
   }
 }

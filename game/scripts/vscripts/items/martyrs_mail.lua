@@ -14,11 +14,13 @@ function item_martyrs_mail:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
 
-	EmitSoundOn( "DOTA_Item.BladeMail.Activate", hCaster )
+	hCaster:EmitSound( "DOTA_Item.BladeMail.Activate" )
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
 end
 
 item_martyrs_mail_2 = class(item_martyrs_mail)
+item_martyrs_mail_3 = class(item_martyrs_mail)
+item_martyrs_mail_4 = class(item_martyrs_mail)
 
 --------------------------------------------------------------------------------
 
@@ -112,28 +114,24 @@ end
 function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 	if IsServer() then
 		local hCaster = self:GetParent()
+    -- local shouldNotReflect = kv.attacker == hCaster or -- Prevent reflecting self-damage
+    --   bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION -- Prevent reflecting damage with no-reflect flag
 
-    -- Prevent reflecting self-damage
-    if kv.attacker == hCaster then
-      return
-    end
-
-    --Prevent reflecting damage with no-reflect flag
-    if bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-	    return
-    end
+    -- if shouldNotReflect then
+    --   return
+    -- end
 
 		if kv.unit == hCaster then
-			local damageTable = {
-				victim = kv.attacker,
-				attacker = hCaster,
-				damage = kv.damage,
-				damage_flag = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
-				damage_type = kv.damage_type
-			}
+			-- local damageTable = {
+			-- 	victim = kv.attacker,
+			-- 	attacker = hCaster,
+			-- 	damage = kv.original_damage,
+			-- 	damage_flag = bit.bor(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
+			-- 	damage_type = kv.damage_type
+			-- }
 
-			ApplyDamage( damageTable )
-			EmitSoundOn( "DOTA_Item.BladeMail.Damage", kv.attacker )
+			-- ApplyDamage( damageTable )
+			-- EmitSoundOnClient( "DOTA_Item.BladeMail.Damage", kv.attacker:GetPlayerOwner() )
 
 			local martyr_heal_aoe = self:GetAbility():GetSpecialValueFor( "martyr_heal_aoe" )
 			local martyr_heal_percent = self:GetAbility():GetSpecialValueFor( "martyr_heal_percent" )
@@ -142,7 +140,7 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 			if #allies > 1 then
 				for _,ally in pairs(allies) do
 					if ally ~= hCaster then
-						ally:Heal( kv.damage * martyr_heal_percent / 100, hCaster )
+						ally:Heal( kv.original_damage * martyr_heal_percent / 100, hCaster )
 					end
 				end
 			end

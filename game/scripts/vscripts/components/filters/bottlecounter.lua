@@ -27,7 +27,7 @@ function BottleCounter:Filter(filterTable)
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
       self.bottleCount[playerID] = self.bottleCount[playerID] + 1
-      CustomNetTables:SetTableValue('stat_display', 'BC', { value = self.bottleCount })
+      CustomNetTables:SetTableValue('stat_display_player', 'BC', { value = self.bottleCount })
     end
   end
   return true

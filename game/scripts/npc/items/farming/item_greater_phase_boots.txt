@@ -62,12 +62,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65 70"
+        "bonus_movement_speed"                            "45 50 55 60 65"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 55 75 95 125"
+        "bonus_damage"                                    "24 35 70 105 140"
       }
       "03"
       {
@@ -87,12 +87,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "26 29 32 35 38"
+        "phase_movement_speed"                            "24 26 29 32 35"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "20"
+        "phase_movement_speed_range"                      "20 22 25 28 31"
       }
       "08"
       {
@@ -112,12 +112,22 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_radius"                                    "200"
+        "splinter_radius"                                 "375"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_attack_outgoing"                           "50 60 70 80 100"
+        "splinter_attack_outgoing"                        "30"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splinter_count"                                  "1 2 3 4 5"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "melee_splinter_speed"                            "1250" // The projectile speed to use for splinters from melee heroes
       }
     }
 
@@ -125,7 +135,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/items/phase_divehit.vpcf"
+      "particle"                                          "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
     }
   }
 }

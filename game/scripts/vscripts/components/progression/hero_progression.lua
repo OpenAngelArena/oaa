@@ -5,8 +5,15 @@ end
 
 GameEvents:OnPlayerLevelUp(function(keys)
   local player = EntIndexToHScript(keys.player)
+  local playerLevel = PlayerResource:GetLevel(player:GetPlayerID())
   local level = keys.level
   local hero = player:GetAssignedHero()
+
+  -- Skip processing if the level of the unit is reported as less than the player level
+  -- This is to prevent levelling of illusions from causing repeated processing on main hero
+  if level <= playerLevel then
+    return
+  end
 
   HeroProgression:ReduceStatGain(hero, level)
   HeroProgression:ProcessAbilityPointGain(hero, level)

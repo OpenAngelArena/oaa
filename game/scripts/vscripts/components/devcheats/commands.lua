@@ -223,7 +223,7 @@ end
 function DevCheats:GiveLoadout(keys)
   local loadouts = {
     ['tank'] = {"item_heart_5", "item_stoneskin_2", "item_satanic_core_3"},
-    ['damage'] = {"item_greater_crit_5", "item_desolator_5", "item_moon_shard"},
+    ['damage'] = {"item_greater_crit_5", "item_desolator_5", "item_mjollnir_5", "item_monkey_king_bar_5"},
   }
   local text = string.lower(keys.text)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)

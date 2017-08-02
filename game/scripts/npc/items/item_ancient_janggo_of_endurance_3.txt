@@ -48,15 +48,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7340"
+    "ItemCost"                                            "6640"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance"
-    "ItemInitialCharges"                                  "6"
-    "ItemDisplayCharges"                                  "1"
+//  Infinite Charges:
+    "ItemInitialCharges"                                  "-1"
+    "ItemDisplayCharges"                                  "0"
+    "ItemRequiresCharges"                                 "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemRequiresCharges"                                 "1"
-
+    
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -64,27 +65,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "6 9 14 20 30"
+        "bonus_int"                                       "6 15 30 45 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 9 14 20 30"
+        "bonus_str"                                       "6 15 30 45 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "3 5 10 15 20"
+        "bonus_agi"                                       "3 10 15 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "3 5 10 15 20"
+        "bonus_damage"                                    "3 20 40 60 80"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "50 75 100 150 225"
+        "bonus_mana_regen"                                "50 100 200 300 425"
       }
       "06"
       {
@@ -94,17 +95,17 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed_pct"                          "25 27 30 32 35"
+        "bonus_attack_speed_pct"                          "25 35 50 70 95"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "13 14 15 16 17"
+        "bonus_movement_speed_pct"                        "13 16 19 22 25"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6 7 8 9 10"
+        "duration"                                        "6"
       }
       "10"
       {

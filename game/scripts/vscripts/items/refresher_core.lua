@@ -1,5 +1,5 @@
 
-LinkLuaModifier( "modifier_octarine_vampirism_applier", "modifiers/modifier_octarine_vampirism_applier.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_refresher_core", "items/refresher_core.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -11,7 +11,7 @@ end
 
 function item_octarine_core_2:GetIntrinsicModifierNames()
   return {
-    "modifier_octarine_vampirism_applier",
+    "modifier_octarine_vampirism_buff",
     "modifier_item_octarine_core"
   }
 end
@@ -22,7 +22,7 @@ item_refresher_core = class(item_octarine_core_2)
 
 function item_refresher_core:GetIntrinsicModifierNames()
   return {
-    "modifier_octarine_vampirism_applier",
+    "modifier_octarine_vampirism_buff",
     "modifier_item_refresher_core"
   }
 end
@@ -32,39 +32,25 @@ function item_refresher_core:OnSpellStart()
 
   -- Put ability exemption in here
   local exempt_ability_table = {
-    tinker_rearm = true
+    tinker_rearm = true,
+    riki_permanent_invisibility = true,
+    brewmaster_drunken_brawler = true
   }
 
   -- Put item exemption in here
   local exempt_item_table = {
-    item_black_king_bar = true,
-    item_charge_bkb = true,
-    item_arcane_boots = true,
-    item_hand_of_midas = true,
-    item_hand_of_midas_2 = true,
-    item_hand_of_midas_3 = true,
-    item_helm_of_the_dominator = true,
     item_refresher = true,
     item_refresher_2 = true,
     item_refresher_core = true,
     item_refresher_core_2 = true,
-    item_refresher_core_3 = true,
-    item_sphere = true,
-    item_sphere_2 = true,
-    item_bottle = true,
-    item_infinite_bottle = true,
-    item_necronomicon = true,
-    item_necronomicon_2 = true,
-    item_necronomicon_3 = true,
-    item_necronomicon_4 = true,
-    item_necronomicon_5 = true
+    item_refresher_core_3 = true
   }
 
   -- Reset cooldown for abilities that is not rearm
   for i = 0, caster:GetAbilityCount() - 1 do
     local ability = caster:GetAbilityByIndex(i)
     if ability and not exempt_ability_table[ability:GetAbilityName()] then
-      local timeLeft = ability:GetCooldownTimeRemaining()
+      ability:RefreshCharges()
       ability:EndCooldown()
     end
   end

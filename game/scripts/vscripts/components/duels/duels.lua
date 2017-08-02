@@ -269,8 +269,8 @@ function Duels:ActuallyStartDuel (options)
     self.zone1.addPlayer(goodGuy.id)
     self.zone1.addPlayer(badGuy.id)
 
-    self:MoveCameraToPlayer(goodGuy.id, goodHero)
-    self:MoveCameraToPlayer(badGuy.id, badHero)
+    MoveCameraToPlayer(goodHero)
+    MoveCameraToPlayer(badHero)
 
     -- stop player action
     goodHero:Stop()
@@ -308,8 +308,8 @@ function Duels:ActuallyStartDuel (options)
     self.zone2.addPlayer(goodGuy.id)
     self.zone2.addPlayer(badGuy.id)
 
-    self:MoveCameraToPlayer(goodGuy.id, goodHero)
-    self:MoveCameraToPlayer(badGuy.id, badHero)
+    MoveCameraToPlayer(goodHero)
+    MoveCameraToPlayer(badHero)
 
     -- stop player action
     goodHero:Stop()
@@ -361,14 +361,6 @@ function Duels:ActuallyStartDuel (options)
       end
     })
   end
-end
-
-function Duels:MoveCameraToPlayer (playerId, entity)
-  PlayerResource:SetCameraTarget(playerId, entity)
-
-  Timers:CreateTimer(1, function ()
-    PlayerResource:SetCameraTarget(playerId, nil)
-  end)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
@@ -449,7 +441,7 @@ function Duels:EndDuel ()
       end
 
       self:RestorePlayerState (hero, state)
-      self:MoveCameraToPlayer(state.id, hero)
+      MoveCameraToPlayer(hero)
       self:PurgeAfterDuel(hero)
     end)
     -- Remove Modifier
@@ -603,7 +595,7 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
                                      nil,
                                      FIND_UNITS_EVERYWHERE,
                                      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                     DOTA_UNIT_TARGET_BASIC,
+                                     DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC,
                                      DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
                                      FIND_ANY_ORDER,
                                      false)
@@ -619,20 +611,14 @@ end
 function Duels:SafeTeleport(unit, location, maxDistance)
   if unit:FindModifierByName("modifier_life_stealer_infest") then
     DebugPrint("Found LS infesting.")
-    local ability = unit:FindAbilityByName("life_stealer_consume")
-    if ability then
-      if not ability:IsActivated() then
-        error('Ability is not activated')
-      end
-      ExecuteOrderFromTable({
-        UnitIndex = unit:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
-    else
-      error('Missing Ability "life_stealer_consume"')
-    end
+    local ability = assert(unit:FindAbilityByName("life_stealer_consume"), 'Missing Ability "life_stealer_consume"')
+    assert(ability:IsActivated(), 'Ability is not activated')
+    ExecuteOrderFromTable({
+      UnitIndex = unit:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
   end
   if unit:IsOutOfGame() then
     unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")

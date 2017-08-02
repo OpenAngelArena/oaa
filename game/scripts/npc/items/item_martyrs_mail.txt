@@ -41,18 +41,18 @@
     "ID"                                                  "3336"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/martyrs_mail"
+    "AbilityTextureName"                                  "custom/martyrs_mail_1"
     "ScriptFile"                                          "items/martyrs_mail.lua"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "martyr"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_martyrs_mail"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
@@ -69,17 +69,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35"
+        "bonus_damage"                                    "35 50 75 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9"
+        "bonus_armor"                                     "14 22 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15"
+        "bonus_intellect"                                 "15 22 32 45"
       }
       "04"
       {
@@ -94,7 +94,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_percent"                             "50 80"
+        "martyr_heal_percent"                             "50 60 75 100"
       }
     }
   }

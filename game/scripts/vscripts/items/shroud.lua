@@ -14,7 +14,7 @@ function item_shroud:OnSpellStart()
   local hTarget = self:GetCursorTarget()
   local shroud_duration = self:GetSpecialValueFor( "duration" )
 
-  EmitSoundOn( "Item.GlimmerCape.Activate", hTarget )
+  hTarget:EmitSound( "Item.GlimmerCape.Activate" )
   hTarget:AddNewModifier( hTarget, self, "modifier_ghost_state", { duration = shroud_duration } )
   hTarget:AddNewModifier( hTarget, self, "modifier_item_glimmer_cape_fade", { duration = shroud_duration } )
 end
@@ -35,6 +35,10 @@ end
 
 function modifier_item_shroud_passive:IsPurgable()
   return false
+end
+
+function modifier_item_shroud_passive:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_shroud_passive:OnCreated()

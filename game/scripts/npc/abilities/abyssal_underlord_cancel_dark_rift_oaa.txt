@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Abyssal Underlord: Cancel Dark Rift
+  //=================================================================================================================
+  "abyssal_underlord_cancel_dark_rift_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85617"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_cancel_dark_rift.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityTextureName"                                  "abyssal_underlord_cancel_dark_rift"
+
+    "MaxLevel"                                            "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "1"
+  }
+}

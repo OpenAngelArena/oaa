@@ -16,11 +16,11 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300 300 300 300 300 300"
+    "AbilityCastRange"                                    "300"
     "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 40.0 40.0"
 
     // Cost
@@ -34,12 +34,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "25 50 75 100 150 350"
+        "bonus_gold"                                      "75 150 225 300 500 1500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_per_second"                               "20 20 20 20 20 20"
+        "health_per_second"                               "999999"
       }
     }
   }

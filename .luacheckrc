@@ -27,7 +27,15 @@ globals = { -- these globals can be set and accessed.
 "INITIAL_CREEP_DELAY",
 "DUEL_INTERVAL",
 "BOTTLE_DESPAWN_TIME",
-"FindHeroesInRadius"
+"GAME_ABANDON_TIME",
+"FindHeroesInRadius",
+"CAVE_TYPE_STATS_HEALTH",
+"CAVE_TYPE_STATS_MANA",
+"CAVE_TYPE_STATS_DAMAGE",
+"CAVE_TYPE_STATS_ARMOUR",
+"CAVE_TYPE_STATS_GOLD",
+"CAVE_TYPE_STATS_EXP",
+"CAVE_TYPE_STATS_RESITS"
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -117,6 +125,8 @@ read_globals = { -- these globals can only be accessed.
 "ShowWearables",
 "GetShortTeamName",
 "IsInTrigger",
+"MoveCameraToPlayer",
+"MoveCameraToEntity",
 
 
 "ACT_MELEE_VM_RELOAD",

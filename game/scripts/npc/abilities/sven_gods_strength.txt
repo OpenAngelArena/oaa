@@ -39,12 +39,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage"                            "80 120 160 200 280"
+        "gods_strength_damage"                            "80 120 160 200 240"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_bonus_str"                         "12 24 36 60 108"    
+        "gods_strength_bonus_str"                         "12 24 36 48 72"
       }
       "03"
       {
@@ -54,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage_scepter"                    "75 100 125 150 200"
+        "gods_strength_damage_scepter"                    "75 100 125 150 175"
       }
     }
   }

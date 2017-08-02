@@ -25,6 +25,10 @@ function modifier_octarine_vampirism_buff:IsPurgable()
   return false
 end
 
+function modifier_octarine_vampirism_buff:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_buff:OnCreated( kv )
@@ -54,7 +58,20 @@ end
 --------------------------------------------------------------------------------
 function modifier_octarine_vampirism_buff:OnTakeDamage(params)
   local hero = self:GetParent()
-  if hero:PassivesDisabled() then return end
+  local isFirstVampModifier = hero:FindModifierByName(self:GetName()) == self
+
+  local function IsItemOctarine(item)
+    -- Compare the full name because we don't want to include Octarine Core 2
+    return item and item:GetAbilityName() == "item_octarine_core"
+  end
+  local items = map(partial(hero.GetItemInSlot, hero), range(0, 5))
+  local heroHasOctarine = any(IsItemOctarine, items)
+
+  -- Don't do anything if hero is Broken, self isn't the first spell vamp modifier, or hero has a level 1 Octarine Core
+  -- in their inventory
+  if hero:PassivesDisabled() or not isFirstVampModifier or heroHasOctarine then
+    return
+  end
   local dmg = params.damage
   local nHeroHeal = self.hero_lifesteal / 100
   local nCreepHeal = self.creep_lifesteal / 100

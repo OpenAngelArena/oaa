@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_dagon = class({})
+item_dagon = class(ItemBaseClass)
 item_dagon_2 = item_dagon
 item_dagon_3 = item_dagon
 item_dagon_4 = item_dagon

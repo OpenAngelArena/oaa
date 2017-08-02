@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
@@ -63,17 +63,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "collision_radius"                                "100 100 100 100 100 100"
+        "collision_radius"                                "100"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5 0.5 0.5 0.5 0.5 0.5"
+        "stun_duration"                                   "0.5"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900 900 900 900 900 900"
+        "speed"                                           "900"
       }
       "08"
       {
@@ -84,12 +84,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "knockback_height"                                "100 100 100 100 100 100"
+        "knockback_height"                                "100"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.25 0.25 0.25 0.25 0.25 0.25"
+        "knockback_duration"                              "0.25"
       }      
     }
   }

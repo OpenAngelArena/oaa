@@ -16,18 +16,6 @@ function item_greater_travel_boots:GetIntrinsicModifierNames()
   }
 end
 
-function item_greater_travel_boots:IsHidden()
-  return true
-end
-
-function item_greater_travel_boots:IsDebuff()
-  return false
-end
-
-function item_greater_travel_boots:IsPurgable()
-  return false
-end
-
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
     local hCaster = self:GetCaster()
@@ -81,8 +69,8 @@ function item_greater_travel_boots:OnSpellStart()
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
 
   -- Teleport sounds
-  EmitSoundOn("Portal.Loop_Disappear", hCaster)
-  EmitSoundOn("Portal.Loop_Appear", hTarget)
+  hCaster:EmitSound("Portal.Loop_Disappear")
+  hTarget:EmitSound("Portal.Loop_Appear")
 
   -- Particle effects
   local teleportFromEffectName = "particles/items2_fx/teleport_start.vpcf"
@@ -130,13 +118,25 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
-  EmitSoundOn("Portal.Hero_Appear", self.targetEntity)
+  self.targetEntity:EmitSound("Portal.Hero_Appear")
 
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
 
 function modifier_item_greater_travel_boots:IsHidden()
   return true
+end
+
+function modifier_item_greater_travel_boots:IsDebuff()
+  return false
+end
+
+function modifier_item_greater_travel_boots:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_travel_boots:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()

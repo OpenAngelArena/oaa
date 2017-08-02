@@ -64,7 +64,7 @@ function bristleback_takedamage(params)
         -- This is the actual "damage reduction".
         params.unit:SetHealth((params.Damage * back_reduction_percentage) + params.unit:GetHealth())
         -- Play the sound on Bristleback.
-        EmitSoundOn(params.sound, params.unit)
+        params.unit:EmitSound(params.sound)
         -- Create the back particle effect.
         local back_damage_particle = ParticleManager:CreateParticle(params.back_particle, PATTACH_ABSORIGIN_FOLLOW, params.unit)
         -- Set Control Point 1 for the back damage particle; this controls where it's positioned in the world. In this case, it should be positioned on Bristleback.
@@ -78,7 +78,7 @@ function bristleback_takedamage(params)
         -- This is the actual "damage reduction".
         params.unit:SetHealth((params.Damage * side_reduction_percentage) + params.unit:GetHealth())
         -- Play the sound on Bristleback.
-        EmitSoundOn(params.sound, params.unit)
+        params.unit:EmitSound(params.sound)
         -- Create the side particle effect.
         local side_damage_particle = ParticleManager:CreateParticle(params.side_particle, PATTACH_ABSORIGIN_FOLLOW, params.unit)
         -- Set Control Point 1 for the side damage particle; same stuff as the back damage particle.

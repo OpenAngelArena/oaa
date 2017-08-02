@@ -7,6 +7,8 @@ if BossAI == nil then
   BossAI.hasReflexCore = {}
 
   Debug.EnabledModules['boss:ai'] = false
+
+  CustomNetTables:SetTableValue("stat_display_team", "BK", { value = {} })
 end
 
 BossAI.IDLE = 1
@@ -98,6 +100,16 @@ function BossAI:DeathHandler (state, keys)
   end
 
   PointsManager:AddPoints(teamId)
+
+  local bossKills = CustomNetTables:GetTableValue("stat_display_team", "BK").value
+  print(bossKills[tostring(teamId)])
+  if bossKills[tostring(teamId)] then
+    bossKills[tostring(teamId)] = bossKills[tostring(teamId)] + 1
+  else
+    bossKills[tostring(teamId)] = 1
+  end
+  print(bossKills[tostring(teamId)])
+  CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)

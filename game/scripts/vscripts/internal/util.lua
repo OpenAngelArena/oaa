@@ -311,3 +311,32 @@ function FindHeroesInRadius (...)
 
   return totable(filter(isHero, iter(units)))
 end
+
+function MoveCameraToPlayer(handle)
+  local playerID = nil
+  local entity = nil
+  if IsValidEntity(handle) and handle:IsPlayer() then
+    playerID = handle:GetPlayerID()
+    entity = handle:GetAssignedHero()
+  elseif IsValidEntity(handle) and handle:IsOwnedByAnyPlayer() then
+    playerID = handle:GetPlayerOwnerID()
+    entity = handle
+  elseif tonumber(handle) and PlayerResource:IsValidPlayerID(handle) then
+    playerID = handle
+    entity = PlayerResource:GetSelectedHeroEntity(handle)
+  else
+    return
+  end
+  if playerID and entity then
+    MoveCameraToEntity(playerID, entity)
+  end
+end
+
+function MoveCameraToEntity(playerID, entity)
+  if IsValidEntity(entity) and PlayerResource:IsValidPlayerID(playerID) then
+    PlayerResource:SetCameraTarget(playerID, entity)
+    Timers:CreateTimer(0.5, function ()
+      PlayerResource:SetCameraTarget(playerID, nil)
+    end)
+  end
+end

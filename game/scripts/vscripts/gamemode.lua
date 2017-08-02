@@ -159,6 +159,7 @@ function GameMode:OnPreGame()
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
+  InitModule(EntityStatProvider)
 end
 
 --[[
@@ -179,6 +180,7 @@ function GameMode:OnGameInProgress()
   InitModule(BottleCounter)
   InitModule(DuelRunes)
   InitModule(FinalDuel)
+  InitModule(PlayerConnection)
 end
 
 function InitModule(myModule)
