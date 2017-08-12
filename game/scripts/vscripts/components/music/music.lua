@@ -14,20 +14,25 @@ function Music:Init ()
 end
 
 function Music:SetMusic(title, subtitle)
-  Music.currentTrack = title
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then
+      StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
       EmitSoundOnClient(title, PlayerResource:GetPlayer(playerID))
     end
   end)
 
-  --StopSoundOn
+
+  Music.currentTrack = title
   CustomNetTables:SetTableValue("music", "info", { title = title, subtitle = subtitle })
 end
 
 function Music:MuteHandler(keys)
   playerID = keys.playerID
   CustomNetTables:SetTableValue('music', 'mute', {playerID = keys.mute})
-  StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
+  if keys.mute == 1 then
+    StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
+  else
+    EmitSoundOnClient(Music.currentTrack, PlayerResource:GetPlayer(playerID))
+  end
 end
