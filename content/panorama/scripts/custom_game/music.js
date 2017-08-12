@@ -1,4 +1,4 @@
-/* global $, ToggleMusic, CustomNetTables */
+/* global $, CustomNetTables */
 
 var musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
@@ -26,4 +26,8 @@ function SetMusic (table, key, data) {
     $.GetContextPanel().FindChildTraverse('MusicTitle').text = data.title;
     $.GetContextPanel().FindChildTraverse('MusicSubTitle').text = data.subtitle;
   }
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = ToggleMusic;
 }
