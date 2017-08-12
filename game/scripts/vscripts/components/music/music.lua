@@ -16,24 +16,26 @@ function Music:Init ()
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
-  Music:SetMusic("valve_dota_001.music.ui_world_map", "by VALVe")
+  Music:SetMusic(1)
 end
 
 -- Play song command
-function Music:SetMusic(title, subtitle)
+-- USAGE: Music:SetMusic(i)
+-- i = number from music_list
+function Music:SetMusic(itemnumber)
 
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then
       StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
-      EmitSoundOnClient(title, PlayerResource:GetPlayer(playerID))
+      EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
   end)
 
   -- Update current song
-  Music.currentTrack = title
+  Music.currentTrack = MusicList[itemnumber][2]
   -- Send its name to clients
-  CustomNetTables:SetTableValue("music", "info", { title = title, subtitle = subtitle })
+  CustomNetTables:SetTableValue("music", "info", { title = MusicList[itemnumber][1], subtitle = MusicList[itemnumber][3] })
 end
 
 -- Receives mute requests

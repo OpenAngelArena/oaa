@@ -30,7 +30,7 @@ function ToggleMusic () {
 function SetMusic (table, key, data) {
   if (key === 'info') {
     $.GetContextPanel().FindChildTraverse('MusicTitle').text = data.title;
-    $.GetContextPanel().FindChildTraverse('MusicSubTitle').text = data.subtitle;
+    $.GetContextPanel().FindChildTraverse('MusicSubTitle').text = "by " + data.subtitle;
   }
 }
 
