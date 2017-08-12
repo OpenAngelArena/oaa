@@ -6,10 +6,28 @@ end
 
 function Music:Init ()
   DebugPrint('Init music')
-  Music:SetMusic("game", "starts")
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+    CustomNetTables:SetTableValue('music', 'mute', {playerID = 0})
+  end)
+  CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
+  Music:SetMusic("valve_dota_001.music.ui_world_map", "by VALVe")
 end
 
 function Music:SetMusic(title, subtitle)
-  Music.currentTrack = ttitle
-  CustomNetTables:SetTableValue("info", "music", { title = title, subtitle = subtitle })
+  Music.currentTrack = title
+
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+    if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then
+      EmitSoundOnClient(title, PlayerResource:GetPlayer(playerID))
+    end
+  end)
+
+  --StopSoundOn
+  CustomNetTables:SetTableValue("music", "info", { title = title, subtitle = subtitle })
+end
+
+function Music:MuteHandler(keys)
+  playerID = keys.playerID
+  CustomNetTables:SetTableValue('music', 'mute', {playerID = keys.mute})
+  StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
 end
