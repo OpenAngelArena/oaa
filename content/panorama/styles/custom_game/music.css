@@ -4,16 +4,21 @@
   vertical-align: top;
   margin-top: 12px;
   margin-left: 150px;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
+  width: 200px;
+  flow-children: right;
 }
 
 .MusicButton
 {
-  color: rgb(205,36,36);
-  color: rgba(205,36,36,.52);
   width: 30px;
   height: 30px;
+  margin: 2px;
   background-size: 26px;
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  horizontal-align: center;
+  vertical-align: middle;
 }
 
 .MusicOn
@@ -24,4 +29,28 @@
 .MusicOff
 {
     background-image: url("file://{images}/custom_game/team_select/teamselect_button_off.png");
+}
+
+.MusicProperties
+{
+    flow-children: down;
+}
+
+.MusicTitle
+{
+    padding-top: 4px;
+    padding-bottom: 2px;
+    color: #A3B5D0CC;
+    font-weight: thin;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px 2 #00000099;
+}
+
+.MusicSubTitle
+{
+    padding-top: 1px;
+    color:#A3B5D0CC;
+    font-weight: thin;
+    font-size: 10px;
+    text-shadow: 1px 1px 1px 2 #00000099;
 }
