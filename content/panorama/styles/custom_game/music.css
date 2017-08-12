@@ -1,0 +1,27 @@
+.MusicContainer
+{
+  horizontal-align: left;
+  vertical-align: top;
+  margin-top: 12px;
+  margin-left: 150px;
+}
+
+.MusicButton
+{
+  color: rgb(205,36,36);
+  color: rgba(205,36,36,.52);
+  width: 30px;
+  height: 30px;
+  background-size: 26px;
+  background-size: 100% 100%;
+}
+
+.MusicOn
+{
+    background-image: url("file://{images}/custom_game/team_select/teamselect_button_on.png");
+}
+
+.MusicOff
+{
+    background-image: url("file://{images}/custom_game/team_select/teamselect_button_off.png");
+}
