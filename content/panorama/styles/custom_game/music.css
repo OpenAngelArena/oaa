@@ -19,16 +19,17 @@
   background-position: center;
   horizontal-align: center;
   vertical-align: middle;
+  opacity: 0.5;
 }
 
 .MusicOn
 {
-    background-image: url("file://{images}/custom_game/team_select/teamselect_button_on.png");
+    background-image: url("s2r://panorama/images/hud/reborn/icon_scoreboard_mute_sound_psd.vtex");
 }
 
 .MusicOff
 {
-    background-image: url("file://{images}/custom_game/team_select/teamselect_button_off.png");
+    background-image: url("s2r://panorama/images/hud/reborn/icon_scoreboard_mute_sound_on_psd.vtex");
 }
 
 .MusicProperties
