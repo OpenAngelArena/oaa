@@ -1,7 +1,7 @@
 var musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
 CustomNetTables.SubscribeNetTableListener('info', SetMusic);
-
+SetMusic(null, 'music', CustomNetTables.GetTableValue('info', 'music'));
 
 function ToggleMusic () {
   if (musicPlaying) {

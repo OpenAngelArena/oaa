@@ -8,8 +8,8 @@
   <Panel class="MusicContainer">
     <Button class="MusicButton" id="ToggleMusic" text="music" onactivate="ToggleMusic()"/>
     <Panel class="MusicProperties">
-      <Label class="MusicTitle" id="MusicTitle" text="Title"/>
-      <Label class="MusicSubTitle" id="MusicSubTitle" text="Subtitle(aka artist)"/>
+      <Label class="MusicTitle" id="MusicTitle" text="Loading..."/>
+      <Label class="MusicSubTitle" id="MusicSubTitle" text="Loading..."/>
     </Panel>
   </Panel>
 </root>

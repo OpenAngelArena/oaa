@@ -160,6 +160,7 @@ function GameMode:OnPreGame()
   InitModule(Doors)
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
+  InitModule(Music)
 end
 
 --[[
