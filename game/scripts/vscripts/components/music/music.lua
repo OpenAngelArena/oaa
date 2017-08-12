@@ -6,6 +6,7 @@ end
 
 function Music:Init ()
   DebugPrint('Init music')
+  Music.currentTrack = ""
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     CustomNetTables:SetTableValue('music', 'mute', {playerID = 0})
   end)
