@@ -8,18 +8,18 @@ SetMusic(null, 'info', CustomNetTables.GetTableValue('music', 'info'));
 function ToggleMusic () {
   if (musicPlaying) {
     musicPlaying = false;
+    // TURN OFF MUSIC(VOLUME)
     $.GetContextPanel().FindChildTraverse('ToggleMusic').RemoveClass('MusicOn');
     $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOff');
-    // TURN OFF MUSIC(VOLUME)
     GameEvents.SendCustomGameEventToServer('music_mute', {
       playerID: Players.GetLocalPlayer(),
       mute: 1
     });
   } else {
     musicPlaying = true;
+    // TURN ON MUSIC(VOLUME)
     $.GetContextPanel().FindChildTraverse('ToggleMusic').RemoveClass('MusicOff');
     $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
-    // TURN ON MUSIC(VOLUME)
     GameEvents.SendCustomGameEventToServer('music_mute', {
       playerID: Players.GetLocalPlayer(),
       mute: 0
