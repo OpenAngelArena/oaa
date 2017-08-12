@@ -1,9 +1,5 @@
 /* global $, CustomNetTables */
 
-var console = {
-  log: $.Msg.bind($)
-};
-
 var musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
 CustomNetTables.SubscribeNetTableListener('music', SetMusic);
