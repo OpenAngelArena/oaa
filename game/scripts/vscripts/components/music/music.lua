@@ -29,7 +29,7 @@ function Music:SetMusic(title, subtitle)
 end
 
 function Music:MuteHandler(keys)
-  playerID = keys.playerID
+  local playerID = keys.playerID
   CustomNetTables:SetTableValue('music', 'mute', {playerID = keys.mute})
   if keys.mute == 1 then
     StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
