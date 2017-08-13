@@ -1,8 +1,6 @@
-/* global FindDotaHudElement, GameEvents */
-
+/* global FindDotaHudElement, GameEvents, Game */
 (function () {
-
-  if (Game.GetLocalPlayerID() != -1) {
+  if (Game.GetLocalPlayerID() !== -1) {
     GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
   } else {
     $.GetContextPanel().FindChildTraverse('GameInfoButton').GetParent().RemoveAndDeleteChildren();
