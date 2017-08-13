@@ -1,4 +1,5 @@
-/* global FindDotaHudElement, GameEvents, Game */
+/* global FindDotaHudElement GameEvents Game */
+
 (function () {
   if (Game.GetLocalPlayerID() !== -1) {
     GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
