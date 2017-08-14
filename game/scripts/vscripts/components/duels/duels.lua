@@ -483,6 +483,7 @@ function Duels:ResetPlayerState (hero)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
+      ability:RefreshCharges()
     end
   end
 
