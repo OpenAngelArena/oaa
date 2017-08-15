@@ -6,7 +6,7 @@
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
   <Panel class="MainHolder">
-     <DOTAScenePanel id="PregameBG" class="SceneLoaded" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
 
     </Panel>
@@ -50,7 +50,18 @@
         </Panel>
       </Panel>
       <Panel class="RightColumn">
-
+        <Panel id="HeroSelector">
+          <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
+          <Panel id="HeroPickContainer">
+            <Button id="HeroLockIn">
+              <Label id="HeroLockLabel" text="Lock In"/>
+            </Button>
+            <Button id="HeroRandom">
+              <Panel id="HeroRandomIcon"/>
+              <Label id="HeroRandomLabel" text="Random"/>
+            </Button>
+          </Panel>
+        </Panel>
       </Panel>
     </Panel>
   </Panel>

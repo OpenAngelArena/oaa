@@ -3,6 +3,7 @@
   height: 100%;
   background-color: #333;
 }
+
 #PregameBG {
   width: 100%;
   height: 100%;
@@ -25,23 +26,17 @@
 }
 
 .LeftColumn {
-  width: 30%;
+  width: 25%;
   height: 100%;
   flow-children: down;
+  padding-left: 15px;
 }
 
 .MiddleColumn {
-  width: 40%;
+  width: 50%;
   height: 100%;
   flow-children: down;
 }
-
-.RightColumn {
-  width: 30%;
-  height: 100%;
-  flow-children: down;
-}
-
 
 .HeroHolder {
   width: 100%;
@@ -49,7 +44,7 @@
 }
 
 #ChooseHeroLabel {
-  font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
   font-weight: normal;
   font-size: 30px;
   color: white;
@@ -62,10 +57,104 @@
   height: 50px;
   box-shadow: #000000ff -2px -2px 4px 4px;
   border-radius: 10px;
+}
 
+.HeroContainer:hover {
+  margin: 4px;
+  width: 100px;
+  height: 50px;
+  box-shadow: #999999ff -2px -2px 4px 4px;
+  border-radius: 10px;
+}
+
+.HeroContainer.Activated {
+  margin: 4px;
+  width: 100px;
+  height: 50px;
+  box-shadow: #ffffffff -2px -2px 4px 4px;
+  border-radius: 10px;
 }
 
 .HeroCard {
   height: 100%;
   width: 100%;
+}
+
+.RightColumn {
+  width: 25%;
+  height: 100%;
+  flow-children: down;
+  padding-right: 15px;
+}
+
+#HeroSelector {
+  background-color: gradient( linear, 0% 100%, 0% 0%, from( #171A25dd  ), to( #171A25dd ) );
+  width: 100%;
+  height: 45%;
+}
+
+#HeroPreview {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  height: 100%;
+  opacity-mask: url("s2r://panorama/images/masks/hero_model_opacity_mask_png.vtex");
+  transform: translateY( -86px );
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+#HeroPickContainer {
+  width: 100%;
+  height: 15%;
+  flow-children: right;
+  margin: 12px;
+  transform: translateY( -86px );
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+#HeroLockIn {
+  height: 100%;
+  width: fill-parent-flow(1.0);
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
+  box-shadow: #0000008f -6px -6px 12px 12px;
+}
+
+#HeroLockLabel {
+  font-size: 35px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#HeroRandom {
+  height: 100%;
+  width: 93px;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
+  box-shadow: #0000008f -6px -6px 12px 12px;
+  margin-left: 12px;
+}
+
+#HeroRandomIcon {
+  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 65%;
+  width: 65%;
+  margin: 5%;
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+#HeroRandomLabel {
+  font-size: 12px;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
