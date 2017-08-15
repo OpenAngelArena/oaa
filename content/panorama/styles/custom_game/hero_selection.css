@@ -1,0 +1,71 @@
+.MainHolder {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+#PregameBG {
+  width: 100%;
+  height: 100%;
+  blur: gaussian(4);
+  horizontal-align: center;
+  pre-transform-scale2d: 2;
+  vertical-align: center;
+}
+
+.TeamStatus {
+  width: 100%;
+  height: 10%;
+}
+
+.MainContent {
+  width: 100%;
+  height: 90%;
+  margin-top: 10%;
+  flow-children: right;
+}
+
+.LeftColumn {
+  width: 30%;
+  height: 100%;
+  flow-children: down;
+}
+
+.MiddleColumn {
+  width: 40%;
+  height: 100%;
+  flow-children: down;
+}
+
+.RightColumn {
+  width: 30%;
+  height: 100%;
+  flow-children: down;
+}
+
+
+.HeroHolder {
+  width: 100%;
+  flow-children: right-wrap;
+}
+
+#ChooseHeroLabel {
+  font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
+
+.HeroContainer {
+  margin: 4px;
+  width: 100px;
+  height: 50px;
+  box-shadow: #000000ff -2px -2px 4px 4px;
+  border-radius: 10px;
+
+}
+
+.HeroCard {
+  height: 100%;
+  width: 100%;
+}

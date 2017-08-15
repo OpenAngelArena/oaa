@@ -1,0 +1,58 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/hero_selection.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
+  </scripts>
+  <Panel class="MainHolder">
+     <DOTAScenePanel id="PregameBG" class="SceneLoaded" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <Panel class="TeamStatus">
+
+    </Panel>
+    <Panel class="MainContent">
+      <Panel class="LeftColumn">
+
+      </Panel>
+      <Panel class="MiddleColumn">
+        <Label id="ChooseHeroLabel" text="Choose Your Hero:"/>
+        <Panel class="HeroHolder StrenghtHeroes">
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+        </Panel>
+      </Panel>
+      <Panel class="RightColumn">
+
+      </Panel>
+    </Panel>
+  </Panel>
+
+</root>
