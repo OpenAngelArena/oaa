@@ -12,11 +12,130 @@
     </Panel>
     <Panel class="MainContent">
       <Panel class="LeftColumn">
-
+        <Label id="MinimapLabel" text="Minimap:"/>
+        <DOTAMinimap id="Minimap" require-composition-layer="true" />
       </Panel>
       <Panel class="MiddleColumn">
         <Label id="ChooseHeroLabel" text="Choose Your Hero:"/>
-        <Panel class="HeroHolder StrenghtHeroes">
+        <Panel class="HeroHolder StrengthHeroes">
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+        </Panel>
+        <Panel class="HeroHolder AgilityHeroes">
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+        </Panel>
+        <Panel class="HeroHolder IntelligenceHeroes">
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
+          <Button class="HeroContainer">
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+          </Button>
           <Button class="HeroContainer">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
           </Button>
@@ -50,6 +169,7 @@
         </Panel>
       </Panel>
       <Panel class="RightColumn">
+        <Label id="HeroSelectorLabel" text="Preview:"/>
         <Panel id="HeroSelector">
           <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
           <Panel id="HeroPickContainer">
