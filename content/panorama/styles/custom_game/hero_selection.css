@@ -52,27 +52,19 @@
 
 
 .HeroContainer {
-  margin: 4px;
+  margin: 3px;
   width: 100px;
   height: 50px;
   box-shadow: #000000ff -2px -2px 4px 4px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .HeroContainer:hover {
-  margin: 4px;
-  width: 100px;
-  height: 50px;
   box-shadow: #999999ff -2px -2px 4px 4px;
-  border-radius: 10px;
 }
 
 .HeroContainer.Activated {
-  margin: 4px;
-  width: 100px;
-  height: 50px;
   box-shadow: #ffffffff -2px -2px 4px 4px;
-  border-radius: 10px;
 }
 
 .HeroCard {
@@ -109,8 +101,7 @@
   height: 15%;
   flow-children: right;
   margin: 12px;
-  transform: translateY( -86px );
-  vertical-align: top;
+  vertical-align: bottom;
   horizontal-align: middle;
 }
 
