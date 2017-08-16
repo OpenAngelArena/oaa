@@ -31,14 +31,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"        "1000"      // Physical protection.
-    "MagicalResistance"      "-150"    // Magical protection.
+    "ArmorPhysical"        "25"      // Physical protection.
+    "MagicalResistance"      "-25"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"      "500000"    // Damage range min.
-    "AttackDamageMax"      "500000"    // Damage range max.
+    "AttackDamageMin"      "4000"    // Damage range min.
+    "AttackDamageMax"      "4000"    // Damage range max.
     "AttackRate"        "2.4"    // Speed of attack.
     "AttackAnimationPoint"    "0.4"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
@@ -53,7 +53,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"          "60000"    // Experience earn.
+    "BountyXP"             "0"    // Experience earn.
     "BountyGoldMin"        "0"      // Gold earned min.
     "BountyGoldMax"        "0"      // Gold earned max.
 
@@ -65,8 +65,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"        "2500000"    // Base health.
-    "StatusHealthRegen"      "500"      // Health regeneration rate.
+    "StatusHealth"        "15000"    // Base health.
+    "StatusHealthRegen"      "50"      // Health regeneration rate.
     "StatusMana"        "1000"      // Base mana.
     "StatusManaRegen"      "100"      // Mana regeneration rate.
 
@@ -86,7 +86,7 @@
     //----------------------------------------------------------------
     "Creature"
     {
-      "StunResistance"      "99.0"
+      "StunResistance"      "50.0"
     }
   }
 

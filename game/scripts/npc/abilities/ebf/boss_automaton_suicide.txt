@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "300 333 366 400"
+    "AbilityCastRange"        "300 300 300 300"
     "AbilityCastPoint"        "0.0 0.0 0.0 0.0"
 
     // Time
@@ -40,12 +40,12 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "damage"          "20000 30000 40000 50000"
+        "damage"          "2000"
       }
       "03"
       {
         "var_type"          "FIELD_FLOAT"
-        "silence_duration"      "4 5 6 7"
+        "silence_duration"      "4"
       }
       "04"
       {

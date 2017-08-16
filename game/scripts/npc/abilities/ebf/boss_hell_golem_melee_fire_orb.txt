@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "impact_radius"      "1000"
+        "impact_radius"      "500"
       }
       "02"
       {
@@ -76,7 +76,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "damage"        "9999999"
+        "damage"        "2000"
       }
       "04"
       {
@@ -106,7 +106,7 @@
       "07"
       {
         "var_type"        "FIELD_INTEGER"
-        "spike_damage"        "10000"
+        "spike_damage"        "2000"
       }
     }
 
