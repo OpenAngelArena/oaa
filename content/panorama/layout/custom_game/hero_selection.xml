@@ -3,14 +3,22 @@
     <include src="file://{resources}/styles/custom_game/hero_selection.css" />
   </styles>
   <scripts>
+    <include src="file://{resources}/scripts/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
   <Panel class="MainHolder">
     <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
-
+      <Panel class="FillWidth"/>
+      <Panel id="TeamRadiant">
+      </Panel>
+      <Panel id="Clock">
+      </Panel>
+      <Panel id="TeamDire">
+      </Panel>
+      <Panel class="FillWidth"/>
     </Panel>
-    <Panel class="MainContent">
+    <Panel id="MainContent">
       <Panel class="LeftColumn">
         <Label id="MinimapLabel" text="Minimap:"/>
         <DOTAMinimap id="Minimap" require-composition-layer="true" />
@@ -173,7 +181,7 @@
         <Panel id="HeroSelector">
           <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
           <Panel id="HeroPickContainer">
-            <Button id="HeroLockIn">
+            <Button id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>
             </Button>
             <Button id="HeroRandom">
@@ -182,11 +190,14 @@
             </Button>
           </Panel>
         </Panel>
+        <Label id="CustomChatLabel" text="Chat:"/>
         <Panel id="CustomChat">
           <Label text="We will have to make custom chat, existing one is too shit to try to port. I suggest we teke base from CIA"/>
         </Panel>
       </Panel>
     </Panel>
+    <Panel id="StrategyContent">
+      <Label text="test"/>
+    </Panel>
   </Panel>
-
 </root>

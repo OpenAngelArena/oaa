@@ -16,13 +16,46 @@
 .TeamStatus {
   width: 100%;
   height: 10%;
+  flow-children: right;
 }
 
-.MainContent {
+.FillWidth {
+  width: fill-parent-flow( 1.0 );
+  height: 100%;
+}
+
+#TeamRadiant {
+  width: 30%;
+  height: 100%;
+}
+
+#Clock {
+  width: 10%;
+  height: 100%;
+}
+
+#TeamDire {
+  width: 30%;
+  height: 100%;
+}
+
+Label {
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
+#MainContent {
   width: 100%;
   height: 90%;
   margin-top: 10%;
   flow-children: right;
+  transition-property: transform, opacity;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-out;
+  opacity: 1;
+  //transform: scaleX(1) scaleY(1);
 }
 
 .LeftColumn {
@@ -32,19 +65,11 @@
   padding-left: 15px;
 }
 
-#MinimapLabel {
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-  font-weight: normal;
-  font-size: 30px;
-  color: white;
-}
-
 #Minimap {
   width: 100%;
   height: 45%;
-  margin: 15px 0;
+  margin: 0 0 15px 0;
 }
-
 
 .MiddleColumn {
   margin: 0 6px;
@@ -54,18 +79,10 @@
 }
 
 .HeroHolder {
-  margin: 15px 0 36px 0;
+  margin: 0 0 40px 0;
   width: 100%;
   flow-children: right-wrap;
 }
-
-#ChooseHeroLabel {
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-  font-weight: normal;
-  font-size: 30px;
-  color: white;
-}
-
 
 .HeroContainer {
   margin: 3px;
@@ -95,15 +112,8 @@
   padding-right: 15px;
 }
 
-#HeroSelectorLabel {
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-  font-weight: normal;
-  font-size: 30px;
-  color: white;
-}
-
 #HeroSelector {
-  margin: 15px 0;
+  margin: 0 0 15px 0;
   background-color: gradient( linear, 0% 100%, 0% 0%, from( #171A25dd  ), to( #171A25dd ) );
   width: 100%;
   height: 45%;
@@ -175,7 +185,27 @@
 }
 
 #CustomChat {
-  width: 100% !important;
-  height: 45%;
-  background-color: #171A25dd;
+  width: 100%;
+  height: 40%;
+  background-color: #171A2577;
+  padding: 10px;
+}
+
+
+
+
+#StrategyContent {
+  width: 100%;
+  height: 90%;
+  margin-top: 10%;
+  flow-children: right;
+  transition-property: transform, opacity;
+  transition-duration: 0.75s;
+  transition-delay: 0.75s;
+  transition-timing-function: ease-in;
+  opacity: 0;
+  transform: scaleX(1) scaleY(1);
+  background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
