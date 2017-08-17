@@ -1,9 +1,13 @@
 /* global FindDotaHudElement GameEvents Game */
 
 (function () {
-  if (Game.GetLocalPlayerID() === -1) {
-    FindDotaHudElement('GameInfoButton').GetParent().RemoveAndDeleteChildren();
+  if (Game.GetLocalPlayerID() !== -1) {
+    GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
   } else {
-    FindDotaHudElement('GameInfoButton').style.transform = 'translateY(50%)';
+    $.GetContextPanel().FindChildTraverse('GameInfoButton').GetParent().RemoveAndDeleteChildren();
   }
 }());
+
+function MoveGameInfo () {
+  FindDotaHudElement('GameInfoButton').style.transform = 'translateY(20%)';
+}
