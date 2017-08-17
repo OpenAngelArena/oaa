@@ -197,7 +197,37 @@
       </Panel>
     </Panel>
     <Panel id="StrategyContent">
-      <Label text="test"/>
+      <Panel class="BossIcon" id="Boss1r">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2r">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3r">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4r">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5r">
+        <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="BossIcon" id="Boss1d">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2d">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3d">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4d">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5d">
+        <Label text="Tier 5"/>
+      </Panel>
     </Panel>
   </Panel>
 </root>

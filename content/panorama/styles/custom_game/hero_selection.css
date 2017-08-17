@@ -1,7 +1,7 @@
 .MainHolder {
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: #252525;
 }
 
 #PregameBG {
@@ -11,6 +11,11 @@
   horizontal-align: center;
   pre-transform-scale2d: 2;
   vertical-align: center;
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-delay: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 1;
 }
 
 .TeamStatus {
@@ -53,7 +58,7 @@ Label {
   flow-children: right;
   transition-property: transform, opacity;
   transition-duration: 0.75s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
   opacity: 1;
   //transform: scaleX(1) scaleY(1);
 }
@@ -198,14 +203,94 @@ Label {
   width: 100%;
   height: 90%;
   margin-top: 10%;
-  flow-children: right;
   transition-property: transform, opacity;
-  transition-duration: 0.75s;
-  transition-delay: 0.75s;
-  transition-timing-function: ease-in;
+  transition-duration: 1s;
+  transition-delay: 1s;
+  transition-timing-function: ease-out;
   opacity: 0;
   transform: scaleX(1) scaleY(1);
   background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+
+.BossIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-10%);
+  width: 50px;
+  height: 50px;
+}
+
+.BossIcon Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+#Boss1r {
+  margin-left: 34%;
+  margin-top: 35%;
+  transition-delay: 2.5s;
+}
+
+#Boss1d {
+  margin-left: 58%;
+  margin-top: 14%;
+  transition-delay: 2.5s;
+}
+
+#Boss2r {
+  margin-left: 30%;
+  margin-top: 46%;
+  transition-delay: 3s;
+}
+
+#Boss2d {
+  margin-left: 56%;
+  margin-top: 11.5%;
+  transition-delay: 3s;
+}
+
+#Boss3r {
+  margin-left: 52%;
+  margin-top: 48%;
+  transition-delay: 3.5s;
+}
+
+#Boss3d {
+  margin-left: 47.5%;
+  margin-top: 12%;
+  transition-delay: 3.5s;
+}
+
+#Boss4r {
+  margin-left: 67%;
+  margin-top: 46%;
+  transition-delay: 4s;
+}
+
+#Boss4d {
+  margin-left: 41%;
+  margin-top: 12.5%;
+  transition-delay: 4s;
+}
+
+#Boss5r {
+  margin-left: 32.5%;
+  margin-top: 16%;
+  transition-delay: 4.5s;
+}
+
+#Boss5d {
+  margin-left: 72%;
+  margin-top: 30%;
+  transition-delay: 4.5s;
 }
