@@ -182,13 +182,17 @@ function CaveHandler:CreepDeath (teamID, roomID)
         FIND_ANY_ORDER, -- order
         false -- can grow cache
       )
+
+      local hasSeenNotification = {}
+
       for _, unit in pairs(result) do
-        if CaveHandler:IsInFarmingCave(teamID, unit) then
+        if CaveHandler:IsInFarmingCave(teamID, unit) and hasSeenNotification[unit:GetPlayerOwner()] == nil then
           -- inform players
           Notifications:Top(unit:GetPlayerOwner(), {
             text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
             duration = 5,
           })
+          hasSeenNotification[unit:GetPlayerOwner()] = true
         end
       end
     else
