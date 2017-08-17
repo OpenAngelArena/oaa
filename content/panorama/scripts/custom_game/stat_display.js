@@ -1,8 +1,12 @@
 /* global $ CustomNetTables Game Players */
 
 (function () {
-  CustomNetTables.SubscribeNetTableListener('stat_display_player', onPlayerStatChange);
-  CustomNetTables.SubscribeNetTableListener('stat_display_team', onTeamStatChange);
+  if (Game.GetLocalPlayerID() !== -1) {
+    CustomNetTables.SubscribeNetTableListener('stat_display_player', onPlayerStatChange);
+    CustomNetTables.SubscribeNetTableListener('stat_display_team', onTeamStatChange);
+  } else {
+    $.GetContextPanel().FindChildTraverse('OAAStatDisplay').GetParent().RemoveAndDeleteChildren();
+  }
 }());
 
 function onPlayerStatChange (table, key, data) {

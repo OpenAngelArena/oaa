@@ -55,7 +55,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;arcane boots"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAlertable"                                       "1"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
