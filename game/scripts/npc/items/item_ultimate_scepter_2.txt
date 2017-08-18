@@ -55,6 +55,7 @@
     "ItemAliases"                                         "ags;ultimate;aghanim's scepter;ags"
     //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDroppable"                                       "0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"

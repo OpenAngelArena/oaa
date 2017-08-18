@@ -205,12 +205,12 @@ function HeroKillGold:HeroDeathHandler (keys)
     DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)] .. ' = ...')
     assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)]
     DebugPrint(assistGold)
-    Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
 
     if hero:GetPlayerOwnerID() == killerHero:GetPlayerOwnerID() then
       assistGold = assistGold + baseGold
     end
 
+    Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
     SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, keys.killed, math.floor(assistGold), killerPlayer)
 
   end, heroes)
