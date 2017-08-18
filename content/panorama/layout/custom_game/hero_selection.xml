@@ -22,158 +22,161 @@
       <Panel class="LeftColumn">
         <Label id="MinimapLabel" text="Minimap:"/>
         <DOTAMinimap id="Minimap" require-composition-layer="true" />
+
+        <Label id="GameInfoLabel" text="Info:"/>
+        <CustomUIElement id="GameInfo" layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
       </Panel>
       <Panel class="MiddleColumn">
         <Label id="ChooseHeroLabel" text="Choose Your Hero:"/>
         <Panel class="HeroHolder StrengthHeroes">
-          <Button class="HeroContainer">
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
+          </RadioButton>
         </Panel>
         <Panel class="HeroHolder AgilityHeroes">
-          <Button class="HeroContainer">
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
+          </RadioButton>
         </Panel>
         <Panel class="HeroHolder IntelligenceHeroes">
-          <Button class="HeroContainer">
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
-          <Button class="HeroContainer">
+          </RadioButton>
+          <RadioButton group="HeroChoises">
             <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
-          </Button>
+          </RadioButton>
         </Panel>
       </Panel>
       <Panel class="RightColumn">
@@ -181,13 +184,13 @@
         <Panel id="HeroSelector">
           <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
           <Panel id="HeroPickContainer">
-            <Button id="HeroLockIn" onactivate="SelectHero()">
+            <RadioButton group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>
-            </Button>
-            <Button id="HeroRandom">
+            </RadioButton>
+            <RadioButton group="HeroChoises" id="HeroRandom">
               <Panel id="HeroRandomIcon"/>
               <Label id="HeroRandomLabel" text="Random"/>
-            </Button>
+            </RadioButton>
           </Panel>
         </Panel>
         <Label id="CustomChatLabel" text="Chat:"/>
