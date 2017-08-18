@@ -11,20 +11,64 @@
     <Panel class="TeamStatus">
       <Panel class="FillWidth"/>
       <Panel id="TeamRadiant">
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage0"/>
+          <Label class="PlayerLabel" id="playerlabel0" text="Name 0"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage1"/>
+          <Label class="PlayerLabel" id="playerlabel1" text="Name 1"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage2"/>
+          <Label class="PlayerLabel" id="playerlabel2" text="Name 2"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage3"/>
+          <Label class="PlayerLabel" id="playerlabel3" text="Name 3"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage4"/>
+          <Label class="PlayerLabel" id="playerlabel4" text="Name 4"/>
+        </Panel>
       </Panel>
       <Panel id="Clock">
       </Panel>
       <Panel id="TeamDire">
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage5"/>
+          <Label class="PlayerLabel" id="playerlabel5" text="Name 5"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage6"/>
+          <Label class="PlayerLabel" id="playerlabel6" text="Name 6"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage7"/>
+          <Label class="PlayerLabel" id="playerlabel7" text="Name 7"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage8"/>
+          <Label class="PlayerLabel" id="playerlabel8" text="Name 8"/>
+        </Panel>
+        <Panel class="Player">
+          <Panel class="PlayerImage" id="playerimage9"/>
+          <Label class="PlayerLabel" id="playerlabel9" text="Name 9"/>
+        </Panel>
       </Panel>
       <Panel class="FillWidth"/>
     </Panel>
     <Panel id="MainContent">
       <Panel class="LeftColumn">
         <Label id="MinimapLabel" text="Minimap:"/>
-        <DOTAMinimap id="Minimap" require-composition-layer="true" />
+        <Panel id="Minimap">
+          <DOTAMinimap require-composition-layer="true" />
+        </Panel>
 
         <Label id="GameInfoLabel" text="Info:"/>
-        <CustomUIElement id="GameInfo" layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
+        <Panel id="GameInfo">
+          <Label text="Some info about game, i suggest text format"/>
+        </Panel>
       </Panel>
       <Panel class="MiddleColumn">
         <Label id="ChooseHeroLabel" text="Choose Your Hero:"/>
@@ -184,13 +228,13 @@
         <Panel id="HeroSelector">
           <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
           <Panel id="HeroPickContainer">
-            <RadioButton group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
+            <Button group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>
-            </RadioButton>
-            <RadioButton group="HeroChoises" id="HeroRandom">
+            </Button>
+            <Button group="HeroChoises" id="HeroRandom">
               <Panel id="HeroRandomIcon"/>
               <Label id="HeroRandomLabel" text="Random"/>
-            </RadioButton>
+            </Button>
           </Panel>
         </Panel>
         <Label id="CustomChatLabel" text="Chat:"/>

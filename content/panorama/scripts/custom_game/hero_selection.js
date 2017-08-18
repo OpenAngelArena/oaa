@@ -9,7 +9,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 function SelectHero () {
-  FindDotaHudElement('MainContent').style.transform = 'scaleX(10) scaleY(10)';
+  FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
   FindDotaHudElement('MainContent').style.opacity = '0';
   FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
   FindDotaHudElement('StrategyContent').style.opacity = '1';

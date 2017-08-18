@@ -4,6 +4,13 @@
   background-color: #252525;
 }
 
+Label {
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
 #PregameBG {
   width: 100%;
   height: 100%;
@@ -14,7 +21,7 @@
   transition-property: opacity;
   transition-duration: 1s;
   transition-delay: 0.5s;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
   opacity: 1;
 }
 
@@ -30,25 +37,47 @@
 }
 
 #TeamRadiant {
-  width: 30%;
-  height: 100%;
+  flow-children: right;
+  width: 35%;
+  height: 65%;
+  background-color: #171A2590;
 }
 
 #Clock {
   width: 10%;
-  height: 100%;
+  height: 80%;
+  background-color: #171A2590;
 }
 
 #TeamDire {
-  width: 30%;
+  flow-children: right;
+  width: 35%;
+  height: 65%;
+  background-color: #171A2590;
+}
+
+.Player {
+  margin: 0 5px 5px 5px;
+  flow-children: down;
+  width: fill-parent-flow( 1.0 );
   height: 100%;
 }
 
-Label {
+.PlayerImage {
+  width: 100%;
+  height: 70%;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #37425ddd ), to( #2B3445dd ) );
+}
+
+.PlayerLabel {
+  width: 100%;
+  height: 30%;
+  background-color: #2B3445dd;
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
   font-weight: normal;
-  font-size: 30px;
-  color: white;
+  font-size: 16px;
+  color: #cccccc;
+  text-align: center;
 }
 
 #MainContent {
@@ -60,7 +89,7 @@ Label {
   transition-duration: 0.75s;
   transition-timing-function: ease-in;
   opacity: 1;
-  //transform: scaleX(1) scaleY(1);
+  //transform: translateX(0) translateY(0);
 }
 
 .LeftColumn {
@@ -74,12 +103,20 @@ Label {
   width: 100%;
   height: 45%;
   margin: 0 0 15px 0;
+  background-color: #171A2590;
+}
+
+DOTAMinimap {
+  width: 96%;
+  height: 96%;
+  margin: 2%;
 }
 
 #GameInfo {
   width: 100%;
   height: 40%;
-  margin: 0;
+  background-color: #171A2590;
+  padding: 10px;
 }
 
 .MiddleColumn {
@@ -125,7 +162,7 @@ RadioButton:selected {
 
 #HeroSelector {
   margin: 0 0 15px 0;
-  background-color: gradient( linear, 0% 100%, 0% 0%, from( #171A25dd  ), to( #171A25dd ) );
+  background-color: #171A2590;
   width: 100%;
   height: 45%;
 }
@@ -198,7 +235,7 @@ RadioButton:selected {
 #CustomChat {
   width: 100%;
   height: 40%;
-  background-color: #171A2577;
+  background-color: #171A2590;
   padding: 10px;
 }
 
@@ -210,8 +247,8 @@ RadioButton:selected {
   height: 90%;
   margin-top: 10%;
   transition-property: transform, opacity;
-  transition-duration: 1s;
-  transition-delay: 1s;
+  transition-duration: 2s;
+  transition-delay: 1.25s;
   transition-timing-function: ease-out;
   opacity: 0;
   transform: scaleX(1) scaleY(1);
@@ -244,59 +281,59 @@ RadioButton:selected {
 #Boss1r {
   margin-left: 34%;
   margin-top: 35%;
-  transition-delay: 2.5s;
+  transition-delay: 3.5s;
 }
 
 #Boss1d {
   margin-left: 58%;
   margin-top: 14%;
-  transition-delay: 2.5s;
+  transition-delay: 3.5s;
 }
 
 #Boss2r {
   margin-left: 30%;
   margin-top: 46%;
-  transition-delay: 3s;
+  transition-delay: 4s;
 }
 
 #Boss2d {
   margin-left: 56%;
   margin-top: 11.5%;
-  transition-delay: 3s;
+  transition-delay: 4s;
 }
 
 #Boss3r {
   margin-left: 52%;
   margin-top: 48%;
-  transition-delay: 3.5s;
+  transition-delay: 4.5s;
 }
 
 #Boss3d {
   margin-left: 47.5%;
   margin-top: 12%;
-  transition-delay: 3.5s;
+  transition-delay: 4.5s;
 }
 
 #Boss4r {
   margin-left: 67%;
   margin-top: 46%;
-  transition-delay: 4s;
+  transition-delay: 5s;
 }
 
 #Boss4d {
   margin-left: 41%;
   margin-top: 12.5%;
-  transition-delay: 4s;
+  transition-delay: 5s;
 }
 
 #Boss5r {
   margin-left: 32.5%;
   margin-top: 16%;
-  transition-delay: 4.5s;
+  transition-delay: 5.5s;
 }
 
 #Boss5d {
   margin-left: 72%;
   margin-top: 30%;
-  transition-delay: 4.5s;
+  transition-delay: 5.5s;
 }
