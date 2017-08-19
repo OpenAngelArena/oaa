@@ -81,7 +81,9 @@
       <Panel class="RightColumn">
         <Label class="SectionTitle" text="Preview"/>
         <Panel id="HeroSelector">
-          <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_meepo" />
+          <Panel id="HeroPreview">
+            <DOTAScenePanel unit="npc_dota_hero_meepo" />
+          </Panel>
           <Panel id="HeroPickContainer">
             <Button group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>

@@ -24,12 +24,7 @@ function onPlayerStatChange (table, key, data) {
       if (data.herolist[key] == 1) {
         var newelement = $.CreatePanel('RadioButton', agilityholder, key);
         newelement.group = "HeroChoises";
-        newelement.SetPanelEvent(
-          "onactive",
-          function(){
-            PreviewHero(this);
-          }
-        )
+        newelement.SetPanelEvent("onactivate", (function(newkey) { return function() { PreviewHero(newkey) }}(key)) );
         var newimage = $.CreatePanel('DOTAHeroImage', newelement, '');
         newimage.hittest = false;
         newimage.AddClass("HeroCard");
@@ -39,9 +34,13 @@ function onPlayerStatChange (table, key, data) {
   }
 }
 
-function PreviewHero(element) {
-  console.log(element);
+function PreviewHero(name) {
+  console.log(name);
+  var preview = FindDotaHudElement('HeroPreview');
+  preview.RemoveAndDeleteChildren();
+  preview.BCreateChildren("<DOTAScenePanel unit='" + name + "'/>");
 }
+
 
 function SelectHero () {
   FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
