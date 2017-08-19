@@ -17,7 +17,7 @@ function SelectHero () {
 
 
 
-  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d'];
+  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2'];
 
   bossMarkers.forEach(function(element) {
     FindDotaHudElement(element).style.transform = 'translateY(0)';

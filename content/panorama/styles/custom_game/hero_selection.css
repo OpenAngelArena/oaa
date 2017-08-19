@@ -11,6 +11,11 @@ Label {
   color: white;
 }
 
+.SectionTitle {
+  background-color: #171A2590;
+  padding: 0 12px;
+}
+
 #PregameBG {
   width: 100%;
   height: 100%;
@@ -58,26 +63,28 @@ Label {
 
 .Player {
   margin: 0 5px 5px 5px;
-  flow-children: down;
   width: fill-parent-flow( 1.0 );
   height: 100%;
 }
 
 .PlayerImage {
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #37425ddd ), to( #2B3445dd ) );
 }
 
 .PlayerLabel {
-  width: 100%;
   height: 30%;
+  max-width: 60%;
   background-color: #2B3445dd;
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
   font-weight: normal;
   font-size: 16px;
+  padding: 0 5px;
   color: #cccccc;
   text-align: center;
+  vertical-align: bottom;
+  horizontal-align: left;
 }
 
 #MainContent {
@@ -120,7 +127,7 @@ DOTAMinimap {
 }
 
 .MiddleColumn {
-  margin: 0 6px;
+  margin: 0 10px;
   width: 50%;
   height: 100%;
   flow-children: down;
@@ -137,7 +144,6 @@ RadioButton {
   width: 100px;
   height: 56px;
   box-shadow: #000000ff -2px -2px 4px 4px;
-  border-radius: 5px;
 }
 
 RadioButton:hover {
@@ -257,7 +263,6 @@ RadioButton:selected {
   background-repeat: no-repeat;
 }
 
-
 .BossIcon {
   background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
   background-size: 100% 100%;
@@ -278,62 +283,102 @@ RadioButton:selected {
   horizontal-align: middle;
 }
 
+.DuelIconHolder {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 65px;
+}
+
+.DuelIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_damage_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: translateY(5px) translateX(-5px) rotateZ(135deg);
+  width: 37.5px;
+  height: 37.5px;
+  vertical-align: bottom;
+  horizontal-align: middle;
+}
+
+.DuelIconHolder Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
 #Boss1r {
   margin-left: 34%;
   margin-top: 35%;
-  transition-delay: 3.5s;
+  transition-delay: 3s;
 }
 
 #Boss1d {
   margin-left: 58%;
   margin-top: 14%;
-  transition-delay: 3.5s;
+  transition-delay: 3s;
 }
 
 #Boss2r {
   margin-left: 30%;
   margin-top: 46%;
-  transition-delay: 4s;
+  transition-delay: 3.5s;
 }
 
 #Boss2d {
   margin-left: 56%;
   margin-top: 11.5%;
-  transition-delay: 4s;
+  transition-delay: 3.5s;
 }
 
 #Boss3r {
   margin-left: 52%;
   margin-top: 48%;
-  transition-delay: 4.5s;
+  transition-delay: 4s;
 }
 
 #Boss3d {
   margin-left: 47.5%;
   margin-top: 12%;
-  transition-delay: 4.5s;
+  transition-delay: 4s;
 }
 
 #Boss4r {
   margin-left: 67%;
   margin-top: 46%;
-  transition-delay: 5s;
+  transition-delay: 4.5s;
 }
 
 #Boss4d {
   margin-left: 41%;
   margin-top: 12.5%;
-  transition-delay: 5s;
+  transition-delay: 4.5s;
 }
 
 #Boss5r {
   margin-left: 32.5%;
   margin-top: 16%;
-  transition-delay: 5.5s;
+  transition-delay: 5s;
 }
 
 #Boss5d {
   margin-left: 72%;
   margin-top: 30%;
-  transition-delay: 5.5s;
+  transition-delay: 5s;
+}
+
+#Duel1 {
+  margin-left: 77%;
+  margin-top: 37.5%;
+  transition-delay: 6s;
+}
+
+#Duel2 {
+  margin-left: 35%;
+  margin-top: 9.5%;
+  transition-delay: 6s;
 }

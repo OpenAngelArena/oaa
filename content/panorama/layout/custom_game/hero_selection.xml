@@ -6,13 +6,13 @@
     <include src="file://{resources}/scripts/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
-  <Panel class="MainHolder">
+  <Panel class="MainHolder" onactivate=";">
     <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
       <Panel class="FillWidth"/>
       <Panel id="TeamRadiant">
         <Panel class="Player">
-          <Panel class="PlayerImage" id="playerimage0"/>
+          <DOTAHeroImage hittest="false" class="PlayerImage" id="playerimage0" heroname="npc_dota_hero_meepo" />
           <Label class="PlayerLabel" id="playerlabel0" text="Name 0"/>
         </Panel>
         <Panel class="Player">
@@ -60,173 +60,173 @@
     </Panel>
     <Panel id="MainContent">
       <Panel class="LeftColumn">
-        <Label id="MinimapLabel" text="Minimap:"/>
+        <Label class="SectionTitle" text="Minimap"/>
         <Panel id="Minimap">
           <DOTAMinimap require-composition-layer="true" />
         </Panel>
 
-        <Label id="GameInfoLabel" text="Info:"/>
+        <Label class="SectionTitle" text="Info"/>
         <Panel id="GameInfo">
           <Label text="Some info about game, i suggest text format"/>
         </Panel>
       </Panel>
       <Panel class="MiddleColumn">
-        <Label id="ChooseHeroLabel" text="Choose Your Hero:"/>
+        <Label id="ChooseHeroLabel" text="Choose Your Hero"/>
         <Panel class="HeroHolder StrengthHeroes">
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
         </Panel>
         <Panel class="HeroHolder AgilityHeroes">
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
         </Panel>
         <Panel class="HeroHolder IntelligenceHeroes">
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
           <RadioButton group="HeroChoises">
-            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_crystal_maiden" />
+            <DOTAHeroImage hittest="false" class="HeroCard" heroname="npc_dota_hero_meepo" />
           </RadioButton>
         </Panel>
       </Panel>
       <Panel class="RightColumn">
-        <Label id="HeroSelectorLabel" text="Preview:"/>
+        <Label class="SectionTitle" text="Preview"/>
         <Panel id="HeroSelector">
-          <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_crystal_maiden"/>
+          <DOTAScenePanel id="HeroPreview" hittest="false" unit="npc_dota_hero_meepo" />
           <Panel id="HeroPickContainer">
             <Button group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>
@@ -237,7 +237,7 @@
             </Button>
           </Panel>
         </Panel>
-        <Label id="CustomChatLabel" text="Chat:"/>
+        <Label class="SectionTitle" text="Chat"/>
         <Panel id="CustomChat">
           <Label text="We will have to make custom chat, existing one is too shit to try to port. I suggest we teke base from CIA"/>
         </Panel>
@@ -274,6 +274,15 @@
       </Panel>
       <Panel class="BossIcon" id="Boss5d">
         <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="DuelIconHolder" id="Duel1">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 1"/>
+      </Panel>
+      <Panel class="DuelIconHolder" id="Duel2">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 2"/>
       </Panel>
     </Panel>
   </Panel>
