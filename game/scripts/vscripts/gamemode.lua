@@ -113,6 +113,7 @@ function GameMode:OnAllPlayersLoaded()
   if GameLengthVotes ~= nil then
     GameLengthVotes:SetGameLength()
   end
+  InitModule(HeroSelection)
 end
 
 --[[
