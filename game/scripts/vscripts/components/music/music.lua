@@ -16,14 +16,14 @@ function Music:Init ()
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
-  Music:SetMusic(1)
+  Music:SetMusic(2)
 end
 
 -- Play song command
 -- USAGE: Music:SetMusic(i)
 -- i = number from music_list
 function Music:SetMusic(itemnumber)
-
+  DebugPrint('Playing' .. itemnumber)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then

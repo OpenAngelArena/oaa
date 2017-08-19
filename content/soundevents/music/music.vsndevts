@@ -1,0 +1,19 @@
+"music.background_1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+        "operator"          "sos_reference_stack"
+        "reference_stack"               "src1_2d"
+				"operator_variables"
+				{
+					"vsnd_files"  { "value" { "value0"		"sounds/music/background_1.vsnd" } }
+          "volume"      {	"value"	"2.500000"}
+				}
+			}
+		}
+	}
+}

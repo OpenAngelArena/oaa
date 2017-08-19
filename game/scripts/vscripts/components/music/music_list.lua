@@ -2,5 +2,5 @@
 
 MusicList = {
   [1] = {"Music Intro", "valve_dota_001.music.ui_world_map", "VALVe"},
-  [2] = {"Music Second", "internal.song.name", "VALVe"}
+  [2] = {"Background 1", "music.background_1", "OAA"}
 }
