@@ -1,9 +1,5 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement */
 
-var console = {
-  log: $.Msg.bind($)
-};
-
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = SelectHero;
 }
@@ -71,7 +67,7 @@ function onPlayerStatChange (table, key, data) {
           newimage.AddClass('PlayerImage');
           newimage.heroname = data[nkey].selectedhero;
           var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
-          newlabel.AddClass("PlayerLabel");
+          newlabel.AddClass('PlayerLabel');
           // I DO NOT KNOW WHY, BUT IT MESSES ID UP SOMEHOW BY +-3 WTF???
           newlabel.steamid = data[nkey].steamid;
         }
