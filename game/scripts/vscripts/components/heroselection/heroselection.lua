@@ -53,6 +53,11 @@ end
 function HeroSelection:StrategyTimer (time)
   if time < 0 then
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
+    Timers:CreateTimer(7, function()
+      for key, value in pairs(selectedtable) do --pseudocode
+        PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
+      end
+    end)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
     Timers:CreateTimer(1, function()
