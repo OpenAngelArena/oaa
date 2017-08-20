@@ -152,22 +152,22 @@ DOTAMinimap {
 }
 
 .MiddleColumn {
-  margin: 0 10px;
+  margin: 0 20px;
   width: 50%;
   height: 100%;
   flow-children: down;
 }
 
 .HeroHolder {
-  margin: 0 0 30px 0;
+  margin: 0 0 10px 0;
   width: 100%;
   flow-children: right-wrap;
 }
 
 RadioButton {
   margin: 3px;
-  width: 100px;
-  height: 56px;
+  width: 80px;
+  height: 45px;
   box-shadow: #000000ff -2px -2px 4px 4px;
 }
 

@@ -73,16 +73,18 @@
         </Panel>
       </Panel>
       <Panel class="MiddleColumn">
-        <Label id="ChooseHeroLabel" text="Choose Your Hero"/>
+        <Label id="ChooseStrLabel" text="Strength"/>
         <Panel class="HeroHolder" id="StrengthHeroes"/>
+        <Label id="ChooseAgiLabel" text="Agility"/>
         <Panel class="HeroHolder" id="AgilityHeroes"/>
+        <Label id="ChooseIntLabel" text="Intelligence"/>
         <Panel class="HeroHolder" id="IntelligenceHeroes"/>
       </Panel>
       <Panel class="RightColumn">
         <Label class="SectionTitle" text="Preview"/>
         <Panel id="HeroSelector">
           <Panel id="HeroPreview">
-            <DOTAScenePanel unit="npc_dota_hero_meepo" />
+            <DOTAScenePanel unit="" />
           </Panel>
           <Panel id="HeroPickContainer">
             <Button group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">

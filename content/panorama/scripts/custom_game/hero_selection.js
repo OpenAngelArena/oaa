@@ -8,28 +8,38 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = SelectHero;
 }
 
-var gotHeroList = false;
-
 (function () {
 
-  onPlayerStatChange( null, null, CustomNetTables.GetTableValue('hero_selection', "data"));
+  onPlayerStatChange( null, "herolist", CustomNetTables.GetTableValue('hero_selection', "herolist"));
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 
 }());
 
 function onPlayerStatChange (table, key, data) {
-  if (!gotHeroList && data.herolist != null) {
+  if (key == "herolist" && data != null) {
+    var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
-    for (key in data.herolist) {
-      if (data.herolist[key] == 1) {
-        var newelement = $.CreatePanel('RadioButton', agilityholder, key);
-        newelement.group = "HeroChoises";
-        newelement.SetPanelEvent("onactivate", (function(newkey) { return function() { PreviewHero(newkey) }}(key)) );
-        var newimage = $.CreatePanel('DOTAHeroImage', newelement, '');
-        newimage.hittest = false;
-        newimage.AddClass("HeroCard");
-        newimage.heroname = key;
+    var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
+    for (key in data) {
+      var currentstat = null;
+      switch(data[key]) {
+        case "DOTA_ATTRIBUTE_STRENGTH":
+          currentstat = strengthholder;
+          break;
+        case "DOTA_ATTRIBUTE_AGILITY":
+          currentstat = agilityholder;
+          break;
+        case "DOTA_ATTRIBUTE_INTELLECT":
+          currentstat = intelligenceholder;
+          break;
       }
+      var newelement = $.CreatePanel('RadioButton', currentstat, key);
+      newelement.group = "HeroChoises";
+      newelement.SetPanelEvent("onactivate", (function(newkey) { return function() { PreviewHero(newkey) }}(key)) );
+      var newimage = $.CreatePanel('DOTAHeroImage', newelement, '');
+      newimage.hittest = false;
+      newimage.AddClass("HeroCard");
+      newimage.heroname = key;
     }
   }
 }

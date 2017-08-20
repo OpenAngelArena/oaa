@@ -4,19 +4,27 @@ if HeroSelection == nil then
   HeroSelection = class({})
 end
 
-local herotable = {herolist = {}, current = {}}
+local selectedtable = {}
 
 function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
-  herotable.herolist = LoadKeyValues('scripts/npc/herolist.txt')
+
+  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  local herolist = {}
+  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+    if value == 1 then
+      herolist[key] = allheroes[key].AttributePrimary
+    end
+  end
+  CustomNetTables:SetTableValue( 'hero_selection', 'herolist', herolist)
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     DebugPrint(playerID)
     local teamID = PlayerResource:GetTeam(playerID)
-    herotable.current ={[playerID] = {selectedhero = "empty", team = teamID, steamid = PlayerResource:GetSteamAccountID(playerID)}}
+    selectedtable[playerID] = {selectedhero = "empty", team = teamID, steamid = PlayerResource:GetSteamAccountID(playerID)}
   end)
 
-  DebugPrintTable(herotable)
+  DebugPrintTable(selectedtable)
 
-  CustomNetTables:SetTableValue( 'hero_selection', 'data', herotable)
+  CustomNetTables:SetTableValue( 'hero_selection', 'data', selectedtable)
 end
