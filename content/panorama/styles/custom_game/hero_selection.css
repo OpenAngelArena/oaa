@@ -44,6 +44,10 @@ Label {
   vertical-align: top;
 }
 
+.DashboardButton:hover {
+  wash-color: #aaaabb;
+}
+
 .TeamStatus {
   width: 100%;
   height: 10%;
@@ -199,11 +203,10 @@ RadioButton:selected {
 }
 
 #HeroPreview {
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
   height: 100%;
-  opacity-mask: url("s2r://panorama/images/masks/hero_model_opacity_mask_png.vtex");
   transform: translateY( -86px );
   vertical-align: top;
   horizontal-align: middle;

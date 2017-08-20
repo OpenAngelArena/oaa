@@ -41,6 +41,8 @@ function onPlayerStatChange (table, key, data) {
       newimage.AddClass("HeroCard");
       newimage.heroname = key;
     }
+  } else if (key == "data" && data != null) {
+
   }
 }
 

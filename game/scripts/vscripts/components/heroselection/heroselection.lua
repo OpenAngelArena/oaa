@@ -17,6 +17,10 @@ function HeroSelection:Init ()
     end
   end
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', herolist)
+end
+
+function HeroSelection:StartSelection ()
+  DebugPrint("Starting HeroSelection Process")
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     DebugPrint(playerID)
