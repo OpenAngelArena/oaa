@@ -48,13 +48,12 @@ function onPlayerStatChange (table, key, data) {
   } else if (key == "data" && data != null) {
     var length = Object.keys(data).length;
     if (panelscreated != length) {
-      panelscreated = length;
       var teamdire = FindDotaHudElement('TeamDire');
       var teamradiant = FindDotaHudElement('TeamRadiant');
+      panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
       for (var key in data) {
-        // skip loop if the property is from prototype
         if (data.hasOwnProperty(key)) {
           var currentteam = null;
           switch(data[key].team) {
@@ -71,9 +70,17 @@ function onPlayerStatChange (table, key, data) {
           newimage.hittest = false;
           newimage.AddClass("PlayerImage");
           newimage.heroname = data[key].selectedhero;
-          var newlabel = $.CreatePanel('Label', newelement, '');
+          var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
           newlabel.AddClass("PlayerLabel");
-          newlabel.text = data[key].steamid;
+          //I DO NOT KNOW WHY, BUT IT GETS ID -3 WHEN RECEIVES TABLE UPDATE (THEFUCK?)
+          newlabel.steamid = data[key].steamid + 3;
+        }
+      }
+    } else {
+      for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+          var currentplayer = FindDotaHudElement(data[key].steamid);
+          currentplayer.heroname = data[key].selectedhero;
         }
       }
     }
@@ -91,11 +98,13 @@ function PreviewHero(name) {
 
 
 function SelectHero () {
-  if (!herolocked) {
+  if (!herolocked && selectedhero != "empty") {
     herolocked = true;
     GameEvents.SendCustomGameEventToServer('hero_selected', {
       hero: selectedhero
     });
+    FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
+    FindDotaHudElement('HeroRandom').style.brightness = 0.5;
   }
 }
 

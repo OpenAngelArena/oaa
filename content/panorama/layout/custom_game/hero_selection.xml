@@ -12,52 +12,10 @@
       <Panel class="FillWidth">
         <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
       </Panel>
-      <Panel id="TeamRadiant">
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_meepo" id="playerimage0"/>
-          <Label class="PlayerLabel" id="playerlabel0" text="Name 0"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_wisp" id="playerimage1"/>
-          <Label class="PlayerLabel" id="playerlabel1" text="Name 1"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_gyrocopter" id="playerimage2"/>
-          <Label class="PlayerLabel" id="playerlabel2" text="Name 2"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_chaos_knight" id="playerimage3"/>
-          <Label class="PlayerLabel" id="playerlabel3" text="Name 3"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_axe" id="playerimage4"/>
-          <Label class="PlayerLabel" id="playerlabel4" text="Name 4"/>
-        </Panel>
-      </Panel>
+      <Panel id="TeamRadiant"/>
       <Panel id="Clock">
       </Panel>
-      <Panel id="TeamDire">
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_lone_druid" id="playerimage5"/>
-          <Label class="PlayerLabel" id="playerlabel5" text="Name 5"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_medusa" id="playerimage6"/>
-          <Label class="PlayerLabel" id="playerlabel6" text="Name 6"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_witch_doctor" id="playerimage7"/>
-          <Label class="PlayerLabel" id="playerlabel7" text="Name 7"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_lion" id="playerimage8"/>
-          <Label class="PlayerLabel" id="playerlabel8" text="Name 8"/>
-        </Panel>
-        <Panel class="Player">
-          <DOTAHeroImage hittest="false" class="PlayerImage" heroname="npc_dota_hero_elder_titan" id="playerimage9"/>
-          <Label class="PlayerLabel" id="playerlabel9" text="Name 9"/>
-        </Panel>
-      </Panel>
+      <Panel id="TeamDire"/>
       <Panel class="FillWidth"/>
     </Panel>
     <Panel id="MainContent">
@@ -73,11 +31,20 @@
         </Panel>
       </Panel>
       <Panel class="MiddleColumn">
-        <Label id="ChooseStrLabel" text="Strength"/>
+        <Panel class="AttrHolder">
+          <Panel id="StrHolder"/>
+          <Label id="ChooseStrLabel" text="Strength"/>
+        </Panel>
         <Panel class="HeroHolder" id="StrengthHeroes"/>
-        <Label id="ChooseAgiLabel" text="Agility"/>
+        <Panel class="AttrHolder">
+          <Panel id="AgiHolder"/>
+          <Label id="ChooseAgiLabel" text="Agility"/>
+        </Panel>
         <Panel class="HeroHolder" id="AgilityHeroes"/>
-        <Label id="ChooseIntLabel" text="Intelligence"/>
+        <Panel class="AttrHolder">
+          <Panel id="IntHolder"/>
+          <Label id="ChooseIntLabel" text="Intelligence"/>
+        </Panel>
         <Panel class="HeroHolder" id="IntelligenceHeroes"/>
       </Panel>
       <Panel class="RightColumn">
