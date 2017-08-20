@@ -11,6 +11,7 @@ if (typeof module !== 'undefined' && module.exports) {
 (function () {
   onPlayerStatChange( null, "herolist", CustomNetTables.GetTableValue('hero_selection', "herolist"));
   onPlayerStatChange( null, "data", CustomNetTables.GetTableValue('hero_selection', "data"));
+  onPlayerStatChange( null, "time", CustomNetTables.GetTableValue('hero_selection', "time"));
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 }());
 
@@ -84,6 +85,9 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     }
+  } else if (key == "time" && data != null) {
+    FindDotaHudElement("TimeLeft").text = data["time"];
+    FindDotaHudElement("GameMode").text = data["mode"];
   }
 }
 

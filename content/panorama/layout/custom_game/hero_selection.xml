@@ -14,6 +14,8 @@
       </Panel>
       <Panel id="TeamRadiant"/>
       <Panel id="Clock">
+        <Label id="TimeLeft" text="WAIT"/>
+        <Label id="GameMode" text="WAIT"/>
       </Panel>
       <Panel id="TeamDire"/>
       <Panel class="FillWidth"/>
