@@ -1,4 +1,4 @@
-/* global Players, $, GameEvents */
+/* global Players $ GameEvents CustomNetTables FindDotaHudElement */
 
 var console = {
   log: $.Msg.bind($)
@@ -9,44 +9,43 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function () {
-  onPlayerStatChange( null, "herolist", CustomNetTables.GetTableValue('hero_selection', "herolist"));
-  onPlayerStatChange( null, "data", CustomNetTables.GetTableValue('hero_selection', "data"));
-  onPlayerStatChange( null, "time", CustomNetTables.GetTableValue('hero_selection', "time"));
+  onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+  onPlayerStatChange(null, 'data', CustomNetTables.GetTableValue('hero_selection', 'data'));
+  onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 }());
 
-var selectedhero = "empty";
+var selectedhero = 'empty';
 var herolocked = false;
 var panelscreated = 0;
 
-
 function onPlayerStatChange (table, key, data) {
-  if (key == "herolist" && data != null) {
+  if (key === 'herolist' && data != null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
     for (key in data) {
       var currentstat = null;
-      switch(data[key]) {
-        case "DOTA_ATTRIBUTE_STRENGTH":
+      switch (data[key]) {
+        case 'DOTA_ATTRIBUTE_STRENGTH':
           currentstat = strengthholder;
           break;
-        case "DOTA_ATTRIBUTE_AGILITY":
+        case 'DOTA_ATTRIBUTE_AGILITY':
           currentstat = agilityholder;
           break;
-        case "DOTA_ATTRIBUTE_INTELLECT":
+        case 'DOTA_ATTRIBUTE_INTELLECT':
           currentstat = intelligenceholder;
           break;
       }
       var newelement = $.CreatePanel('RadioButton', currentstat, key);
-      newelement.group = "HeroChoises";
-      newelement.SetPanelEvent("onactivate", (function(newkey) { return function() { PreviewHero(newkey) }}(key)) );
+      newelement.group = 'HeroChoises';
+      newelement.SetPanelEvent('onactivate', ( function(newkey) { return function() { PreviewHero(newkey); }}(key)) );
       var newimage = $.CreatePanel('DOTAHeroImage', newelement, '');
       newimage.hittest = false;
-      newimage.AddClass("HeroCard");
+      newimage.AddClass('HeroCard');
       newimage.heroname = key;
     }
-  } else if (key == "data" && data != null) {
+  } else if (key === 'data' && data != null) {
     var length = Object.keys(data).length;
     if (panelscreated != length) {
       var teamdire = FindDotaHudElement('TeamDire');
@@ -66,10 +65,10 @@ function onPlayerStatChange (table, key, data) {
               break;
           };
           var newelement = $.CreatePanel('Panel', currentteam, '');
-          newelement.AddClass("Player");
+          newelement.AddClass('Player');
           var newimage = $.CreatePanel('DOTAHeroImage', newelement, data[key].steamid);
           newimage.hittest = false;
-          newimage.AddClass("PlayerImage");
+          newimage.AddClass('PlayerImage');
           newimage.heroname = data[key].selectedhero;
           var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
           newlabel.AddClass("PlayerLabel");
@@ -85,13 +84,13 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     }
-  } else if (key == "time" && data != null) {
-    if (data["time"] > -1) {
-      FindDotaHudElement("TimeLeft").text = data["time"];
-      FindDotaHudElement("GameMode").text = data["mode"];
+  } else if (key == 'time' && data != null) {
+    if (data['time'] > -1) {
+      FindDotaHudElement('TimeLeft').text = data['time'];
+      FindDotaHudElement('GameMode').text = data['mode'];
     } else {
-      FindDotaHudElement("TimeLeft").text = "VS";
-      FindDotaHudElement("GameMode").text = data["mode"];
+      FindDotaHudElement('TimeLeft').text = 'VS';
+      FindDotaHudElement('GameMode').text = data['mode'];
       GoToStrategy();
     }
   }
@@ -108,7 +107,7 @@ function PreviewHero(name) {
 
 
 function SelectHero () {
-  if (!herolocked && selectedhero != "empty") {
+  if (!herolocked && selectedhero != 'empty') {
     herolocked = true;
     GameEvents.SendCustomGameEventToServer('hero_selected', {
       hero: selectedhero
@@ -134,5 +133,5 @@ function GoToStrategy() {
 
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = 0;
-  FindDotaHudElement('MainContent').GetParent().style.transform = "scaleX(2) scaleY(2) translateY(25%)";
+  FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(2) scaleY(2) translateY(25%)';
 }
