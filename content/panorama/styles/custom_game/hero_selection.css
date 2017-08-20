@@ -2,6 +2,11 @@
   width: 100%;
   height: 100%;
   background-color: #252525;
+  transition-property: opacity, transform;
+  transition-delay: 10s;
+  transition-timing-function: ease-in;
+  transition-duration: 0.5s;
+  transform: scaleX(1) scaleY(1) translateY(0);
 }
 
 Label {
@@ -95,8 +100,8 @@ Label {
 }
 
 .Player {
-  margin: 0 5px 5px 5px;
-  width: fill-parent-flow( 1.0 );
+  margin: 0 1% 5px 1%;
+  width: 18%;
   height: 100%;
 }
 
@@ -112,26 +117,20 @@ Label {
 
 .PlayerLabel {
   height: 30%;
-  max-width: 60%;
-  background-color: #2B3445dd;
+  width: 100%;
+  background-color: #2B344570;
   vertical-align: bottom;
+  horizontal-align: middle;
 }
 
 .PlayerLabel Label {
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
   font-weight: normal;
   font-size: 16px;
-  padding: 0 5px 0 3px;
+  width: 100%;
+  padding: 0 2px 0 2px;
   color: #cccccc;
   text-align: center;
-}
-
-#TeamRadiant .PlayerLabel {
-  horizontal-align: left;
-}
-
-#TeamDire .PlayerLabel {
-  horizontal-align: right;
 }
 
 #MainContent {
@@ -405,6 +404,7 @@ DOTAScenePanel {
   height: 37.5px;
   vertical-align: bottom;
   horizontal-align: middle;
+  wash-color: #FF0000;
 }
 
 .DuelIconHolder Label {
@@ -477,11 +477,11 @@ DOTAScenePanel {
 #Duel1 {
   margin-left: 77%;
   margin-top: 37.5%;
-  transition-delay: 6s;
+  transition-delay: 5.5s;
 }
 
 #Duel2 {
   margin-left: 35%;
   margin-top: 9.5%;
-  transition-delay: 6s;
+  transition-delay: 5.5s;
 }

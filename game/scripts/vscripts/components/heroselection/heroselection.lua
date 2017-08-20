@@ -6,6 +6,8 @@ end
 
 -- storage for this game picks
 local selectedtable = {}
+-- force stop handle for timer, when all picked before time end
+local forcestop = false
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
@@ -37,13 +39,25 @@ end
 
 -- start heropick timer
 function HeroSelection:RunTimer (time)
-  if time > 0 then
+  if time < 0 or forcestop == true then
+    HeroSelection:StrategyTimer(3)
+  else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "ALL PICK"})
     Timers:CreateTimer(1, function()
       HeroSelection:RunTimer(time -1)
     end)
+  end
+end
+
+-- start strategy timer
+function HeroSelection:StrategyTimer (time)
+  if time < 0 then
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
   else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "ALL PICK"})
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
+    Timers:CreateTimer(1, function()
+      HeroSelection:StrategyTimer(time -1)
+    end)
   end
 end
 
@@ -61,4 +75,16 @@ function HeroSelection:UpdateTable (playerID, hero)
   DebugPrintTable(selectedtable)
 
   CustomNetTables:SetTableValue( 'hero_selection', 'data', selectedtable)
+
+  -- if everyone has picked, stop
+  local isanyempty = false
+  for key, value in pairs(selectedtable) do --pseudocode
+    if value.selectedhero == "empty" then
+      isanyempty = true
+    end
+  end
+  if isanyempty == false then
+    forcestop = true
+  end
+
 end

@@ -86,8 +86,14 @@ function onPlayerStatChange (table, key, data) {
       }
     }
   } else if (key == "time" && data != null) {
-    FindDotaHudElement("TimeLeft").text = data["time"];
-    FindDotaHudElement("GameMode").text = data["mode"];
+    if (data["time"] > -1) {
+      FindDotaHudElement("TimeLeft").text = data["time"];
+      FindDotaHudElement("GameMode").text = data["mode"];
+    } else {
+      FindDotaHudElement("TimeLeft").text = "VS";
+      FindDotaHudElement("GameMode").text = data["mode"];
+      GoToStrategy();
+    }
   }
 }
 
@@ -125,4 +131,8 @@ function GoToStrategy() {
     FindDotaHudElement(element).style.transform = 'translateY(0)';
     FindDotaHudElement(element).style.opacity = '1';
   });
+
+
+  FindDotaHudElement('MainContent').GetParent().style.opacity = 0;
+  FindDotaHudElement('MainContent').GetParent().style.transform = "scaleX(2) scaleY(2) translateY(25%)";
 }
