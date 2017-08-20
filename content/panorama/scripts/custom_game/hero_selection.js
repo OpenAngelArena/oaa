@@ -61,7 +61,7 @@ function onPlayerStatChange (table, key, data) {
             case 2:
               currentteam = teamradiant;
               break;
-            case 2:
+            case 3:
               currentteam = teamdire;
               break;
           };
@@ -73,8 +73,8 @@ function onPlayerStatChange (table, key, data) {
           newimage.heroname = data[key].selectedhero;
           var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
           newlabel.AddClass("PlayerLabel");
-          //I DO NOT KNOW WHY, BUT IT GETS ID -3 WHEN RECEIVES TABLE UPDATE (THEFUCK?)
-          newlabel.steamid = data[key].steamid + 3;
+          //I DO NOT KNOW WHY, BUT IT MESSES ID UP SOMEHOW BY +-3 WTF???
+          newlabel.steamid = data[key].steamid;
         }
       }
     } else {
