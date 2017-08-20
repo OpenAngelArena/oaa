@@ -9,11 +9,15 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 (function () {
-
   onPlayerStatChange( null, "herolist", CustomNetTables.GetTableValue('hero_selection', "herolist"));
+  onPlayerStatChange( null, "data", CustomNetTables.GetTableValue('hero_selection', "data"));
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
-
 }());
+
+var selectedhero = "empty";
+var herolocked = false;
+var panelscreated = 0;
+
 
 function onPlayerStatChange (table, key, data) {
   if (key == "herolist" && data != null) {
@@ -42,19 +46,60 @@ function onPlayerStatChange (table, key, data) {
       newimage.heroname = key;
     }
   } else if (key == "data" && data != null) {
-
+    var length = Object.keys(data).length;
+    if (panelscreated != length) {
+      panelscreated = length;
+      var teamdire = FindDotaHudElement('TeamDire');
+      var teamradiant = FindDotaHudElement('TeamRadiant');
+      teamdire.RemoveAndDeleteChildren();
+      teamradiant.RemoveAndDeleteChildren();
+      for (var key in data) {
+        // skip loop if the property is from prototype
+        if (data.hasOwnProperty(key)) {
+          var currentteam = null;
+          switch(data[key].team) {
+            case 2:
+              currentteam = teamradiant;
+              break;
+            case 2:
+              currentteam = teamdire;
+              break;
+          };
+          var newelement = $.CreatePanel('Panel', currentteam, '');
+          newelement.AddClass("Player");
+          var newimage = $.CreatePanel('DOTAHeroImage', newelement, data[key].steamid);
+          newimage.hittest = false;
+          newimage.AddClass("PlayerImage");
+          newimage.heroname = data[key].selectedhero;
+          var newlabel = $.CreatePanel('Label', newelement, '');
+          newlabel.AddClass("PlayerLabel");
+          newlabel.text = data[key].steamid;
+        }
+      }
+    }
   }
 }
 
 function PreviewHero(name) {
-  console.log(name);
-  var preview = FindDotaHudElement('HeroPreview');
-  preview.RemoveAndDeleteChildren();
-  preview.BCreateChildren("<DOTAScenePanel unit='" + name + "'/>");
+  if (!herolocked) {
+    var preview = FindDotaHudElement('HeroPreview');
+    preview.RemoveAndDeleteChildren();
+    preview.BCreateChildren("<DOTAScenePanel unit='" + name + "'/>");
+    selectedhero = name;
+  }
 }
 
 
 function SelectHero () {
+  if (!herolocked) {
+    herolocked = true;
+    GameEvents.SendCustomGameEventToServer('hero_selected', {
+      hero: selectedhero
+    });
+  }
+}
+
+function GoToStrategy() {
   FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
   FindDotaHudElement('MainContent').style.opacity = '0';
   FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';

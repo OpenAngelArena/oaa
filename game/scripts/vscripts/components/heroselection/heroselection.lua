@@ -17,16 +17,26 @@ function HeroSelection:Init ()
     end
   end
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', herolist)
+
+  CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
 end
 
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    DebugPrint(playerID)
-    local teamID = PlayerResource:GetTeam(playerID)
-    selectedtable[playerID] = {selectedhero = "empty", team = teamID, steamid = PlayerResource:GetSteamAccountID(playerID)}
+    HeroSelection:UpdateTable(playerID, "empty")
   end)
+end
+
+function HeroSelection:HeroSelected (event)
+  DebugPrint("Received Hero Pick")
+  HeroSelection:UpdateTable(event.PlayerID, event.hero)
+end
+
+function HeroSelection:UpdateTable (playerID, hero)
+  local teamID = PlayerResource:GetTeam(playerID)
+  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = PlayerResource:GetSteamAccountID(playerID)}
 
   DebugPrintTable(selectedtable)
 
