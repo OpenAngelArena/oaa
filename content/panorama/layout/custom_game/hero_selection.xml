@@ -33,6 +33,83 @@
         </Panel>
       </Panel>
       <Panel class="MiddleColumn">
+        <Panel id="CMPanel">
+          <Button id="BecomeCaptain">
+            <Label text="Become a Captain"/>
+          </Button>
+          <Panel id="CMProgress">
+            <Panel class="CMTeam" id="CMRadiant">
+              <Panel class="CMBan" id="CMRadiantBanLabel">
+                <Label text="1"/>
+                <Label text="3"/>
+                <Label text="10"/>
+                <Label text="12"/>
+                <Label text="18"/>
+              </Panel>
+              <Panel class="CMBan" id="CMRadiantBan">
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="Radiant"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPickLabel">
+                <Label text="5"/>
+                <Label text="8"/>
+                <Label text="14"/>
+                <Label text="16"/>
+                <Label text="19"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPick">
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+              </Panel>
+            </Panel>
+            <Panel class="CMInfo">
+              <Label class="BanLabel" text="BAN"/>
+              <Label class="PickLabel" text="PICK"/>
+            </Panel>
+            <Panel class="CMTeam" id="CMDire">
+              <Panel class="CMBan" id="CMDireBanLabel">
+                <Label text="2"/>
+                <Label text="4"/>
+                <Label text="9"/>
+                <Label text="11"/>
+                <Label text="17"/>
+              </Panel>
+              <Panel class="CMBan" id="CMDireBan">
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="Dire"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePickLabel">
+                <Label text="6"/>
+                <Label text="7"/>
+                <Label text="13"/>
+                <Label text="15"/>
+                <Label text="20"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePick">
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+                <DOTAHeroImage heroname=""/>
+              </Panel>
+            </Panel>
+          </Panel>
+        </Panel>
         <Panel class="AttrHolder">
           <Panel id="StrHolder"/>
           <Label id="ChooseStrLabel" text="Strength"/>

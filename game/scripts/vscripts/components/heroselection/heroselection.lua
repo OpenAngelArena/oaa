@@ -33,11 +33,11 @@ function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
   DebugPrint(GetMapName())
   if GetMapName() == "oaa_captains_mode" then
-    GameRules:SetPreGameTime(CM_GAME_TIME + 3)
-    HeroSelection:RunTimer(CM_GAME_TIME)
+    GameRules:SetPreGameTime(CM_GAME_TIME + 10)
+    --HeroSelection:RunTimer(CM_GAME_TIME)
   else
     GameRules:SetPreGameTime(AP_GAME_TIME + 3)
-    HeroSelection:RunTimer(AP_GAME_TIME)
+    HeroSelection:APTimer(AP_GAME_TIME)
   end
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
@@ -47,7 +47,7 @@ function HeroSelection:StartSelection ()
 end
 
 -- start heropick timer
-function HeroSelection:RunTimer (time)
+function HeroSelection:APTimer (time)
   if forcestop == true then
     for key, value in pairs(selectedtable) do
       PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
@@ -72,7 +72,7 @@ function HeroSelection:RunTimer (time)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "ALL PICK"})
     Timers:CreateTimer(1, function()
-      HeroSelection:RunTimer(time -1)
+      HeroSelection:APTimer(time -1)
     end)
   end
 end
