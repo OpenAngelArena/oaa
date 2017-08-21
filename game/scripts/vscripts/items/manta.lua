@@ -180,7 +180,7 @@ function modifier_item_manta_splitted:OnDestroy()
       end
 
       --Recreate the caster's items for the image.
-      for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_5 do
+      for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
         local casterItem = caster:GetItemInSlot(itemSlot)
         if casterItem ~= nil then
           local imageItem = CreateItem(casterItem:GetName(), image, image)

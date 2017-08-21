@@ -483,6 +483,7 @@ function Duels:ResetPlayerState (hero)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
+      ability:RefreshCharges()
     end
   end
 
@@ -595,7 +596,7 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
                                      nil,
                                      FIND_UNITS_EVERYWHERE,
                                      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                     DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC,
+                                     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
                                      DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
                                      FIND_ANY_ORDER,
                                      false)
