@@ -385,6 +385,27 @@ DOTAScenePanel {
   horizontal-align: middle;
 }
 
+.CaveIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 50px;
+  //wash-color: #ff0000;
+}
+
+.CaveIcon Label {
+  font-size: 12px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
 .DuelIconHolder {
   transition-property: transform, opacity;
   transition-duration: 0.5s;
@@ -485,3 +506,40 @@ DOTAScenePanel {
   margin-top: 9.5%;
   transition-delay: 5.5s;
 }
+
+#Cave1r {
+  margin-left: 26%;
+  margin-top: 27%;
+  transition-delay: 6s;
+}
+
+#Cave1d {
+  margin-left: 66%;
+  margin-top: 18%;
+  transition-delay: 6s;
+}
+
+#Cave2r {
+  margin-left: 22%;
+  margin-top: 33%;
+  transition-delay: 6.5s;
+}
+
+#Cave2d {
+  margin-left: 64%;
+  margin-top: 14%;
+  transition-delay: 6.5s;
+}
+
+#Cave3r {
+  margin-left: 17%;
+  margin-top: 41%;
+  transition-delay: 7s;
+}
+
+#Cave3d {
+  margin-left: 62.5%;
+  margin-top: 10%;
+  transition-delay: 7s;
+}
+

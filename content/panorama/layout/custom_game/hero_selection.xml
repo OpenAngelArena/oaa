@@ -112,6 +112,27 @@
         <Panel class="DuelIcon"/>
         <Label text="Duel 2"/>
       </Panel>
+
+      <Panel class="CaveIcon" id="Cave1r">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2r">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3r">
+        <Label text="Cave 3"/>
+      </Panel>
+
+      <Panel class="CaveIcon" id="Cave1d">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2d">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3d">
+        <Label text="Cave 3"/>
+      </Panel>
+
     </Panel>
   </Panel>
 </root>

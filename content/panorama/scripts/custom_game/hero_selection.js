@@ -119,7 +119,7 @@ function GoToStrategy () {
   FindDotaHudElement('StrategyContent').style.opacity = '1';
   FindDotaHudElement('PregameBG').style.opacity = '0.15';
 
-  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2'];
+  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d' ];
 
   bossMarkers.forEach(function (element) {
     FindDotaHudElement(element).style.transform = 'translateY(0)';
@@ -127,5 +127,5 @@ function GoToStrategy () {
   });
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = 0;
-  FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(2) scaleY(2) translateY(25%)';
+  FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
 }
