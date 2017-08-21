@@ -1,3 +1,8 @@
+function ExecuteOrderFromTableDebug(order)
+  ExecuteOrderFromTable(order)
+  print('Executing order!')
+  DebugPrintTable(order)
+end
 
 -- Taken from bb template
 if BossAI == nil then
@@ -185,14 +190,14 @@ function BossAI:Agro (state, target)
   state.handle:SetIdleAcquire(true)
   state.handle:SetAcquisitionRange(128)
 
-  ExecuteOrderFromTable({
+  ExecuteOrderFromTableDebug({
     UnitIndex = state.handle:entindex(),
     -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
     Position = target:GetAbsOrigin(),
     Queue = 0,
   })
-  ExecuteOrderFromTable({
+  ExecuteOrderFromTableDebug({
     UnitIndex = state.handle:entindex(),
     -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
@@ -233,14 +238,14 @@ function BossAI:Leash (state)
   state.handle:SetIdleAcquire(false)
   state.handle:SetAcquisitionRange(0)
 
-  ExecuteOrderFromTable({
+  ExecuteOrderFromTableDebug({
     UnitIndex = state.handle:entindex(),
     -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
     Position = location,
     Queue = 0,
   })
-  ExecuteOrderFromTable({
+  ExecuteOrderFromTableDebug({
     UnitIndex = state.handle:entindex(),
     -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,

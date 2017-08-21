@@ -17,7 +17,6 @@
     "CanBeDominated"      "0"
     "ConsideredHero"      "1"
     "vscripts"          "units/automaton.lua"
-    "UseNeutralCreepBehavior"   "1"
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"          "8000"    // Experience earn.
+    "BountyXP"             "0"    // Experience earn.
     "BountyGoldMin"        "0"    // Gold earned min.
     "BountyGoldMax"        "0"    // Gold earned max.
 
@@ -47,11 +46,11 @@
     //----------------------------------------------------------------
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"        "380"    // Speed.
-    "MovementTurnRate"      "0.6"    // Turning rate.
+    "MovementTurnRate"      "1.0"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"        "10000"    // Base health.
+    "StatusHealth"        "1000"    // Base health.
     "StatusHealthRegen"      "40"      // Health regeneration rate.
     "StatusMana"        "3000"    // Base mana.
     "StatusManaRegen"      "5.0"    // Mana regeneration rate.
@@ -81,7 +80,7 @@
     "Creature"
     {
       //Makes it only have 25% remaining of applied crowd control
-      "DisableResistance"                                 "75.0"
+      "DisableResistance"                                 "0.0"
 
       //HERO AI State
       //-----------------------------------------------------------------

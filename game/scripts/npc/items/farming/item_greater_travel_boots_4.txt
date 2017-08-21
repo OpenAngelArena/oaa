@@ -56,6 +56,7 @@
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     //"UpgradesItems"                                     "item_greater_travel_boots_4"

@@ -483,6 +483,7 @@ function Duels:ResetPlayerState (hero)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
+      ability:RefreshCharges()
     end
   end
 
@@ -595,7 +596,7 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
                                      nil,
                                      FIND_UNITS_EVERYWHERE,
                                      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                     DOTA_UNIT_TARGET_BASIC,
+                                     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
                                      DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
                                      FIND_ANY_ORDER,
                                      false)
@@ -611,20 +612,14 @@ end
 function Duels:SafeTeleport(unit, location, maxDistance)
   if unit:FindModifierByName("modifier_life_stealer_infest") then
     DebugPrint("Found LS infesting.")
-    local ability = unit:FindAbilityByName("life_stealer_consume")
-    if ability then
-      if not ability:IsActivated() then
-        error('Ability is not activated')
-      end
-      ExecuteOrderFromTable({
-        UnitIndex = unit:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
-    else
-      error('Missing Ability "life_stealer_consume"')
-    end
+    local ability = assert(unit:FindAbilityByName("life_stealer_consume"), 'Missing Ability "life_stealer_consume"')
+    assert(ability:IsActivated(), 'Ability is not activated')
+    ExecuteOrderFromTable({
+      UnitIndex = unit:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
   end
   if unit:IsOutOfGame() then
     unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")

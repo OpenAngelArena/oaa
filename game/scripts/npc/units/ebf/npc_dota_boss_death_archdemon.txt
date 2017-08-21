@@ -28,17 +28,17 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"        "250"      // Physical protection.
-    "MagicalResistance"      "30"    // Magical protection.
+    "ArmorPhysical"        "25"      // Physical protection.
+    "MagicalResistance"      "-25"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"      "500000"    // Damage range min.
-    "AttackDamageMax"      "500000"    // Damage range max.
+    "AttackDamageMin"      "8000"    // Damage range min.
+    "AttackDamageMax"      "8000"    // Damage range max.
     "AttackRate"        "1.5"    // Speed of attack.
     "AttackAnimationPoint"    "0.4"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"  "700"    // Range within a target can be acquired.
     "AttackRange"        "900"    // Range within a target can be attacked.
     "ProjectileModel"      "particles/base_attacks/ranged_tower_bad.vpcf"              // Particle system model for projectile.
     "ProjectileSpeed"      "300"                  // Speed of projectile.
@@ -51,7 +51,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"          "60000"    // Experience earn.
+    "BountyXP"             "0"    // Experience earn.
     "BountyGoldMin"        "0"      // Gold earned min.
     "BountyGoldMax"        "0"      // Gold earned max.
 
@@ -63,8 +63,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"        "10000000"    // Base health.
-    "StatusHealthRegen"      "15000"      // Health regeneration rate.
+    "StatusHealth"        "15000"    // Base health.
+    "StatusHealthRegen"      "50"      // Health regeneration rate.
     "StatusMana"        "500"      // Base mana.
     "StatusManaRegen"      "50"      // Mana regeneration rate.
 
@@ -84,7 +84,7 @@
     //----------------------------------------------------------------
     "Creature"
     {
-      "StunResistance"      "90.0"
+      "StunResistance"      "50.0"
     }
   }
 }
