@@ -4,6 +4,9 @@ if HeroSelection == nil then
   HeroSelection = class({})
 end
 
+-- available heroes
+local herolist = {}
+local totalheroes = 0
 -- storage for this game picks
 local selectedtable = {}
 -- force stop handle for timer, when all picked before time end
@@ -14,10 +17,10 @@ function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-  local herolist = {}
   for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
     if value == 1 then
       herolist[key] = allheroes[key].AttributePrimary
+      totalheroes = totalheroes + 1
     end
   end
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', herolist)
@@ -39,9 +42,25 @@ end
 
 -- start heropick timer
 function HeroSelection:RunTimer (time)
-  if time < 0 or forcestop == true then
-    for key, value in pairs(selectedtable) do --pseudocode
+  if forcestop == true then
+    for key, value in pairs(selectedtable) do
       PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
+    end
+    HeroSelection:StrategyTimer(3)
+  elseif time < 0 then
+    for key, value in pairs(selectedtable) do
+      if value.selectedhero == "empty" then
+        -- if someone hasnt selected until time end, random for him
+        local curstate = 0
+        local rndhero = RandomInt(0, totalheroes)
+        for name, _ in pairs(herolist) do
+          if curstate == rndhero then
+            HeroSelection:UpdateTable(key, name)
+          end
+          curstate = curstate + 1
+        end
+      end
+      PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, 625, 0)
     end
     HeroSelection:StrategyTimer(3)
   else
