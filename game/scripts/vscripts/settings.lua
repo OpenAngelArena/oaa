@@ -4,6 +4,10 @@
 -----------------------------------------------------------------------------------
 -- OAA specific settings
 
+-- PICK SCREEN
+AP_GAME_TIME = 60.0                    -- The maximum duration of All Pick Phase and pregame in background
+CM_GAME_TIME = 150.0                   -- The maximum duration of Captains Mode Phase and pregame in background
+
 -- Duels
 INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
@@ -37,7 +41,6 @@ ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same 
 
 CUSTOM_GAME_SETUP_TIME = 30.0           -- How long to show custom game setup? 0 disables
 HERO_SELECTION_TIME = 30.0              -- How long should we let people select their hero?
-PRE_GAME_TIME = 60.0                    -- How long after people select their heroes should the horn blow and the game start?
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 

@@ -31,12 +31,18 @@ end
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
+  DebugPrint(GetMapName())
+  if GetMapName() == "oaa_captains_mode" then
+    GameRules:SetPreGameTime(CM_GAME_TIME + 3)
+    HeroSelection:RunTimer(CM_GAME_TIME)
+  else
+    GameRules:SetPreGameTime(AP_GAME_TIME + 3)
+    HeroSelection:RunTimer(AP_GAME_TIME)
+  end
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     HeroSelection:UpdateTable(playerID, "empty")
   end)
-
-  HeroSelection:RunTimer(60)
 
 end
 
