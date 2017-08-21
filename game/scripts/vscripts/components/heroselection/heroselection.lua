@@ -40,6 +40,9 @@ end
 -- start heropick timer
 function HeroSelection:RunTimer (time)
   if time < 0 or forcestop == true then
+    for key, value in pairs(selectedtable) do --pseudocode
+      PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
+    end
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "ALL PICK"})
@@ -53,11 +56,6 @@ end
 function HeroSelection:StrategyTimer (time)
   if time < 0 then
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
-    Timers:CreateTimer(7, function()
-      for key, value in pairs(selectedtable) do --pseudocode
-        PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
-      end
-    end)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
     Timers:CreateTimer(1, function()
