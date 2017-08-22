@@ -87,19 +87,42 @@ function onPlayerStatChange (table, key, data) {
       }
     }
   } else if (key === 'CMdata' && data != null) {
+    var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+    var weare = teamID === 2 ? 'radiant' : 'dire';
     if (data["currentstage"] == 0) {
-      var teamID = Players.GetTeam(Game.GetLocalPlayerID());
-      var weare = teamID === 2 ? 'radiant' : 'dire';
       if (data["captain" + weare] == "empty") {
-        // become captain button appears
+        FindDotaHudElement('HeroPreview').style.visibility = "collapse";
+        FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
+        FindDotaHudElement('HeroRandom').style.visibility = "collapse";
+        FindDotaHudElement('BecomeCaptain').style.visibility = "visible";
       } else {
-        // it disappears
+        FindDotaHudElement('HeroPreview').style.visibility = "collapse";
+        FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
+        FindDotaHudElement('HeroRandom').style.visibility = "collapse";
+        FindDotaHudElement('BecomeCaptain').style.visibility = "collapse";
+        for (var nkey in data["order"]) {
+          var obj = data["order"][nkey];
+          if (obj.side == 2) {
+            var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Radiant' + obj.type), "CMStep" + nkey);
+          } else if (obj.side == 3) {
+            var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Dire' + obj.type), "CMStep" + nkey);
+          }
+
+      }
         // setup right hand panel
-        // add button for captain
       }
     } else if (data["currentstage"] <= data["totalstages"]) {
-      // update pick screen
-      //recheck button
+      FindDotaHudElement('HeroPreview').style.visibility = "collapse";
+      FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
+      FindDotaHudElement('HeroRandom').style.visibility = "collapse";
+      FindDotaHudElement('BecomeCaptain').style.visibility = "collapse";
+      if (Game.GetLocalPlayerID() == data["captain" + weare]) {
+        FindDotaHudElement('CaptainLockIn').style.visibility = "visible";
+      }
+      console.log(data["currentstage"]);
+      console.log(data["totalstages"]);
+      //console.log(data["order"][data["currentstage"]]);
+      FindDotaHudElement("CMStep" + data["currentstage"]).heroname = data["order"][data["currentstage"]].hero;
     } else {
       // up[date] right panel button for everybody to select out of five
     }
@@ -132,6 +155,20 @@ function SelectHero () {
     });
     FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
     FindDotaHudElement('HeroRandom').style.brightness = 0.5;
+  }
+}
+
+function BecomeCaptain () {
+  GameEvents.SendCustomGameEventToServer('cm_become_captain', {
+    test: "1"
+  });
+}
+
+function CaptainSelectHero () {
+  if (selectedhero !== 'empty') {
+    GameEvents.SendCustomGameEventToServer('cm_hero_selected', {
+      hero: selectedhero
+    });
   }
 }
 

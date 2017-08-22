@@ -34,9 +34,6 @@
       </Panel>
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
-          <Button id="BecomeCaptain">
-            <Label text="Become a Captain"/>
-          </Button>
           <Panel id="CMProgress">
             <Panel class="CMTeam" id="CMRadiant">
               <Panel class="CMBan" id="CMRadiantBanLabel">
@@ -47,11 +44,6 @@
                 <Label text="18"/>
               </Panel>
               <Panel class="CMBan" id="CMRadiantBan">
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
               </Panel>
               <Panel class="CMTeamInfo">
                 <Label text="Radiant"/>
@@ -64,11 +56,6 @@
                 <Label text="19"/>
               </Panel>
               <Panel class="CMPick" id="CMRadiantPick">
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
               </Panel>
             </Panel>
             <Panel class="CMInfo">
@@ -84,11 +71,6 @@
                 <Label text="17"/>
               </Panel>
               <Panel class="CMBan" id="CMDireBan">
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
               </Panel>
               <Panel class="CMTeamInfo">
                 <Label text="Dire"/>
@@ -101,11 +83,6 @@
                 <Label text="20"/>
               </Panel>
               <Panel class="CMPick" id="CMDirePick">
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
-                <DOTAHeroImage heroname=""/>
               </Panel>
             </Panel>
           </Panel>
@@ -133,10 +110,16 @@
             <DOTAScenePanel unit="" />
           </Panel>
           <Panel id="HeroPickContainer">
-            <Button group="HeroChoises" id="HeroLockIn" onactivate="SelectHero()">
+            <Button id="BecomeCaptain" onactivate="BecomeCaptain()">
+              <Label id="BecomeCaptainLabel" text="Become Captain"/>
+            </Button>
+            <Button id="CaptainLockIn" onactivate="CaptainSelectHero()">
+              <Label id="CaptainLockInLabel" text="Select"/>
+            </Button>
+            <Button id="HeroLockIn" onactivate="SelectHero()">
               <Label id="HeroLockLabel" text="Lock In"/>
             </Button>
-            <Button group="HeroChoises" id="HeroRandom">
+            <Button id="HeroRandom">
               <Panel id="HeroRandomIcon"/>
               <Label id="HeroRandomLabel" text="Random"/>
             </Button>

@@ -41,6 +41,7 @@ function HeroSelection:StartSelection ()
 
   if GetMapName() == "oaa_captains_mode" then
     GameRules:SetPreGameTime(CM_GAME_TIME + 10)
+    CustomGameEventManager:RegisterListener('cm_become_captain', Dynamic_Wrap(HeroSelection, 'CMBecomeCaptain'))
     CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
     HeroSelection:CMManager(nil)
   else
@@ -56,17 +57,14 @@ function HeroSelection:CMManager (event)
 
   if forcestop == false then
     forcestop = true
-    if not cmtimer == nil then
-      Timers:RemoveTimer(cmtimer)
-    end
 
     if event == nil then
       DebugPrint("test")
-      DebugPrintTable(cmpickorder)
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       HeroSelection:CMTimer(20, "CHOOSE CAPTAIN")
 
-    elseif cmpickorder["cmpickstage"] == 0 then
+    elseif cmpickorder["currentstage"] == 0 then
+      Timers:RemoveTimer(cmtimer)
       --set captani here
       if cmpickorder["captainradiant"] == "empty" then
         --random captain
@@ -74,19 +72,19 @@ function HeroSelection:CMManager (event)
       if cmpickorder["captaindire"] == "empty" then
         --random captain
       end
-      CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      cmpickorder["cmpickstage"] = cmpickorder["cmpickstage"] + 1
+      cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       HeroSelection:CMTimer(20, "CAPTAINS MODE")
 
-    elseif cmpickorder["cmpickstage"] <= cmpickorder["totalstages"] then
+    elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
+      Timers:RemoveTimer(cmtimer)
       if event.hero == "random" then
         --random if not selected
       end
-      cmpickorder["order"][cmpickorder["cmpickstage"]].hero = event.hero
+      cmpickorder["order"][cmpickorder["currentstage"]].hero = event.hero
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      cmpickorder["cmpickstage"] = cmpickorder["cmpickstage"] + 1
-      if cmpickorder["cmpickstage"] <= cmpickorder["totalstages"] then
+      cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
+      if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
         HeroSelection:CMTimer(20, "CAPTAINS MODE")
       else
         --start selection of selected
@@ -110,7 +108,22 @@ function HeroSelection:CMTimer (time, message)
   end
 end
 
-
+-- become a captain, go to next stage, if both captains are selected
+function HeroSelection:CMBecomeCaptain (event)
+  if PlayerResource:GetTeam(event.PlayerID) == 2 then
+    cmpickorder["captainradiant"] = event.PlayerID
+    CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+    if not cmpickorder["captaindire"] == "empty" then
+      HeroSelection:CMManager({dummy = "dummy"})
+    end
+  elseif PlayerResource:GetTeam(event.PlayerID) == 3 then
+    cmpickorder["captaindire"] = event.PlayerID
+    CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+    if not cmpickorder["captainradiant"] == "empty" then
+      HeroSelection:CMManager({dummy = "dummy"})
+    end
+  end
+end
 
 
 -- start heropick AP timer

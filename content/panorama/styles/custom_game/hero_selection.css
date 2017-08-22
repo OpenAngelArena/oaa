@@ -326,27 +326,6 @@ DOTAMinimap {
   text-align: center;
 }
 
-#BecomeCaptain {
-  opacity: 0;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #dd4d4ddd ), to( #bb2d2ddd ) );
-  box-shadow: #0000008f -6px -6px 12px 12px;
-  transition-property: brightness;
-  transition-duration: 0.2s;
-  vertical-align: middle;
-  horizontal-align: middle;
-}
-
-#BecomeCaptain Label {
-  font-size: 35px;
-  margin: 10px;
-  vertical-align: middle;
-  horizontal-align: middle;
-  text-align: center;
-  color: white;
-  text-transform: uppercase;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-}
-
 #StrHolder {
   background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
   background-repeat: no-repeat;
@@ -456,6 +435,52 @@ DOTAScenePanel {
 }
 
 #HeroLockLabel {
+  font-size: 35px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#BecomeCaptain {
+  visibility: collapse;
+  height: 100%;
+  width: fill-parent-flow(1.0);
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #dd4d4ddd ), to( #bb2d2ddd ) );
+  box-shadow: #0000008f -6px -6px 12px 12px;
+  transition-property: brightness;
+  transition-duration: 0.2s;
+}
+
+#BecomeCaptain:hover {
+  brightness: 2.0;
+}
+
+#BecomeCaptainLabel {
+  font-size: 35px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#CaptainLockIn {
+  visibility: collapse;
+  height: 100%;
+  width: fill-parent-flow(1.0);
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
+  box-shadow: #0000008f -6px -6px 12px 12px;
+  transition-property: brightness;
+  transition-duration: 0.2s;
+}
+
+#CaptainLockIn:hover {
+  brightness: 2.0;
+}
+
+#CaptainLockInLabel {
   font-size: 35px;
   vertical-align: middle;
   horizontal-align: middle;
