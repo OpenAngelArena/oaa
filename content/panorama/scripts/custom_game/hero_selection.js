@@ -4,9 +4,14 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = SelectHero;
 }
 
+var console = {
+  log: $.Msg.bind($)
+};
+
 (function () {
   onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
-  onPlayerStatChange(null, 'data', CustomNetTables.GetTableValue('hero_selection', 'data'));
+  onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
+  onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
   onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 }());
@@ -14,15 +19,16 @@ if (typeof module !== 'undefined' && module.exports) {
 var selectedhero = 'empty';
 var herolocked = false;
 var panelscreated = 0;
+var cmsetup = 0;
 
 function onPlayerStatChange (table, key, data) {
   if (key === 'herolist' && data != null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
-    for (key in data) {
+    for (key in data.herolist) {
       var currentstat = null;
-      switch (data[key]) {
+      switch (data.herolist[key]) {
         case 'DOTA_ATTRIBUTE_STRENGTH':
           currentstat = strengthholder;
           break;
@@ -41,7 +47,7 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = key;
     }
-  } else if (key === 'data' && data != null) {
+  } else if (key === 'APdata' && data != null) {
     var length = Object.keys(data).length;
     if (panelscreated !== length) {
       var teamdire = FindDotaHudElement('TeamDire');
@@ -79,6 +85,23 @@ function onPlayerStatChange (table, key, data) {
           currentplayer.heroname = data[ind].selectedhero;
         }
       }
+    }
+  } else if (key === 'CMdata' && data != null) {
+    if (data["currentstage"] == 0) {
+      var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+      var weare = teamID === 2 ? 'radiant' : 'dire';
+      if (data["captain" + weare] == "empty") {
+        // become captain button appears
+      } else {
+        // it disappears
+        // setup right hand panel
+        // add button for captain
+      }
+    } else if (data["currentstage"] <= data["totalstages"]) {
+      // update pick screen
+      //recheck button
+    } else {
+      // up[date] right panel button for everybody to select out of five
     }
   } else if (key === 'time' && data != null) {
     if (data['time'] > -1) {

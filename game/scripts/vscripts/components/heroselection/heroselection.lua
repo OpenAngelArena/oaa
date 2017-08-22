@@ -7,6 +7,9 @@ end
 -- available heroes
 local herolist = {}
 local totalheroes = 0
+
+local cmtimer = nil
+
 -- storage for this game picks
 local selectedtable = {}
 -- force stop handle for timer, when all picked before time end
@@ -23,30 +26,94 @@ function HeroSelection:Init ()
       totalheroes = totalheroes + 1
     end
   end
-  CustomNetTables:SetTableValue( 'hero_selection', 'herolist', herolist)
+  CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
 
-  CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
 end
 
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
   DebugPrint(GetMapName())
-  if GetMapName() == "oaa_captains_mode" then
-    GameRules:SetPreGameTime(CM_GAME_TIME + 10)
-    --HeroSelection:RunTimer(CM_GAME_TIME)
-  else
-    GameRules:SetPreGameTime(AP_GAME_TIME + 3)
-    HeroSelection:APTimer(AP_GAME_TIME)
-  end
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     HeroSelection:UpdateTable(playerID, "empty")
   end)
 
+  if GetMapName() == "oaa_captains_mode" then
+    GameRules:SetPreGameTime(CM_GAME_TIME + 10)
+    CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
+    HeroSelection:CMManager(nil)
+  else
+    GameRules:SetPreGameTime(AP_GAME_TIME + 3)
+    CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
+    HeroSelection:APTimer(AP_GAME_TIME)
+  end
+
 end
 
--- start heropick timer
+-- start heropick CM timer
+function HeroSelection:CMManager (event)
+
+  if forcestop == false then
+    forcestop = true
+    if not cmtimer == nil then
+      Timers:RemoveTimer(cmtimer)
+    end
+
+    if event == nil then
+      DebugPrint("test")
+      DebugPrintTable(cmpickorder)
+      CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+      HeroSelection:CMTimer(20, "CHOOSE CAPTAIN")
+
+    elseif cmpickorder["cmpickstage"] == 0 then
+      --set captani here
+      if cmpickorder["captainradiant"] == "empty" then
+        --random captain
+      end
+      if cmpickorder["captaindire"] == "empty" then
+        --random captain
+      end
+      CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+      cmpickorder["cmpickstage"] = cmpickorder["cmpickstage"] + 1
+      CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+      HeroSelection:CMTimer(20, "CAPTAINS MODE")
+
+    elseif cmpickorder["cmpickstage"] <= cmpickorder["totalstages"] then
+      if event.hero == "random" then
+        --random if not selected
+      end
+      cmpickorder["order"][cmpickorder["cmpickstage"]].hero = event.hero
+      CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+      cmpickorder["cmpickstage"] = cmpickorder["cmpickstage"] + 1
+      if cmpickorder["cmpickstage"] <= cmpickorder["totalstages"] then
+        HeroSelection:CMTimer(20, "CAPTAINS MODE")
+      else
+        --start selection of selected
+        CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+      end
+    end
+    forcestop = false
+
+  end
+end
+
+-- manage cm timer
+function HeroSelection:CMTimer (time, message)
+  if time < 0 then
+    HeroSelection:CMManager({hero = "random"})
+  else
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+    cmtimer = Timers:CreateTimer(1, function()
+      HeroSelection:CMTimer(time -1, message)
+    end)
+  end
+end
+
+
+
+
+-- start heropick AP timer
 function HeroSelection:APTimer (time)
   if forcestop == true then
     for key, value in pairs(selectedtable) do
@@ -66,7 +133,7 @@ function HeroSelection:APTimer (time)
           curstate = curstate + 1
         end
       end
-      PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, 625, 0)
+      PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, STARTING_GOLD, 0)
     end
     HeroSelection:StrategyTimer(3)
   else
@@ -98,11 +165,11 @@ end
 -- write new values to table
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
-  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = PlayerResource:GetSteamAccountID(playerID)}
+  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
 
   DebugPrintTable(selectedtable)
 
-  CustomNetTables:SetTableValue( 'hero_selection', 'data', selectedtable)
+  CustomNetTables:SetTableValue( 'hero_selection', 'APdata', selectedtable)
 
   -- if everyone has picked, stop
   local isanyempty = false
