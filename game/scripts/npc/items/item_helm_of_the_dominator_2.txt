@@ -66,12 +66,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-        "var_type"        "FIELD_INTEGER"
-        "bonus_stats"     "2 15 30 50 70"
+    "AbilitySpecial"
+    {
+	    "01"
+	  {
+      "var_type"        "FIELD_INTEGER"
+      "bonus_stats"     "2 15 30 50 70"
       }
       "02"
       {
@@ -81,7 +81,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "attack_speed_aura"   "10 20 35 50 70"
+        "attack_speed_aura"   "15 25 40 55 75"
       }
       "04"
       {
@@ -103,6 +103,6 @@
         "var_type"        "FIELD_INTEGER"
         "speed_base"      "425"
       }
-		}
-	}
+    }
+  }
 }
