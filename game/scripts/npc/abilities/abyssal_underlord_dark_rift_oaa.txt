@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 150 225 375 600"
+    "AbilityManaCost"                                     "75 150 225 340 565"
 
 
     "AbilitySpecial"
@@ -61,10 +61,9 @@
         "minimum_range"                                   "900.0"
       }
     }
-
     "Precache"
     {
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
-	}
+    }
   }
 }
