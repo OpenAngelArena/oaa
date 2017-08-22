@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time    
     //-------------------------------------------------------------------------------------------------------------
@@ -43,11 +43,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "600 725 850 1100 2300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lion_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "725 875 1025 1325 2500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lion_3"
       }
       "03"
       {
