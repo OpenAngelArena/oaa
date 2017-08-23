@@ -1,7 +1,11 @@
-/* global FindDotaHudElement, GameEvents */
+/* global FindDotaHudElement GameEvents Game */
 
 (function () {
-  GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
+  if (Game.GetLocalPlayerID() !== -1) {
+    GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
+  } else {
+    $.GetContextPanel().FindChildTraverse('GameInfoButton').GetParent().RemoveAndDeleteChildren();
+  }
 }());
 
 function MoveGameInfo () {
