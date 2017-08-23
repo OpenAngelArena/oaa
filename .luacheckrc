@@ -142,6 +142,8 @@ read_globals = { -- these globals can only be accessed.
 "ACT_MP_ATTACK_CROUCH_PRIMARY",
 "ACT_STARTDYING",
 "ACT_DOTA_MK_TREE_SOAR",
+"AP_GAME_TIME ",
+"CM_GAME_TIME ",
 "SendToConsole",
 "CreateItemOnPositionForLaunch",
 "ACT_DOTA_LIFESTEALER_EJECT",
