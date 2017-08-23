@@ -108,7 +108,7 @@ function onPlayerStatChange (table, key, data) {
         FindDotaHudElement('CMRadiantBan').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDirePick').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDireBan').RemoveAndDeleteChildren();
-        for ( var nkey in data['order']) {
+        for (var nkey in data['order']) {
           var obj = data['order'][nkey];
           if (obj.side === 2) {
             var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Radiant' + obj.type), 'CMStep' + nkey);
