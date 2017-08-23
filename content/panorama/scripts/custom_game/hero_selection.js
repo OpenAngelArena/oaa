@@ -1,7 +1,9 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = SelectHero, CaptainSelectHero, BecomeCaptain;
+  module.exports = SelectHero;
+  module.exports = CaptainSelectHero;
+  module.exports = BecomeCaptain;
 }
 
 var selectedhero = 'empty';
@@ -18,6 +20,9 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 
 function onPlayerStatChange (table, key, data) {
+  // travis asked me, i didnt want to!
+  var nkey = null;
+  var newimage = null;
   if (key === 'herolist' && data !== null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
@@ -51,7 +56,7 @@ function onPlayerStatChange (table, key, data) {
       panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
-      for (var nkey in data) {
+      for (nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentteam = null;
           switch (data[nkey].team) {
@@ -64,7 +69,7 @@ function onPlayerStatChange (table, key, data) {
           }
           var newelement = $.CreatePanel('Panel', currentteam, '');
           newelement.AddClass('Player');
-          var newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
+          newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
           newimage.hittest = false;
           newimage.AddClass('PlayerImage');
           newimage.heroname = data[nkey].selectedhero;
@@ -79,7 +84,7 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     } else {
-      for (var nkey in data) {
+      for (nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentplayer = FindDotaHudElement(data[nkey].steamid);
           currentplayer.heroname = data[nkey].selectedhero;
@@ -108,12 +113,12 @@ function onPlayerStatChange (table, key, data) {
         FindDotaHudElement('CMRadiantBan').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDirePick').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDireBan').RemoveAndDeleteChildren();
-        for (var nkey in data['order']) {
+        for (nkey in data['order']) {
           var obj = data['order'][nkey];
           if (obj.side === 2) {
-            var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Radiant' + obj.type), 'CMStep' + nkey);
+            newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Radiant' + obj.type), 'CMStep' + nkey);
           } else if (obj.side === 3) {
-            var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Dire' + obj.type), 'CMStep' + nkey);
+            newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Dire' + obj.type), 'CMStep' + nkey);
           }
         }
       } else {
@@ -145,7 +150,6 @@ function onPlayerStatChange (table, key, data) {
       } else {
         FindDotaHudElement('CaptainLockIn').style.visibility = 'collapse';
       }
-
     } else if (data['currentstage'] === data['totalstages']) {
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('HeroPreview').style.visibility = 'collapse';
