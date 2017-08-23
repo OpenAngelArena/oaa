@@ -38,16 +38,16 @@ function HeroSelection:StartSelection ()
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     HeroSelection:UpdateTable(playerID, "empty")
   end)
+  CustomGameEventManager:RegisterListener('cm_become_captain', Dynamic_Wrap(HeroSelection, 'CMBecomeCaptain'))
+  CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
+  CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
 
   if GetMapName() == "oaa_captains_mode" then
     GameRules:SetPreGameTime(CM_GAME_TIME + 10)
-    CustomGameEventManager:RegisterListener('cm_become_captain', Dynamic_Wrap(HeroSelection, 'CMBecomeCaptain'))
-    CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
     HeroSelection:CMManager(nil)
   else
     GameRules:SetPreGameTime(AP_GAME_TIME + 3)
-    CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
-    HeroSelection:APTimer(AP_GAME_TIME)
+    HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
   end
 
 end
@@ -87,8 +87,8 @@ function HeroSelection:CMManager (event)
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
         HeroSelection:CMTimer(20, "CAPTAINS MODE")
       else
-        --start selection of selected
-        CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+        forcestop = false
+        HeroSelection:APTimer(20, "CAPTAINS MODE")
       end
     end
     forcestop = false
@@ -127,7 +127,7 @@ end
 
 
 -- start heropick AP timer
-function HeroSelection:APTimer (time)
+function HeroSelection:APTimer (time, message)
   if forcestop == true then
     for key, value in pairs(selectedtable) do
       PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
@@ -150,9 +150,9 @@ function HeroSelection:APTimer (time)
     end
     HeroSelection:StrategyTimer(3)
   else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "ALL PICK"})
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
     Timers:CreateTimer(1, function()
-      HeroSelection:APTimer(time -1)
+      HeroSelection:APTimer(time - 1, message)
     end)
   end
 end

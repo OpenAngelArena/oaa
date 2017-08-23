@@ -109,6 +109,8 @@
           <Panel id="HeroPreview">
             <DOTAScenePanel unit="" />
           </Panel>
+          <Panel id="CMHeroPreview">
+          </Panel>
           <Panel id="HeroPickContainer">
             <Button id="BecomeCaptain" onactivate="BecomeCaptain()">
               <Label id="BecomeCaptainLabel" text="Become Captain"/>

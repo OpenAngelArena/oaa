@@ -184,6 +184,7 @@ DOTAMinimap {
 }
 
 #CMPanel {
+  visibility: collapse;
   width: 100%;
   min-height: 150px;
   background-color: #171A2590;
@@ -407,6 +408,46 @@ DOTAScenePanel {
   width: 100%;
   height: 100%;
 }
+
+#CMHeroPreview {
+  visibility: collapse;
+  margin: 12px;
+  width: 100%;
+  height: 75%;
+  vertical-align: top;
+  horizontal-align: middle;
+  flow-children: down;
+}
+
+.CMHeroPreviewItem {
+  width: 100%;
+  height: fill-parent-flow(1.0);
+  flow-children: right;
+  box-shadow: none;
+  margin: 3px;
+}
+
+.CMHeroPreviewItem:hover {
+  box-shadow: none;
+  brightness: 2.0;
+}
+
+.CMHeroPreviewItem:selected {
+  box-shadow: none;
+}
+
+.CMHeroPreviewItem DOTAHeroImage {
+  height: 100%;
+  width: 30%;
+}
+
+.CMHeroPreviewItem DOTAUserName {
+  width: 70%;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
 
 #HeroPickContainer {
   width: 100%;

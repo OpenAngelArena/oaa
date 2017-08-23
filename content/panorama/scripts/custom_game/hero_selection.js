@@ -19,7 +19,9 @@ var console = {
 var selectedhero = 'empty';
 var herolocked = false;
 var panelscreated = 0;
-var cmsetup = 0;
+var iscm = false;
+var selectedherocm = 'empty';
+var isfirstpick = 0;
 
 function onPlayerStatChange (table, key, data) {
   if (key === 'herolist' && data != null) {
@@ -74,8 +76,11 @@ function onPlayerStatChange (table, key, data) {
           newimage.heroname = data[nkey].selectedhero;
           var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
           newlabel.AddClass('PlayerLabel');
-          // I DO NOT KNOW WHY, BUT IT MESSES ID UP SOMEHOW BY +-3 WTF???
           newlabel.steamid = data[nkey].steamid;
+          if (iscm) {
+            FindDotaHudElement("CMHeroPickLabel_" + data[nkey].selectedhero).steamid = data[nkey].steamid;
+            FindDotaHudElement("CMHeroPick_" + data[nkey].selectedhero).style.brightness = 0.3;
+          }
         }
       }
     } else {
@@ -83,19 +88,31 @@ function onPlayerStatChange (table, key, data) {
         if (data.hasOwnProperty(ind)) {
           var currentplayer = FindDotaHudElement(data[ind].steamid);
           currentplayer.heroname = data[ind].selectedhero;
+          if (iscm) {
+            FindDotaHudElement("CMHeroPickLabel_" + data[ind].selectedhero).steamid = data[ind].steamid;
+            FindDotaHudElement("CMHeroPick_" + data[ind].selectedhero).style.brightness = 0.3;
+          }
         }
       }
     }
   } else if (key === 'CMdata' && data != null) {
+    iscm = true;
     var teamID = Players.GetTeam(Game.GetLocalPlayerID());
     var weare = teamID === 2 ? 'radiant' : 'dire';
+    console.log(data["currentstage"]);
+    console.log(data["totalstages"]);
     if (data["currentstage"] == 0) {
-      if (data["captain" + weare] == "empty") {
+      isfirstpick = 1;
+      if (data["captain" + weare] === "empty") {
+        FindDotaHudElement('CMPanel').style.visibility = "visible";
+        FindDotaHudElement('CMHeroPreview').style.visibility = "collapse";
         FindDotaHudElement('HeroPreview').style.visibility = "collapse";
         FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
         FindDotaHudElement('HeroRandom').style.visibility = "collapse";
         FindDotaHudElement('BecomeCaptain').style.visibility = "visible";
       } else {
+        FindDotaHudElement('CMPanel').style.visibility = "visible";
+        FindDotaHudElement('CMHeroPreview').style.visibility = "collapse";
         FindDotaHudElement('HeroPreview').style.visibility = "collapse";
         FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
         FindDotaHudElement('HeroRandom').style.visibility = "collapse";
@@ -107,24 +124,53 @@ function onPlayerStatChange (table, key, data) {
           } else if (obj.side == 3) {
             var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Dire' + obj.type), "CMStep" + nkey);
           }
-
-      }
+        }
         // setup right hand panel
       }
-    } else if (data["currentstage"] <= data["totalstages"]) {
+    } else if (data["currentstage"] < data["totalstages"]) {
+      FindDotaHudElement('CMPanel').style.visibility = "visible";
+      FindDotaHudElement('CMHeroPreview').style.visibility = "collapse";
       FindDotaHudElement('HeroPreview').style.visibility = "collapse";
       FindDotaHudElement('HeroLockIn').style.visibility = "collapse";
       FindDotaHudElement('HeroRandom').style.visibility = "collapse";
       FindDotaHudElement('BecomeCaptain').style.visibility = "collapse";
-      if (Game.GetLocalPlayerID() == data["captain" + weare]) {
-        FindDotaHudElement('CaptainLockIn').style.visibility = "visible";
+      if (isfirstpick == 1) {
+        data["currentstage"] = 0;
+        isfirstpick = 2;
+      } else if (isfirstpick == 0) {
+        //reconnected midgame
+      } else {
+        FindDotaHudElement("CMStep" + data["currentstage"]).heroname = data["order"][data["currentstage"]].hero;
       }
-      console.log(data["currentstage"]);
-      console.log(data["totalstages"]);
-      //console.log(data["order"][data["currentstage"]]);
-      FindDotaHudElement("CMStep" + data["currentstage"]).heroname = data["order"][data["currentstage"]].hero;
-    } else {
-      // up[date] right panel button for everybody to select out of five
+      if (Game.GetLocalPlayerID() == data["captain" + weare] && teamID == data["order"][data["currentstage"]+1].side) {
+        FindDotaHudElement('CaptainLockIn').style.visibility = "visible";
+      } else {
+        FindDotaHudElement('CaptainLockIn').style.visibility = "collapse";
+      }
+
+    } else if (data["currentstage"] === data["totalstages"]) {
+      FindDotaHudElement('CMPanel').style.visibility = "visible";
+      FindDotaHudElement('HeroPreview').style.visibility = "collapse";
+      FindDotaHudElement('HeroLockIn').style.visibility = "visible";
+      FindDotaHudElement('HeroRandom').style.visibility = "collapse";
+      FindDotaHudElement('BecomeCaptain').style.visibility = "collapse";
+      FindDotaHudElement('CaptainLockIn').style.visibility = "collapse";
+      //reset all data for people, who lost it
+      for (var nkey in data["order"]) {
+        var obj = data["order"][nkey];
+        FindDotaHudElement("CMStep" + nkey).heroname = obj.hero;
+        if (obj.side == teamID && obj.type == 'Pick') {
+          var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
+          newbutton.group = 'CMHeroChoises';
+          newbutton.AddClass('CMHeroPreviewItem');
+          newbutton.SetPanelEvent('onactivate', (function (newkey) { return function () { PreviewHeroCM(newkey); }; }(obj.hero)));
+          var newimage = $.CreatePanel('DOTAHeroImage', newbutton, 'CMHeroPick_' + obj.hero);
+          newimage.heroname = obj.hero;
+          var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
+        }
+      }
+
+      FindDotaHudElement('CMHeroPreview').style.visibility = "visible";
     }
   } else if (key === 'time' && data != null) {
     if (data['time'] > -1) {
@@ -138,6 +184,10 @@ function onPlayerStatChange (table, key, data) {
   }
 }
 
+function AddHeroToCMSelection (name) {
+
+}
+
 function PreviewHero (name) {
   if (!herolocked) {
     var preview = FindDotaHudElement('HeroPreview');
@@ -147,14 +197,32 @@ function PreviewHero (name) {
   }
 }
 
+function PreviewHeroCM (name) {
+  console.log("reviewing hero at CM: " + name);
+  if (!herolocked) {
+    selectedherocm = name;
+  }
+}
+
 function SelectHero () {
-  if (!herolocked && selectedhero !== 'empty') {
-    herolocked = true;
+  if (!herolocked) {
+    console.log("picking hero " + selectedhero);
+    console.log("picking hero at CM: " + selectedherocm);
+    var newhero = "empty";
+    if (iscm && selectedherocm != 'empty') {
+      herolocked = true;
+      newhero = selectedherocm;
+      FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
+      FindDotaHudElement('HeroRandom').style.brightness = 0.5;
+    } else if (!iscm && selectedhero != 'empty') {
+      herolocked = true;
+      newhero = selectedhero;
+      FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
+      FindDotaHudElement('HeroRandom').style.brightness = 0.5;
+    }
     GameEvents.SendCustomGameEventToServer('hero_selected', {
-      hero: selectedhero
+      hero: newhero
     });
-    FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
-    FindDotaHudElement('HeroRandom').style.brightness = 0.5;
   }
 }
 
