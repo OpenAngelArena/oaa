@@ -1,7 +1,7 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = SelectHero;
+  module.exports = SelectHero, CaptainSelectHero, BecomeCaptain;
 }
 
 var selectedhero = 'empty';
@@ -51,7 +51,7 @@ function onPlayerStatChange (table, key, data) {
       panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
-      for (nkey in data) {
+      for ( var nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentteam = null;
           switch (data[nkey].team) {
@@ -79,7 +79,7 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     } else {
-      for (nkey in data) {
+      for ( var nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentplayer = FindDotaHudElement(data[nkey].steamid);
           currentplayer.heroname = data[nkey].selectedhero;
@@ -108,7 +108,7 @@ function onPlayerStatChange (table, key, data) {
         FindDotaHudElement('CMRadiantBan').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDirePick').RemoveAndDeleteChildren();
         FindDotaHudElement('CMDireBan').RemoveAndDeleteChildren();
-        for (nkey in data['order']) {
+        for ( var nkey in data['order']) {
           var obj = data['order'][nkey];
           if (obj.side === 2) {
             var newimage = $.CreatePanel('DOTAHeroImage', FindDotaHudElement('CM' + 'Radiant' + obj.type), 'CMStep' + nkey);
@@ -174,7 +174,7 @@ function onPlayerStatChange (table, key, data) {
 function ReloadCMStatus (data) {
   //reset all data for people, who lost it
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
-  for (nkey in data['order']) {
+  for ( var nkey in data['order']) {
     var obj = data['order'][nkey];
     FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !=='empty') {
@@ -198,7 +198,7 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
-  if (disabledheroes.indexOf(name) !==-1) {
+  if (disabledheroes.indexOf(name) !== -1) {
     return true;
   }
   return false;
@@ -222,12 +222,12 @@ function PreviewHeroCM (name) {
 function SelectHero () {
   if (!herolocked) {
     var newhero = 'empty';
-    if (iscm && selectedherocm !=='empty') {
+    if (iscm && selectedherocm !== 'empty') {
       herolocked = true;
       newhero = selectedherocm;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
-    } else if (!iscm && selectedhero !=='empty' && !IsHeroDisabled(selectedhero)) {
+    } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
       herolocked = true;
       newhero = selectedhero;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
@@ -267,6 +267,6 @@ function GoToStrategy () {
     FindDotaHudElement(element).style.opacity = '1';
   });
 
-  FindDotaHudElement('MainContent').GetParent().style.opacity = "0";
+  FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
 }
