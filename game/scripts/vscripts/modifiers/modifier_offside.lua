@@ -1,12 +1,12 @@
 LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier('modifier_offside_buff', 'modifiers/modifier_onside_buff.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_offside = class(ModifierBaseClass)
 modifier_onside_buff = class(ModifierBaseClass)
-modifier_offside_buff = class(ModifierBaseClass)
 
 function modifier_offside:OnCreated()
-  self:StartIntervalThink(1)
+  if IsServer() then
+    self:StartIntervalThink(1)
+  end
 end
 --------------------------------------------------------------------
 --aura
@@ -40,22 +40,30 @@ function modifier_offside:IsDebuff()
 end
 
 function modifier_offside:OnIntervalThink()
-		i = GetAttacker(i)
-		DebugPrint("GetAttacker(i)")
-	playerHero = self:GetCaster()
+  playerHero = self:GetCaster()
 	h = self:GetParent():GetMaxHealth()
 	local stackCount = self:GetElapsedTime()
-	attacker = self:GetCaster():HasModifier("modifier_offside_buff") or nil
-	
-	if self:GetCaster():HasModifier("modifier_offside_buff") then
-		attacker = self:GetCaster():HasModifier("modifier_offside_buff")
-	end
+	local location = self:GetParent():GetAbsOrigin()
+	local team = self:GetParent():GetTeamNumber()
+	local defenders = FindUnitsInRadius(
+    team,
+    location,
+    nil,
+    2000,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false) or nil
+
+	fountain = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
 
 	local damageTable = {
 	victim = self:GetParent(),
-	attacker = attacker or playerHero,
+	attacker = defenders or fountain,
 	damage = (h * ((0.02 * (stackCount-10)^2)/100)),
 	damage_type = DAMAGE_TYPE_PURE,
+	damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
 	}
 
 	if stackCount >= 10 then
@@ -63,14 +71,14 @@ function modifier_offside:OnIntervalThink()
 	end
 --
 	local particleTable = {
-    	[1]  = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
-    	[10] = "particles/items2_fx/mekanism.vpcf",
-    	[13] = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
-	    [16] = "particles/items2_fx/mekanism.vpcf",
-    	[19]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
-    	[22]= "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
-    	[25]= "particles/items2_fx/mekanism.vpcf",
-    	[28]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+    	[1]  = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[10] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[13] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+	    [16] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[19] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[22] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[25] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    	[28] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
   	}
 
   	if particleTable[stackCount] ~= nil and self:GetCaster() then

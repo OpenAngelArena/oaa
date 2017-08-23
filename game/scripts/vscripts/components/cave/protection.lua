@@ -39,7 +39,7 @@ function ProtectionAura:EndTouchGood(event)
   event.activator:RemoveModifierByName("modifier_offside")
 end
 
-function ProtectionAura:StartTouchBad(event) 
+function ProtectionAura:StartTouchBad(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
     return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
   end
@@ -48,3 +48,4 @@ end
 function ProtectionAura:EndTouchBad(event)
   event.activator:RemoveModifierByName("modifier_offside")
 end
+
