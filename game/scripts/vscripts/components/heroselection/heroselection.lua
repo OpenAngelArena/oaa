@@ -67,9 +67,23 @@ function HeroSelection:CMManager (event)
       Timers:RemoveTimer(cmtimer)
       if cmpickorder["captainradiant"] == "empty" then
         --random captain
+        local skipnext = false
+        PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
+          if PlayerResource:GetTeam(PlayerID) == 2 and skipnext == false then
+            cmpickorder["captainradiant"] = PlayerID
+            skipnext = true
+          end
+        end)
       end
       if cmpickorder["captaindire"] == "empty" then
         --random captain
+        local skipnext = false
+        PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
+          if PlayerResource:GetTeam(PlayerID) == 3 and skipnext == false then
+            cmpickorder["captaindire"] = event.PlayerID
+            skipnext = true
+          end
+        end)
       end
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
@@ -113,6 +127,8 @@ end
 
 -- become a captain, go to next stage, if both captains are selected
 function HeroSelection:CMBecomeCaptain (event)
+  DebugPrint("Selecting captain")
+  DebugPrintTable(event)
   if PlayerResource:GetTeam(event.PlayerID) == 2 then
     cmpickorder["captainradiant"] = event.PlayerID
     CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
