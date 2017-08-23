@@ -71,7 +71,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "14 21 30 45 63"
+        "bonus_health_regen"                              "14 21 30 45 60"
       }
       "04"
       {
@@ -91,7 +91,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "break_time"                                      "13"
+        "break_time"                                      "13 12 11 9 7"
       }
       "08"
       {
@@ -106,27 +106,13 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "65 70 75 80 85"
+        "broken_movement_speed"                           "65"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_from_creeps"                               "30 45 70 120 300"    // New Functionality
-      }
-      // setting either of these to 0 will disable the functionality
-      // of creeps "bleeding" from attacking the wearer
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_sap_damage"                                "2.0 2.5 3.5 5 7"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_sap_duration"                              "2.0"
+        "lifesteal_percent"                               "2 4 6 8 10"
       }
     }
   }
-
-
 }
