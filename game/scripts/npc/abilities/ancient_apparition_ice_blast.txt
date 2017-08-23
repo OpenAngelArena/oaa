@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 200 400"
+    "AbilityManaCost"                                     "150 150 150 200 400"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -44,22 +44,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_min"                                      "275 275 275 275 275"
+        "radius_min"                                      "275"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "radius_grow"                                     "50.0 50.0 50.0 50.0 50.0"
+        "radius_grow"                                     "50.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_max"                                      "1000 1000 1000 1000 1000"
+        "radius_max"                                      "1000"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "path_radius"                                     "275 275 275 275 275"
+        "path_radius"                                     "275"
       }
       "05"
       {
@@ -74,7 +74,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500 1500 1500 1500 1500 1500"
+        "speed"                                           "1500"
       }
       "08"
       {
@@ -84,7 +84,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_sight_radius"                             "500 500 500 500 500"
+        "target_sight_radius"                             "500"
       }
       "10"
       {
