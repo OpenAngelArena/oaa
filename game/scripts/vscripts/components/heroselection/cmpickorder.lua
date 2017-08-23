@@ -126,5 +126,9 @@ cmpickorder = {
       ["side"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty"
     }
-  }
+  },
+
+  ["2picks"] = {},
+
+  ["3picks"] = {}
 }

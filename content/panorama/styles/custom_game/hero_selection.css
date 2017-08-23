@@ -375,6 +375,18 @@ RadioButton:selected {
   box-shadow: #ffffffff -2px -2px 4px 4px;
 }
 
+RadioButton.Disabled {
+  brightness: 0.05;
+}
+
+RadioButton.Disabled:hover {
+  box-shadow: none;
+}
+
+RadioButton.Disabled:selected {
+  box-shadow: none;
+}
+
 .HeroCard {
   height: 100%;
   width: 100%;
@@ -433,6 +445,7 @@ DOTAScenePanel {
 }
 
 .CMHeroPreviewItem:selected {
+  brightness: 2.0;
   box-shadow: none;
 }
 

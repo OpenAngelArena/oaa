@@ -65,7 +65,6 @@ function HeroSelection:CMManager (event)
 
     elseif cmpickorder["currentstage"] == 0 then
       Timers:RemoveTimer(cmtimer)
-      --set captani here
       if cmpickorder["captainradiant"] == "empty" then
         --random captain
       end
@@ -78,8 +77,12 @@ function HeroSelection:CMManager (event)
 
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       Timers:RemoveTimer(cmtimer)
-      if event.hero == "random" then
-        --random if not selected
+      --random if not selected
+      if cmpickorder["order"][cmpickorder["currentstage"]].type == "Pick" then
+        if event.hero == "random" then
+          event.hero = HeroSelection:RandomHero()
+        end
+        table.insert(cmpickorder[cmpickorder["order"][cmpickorder["currentstage"]].side.."picks"], 1, event.hero)
       end
       cmpickorder["order"][cmpickorder["currentstage"]].hero = event.hero
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
@@ -88,7 +91,7 @@ function HeroSelection:CMManager (event)
         HeroSelection:CMTimer(20, "CAPTAINS MODE")
       else
         forcestop = false
-        HeroSelection:APTimer(20, "CAPTAINS MODE")
+        HeroSelection:APTimer(30, "CHOOSE HERO")
       end
     end
     forcestop = false
@@ -137,13 +140,10 @@ function HeroSelection:APTimer (time, message)
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
-        local curstate = 0
-        local rndhero = RandomInt(0, totalheroes)
-        for name, _ in pairs(herolist) do
-          if curstate == rndhero then
-            HeroSelection:UpdateTable(key, name)
-          end
-          curstate = curstate + 1
+        if GetMapName() == "oaa_captains_mode" then
+          HeroSelection:UpdateTable(key, cmpickorder[value.team.."picks"][1])
+        else
+          HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
         end
       end
       PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, STARTING_GOLD, 0)
@@ -154,6 +154,17 @@ function HeroSelection:APTimer (time, message)
     Timers:CreateTimer(1, function()
       HeroSelection:APTimer(time - 1, message)
     end)
+  end
+end
+
+function HeroSelection:RandomHero ()
+  local curstate = 0
+  local rndhero = RandomInt(0, totalheroes)
+  for name, _ in pairs(herolist) do
+    if curstate == rndhero then
+      return name
+    end
+    curstate = curstate + 1
   end
 end
 
@@ -179,6 +190,14 @@ end
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
+
+  if GetMapName() == "oaa_captains_mode" then
+    for k,v in pairs(cmpickorder[teamID.."picks"])do
+      if v == hero then
+        table.remove(cmpickorder[teamID.."picks"], k)
+      end
+    end
+  end
 
   DebugPrintTable(selectedtable)
 
