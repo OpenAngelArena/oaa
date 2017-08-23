@@ -113,7 +113,8 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killedHero = killedPlayer:GetAssignedHero()
   local killerHero = killerPlayer:GetAssignedHero()
-  local killerTeam = killerHero:GetTeamNumber()
+  local killerHeroID = killerHero:GetPlayerOwnerID()
+  local killerTeam = keys.killer:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
   local killedNetworth = killedHero:GetNetworth()
