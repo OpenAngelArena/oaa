@@ -18,7 +18,7 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 
 function onPlayerStatChange (table, key, data) {
-  if (key === 'herolist' && data !==null) {
+  if (key === 'herolist' && data !== null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
@@ -43,7 +43,7 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = key;
     }
-  } else if (key === 'APdata' && data !==null) {
+  } else if (key === 'APdata' && data !== null) {
     var length = Object.keys(data).length;
     if (panelscreated !== length) {
       var teamdire = FindDotaHudElement('TeamDire');
@@ -51,7 +51,7 @@ function onPlayerStatChange (table, key, data) {
       panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
-      for ( var nkey in data) {
+      for (var nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentteam = null;
           switch (data[nkey].team) {
@@ -79,7 +79,7 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     } else {
-      for ( var nkey in data) {
+      for (var nkey in data) {
         if (data.hasOwnProperty(nkey)) {
           var currentplayer = FindDotaHudElement(data[nkey].steamid);
           currentplayer.heroname = data[nkey].selectedhero;
@@ -91,7 +91,7 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     }
-  } else if (key === 'CMdata' && data !==null) {
+  } else if (key === 'CMdata' && data !== null) {
     iscm = true;
     var teamID = Players.GetTeam(Game.GetLocalPlayerID());
     var weare = teamID === 2 ? 'radiant' : 'dire';
@@ -140,7 +140,7 @@ function onPlayerStatChange (table, key, data) {
         FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
         DisableHero(data['order'][data['currentstage']].hero);
       }
-      if (Game.GetLocalPlayerID() === data['captain' + weare] && teamID === data['order'][data['currentstage']+1].side) {
+      if (Game.GetLocalPlayerID() === data['captain' + weare] && teamID === data['order'][data['currentstage'] + 1].side) {
         FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
       } else {
         FindDotaHudElement('CaptainLockIn').style.visibility = 'collapse';
@@ -159,7 +159,7 @@ function onPlayerStatChange (table, key, data) {
       disabledheroes = [];
       FindDotaHudElement('CMHeroPreview').style.visibility = 'visible';
     }
-  } else if (key === 'time' && data !==null) {
+  } else if (key === 'time' && data !== null) {
     if (data['time'] > -1) {
       FindDotaHudElement('TimeLeft').text = data['time'];
       FindDotaHudElement('GameMode').text = data['mode'];
@@ -172,12 +172,12 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function ReloadCMStatus (data) {
-  //reset all data for people, who lost it
+  // reset all data for people, who lost it
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
-  for ( var nkey in data['order']) {
+  for (var nkey in data['order']) {
     var obj = data['order'][nkey];
     FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !=='empty') {
+    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
