@@ -7,45 +7,56 @@ if ProtectionAura == nil then
 end
 
 function ProtectionAura:Init ()
-  ProtectionAura.zone1 = ZoneControl:CreateZone('boss_good_zone_0', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {}
-  })
+  for RoomID = 0,5 do
+    ProtectionAura.zoneRoomID = ZoneControl:CreateZone('boss_good_zone_' .. RoomID, {
+      mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+      margin = 0,
+      padding = 0,
+      players = {}
+    })
+    ProtectionAura.zoneRoomID.onStartTouch(ProtectionAura.StartTouchGood)
+    ProtectionAura.zoneRoomID.onEndTouch(ProtectionAura.EndTouchGood)
+  end
 
-  ProtectionAura.zone2 = ZoneControl:CreateZone('boss_bad_zone_0', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {}
-  })
+  for RoomID = 6,11 do
+    ProtectionAura.zoneRoomID = ZoneControl:CreateZone('boss_bad_zone_' .. RoomID, {
+      mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+      margin = 0,
+      padding = 0,
+      players = {}
+    })
 
-  ProtectionAura.zone1.onStartTouch(ProtectionAura.StartTouchGood)
-  ProtectionAura.zone1.onEndTouch(ProtectionAura.EndTouchGood)
-  ProtectionAura.zone2.onStartTouch(ProtectionAura.StartTouchBad)
-  ProtectionAura.zone2.onEndTouch(ProtectionAura.EndTouchBad)
+
+    ProtectionAura.zoneRoomID.onStartTouch(ProtectionAura.StartTouchBad)
+--    ProtectionAura.zoneRoomID.onEndTouch(ProtectionAura.EndTouchBad)
+  end
 
   ProtectionAura.active = true
+
 end
 
 function ProtectionAura:StartTouchGood(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS then
-  return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    if not event.activator:HasModifier("modifier_offside") then
+      return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    end
   end
 end
 
-function ProtectionAura:EndTouchGood(event)
+--[[function ProtectionAura:EndTouchGood(event)
   event.activator:RemoveModifierByName("modifier_offside")
-end
+end]]
 
 function ProtectionAura:StartTouchBad(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
-    return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    if not event.activator:HasModifier("modifier_offside") then
+      return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    end
   end
 end
 
-function ProtectionAura:EndTouchBad(event)
+
+--[[function ProtectionAura:EndTouchBad(event)
   event.activator:RemoveModifierByName("modifier_offside")
-end
+end]]
 

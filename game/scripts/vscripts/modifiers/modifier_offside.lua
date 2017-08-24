@@ -40,6 +40,10 @@ function modifier_offside:IsDebuff()
 end
 
 function modifier_offside:OnIntervalThink()
+  if not ProtectionAura then
+    self:GetCaster():RemoveModifierByName("modifier_offside")
+  end
+
   playerHero = self:GetCaster()
 	h = self:GetParent():GetMaxHealth()
 	local stackCount = self:GetElapsedTime()
