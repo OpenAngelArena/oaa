@@ -1,3 +1,6 @@
+function table.clone(org)
+  return {unpack(org)}
+end
 
 function Event ()
   local state = {
