@@ -1,10 +1,14 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module != 'undefined' && module.exports) {
   module.exports = SelectHero;
   module.exports = CaptainSelectHero;
   module.exports = BecomeCaptain;
 }
+var console = {
+  log: $.Msg.bind($)
+};
+
 
 var selectedhero = 'empty';
 var disabledheroes = [];
@@ -23,7 +27,7 @@ function onPlayerStatChange (table, key, data) {
   // travis asked me, i didnt want to!
   var nkey = null;
   var newimage = null;
-  if (key === 'herolist' && data !== null) {
+  if (key === 'herolist' && data != null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
@@ -48,9 +52,9 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = key;
     }
-  } else if (key === 'APdata' && data !== null) {
+  } else if (key === 'APdata' && data != null) {
     var length = Object.keys(data).length;
-    if (panelscreated !== length) {
+    if (panelscreated != length) {
       var teamdire = FindDotaHudElement('TeamDire');
       var teamradiant = FindDotaHudElement('TeamRadiant');
       panelscreated = length;
@@ -96,7 +100,8 @@ function onPlayerStatChange (table, key, data) {
         }
       }
     }
-  } else if (key === 'CMdata' && data !== null) {
+  } else if (key === 'CMdata' && data != null) {
+    console.log(data);
     iscm = true;
     var teamID = Players.GetTeam(Game.GetLocalPlayerID());
     var weare = teamID === 2 ? 'radiant' : 'dire';
@@ -163,7 +168,7 @@ function onPlayerStatChange (table, key, data) {
       disabledheroes = [];
       FindDotaHudElement('CMHeroPreview').style.visibility = 'visible';
     }
-  } else if (key === 'time' && data !== null) {
+  } else if (key === 'time' && data != null) {
     if (data['time'] > -1) {
       FindDotaHudElement('TimeLeft').text = data['time'];
       FindDotaHudElement('GameMode').text = data['mode'];
@@ -181,7 +186,7 @@ function ReloadCMStatus (data) {
   for (var nkey in data['order']) {
     var obj = data['order'][nkey];
     FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
+    if (obj.side === teamID && obj.type === 'Pick' && obj.hero != 'empty') {
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
@@ -195,14 +200,14 @@ function ReloadCMStatus (data) {
 }
 
 function DisableHero (name) {
-  if (FindDotaHudElement(name) !== null) {
+  if (FindDotaHudElement(name) != null) {
     FindDotaHudElement(name).AddClass('Disabled');
     disabledheroes.push(name);
   }
 }
 
 function IsHeroDisabled (name) {
-  if (disabledheroes.indexOf(name) !== -1) {
+  if (disabledheroes.indexOf(name) != -1) {
     return true;
   }
   return false;
@@ -226,12 +231,12 @@ function PreviewHeroCM (name) {
 function SelectHero () {
   if (!herolocked) {
     var newhero = 'empty';
-    if (iscm && selectedherocm !== 'empty') {
+    if (iscm && selectedherocm != 'empty') {
       herolocked = true;
       newhero = selectedherocm;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
-    } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
+    } else if (!iscm && selectedhero != 'empty' && !IsHeroDisabled(selectedhero)) {
       herolocked = true;
       newhero = selectedhero;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
@@ -250,7 +255,7 @@ function BecomeCaptain () {
 }
 
 function CaptainSelectHero () {
-  if (selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
+  if (selectedhero != 'empty' && !IsHeroDisabled(selectedhero)) {
     GameEvents.SendCustomGameEventToServer('cm_hero_selected', {
       hero: selectedhero
     });
