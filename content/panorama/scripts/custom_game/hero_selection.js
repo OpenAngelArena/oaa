@@ -5,10 +5,6 @@ if (typeof module != 'undefined' && module.exports) {
   module.exports = CaptainSelectHero;
   module.exports = BecomeCaptain;
 }
-var console = {
-  log: $.Msg.bind($)
-};
-
 
 var selectedhero = 'empty';
 var disabledheroes = [];
@@ -101,7 +97,6 @@ function onPlayerStatChange (table, key, data) {
       }
     }
   } else if (key === 'CMdata' && data != null) {
-    console.log(data);
     iscm = true;
     var teamID = Players.GetTeam(Game.GetLocalPlayerID());
     var weare = teamID === 2 ? 'radiant' : 'dire';
