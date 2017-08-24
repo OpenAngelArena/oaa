@@ -90,7 +90,7 @@ function Doors.OpenDoors(gate, settings)
   local delay = settings.openingStepDelay or 1/100
   local stepSize = settings.openingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, -distance)
-  
+
   EmitSoundOn("Ambient.Doors.Open", gate.props.gate)
   --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
   Doors:RemoveObstuctors(gate, settings)
@@ -125,7 +125,7 @@ function Doors.CloseDoors(gate, settings)
   EmitSoundOn("Ambient.Doors.Close ", gate.props.gate)
   --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
   Doors:AddObstructors(gate, settings)
-  
+
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
     traveled = traveled + stepSize

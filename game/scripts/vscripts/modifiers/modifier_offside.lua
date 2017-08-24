@@ -32,20 +32,20 @@ end
 --------------------------------------------------------------------
 --% health damage
 function modifier_offside:GetTexture()
-	return "custom/modifier_offside"
+  return "custom/modifier_offside"
 end
 
 function modifier_offside:IsDebuff()
-	return true
+  return true
 end
 
 function modifier_offside:OnIntervalThink()
-  playerHero = self:GetCaster()
-	h = self:GetParent():GetMaxHealth()
-	local stackCount = self:GetElapsedTime()
-	local location = self:GetParent():GetAbsOrigin()
-	local team = self:GetParent():GetTeamNumber()
-	local defenders = FindUnitsInRadius(
+  local playerHero = self:GetCaster()
+  local h = self:GetParent():GetMaxHealth()
+  local stackCount = self:GetElapsedTime()
+  local location = self:GetParent():GetAbsOrigin()
+  local team = self:GetParent():GetTeamNumber()
+  local defenders = FindUnitsInRadius(
     team,
     location,
     nil,
@@ -56,35 +56,35 @@ function modifier_offside:OnIntervalThink()
     FIND_ANY_ORDER,
     false) or nil
 
-	fountain = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
+  fountain = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
 
-	local damageTable = {
-	victim = self:GetParent(),
-	attacker = defenders or fountain,
-	damage = (h * ((0.02 * (stackCount-10)^2)/100)),
-	damage_type = DAMAGE_TYPE_PURE,
-	damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
-	}
+  local damageTable = {
+  victim = self:GetParent(),
+  attacker = defenders or fountain,
+  damage = (h * ((0.02 * (stackCount-10)^2)/100)),
+  damage_type = DAMAGE_TYPE_PURE,
+  damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+  }
 
-	if stackCount >= 10 then
-		return ApplyDamage(damageTable)
-	end
+  if stackCount >= 10 then
+    return ApplyDamage(damageTable)
+  end
 --
-	local particleTable = {
-    	[1]  = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[10] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[13] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-	    [16] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[19] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[22] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[25] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    	[28] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-  	}
+  local particleTable = {
+      [1]  = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [10] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [13] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [16] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [19] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [22] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [25] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+      [28] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
+    }
 
-  	if particleTable[stackCount] ~= nil and self:GetCaster() then
-    	local part = ParticleManager:CreateParticle(particleTable[stackCount], PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
-    	ParticleManager:SetParticleControlEnt(part, 1, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_origin", self:GetCaster():GetAbsOrigin(), true)
-    	ParticleManager:ReleaseParticleIndex(part)
-  	end
+    if particleTable[stackCount] ~= nil and self:GetCaster() then
+      local part = ParticleManager:CreateParticle(particleTable[stackCount], PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+      ParticleManager:SetParticleControlEnt(part, 1, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_origin", self:GetCaster():GetAbsOrigin(), true)
+      ParticleManager:ReleaseParticleIndex(part)
+    end
 end
 
