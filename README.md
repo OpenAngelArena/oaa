@@ -16,7 +16,7 @@ There are also issues marked with [`Great for new contributors`](https://github.
 Music can be found at [Soundcloud][soundcloud-link]
 
 ### Suggestions?
-Do not create or comment on tickets in this repository for game suggestions. Use the Discord.
+Do not create or comment on tickets in this repository for game suggestions. Use [the suggestion repo](https://github.com/OpenAngelArena/suggestions/issues)
 
 ## Contributors
 

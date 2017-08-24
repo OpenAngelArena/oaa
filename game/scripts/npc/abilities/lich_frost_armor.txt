@@ -57,12 +57,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed"                             "-30"
+        "slow_movement_speed"                             "-24 -26 -28 -30 -32 -34"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed"                               "-30 -30 -30 -30 -40 -60"
+        "slow_attack_speed"                               "-24 -26 -28 -30 -40 -60"
       }    
     }
   }

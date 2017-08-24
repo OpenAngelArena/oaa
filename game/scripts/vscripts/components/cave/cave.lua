@@ -171,11 +171,30 @@ function CaveHandler:CreepDeath (teamID, roomID)
       cave.rooms[roomID + 1].door.Open()
       cave.rooms[roomID + 1].zone.disable()
 
-      -- inform players
-      Notifications:TopToTeam(teamID, {
-        text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
-        duration = 5,
-      })
+      local result = FindUnitsInRadius(
+        teamID, -- team
+        cave.rooms[roomID].zone.origin, -- location
+        nil, -- cache
+        cave.rooms[roomID].radius, -- radius
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
+        DOTA_UNIT_TARGET_ALL, -- type filter
+        DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
+        FIND_ANY_ORDER, -- order
+        false -- can grow cache
+      )
+
+      local hasSeenNotification = {}
+
+      for _, unit in pairs(result) do
+        if CaveHandler:IsInFarmingCave(teamID, unit) and hasSeenNotification[unit:GetPlayerOwner()] == nil then
+          -- inform players
+          Notifications:Top(unit:GetPlayerOwner(), {
+            text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
+            duration = 5,
+          })
+          hasSeenNotification[unit:GetPlayerOwner()] = true
+        end
+      end
     else
       -- close doors
       self:CloseDoors(teamID)
@@ -342,7 +361,7 @@ function CaveHandler:TeleportAll(units, spawns)
     ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeamNumber()])
 
     Timers:CreateTimer(3, function ()
-      if not Duels.currentDuel then
+      if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
         FindClearSpaceForUnit(
           unit, -- unit
           spawns[unit:GetTeamNumber()], -- location
@@ -350,6 +369,17 @@ function CaveHandler:TeleportAll(units, spawns)
         )
         MoveCameraToPlayer(unit)
         unit:Stop()
+      else
+        local unlisten = Duels.onEnd(function ()
+
+        FindClearSpaceForUnit(
+          unit, -- unit
+          spawns[unit:GetTeamNumber()], -- location
+          false -- ???
+        )
+        MoveCameraToPlayer(unit)
+        unit:Stop()
+        end)
       end
       Timers:CreateTimer(0, function ()
         ParticleManager:DestroyParticle(origin, false)
@@ -357,19 +387,5 @@ function CaveHandler:TeleportAll(units, spawns)
       end)
 
     end)
-  end
-end
-
-function CaveHandler:QuickTeleportAll(units, spawns)
-  for _, unit in pairs(units) do
-    if not Duels.currentDuel then
-      FindClearSpaceForUnit(
-        unit, -- unit
-        spawns[unit:GetTeamNumber()], -- location
-        false -- ???
-      )
-      MoveCameraToPlayer(unit)
-      unit:Stop() -- stand still
-    end
   end
 end
