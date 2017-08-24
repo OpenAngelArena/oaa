@@ -141,23 +141,23 @@ function BossAI:DeathHandler (state, keys)
     end
 
   elseif state.tier == 2 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
   elseif state.tier == 3 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif state.tier == 4 then
 
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 5 then
 
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 6 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end
