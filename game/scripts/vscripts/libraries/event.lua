@@ -25,8 +25,10 @@ function Event ()
   end
 
   function broadcast ( ... )
-    for index = 1,#state.listeners do
-      local handler = state.listeners[index]
+    local handlers = table.clone(state.listeners)
+
+    for index = 1,#handlers do
+      local handler = handlers[index]
       if handler and not handler.removed then
         handler.fn(unpack({...}))
       end
