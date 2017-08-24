@@ -1,6 +1,6 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
-if (typeof module != 'undefined' && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = SelectHero;
   module.exports = CaptainSelectHero;
   module.exports = BecomeCaptain;
@@ -50,7 +50,7 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'APdata' && data != null) {
     var length = Object.keys(data).length;
-    if (panelscreated != length) {
+    if (panelscreated !== length) {
       var teamdire = FindDotaHudElement('TeamDire');
       var teamradiant = FindDotaHudElement('TeamRadiant');
       panelscreated = length;
@@ -181,7 +181,7 @@ function ReloadCMStatus (data) {
   for (var nkey in data['order']) {
     var obj = data['order'][nkey];
     FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-    if (obj.side === teamID && obj.type === 'Pick' && obj.hero != 'empty') {
+    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
@@ -202,7 +202,7 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
-  if (disabledheroes.indexOf(name) != -1) {
+  if (disabledheroes.indexOf(name) !== -1) {
     return true;
   }
   return false;
@@ -226,12 +226,12 @@ function PreviewHeroCM (name) {
 function SelectHero () {
   if (!herolocked) {
     var newhero = 'empty';
-    if (iscm && selectedherocm != 'empty') {
+    if (iscm && selectedherocm !== 'empty') {
       herolocked = true;
       newhero = selectedherocm;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
-    } else if (!iscm && selectedhero != 'empty' && !IsHeroDisabled(selectedhero)) {
+    } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
       herolocked = true;
       newhero = selectedhero;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
@@ -250,7 +250,7 @@ function BecomeCaptain () {
 }
 
 function CaptainSelectHero () {
-  if (selectedhero != 'empty' && !IsHeroDisabled(selectedhero)) {
+  if (selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
     GameEvents.SendCustomGameEventToServer('cm_hero_selected', {
       hero: selectedhero
     });
