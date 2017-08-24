@@ -517,6 +517,10 @@ function Duels:PurgeAfterDuel (hero)
 end
 
 function Duels:ResetPlayerState (hero)
+  if hero:FindModifierByName("modifier_skeleton_king_reincarnation_scepter_active") then
+    hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
+  end
+
   if not hero:IsAlive() then
     hero:RespawnHero(false,false,false)
   end
