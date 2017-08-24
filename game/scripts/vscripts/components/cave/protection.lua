@@ -35,6 +35,35 @@ function ProtectionAura:Init ()
 
 end
 
+function ProtectionAura:IsInEnemyZone(teamID, entity)
+  local zoneOrigin = self.ProtectionAura.zoneRoomID.origin
+  local bounds = self.ProtectionAura.zoneRoomID.bounds
+
+  local origin = entity
+  if entity.GetAbsOrigin then
+    origin = entity:GetAbsOrigin()
+  end
+
+  if origin.x < bounds.Mins.x + zoneOrigin.x then
+    -- DebugPrint('x is too small')
+    return false
+  end
+  if origin.y < bounds.Mins.y + zoneOrigin.y then
+    -- DebugPrint('y is too small')
+    return false
+  end
+  if origin.x > bounds.Maxs.x + zoneOrigin.x then
+    -- DebugPrint('x is too large')
+    return false
+  end
+  if origin.y > bounds.Maxs.y + zoneOrigin.y then
+    -- DebugPrint('y is too large')
+    return false
+  end
+
+  return true
+end
+
 function ProtectionAura:StartTouchGood(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS then
     if not event.activator:HasModifier("modifier_offside") then
@@ -43,9 +72,12 @@ function ProtectionAura:StartTouchGood(event)
   end
 end
 
---[[function ProtectionAura:EndTouchGood(event)
-  event.activator:RemoveModifierByName("modifier_offside")
-end]]
+function ProtectionAura:EndTouchGood(event)
+  Timers:CreateTimer(1)
+   if not ProtectionAura:IsInEnemyZone(teamID, entity) then
+    event.activator:RemoveModifierByName("modifier_offside")
+  end
+end
 
 function ProtectionAura:StartTouchBad(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
@@ -56,7 +88,9 @@ function ProtectionAura:StartTouchBad(event)
 end
 
 
---[[function ProtectionAura:EndTouchBad(event)
-  event.activator:RemoveModifierByName("modifier_offside")
-end]]
-
+function ProtectionAura:EndTouchBad(event)
+  Timers:CreateTimer(1)
+  if not ProtectionAura:IsInEnemyZone(teamID, entity) then
+    event.activator:RemoveModifierByName("modifier_offside")
+  end
+end
