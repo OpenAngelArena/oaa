@@ -41,7 +41,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;octarine core"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
