@@ -50,7 +50,7 @@
     "ItemCost"                                            "9200"
     "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "ags;ultimate;aghanim's scepter;ags"
+    "ItemAliases"                                         "ags 3;ultimate 3;aghanim's scepter 3;aghs 3"
     //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDroppable"                                       "0"

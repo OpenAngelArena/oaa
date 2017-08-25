@@ -1,17 +1,27 @@
+function table.clone(org)
+  return {unpack(org)}
+end
 
 function Event ()
   local state = {
     listeners = {}
   }
 
-  function listen (fn)
+  local api = {
+    debug = false
+  }
+
+  local function listen (fn)
+    if api.debug then
+      print('Adding listener')
+    end
     local handler = {
       fn = fn,
       removed = false
     }
     table.insert(state.listeners, handler)
 
-    function unlisten ()
+    local function unlisten ()
       for index = 1,#state.listeners do
         if state.listeners[index] == handler then
           table.remove(state.listeners, index)
@@ -24,17 +34,25 @@ function Event ()
     return unlisten
   end
 
-  function broadcast ( ... )
-    for index = 1,#state.listeners do
-      local handler = state.listeners[index]
+  local function broadcast ( ... )
+    if api.debug then
+      print('Triggering ' .. #state.listeners .. ' listener')
+    end
+    if #state.listeners == 0 then
+      return
+    end
+    local handlers = table.clone(state.listeners)
+
+    for index = 1,#handlers do
+      local handler = handlers[index]
       if handler and not handler.removed then
         handler.fn(unpack({...}))
       end
     end
   end
 
-  return {
-    broadcast = broadcast,
-    listen = listen
-  }
+  api.broadcast = broadcast
+  api.listen = listen
+
+  return api
 end
