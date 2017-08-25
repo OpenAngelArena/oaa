@@ -5,7 +5,7 @@ modifier_duel_rune_hill = class(ModifierBaseClass)
 modifier_duel_rune_hill_enemy = class(ModifierBaseClass)
 
 function modifier_duel_rune_hill_enemy:IsHidden()
-  return false
+  return true
 end
 
 function modifier_duel_rune_hill:OnCreated()
