@@ -462,8 +462,8 @@ function Duels:EndDuel ()
   self.currentDuel = nil
 
   Timers:CreateTimer(0.1, function ()
+    DebugPrint('Sending all players back!')
     self:AllPlayers(currentDuel, function (state)
-      -- DebugPrintTable(state)
       local player = PlayerResource:GetPlayer(state.id)
       if player == nil then -- disconnected!
         return
@@ -488,13 +488,12 @@ function Duels:EndDuel ()
     -- Remove Modifier
     for playerId = 0,19 do
       local player = PlayerResource:GetPlayer(playerId)
-      if player == nil then -- disconnected!
-        return
-      end
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if player then
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-      if hero ~= nil then
-        hero:RemoveModifierByName("modifier_out_of_duel")
+        if hero ~= nil then
+          hero:RemoveModifierByName("modifier_out_of_duel")
+        end
       end
     end
     DuelEndEvent.broadcast(currentDuel)
