@@ -68,6 +68,7 @@ end
 
 function FinalDuel:EndDuelHandler (currentDuel)
   if not self.isCurrentlyFinalDuel then
+    DebugPrint('Normal Duel has ended')
     if self.needsFinalDuel then
       -- a duel just ended and we need to trigger the final duel
       Timers:CreateTimer(10, function ()
@@ -76,6 +77,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
     end
     return
   end
+  DebugPrint('Final Duel has ended')
   self.isCurrentlyFinalDuel = false
 
   -- currentDuel.duelEnd1
