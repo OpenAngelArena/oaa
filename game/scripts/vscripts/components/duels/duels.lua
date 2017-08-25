@@ -1,3 +1,4 @@
+LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
 
 DUEL_IS_STARTING = 21
@@ -516,8 +517,14 @@ function Duels:PurgeAfterDuel (hero)
 end
 
 function Duels:ResetPlayerState (hero)
-  if hero:FindModifierByName("modifier_skeleton_king_reincarnation_scepter_active") then
+  if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
     hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
+  end
+  if hero:HasModifier("modifier_offside") then
+    hero:RemoveModifierByName("modifier_offside")
+  end
+  if hero:HasModifier("modifier_is_in_offside") then
+    hero:RemoveModifierByName("modifier_is_in_offside")
   end
 
   if not hero:IsAlive() then
@@ -552,6 +559,7 @@ function Duels:SavePlayerState (hero)
     abilities = {},
     items = {},
     modifiers = {},
+    offsidesStacks = 0,
     hp = hero:GetHealth(),
     mana = hero:GetMana(),
     assignable = true -- basically just for for clearer code
@@ -563,6 +571,12 @@ function Duels:SavePlayerState (hero)
         state.location = Vector(-5221.958496, -139.014923, 387.999023)
     else
         state.location = Vector(4908.748047, -91.460907, 392.000000)
+    end
+  else
+    -- hero is alive, lets check for offsides protection aura
+    local modifier = hero:FindModifierByName("modifier_offside")
+    if modifier then
+      state.offsidesStacks = modifier:GetStackCount()
     end
   end
 
@@ -613,6 +627,11 @@ function Duels:RestorePlayerState (hero, state)
       item:EndCooldown()
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
+  end
+
+  if state.offsidesStacks > 0 then
+    local modifier = hero:AddNewModifier(hero, nil, "modifier_offside", {})
+    modifier:SetStackCount(state.offsidesStacks)
   end
 end
 
