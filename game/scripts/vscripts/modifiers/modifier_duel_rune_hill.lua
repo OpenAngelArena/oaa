@@ -36,10 +36,10 @@ function modifier_duel_rune_hill:GetModifierAura()
   return "modifier_duel_rune_hill_enemy"
 end
 
-function modifier_duel_rune_hill:GetAuraEntityReject(entity)
+--[[function modifier_duel_rune_hill:GetAuraEntityReject(entity)
   self:SetStackCount(0)
   return false
-end
+end]]
 
 --------------------------------------------------------------------------
 
