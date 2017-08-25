@@ -7,28 +7,33 @@ if ProtectionAura == nil then
 end
 
 function ProtectionAura:Init ()
-  for RoomID = 0,5 do
-    ProtectionAura.zoneRoomID = ZoneControl:CreateZone('boss_good_zone_' .. RoomID, {
+  ProtectionAura.zones = {
+    [DOTA_TEAM_GOODGUYS] = {},
+    [DOTA_TEAM_BADGUYS] = {},
+  }
+
+  for roomID = 0,5 do
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_OUT,
       margin = 0,
       padding = 0,
       players = {}
     })
-    ProtectionAura.zoneRoomID.onStartTouch(ProtectionAura.StartTouchGood)
-    ProtectionAura.zoneRoomID.onEndTouch(ProtectionAura.EndTouchGood)
+
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouchGood)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouchGood)
   end
 
-  for RoomID = 6,11 do
-    ProtectionAura.zoneRoomID = ZoneControl:CreateZone('boss_bad_zone_' .. RoomID, {
+  for roomID = 0,5 do
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_OUT,
       margin = 0,
       padding = 0,
       players = {}
     })
 
-
-    ProtectionAura.zoneRoomID.onStartTouch(ProtectionAura.StartTouchBad)
---    ProtectionAura.zoneRoomID.onEndTouch(ProtectionAura.EndTouchBad)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouchBad)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouchBad)
   end
 
   ProtectionAura.active = true
@@ -36,32 +41,17 @@ function ProtectionAura:Init ()
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  local zoneOrigin = self.ProtectionAura.zoneRoomID.origin
-  local bounds = self.ProtectionAura.zoneRoomID.bounds
+  for roomID = 0,5 do
+    if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
+      return true
+    end
+  end
+  return false
+end
 
-  local origin = entity
-  if entity.GetAbsOrigin then
-    origin = entity:GetAbsOrigin()
-  end
-
-  if origin.x < bounds.Mins.x + zoneOrigin.x then
-    -- DebugPrint('x is too small')
-    return false
-  end
-  if origin.y < bounds.Mins.y + zoneOrigin.y then
-    -- DebugPrint('y is too small')
-    return false
-  end
-  if origin.x > bounds.Maxs.x + zoneOrigin.x then
-    -- DebugPrint('x is too large')
-    return false
-  end
-  if origin.y > bounds.Maxs.y + zoneOrigin.y then
-    -- DebugPrint('y is too large')
-    return false
-  end
-
-  return true
+function ProtectionAura:IsInSpecificZone(teamID, roomID, entity)
+  local zone = self.zones[teamID][roomID]
+  return zone.handle:IsTouching(entity)
 end
 
 function ProtectionAura:StartTouchGood(event)
@@ -73,8 +63,7 @@ function ProtectionAura:StartTouchGood(event)
 end
 
 function ProtectionAura:EndTouchGood(event)
-  Timers:CreateTimer(1)
-   if not ProtectionAura:IsInEnemyZone(teamID, entity) then
+  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
     event.activator:RemoveModifierByName("modifier_offside")
   end
 end
@@ -87,10 +76,8 @@ function ProtectionAura:StartTouchBad(event)
   end
 end
 
-
 function ProtectionAura:EndTouchBad(event)
-  Timers:CreateTimer(1)
-  if not ProtectionAura:IsInEnemyZone(teamID, entity) then
+  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
     event.activator:RemoveModifierByName("modifier_offside")
   end
 end

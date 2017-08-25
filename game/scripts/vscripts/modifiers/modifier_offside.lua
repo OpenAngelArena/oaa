@@ -3,11 +3,16 @@ LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LU
 modifier_offside = class(ModifierBaseClass)
 modifier_onside_buff = class(ModifierBaseClass)
 
+local TICKS_PER_SECOND = 5
+
 function modifier_offside:OnCreated()
   if IsServer() then
-    self:StartIntervalThink(1)
+    self:SetStackCount(0)
+    self:StartIntervalThink(1 / TICKS_PER_SECOND)
   end
 end
+modifier_offside.OnRefresh = modifier_offside.OnCreated
+
 --------------------------------------------------------------------
 --aura
 function modifier_offside:IsAura()
@@ -40,25 +45,27 @@ function modifier_offside:IsDebuff()
 end
 
 function modifier_offside:OnIntervalThink()
-<<<<<<< HEAD
   if not ProtectionAura then
-    self:GetCaster():RemoveModifierByName("modifier_offside")
+    self:Destroy()
   end
 
-  playerHero = self:GetCaster()
-	h = self:GetParent():GetMaxHealth()
-	local stackCount = self:GetElapsedTime()
-	local location = self:GetParent():GetAbsOrigin()
-	local team = self:GetParent():GetTeamNumber()
-	local defenders = FindUnitsInRadius(
-=======
+  if not self.stackOffset then
+    self.stackOffset = 1
+  else
+    self.stackOffset = self.stackOffset + 1
+  end
+
+  if self.stackOffset >= TICKS_PER_SECOND then
+    self:IncrementStackCount()
+    self.stackOffset = 0
+  end
+
   local playerHero = self:GetCaster()
   local h = self:GetParent():GetMaxHealth()
-  local stackCount = self:GetElapsedTime()
+  local stackCount = self:GetStackCount()
   local location = self:GetParent():GetAbsOrigin()
   local team = self:GetParent():GetTeamNumber()
   local defenders = FindUnitsInRadius(
->>>>>>> f9f4808044a829682f9a22802b9fff1823cb29bb
     team,
     location,
     nil,
@@ -69,15 +76,36 @@ function modifier_offside:OnIntervalThink()
     FIND_ANY_ORDER,
     false) or nil
 
-  fountain = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
+  if #defenders == 0 then
+    defenders = nil
+  end
+
+  if defenders then
+    defenders = defenders[1]
+  else
+    defenders = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
+  end
 
   local damageTable = {
-  victim = self:GetParent(),
-  attacker = defenders or fountain,
-  damage = (h * ((0.02 * (stackCount-10)^2)/100)),
-  damage_type = DAMAGE_TYPE_PURE,
-  damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+    victim = self:GetParent(),
+    attacker = defenders,
+    damage = (h * ((0.1 * (stackCount-10))/100)) / TICKS_PER_SECOND,
+    damage_type = DAMAGE_TYPE_PURE,
+    damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+    ability = nil
   }
+  --[[
+
+  local damageTable = {
+    victim = parent,
+    attacker = caster,
+    damage = self.damagePerTick,
+    damage_type = DAMAGE_TYPE_PURE,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = ability
+  }
+
+  ]]
 
   if stackCount >= 10 then
     return ApplyDamage(damageTable)

@@ -29,10 +29,12 @@ function CaveHandler:Init ()
     }
 
     self.caves[teamID].rooms[0] = {
-      zone = ZoneControl:CreateZone(caveName .. "_zone_0", {
-        mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-        players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
-      }),
+      zones = {
+        ZoneControl:CreateZone(caveName .. "_zone_0", {
+          mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+        })
+      },
       radius = 1600
     }
     for roomID = 1,4 do
@@ -43,6 +45,10 @@ function CaveHandler:Init ()
         doors = {},
         radius = 1600
       }
+      self.caves[teamID].rooms[roomID].zones[0] = ZoneControl:CreateZone(caveName .. "_room_" .. roomID, {
+        mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+        players = {}
+      })
       for zoneID=1,MAX_ZONES do
         if Entities:FindByName(nil, caveName .. "_zone_" .. roomID .. '_' .. zoneID) then
           self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
@@ -73,7 +79,7 @@ end
 
 function CaveHandler:InitCave (teamID)
   self:ResetCave(teamID)
-  self.caves[teamID].rooms[0].zone.disable()
+  CaveHandler:DisableZones(teamID, 0)
 end
 
 function CaveHandler:ResetCave (teamID)
@@ -191,7 +197,7 @@ function CaveHandler:CreepDeath (teamID, roomID)
 
       local result = FindUnitsInRadius(
         teamID, -- team
-        cave.rooms[roomID].zone.origin, -- location
+        cave.rooms[roomID].zones[0].origin, -- location
         nil, -- cache
         cave.rooms[roomID].radius, -- radius
         DOTA_UNIT_TARGET_TEAM_FRIENDLY, -- team filter
@@ -204,13 +210,13 @@ function CaveHandler:CreepDeath (teamID, roomID)
       local hasSeenNotification = {}
 
       for _, unit in pairs(result) do
-        if CaveHandler:IsInFarmingCave(teamID, unit) and hasSeenNotification[unit:GetPlayerOwner()] == nil then
+        if not hasSeenNotification[unit:GetPlayerOwnerID()] then
           -- inform players
           Notifications:Top(unit:GetPlayerOwner(), {
             text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
             duration = 5,
           })
-          hasSeenNotification[unit:GetPlayerOwner()] = true
+          hasSeenNotification[unit:GetPlayerOwnerID()] = true
         end
       end
     else -- roomID >= 4
@@ -354,8 +360,8 @@ function CaveHandler:GiveBounty (teamID, k)
 end
 
 function CaveHandler:IsInFarmingCave (teamID, entity)
-  local caveOrigin = self.caves[teamID].rooms[0].zone.origin
-  local bounds = self.caves[teamID].rooms[0].zone.bounds
+  local caveOrigin = self.caves[teamID].rooms[0].zones[1].origin
+  local bounds = self.caves[teamID].rooms[0].zones[1].bounds
 
   local origin = entity
   if entity.GetAbsOrigin then
