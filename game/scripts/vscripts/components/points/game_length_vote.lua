@@ -53,7 +53,7 @@ function GameLengthVotes:SetGameLength ()
     CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   else
     length = 'normal'
-    scoreLimit = 10
+    scoreLimit = 100
     CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   end
   DebugPrint ( 'votes ' .. votes.short .. ', ' .. votes.normal .. ', ' .. votes.long .. ' result: ' .. length)
