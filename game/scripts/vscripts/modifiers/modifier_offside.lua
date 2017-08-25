@@ -9,9 +9,11 @@ modifier_onside_buff = class(ModifierBaseClass)
 local TICKS_PER_SECOND = 5
 
 function modifier_is_in_offside:OnCreated()
-  local parent = self:GetParent()
-  if not parent:HasModifier("modifier_offside") then
-    parent:AddNewModifier(self:GetCaster(), nil, "modifier_offside", {})
+  if IsServer() then
+    local parent = self:GetParent()
+    if not parent:HasModifier("modifier_offside") then
+      parent:AddNewModifier(self:GetCaster(), nil, "modifier_offside", {})
+    end
   end
 end
 
