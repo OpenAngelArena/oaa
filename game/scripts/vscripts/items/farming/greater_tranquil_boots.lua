@@ -226,7 +226,7 @@ if IsServer() then
 
 					-- bonus exp
 					if self.bonusXP > 0 then
-						AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
+						parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
 					end
 
 					-- particle
