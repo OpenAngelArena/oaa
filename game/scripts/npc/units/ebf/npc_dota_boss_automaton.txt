@@ -8,7 +8,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"          "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creature"
     "Model"            "models/heroes/techies/techies.vmdl"    // Model.
     "SoundSet"          "Hero_Tinker"                          // Name of sound set.
     "GameSoundsFile"      "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
@@ -74,6 +74,26 @@
     "VoiceFile"        "soundevents/voscripts/game_sounds_vo_tinker.vsndevts"
     "GameSoundsFile"    "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
 
     // Creature Data
     //----------------------------------------------------------------------------------------------------------------------
@@ -87,29 +107,17 @@
       "AttachWearables"
       {
         "Wearable1"
-        {
-          "ItemDef" "394"
-        }
+        { "ItemDef" "394" }
         "Wearable2"
-        {
-          "ItemDef" "487"
-        }
+        { "ItemDef" "487" }
         "Wearable3"
-        {
-          "ItemDef" "489"
-        }
+        { "ItemDef" "489" }
         "Wearable4"
-        {
-          "ItemDef" "490"
-        }
+        { "ItemDef" "490" }
         "Wearable5"
-        {
-          "ItemDef" "491"
-        }
+        { "ItemDef" "491" }
         "Wearable6"
-        {
-          "ItemDef" "492"
-        }
+        { "ItemDef" "492" }
       }
     }
   }

@@ -80,6 +80,15 @@
     "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
@@ -87,33 +96,19 @@
       "AttachWearables"
       {
         "Wearable1"
-        {
-          "ItemDef"      "4783"
-        }
+        { "ItemDef" "4783" }
         "Wearable2"
-        {
-          "ItemDef"      "6274"
-        }
+        { "ItemDef" "6274" }
         "Wearable3"
-        {
-          "ItemDef"      "6888"
-        }
+        { "ItemDef" "6888" }
         "Wearable4"
-        {
-          "ItemDef"      "6276"
-        }
+        { "ItemDef" "6276" }
         "Wearable5"
-        {
-          "ItemDef"      "4905"
-        }
+        { "ItemDef" "4905" }
         "Wearable6"
-        {
-          "ItemDef"      "6278"
-        }
+        { "ItemDef" "6278" }
         "Wearable7"
-        {
-          "ItemDef"      "6279"
-        }
+        { "ItemDef" "6279" }
       }
 
       "StunResistance"      "50.0"

@@ -73,13 +73,11 @@
     "StatusMana"        "250"    // Base mana.
     "StatusManaRegen"      "5"      // Mana regeneration rate.
 
-    // Creature Data
-    //----------------------------------------------------------------------------------------------------------------------
-    "Creature"
-    {
-      //Makes it only have 25% remaining of applied crowd control
-      "DisableResistance"                                 "75.0"
-    }
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
@@ -87,11 +85,21 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-    // Vision
+    // Inventory
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
-    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
-
     "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
+    // Creature Data
+    //----------------------------------------------------------------------------------------------------------------------
+    "Creature"
+    {
+      //Makes it only have 25% remaining of applied crowd control
+      "DisableResistance"                                 "75.0"
+    }
   }
 }

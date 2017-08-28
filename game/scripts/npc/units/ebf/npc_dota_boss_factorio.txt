@@ -62,6 +62,26 @@
     "VoiceFile"        "soundevents/voscripts/game_sounds_vo_tinker.vsndevts"
     "GameSoundsFile"    "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
 
     // Creature Data
     //----------------------------------------------------------------------------------------------------------------------
@@ -70,18 +90,5 @@
       //Makes it only have 25% remaining of applied crowd control
       "DisableResistance"                                 "75.0"
     }
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"      // Range of vision during day light.
-    "VisionNighttimeRange"                                "1800"      // Range of vision at night time.
-
-    "HasInventory"                                        "1"
   }
 }

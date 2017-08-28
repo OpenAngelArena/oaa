@@ -82,6 +82,15 @@
     "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
@@ -89,5 +98,4 @@
       "StunResistance"      "50.0"
     }
   }
-
 }
