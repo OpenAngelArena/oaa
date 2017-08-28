@@ -134,8 +134,7 @@ function modifier_offside:OnIntervalThink()
   local damageTable = {
     victim = self:GetParent(),
     attacker = defenders,
-    x = stackCount - 10,
-    damage = (h * ((0.15 * (x^2 + 10 * x))/100)) / TICKS_PER_SECOND,
+    damage = (h * ((0.15 * ((stackCount - 10)^2 + 10 * (stackCount - 10)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
     damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
     ability = nil
