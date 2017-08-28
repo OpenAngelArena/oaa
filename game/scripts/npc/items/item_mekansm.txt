@@ -1,65 +1,65 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Mekasmm
-	//=================================================================================================================
-	"item_recipe_mekansm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"78"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+  //=================================================================================================================
+  // Recipe: Mekasmm
+  //=================================================================================================================
+  "item_recipe_mekansm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "78"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "900"
+    "ItemShopTags"          ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_mekansm"
-		"ItemRequirements"
-		{
-			"01"						"item_headdress;item_buckler"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_mekansm"
+    "ItemRequirements"
+    {
+      "01"            "item_headdress;item_buckler"
+    }
+  }
 
-	//=================================================================================================================
-	// Mekansm
-	//=================================================================================================================
-	"item_mekansm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"79"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    	"AbilityTextureName"            "custom/mekansm_1"
-		"FightRecapLevel"				"2"
+  //=================================================================================================================
+  // Mekansm
+  //=================================================================================================================
+  "item_mekansm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "79"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"            "custom/mekansm_1"
+    "FightRecapLevel"       "2"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"65.0 60.0 55.0 50.0 45.0"
-		"AbilityCastRange"				"900"
-    	"MaxUpgradeLevel"               "5"
-    	"ItemBaseLevel"                 "1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "65.0 60.0 55.0 50.0 45.0"
+    "AbilityCastRange"        "900"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "1"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"225"
-		"ItemCost"						"2375"
-		"ItemShopTags"					"agi;int;str;armor;boost_health"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"mechanism;mekansm"
-		"ItemAlertable"					"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "225"
+    "ItemCost"            "2375"
+    "ItemShopTags"          "agi;int;str;armor;boost_health"
+    "ItemQuality"         "rare"
+    "ItemAliases"         "mechanism;mekansm;meka"
+    "ItemAlertable"         "1"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
         "var_type"        "FIELD_INTEGER"
         "bonus_all_stats"   "5 10 15 25 40"
       }
@@ -98,6 +98,6 @@
         "var_type"        "FIELD_INTEGER"
         "heal_radius"     "900"
       }
-		}
-	}
+    }
+  }
 }

@@ -13,6 +13,14 @@ function EntityStatProvider:EventHandler(keys)
   local entity = keys.entity
   local handle = EntIndexToHScript(entity)
 
+  if not handle then
+    CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
+      HealthRegen = 0,
+      ManaRegen = 0
+    })
+    return
+  end
+
   CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
     HealthRegen = handle:GetHealthRegen(),
     ManaRegen = (handle:GetManaRegen() + handle:GetStatsBasedManaRegen()) * handle:GetPercentageBasedManaRegen() + handle:GetConstantBasedManaRegen()

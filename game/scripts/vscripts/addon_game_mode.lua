@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.5.2"
+GAME_VERSION = "2.8.0"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
 require('internal/util')
@@ -26,6 +26,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_stoneskin", context)
   PrecacheItemByNameSync("item_greater_phase_boots", context)
   PrecacheItemByNameSync("item_greater_power_treads", context)
+  PrecacheItemByNameSync("item_greater_tranquil_boots", context)
   PrecacheItemByNameSync("item_dagon", context)
   PrecacheItemByNameSync("item_manta_1", context)
 
