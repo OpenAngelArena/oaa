@@ -5,7 +5,7 @@
   {
     "BaseClass"                                           "ability_lua"
     "ID"                                                  "5036"
-    "ScriptFile"                                          "abilities/ebf/boss_factorio_spawn_techies"
+    "ScriptFile"                                          "abilities/ebf/boss_factorio_spawn_techies.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"                                  "techies_focused_detonate"
     "AbilityChannelTime"                                  "2 1 0.9"
