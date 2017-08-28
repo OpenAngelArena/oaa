@@ -161,6 +161,8 @@ function GameMode:OnPreGame()
   InitModule(Doors)
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
+  InitModule(ProtectionAura)
+  InitModule(Music)
 end
 
 --[[
@@ -182,6 +184,7 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+
 end
 
 function InitModule(myModule)
