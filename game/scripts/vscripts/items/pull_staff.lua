@@ -8,64 +8,53 @@ function item_pull_staff:GetIntrinsicModifierName()
 end
 
 function item_pull_staff:OnSpellStart()
-  local target = self:GetCursorTarget()
-  self.target = target
-  local caster = self:GetCaster()
+  self.hTarget = self:GetCursorTarget()
+  local hCaster = self:GetCaster()
 
-  if target:TriggerSpellAbsorb(self) then
-    return
-  end
-
-  if target == nil or caster == nil then
+  if self.hTarget == nil or hCaster == nil then
     self:StartCooldown(0)
     return
   end
 
-  local speed = self:GetSpecialValueFor("speed")
+  if self.hTarget:TriggerSpellAbsorb(self) then
+    return
+  end
 
-  local casterposition = caster:GetAbsOrigin()
-  local targetposition = target:GetAbsOrigin()
+  local vCasterPos = hCaster:GetAbsOrigin()
+  local vTargetPos = self.hTarget:GetAbsOrigin()
+  local iSpeed = self:GetSpecialValueFor("speed")
 
-  local vVelocity = casterposition - targetposition
+  local vVelocity = vCasterPos - vTargetPos
   vVelocity.z = 0.0
+  local flDistance = vVelocity:Length2D() - hCaster:GetPaddedCollisionRadius() - self.hTarget:GetPaddedCollisionRadius()
+  vVelocity = vVelocity:Normalized() * iSpeed
 
-  local flDistance = vVelocity:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
-  vVelocity = vVelocity:Normalized() * speed
+  self.hTarget:Stop()
 
-
-  target:Stop()
-
-  local info = {
+  local projectile = ProjectileManager:CreateLinearProjectile({
     Ability = self,
-    --EffectName = "particles/econ/events/ti6/force_staff_ti6.vpcf",
-    --EffectName = "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf",
-    vSpawnOrigin = targetposition,
+    vSpawnOrigin = vTargetPos,
     vVelocity = vVelocity,
     fDistance = flDistance,
-    Source = target,
-  }
-  local projectile = ProjectileManager:CreateLinearProjectile(info)
+    Source = self.hTarget,
+  })
 
   self.particle = ParticleManager:CreateParticle("particles/econ/events/ti6/force_staff_ti6.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-
-  --DebugDrawLine(targetposition, targetposition + vVelocity, 255, 0, 0, true, 10)
-  --DebugDrawLine(targetposition + Vector(0, 0, 128), casterposition + Vector(0, 0, 128), 0, 255, 0, true, 10)
-  --DebugDrawLine(targetposition + Vector(0, 0, 64), targetposition + ProjectileManager:GetLinearProjectileVelocity(projectile) + Vector(0, 0, 64), 0, 0, 255, true, 10)
 end
 
-function item_pull_staff:CastFilterResultTarget(target)
-  local caster = self:GetCaster()
-  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+function item_pull_staff:CastFilterResultTarget(hTarget)
+  local hCaster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, hTarget)
   if defaultFilterResult ~= UF_SUCCESS then
     return defaultFilterResult
-  elseif target == caster then
+  elseif hTarget == hCaster then
     return UF_FAIL_CUSTOM
   end
 end
 
-function item_pull_staff:GetCustomCastErrorTarget(target)
-  local caster = self:GetCaster()
-  if target == caster then
+function item_pull_staff:GetCustomCastErrorTarget(hTarget)
+  local hCaster = self:GetCaster()
+  if hTarget == hCaster then
     return "#dota_hud_error_cant_cast_on_self"
   end
 end
