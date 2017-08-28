@@ -1,4 +1,4 @@
-LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
 
 if ProtectionAura == nil then
   DebugPrint ( 'Creating new ProtectionAura object.' )
@@ -56,28 +56,28 @@ end
 
 function ProtectionAura:StartTouchGood(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS then
-    if not event.activator:HasModifier("modifier_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    if not event.activator:HasModifier("modifier_is_in_offside") then
+      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
     end
   end
 end
 
 function ProtectionAura:EndTouchGood(event)
   if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_offside")
+    event.activator:RemoveModifierByName("modifier_is_in_offside")
   end
 end
 
 function ProtectionAura:StartTouchBad(event)
   if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
-    if not event.activator:HasModifier("modifier_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_offside", {})
+    if not event.activator:HasModifier("modifier_is_in_offside") then
+      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
     end
   end
 end
 
 function ProtectionAura:EndTouchBad(event)
   if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_offside")
+    event.activator:RemoveModifierByName("modifier_is_in_offside")
   end
 end

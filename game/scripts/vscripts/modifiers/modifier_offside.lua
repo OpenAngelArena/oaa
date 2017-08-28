@@ -1,9 +1,33 @@
+LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LUA_MODIFIER_MOTION_NONE)
 
+modifier_is_in_offside = class(ModifierBaseClass)
 modifier_offside = class(ModifierBaseClass)
 modifier_onside_buff = class(ModifierBaseClass)
 
 local TICKS_PER_SECOND = 5
+
+function modifier_is_in_offside:OnCreated()
+  if IsServer() then
+    local parent = self:GetParent()
+    if not parent:HasModifier("modifier_offside") then
+      parent:AddNewModifier(self:GetCaster(), nil, "modifier_offside", {})
+    end
+  end
+end
+
+function modifier_is_in_offside:IsHidden()
+  return true
+end
+
+function modifier_is_in_offside:IsPurgable()
+  return false
+end
+
+modifier_is_in_offside.OnRefresh = modifier_is_in_offside.OnCreated
+
+--------------------------------------------------------------------
 
 function modifier_offside:OnCreated()
   if IsServer() then
@@ -12,6 +36,10 @@ function modifier_offside:OnCreated()
   end
 end
 modifier_offside.OnRefresh = modifier_offside.OnCreated
+
+function modifier_offside:IsPurgable()
+  return false
+end
 
 --------------------------------------------------------------------
 --aura
@@ -47,7 +75,10 @@ end
 function modifier_offside:OnIntervalThink()
   if not ProtectionAura then
     self:Destroy()
+    return
   end
+
+  local isInOffside = self:GetParent():HasModifier("modifier_is_in_offside")
 
   if not self.stackOffset then
     self.stackOffset = 1
@@ -56,13 +87,27 @@ function modifier_offside:OnIntervalThink()
   end
 
   if self.stackOffset >= TICKS_PER_SECOND then
-    self:IncrementStackCount()
+    if isInOffside then
+      self:IncrementStackCount()
+    else
+      self:DecrementStackCount()
+    end
     self.stackOffset = 0
   end
+
 
   local playerHero = self:GetCaster()
   local h = self:GetParent():GetMaxHealth()
   local stackCount = self:GetStackCount()
+
+  if not isInOffside then
+    if stackCount <= 0 then
+      self:Destroy()
+    end
+    return
+  end
+
+
   local location = self:GetParent():GetAbsOrigin()
   local team = self:GetParent():GetTeamNumber()
   local defenders = FindUnitsInRadius(
@@ -89,7 +134,7 @@ function modifier_offside:OnIntervalThink()
   local damageTable = {
     victim = self:GetParent(),
     attacker = defenders,
-    damage = (h * ((0.1 * (stackCount-10))/100)) / TICKS_PER_SECOND,
+    damage = (h * ((0.15 * ((stackCount - 10)^2 + 10 * (stackCount - 10)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
     damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
     ability = nil
