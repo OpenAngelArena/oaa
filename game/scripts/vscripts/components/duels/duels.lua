@@ -185,7 +185,7 @@ function Duels:StartDuel (options)
     return
   end
   options = options or {}
-
+  Music:SetMusic(12)
   Timers:RemoveTimer('EndDuel')
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
@@ -275,8 +275,11 @@ function Duels:ActuallyStartDuel (options)
     DebugPrint('There aren\'t enough players to start the duel')
     Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     self.currentDuel = nil
+    Music:PlayBackground(1, 7)
     return
   end
+
+  Music:SetMusic(13)
 
   local playerSplitOffset = RandomInt(0, maxPlayers)
   if options.players then
@@ -446,6 +449,8 @@ function Duels:EndDuel ()
 
   DebugPrint('Duel has ended')
   Timers:RemoveTimer('EndDuel')
+
+  Music:PlayBackground(1, 7)
 
   local nextDuelIn = DUEL_INTERVAL
   -- why dont these run?
