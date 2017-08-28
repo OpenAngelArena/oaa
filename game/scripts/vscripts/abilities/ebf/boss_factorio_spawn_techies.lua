@@ -15,7 +15,7 @@ function boss_factorio_spawn_techies:OnChannelFinish(bInterrupted)
 
         local sParticleName = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 
-        hUnit = CreateUnitByName(
+        local hUnit = CreateUnitByName(
           "npc_dota_boss_automaton",
           vPosition,
           false,
