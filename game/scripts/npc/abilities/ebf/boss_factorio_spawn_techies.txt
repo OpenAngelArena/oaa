@@ -3,65 +3,31 @@
   // Credit: EBF by yahnich
   "boss_factorio_spawn_techies"
   {
-    "BaseClass"            "ability_datadriven"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "ID"                      "5036"
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"      "techies_focused_detonate"
-    "AbilityChannelTime"      "2 1 0.9"
-    "AbilityCooldown"        "7 5 3"
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "5036"
+    "ScriptFile"                                          "abilities/ebf/boss_factorio_spawn_techies"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityTextureName"                                  "techies_focused_detonate"
+    "AbilityChannelTime"                                  "2 1 0.9"
+    "AbilityCooldown"                                     "7 5 3"
 
     "precache"
     {
-      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-      "soundfile"          "soundevents/game_sounds/ability_summon_undead.vsndevts"
+      "particle"                                          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"                                         "soundevents/game_sounds/ability_summon_undead.vsndevts"
     }
 
-    "OnChannelSucceeded"
+    "AbilitySpecial"
     {
-      "SpawnUnit"
+      "01"
       {
-        "UnitName"      "npc_dota_boss_automaton"
-        "UnitCount"      "1"
-        "UnitLimit"      "4"
-        "SpawnRadius"    "200"
-        "Target"      "CASTER"
-        "OnSpawn"
-        {
-          "AttachEffect"
-          {
-            "EffectName"    "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-            "EffectAttachType"  "follow_origin"
-            "Target"      "TARGET"
-
-            "ControlPoints"
-            {
-              "00"    "0 0 0"
-              "01"    "50 100 0"
-              "02"    "4 10 .5"
-              "03"    "20 200 0"
-              "04"    "0 0 0"
-              "05"    "0 0 0"
-            }
-          }
-
-          "FireSound"
-          {
-            "EffectName"    "Ability.SummonUndeadSuccess"
-            "Target"      "CASTER"
-          }
-        }
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_limit"                                      "4"
       }
-    }
-    "Modifiers"
-    {
-      "modifier_phased_camp"
+      "02"
       {
-        "IsHidden"  "1"
-        "Passive"  "1"
-        "States"
-        {
-          "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
-        }
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_spawn_distance"                             "400"
       }
     }
   }

@@ -60,10 +60,15 @@ Bosses = {
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_stopfightingyourself"
+    "npc_dota_boss_stopfightingyourself",
+    "npc_dota_boss_death_archdemon",
+    "npc_dota_boss_hell_golem",
+    "npc_dota_boss_nyx_slayer"
   },
-  -- unused
+  -- tier 4 (unused)
   {
-    "npc_dota_boss_stopfightingyourself"
+    "npc_dota_boss_stopfightingyourself",
+    "npc_dota_boss_demon_king",
+    "npc_dota_boss_god_of_demons"
   }
 }
