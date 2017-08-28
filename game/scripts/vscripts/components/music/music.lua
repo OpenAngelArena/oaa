@@ -15,6 +15,9 @@ function Music:Init ()
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     CustomNetTables:SetTableValue('music', 'mute', {playerID = 0})
   end)
+  --to recompile all music
+
+  ChatCommand:LinkCommand("-compile_music", Dynamic_Wrap(Music, "Recompile"), Music)
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
@@ -98,5 +101,13 @@ function Music:MuteHandler(keys)
   else
     -- play it again, if he unmuted
     EmitSoundOnClient(Music.currentTrack, PlayerResource:GetPlayer(playerID))
+  end
+end
+
+-- Receives mute requests
+function Music:Recompile(keys)
+  for key,value in pairs(MusicList) do
+    DebugPrint('Playing' .. key)
+    EmitSoundOnClient(MusicList[key][2], PlayerResource:GetPlayer(0))
   end
 end
