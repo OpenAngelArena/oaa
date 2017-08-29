@@ -84,6 +84,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "700"
+      }
     }
   }
 }

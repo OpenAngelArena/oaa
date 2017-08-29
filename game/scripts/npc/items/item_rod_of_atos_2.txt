@@ -88,13 +88,18 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "root_radius"                                     "0 0 200 200 400"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 3.0 4.0 4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "1150"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "root_radius"                                     "0 0 200 200 400"
       }
     }
   }
