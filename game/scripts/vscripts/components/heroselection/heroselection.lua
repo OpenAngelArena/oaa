@@ -102,7 +102,7 @@ function HeroSelection:CMManager (event)
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
-        HeroSelection:CMTimer(20, "CAPTAINS MODE")
+        HeroSelection:CMTimer(30, "CAPTAINS MODE")
       else
         forcestop = false
         HeroSelection:APTimer(30, "CHOOSE HERO")
