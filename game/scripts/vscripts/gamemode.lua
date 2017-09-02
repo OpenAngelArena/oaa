@@ -164,7 +164,7 @@ function GameMode:OnPreGame()
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
   InitModule(Music)
-  
+
   CheckCheatMode()
 end
 
