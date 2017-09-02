@@ -55,7 +55,7 @@
     "ItemCost"                      "5475"
     "ItemShopTags"                  "str;damage;hard_to_tag"
     "ItemQuality"                   "epic"
-    "ItemAliases"                   "bkb;black king bar"
+    "ItemAliases"                   "bkb 2;black king bar 2"
     "ItemSellable"                  "1"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -65,28 +65,28 @@
     {
       "01"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_strength"        "10 20 30 40 55"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_strength"        "10 20 30 40 55"
       }
       "02"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_damage"          "24 48 72 96 120"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"          "24 48 72 96 120"
       }
       "03"
       {
-          "var_type"              "FIELD_FLOAT"
-          "duration"              "10.0 9.0 8.0 7.0 6.0 5.0"
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "10.0 9.0 8.0 7.0 6.0 5.0"
       }
       "04"
       {
-          "var_type"              "FIELD_INTEGER"
-          "max_level"             "6"
+        "var_type"              "FIELD_INTEGER"
+        "max_level"             "6"
       }
       "05"
       {
-          "var_type"              "FIELD_INTEGER"
-          "model_scale"           "30 34 38 42 45"     // Percentage over model scale
+        "var_type"              "FIELD_INTEGER"
+        "model_scale"           "30 34 38 42 45"     // Percentage over model scale
       }
     }
   }

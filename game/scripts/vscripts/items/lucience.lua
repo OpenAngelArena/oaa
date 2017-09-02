@@ -291,7 +291,11 @@ end
 modifier_item_lucience_movespeed_effect = class(ModifierBaseClass)
 
 function modifier_item_lucience_movespeed_effect:OnCreated()
-  self.movespeedBonus = self:GetAbility():GetSpecialValueFor("speed_bonus")
+  if self:GetAbility() then
+    self.movespeedBonus = self:GetAbility():GetSpecialValueFor("speed_bonus")
+  else
+    self.movespeedBonus = 0
+  end
 end
 
 modifier_item_lucience_movespeed_effect.OnRefresh = modifier_item_lucience_movespeed_effect.OnCreated

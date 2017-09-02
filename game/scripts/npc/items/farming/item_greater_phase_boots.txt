@@ -47,8 +47,9 @@
     "ItemCost"                                            "1340"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "phase boots"
+    "ItemAliases"                                         "greater phase boots;phase boots;phase"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"

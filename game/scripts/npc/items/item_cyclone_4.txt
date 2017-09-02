@@ -7,26 +7,26 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-      "ID"                            "3896"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-      "BaseClass"                     "item_datadriven"
-      "Model"                         "models/props_gameplay/recipe.mdl"
-      "AbilityTextureName"            "item_recipe"
+    "ID"                            "3896"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_datadriven"
+    "Model"                         "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"            "item_recipe"
 
-      // Item Info
-      //-------------------------------------------------------------------------------------------------------------
-      "ItemCost"                      "8000"
-      "ItemShopTags"                  ""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "8000"
+    "ItemShopTags"                  ""
 
-      // Recipe
-      //-------------------------------------------------------------------------------------------------------------
-      "ItemRecipe"                    "1"
-      "ItemResult"                    "item_cyclone_4"
-      "ItemRequirements"
-      {
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_cyclone_4"
+    "ItemRequirements"
+    {
       "01"                                                "item_cyclone_3;item_upgrade_core_3"
       "02"                                                "item_cyclone_3;item_upgrade_core_4"
-      }
     }
+  }
 
   //=================================================================================================================
   // Cyclone 4
@@ -58,7 +58,7 @@
     "ItemCost"                      "15750"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
-    "ItemAliases"                   "cyclone euls;eul's scepter of divinity"
+    "ItemAliases"                   "cyclone 4;euls 4;eul's scepter of divinity 4"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"

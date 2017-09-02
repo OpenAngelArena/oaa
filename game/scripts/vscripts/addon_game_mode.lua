@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.4.1"
+GAME_VERSION = "2.8.1"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
 require('internal/util')
@@ -26,6 +26,7 @@ function Precache( context )
   PrecacheItemByNameSync("item_stoneskin", context)
   PrecacheItemByNameSync("item_greater_phase_boots", context)
   PrecacheItemByNameSync("item_greater_power_treads", context)
+  PrecacheItemByNameSync("item_greater_tranquil_boots", context)
   PrecacheItemByNameSync("item_dagon", context)
   PrecacheItemByNameSync("item_manta_1", context)
 
@@ -44,6 +45,7 @@ function Precache( context )
 
   -- Ambient Sounds
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed

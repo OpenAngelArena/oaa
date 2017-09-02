@@ -41,19 +41,20 @@ function FinalDuel:PreparingDuelHandler (keys)
     self.isCurrentlyFinalDuel = true
     self.needsFinalDuel = false
     Notifications:TopToAll({text="Final Duel!", duration=4.0})
+
+    local limit = PointsManager:GetLimit()
+    local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+    local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+    self.goodCanWin = goodPoints >= limit
+    self.badCanWin = badPoints >= limit
   end
 end
 
 function FinalDuel:StartDuelHandler (keys)
   if self.isCurrentlyFinalDuel then
-    local limit = PointsManager:GetLimit()
-    local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
-    local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-    local goodCanWin = goodPoints >= limit
-    local badCanWin = badPoints >= limit
     local extraMessage = ""
-    if goodCanWin then
-      if badCanWin then
+    if self.goodCanWin then
+      if self.badCanWin then
         extraMessage = "The winner of this duel wins the game"
       else
         extraMessage = "The game will end if Radiant wins"
@@ -68,6 +69,7 @@ end
 
 function FinalDuel:EndDuelHandler (currentDuel)
   if not self.isCurrentlyFinalDuel then
+    DebugPrint('Normal Duel has ended')
     if self.needsFinalDuel then
       -- a duel just ended and we need to trigger the final duel
       Timers:CreateTimer(10, function ()
@@ -76,6 +78,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
     end
     return
   end
+  DebugPrint('Final Duel has ended')
   self.isCurrentlyFinalDuel = false
 
   -- currentDuel.duelEnd1
@@ -85,17 +88,11 @@ function FinalDuel:EndDuelHandler (currentDuel)
     loser = currentDuel.duelEnd2
   end
 
-  local limit = PointsManager:GetLimit()
-  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
-  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-  local goodCanWin = goodPoints >= limit
-  local badCanWin = badPoints >= limit
-
-  if loser == "bad" and goodCanWin then
+  if loser == "bad" and self.goodCanWin then
     PointsManager:SetWinner(DOTA_TEAM_GOODGUYS)
     return
   end
-  if loser == "good" and badCanWin then
+  if loser == "good" and self.badCanWin then
     PointsManager:SetWinner(DOTA_TEAM_BADGUYS)
     return
   end
