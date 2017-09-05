@@ -113,6 +113,7 @@ function Duels:Init ()
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     Duels:StartDuel({
       players = 5,
+      firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
     })
   end)
@@ -185,7 +186,9 @@ function Duels:StartDuel (options)
     return
   end
   options = options or {}
-  Music:SetMusic(12)
+  if not options.firstDuel then
+    Music:SetMusic(12)
+  end
   Timers:RemoveTimer('EndDuel')
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
