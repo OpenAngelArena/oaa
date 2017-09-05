@@ -113,6 +113,26 @@
         "var_type"                                        "FIELD_FLOAT"
         "target_crit_multiplier"                          "140 155 170 185 200"
       }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_crit_chance"                             "100"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_crit_damage"                             "75 95 115 135 155"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_target_crit_damage"                      "40 55 70 85 100"
+      }
     }
   }
 }
