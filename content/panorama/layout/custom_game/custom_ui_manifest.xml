@@ -46,6 +46,7 @@
     // GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_7] = "#c7e40d;";
     // GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8] = "#8c2af4;";
 
+    // Hook Print function
     GameEvents.Subscribe("vconsole", function(keys) {
       switch(keys.type) {
         case "print":
@@ -61,6 +62,11 @@
       }
     });
     $.Msg('Now receiving Server Messages.');
+
+    // Cheat Mode Check
+    GameEvents.Subscribe("onGameInCheatMode", function () {
+      $.Msg("\nThis Match is in Cheat Mode!\n")
+    })
   </script>
 
   <Panel>
@@ -80,6 +86,7 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/statcollection.xml" />
     <CustomUIElement type="GameInfo"            layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/info.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/music.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/stat_display.xml" />
 
 

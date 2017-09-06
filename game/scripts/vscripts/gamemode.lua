@@ -100,6 +100,8 @@ end
 ]]
 function GameMode:OnFirstPlayerLoaded()
   DebugPrint("[BAREBONES] First Player has loaded")
+
+  CheckCheatMode()
 end
 
 --[[
@@ -160,6 +162,10 @@ function GameMode:OnPreGame()
   InitModule(Doors)
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
+  InitModule(ProtectionAura)
+  InitModule(Music)
+
+  CheckCheatMode()
 end
 
 --[[
@@ -181,11 +187,20 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+
 end
 
 function InitModule(myModule)
   if myModule ~= nil then
     myModule:Init()
+  end
+end
+
+function CheckCheatMode()
+  if GameRules:IsCheatMode() then
+    print("\nThis Match is in Cheat Mode!\n")
+    GameRules:SendCustomMessage("This Match is in <font color='#FF0000'>Cheat Mode</font>!", 0, 0)
+    CustomGameEventManager:Send_ServerToAllClients("onGameInCheatMode", {})
   end
 end
 

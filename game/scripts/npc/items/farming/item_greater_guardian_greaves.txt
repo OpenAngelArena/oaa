@@ -53,8 +53,9 @@
     "ItemCost"                                            "5475"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "guardian greaves"
+    "ItemAliases"                                         "greater guardian greaves;guardian greaves;ggg"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemAlertable"                                       "1"
 
     "MaxUpgradeLevel"                                     "5"
@@ -134,7 +135,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "300 600 1200 2400 4800"
+        "bonus_gold_per_minute"                           "600 1200 1800 3200 6400"
       }
     }
   }

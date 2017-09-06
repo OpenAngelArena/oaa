@@ -56,7 +56,7 @@
     "ItemCost"                                            "4580"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "rod of atos 2"
+    "ItemAliases"                                         "rod of atos 2;atos 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
@@ -88,13 +88,18 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "root_radius"                                     "0 0 200 200 400"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 2.5 3.0 3.5 4.0"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 3.0 4.0 4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "1150"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "root_radius"                                     "0 0 200 200 400"
       }
     }
   }

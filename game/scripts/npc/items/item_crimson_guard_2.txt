@@ -57,6 +57,7 @@
     "ItemCost"                                            "5050"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "crimson guard 2"
     "ItemAlertable"                                       "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -128,6 +129,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "block_chance_active"                             "100"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_reapply_time"                            "46"
       }
     }
   }
