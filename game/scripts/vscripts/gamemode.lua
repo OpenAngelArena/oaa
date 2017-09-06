@@ -100,6 +100,7 @@ end
 ]]
 function GameMode:OnFirstPlayerLoaded()
   DebugPrint("[BAREBONES] First Player has loaded")
+  error("test")
 end
 
 --[[

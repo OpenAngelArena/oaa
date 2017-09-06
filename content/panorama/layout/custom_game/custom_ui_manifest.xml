@@ -46,6 +46,21 @@
     // GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_7] = "#c7e40d;";
     // GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8] = "#8c2af4;";
 
+    GameEvents.Subscribe("vconsole", function(keys) {
+      switch(keys.type) {
+        case "print":
+          var text = ''
+          for (x in keys.data) text += keys.data[x] + '\t';
+          $.Msg('[Server] ' + text);
+          break;
+        case "error":
+          var text = ''
+          for (x in keys.data) text += keys.data[x] + '\n';
+          $.Msg('[Server] ' + text);
+          break;
+      }
+    });
+    $.Msg('Now receiving Server Messages.');
   </script>
 
   <Panel>
