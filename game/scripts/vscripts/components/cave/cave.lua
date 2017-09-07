@@ -466,8 +466,9 @@ function CaveHandler:TeleportAll(units, spawns)
       Timers:CreateTimer(0, function ()
         ParticleManager:DestroyParticle(origin, false)
         ParticleManager:DestroyParticle(target, true)
+        ParticleManager:ReleaseParticleIndex(origin)
+        ParticleManager:ReleaseParticleIndex(target)
       end)
-
     end)
   end
 end

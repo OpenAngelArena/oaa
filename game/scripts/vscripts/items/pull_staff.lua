@@ -78,6 +78,7 @@ end
 function item_pull_staff:OnProjectileHit(hTarget, vLocation)
   vLocation.z = GetGroundHeight(vLocation, self.target)
   ParticleManager:DestroyParticle(self.particle, false)
+  ParticleManager:ReleaseParticleIndex(self.particle)
   FindClearSpaceForUnit(self.target, vLocation, true)
   return true
 end
