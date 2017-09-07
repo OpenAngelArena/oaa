@@ -47,6 +47,7 @@ function item_pull_staff:OnSpellStart()
   local projectile = ProjectileManager:CreateLinearProjectile(info)
 
   self.particle = ParticleManager:CreateParticle("particles/econ/events/ti6/force_staff_ti6.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+  target:EmitSound("DOTA_Item.ForceStaff.Activate")
 
   --DebugDrawLine(targetposition, targetposition + vVelocity, 255, 0, 0, true, 10)
   --DebugDrawLine(targetposition + Vector(0, 0, 128), casterposition + Vector(0, 0, 128), 0, 255, 0, true, 10)
