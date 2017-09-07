@@ -30,7 +30,8 @@ end
 function item_refresher_core:OnSpellStart()
   local caster = self:GetCaster()
   caster:EmitSound( "DOTA_Item.Refresher.Activate" )
-  local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_POINT_FOLLOW, caster)
+  local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
+  ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true )
   ParticleManager:ReleaseParticleIndex(particle)
 
   -- Put ability exemption in here
