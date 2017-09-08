@@ -3,6 +3,8 @@
 GAME_VERSION = "2.8.2"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 
+require('internal/vconsole')
+
 require('internal/util')
 require('gamemode')
 -- DotaStats
