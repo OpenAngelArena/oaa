@@ -2,6 +2,15 @@
 
 GAME_VERSION = "2.8.2"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
+-- lets do this here too
+local mode = ""
+if IsInToolsMode() then
+  mode = "Tools Mode"
+elseif GameRules.IsCheatMode() then
+  mode = "Cheat Mode"
+end
+CustomNetTables:SetTableValue("info", "mode", { value = mode })
+CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. " " .. GetSystemTime() })
 
 require('internal/vconsole')
 
