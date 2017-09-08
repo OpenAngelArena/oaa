@@ -70,16 +70,19 @@ function Duels:Init ()
         end
       end
 
+      if not Duels:IsActive() then
+        return
+      end
+
       local player = Duels:PlayerForDuel(playerID)
       if not player or not player.assigned or not player.duelNumber then
         -- player is not in a duel, they can just chill tf out
         return
       end
+      player.disconnected = false
       if player.killed or not player.disconnected then
         return
       end
-
-      player.disconnected = false
 
       Duels:UnCountPlayerDeath(playerID)
     end
@@ -94,6 +97,10 @@ function Duels:Init ()
       if hero then
         hero:Stop()
         hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+      end
+
+      if not Duels:IsActive() then
+        return
       end
 
       local player = Duels:PlayerForDuel(playerID)
@@ -143,8 +150,14 @@ function Duels:UnCountPlayerDeath (player)
   Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] + 1
 end
 
+function Duels:IsActive ()
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+    return false
+  end
+  return true
+end
 function Duels:CheckDuelStatus (hero)
-  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then -- <- There is nothing here, git.
+  if not Duels:IsActive() then
     return
   end
   if hero:IsReincarnating() then
