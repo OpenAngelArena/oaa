@@ -1,16 +1,17 @@
-/* global FindDotaHudElement GameEvents Game */
+/* global FindDotaHudElement */
 
-(function () {
-  if (Game.GetLocalPlayerID() !== -1) {
-    GameEvents.Subscribe('game_rules_state_change', MoveGameInfo);
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = ToggleInfo;
+}
+
+var isopen = false;
+
+function ToggleInfo () {
+  if (isopen) {
+    isopen = false;
+    FindDotaHudElement('InfoButton').GetParent().style.transform = 'translateX(-450px)';
   } else {
-    var infoButton = $.GetContextPanel().FindChildTraverse('GameInfoButton');
-    if (infoButton) {
-      infoButton.GetParent().RemoveAndDeleteChildren();
-    }
+    isopen = true;
+    FindDotaHudElement('InfoButton').GetParent().style.transform = 'translateX(0)';
   }
-}());
-
-function MoveGameInfo () {
-  FindDotaHudElement('GameInfoButton').style.transform = 'translateY(20%)';
 }
