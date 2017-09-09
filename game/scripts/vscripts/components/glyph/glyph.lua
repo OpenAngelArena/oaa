@@ -12,7 +12,7 @@ function Glyph:Init()
   self.scan = {}
 
 
-  self.ward.cooldown = 360
+  self.ward.cooldown = 90
   self.ward.cooldowns = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   self.scan.cooldowns = {
     [DOTA_TEAM_GOODGUYS] = 0,
