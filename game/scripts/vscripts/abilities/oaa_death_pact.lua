@@ -68,7 +68,7 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 		self.parentHealth = parent:GetHealth()
 
 		-- set the modifier's stack count to the target's health, so that we
-		-- have access to it on the client 
+		-- have access to it on the client
 		self:SetStackCount( event.stacks )
 	end
 
@@ -116,7 +116,7 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 		self.parentHealth = parent:GetHealth()
 
 		-- set the modifier's stack count to the target's health, so that we
-		-- have access to it on the client 
+		-- have access to it on the client
 		self:SetStackCount( event.stacks )
 	end
 
