@@ -1,0 +1,200 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/hero_selection.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
+  </scripts>
+  <Panel class="MainHolder" onactivate=";">
+    <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <Panel class="TeamStatus">
+      <Panel class="FillWidth">
+        <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
+      </Panel>
+      <Panel id="TeamRadiant"/>
+      <Panel id="Clock">
+        <Label id="TimeLeft" text="WAIT"/>
+        <Label id="GameMode" text="WAIT"/>
+      </Panel>
+      <Panel id="TeamDire"/>
+      <Panel class="FillWidth"/>
+    </Panel>
+    <Panel id="MainContent">
+      <Panel class="LeftColumn">
+        <Label class="SectionTitle" text="Minimap"/>
+        <Panel id="Minimap">
+          <DOTAMinimap require-composition-layer="true" />
+        </Panel>
+
+        <Label class="SectionTitle" text="Info"/>
+        <Panel id="GameInfo">
+          <Label text="Some info about game, i suggest text format"/>
+        </Panel>
+      </Panel>
+      <Panel class="MiddleColumn">
+        <Panel id="CMPanel">
+          <Panel id="CMProgress">
+            <Panel class="CMTeam" id="CMRadiant">
+              <Panel class="CMBan" id="CMRadiantBanLabel">
+                <Label text="1"/>
+                <Label text="3"/>
+                <Label text="10"/>
+                <Label text="12"/>
+                <Label text="18"/>
+              </Panel>
+              <Panel class="CMBan" id="CMRadiantBan">
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="Radiant"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPickLabel">
+                <Label text="5"/>
+                <Label text="8"/>
+                <Label text="14"/>
+                <Label text="16"/>
+                <Label text="19"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPick">
+              </Panel>
+            </Panel>
+            <Panel class="CMInfo">
+              <Label class="BanLabel" text="BAN"/>
+              <Label class="PickLabel" text="PICK"/>
+            </Panel>
+            <Panel class="CMTeam" id="CMDire">
+              <Panel class="CMBan" id="CMDireBanLabel">
+                <Label text="2"/>
+                <Label text="4"/>
+                <Label text="9"/>
+                <Label text="11"/>
+                <Label text="17"/>
+              </Panel>
+              <Panel class="CMBan" id="CMDireBan">
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="Dire"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePickLabel">
+                <Label text="6"/>
+                <Label text="7"/>
+                <Label text="13"/>
+                <Label text="15"/>
+                <Label text="20"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePick">
+              </Panel>
+            </Panel>
+          </Panel>
+        </Panel>
+        <Panel class="AttrHolder">
+          <Panel id="StrHolder"/>
+          <Label id="ChooseStrLabel" text="Strength"/>
+        </Panel>
+        <Panel class="HeroHolder" id="StrengthHeroes"/>
+        <Panel class="AttrHolder">
+          <Panel id="AgiHolder"/>
+          <Label id="ChooseAgiLabel" text="Agility"/>
+        </Panel>
+        <Panel class="HeroHolder" id="AgilityHeroes"/>
+        <Panel class="AttrHolder">
+          <Panel id="IntHolder"/>
+          <Label id="ChooseIntLabel" text="Intelligence"/>
+        </Panel>
+        <Panel class="HeroHolder" id="IntelligenceHeroes"/>
+      </Panel>
+      <Panel class="RightColumn">
+        <Label class="SectionTitle" text="Preview"/>
+        <Panel id="HeroSelector">
+          <Panel id="HeroPreview">
+            <DOTAScenePanel unit="" />
+          </Panel>
+          <Panel id="CMHeroPreview">
+          </Panel>
+          <Panel id="HeroPickContainer">
+            <Button id="BecomeCaptain" onactivate="BecomeCaptain()">
+              <Label id="BecomeCaptainLabel" text="Become Captain"/>
+            </Button>
+            <Button id="CaptainLockIn" onactivate="CaptainSelectHero()">
+              <Label id="CaptainLockInLabel" text="Select"/>
+            </Button>
+            <Button id="HeroLockIn" onactivate="SelectHero()">
+              <Label id="HeroLockLabel" text="Lock In"/>
+            </Button>
+            <Button id="HeroRandom">
+              <Panel id="HeroRandomIcon"/>
+              <Label id="HeroRandomLabel" text="Random"/>
+            </Button>
+          </Panel>
+        </Panel>
+        <Label class="SectionTitle" text="Chat"/>
+        <Panel id="CustomChat">
+          <Label text="We will have to make custom chat, existing one is too shit to try to port. I suggest we teke base from CIA"/>
+        </Panel>
+      </Panel>
+    </Panel>
+    <Panel id="StrategyContent">
+      <Panel class="BossIcon" id="Boss1r">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2r">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3r">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4r">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5r">
+        <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="BossIcon" id="Boss1d">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2d">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3d">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4d">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5d">
+        <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="DuelIconHolder" id="Duel1">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 1"/>
+      </Panel>
+      <Panel class="DuelIconHolder" id="Duel2">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 2"/>
+      </Panel>
+
+      <Panel class="CaveIcon" id="Cave1r">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2r">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3r">
+        <Label text="Cave 3"/>
+      </Panel>
+
+      <Panel class="CaveIcon" id="Cave1d">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2d">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3d">
+        <Label text="Cave 3"/>
+      </Panel>
+
+    </Panel>
+  </Panel>
+</root>

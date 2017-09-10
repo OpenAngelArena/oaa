@@ -159,7 +159,8 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       illusion:OnDeath(function()
         -- create particle
         Timers:CreateTimer(0.1, function()
-          ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+          local particle = ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+          ParticleManager:ReleaseParticleIndex(particle)
         end)
         caster.illusions[illusion:entindex()]:RemoveSelf()
         caster.illusions[illusion:entindex()] = nil

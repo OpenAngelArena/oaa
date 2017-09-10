@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_fountain_attack_aura", "abilities/fountain_attack.lua"
 fountain_attack = class(AbilityBaseClass)
 
 function fountain_attack:GetIntrinsicModifierName()
-    return "modifier_fountain_attack"
+  return "modifier_fountain_attack"
 end
 
 
@@ -20,7 +20,7 @@ function modifier_fountain_attack:OnCreated(keys)
 end
 
 function modifier_fountain_attack:IsAura()
-return true
+  return true
 end
 
 function modifier_fountain_attack:IsHidden()
@@ -103,6 +103,7 @@ function modifier_fountain_attack_aura:OnDestroy()
   local caster = self:GetCaster()
 
   ParticleManager:DestroyParticle(self.particle, false)
+  ParticleManager:ReleaseParticleIndex(self.particle)
   StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
   EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
 end
