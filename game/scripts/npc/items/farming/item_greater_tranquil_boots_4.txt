@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3043"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "8000"
@@ -56,8 +56,8 @@
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-	
-    "ItemDisplayCharges"			"1"
+  
+    "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
