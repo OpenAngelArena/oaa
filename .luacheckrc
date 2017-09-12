@@ -35,7 +35,10 @@ globals = { -- these globals can be set and accessed.
 "CAVE_TYPE_STATS_ARMOUR",
 "CAVE_TYPE_STATS_GOLD",
 "CAVE_TYPE_STATS_EXP",
-"CAVE_TYPE_STATS_RESITS"
+"CAVE_TYPE_STATS_RESITS",
+"POOP_WARD_COOLDOWN",
+"POOP_WARD_DURATION",
+"POOP_WARD_RADIUS",
 }
 
 read_globals = { -- these globals can only be accessed.

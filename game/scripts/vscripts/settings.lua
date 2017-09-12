@@ -4,6 +4,11 @@
 -----------------------------------------------------------------------------------
 -- OAA specific settings
 
+-- poop wards
+POOP_WARD_DURATION = 360
+POOP_WARD_COOLDOWN = 120
+POOP_WARD_RADIUS = 200
+
 -- PICK SCREEN
 AP_GAME_TIME = 60.0                    -- The maximum duration of All Pick Phase and pregame in background
 CM_GAME_TIME = 150.0                   -- The maximum duration of Captains Mode Phase and pregame in background
