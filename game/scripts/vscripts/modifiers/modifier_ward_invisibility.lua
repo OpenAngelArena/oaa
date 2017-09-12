@@ -42,7 +42,7 @@ function modifier_ward_invisibility:GetAuraSearchTeam()
 end
 
 function modifier_ward_invisibility:GetAuraRadius()
-  return 300
+  return 200
 end
 
 function modifier_ward_invisibility:GetModifierAura()
