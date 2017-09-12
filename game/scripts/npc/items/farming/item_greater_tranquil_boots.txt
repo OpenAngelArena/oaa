@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3040"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "100"
@@ -56,9 +57,9 @@
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_greater_tranquil_boots_1;item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-	
-	
-    "ItemDisplayCharges"			"1"
+  
+  
+    "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -155,7 +156,7 @@
     "precache"
     {
       "particle"                                          "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf"
-	  "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
     }
   }
 }

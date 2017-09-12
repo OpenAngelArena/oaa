@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3041"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1500"
@@ -58,8 +59,8 @@
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-	
-    "ItemDisplayCharges"			"1"
+  
+    "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
