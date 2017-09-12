@@ -8,11 +8,13 @@ _error = error
 
 function print(...)
   local data = {...}
-  CustomGameEventManager:Send_ServerToAllClients("vconsole", {
-    type = "print",
-    data = data
-  })
-  data[1] = '[Server] ' .. data[1]
+  if not IsInToolsMode() then
+    CustomGameEventManager:Send_ServerToAllClients("vconsole", {
+      type = "print",
+      data = data
+    })
+    data[1] = '[Server] ' .. data[1]
+  end
   _print(unpack(data))
 end
 

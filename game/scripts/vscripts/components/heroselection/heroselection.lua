@@ -71,7 +71,7 @@ function HeroSelection:CMManager (event)
         --random captain
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
-          if PlayerResource:GetTeam(PlayerID) == 2 and skipnext == false then
+          if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_GOODGUYS then
             cmpickorder["captainradiant"] = PlayerID
             skipnext = true
           end
@@ -81,7 +81,7 @@ function HeroSelection:CMManager (event)
         --random captain
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
-          if PlayerResource:GetTeam(PlayerID) == 3 and skipnext == false then
+          if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_BADGUYS then
             cmpickorder["captaindire"] = event.PlayerID
             skipnext = true
           end
@@ -94,15 +94,21 @@ function HeroSelection:CMManager (event)
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       Timers:RemoveTimer(cmtimer)
       --random if not selected
+      if event.hero == "random" then
+        event.hero = HeroSelection:RandomHero()
+      end
+
       if cmpickorder["order"][cmpickorder["currentstage"]].type == "Pick" then
-        if event.hero == "random" then
-          event.hero = HeroSelection:RandomHero()
-        end
         table.insert(cmpickorder[cmpickorder["order"][cmpickorder["currentstage"]].side.."picks"], 1, event.hero)
       end
       cmpickorder["order"][cmpickorder["currentstage"]].hero = event.hero
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
+
+      DebugPrintTable(cmpickorder)
+      DebugPrint('--')
+      DebugPrintTable(event)
+
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
         HeroSelection:CMTimer(30, "CAPTAINS MODE")
       else
@@ -117,20 +123,36 @@ end
 
 -- manage cm timer
 function HeroSelection:CMTimer (time, message)
+  DebugPrint('cm tick...')
   HeroSelection:CheckPause()
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+
+  if forcestop == true then
+
+  else
+    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
+      HeroSelection:CMManager({hero = "random"})
+      return
+    end
+
+    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["captaindire"] == "empty" then
+      HeroSelection:CMManager({hero = "random"})
+      return
+    end
+  end
 
   if time < 0 then
     HeroSelection:CMManager({hero = "random"})
-  else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
-    cmtimer = Timers:CreateTimer({
-      useGameTime = false,
-      endTime = 1,
-      callback = function()
-        HeroSelection:CMTimer(time -1, message)
-      end
-    })
+    return
   end
+
+  cmtimer = Timers:CreateTimer({
+    useGameTime = false,
+    endTime = 1,
+    callback = function()
+      HeroSelection:CMTimer(time -1, message)
+    end
+  })
 end
 
 function HeroSelection:CheckPause ()
