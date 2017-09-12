@@ -33,7 +33,7 @@ function error(...)
   for k,v in pairs(data) do
     _print(k, tostring(v))
   end
-  _error(args[1], offset)
+  _error(unpack({...}))
 end
 
 --_print("print", print)
