@@ -127,9 +127,7 @@ function HeroSelection:CMTimer (time, message)
   HeroSelection:CheckPause()
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
 
-  if forcestop == true then
-
-  else
+  if forcestop == false then
     if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
       HeroSelection:CMManager({hero = "random"})
       return
