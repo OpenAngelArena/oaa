@@ -4,6 +4,11 @@
 -----------------------------------------------------------------------------------
 -- OAA specific settings
 
+-- poop wards
+POOP_WARD_DURATION = 360
+POOP_WARD_COOLDOWN = 120
+POOP_WARD_RADIUS = 200
+
 -- Duels
 INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
