@@ -115,6 +115,7 @@ function GameMode:OnAllPlayersLoaded()
   if GameLengthVotes ~= nil then
     GameLengthVotes:SetGameLength()
   end
+  HeroSelection:StartSelection()
 end
 
 --[[
@@ -125,7 +126,7 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
+  --DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   --hero:SetGold(500, false)
 
@@ -143,7 +144,7 @@ end
 
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
-  PlayerResource:RandomHeroForPlayersWithoutHero()
+  --PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
 function GameMode:OnPreGame()
@@ -213,6 +214,7 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(GameLengthVotes)
   InitModule(Courier)
+  InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
 

@@ -94,6 +94,7 @@ function modifier_dev_attack_aura:OnDestroy()
   local caster = self:GetCaster()
 
   ParticleManager:DestroyParticle(self.particle, false)
+  ParticleManager:ReleaseParticleIndex(self.particle)
   StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
   EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
 end
