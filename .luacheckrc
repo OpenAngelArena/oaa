@@ -39,6 +39,10 @@ globals = { -- these globals can be set and accessed.
 "POOP_WARD_COOLDOWN",
 "POOP_WARD_DURATION",
 "POOP_WARD_RADIUS",
+"CAPTAINS_MODE_PICK_BAN_TIME",
+"CAPTAINS_MODE_HERO_PICK_TIME",
+"PREGAME_TIME",
+"CAPTAINS_MODE_CAPTAIN_TIME",
 }
 
 read_globals = { -- these globals can only be accessed.

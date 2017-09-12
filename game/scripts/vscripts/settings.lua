@@ -10,8 +10,12 @@ POOP_WARD_COOLDOWN = 120
 POOP_WARD_RADIUS = 200
 
 -- PICK SCREEN
-AP_GAME_TIME = 60.0                    -- The maximum duration of All Pick Phase and pregame in background
-CM_GAME_TIME = 150.0                   -- The maximum duration of Captains Mode Phase and pregame in background
+CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
+CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
+CAPTAINS_MODE_HERO_PICK_TIME = 20         -- time to choose which hero you're going to play
+
+-- Game timings
+PREGAME_TIME = 10
 
 -- Duels
 INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
