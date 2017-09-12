@@ -63,7 +63,7 @@ function HeroSelection:CMManager (event)
 
     if event == nil then
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      HeroSelection:CMTimer(20, "CHOOSE CAPTAIN")
+      HeroSelection:CMTimer(CAPTAINS_MODE_CAPTAIN_TIME, "CHOOSE CAPTAIN")
 
     elseif cmpickorder["currentstage"] == 0 then
       Timers:RemoveTimer(cmtimer)
@@ -89,7 +89,7 @@ function HeroSelection:CMManager (event)
       end
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      HeroSelection:CMTimer(30, "CAPTAINS MODE")
+      HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
 
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       Timers:RemoveTimer(cmtimer)
@@ -110,10 +110,10 @@ function HeroSelection:CMManager (event)
       DebugPrintTable(event)
 
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
-        HeroSelection:CMTimer(30, "CAPTAINS MODE")
+        HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
       else
         forcestop = false
-        HeroSelection:APTimer(20, "CHOOSE HERO")
+        HeroSelection:APTimer(CAPTAINS_MODE_HERO_PICK_TIME, "CHOOSE HERO")
       end
     end
     forcestop = false
@@ -215,6 +215,20 @@ function HeroSelection:APTimer (time, message)
 end
 
 function HeroSelection:RandomHero ()
+  while true do
+    local choice = HeroSelection:UnsafeRandomHero()
+    local safe = true
+    for _,data in ipairs(cmpickorder["order"]) do
+      if choice == data.hero then
+        safe = false
+      end
+    end
+    if safe then
+      return choice
+    end
+  end
+end
+function HeroSelection:UnsafeRandomHero ()
   local curstate = 0
   local rndhero = RandomInt(0, totalheroes)
   for name, _ in pairs(herolist) do
@@ -229,6 +243,8 @@ end
 function HeroSelection:StrategyTimer (time)
   HeroSelection:CheckPause()
   if time < 0 then
+    HeroSelection.shouldBePaused = false
+    HeroSelection:CheckPause()
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
