@@ -7,12 +7,13 @@
   {
     "ID"                                                  "3168"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemBaseLevel"                                       "6"
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_necronomicon_6"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_necronomicon_5;item_upgrade_core_3"
