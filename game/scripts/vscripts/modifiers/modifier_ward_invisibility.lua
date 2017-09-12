@@ -42,7 +42,7 @@ function modifier_ward_invisibility:GetAuraSearchTeam()
 end
 
 function modifier_ward_invisibility:GetAuraRadius()
-  return 300
+  return POOP_WARD_RADIUS
 end
 
 function modifier_ward_invisibility:GetModifierAura()

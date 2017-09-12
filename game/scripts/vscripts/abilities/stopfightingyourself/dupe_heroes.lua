@@ -127,7 +127,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
         }
       )
 
-      --illusion:MakeIllusion()
+      illusion:MakeIllusion()
 
       -- Stats
       -- BUG Gold bounty does not work
@@ -149,7 +149,9 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       end
 
       if caster.illusions == nil then
-        caster.illusions = {}
+        caster.illusions = {
+          count = 0
+        }
       end
       caster.illusions[illusion:entindex()] = illusion
       caster.illusions.count = caster.illusions.count + 1
@@ -157,11 +159,13 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
       illusion:OnDeath(function()
         -- create particle
         Timers:CreateTimer(0.1, function()
-          ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+          local particle = ParticleManager:CreateParticle('particles/generic_gameplay/illusion_killed.vpcf', PATTACH_ABSORIGIN, illusion)
+          ParticleManager:ReleaseParticleIndex(particle)
         end)
         caster.illusions[illusion:entindex()]:RemoveSelf()
         caster.illusions[illusion:entindex()] = nil
         caster.illusions.count = caster.illusions.count - 1
+        illusion:Destroy()
       end)
 
       --illusion:SetContextThink('IllusionThink', ...)

@@ -48,7 +48,7 @@
     "ItemCost"                                            "38320"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "daedalus"
+    "ItemAliases"                                         "daedalus 5;crit 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -69,6 +69,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "crit_multiplier"                                 "235 245 260 280 305"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_crit_damage"                             "135 145 160 180 205"
       }
     }
   }

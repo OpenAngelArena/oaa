@@ -56,7 +56,7 @@
     "ItemCost"                                            "5700"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "mjollnir"
+    "ItemAliases"                                         "mjollnir;lightning"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -143,6 +143,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "chain_cooldown"                                  "0.2"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

@@ -100,6 +100,8 @@ end
 ]]
 function GameMode:OnFirstPlayerLoaded()
   DebugPrint("[BAREBONES] First Player has loaded")
+
+  CheckCheatMode()
 end
 
 --[[
@@ -123,7 +125,7 @@ end
   The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-  DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
+  --DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   --hero:SetGold(500, false)
 
@@ -141,7 +143,7 @@ end
 
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
-  PlayerResource:RandomHeroForPlayersWithoutHero()
+  --PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
 function GameMode:OnPreGame()
@@ -160,6 +162,10 @@ function GameMode:OnPreGame()
   InitModule(Doors)
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
+  InitModule(ProtectionAura)
+  InitModule(Music)
+
+  CheckCheatMode()
 end
 
 --[[
@@ -181,11 +187,20 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+
 end
 
 function InitModule(myModule)
   if myModule ~= nil then
     myModule:Init()
+  end
+end
+
+function CheckCheatMode()
+  if GameRules:IsCheatMode() then
+    print("\nThis Match is in Cheat Mode!\n")
+    GameRules:SendCustomMessage("This Match is in <font color='#FF0000'>Cheat Mode</font>!", 0, 0)
+    CustomGameEventManager:Send_ServerToAllClients("onGameInCheatMode", {})
   end
 end
 
@@ -198,6 +213,7 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(GameLengthVotes)
   InitModule(Courier)
+  InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
 

@@ -7,24 +7,24 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-      "ID"                            "99"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-      "BaseClass"                     "item_datadriven"
-      "Model"                         "models/props_gameplay/recipe.mdl"
-      "AbilityTextureName"            "item_recipe"
-      // Item Info
-      //-------------------------------------------------------------------------------------------------------------
-      "ItemCost"                      "650"
-      "ItemShopTags"                  ""
+    "ID"                            "99"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_datadriven"
+    "Model"                         "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"            "item_recipe"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "650"
+    "ItemShopTags"                  ""
 
-      // Recipe
-      //-------------------------------------------------------------------------------------------------------------
-      "ItemRecipe"                    "1"
-      "ItemResult"                    "item_cyclone"
-      "ItemRequirements"
-      {
-        "01"                        "item_staff_of_wizardry;item_void_stone;item_wind_lace"
-      }
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_cyclone"
+    "ItemRequirements"
+    {
+      "01"                        "item_staff_of_wizardry;item_void_stone;item_wind_lace"
     }
+  }
 
   //=================================================================================================================
   // Cyclone
@@ -56,7 +56,7 @@
     "ItemCost"                      "2750"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
-    "ItemAliases"                   "cyclone euls;eul's scepter of divinity"
+    "ItemAliases"                   "cyclone;euls;eul's scepter of divinity"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -89,6 +89,11 @@
       {
         "var_type"              "FIELD_INTEGER"
         "cast_range_tooltip"    "575 675 775 875 975"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "tooltip_drop_damage"   "50"
       }
     }
   }

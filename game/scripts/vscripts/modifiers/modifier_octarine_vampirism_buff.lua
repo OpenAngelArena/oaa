@@ -94,7 +94,8 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
       if heal_amount > 0 then
         local healthCalculated = hero:GetHealth() + heal_amount
         hero:Heal(heal_amount, self:GetAbility())
-        ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, hero)
+        local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, hero)
+        ParticleManager:ReleaseParticleIndex(particle)
       end
     end
   end

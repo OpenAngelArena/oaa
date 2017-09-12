@@ -1,6 +1,5 @@
 
 -- component list. comment out things to disable them
-
 require('components/filters/index')
 require('components/abilities/index')
 require('components/reflexfilters/index')
@@ -18,3 +17,5 @@ require('components/glyph/index')
 require('components/devcheats/index')
 require('components/player/index')
 require('components/statprovider/index')
+require('components/heroselection/index')
+require('components/music/index')

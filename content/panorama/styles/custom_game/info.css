@@ -2,10 +2,13 @@
 {
   horizontal-align: left;
   vertical-align: top;
+  flow-children: down;
+  margin-left: 2px;
 }
 
 .InfoLabel
 {
-  color: rgb(205,36,36);
-  color: rgba(205,36,36,.52);
+  color: rgba(205,36,36,.80);
+  font-family: monospace;
+  font-weight: bold;
 }

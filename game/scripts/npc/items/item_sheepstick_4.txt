@@ -46,7 +46,7 @@
     "ItemCost"                                            "18700"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
+    "ItemAliases"                                         "hex 4;sheepstick 4;scythe of vyse 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special-----------------------------------------------------------------------------------------------------
@@ -81,6 +81,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "sheep_movement_speed"                            "140"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

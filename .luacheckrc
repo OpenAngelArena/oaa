@@ -35,7 +35,14 @@ globals = { -- these globals can be set and accessed.
 "CAVE_TYPE_STATS_ARMOUR",
 "CAVE_TYPE_STATS_GOLD",
 "CAVE_TYPE_STATS_EXP",
-"CAVE_TYPE_STATS_RESITS"
+"CAVE_TYPE_STATS_RESITS",
+"POOP_WARD_COOLDOWN",
+"POOP_WARD_DURATION",
+"POOP_WARD_RADIUS",
+"CAPTAINS_MODE_PICK_BAN_TIME",
+"CAPTAINS_MODE_HERO_PICK_TIME",
+"PREGAME_TIME",
+"CAPTAINS_MODE_CAPTAIN_TIME",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -142,6 +149,9 @@ read_globals = { -- these globals can only be accessed.
 "ACT_MP_ATTACK_CROUCH_PRIMARY",
 "ACT_STARTDYING",
 "ACT_DOTA_MK_TREE_SOAR",
+"AP_GAME_TIME",
+"CM_GAME_TIME",
+"STARTING_GOLD",
 "SendToConsole",
 "CreateItemOnPositionForLaunch",
 "ACT_DOTA_LIFESTEALER_EJECT",

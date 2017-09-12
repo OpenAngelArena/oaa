@@ -53,7 +53,7 @@
     "ItemCost"                                            "7340"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "vod;veil of discord 3"
+    "ItemAliases"                                         "vod 3;veil of discord 3;veil 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
@@ -107,6 +107,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "resist_debuff_duration"                          "16.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "1000"
       }
     }
   }

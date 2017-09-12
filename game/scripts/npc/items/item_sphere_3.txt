@@ -52,8 +52,9 @@
     "ItemCost"                                            "9850"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ls;linken's sphere 3"
+    "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ActiveDescriptionLine"                               "2"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
 
@@ -87,6 +88,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "700"
       }
     }
   }
