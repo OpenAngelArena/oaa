@@ -4,6 +4,11 @@
 -----------------------------------------------------------------------------------
 -- OAA specific settings
 
+-- poop wards
+POOP_WARD_DURATION = 360
+POOP_WARD_COOLDOWN = 120
+POOP_WARD_RADIUS = 200
+
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
