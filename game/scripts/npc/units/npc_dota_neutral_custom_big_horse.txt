@@ -15,7 +15,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"				"centaur_khan_war_stomp"			// Ability 1
-		"Ability2"				""						// Ability 2
+		"Ability2"				"boss_inner_beast"				// Ability 2
 		"Ability3"				""						// Ability 3
 		"Ability4"				""						// Ability 4
 
@@ -28,7 +28,7 @@
 		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"49"						// Damage range min.
 		"AttackDamageMax"			"55"						// Damage range max.	
-		"AttackRate"				"1.5"						// Speed of attack.
+		"AttackRate"				"3.0"						// Speed of attack.
 		"AttackAnimationPoint"			"0.3"						// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"		"500"						// Range within a target can be acquired.
 		"AttackRange"				"100"						// Range within a target can be attacked.

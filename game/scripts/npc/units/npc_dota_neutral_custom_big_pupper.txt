@@ -16,7 +16,7 @@
 		//----------------------------------------------------------------
 		"Ability1"					"alpha_wolf_critical_strike"			// Ability 1
 		"Ability2"					"alpha_wolf_command_aura"			// Ability 2
-		"Ability3"					""						// Ability 3
+		"Ability3"					"boss_inner_beast"				// Ability 3
 		"Ability4"					""						// Ability 4
 
 		// Armor
@@ -28,7 +28,7 @@
 		"AttackCapabilities"				"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"				"30"						// Damage range min.
 		"AttackDamageMax"				"33"						// Damage range max.	
-		"AttackRate"					"1.35"						// Speed of attack.
+		"AttackRate"					"2.70"						// Speed of attack.
 		"AttackAnimationPoint"				"0.33"						// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"			"500"						// Range within a target can be acquired.
 		"AttackRange"					"90"						// Range within a target can be attacked.
