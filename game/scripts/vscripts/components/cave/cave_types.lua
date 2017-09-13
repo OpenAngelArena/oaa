@@ -16,7 +16,7 @@ end
 
 local BaseCreepPowerMultiplier = 12
 local BaseCreepXPGOLDMultiplier = 12
-local CaveProgressionBuff = 6
+local CaveProgressionBuff = 5
 local CaveXPGOLDBuff = 2
 
 local BaseMultipliers = {
