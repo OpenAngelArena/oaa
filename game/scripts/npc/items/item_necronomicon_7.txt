@@ -111,7 +111,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_mana_burn"                                "200 300 400 550 750 1000 1300"
+        "archer_mana_burn"                                "125 175 225 350 500 750 1150"
       }
       "13"
       {
@@ -121,12 +121,12 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_move_speed"                               "5 7 9 10 11 12 13"
+        "archer_move_speed"                               "5 7 9 11 13 15 17"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 10 15 20 25 30 35"
+        "archer_attack_speed"                             "5 7 9 11 13 15 17"
       }
     }
   }
