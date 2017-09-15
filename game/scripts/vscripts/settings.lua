@@ -16,6 +16,7 @@ CAPTAINS_MODE_HERO_PICK_TIME = 20         -- time to choose which hero you're go
 
 -- Game timings
 PREGAME_TIME = 10
+AP_GAME_TIME = 90
 
 -- Duels
 INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
