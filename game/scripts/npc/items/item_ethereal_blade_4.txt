@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3144"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ethereal_blade_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_ethereal_blade_3;item_upgrade_core_3"

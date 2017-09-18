@@ -12,7 +12,7 @@ function Glyph:Init()
   self.scan = {}
 
 
-  self.ward.cooldown = 360
+  self.ward.cooldown = POOP_WARD_COOLDOWN
   self.ward.cooldowns = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   self.scan.cooldowns = {
     [DOTA_TEAM_GOODGUYS] = 0,
@@ -62,7 +62,7 @@ function Glyph:CastWard(playerID)
   end]]
 
   local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, hero, hero:GetTeam())
-  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = 360 })
+  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = POOP_WARD_DURATION })
   ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { })
 end
 

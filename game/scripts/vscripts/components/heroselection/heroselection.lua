@@ -28,12 +28,18 @@ function HeroSelection:Init ()
   end
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
 
+  GameEvents:OnPreGame(function (keys)
+    HeroSelection:StartSelection()
+  end)
 end
 
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
   DebugPrint(GetMapName())
+
+  HeroSelection.shouldBePaused = true
+  HeroSelection:CheckPause()
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     HeroSelection:UpdateTable(playerID, "empty")
@@ -43,13 +49,10 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
 
   if GetMapName() == "oaa_captains_mode" then
-    GameRules:SetPreGameTime(CM_GAME_TIME + 10)
     HeroSelection:CMManager(nil)
   else
-    GameRules:SetPreGameTime(AP_GAME_TIME + 3)
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
   end
-
 end
 
 -- start heropick CM timer
@@ -60,7 +63,7 @@ function HeroSelection:CMManager (event)
 
     if event == nil then
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      HeroSelection:CMTimer(20, "CHOOSE CAPTAIN")
+      HeroSelection:CMTimer(CAPTAINS_MODE_CAPTAIN_TIME, "CHOOSE CAPTAIN")
 
     elseif cmpickorder["currentstage"] == 0 then
       Timers:RemoveTimer(cmtimer)
@@ -68,7 +71,7 @@ function HeroSelection:CMManager (event)
         --random captain
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
-          if PlayerResource:GetTeam(PlayerID) == 2 and skipnext == false then
+          if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_GOODGUYS then
             cmpickorder["captainradiant"] = PlayerID
             skipnext = true
           end
@@ -78,7 +81,7 @@ function HeroSelection:CMManager (event)
         --random captain
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
-          if PlayerResource:GetTeam(PlayerID) == 3 and skipnext == false then
+          if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_BADGUYS then
             cmpickorder["captaindire"] = event.PlayerID
             skipnext = true
           end
@@ -86,25 +89,31 @@ function HeroSelection:CMManager (event)
       end
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-      HeroSelection:CMTimer(30, "CAPTAINS MODE")
+      HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
 
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       Timers:RemoveTimer(cmtimer)
       --random if not selected
+      if event.hero == "random" then
+        event.hero = HeroSelection:RandomHero()
+      end
+
       if cmpickorder["order"][cmpickorder["currentstage"]].type == "Pick" then
-        if event.hero == "random" then
-          event.hero = HeroSelection:RandomHero()
-        end
         table.insert(cmpickorder[cmpickorder["order"][cmpickorder["currentstage"]].side.."picks"], 1, event.hero)
       end
       cmpickorder["order"][cmpickorder["currentstage"]].hero = event.hero
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
+
+      DebugPrintTable(cmpickorder)
+      DebugPrint('--')
+      DebugPrintTable(event)
+
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
-        HeroSelection:CMTimer(30, "CAPTAINS MODE")
+        HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
       else
         forcestop = false
-        HeroSelection:APTimer(20, "CHOOSE HERO")
+        HeroSelection:APTimer(CAPTAINS_MODE_HERO_PICK_TIME, "CHOOSE HERO")
       end
     end
     forcestop = false
@@ -114,13 +123,39 @@ end
 
 -- manage cm timer
 function HeroSelection:CMTimer (time, message)
+  DebugPrint('cm tick...')
+  HeroSelection:CheckPause()
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+
+  if forcestop == false then
+    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
+      HeroSelection:CMManager({hero = "random"})
+      return
+    end
+
+    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["captaindire"] == "empty" then
+      HeroSelection:CMManager({hero = "random"})
+      return
+    end
+  end
+
   if time < 0 then
     HeroSelection:CMManager({hero = "random"})
-  else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
-    cmtimer = Timers:CreateTimer(1, function()
+    return
+  end
+
+  cmtimer = Timers:CreateTimer({
+    useGameTime = false,
+    endTime = 1,
+    callback = function()
       HeroSelection:CMTimer(time -1, message)
-    end)
+    end
+  })
+end
+
+function HeroSelection:CheckPause ()
+  if GameRules:IsGamePaused() ~= HeroSelection.shouldBePaused then
+    PauseGame(HeroSelection.shouldBePaused)
   end
 end
 
@@ -146,6 +181,7 @@ end
 
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
+  HeroSelection:CheckPause()
   if forcestop == true then
     for key, value in pairs(selectedtable) do
       PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
@@ -166,13 +202,31 @@ function HeroSelection:APTimer (time, message)
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
-    Timers:CreateTimer(1, function()
-      HeroSelection:APTimer(time - 1, message)
-    end)
+    Timers:CreateTimer({
+      useGameTime = false,
+      endTime = 1,
+      callback = function()
+        HeroSelection:APTimer(time - 1, message)
+      end
+    })
   end
 end
 
 function HeroSelection:RandomHero ()
+  while true do
+    local choice = HeroSelection:UnsafeRandomHero()
+    local safe = true
+    for _,data in ipairs(cmpickorder["order"]) do
+      if choice == data.hero then
+        safe = false
+      end
+    end
+    if safe then
+      return choice
+    end
+  end
+end
+function HeroSelection:UnsafeRandomHero ()
   local curstate = 0
   local rndhero = RandomInt(0, totalheroes)
   for name, _ in pairs(herolist) do
@@ -185,13 +239,20 @@ end
 
 -- start strategy timer
 function HeroSelection:StrategyTimer (time)
+  HeroSelection:CheckPause()
   if time < 0 then
+    HeroSelection.shouldBePaused = false
+    HeroSelection:CheckPause()
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
-    Timers:CreateTimer(1, function()
-      HeroSelection:StrategyTimer(time -1)
-    end)
+    Timers:CreateTimer({
+      useGameTime = false,
+      endTime = 1,
+      callback = function()
+        HeroSelection:StrategyTimer(time -1)
+      end
+    })
   end
 end
 
