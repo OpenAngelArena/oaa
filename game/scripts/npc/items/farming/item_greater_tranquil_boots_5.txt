@@ -54,7 +54,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-  
+
     "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -118,7 +118,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_per_charge"                             "330.0"
+        "distance_per_charge"                             "300.0"
       }
       "13"
       {
@@ -133,7 +133,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "250 400 600 900 1200"
+        "bonus_gold"                                      "2000 4000 8000 12000 18000"
       }
       "16"
       {

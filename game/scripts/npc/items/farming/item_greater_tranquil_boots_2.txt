@@ -59,7 +59,7 @@
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-  
+
     "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_per_charge"                             "330.0"
+        "distance_per_charge"                             "300.0"
       }
       "13"
       {
@@ -138,7 +138,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "250 400 600 900 1200"
+        "bonus_gold"                                      "2000 4000 8000 12000 18000"
       }
       "16"
       {
