@@ -143,7 +143,7 @@ end
 
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
-  --PlayerResource:RandomHeroForPlayersWithoutHero()
+  PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
 function GameMode:OnPreGame()

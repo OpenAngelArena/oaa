@@ -6,7 +6,7 @@ CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 local mode = ""
 if IsInToolsMode() then
   mode = "Tools Mode"
-elseif GameRules.IsCheatMode() then
+elseif GameRules:IsCheatMode() then
   mode = "Cheat Mode"
 end
 CustomNetTables:SetTableValue("info", "mode", { value = mode })
