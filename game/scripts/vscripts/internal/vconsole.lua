@@ -13,7 +13,11 @@ function print(...)
       type = "print",
       data = data
     })
-    data[1] = '[Server] ' .. data[1]
+    if data[1] then
+      data[1] = '[Server] ' .. data[1]
+    else
+      data[1] = '[Server] --'
+    end
   end
   _print(unpack(data))
 end
