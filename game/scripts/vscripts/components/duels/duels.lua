@@ -84,7 +84,7 @@ function Duels:Init ()
         return
       end
 
-      Duels:UnCountPlayerDeath(playerID)
+      Duels:UnCountPlayerDeath(player)
     end
   end)
 
@@ -113,7 +113,7 @@ function Duels:Init ()
         return
       end
 
-      Duels:CountPlayerDeath(playerID)
+      Duels:CountPlayerDeath(player)
     end
   end)
 
