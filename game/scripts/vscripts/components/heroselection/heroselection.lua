@@ -82,8 +82,10 @@ function HeroSelection:CMManager (event)
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
           if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_BADGUYS then
-            cmpickorder["captaindire"] = event.PlayerID
-            skipnext = true
+            if PlayerResource:GetConnectionState(PlayerID) == 2 then
+              cmpickorder["captaindire"] = PlayerID
+              skipnext = true
+            end
           end
         end)
       end
@@ -123,17 +125,16 @@ end
 
 -- manage cm timer
 function HeroSelection:CMTimer (time, message)
-  DebugPrint('cm tick...')
   HeroSelection:CheckPause()
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
 
-  if forcestop == false then
-    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
+  if cmpickorder["currentstage"] > 0 and forcestop == false then
+    if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
       HeroSelection:CMManager({hero = "random"})
       return
     end
 
-    if cmpickorder["currentstage"] > 0 and cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["captaindire"] == "empty" then
+    if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["captaindire"] == "empty" then
       HeroSelection:CMManager({hero = "random"})
       return
     end
