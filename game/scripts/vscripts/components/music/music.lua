@@ -75,7 +75,7 @@ function Music:FinishMatch(teamID)
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
-    if PlayerResource:GetPlayer(playerID):GetTeam() == teamID then
+    if PlayerResource:GetPlayer(playerID) and PlayerResource:GetPlayer(playerID):GetTeam() == teamID then
       -- team won
       EmitSoundOnClient(MusicList[itemnumber+1][2], PlayerResource:GetPlayer(playerID))
     else

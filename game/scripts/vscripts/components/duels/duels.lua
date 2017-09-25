@@ -84,7 +84,7 @@ function Duels:Init ()
         return
       end
 
-      Duels:UnCountPlayerDeath(playerID)
+      Duels:UnCountPlayerDeath(player)
     end
   end)
 
@@ -113,7 +113,7 @@ function Duels:Init ()
         return
       end
 
-      Duels:CountPlayerDeath(playerID)
+      Duels:CountPlayerDeath(player)
     end
   end)
 
@@ -177,12 +177,18 @@ function Duels:CheckDuelStatus (hero)
   end
 
   if not player.assigned or not player.duelNumber then
+    DebugPrint('Player died who isnt in a duel?')
+    DebugPrintTable(Duels.currentDuel)
+    DebugPrintTable(player)
     return
   end
 
   if player.killed then
     -- this player is already dead and shouldn't be counted again
     -- this shouldn't happen, but is nice to have here for future use cases of this method
+    DebugPrint('Player died twice in duel?')
+    DebugPrintTable(Duels.currentDuel)
+    DebugPrintTable(player)
     return
   end
 

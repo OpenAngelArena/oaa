@@ -1,18 +1,19 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "3.0.0"
+GAME_VERSION = "2.9.4"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 -- lets do this here too
 local mode = ""
 if IsInToolsMode() then
   mode = "Tools Mode"
-elseif GameRules.IsCheatMode() then
+elseif GameRules:IsCheatMode() then
   mode = "Cheat Mode"
 end
 CustomNetTables:SetTableValue("info", "mode", { value = mode })
 CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. " " .. GetSystemTime() })
 
 require('internal/vconsole')
+require('internal/eventwrapper')
 
 require('internal/util')
 require('gamemode')

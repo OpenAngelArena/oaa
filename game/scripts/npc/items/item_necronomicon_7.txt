@@ -1,52 +1,53 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Necronomicon
+  // Recipe: Necronomicon 7
   //=================================================================================================================
-  "item_recipe_necronomicon"
+  "item_recipe_necronomicon_7"
   {
-    "ID"                                                  "105"    // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "1200"
+    "ID"                                                  "3270"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
+    "ItemBaseLevel"                                       "7"
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_necronomicon"
-    "AbilityTextureName"                                  "item_recipe"
+    "ItemResult"                                          "item_necronomicon_7"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_belt_of_strength"
+      "01"                                                "item_necronomicon_6;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Necronomicon
+  // Necronomicon 7
   //=================================================================================================================
-  "item_necronomicon"
+  "item_necronomicon_7"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "106"    // unique ID
+    "ID"                                                  "3271"    // unique ID
+    "BaseClass"                                           "item_necronomicon_3"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
+    "AbilityTextureName"                                  "custom/necronomicon_7"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "90.0"
     "AbilitySharedCooldown"                               "necronomicon"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "item_necronomicon"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "2650"
+    "ItemCost"                                            "38050"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "necronomicon 1;necro 1"
+    "ItemAliases"                                         "necronomicon 7;necro 7"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "7"
-    "ItemBaseLevel"                                       "1"
-
-    "UpgradesItems"                                       "item_necronomicon;item_necronomicon_2;item_necronomicon_3;item_necronomicon_4;item_necronomicon_5"
+    "ItemBaseLevel"                                       "7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
