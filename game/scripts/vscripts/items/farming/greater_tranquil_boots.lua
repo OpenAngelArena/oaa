@@ -140,7 +140,7 @@ if IsServer() then
 			local dist = ( originParent - self.originOld ):Length2D()
 
 			-- cap the amount of distances so tps don't instafill it
-			math.min( dist, self.distMax )
+			dist = math.min( dist, self.distMax )
 
 			-- add the distance to the fraction charge
 			self.fracCharge = self.fracCharge + dist
