@@ -214,7 +214,7 @@ if IsServer() then
 				-- then check for naturalize eating
 				local currentCharges = spell:GetCurrentCharges()
 
-				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() then
+				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() and not parent:IsIllusion() then
 					local player = parent:GetPlayerOwner()
 
 					-- remove 100 charges
