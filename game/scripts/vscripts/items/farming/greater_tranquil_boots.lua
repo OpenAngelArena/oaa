@@ -140,7 +140,7 @@ if IsServer() then
 			local dist = ( originParent - self.originOld ):Length2D()
 
 			-- cap the amount of distances so tps don't instafill it
-			math.min( dist, self.distMax )
+			dist = math.min( dist, self.distMax )
 
 			-- add the distance to the fraction charge
 			self.fracCharge = self.fracCharge + dist
@@ -214,7 +214,7 @@ if IsServer() then
 				-- then check for naturalize eating
 				local currentCharges = spell:GetCurrentCharges()
 
-				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() then
+				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() and not parent:IsIllusion() then
 					local player = parent:GetPlayerOwner()
 
 					-- remove 100 charges
