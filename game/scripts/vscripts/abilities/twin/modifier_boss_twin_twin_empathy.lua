@@ -25,13 +25,14 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
   local master = self:GetCaster()
   local twin = self:GetParent()
 
-	if twin:IsAlive() and master:IsAlive() then
+	if twin:IsAlive() then
 	  if twin:GetHealth() < master:GetHealth() then
       twin:SetHealth(master:GetHealth())
-    elseif twin:GetHealth() > master:GetHealth() then
+    end
+    if twin:GetHealth() > master:GetHealth() then
       master:SetHealth(twin:GetHealth())
     end
-  end
+	end
 
   self:StartIntervalThink(self:GetAbility():GetSpecialValueFor( "heal_timer" ))
 end
