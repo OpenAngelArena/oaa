@@ -4,6 +4,7 @@
   vertical-align: top;
   margin-top: 12px;
   margin-left: 150px;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex");
   width: 200px;
   flow-children: right;
 }
@@ -11,14 +12,14 @@
 .MusicButton
 {
   width: 30px;
-  height: 28px;
+  height: 30px;
   margin: 2px;
   background-size: 26px;
   background-repeat: no-repeat;
   background-position: center;
   horizontal-align: center;
   vertical-align: middle;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .MusicOn
@@ -39,7 +40,7 @@
 
 .MusicTitle
 {
-    padding-top: 2px;
+    padding-top: 4px;
     padding-bottom: 2px;
     color: #A3B5D0CC;
     font-weight: thin;
