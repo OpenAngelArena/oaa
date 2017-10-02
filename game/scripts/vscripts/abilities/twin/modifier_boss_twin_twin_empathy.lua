@@ -26,9 +26,9 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
   local twin = self:GetParent()
 
 	if twin:IsAlive() and master:IsAlive() then
-	  if twin:GetHealth() < master:GetHealth() - 200 then
+	  if twin:GetHealth() < master:GetHealth() then
       twin:SetHealth(master:GetHealth())
-    elseif twin:GetHealth() - 200 > master:GetHealth() then
+    elseif twin:GetHealth() > master:GetHealth() then
       master:SetHealth(twin:GetHealth())
     end
   end
