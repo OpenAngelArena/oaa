@@ -76,6 +76,9 @@ function modifier_item_bloodstone_oaa:Setup(created)
         needsSetCharges = true
         ability.addedCharges = true
       else
+        if not caster.surplusCharges then
+          caster.surplusCharges = 12
+        end
         print('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
         self.charges = 12
         caster.surplusCharges = math.min(12, caster.surplusCharges)
