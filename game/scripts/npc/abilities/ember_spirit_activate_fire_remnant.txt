@@ -13,13 +13,13 @@
     "MaxLevel"                                            "5"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"    
+    "FightRecapLevel"                                     "1"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "99999"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
@@ -50,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 200 300 500 1200"
+        "damage"                                          "100 200 300 700 1200"
       }
       "05"
       {
