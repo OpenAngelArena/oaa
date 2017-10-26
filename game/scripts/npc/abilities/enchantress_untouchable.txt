@@ -13,14 +13,14 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
 
-    // Special  
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed"                               "-40 -70 -100 -130 -160 -240"
+        "slow_attack_speed"                               "-40 -70 -100 -130 -260 -400"
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_3"
       }
       "02"
