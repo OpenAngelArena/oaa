@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,16 +21,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 10 8 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
-    
-    
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
+
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -41,24 +41,24 @@
         "bounce_radius"                                   "475"
       }
       "02"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "damage_radius"                                   "185"
       }
       "03"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "max_targets"                                     "3 4 5 6 8 16"
       }
       "04"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_max_targets_inc_dazzle"                  "4 5 6 7 9 17"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 100 120 140 200 480"
+        "damage"                                          "80 100 120 140 310 480"
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
 
       }
