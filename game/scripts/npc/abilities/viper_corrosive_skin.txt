@@ -6,11 +6,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5220"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "10"
@@ -32,7 +32,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-10 -15 -20 -25 -35 -75"
+        "bonus_attack_speed"                              "-10 -15 -20 -25 -50 -75"
       }
       "04"
       {
@@ -42,7 +42,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "10 15 20 25 35 75"
+        "damage"                                          "10 15 20 25 50 75"
       }
       "06"
       {
