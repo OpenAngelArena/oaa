@@ -11,22 +11,22 @@
 
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0 0 0 0"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -42,7 +42,7 @@
         "spirit_duration"                                 "20.0 20.0 20.0 20.0"
       }
       "03"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "spirit_speed"                                    "900 900 900 900"
       }
@@ -64,7 +64,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "10 30 50 70 110 270"
+        "damage_per_second"                               "10 30 50 70 170 270"
       }
       "08"
       {

@@ -11,7 +11,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_time_lock.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 	"AbilityTextureName"                                  "faceless_void_time_lock"
@@ -46,7 +46,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 195 475"
+        "bonus_damage"                                    "50 75 100 125 300 475"
       }
     }
   }

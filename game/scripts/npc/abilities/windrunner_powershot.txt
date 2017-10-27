@@ -6,7 +6,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5131"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -15,19 +15,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "2600"
     "AbilityCastPoint"                                    "0.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 11 10 9 9 9"
     "AbilityChannelTime"                                  "1.0 1.0 1.0 1.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "180 260 340 420 620 1420"
+    "AbilityDamage"                                       "180 260 340 420 920 1420"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

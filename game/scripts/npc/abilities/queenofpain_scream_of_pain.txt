@@ -9,25 +9,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5175"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "7.0 7.0 7.0 7.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 150 225 300 450 1000"
+    "AbilityDamage"                                       "75 150 225 300 650 1000"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 160 240"
+    "AbilityManaCost"                                     "110 120 130 140 190 240"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

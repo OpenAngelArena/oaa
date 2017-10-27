@@ -10,7 +10,7 @@
     "ID"                                                  "5056"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "MaxLevel"                                            "6"
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
@@ -31,7 +31,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "morph_cooldown"                                  "0.5 0.25 0.125 0.0625 0.03125.015625"
+        "morph_cooldown"                                  "0.5 0.25 0.125 0.0625 0.03125 0.015625"
       }
       "04"
       {

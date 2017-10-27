@@ -24,8 +24,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.01"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13"
 
@@ -56,12 +56,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "pull_units_per_second_heroes"                    "600"
-      }        
+      }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "rock_damage"                                     "50 100 150 200 300 700"
-      }        
+        "rock_damage"                                     "50 100 150 200 450 700"
+      }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -71,12 +71,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "800"
-      }  
+      }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "total_pull_distance"                             "1400"
-      }      
+      }
     }
   }
 }

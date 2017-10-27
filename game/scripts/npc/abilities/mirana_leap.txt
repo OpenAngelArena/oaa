@@ -16,7 +16,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0 26.0 22.0 18.0 17.0 16.0"
     "AbilityDuration"                                     "5.0"
@@ -57,7 +57,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_speedbonus_as"                              "16 32 48 64 96 144"
+        "leap_speedbonus_as"                              "16 32 48 64 104 144"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
       }
     }

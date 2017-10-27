@@ -15,7 +15,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
     "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
@@ -24,15 +24,15 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.2 0.2 0.2"
     "AbilityChannelTime"                                  "10.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22.0 22.0 22.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 325 725"
-    
+    "AbilityManaCost"                                     "125 175 225 475 725"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // All about the damage
@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 200 250 350 750"
+        "health_drain"                                    "150 200 250 500 750"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
@@ -60,7 +60,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain_scepter"                            "180 240 300 420 900"
+        "health_drain_scepter"                            "180 240 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "05"
