@@ -14,13 +14,13 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "32 30 28 26 26 26"
 
@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "drain_rate"                                      "7 14 21 28 42 100"
+        "drain_rate"                                      "7 14 21 28 64 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor"
       }
       "04"
