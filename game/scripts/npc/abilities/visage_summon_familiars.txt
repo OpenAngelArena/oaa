@@ -29,12 +29,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_hp"                                     "300 500 700 1100 2200"
+        "familiar_hp"                                     "300 500 700 1700 2700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_armor"                                  "0 1 2 4 12"
+        "familiar_armor"                                  "0 1 2 7 12"
       }
       "03"
       {
@@ -45,7 +45,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_max_damage"                             "56 112 168 240 728"
+        "familiar_max_damage"                             "56 112 168 448 728"
       }
       "05"
       {
@@ -55,7 +55,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_charge"                               "8 16 24 40 104"
+        "damage_per_charge"                               "8 16 24 64 104"
       }
       "07"
       {
