@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5186"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -18,14 +18,14 @@
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "5"
 
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 105 125 145 185 350"
+    "AbilityManaCost"                                     "85 105 125 145 245 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "100 175 250 325 475 1075"
+        "blast_damage"                                    "100 175 250 325 700 1075"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_2"
       }
     }
