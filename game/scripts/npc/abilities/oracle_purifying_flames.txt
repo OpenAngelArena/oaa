@@ -10,8 +10,8 @@
     "ID"                                                  "5639"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"  
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -22,8 +22,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "2.25"
 
@@ -38,17 +38,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 180 270 360 540 1260"
-      }      
+        "damage"                                          "90 180 270 360 810 1260"
+      }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_per_second"                                 "11.0 22.0 33.0 44.0 66.0 154.0"
+        "heal_per_second"                                 "11.0 22.0 33.0 44.0 99.0 154.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_heal_tooltip"                              "99 198 297 396 594 1386"
+        "total_heal_tooltip"                              "99 198 297 396 891 1386"
       }
       "04"
       {
@@ -71,5 +71,5 @@
         "castpoint_scepter"                               "0.1"
       }
     }
-  } 
+  }
 }
