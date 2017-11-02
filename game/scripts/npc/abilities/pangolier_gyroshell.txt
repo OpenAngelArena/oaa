@@ -12,6 +12,9 @@
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
     "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"               "1"
+    "MaxLevel"                      "5"
+    "RequiredLevel"                 "6"
+    "LevelsBetweenUpgrades"         "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +24,7 @@
 
     // Time     
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "50 45 40"
+    "AbilityCooldown"               "50 45 40 35 30"
     "AbilityDuration"               "8.0"
 
     // Cost
@@ -30,7 +33,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                 "200 250 300"
+    "AbilityDamage"                 "200 250 300 400 600"
 
     "precache"
     {
@@ -55,7 +58,7 @@
         "03"
         {
             "var_type"              "FIELD_FLOAT"
-            "forward_move_speed"    "550 575 600"
+            "forward_move_speed"    "550 575 600 650 700"
         }
         "04"
         {
@@ -65,7 +68,7 @@
         "05"
         {
             "var_type"              "FIELD_FLOAT"
-            "turn_rate"             "105 110 115"
+            "turn_rate"             "105 110 115 125 150"
         }
         "06"
         {
@@ -85,7 +88,7 @@
         "09"
         {
             "var_type"              "FIELD_FLOAT"
-            "stun_duration"         "1.0 1.25 1.5"
+            "stun_duration"         "1.0 1.25 1.5 1.75 2.0"
         }           
         "10"
         {
@@ -95,7 +98,7 @@
         "11"
         {
             "var_type"              "FIELD_FLOAT"
-            "duration"              "6.0 7.0 8.0"
+            "duration"              "6.0 7.0 8.0 9.0 10.0"
         }
         "12"
         {

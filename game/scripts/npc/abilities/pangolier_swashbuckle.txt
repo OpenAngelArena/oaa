@@ -9,6 +9,9 @@
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                      "6"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -17,11 +20,11 @@
     
     // Time     
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "20 16 12 8"
+    "AbilityCooldown"               "20 16 12 8 7 6"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "70 80 90 100"
+    "AbilityManaCost"               "70 80 90 100 110 120"
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +43,7 @@
         "05"
         {
             "var_type"              "FIELD_INTEGER"
-            "damage"                "24 42 60 78"
+            "damage"                "24 42 60 78 132 240"
             "LinkedSpecialBonus"    "special_bonus_unique_pangolier_3"
         }
         "03"
@@ -51,7 +54,7 @@
         "04"
         {
             "var_type"              "FIELD_FLOAT"
-            "attack_interval"       "0.1 0.1 0.1 0.1"
+            "attack_interval"       "0.1 0.1 0.1 0.1 0.1 0.1"
         }
         "06"
         {
@@ -71,7 +74,7 @@
         "09"
         {
             "var_type"              "FIELD_INTEGER"
-            "charge_restore_time"   "15 12 9 6"
+            "charge_restore_time"   "15 12 9 6 5 4"
         }
     }
 }
