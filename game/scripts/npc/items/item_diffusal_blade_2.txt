@@ -7,22 +7,26 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "195"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3608"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_diffusal_blade_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemRequirements"
     {
-      "01"                                                "item_diffusal_blade;item_recipe_diffusal_blade"
+      "01"                                                "item_diffusal_blade;item_upgrade_core"
+      "02"                                                "item_diffusal_blade;item_upgrade_core_2"
+      "03"                                                "item_diffusal_blade;item_upgrade_core_3"
+      "04"                                                "item_diffusal_blade;item_upgrade_core_4"
     }
   }
 
@@ -33,7 +37,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "196"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3610"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_diffusal_blade"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -51,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "3850"
+    "ItemCost"                                            "5350"
     "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "diffusal blade 2;diffusal 2"
@@ -61,8 +66,7 @@
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
     "MaxUpgradeLevel"                                     "6"
-    "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_diffusal_blade_2;item_diffusal_blade_3;item_diffusal_blade_4;item_diffusal_blade_5"
+    "ItemBaseLevel"                                       "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
