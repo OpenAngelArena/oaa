@@ -1,0 +1,37 @@
+//=================================================================================================================
+// Pangolier: Heartpiercer
+//=================================================================================================================
+"pangolier_heartpiercer"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6346"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "chance_pct"            "15"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "duration"              "2 3 4 5"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "slow_pct"          "-35 -40 -45 -50"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "debuff_delay"          "2"
+        }
+    }
+}
