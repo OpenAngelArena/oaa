@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Morphling: Adaptive Strike
   //=================================================================================================================
-  "morphling_adaptive_strike"
+  "morphling_adaptive_strike_agi"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -55,32 +55,17 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_min"                                        "0.25 0.25 0.25 0.25"
+        "range_tooltip"                                   "600 700 800 900 1000 1250"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_max"                                        "1.25 2.25 3.25 4.25 4.75 5.25"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_min"                                   "100"
+        "projectile_speed"                                "1150"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_max"                                   "300"
-      }
-      "08"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "range_tooltip"                                   "600 700 800 900 1000 1250"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "1150"
+        "shared_cooldown"                                 "3"
       }
     }
   }
