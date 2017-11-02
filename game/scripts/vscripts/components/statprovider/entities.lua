@@ -29,9 +29,6 @@ function EntityStatProvider:EventHandler(keys)
     return
   end
 
-  print(handle:GetClassname())
-  print(handle:GetDebugName())
-
   CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
     HealthRegen = handle:GetHealthRegen(),
     ManaRegen = handle:GetManaRegen()
