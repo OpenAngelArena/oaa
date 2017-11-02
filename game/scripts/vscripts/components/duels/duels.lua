@@ -66,7 +66,7 @@ function Duels:Init ()
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
-          hero:RespawnHero(false, false, false)
+          hero:RespawnHero(false, false)
         end
       end
 
@@ -500,7 +500,7 @@ function Duels:EndDuel ()
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false,false)
+        hero:RespawnHero(false,false)
       else
         hero:RemoveModifierByName("modifier_out_of_duel")
       end
@@ -555,7 +555,7 @@ function Duels:ResetPlayerState (hero)
   end
 
   if not hero:IsAlive() then
-    hero:RespawnHero(false,false,false)
+    hero:RespawnHero(false,false)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
