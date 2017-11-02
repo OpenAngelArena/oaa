@@ -5,20 +5,21 @@
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6341"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.       
-    
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "ID"                            "6341"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 
-    // Time     
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                      "6"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "30 24 18 12"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "70 80 90 100"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

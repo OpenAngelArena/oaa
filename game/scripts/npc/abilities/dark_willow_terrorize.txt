@@ -5,12 +5,13 @@
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.       
+    "ID"                            "8340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
+    "MaxLevel"                      "5"
 
 
     // Casting
@@ -18,11 +19,11 @@
     "AbilityCastRange"              "1500"
     "AbilityCastPoint"              "0.8"
     "AbilityCooldown"               "100 80 60"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "150"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -42,7 +43,7 @@
             "var_type"              "FIELD_FLOAT"
             "destination_status_duration"   "4"
             "LinkedSpecialBonus"        "special_bonus_unique_dark_willow_2"
-        }   
+        }
         "04"
         {
             "var_type"              "FIELD_FLOAT"
@@ -52,12 +53,12 @@
         {
             "var_type"              "FIELD_FLOAT"
             "initial_delay"         "0.8"
-        }   
+        }
         "06"
         {
             "var_type"              "FIELD_FLOAT"
             "starting_height"       "300"
-        }   
+        }
     }
 
     "AbilityDraftPreAbility"        "dark_willow_bedlam"

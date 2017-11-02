@@ -5,22 +5,23 @@
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.       
+    "ID"                            "6340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                      "3"
     "FightRecapLevel"               "1"
+    "MaxLevel"                      "5"
 
     // Casting
-    //-------------------------------------------------------------------------------------------------------------     
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "20"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "100 150 200"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
