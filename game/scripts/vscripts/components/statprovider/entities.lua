@@ -21,8 +21,16 @@ function EntityStatProvider:EventHandler(keys)
     return
   end
 
+  if not handle.GetManaRegen then
+    CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
+      HealthRegen = 0,
+      ManaRegen = 0
+    })
+    return
+  end
+
   CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
     HealthRegen = handle:GetHealthRegen(),
-    ManaRegen = (handle:GetManaRegen() + handle:GetStatsBasedManaRegen()) * handle:GetPercentageBasedManaRegen() + handle:GetConstantBasedManaRegen()
+    ManaRegen = handle:GetManaRegen()
   })
 end
