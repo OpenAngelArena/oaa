@@ -44,6 +44,21 @@
         "var_type"                                        "FIELD_FLOAT"
         "strength_damage"                                 "0.3 0.45 0.6 0.8 1.0"
       }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "ticks"   "3"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "pull_units_per_second"   "75"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "pull_distance_limit"   "125"
+      }
     }
   }
 }

@@ -27,24 +27,22 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-10 -15 -20 -25 -30 -35"
+        "bonus_attack_speed"                              "8 16 24 32 40 48"
+        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-10 -15 -20 -25 -50 -75"
+        "bonus_magic_resistance"                          "10 15 20 25 30 35"
+        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "10 15 20 25 30 35"
+        "damage"                                          "8 16 24 32 80 128"
+        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
       }
       "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "10 15 20 25 50 75"
-      }
-      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_range_tooltip"                               "1400"

@@ -17,10 +17,6 @@
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.2"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "85 100 115 145 245 345"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "1.6"
@@ -35,15 +31,20 @@
     {
       "01"
       {
+        "var_type"        "FIELD_INTEGER"
+        "arc_damage"      "85 100 115 145 245 345"
+        "LinkedSpecialBonus"  "special_bonus_unique_zeus_2"
+      "02"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "500 500 500 500 500 500"
       }
-      "02"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "jump_count"                                      "5 7 9 15 22 50"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "jump_delay"                                      "0.25 0.25 0.25 0.25 0.25 0.25"

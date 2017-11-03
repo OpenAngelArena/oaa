@@ -34,7 +34,31 @@
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "900"
       }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_do_damage_percent"  "0"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_do_damage_percent_tooltip"      "100"
+      } 
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_take_damage_percent"  "100"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_take_damage_percent_tooltip"      "200"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "illusion_duration"     "7"
+      }
     }
   }
-
 }
