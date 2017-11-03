@@ -53,6 +53,11 @@
         "creep_damage_penalty"                            "-50"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "charge_restore_time" "30.0 22.0 14.0 6.0 6.0 6.0"
+      }
     }
   }
 }
