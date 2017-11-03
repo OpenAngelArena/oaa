@@ -244,7 +244,6 @@ function testSpecialValues (t, specials, parentSpecials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
   var parentData = {};
-  var specialValues = {};
 
   if (parentSpecials) {
     var parentValues = Object.keys(parentSpecials).filter(a => a !== 'values');
@@ -259,11 +258,6 @@ function testSpecialValues (t, specials, parentSpecials) {
   values.forEach(function (num) {
     var value = specials[num].values;
     t.ok(value.var_type, 'has a var_type ' + num);
-    var hasLinkedSpecial = !!value.LinkedSpecialBonus;
-    var hasLinkedSpecialField = !!value.LinkedSpecialBonusField;
-    var hasLinkedSpecialOperation = !!value.LinkedSpecialBonusOperation;
-    var hasSpellDamageTooltip = !!value.CalculateSpellDamageTooltip;
-    var hasLevelkey = !!value.levelkey;
 
     var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
     t.equal(keyNames.length, 1, 'gets keyname after filtering out extra values');
