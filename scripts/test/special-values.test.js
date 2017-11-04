@@ -264,7 +264,7 @@ function testSpecialValues (t, specials, parentSpecials) {
 
     var keyName = keyNames[0];
 
-    if (parentSpecials && !parentSpecials[num].values[keyName]) {
+    if (parentSpecials && (!parentSpecials[num] || !parentSpecials[num].values[keyName])) {
       if (!parentData[keyName]) {
         t.fail('Extra keyname found in special values: ' + keyName);
       } else {
