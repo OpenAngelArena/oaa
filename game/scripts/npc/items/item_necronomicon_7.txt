@@ -56,12 +56,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 21 24 36 54 70 105"
+        "bonus_strength"                                  "8 12 16 24 36 54 70"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "8 12 16 24 36 54 70"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"    "1 1.25 1.5 2 2.75 3.75 5"
       }
       "03"
       {

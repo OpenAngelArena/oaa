@@ -118,15 +118,10 @@
       }
       "10"
       {
-        "var_type"              "FIELD_FLOAT"
-        "soul_heal_duration"    "8.0"
+        "var_type"        "FIELD_FLOAT"
+        "duration"  "8.0"
       }
       "11"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "soul_damage_duration"  "8.0"
-      }
-      "12"
       {
         "var_type"              "FIELD_INTEGER"
         "soul_release_range_tooltip"    "950"

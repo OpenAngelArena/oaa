@@ -72,17 +72,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 10 18 30 45"
+        "bonus_health_regen"                              "5.5 9 16 28 42"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225 325 450 600"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 45 55"
+        "bonus_mana_regen"                                "2.25 3.25 4.50 6 8"
       }
       "05"
       {
