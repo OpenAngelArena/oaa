@@ -279,6 +279,21 @@ function testSpecialValues (t, specials, parentSpecials) {
       compareValue[keyName] = parentData[keyName][keyName];
       compareValue.var_type = parentData[keyName].var_type;
       spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
+
+      console.log(specials[num].comments[keyName]);
+
+      if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
+        // test base dota values
+        var baseValue = '';
+        if (value[keyName].length < parentData[keyName][keyName].length) {
+          baseValue = parentData[keyName][keyName].split(' ').map(function (entry) {
+            return value[keyName];
+          }).join(' ');
+        } else {
+          baseValue = value[keyName].substr(0, parentData[keyName][keyName].length);
+        }
+        t.equal(parentData[keyName][keyName], baseValue, keyName + ' should inherit basic dota values (' + parentData[keyName][keyName] + ' vs ' + baseValue + ')');
+      }
     }
 
     if (result[keyName]) {
