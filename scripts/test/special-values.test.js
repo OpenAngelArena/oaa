@@ -256,7 +256,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
   if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
     t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
   }
-  keys.forEach(function(key) {
+  keys.forEach(function (key) {
     if (values[key] && parentValues[key] && (!comments[key] || !comments[key].includes('OAA'))) {
       var baseValue = '';
       var parentValue = parentValues[key];
