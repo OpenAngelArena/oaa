@@ -199,7 +199,13 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     }
   }
   if (parentKV && values.ID) {
-    checkInheritedValues(t, values, root[item].comments, parentKV.values);
+    checkInheritedValues(t, isItem, values, root[item].comments, parentKV.values);
+
+    if (root[item].ItemRequirements) {
+      if (!root[item].comments.ItemRequirements || !root[item].comments.ItemRequirements.includes('OAA')) {
+        t.deepEquals(root[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(root[item].ItemRequirements, null, 2));
+      }
+    }
   }
 
   if (values.ScriptFile) {
@@ -231,7 +237,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   // });
 }
 
-function checkInheritedValues (t, values, comments, parentValues) {
+function checkInheritedValues (t, isItem, values, comments, parentValues) {
   if (values.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
@@ -261,6 +267,9 @@ function checkInheritedValues (t, values, comments, parentValues) {
         }).join(' ');
       } else {
         var size = values[key].split(' ').length - 2;
+        if (isItem) {
+          size = 1;
+        }
         var parentArr = parentValue.split(' ');
         if (parentArr.length === 1) {
           while (parentArr.length < size) {
@@ -271,7 +280,7 @@ function checkInheritedValues (t, values, comments, parentValues) {
 
         baseValue = values[key].substr(0, parentValue.length);
       }
-      t.equal(parentValue, baseValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      t.deepEqual(parentValue, baseValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
       // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
     }
   });
@@ -327,7 +336,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
         } else {
           var size = value[keyName].split(' ').length - 2;
           if (isItem) {
-            size += 2;
+            size = 1;
           }
           var parentArr = parentValue.split(' ');
           if (parentArr.length === 1) {
@@ -531,27 +540,27 @@ function buildItemTree (t, data, cb) {
 
       // this chunk of code will write the item costs in the file for you
       // useful...
-      // if (items[item].baseCost !== items[item].cost) {
-      //   var fileName = itemFileMap[item];
-      //   var foundIt = false;
-      //   var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
-      //     .split('\n')
-      //     .map(function (line) {
-      //       var parts = line.split(/[\s ]+/).filter(a => a && a.length);
-      //       if (parts[0] === '"' + item + '"') {
-      //         foundIt = true;
-      //       }
-      //       if (foundIt && parts[0] === '"ItemCost"') {
-      //         // console.log(parts);
-      //         line = line.replace('' + items[item].baseCost, items[item].cost);
-      //         foundIt = false;
-      //       }
-      //       return line;
-      //     })
-      //     .join('\n');
+      if (items[item].baseCost !== items[item].cost) {
+        var fileName = itemFileMap[item];
+        var foundIt = false;
+        var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
+          .split('\n')
+          .map(function (line) {
+            var parts = line.split(/[\s ]+/).filter(a => a && a.length);
+            if (parts[0] === '"' + item + '"') {
+              foundIt = true;
+            }
+            if (foundIt && parts[0] === '"ItemCost"') {
+              // console.log(parts);
+              line = line.replace('' + items[item].baseCost, items[item].cost);
+              foundIt = false;
+            }
+            return line;
+          })
+          .join('\n');
 
-      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
-      // }
+        fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
+      }
     });
 
     // output item costs in csv format (for haga usually)
