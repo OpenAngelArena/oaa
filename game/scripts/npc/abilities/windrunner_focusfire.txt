@@ -59,6 +59,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "focusfire_damage_reduction_scepter"              "-30 -15 -0 10 30"
       }
+      "06"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "focusfire_fire_on_the_move"  "1"
+      }
     }
   }
 }

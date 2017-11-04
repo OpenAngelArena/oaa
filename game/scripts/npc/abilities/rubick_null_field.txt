@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5451"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -22,11 +22,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "magic_damage_reduction_pct"                      "10 14 18 22 36 50"
+        "LinkedSpecialBonus"    "special_bonus_unique_rubick_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
       }
     }
   }

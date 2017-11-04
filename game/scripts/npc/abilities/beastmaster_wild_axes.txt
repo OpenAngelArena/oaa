@@ -25,12 +25,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13"
+    "AbilityCooldown"                                     "8"
 
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "105 110 115 120 140 170"
+    "AbilityManaCost"                                     "60 65 70 75 95 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,25 +39,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "140"
+        "radius"                                          "175"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spread"                                          "353"
+        "spread"                                          "450"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1300"
+        "range"                                           "1500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "70 100 130 160 310 460"
+        "axe_damage"                                      " 40 70 100 130 280 430"
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
       }
-
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_amp"                                      "6 8 10 12 15 18"
+      }
     }
   }
 }

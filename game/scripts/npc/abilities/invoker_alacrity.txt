@@ -35,12 +35,14 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
         "levelkey"                                        "wexlevel"
+        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
         "levelkey"                                        "exortlevel"
+        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
       }
       "03"
       {
@@ -49,6 +51,4 @@
       }
     }
   }
-
-
 }
