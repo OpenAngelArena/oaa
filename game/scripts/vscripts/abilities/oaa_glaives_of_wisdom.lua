@@ -57,7 +57,9 @@ end
 function modifier_oaa_glaives_of_wisdom:OnAttackStart(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  if keys.attacker == parent and (keys.gain == 0 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
+  -- Manual cast of attack modifier appears to make the damage_type 1115000
+  -- May or may not work properly in practice
+  if keys.attacker == parent and (keys.damage_type == 1115000 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
     -- Set projectile
     parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
   end
@@ -73,9 +75,9 @@ end
 function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  -- keys.gain ~= keys.gain is to check if it is NaN which seems to always be the case when
-  -- an attack modifier ability is cast manually
-  if keys.attacker == parent and (keys.gain ~= keys.gain or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
+  -- Manual cast of attack modifier appears to make the damage_type 2
+  -- May or may not work properly in practice
+  if keys.attacker == parent and (keys.damage_type == 2 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
     -- Enable proc for this attack record number
     self.procRecords[keys.record] = true
     -- Using attack modifier abilities doesn't actually fire any cast events so we have to spend the mana here
