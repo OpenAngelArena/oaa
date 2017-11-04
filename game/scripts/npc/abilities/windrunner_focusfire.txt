@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0 60.0 60.0"
+    "AbilityCooldown"                                     "70.0"
     "AbilityDuration"                                     "20.0 20.0 20.0"
 
     // Cost
@@ -37,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "500"
+        "bonus_attack_speed"                              "350"
       }
       "02"
       {
