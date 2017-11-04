@@ -48,7 +48,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_aether_lens_2;item_aether_lens_3;item_aether_lens_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,22 +56,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500 700 1000"
+        "bonus_mana"                                      "450 600 800 1050 1250"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "100 150 250 350 500"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"    "1.25 1.75 2.5 3.5 4.75"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "220 250 300 375 450"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "6 12 18 24 30"
+        "cast_range_bonus"                                "250 275 325 400 500"
       }
     }
   }

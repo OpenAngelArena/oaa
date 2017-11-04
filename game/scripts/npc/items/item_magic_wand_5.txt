@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "33465"
+    "ItemCost"            "33410"
     "ItemShopTags"          "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"         "common"
     "ItemAliases"         "magic wand 5;wand 5"
@@ -78,6 +78,11 @@
         "bonus_all_stats"   "4 12 24 48 96"
       }
       "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "bonus_health_regen"    "1.5 3 6 12 24"
+      }
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "restore_per_charge"  "15 30 60 120 240"

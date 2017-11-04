@@ -219,9 +219,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      if (!isItem) {
-        testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
-      }
+      testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
@@ -266,7 +264,7 @@ function testSpecialValues (t, specials, parentSpecials) {
 
     var keyName = keyNames[0];
 
-    if (parentSpecials && !parentSpecials[num].values[keyName]) {
+    if (parentSpecials && (!parentSpecials[num] || !parentSpecials[num].values[keyName])) {
       if (!parentData[keyName]) {
         t.fail('Extra keyname found in special values: ' + keyName);
       } else {
