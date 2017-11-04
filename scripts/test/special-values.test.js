@@ -199,7 +199,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     }
   }
   if (parentKV && values.ID) {
-    checkInheritedValues(t, values, parentKV.values);
+    checkInheritedValues(t, values, root[item].comments, parentKV.values);
   }
 
   if (values.ScriptFile) {
@@ -233,12 +233,15 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   // });
 }
 
-function checkInheritedValues (t, values, parentValues) {
+function checkInheritedValues (t, values, comments, parentValues) {
   if (values.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
-  if (values.AbilityBehavior) {
+  if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
     t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
+  }
+  if (values.ItemCost && (!comments.ItemCost || !comments.ItemCost.includes('OAA'))) {
+    t.equals(values.ItemCost, parentValues.ItemCost, 'ItemCost must not be changed from base dota item (' + parentValues.ItemCost + ' vs ' + values.ItemCost + ')');
   }
 }
 
