@@ -16,7 +16,7 @@
     "MaxLevel"                                            "6"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 18 14 10 10 10"
+    "AbilityCooldown"                                     "25 20 15 10 10 10"
     "AbilityCastPoint"                                    "0 0 0 0"
 
     // Cost
@@ -60,7 +60,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reflect_pct_tooltip"                      "100"
+        "damage_reflect_pct"                      "100"
         "LinkedSpecialBonus"                              "special_bonus_unique_nyx"
       }
     }

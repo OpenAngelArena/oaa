@@ -60,6 +60,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "8 14 20 26 32"
+        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_4"
       }
       "07"
       {
@@ -73,8 +74,8 @@
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "leadership_radius"                               "780"
+        "var_type"              "FIELD_INTEGER"
+        "leadership_radius_buffer"      "30"
       }
       "10"
       {

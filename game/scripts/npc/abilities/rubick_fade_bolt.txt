@@ -59,6 +59,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hero_attack_damage_reduction"                    "20 25 30 35 60 85"
+        "LinkedSpecialBonus"    "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
@@ -84,6 +85,4 @@
       }
     }
   }
-
-
 }

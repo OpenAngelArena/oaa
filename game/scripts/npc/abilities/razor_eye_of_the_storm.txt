@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5085"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -50,6 +50,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "strike_interval"                                 "0.7 0.6 0.5 0.4 0.3"
+        "LinkedSpecialBonus"  "special_bonus_unique_razor_2"
       }
       "04"
       {
@@ -65,6 +66,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "strike_interval_scepter"                         "0.6 0.5 0.4 0.3 0.2"
+        "LinkedSpecialBonus"  "special_bonus_unique_razor_2"  
       }
     }
   }

@@ -39,16 +39,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "self_damage"                                     "75 100 125 150 275 400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "target_damage"                                   "100 150 200 250 500 750"
+        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "heal_amount"                                     "100 150 200 250 500 750"
+        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"
       {

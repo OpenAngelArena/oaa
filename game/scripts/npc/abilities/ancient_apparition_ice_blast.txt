@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01 0.01"
+    "AbilityCastPoint"                                    "0.01"
     "AbilityCastRange"                                    "0"
 
     // Time
@@ -80,6 +80,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "kill_pct"                                        "10.0 11.0 12.0 13.0 15.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_5"
       }
       "09"
       {
