@@ -105,7 +105,8 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE
   }
 
   return funcs
@@ -124,4 +125,9 @@ end
 function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant (params)
   local hAbility = self:GetAbility ()
   return 0 - hAbility:GetSpecialValueFor ("attack_speed_reduction")
+end
+
+function modifier_tiny_grow_oaa:GetModifierStatusResistance (params)
+  local hAbility = self:GetAbility ()
+  return hAbility:GetSpecialValueFor ("status_resistance")
 end
