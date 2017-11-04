@@ -15,19 +15,20 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "700"
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"    // If you change this, also change the AbilityCastRange above
+        "aura_radius"                                     "700"    // If you change this, also change the AbilityCastRange above
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_damage"                                     "0.6 1.0 1.4 1.8 2.4 3.0"
+        "aura_damage"                                     "0.5 1.0 1.5 2.0 2.5 3.0"
+        "LinkedSpecialBonus"    "special_bonus_unique_necrophos_2"
       }
     }
   }

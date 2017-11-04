@@ -4,6 +4,7 @@ var path = require('path');
 var fs = require('fs');
 var after = require('after');
 var spok = require('spok');
+var extend = require('xtend');
 var partial = require('ap').partial;
 
 var dotaItems = null;
@@ -98,12 +99,17 @@ var specialValuesForItem = {};
 function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
     var root = data;
+    var foundRoot = false;
     if (root.DOTAItems) {
       root = root.DOTAItems;
+      foundRoot = true;
     }
     if (root.DOTAAbilities) {
       root = root.DOTAAbilities;
+      foundRoot = true;
     }
+    t.ok(foundRoot, 'Starts with either DOTAItems or DOTAAbilities');
+
     var keys = Object.keys(root).filter(a => a !== 'values');
     var done = after(keys.length, function (err) {
       t.notOk(err, 'no error at very end');
@@ -176,6 +182,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   } else {
     done();
   }
+  var parentKV = null;
   if (values.BaseClass) {
     if (isItem) {
       t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
@@ -185,15 +192,14 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   } else {
     if (isItem) {
       t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built in items');
-      if (dotaItems[item] && values.ID) {
-        t.equals(values.ID, dotaItems[item].values.ID, 'ID must not be changed from base dota item');
-      }
+      parentKV = dotaItems[item];
     } else {
       t.ok(dotaAbilities[item], 'missing baseclass only allowed when overriding built in abilities');
-      if (dotaAbilities[item] && values.ID) {
-        t.equals(values.ID, dotaAbilities[item].values.ID, 'ID must not be changed from base dota ability');
-      }
+      parentKV = dotaAbilities[item];
     }
+  }
+  if (parentKV && values.ID) {
+    checkInheritedValues(t, values, parentKV.values);
   }
 
   if (values.ScriptFile) {
@@ -213,7 +219,9 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      testSpecialValues(t, specials);
+      if (!isItem) {
+        testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
+      }
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
@@ -225,39 +233,53 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   // });
 }
 
-function testSpecialValues (t, specials) {
+function checkInheritedValues (t, values, parentValues) {
+  if (values.ID) {
+    t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
+  }
+  if (values.AbilityBehavior) {
+    t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
+  }
+}
+
+function testSpecialValues (t, specials, parentSpecials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
+  var parentData = {};
+
+  if (parentSpecials) {
+    var parentValues = Object.keys(parentSpecials).filter(a => a !== 'values');
+    parentValues.forEach(function (num) {
+      var value = parentSpecials[num].values;
+      var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
+
+      parentData[keyNames[0]] = value;
+    });
+  }
 
   values.forEach(function (num) {
     var value = specials[num].values;
     t.ok(value.var_type, 'has a var_type ' + num);
-    var hasLinkedSpecial = !!value.LinkedSpecialBonus;
-    var hasLinkedSpecialField = !!value.LinkedSpecialBonusField;
-    var hasLinkedSpecialOperation = !!value.LinkedSpecialBonusOperation;
-    var hasSpellDamageTooltip = !!value.CalculateSpellDamageTooltip;
-    var hasLevelkey = !!value.levelkey;
 
-    var keyNames = Object.keys(value).filter(a => a !== 'var_type');
-
-    if (hasLinkedSpecial) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonus');
-    }
-    if (hasLinkedSpecialField) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusField');
-    }
-    if (hasLinkedSpecialOperation) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusOperation');
-    }
-    if (hasSpellDamageTooltip) {
-      keyNames = keyNames.filter(a => a !== 'CalculateSpellDamageTooltip');
-    }
-    if (hasLevelkey) {
-      keyNames = keyNames.filter(a => a !== 'levelkey');
-    }
+    var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
     t.equal(keyNames.length, 1, 'gets keyname after filtering out extra values');
 
     var keyName = keyNames[0];
+
+    if (parentSpecials && !parentSpecials[num].values[keyName]) {
+      if (!parentData[keyName]) {
+        t.fail('Extra keyname found in special values: ' + keyName);
+      } else {
+        t.fail('special value in wrong order: ' + keyName);
+      }
+    }
+    if (parentData[keyName]) {
+      // console.log(parentData[keyName], value);
+      var compareValue = extend(value);
+      compareValue[keyName] = parentData[keyName][keyName];
+      compareValue.var_type = parentData[keyName].var_type;
+      spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
+    }
 
     if (result[keyName]) {
       t.fail('Special value found twice: ' + keyName);
@@ -265,7 +287,23 @@ function testSpecialValues (t, specials) {
     result[keyName] = value[keyName];
   });
 
+  Object.keys(parentData).forEach(function (name) {
+    t.ok(result[name], 'has value for ' + name);
+  });
+
   return result;
+}
+
+var keyWhiteList = [
+  'var_type',
+  'LinkedSpecialBonus',
+  'LinkedSpecialBonusField',
+  'LinkedSpecialBonusOperation',
+  'CalculateSpellDamageTooltip',
+  'levelkey'
+];
+function filterExtraKeysFromSpecialValue (keyNames) {
+  return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);
 }
 
 // check upgrade paths and costs

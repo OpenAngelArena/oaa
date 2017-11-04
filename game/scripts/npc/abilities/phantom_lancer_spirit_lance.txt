@@ -25,10 +25,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "7.0 7.0 7.0 7.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 150 200 250 475 700"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125 130 135 140 170 200"
@@ -43,60 +39,66 @@
     {
       "01"
       {
+        "var_type"          "FIELD_INTEGER"
+        "lance_damage"        "100 150 200 250 475 700"
+        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_2"
+      }
+      "02"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "lance_speed"                                     "1000 1000 1000 1000"
       }
-      "02"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3.25"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_speed_pct"                              "-10 -20 -30 -40 -45 -50"
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "illusion_duration"                               "2.0 4.0 6.0 8.0 14.0 20.0"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_damage"                         "20 20 20 20 25 30"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_in_pct"                          "300 300 300 300"
       }
-      "08"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_total_damage_in_pct"            "400 400 400 400"
       }
-      "09"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "fake_lance_distance"                             "675"
       }
-      "10"
+      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "400"
       }
-      "11"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_jumps"                                   "5"
       }
-      "12"
+      "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "lance_speed_bounces"                             "700"

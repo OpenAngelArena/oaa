@@ -52,6 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "wave_damage"                                     "25 40 55 70 145 220"
+        "LinkedSpecialBonus"      "special_bonus_unique_underlord_2"
       }
       "05"
       {
@@ -79,7 +80,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "first_wave_delay"                                "0.0"
       }
+      "10"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "building_damage"       "33"
+      }
     }
   }
-
 }
