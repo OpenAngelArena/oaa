@@ -84,29 +84,24 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9 15 24 36"
+        "bonus_int"                                       "12 18 27 40 60"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "12 18 27 40 60"
+        "resist_debuff"                                   "-25 -30 -36 -42 -50"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30 -36 -42 -50"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "debuff_radius"                                   "600"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "resist_debuff_duration"                          "16.0"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_range"                                   "1000"

@@ -86,7 +86,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 175 200 225 250"
+        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
       }
       "05"
       {
@@ -122,16 +122,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_crit_chance"                             "100"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "75 95 115 135 155"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_target_crit_damage"                      "40 55 70 85 100"
       }
     }
   }

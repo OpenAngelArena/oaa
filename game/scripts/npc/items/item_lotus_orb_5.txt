@@ -64,34 +64,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40 60"
+        "bonus_armor"                                     "10 17.5 25 32.5 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 17.5 25 32.5 40"
+        "bonus_health_regen"                              "6 9 14 21 32"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 21 32"
+        "bonus_mana_regen"                                "125 175 250 350 500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "125 175 250 350 500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "250 350 500 700 1000"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "active_duration"                                 "6"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cast_range_tooltip"                              "900 1200 1500 1800 2100"

@@ -21,7 +21,7 @@ Object.keys(data.lang.Tokens.values).forEach(function (key) {
 
 // setTimeout(function () { var result = {body: fs.readFileSync('./scripts/dota_english.txt', {encoding: 'utf8'})};
 request.get({
-  url: 'https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
 }, function (err, result) {
   if (err) {
     throw err;
