@@ -219,9 +219,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      if (!isItem) {
-        testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
-      }
+      testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
