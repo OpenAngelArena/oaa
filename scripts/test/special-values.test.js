@@ -219,7 +219,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
+      testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
@@ -235,15 +235,49 @@ function checkInheritedValues (t, values, comments, parentValues) {
   if (values.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
+  var keys = [
+    'AbilityBehavior',
+    'ItemCost',
+    'AbilityCastRange',
+    'AbilityCastPoint',
+    'AbilityChannelTime',
+    'AbilityCooldown',
+    'AbilityManaCost',
+    'AbilityUnitTargetType',
+    'SpellImmunityType'
+  ];
+
   if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
     t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
   }
-  if (values.ItemCost && (!comments.ItemCost || !comments.ItemCost.includes('OAA'))) {
-    t.equals(values.ItemCost, parentValues.ItemCost, 'ItemCost must not be changed from base dota item (' + parentValues.ItemCost + ' vs ' + values.ItemCost + ')');
-  }
+  keys.forEach(function(key) {
+    if (values[key] && parentValues[key] && (!comments[key] || !comments[key].includes('OAA'))) {
+      var baseValue = '';
+      var parentValue = parentValues[key];
+
+      if (values[key].length < parentValue.length) {
+        baseValue = parentValue.split(' ').map(function (entry) {
+          return values[key];
+        }).join(' ');
+      } else {
+        var size = values[key].split(' ').length - 2;
+        var parentArr = parentValue.split(' ');
+        if (parentArr.length === 1) {
+          while (parentArr.length < size) {
+            parentArr.push(parentArr[0]);
+          }
+        }
+        parentValue = parentArr.join(' ');
+
+        baseValue = values[key].substr(0, parentValue.length);
+      }
+      t.equal(parentValue, baseValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
+    }
+  });
 }
 
-function testSpecialValues (t, specials, parentSpecials) {
+function testSpecialValues (t, isItem, specials, parentSpecials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
   var parentData = {};
@@ -292,11 +326,17 @@ function testSpecialValues (t, specials, parentSpecials) {
           }).join(' ');
         } else {
           var size = value[keyName].split(' ').length - 2;
+          if (isItem) {
+            size += 2;
+          }
           var parentArr = parentValue.split(' ');
-          while (parentArr.length < size) {
-            parentArr.push(parentArr[0]);
+          if (parentArr.length === 1) {
+            while (parentArr.length < size) {
+              parentArr.push(parentArr[0]);
+            }
           }
           parentValue = parentArr.join(' ');
+
           baseValue = value[keyName].substr(0, parentValue.length);
         }
         t.equal(parentValue, baseValue, keyName + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
