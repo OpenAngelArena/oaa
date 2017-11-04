@@ -24,6 +24,7 @@ var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
 var nextAvailableId = 5000;
+var usedIDs = {};
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -35,20 +36,20 @@ test('KV Values', function (t) {
       dotaItemIDs = dotaItemList
         .map(function (item) {
           // console.log(dotaItems[item]);
+          usedIDs[dotaItems[item].values.ID] = item;
           return dotaItems[item].values.ID;
         })
         .filter(a => !!a);
-
-      while (dotaItemIDs.indexOf(nextAvailableId) !== -1) {
-        nextAvailableId++;
-      }
-
       t.ok(Object.keys(data).length > 1, 'gets dota items from github');
     });
     Lib.dotaAbilities(function (err, data) {
       t.notOk(err, 'no err while reading dota abilities');
       dotaAbilities = data;
       dotaAbilityList = Object.keys(dotaAbilities).filter(a => a !== 'values');
+      dotaAbilityList.forEach(function (item) {
+        usedIDs[dotaAbilities[item].values.ID] = item;
+      });
+
       t.ok(Object.keys(data).length > 1, 'gets dota abilities from github');
     });
   });
@@ -88,6 +89,9 @@ test('KV Values', function (t) {
     });
   });
   t.test('next available ID', function (t) {
+    while (usedIDs[nextAvailableId]) {
+      nextAvailableId++;
+    }
     t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
     t.end();
@@ -144,6 +148,11 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
       t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+
+      if (usedIDs[values.ID]) {
+        t.fail('ID number is already in use by ' + usedIDs[values.ID]);
+        usedIDs[values.ID] = item;
+      }
     }
   }
 
