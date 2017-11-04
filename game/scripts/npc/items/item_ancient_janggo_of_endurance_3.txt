@@ -57,7 +57,7 @@
     "ItemDisplayCharges"                                  "0"
     "ItemRequiresCharges"                                 "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -79,7 +79,7 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
+        "var_type"                                        "FIELD_FLOAT"
         "bonus_mana_regen"                                "0.75 1.5 3.0 4.5 6.25"
       }
       "05"

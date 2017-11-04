@@ -333,6 +333,10 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
       compareValue.var_type = parentData[keyName].var_type;
       spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
 
+      if (value[keyName].match(/\.0*[1-9]/)) {
+        t.notEqual(value.var_type, 'FIELD_INTEGER', 'cannot use FIELD_INTEGER with decimal values in ' + keyName);
+      }
+
       if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
         // test base dota values
         var baseValue = '';
