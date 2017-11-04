@@ -266,8 +266,12 @@ function testSpecialValues (t, specials, parentSpecials) {
 
     var keyName = keyNames[0];
 
-    if (parentSpecials && !parentData[keyName]) {
-      t.fail('Extra special value found: ' + keyName);
+    if (parentSpecials && !parentSpecials[num].values[keyName]) {
+      if (!parentData[keyName]) {
+        t.fail('Extra keyname found in special values: ' + keyName);
+      } else {
+        t.fail('special value in wrong order: ' + keyName);
+      }
     }
     if (parentData[keyName]) {
       // console.log(parentData[keyName], value);
