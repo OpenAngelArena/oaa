@@ -1295,9 +1295,9 @@ parse-json@^2.2.0:
   dependencies:
     error-ex "^1.2.0"
 
-parse-kv@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/parse-kv/-/parse-kv-0.2.0.tgz#aa4080ecde151ca2bf4cbbe538b9f4d49bb9b432"
+parse-kv@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/parse-kv/-/parse-kv-0.3.1.tgz#09a9613eb09ad01c87d704ed43a14e7b52f05830"
   dependencies:
     debug "^2.6.1"
 

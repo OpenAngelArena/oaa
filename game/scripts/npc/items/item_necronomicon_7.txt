@@ -41,7 +41,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "38050"
+    "ItemCost"                                            "38000"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 7;necro 7"
@@ -56,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "8 12 16 24 36 54 70"
+        "bonus_strength"                                  "10 15 20 36 54 70 86"
       }
       "02"
       {
@@ -126,7 +126,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 7 9 11 13 15 17"
+        "archer_attack_speed"                             "5 10 15 20 25 30 35"
       }
     }
   }

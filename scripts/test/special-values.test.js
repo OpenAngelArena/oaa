@@ -24,6 +24,7 @@ var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
 var nextAvailableId = 5000;
+var usedIDs = {};
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -35,20 +36,20 @@ test('KV Values', function (t) {
       dotaItemIDs = dotaItemList
         .map(function (item) {
           // console.log(dotaItems[item]);
+          usedIDs[dotaItems[item].values.ID] = item;
           return dotaItems[item].values.ID;
         })
         .filter(a => !!a);
-
-      while (dotaItemIDs.indexOf(nextAvailableId) !== -1) {
-        nextAvailableId++;
-      }
-
       t.ok(Object.keys(data).length > 1, 'gets dota items from github');
     });
     Lib.dotaAbilities(function (err, data) {
       t.notOk(err, 'no err while reading dota abilities');
       dotaAbilities = data;
       dotaAbilityList = Object.keys(dotaAbilities).filter(a => a !== 'values');
+      dotaAbilityList.forEach(function (item) {
+        usedIDs[dotaAbilities[item].values.ID] = item;
+      });
+
       t.ok(Object.keys(data).length > 1, 'gets dota abilities from github');
     });
   });
@@ -88,6 +89,9 @@ test('KV Values', function (t) {
     });
   });
   t.test('next available ID', function (t) {
+    while (usedIDs[nextAvailableId]) {
+      nextAvailableId++;
+    }
     t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
     t.end();
@@ -144,6 +148,11 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
       t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+
+      if (usedIDs[values.ID]) {
+        t.fail('ID number is already in use by ' + usedIDs[values.ID]);
+        usedIDs[values.ID] = item;
+      }
     }
   }
 
@@ -199,7 +208,13 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     }
   }
   if (parentKV && values.ID) {
-    checkInheritedValues(t, values, parentKV.values);
+    checkInheritedValues(t, isItem, values, root[item].comments, parentKV.values);
+
+    if (root[item].ItemRequirements) {
+      if (!root[item].comments.ItemRequirements || !root[item].comments.ItemRequirements.includes('OAA')) {
+        t.deepEquals(root[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(root[item].ItemRequirements, null, 2));
+      }
+    }
   }
 
   if (values.ScriptFile) {
@@ -219,7 +234,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      testSpecialValues(t, specials, parentKV ? parentKV.AbilitySpecial : null);
+      testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
@@ -231,16 +246,56 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   // });
 }
 
-function checkInheritedValues (t, values, parentValues) {
+function checkInheritedValues (t, isItem, values, comments, parentValues) {
   if (values.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
-  if (values.AbilityBehavior) {
+  var keys = [
+    'AbilityBehavior',
+    'ItemCost',
+    'AbilityCastRange',
+    'AbilityCastPoint',
+    'AbilityChannelTime',
+    'AbilityCooldown',
+    'AbilityManaCost',
+    'AbilityUnitTargetType',
+    'SpellImmunityType'
+  ];
+
+  if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
     t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
   }
+  keys.forEach(function (key) {
+    if (values[key] && parentValues[key] && (!comments[key] || !comments[key].includes('OAA'))) {
+      var baseValue = '';
+      var parentValue = parentValues[key];
+
+      if (values[key].length < parentValue.length) {
+        baseValue = parentValue.split(' ').map(function (entry) {
+          return values[key];
+        }).join(' ');
+      } else {
+        var size = values[key].split(' ').length - 2;
+        if (isItem) {
+          size = 1;
+        }
+        var parentArr = parentValue.split(' ');
+        if (parentArr.length === 1) {
+          while (parentArr.length < size) {
+            parentArr.push(parentArr[0]);
+          }
+        }
+        parentValue = parentArr.join(' ');
+
+        baseValue = values[key].substr(0, parentValue.length);
+      }
+      t.deepEqual(parentValue, baseValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
+    }
+  });
 }
 
-function testSpecialValues (t, specials, parentSpecials) {
+function testSpecialValues (t, isItem, specials, parentSpecials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
   var parentData = {};
@@ -277,6 +332,33 @@ function testSpecialValues (t, specials, parentSpecials) {
       compareValue[keyName] = parentData[keyName][keyName];
       compareValue.var_type = parentData[keyName].var_type;
       spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
+
+      if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
+        // test base dota values
+        var baseValue = '';
+        var parentValue = parentData[keyName][keyName];
+
+        if (value[keyName].length < parentValue.length) {
+          baseValue = parentValue.split(' ').map(function (entry) {
+            return value[keyName];
+          }).join(' ');
+        } else {
+          var size = value[keyName].split(' ').length - 2;
+          if (isItem) {
+            size = 1;
+          }
+          var parentArr = parentValue.split(' ');
+          if (parentArr.length === 1) {
+            while (parentArr.length < size) {
+              parentArr.push(parentArr[0]);
+            }
+          }
+          parentValue = parentArr.join(' ');
+
+          baseValue = value[keyName].substr(0, parentValue.length);
+        }
+        t.equal(parentValue, baseValue, keyName + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      }
     }
 
     if (result[keyName]) {
@@ -467,27 +549,27 @@ function buildItemTree (t, data, cb) {
 
       // this chunk of code will write the item costs in the file for you
       // useful...
-      // if (items[item].baseCost !== items[item].cost) {
-      //   var fileName = itemFileMap[item];
-      //   var foundIt = false;
-      //   var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
-      //     .split('\n')
-      //     .map(function (line) {
-      //       var parts = line.split(/[\s ]+/).filter(a => a && a.length);
-      //       if (parts[0] === '"' + item + '"') {
-      //         foundIt = true;
-      //       }
-      //       if (foundIt && parts[0] === '"ItemCost"') {
-      //         // console.log(parts);
-      //         line = line.replace('' + items[item].baseCost, items[item].cost);
-      //         foundIt = false;
-      //       }
-      //       return line;
-      //     })
-      //     .join('\n');
+      if (items[item].baseCost !== items[item].cost) {
+        var fileName = itemFileMap[item];
+        var foundIt = false;
+        var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
+          .split('\n')
+          .map(function (line) {
+            var parts = line.split(/[\s ]+/).filter(a => a && a.length);
+            if (parts[0] === '"' + item + '"') {
+              foundIt = true;
+            }
+            if (foundIt && parts[0] === '"ItemCost"') {
+              // console.log(parts);
+              line = line.replace('' + items[item].baseCost, items[item].cost);
+              foundIt = false;
+            }
+            return line;
+          })
+          .join('\n');
 
-      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
-      // }
+        fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
+      }
     });
 
     // output item costs in csv format (for haga usually)
