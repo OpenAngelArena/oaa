@@ -31,7 +31,7 @@ if IsServer() then
     if caster:IsIllusion() or caster:IsClone() then
       return
     end
-    Gold:ModifyGold(caster:GetPlayerID(), gpm / 60, true, DOTA_ModifyGold_GameTick)
+    Gold:ModifyGold(caster:GetPlayerOwnerID(), gpm / 60, true, DOTA_ModifyGold_GameTick)
   end
 end
 
