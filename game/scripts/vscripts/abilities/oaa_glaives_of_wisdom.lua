@@ -87,12 +87,19 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
   local parent = self:GetParent()
   if keys.attacker == parent and self.procRecords[keys.record] then
     local ability = self:GetAbility()
-    local bonusDamage = parent:GetIntellect() * ability:GetSpecialValueFor("intellect_damage_pct") / 100
+    local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
     local player = parent:GetPlayerOwner()
 
-    if parent:HasScepter() and keys.target:IsSilenced() then
-      bonusDamage = bonusDamage * ability:GetSpecialValueFor("scepter_damage_multiplier")
+    -- Check for +20% Glaive damage Talent
+    if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
+      bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
     end
+
+    if parent:HasScepter() and keys.target:IsSilenced() then
+      bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
+    end
+
+    local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
     local damageTable = {
       victim = keys.target,
