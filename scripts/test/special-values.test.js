@@ -281,19 +281,25 @@ function testSpecialValues (t, specials, parentSpecials) {
       compareValue.var_type = parentData[keyName].var_type;
       spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
 
-      console.log(specials[num].comments[keyName]);
-
       if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
         // test base dota values
         var baseValue = '';
-        if (value[keyName].length < parentData[keyName][keyName].length) {
-          baseValue = parentData[keyName][keyName].split(' ').map(function (entry) {
+        var parentValue = parentData[keyName][keyName];
+
+        if (value[keyName].length < parentValue.length) {
+          baseValue = parentValue.split(' ').map(function (entry) {
             return value[keyName];
           }).join(' ');
         } else {
-          baseValue = value[keyName].substr(0, parentData[keyName][keyName].length);
+          var size = value[keyName].split(' ').length - 2;
+          var parentArr = parentValue.split(' ');
+          while (parentArr.length < size) {
+            parentArr.push(parentArr[0]);
+          }
+          parentValue = parentArr.join(' ');
+          baseValue = value[keyName].substr(0, parentValue.length);
         }
-        t.equal(parentData[keyName][keyName], baseValue, keyName + ' should inherit basic dota values (' + parentData[keyName][keyName] + ' vs ' + baseValue + ')');
+        t.equal(parentValue, baseValue, keyName + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
       }
     }
 
