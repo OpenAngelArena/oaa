@@ -33,11 +33,11 @@ function item_greater_phase_boots:OnSpellStart()
 end
 
 function item_greater_phase_boots:OnProjectileHit(target, location)
-  if target and not target:IsNull() then
+  if IsValidEntity(target) then
     local caster = self:GetCaster()
     -- Make the modifier reduce damage for the attack
     self.splinterMod.doReduction = true
-    caster:PerformAttack(target, true, true, true, false, false, false, false)
+    caster:PerformAttack(target, false, false, true, false, false, false, false)
 
     -- Reset the damage reduction after the attack is done
     self.splinterMod.doReduction = false
@@ -73,7 +73,7 @@ modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greate
 
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
-  if keys.attacker == parent and not keys.no_attack_cooldown then
+  if keys.attacker == parent and not self.doReduction then
     local ability = self:GetAbility()
 
     local units = FindUnitsInRadius(
