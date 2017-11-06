@@ -409,6 +409,10 @@ function buildItemTree (t, data, cb) {
   t.test('item upgrade paths', function (t) {
     Object.keys(data).forEach(function (fileName) {
       var entry = data[fileName].DOTAItems;
+      if (!entry) {
+        t.fail('Could not find the DOTAItems entry for ' + fileName);
+        return;
+      }
       var itemNames = Object.keys(entry).filter(a => a !== 'values');
       itemNames.forEach(function (item) {
         var itemData = entry[item];
