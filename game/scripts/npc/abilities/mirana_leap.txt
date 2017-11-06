@@ -11,19 +11,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0 26.0 22.0 18.0 17.0 16.0"
-    "AbilityDuration"                                     "5.0"
+    "AbilityCooldown"                                     "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 35 30 20 20 20"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,34 +26,44 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "leap_distance"                                   "600 700 800 900 950 1000"
+        "var_type"        "FIELD_INTEGER"
+        "leap_distance"     "550"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "leap_speed"                                      "1600.0"
+        "var_type"        "FIELD_FLOAT"
+        "leap_speed"      "1300.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "leap_acceleration"                               "7000.0"
+        "var_type"        "FIELD_FLOAT"
+        "leap_acceleration"   "6000.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_radius"                                     "775"
+        "leap_speedbonus"                                 "8 16 24 32 40 48"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_speedbonus"                                 "8 12 16 20 24 28"
+        "leap_speedbonus_as"                              "25 50 75 100 163 225"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "leap_speedbonus_as"                              "16 32 48 64 96 144"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
+        "var_type"        "FIELD_FLOAT"
+        "leap_bonus_duration" "2.0"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "max_charges"     "3"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "charge_restore_time" "60 50 40 30 25 20"
       }
     }
   }

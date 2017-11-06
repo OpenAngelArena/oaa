@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "5375"
+    "ItemCost"                                            "5350"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "guardian greaves"
@@ -83,8 +83,8 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "4"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen"                               "3.5"
       }
       "06"
       {
@@ -94,7 +94,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "15"
+        "aura_health_regen_bonus"                         "12"
       }
       "08"
       {

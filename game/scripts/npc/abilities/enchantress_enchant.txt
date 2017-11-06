@@ -14,21 +14,21 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0 24.0 18.0 12.0 12.0 12.0"
     "AbilityDuration"                                     "2.25 3.5 4.75 6 7.25 8.5"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "65 65 65 65 65 65"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -42,11 +42,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-55"
-      }      
+      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "5.5 5.5 5.5 5.5 5.5"
+        "tooltip_duration"                                "2.25 3.5 4.75 6 7.25 8.5"
       }
     }
   }

@@ -39,11 +39,11 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
+    "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "900"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_crimson_guard"
 
 
     // Item Info
@@ -67,7 +67,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "8 12 18 25 35"
+        "bonus_health_regen"                              "6 9 14 19 27"
       }
       "03"
       {

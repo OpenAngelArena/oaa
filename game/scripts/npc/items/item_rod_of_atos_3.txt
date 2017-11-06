@@ -46,6 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16"
+    "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1150"
     "AbilityCastPoint"                                    "0.0"
     "AbilityTextureName"                                  "custom/rod_of_atos_3"
@@ -53,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "8080"
+    "ItemCost"                                            "8030"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos 3;atos 3"
@@ -83,23 +84,13 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9 14 20 30"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0 2.5 3.0 3.5 4.0"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_range"                                   "1150"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "root_radius"                                     "0 0 200 200 400"
       }
     }
   }

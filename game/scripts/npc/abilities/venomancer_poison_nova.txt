@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 300 400 600 1400"
+    "AbilityManaCost"                                     "200 300 400 900 1400"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,6 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "830"
+        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_6"
       }
       "02"
       {
@@ -50,11 +51,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "16"
+        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 55 80 130 330"
+        "damage"                                          "30 55 80 205 330"
       }
       "05"
       {
@@ -69,7 +71,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "60 85 110 160 360"
+        "damage_scepter"                                  "60 85 110 235 360"
       }
       "08"
       {

@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -24,7 +24,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "125 200 275 350 500 1000"
+        "bonus_mana"                                      "125 200 275 350 650 1000"
       }
       "03"
       {
@@ -35,6 +35,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "restore_chance"                                  "40"
+        "LinkedSpecialBonus"  "special_bonus_unique_outworld_devourer_2"
       }
       "05"
       {

@@ -37,6 +37,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "hex"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_sheepstick_4"
@@ -69,8 +70,8 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 200 300 450 600"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
       }
       "05"
       {

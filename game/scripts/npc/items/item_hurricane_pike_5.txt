@@ -11,12 +11,12 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "20000" 
+    "ItemCost"            "20000"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -26,7 +26,7 @@
       "01"                                                "item_hurricane_pike_4;item_upgrade_core_4"
     }
   }
-  
+
   //=================================================================================================================
   // Hurricane Pike 5
   //=================================================================================================================
@@ -52,27 +52,27 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "25"
-    "ItemCost"            "37650"
+    "ItemCost"            "37615"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "hurricane pike 5;pike 5"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "5"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 22 30 40"
+        "bonus_intellect"   "13 19 27 37 49"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "6 9 14 21 32"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_health_regen"    "5.5 7.5 10 15 30"
       }
       "03"
       {

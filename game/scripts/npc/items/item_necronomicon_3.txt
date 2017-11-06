@@ -38,7 +38,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "5050"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 3;necro 3"
@@ -55,12 +55,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 21 24 36 54 70 105"
+        "bonus_strength"                                  "10 15 20 36 54 70 86"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "8 12 16 24 36 54 70"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"    "1 1.25 1.5 2 2.75 3.75 5"
       }
       "03"
       {
@@ -125,7 +125,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 7 9 11 13 15 17"
+        "archer_attack_speed"                             "5 10 15 20 25 30 35"
       }
     }
   }

@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2575"
+    "ItemCost"                                            "2550"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 2;tranquil boots 2;tranquils 2"
@@ -78,7 +78,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "14 48 96 162 224"
+        "bonus_health_regen"                              "13 45 90 150 200"
       }
       "04"
       {

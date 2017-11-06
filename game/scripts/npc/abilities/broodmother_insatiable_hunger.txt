@@ -18,9 +18,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2"
-    "AbilityCooldown"                                     "45.0 45.0 45.0 45.0 45.0"
-    "AbilityManaCost"                                     "100 100 100 100 100"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCooldown"                                     "45.0"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,17 +29,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 100 140 180 420"
+        "bonus_damage"                                    "60 100 140 280 420"
+        "LinkedSpecialBonus"  "special_bonus_unique_broodmother_1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_pct"                                   "60 100 140 180 420"
+        "lifesteal_pct"                                   "60 100 140 280 420"
+        "LinkedSpecialBonus"  "special_bonus_unique_broodmother_1"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "14.0 14.0 14.0 14.0 14.0"
+        "duration"                                        "14.0"
       }
     }
   }

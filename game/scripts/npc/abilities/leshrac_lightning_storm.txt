@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -21,19 +21,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.45"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
-    
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
+
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 100 150 200 300 700"
-    
+    "AbilityDamage"                                       "50 100 150 200 450 700"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -42,7 +42,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "jump_count"                                      "4 6 8 10 14 26"
-      }      
+      }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,20 +61,20 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.7 0.8 0.9 1.0 1.2 1.6"
+        "slow_duration"                                   "0.7 0.8 0.9 1.0 1.2 1.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_2"
-      }  
+      }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "interval_scepter"                                "1.75"
-      }    
+      }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "750"
-      }      
+      }
     }
   }
-  
+
 }

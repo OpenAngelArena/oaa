@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "7025"
+    "ItemCost"            "7000"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd 3;helm of the dominator 3;helm 3;dominator 3"
@@ -85,7 +85,7 @@
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "hp_regen_aura"     "10 15 25 40 60"
+        "hp_regen_aura"     "8 12 20 32 48"
       }
       "05"
       {
@@ -110,7 +110,7 @@
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "tooltip_bounty"   "125"
+        "tootip_bounty"   "125"
       }
     }
   }

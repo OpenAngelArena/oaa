@@ -48,7 +48,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "750"
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "20.0 17.5 15.0 12.5 10.0"
+    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
     "AbilitySharedCooldown"     "force"
 
     // Item Info
@@ -74,7 +74,7 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "6 12 24 48 96"
+        "bonus_health_regen"  "5 10 20 40 80"
       }
       "03"
       {

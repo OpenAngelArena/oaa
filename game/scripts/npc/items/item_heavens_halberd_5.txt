@@ -44,6 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
+    "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
@@ -112,7 +113,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "5"
+        "disarm_range"                                    "5.0"
       }
       "11"
       {
