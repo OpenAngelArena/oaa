@@ -195,8 +195,14 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   if (values.BaseClass) {
     if (isItem) {
       t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
+      if (dotaItems[values.BaseClass] && dotaItems[values.BaseClass].values && dotaItems[values.BaseClass].values.ID === values.ID) {
+        parentKV = dotaItems[values.BaseClass];
+      }
     } else {
       t.ok(dotaAbilities[values.BaseClass], 'base class ' + values.BaseClass + ' must be ability_datadriven, ability_lua, or a built in ability');
+      if (dotaAbilities[values.BaseClass] && dotaAbilities[values.BaseClass].values && dotaAbilities[values.BaseClass].values.ID === values.ID) {
+        parentKV = dotaAbilities[values.BaseClass];
+      }
     }
   } else {
     if (isItem) {
@@ -259,16 +265,19 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCooldown',
     'AbilityManaCost',
     'AbilityUnitTargetType',
-    'SpellImmunityType'
+    'SpellImmunityType',
+    'ItemInitialCharges',
+    'ItemRequiresCharges',
+    'ItemDisplayCharges'
   ];
 
   if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
     t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
   }
   keys.forEach(function (key) {
-    if (values[key] && parentValues[key] && (!comments[key] || !comments[key].includes('OAA'))) {
+    if (values[key] && (!comments[key] || !comments[key].includes('OAA'))) {
       var baseValue = '';
-      var parentValue = parentValues[key];
+      var parentValue = parentValues[key] || '';
 
       if (values[key].length < parentValue.length) {
         baseValue = parentValue.split(' ').map(function (entry) {
@@ -287,7 +296,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
         }
         parentValue = parentArr.join(' ');
 
-        baseValue = values[key].substr(0, parentValue.length);
+        baseValue = values[key].substr(0, Math.max(1, parentValue.length, values[key].split(' ')[0].length));
       }
       t.deepEqual(baseValue, parentValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
       // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
