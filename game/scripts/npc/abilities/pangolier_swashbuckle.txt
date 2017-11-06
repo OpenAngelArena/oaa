@@ -1,10 +1,10 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Pangolier: Swashbuckle
-//=================================================================================================================
-"pangolier_swashbuckle"
-{
+  //=================================================================================================================
+  // Pangolier: Swashbuckle
+  //=================================================================================================================
+  "pangolier_swashbuckle"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6344"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -32,52 +32,47 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "dash_range"            "1000"
-        }
-        "02"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "range"                 "900"
-        }
-        "05"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "damage"                "24 42 60 78 240 402"
-            "LinkedSpecialBonus"    "special_bonus_unique_pangolier_3"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "dash_speed"            "2000"
-        }
-        "04"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "attack_interval"       "0.1 0.1 0.1 0.1 0.1 0.1"
-        }
-        "06"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "start_radius"          "125"
-        }
-        "07"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "end_radius"            "125"
-        }
-        "08"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "strikes"               "4"
-        }
-        "09"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "charge_restore_time"   "15 12 9 6 6 6"
-        }
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "dash_range"            "1000"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "range"                 "900"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"                "24 42 60 78 240 402"
+        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_3"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "dash_speed"            "2000"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "attack_interval"       "0.1 0.1 0.1 0.1 0.1 0.1"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "start_radius"          "125"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "end_radius"            "125"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "strikes"               "4"
+      }
     }
-}
+  }
 }

@@ -107,7 +107,7 @@ function modifier_item_refresher_core:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-    MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
@@ -116,7 +116,7 @@ function modifier_item_refresher_core:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
-function modifier_item_refresher_core:GetModifierPercentageManaRegen()
+function modifier_item_refresher_core:GetModifierConstantManaRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_mana_regen')
 end
 

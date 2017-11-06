@@ -37,6 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
   "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_2"
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -84,7 +85,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_armor_reduction"                         "6"
+        "berserk_armor_reduction"                         "7"
       }
       "07"
       {

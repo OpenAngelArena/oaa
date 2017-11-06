@@ -47,6 +47,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "23.0"
+    "AbilitySharedCooldown"                               "cyclone"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -68,8 +69,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "175 250 350 450"
+        "var_type"              "FIELD_FLOAT"
+        "bonus_mana_regen"      "3.25 4.50 6.50 8.75"
       }
       "03"
       {
@@ -112,7 +113,7 @@
         "Properties"
         {
           "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"         "%bonus_intellect"
-          "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"         "%bonus_mana_regen"
+          "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
           "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
         }
       }
