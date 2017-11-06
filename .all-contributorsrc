@@ -8,16 +8,20 @@
   "commit": true,
   "types": {
     "design": {
-      "symbol": ":thinking:"
+      "symbol": "🤔",
+      "description": "Game design"
     },
     "balance": {
-      "symbol": ":chart_with_upwards_trend:"
+      "symbol": "📈",
+      "description": "Balance"
     },
     "art": {
-      "symbol": ":art:"
+      "symbol": "🎨",
+      "description": "Art and Map"
     },
     "music": {
-      "symbol": ":musical_note:"
+      "symbol": "🎵",
+      "description": "Music"
     }
   },
   "contributors": [
@@ -143,7 +147,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/6454468?v=3",
       "profile": "https://github.com/Honeth",
       "contributions": [
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -410,6 +415,34 @@
       "name": "Daniel Velasquez",
       "avatar_url": "https://avatars3.githubusercontent.com/u/17147921?v=4",
       "profile": "https://github.com/Anemolo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Satsaa",
+      "name": "Samuel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/32210043?v=4",
+      "profile": "https://github.com/Satsaa",
+      "contributions": [
+        "art",
+        "code"
+      ]
+    },
+    {
+      "login": "wuwer",
+      "name": "Tomasz Wawro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1982987?v=4",
+      "profile": "https://github.com/wuwer",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "Yzanas",
+      "name": "Yzanas",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31249492?v=4",
+      "profile": "https://github.com/Yzanas",
       "contributions": [
         "code"
       ]
