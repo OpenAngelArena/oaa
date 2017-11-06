@@ -26,7 +26,7 @@
 
     // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "40 32 24 16 8 0"
+    "AbilityCooldown"       "15 15 15 15 8 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,12 +43,12 @@
       "01"
       {
         "var_type"          "FIELD_INTEGER"
-        "attack_count"        "2 3 4 5 7 9"
+        "attack_count"        "2 3 4 6 9 13"
       }
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "bonus_damage"        "25"
+        "bonus_damage"        "30"
       }
       "03"
       {
@@ -68,12 +68,12 @@
       "06"
       {
         "var_type"          "FIELD_INTEGER"
-        "splash_range"        "375"
+        "splash_range"        "400"
       }
       "07"
       {
         "var_type"          "FIELD_INTEGER"
-        "splash_pct"        "70"
+        "splash_pct"        "100"
       }
     }
   }
