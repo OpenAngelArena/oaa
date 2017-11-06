@@ -8,16 +8,20 @@
   "commit": true,
   "types": {
     "design": {
-      "symbol": ":thinking:"
+      "symbol": ":thinking:",
+      "description": "Game design"
     },
     "balance": {
-      "symbol": ":chart_with_upwards_trend:"
+      "symbol": ":chart_with_upwards_trend:",
+      "description": "Balance"
     },
     "art": {
-      "symbol": ":art:"
+      "symbol": ":art:",
+      "description": "Art"
     },
     "music": {
-      "symbol": ":musical_note:"
+      "symbol": ":musical_note:",
+      "description": "Music"
     }
   },
   "contributors": [
@@ -420,7 +424,17 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/32210043?v=4",
       "profile": "https://github.com/Satsaa",
       "contributions": [
-        "art"
+        "art",
+        "code"
+      ]
+    },
+    {
+      "login": "wuwer",
+      "name": "Tomasz Wawro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1982987?v=4",
+      "profile": "https://github.com/wuwer",
+      "contributions": [
+        "infra"
       ]
     }
   ]
