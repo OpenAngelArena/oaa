@@ -37,7 +37,7 @@
     "AbilityTextureName"                                  "item_necronomicon"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50" // OAA -- this is a valve KV error, this isn't custom
     "ItemCost"                                            "2400"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
