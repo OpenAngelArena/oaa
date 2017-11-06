@@ -289,7 +289,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
 
         baseValue = values[key].substr(0, parentValue.length);
       }
-      t.deepEqual(parentValue, baseValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      t.deepEqual(baseValue, parentValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
       // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
     }
   });
