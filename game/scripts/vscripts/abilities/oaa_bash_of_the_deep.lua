@@ -137,7 +137,7 @@ if IsServer() then
 
       -- apply the proc damage
       return spell:GetSpecialValueFor( "bonus_damage" ) + damageTalent
-      
+
     else
       -- increment failure count
       self:SetStackCount( prngMult )
