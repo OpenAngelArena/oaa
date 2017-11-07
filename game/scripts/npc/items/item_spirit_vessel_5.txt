@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8421"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "8429"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -29,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8422"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "8430"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"       "item_spirit_vessel"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_5"
