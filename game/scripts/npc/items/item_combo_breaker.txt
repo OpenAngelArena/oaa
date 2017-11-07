@@ -1,0 +1,48 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Combo Breaker
+  //=================================================================================================================
+  "item_combo_breaker"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"            "256"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityCooldown"       "100.0 90 80 70 60"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"       "item_combo_breaker_2;item_combo_breaker_3;item_combo_breaker_4;item_combo_breaker_5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"      "250 500 750 1250 2000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_mana"      "250 350 500 700 1000"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "health_threshold_pct"      "80"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "status_resistance"   "25"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "buff_duration"   "2.5"
+      }
+    }
+  }
+}

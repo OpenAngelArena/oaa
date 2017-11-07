@@ -23,7 +23,7 @@ var stupidItemNames = [
 var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
-var nextAvailableId = 5000;
+var nextAvailableId = 8401;
 var usedIDs = {};
 
 test('KV Values', function (t) {
@@ -159,7 +159,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   itemsFound[item] = item;
   idsFound[values.ID] = item;
 
-  while (dotaItemIDs.indexOf(nextAvailableId) !== -1 || idsFound['' + nextAvailableId]) {
+  while (usedIDs[nextAvailableId] || idsFound['' + nextAvailableId]) {
     nextAvailableId += 1;
   }
 
