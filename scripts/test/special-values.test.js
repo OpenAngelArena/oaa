@@ -159,7 +159,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   itemsFound[item] = item;
   idsFound[values.ID] = item;
 
-  while (dotaItemIDs.indexOf(nextAvailableId) !== -1 || idsFound['' + nextAvailableId]) {
+  while (usedIDs[nextAvailableId] || idsFound['' + nextAvailableId]) {
     nextAvailableId += 1;
   }
 

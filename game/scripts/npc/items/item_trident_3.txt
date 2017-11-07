@@ -1,3 +1,5 @@
+"DOTAItems"
+{
     //=================================================================================================================
     // Recipe: Trident 3
     //=================================================================================================================
@@ -8,6 +10,7 @@
         "ID"                            "5038"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "Model"                         "models/props_gameplay/recipe.vmdl"
         "AbilityTextureName"            "custom/recipe/recipe_3"
+        "BaseClass"                     "item_datadriven"
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +21,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_trident_3"
-        "ItemRequirements"
         "ItemRequirements"
         {
           "01"                                                "item_trident_2;item_upgrade_core_2"
@@ -34,9 +36,10 @@
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "ID"                        "5039"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "ID"                        "5230"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "custom/trident_3"
+        "BaseClass"                     "item_trident"
 
 
 
@@ -48,7 +51,7 @@
 
         // Item Info^
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "11400"
+        "ItemCost"                      "6950"
         "ItemShopTags"                  "int;mana"
         "ItemQuality"                   "epic"
         "ItemAliases"                   "ky;kaya"
@@ -75,3 +78,4 @@
             }
         }
     }
+}
