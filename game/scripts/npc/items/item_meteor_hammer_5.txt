@@ -1,4 +1,5 @@
-    //=================================================================================================================
+"DOTAItems"
+{    //=================================================================================================================
     // Recipe: Meteor Hammer 5
     //=================================================================================================================
     "item_recipe_meteor_hammer_5"
@@ -7,7 +8,6 @@
         //-------------------------------------------------------------------------------------------------------------
         "ID"                            "8421"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
         "Model"                         "models/props_gameplay/recipe.vmdl"
-        "BaseClass"                     "item_datadriven"
         "AbilityTextureName"            "custom/recipe/recipe_5"
 
         // Item Info
@@ -138,3 +138,4 @@
             }
         }
     }
+}
