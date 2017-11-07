@@ -7,6 +7,10 @@
   "imageSize": 100,
   "commit": true,
   "types": {
+    "founder": {
+      "symbol": "⭐️",
+      "description": "Founded the project"
+    },
     "design": {
       "symbol": "🤔",
       "description": "Game design"
@@ -31,6 +35,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/422331?v=3",
       "profile": "https://github.com/chrisinajar",
       "contributions": [
+        "founder",
         "code",
         "tool",
         "infra",
@@ -44,6 +49,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/24982519?v=3",
       "profile": "https://github.com/l34Um1",
       "contributions": [
+        "founder",
         "design",
         "balance",
         "video",
@@ -343,7 +349,8 @@
       "contributions": [
         "doc",
         "balance",
-        "test"
+        "test",
+        "code"
       ]
     },
     {
