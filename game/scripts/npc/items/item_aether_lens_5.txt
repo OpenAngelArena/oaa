@@ -53,17 +53,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "450 600 800 1050 1250"
+        "bonus_mana"                                      "450 1400 2800 4800 7200"
       }
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "1.25 1.75 2.5 3.5 4.75"
+        "bonus_mana_regen"    "1.25 3.75 6.25 8.75 11.25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "250 275 325 400 500"
+        "cast_range_bonus"                                "250 375 400 575 700"
       }
     }
   }
