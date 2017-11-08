@@ -8,12 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"            "256"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"       "item_combo_breaker_2;item_combo_breaker_3;item_combo_breaker_4;item_combo_breaker_5"
+    "ItemAliases"         "ad;aeon disk"
 
     "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilitySharedCooldown"                               "combobreaker"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

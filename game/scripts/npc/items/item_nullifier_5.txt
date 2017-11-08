@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Nullifier_5
+  // Recipe: Nullifier 5
   //=================================================================================================================
   "item_recipe_nullifier_5"
   {
@@ -22,7 +22,7 @@
   }
 
   //=================================================================================================================
-  // Nullifier_5
+  // Nullifier 5
   //=================================================================================================================
   "item_nullifier_5"
   {
@@ -30,10 +30,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8414"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_nullifier"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "FightRecapLevel"       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "37700"
+    "ItemAliases"         "nlf 5;nullifier 5"
+
+    "AbilitySharedCooldown"         "nullify"
+    "AbilityCooldown"       "14.0"
+    "AbilityCastRange"      "600"
+    "AbilityManaCost"       "100"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------

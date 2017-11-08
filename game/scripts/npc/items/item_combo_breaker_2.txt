@@ -34,12 +34,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"            "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"     "item_combo_breaker"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"       "item_combo_breaker_3;item_combo_breaker_4;item_combo_breaker_5"
     "ItemCost"                                            "5175"
+    "ItemAliases"                                         "ad 2;aeon disk 2"
 
+    "AbilitySharedCooldown"                               "combobreaker"
     "AbilityCooldown"       "100.0 80 60 40 20"
 
     // Special

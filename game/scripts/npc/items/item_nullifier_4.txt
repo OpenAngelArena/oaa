@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Nullifier_4
+  // Recipe: Nullifier 4
   //=================================================================================================================
   "item_recipe_nullifier_4"
   {
@@ -23,7 +23,7 @@
   }
 
   //=================================================================================================================
-  // Nullifier_4
+  // Nullifier 4
   //=================================================================================================================
   "item_nullifier_4"
   {
@@ -31,16 +31,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8412"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_nullifier"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "FightRecapLevel"       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "17700"
+    "ItemAliases"         "nlf 4;nullifier 4"
 
+    "AbilitySharedCooldown"         "nullify"
+    "AbilityCooldown"       "14.0"
+    "AbilityCastRange"      "600"
+    "AbilityManaCost"       "100"
+    
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_nullifier_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

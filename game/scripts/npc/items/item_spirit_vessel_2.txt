@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Spirit Vessel_2
+  // Recipe: Spirit Vessel 2
   //=================================================================================================================
   "item_recipe_spirit_vessel_2"
   {
@@ -26,7 +26,7 @@
   }
 
   //=================================================================================================================
-  // Spirit Vessel_2
+  // Spirit Vessel 2
   //=================================================================================================================
   "item_spirit_vessel_2"
   {
@@ -34,6 +34,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8424"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"       "item_spirit_vessel"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_2"
 
@@ -41,12 +44,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_spirit_vessel_3;item_spirit_vessel_4;item_spirit_vessel_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "4325"
-    "ItemAliases"         "sv;spirit vessel"
+    "ItemAliases"         "sv 2;spirit vessel 2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

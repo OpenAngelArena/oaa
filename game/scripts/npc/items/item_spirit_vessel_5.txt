@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Spirit Vessel_5
+  // Recipe: Spirit Vessel 5
   //=================================================================================================================
   "item_recipe_spirit_vessel_5"
   {
@@ -23,7 +23,7 @@
   }
 
   //=================================================================================================================
-  // Spirit Vessel_5
+  // Spirit Vessel 5
   //=================================================================================================================
   "item_spirit_vessel_5"
   {
@@ -31,6 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8430"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"       "item_spirit_vessel"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_5"
 
@@ -42,7 +45,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "35825"
-    "ItemAliases"         "sv;spirit vessel"
+    "ItemAliases"         "sv 5;spirit vessel 5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
