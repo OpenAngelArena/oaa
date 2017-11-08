@@ -11,9 +11,10 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"       "item_combo_breaker_2;item_combo_breaker_3;item_combo_breaker_4;item_combo_breaker_5"
+    "ItemAliases"         "ad;aeon disk"
 
     "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilitySharedCooldown"                               "combobreaker"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

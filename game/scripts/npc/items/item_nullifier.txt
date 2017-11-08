@@ -12,12 +12,17 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "4700"
+    "ItemAliases"         "nlf;nullifier"
 
+    "AbilitySharedCooldown"         "nullify"
+    "AbilityCooldown"       "14.0"
+    "AbilityCastRange"      "600"
+    "AbilityManaCost"       "100"
+    
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_nullifier_2;item_nullifier_3;item_nullifier_4;item_nullifier_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
