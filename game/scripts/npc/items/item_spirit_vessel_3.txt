@@ -33,6 +33,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8426"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"       "item_spirit_vessel"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_3"
 
