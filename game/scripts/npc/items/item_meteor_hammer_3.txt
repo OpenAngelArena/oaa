@@ -75,32 +75,32 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_strength"        "12 16 20 25 33"
+                "bonus_strength"        "12 24 36 48 60"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "12 16 20 25 33"
+                "bonus_intellect"       "12 24 36 48 60"
             }
             "03"
             {
                 "var_type"              "FIELD_FLOAT"
-                "bonus_health_regen"    "4.0 6.0 10.0 15.0 20.0"
+                "bonus_health_regen"    "4.0 8.0 12.0 16.0 20.0"
             }
             "04"
             {
                 "var_type"              "FIELD_FLOAT"
-                "bonus_mana_regen"      "1.5 1.75 2.0 2.25 2.5"
+                "bonus_mana_regen"      "1.5 3.0 4.5 6.0 7.5"
             }
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "burn_dps_buildings"    "60 90 135 200 300"
+                "burn_dps_buildings"    "60"
             }
             "06"
             {
                 "var_type"              "FIELD_INTEGER"
-                "burn_dps_units"        "115 160 250 375 500"
+                "burn_dps_units"        "115 230 345 460 575"
             }
             "07"
             {
@@ -135,12 +135,12 @@
             "13"
             {
                 "var_type"              "FIELD_INTEGER"
-                "impact_damage_buildings"   "75 125 175 250 375"
+                "impact_damage_buildings"   "75"
             }
             "14"
             {
                 "var_type"              "FIELD_INTEGER"
-                "impact_damage_units"   "150 250 350 500 750"
+                "impact_damage_units"   "150 300 450 600 750"
             }
         }
     }
