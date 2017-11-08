@@ -63,17 +63,17 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "16 22 30 40 45"
+                "bonus_intellect"       "16 32 48 64 80"
             }
             "02"
             {
                 "var_type"              "FIELD_INTEGER"
-                "spell_amp"             "10 11 12 13 14"
+                "spell_amp"             "10 15 20 25 30"
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "manacost_reduction"    "10 12 14 16 18"
+                "manacost_reduction"    "10 15 20 25 30"
             }
         }
     }
