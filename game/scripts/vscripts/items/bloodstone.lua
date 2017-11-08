@@ -167,10 +167,6 @@ end
 
 function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
   local ability = self:GetAbility()
-  if not ability.GetCurrentCharges then
-    print('Why doesnt my ability work?')
-    return
-  end
   return self:GetAbility():GetSpecialValueFor("bonus_mana_regen") + (self:GetAbility():GetCurrentCharges() * self:GetAbility():GetSpecialValueFor("mana_per_charge"))
 end
 
