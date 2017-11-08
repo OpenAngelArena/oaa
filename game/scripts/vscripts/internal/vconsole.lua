@@ -1,5 +1,5 @@
-_print = print
-_error = error
+_print = _print or print
+_error = _error or error
 --_assert = assert
 
 --_print("print", print)
