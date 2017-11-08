@@ -129,7 +129,7 @@ function modifier_item_bloodstone_oaa:GetAttributes()
 end
 
 function modifier_item_bloodstone_oaa:IsHidden()
-  return false
+  return true
 end
 function modifier_item_bloodstone_oaa:IsDebuff()
   return false
