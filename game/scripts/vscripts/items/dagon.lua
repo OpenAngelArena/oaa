@@ -36,6 +36,11 @@ function item_dagon:OnSpellStart()
     target:EmitSound("DOTA_Item.Dagon5.Target")
   end
 
+  -- Don't do anything if target has Linken's effect
+  if target:TriggerSpellAbsorb(self) then
+    return
+  end
+
   ApplyDamage({
     victim = target,
     attacker = caster,
