@@ -61,6 +61,7 @@ Now just Clone your Fork to \dota 2 beta\addons. We do this using the GitHub cli
 - Select Clone.
 - Select your Account and the forked `oaa` repository.
 - Verify Clone to your repo.
+- Choose the same location for the 'addon' folder created in 'dota 2 beta' ealier to be the clone location.
 Now we should have a local copy of your fork of [OpenAngelArena/oaa]
 
 **You must link the addon before it will work**. You can do this from that same node.js window you had open by running
