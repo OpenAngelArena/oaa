@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_shadow_word"
+  "warlock_shadow_word"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -51,6 +51,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "1.0"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "range_tooltip"             "525 600 675 750 825 900"
       }
     }
   }
