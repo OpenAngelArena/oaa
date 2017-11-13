@@ -73,11 +73,11 @@
         "var_type"          "FIELD_FLOAT"
         "illusion_extended_duration"      "2"
       }
-      "10"
-      {																					//OAA
-        "var_type"                                        "FIELD_INTEGER"				//OAA
-        "cast_range_tooltip"                              "600 600 600 600 800 1000"	//OAA
-      }																					//OAA
+      "10"	//OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "600 600 600 600 800 1000"
+      }
     }
   }
 }
