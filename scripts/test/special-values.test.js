@@ -329,10 +329,15 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
     var keyName = keyNames[0];
 
     if (parentSpecials && (!parentSpecials[num] || !parentSpecials[num].values[keyName])) {
-      if (!parentData[keyName]) {
+      if (specials.comments && specials.comments[num] && specials.comments[num].indexOf('OAA') !== -1) {
+        // do nothing
+      } else if (!parentData[keyName]) {
         t.fail('Extra keyname found in special values: ' + keyName);
+      } else if (!parentSpecials[num]) {
+        t.fail('Unexpected special value: ' + keyName);
       } else {
-        t.fail('special value in wrong order: ' + keyName);
+        var expectedName = filterExtraKeysFromSpecialValue(Object.keys(parentSpecials[num].values))[0];
+        t.fail('special value in wrong order: ' + keyName + ' should be ' + expectedName);
       }
     }
     if (parentData[keyName]) {

@@ -1,5 +1,3 @@
-// literally https://raw.githubusercontent.com/darklordabc/Legends-of-Dota-Redux/develop/src/game/scripts/npc/abilities/dota/tiny_grow_lod.txt
-
 "DOTAAbilities" {
   "tiny_grow_oaa" {
     "ID"                                                  "9109"
@@ -9,6 +7,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "HasScepterUpgrade"                                   "1"
+    "AbilitySound"          "Tiny.Grow"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -26,17 +25,17 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "bonus_damage"        "40 80 120 160 200"
+        "bonus_armor"      "5 10 15 35 55"
       }
       "03"
       {
         "var_type"          "FIELD_INTEGER"
-        "attack_speed_reduction"  "20 25 30 35 40"
+        "bonus_damage"        "30 45 60 120 180"
       }
       "04"
       {
         "var_type"          "FIELD_INTEGER"
-        "movement_speed"      "40 50 60 75 100"
+        "attack_speed_reduction"  "20 30 40 45 50"
       }
     }
   }
