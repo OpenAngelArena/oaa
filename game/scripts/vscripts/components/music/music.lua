@@ -51,6 +51,7 @@ function Music:PlayBackground(start, stop)
   end)
   if backgroundTimer then
     Timers:RemoveTimer(backgroundTimer)
+    backgroundTimer = nil
   end
   if MusicList[itemnumber][4] then
     backgroundTimer = Timers:CreateTimer(MusicList[itemnumber][4], function()
@@ -67,7 +68,10 @@ end
 function Music:FinishMatch(teamID)
   local itemnumber = 10
   DebugPrint('Playing' .. itemnumber)
-  Timers:RemoveTimer(backgroundTimer)
+  if backgroundTimer then
+    Timers:RemoveTimer(backgroundTimer)
+    backgroundTimer = nil
+  end
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
