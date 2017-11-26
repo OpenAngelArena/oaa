@@ -1,9 +1,12 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = SelectHero;
-  module.exports = CaptainSelectHero;
-  module.exports = BecomeCaptain;
+  module.exports = {
+    SelectHero: SelectHero,
+    CaptainSelectHero: CaptainSelectHero,
+    BecomeCaptain: BecomeCaptain,
+    RandomHero: RandomHero
+  };
 }
 
 var selectedhero = 'empty';

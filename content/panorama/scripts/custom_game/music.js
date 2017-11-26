@@ -41,7 +41,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 function SetMute (data) {
   var mute = data[Players.GetLocalPlayer()];
-  if (!mute || mute == 1) {
+  if (!mute || mute === 1) {
     return;
   }
   musicPlaying = false;
