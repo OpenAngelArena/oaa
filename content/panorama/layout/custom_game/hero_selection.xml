@@ -7,7 +7,7 @@
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
   <Panel class="MainHolder" onactivate=";">
-    <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
       <Panel class="FillWidth">
         <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
@@ -127,7 +127,7 @@
               </Button>
               <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
               </Button>
-              <Button class="HeroPickerButton" id="HeroRandom">
+              <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
               </Button>
             </Panel>
           </Panel>

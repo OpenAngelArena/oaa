@@ -148,6 +148,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
+  InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(ZoneControl)
@@ -162,7 +163,6 @@ function GameMode:OnPreGame()
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
-  InitModule(Music)
 
   CheckCheatMode()
 end

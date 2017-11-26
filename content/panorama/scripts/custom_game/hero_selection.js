@@ -265,15 +265,20 @@ function GoToStrategy () {
   FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
   FindDotaHudElement('StrategyContent').style.opacity = '1';
   // FindDotaHudElement('PregameBG').style.opacity = '0.15';
-  FindDotaHudElement('PregameBG').style.blur = 'gaussian(0)';
+  FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
 
-  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
+  // var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
 
-  bossMarkers.forEach(function (element) {
-    FindDotaHudElement(element).style.transform = 'translateY(0)';
-    FindDotaHudElement(element).style.opacity = '1';
-  });
+  // bossMarkers.forEach(function (element) {
+  //   FindDotaHudElement(element).style.transform = 'translateY(0)';
+  //   FindDotaHudElement(element).style.opacity = '1';
+  // });
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
+}
+
+function RandomHero () {
+  selectedhero = 'random';
+  SelectHero();
 }

@@ -141,7 +141,10 @@ function PrintTable(prefix, t, indent, done)
     table.insert(l, k)
   end
 
-  table.sort(l)
+  pcall(function()
+    table.sort(l)
+  end)
+
   for k, v in ipairs(l) do
     -- Ignore FDesc
     if v ~= 'FDesc' then

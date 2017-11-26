@@ -198,7 +198,7 @@ function HeroSelection:APTimer (time, message)
   HeroSelection:CheckPause()
   if forcestop == true then
     for key, value in pairs(selectedtable) do
-      PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
+      HeroSelection:SelectHero(key, value.selectedhero)
     end
     HeroSelection:StrategyTimer(3)
   elseif time < 0 then
@@ -211,7 +211,7 @@ function HeroSelection:APTimer (time, message)
           HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
         end
       end
-      PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, STARTING_GOLD, 0)
+      HeroSelection:SelectHero(key, selectedtable[key].selectedhero)
     end
     HeroSelection:StrategyTimer(3)
   else
@@ -226,13 +226,27 @@ function HeroSelection:APTimer (time, message)
   end
 end
 
+function HeroSelection:SelectHero (playerId, hero)
+  PrecacheUnitByNameAsync(hero, function()
+    PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
+  end)
+end
+
 function HeroSelection:RandomHero ()
   while true do
     local choice = HeroSelection:UnsafeRandomHero()
     local safe = true
-    for _,data in ipairs(cmpickorder["order"]) do
-      if choice == data.hero then
-        safe = false
+    if GetMapName() == "oaa_captains_mode" then
+      for _,data in ipairs(cmpickorder["order"]) do
+        if choice == data.hero then
+          safe = false
+        end
+      end
+    else
+      for _,data in pairs(selectedtable) do
+        if choice == data.selectedhero then
+          safe = false
+        end
       end
     end
     if safe then
@@ -280,6 +294,9 @@ end
 -- write new values to table
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
+  if hero == "random" then
+    hero = self:RandomHero()
+  end
   selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
 
   if GetMapName() == "oaa_captains_mode" then
