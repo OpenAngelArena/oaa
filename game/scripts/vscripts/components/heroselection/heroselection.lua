@@ -1,8 +1,12 @@
+LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
+
 if HeroSelection == nil then
   Debug.EnabledModules['heroselection:*'] = true
   DebugPrint ( 'Starteng HeroSelection' )
   HeroSelection = class({})
 end
+
+HERO_SELECTION_WHILE_PAUSED = false
 
 -- available heroes
 local herolist = {}
@@ -27,6 +31,13 @@ function HeroSelection:Init ()
     end
   end
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
+
+  GameEvents:OnHeroInGame(function (npc)
+    local playerId = npc:GetPlayerID()
+    if selectedtable[playerId].selectedhero == "empty" then
+      npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    end
+  end)
 
   GameEvents:OnPreGame(function (keys)
     HeroSelection:StartSelection()
@@ -146,7 +157,7 @@ function HeroSelection:CMTimer (time, message)
   end
 
   cmtimer = Timers:CreateTimer({
-    useGameTime = false,
+    useGameTime = not HERO_SELECTION_WHILE_PAUSED,
     endTime = 1,
     callback = function()
       HeroSelection:CMTimer(time -1, message)
@@ -155,8 +166,10 @@ function HeroSelection:CMTimer (time, message)
 end
 
 function HeroSelection:CheckPause ()
-  if GameRules:IsGamePaused() ~= HeroSelection.shouldBePaused then
-    PauseGame(HeroSelection.shouldBePaused)
+  if HERO_SELECTION_WHILE_PAUSED then
+    if GameRules:IsGamePaused() ~= HeroSelection.shouldBePaused then
+      PauseGame(HeroSelection.shouldBePaused)
+    end
   end
 end
 
@@ -185,7 +198,7 @@ function HeroSelection:APTimer (time, message)
   HeroSelection:CheckPause()
   if forcestop == true then
     for key, value in pairs(selectedtable) do
-      PlayerResource:ReplaceHeroWith(key, value.selectedhero, 625, 0)
+      HeroSelection:SelectHero(key, value.selectedhero)
     end
     HeroSelection:StrategyTimer(3)
   elseif time < 0 then
@@ -198,13 +211,13 @@ function HeroSelection:APTimer (time, message)
           HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
         end
       end
-      PlayerResource:ReplaceHeroWith(key, selectedtable[key].selectedhero, STARTING_GOLD, 0)
+      HeroSelection:SelectHero(key, selectedtable[key].selectedhero)
     end
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
     Timers:CreateTimer({
-      useGameTime = false,
+      useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
       callback = function()
         HeroSelection:APTimer(time - 1, message)
@@ -213,13 +226,27 @@ function HeroSelection:APTimer (time, message)
   end
 end
 
+function HeroSelection:SelectHero (playerId, hero)
+  PrecacheUnitByNameAsync(hero, function()
+    PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
+  end)
+end
+
 function HeroSelection:RandomHero ()
   while true do
     local choice = HeroSelection:UnsafeRandomHero()
     local safe = true
-    for _,data in ipairs(cmpickorder["order"]) do
-      if choice == data.hero then
-        safe = false
+    if GetMapName() == "oaa_captains_mode" then
+      for _,data in ipairs(cmpickorder["order"]) do
+        if choice == data.hero then
+          safe = false
+        end
+      end
+    else
+      for _,data in pairs(selectedtable) do
+        if choice == data.selectedhero then
+          safe = false
+        end
       end
     end
     if safe then
@@ -244,11 +271,12 @@ function HeroSelection:StrategyTimer (time)
   if time < 0 then
     HeroSelection.shouldBePaused = false
     HeroSelection:CheckPause()
+    GameMode:OnGameInProgress()
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
     Timers:CreateTimer({
-      useGameTime = false,
+      useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
       callback = function()
         HeroSelection:StrategyTimer(time -1)
@@ -266,6 +294,9 @@ end
 -- write new values to table
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
+  if hero == "random" then
+    hero = self:RandomHero()
+  end
   selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
 
   if GetMapName() == "oaa_captains_mode" then
@@ -277,16 +308,19 @@ function HeroSelection:UpdateTable (playerID, hero)
   end
 
   DebugPrintTable(selectedtable)
-
-  CustomNetTables:SetTableValue( 'hero_selection', 'APdata', selectedtable)
-
   -- if everyone has picked, stop
   local isanyempty = false
   for key, value in pairs(selectedtable) do --pseudocode
+    if value.steamid == "0" then
+      value.selectedhero = HeroSelection:RandomHero()
+    end
     if value.selectedhero == "empty" then
       isanyempty = true
     end
   end
+
+  CustomNetTables:SetTableValue( 'hero_selection', 'APdata', selectedtable)
+
   if isanyempty == false then
     forcestop = true
   end

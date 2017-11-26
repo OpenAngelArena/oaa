@@ -7,7 +7,7 @@
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
   <Panel class="MainHolder" onactivate=";">
-    <DOTAScenePanel id="PregameBG" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
       <Panel class="FillWidth">
         <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
@@ -87,49 +87,50 @@
             </Panel>
           </Panel>
         </Panel>
-        <Panel class="AttrHolder">
-          <Panel id="StrHolder"/>
-          <Label id="ChooseStrLabel" text="Strength"/>
-        </Panel>
-        <Panel class="HeroHolder" id="StrengthHeroes"/>
-        <Panel class="AttrHolder">
-          <Panel id="AgiHolder"/>
-          <Label id="ChooseAgiLabel" text="Agility"/>
-        </Panel>
-        <Panel class="HeroHolder" id="AgilityHeroes"/>
-        <Panel class="AttrHolder">
-          <Panel id="IntHolder"/>
-          <Label id="ChooseIntLabel" text="Intelligence"/>
-        </Panel>
-        <Panel class="HeroHolder" id="IntelligenceHeroes"/>
-      </Panel>
-      <Panel class="RightColumn">
-        <Label class="SectionTitle" text="Preview"/>
-        <Panel id="HeroSelector">
-          <Panel id="HeroPreview">
-            <DOTAScenePanel unit="" />
+        <Panel id="HeroPanel">
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="StrHolder"/>
+              <Label id="ChooseStrLabel" text="Strength"/>
+            </Panel>
+            <Panel class="HeroHolder" id="StrengthHeroes" />
           </Panel>
-          <Panel id="CMHeroPreview">
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="AgiHolder"/>
+              <Label id="ChooseAgiLabel" text="Agility"/>
+            </Panel>
+            <Panel class="HeroHolder" id="AgilityHeroes"/>
           </Panel>
-          <Panel id="HeroPickContainer">
-            <Button id="BecomeCaptain" onactivate="BecomeCaptain()">
-              <Label id="BecomeCaptainLabel" text="Become Captain"/>
-            </Button>
-            <Button id="CaptainLockIn" onactivate="CaptainSelectHero()">
-              <Label id="CaptainLockInLabel" text="Select"/>
-            </Button>
-            <Button id="HeroLockIn" onactivate="SelectHero()">
-              <Label id="HeroLockLabel" text="Lock In"/>
-            </Button>
-            <Button id="HeroRandom">
-              <Panel id="HeroRandomIcon"/>
-              <Label id="HeroRandomLabel" text="Random"/>
-            </Button>
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="IntHolder"/>
+              <Label id="ChooseIntLabel" text="Intelligence"/>
+            </Panel>
+            <Panel class="HeroHolder" id="IntelligenceHeroes"/>
           </Panel>
         </Panel>
-        <Label class="SectionTitle" text="Chat"/>
-        <Panel id="CustomChat">
-          <Label text="We will have to make custom chat, existing one is too shit to try to port. I suggest we teke base from CIA"/>
+        <Panel id="PreviewPanel">
+          <Label id="SectionTitle" text=""/>
+          <Panel id="HeroSelector">
+            <Panel id="HeroPreviewContainer">
+              <Panel id="HeroPreview">
+                <DOTAScenePanel unit="" />
+              </Panel>
+              <Panel id="CMHeroPreview">
+              </Panel>
+            </Panel>
+            <Panel id="HeroPickContainer">
+              <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
+              </Button>
+              <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
+              </Button>
+              <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
+              </Button>
+              <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
+              </Button>
+            </Panel>
+          </Panel>
         </Panel>
       </Panel>
     </Panel>

@@ -1,9 +1,12 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = SelectHero;
-  module.exports = CaptainSelectHero;
-  module.exports = BecomeCaptain;
+  module.exports = {
+    SelectHero: SelectHero,
+    CaptainSelectHero: CaptainSelectHero,
+    BecomeCaptain: BecomeCaptain,
+    RandomHero: RandomHero
+  };
 }
 
 var selectedhero = 'empty';
@@ -27,9 +30,9 @@ function onPlayerStatChange (table, key, data) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
-    for (key in data.herolist) {
+    Object.keys(data.herolist).sort().forEach(function (heroName) {
       var currentstat = null;
-      switch (data.herolist[key]) {
+      switch (data.herolist[heroName]) {
         case 'DOTA_ATTRIBUTE_STRENGTH':
           currentstat = strengthholder;
           break;
@@ -40,14 +43,14 @@ function onPlayerStatChange (table, key, data) {
           currentstat = intelligenceholder;
           break;
       }
-      var newhero = $.CreatePanel('RadioButton', currentstat, key);
+      var newhero = $.CreatePanel('RadioButton', currentstat, heroName);
       newhero.group = 'HeroChoises';
-      newhero.SetPanelEvent('onactivate', (function (newkey) { return function () { PreviewHero(newkey); }; }(key)));
+      newhero.SetPanelEvent('onactivate', (function (newkey) { return function () { PreviewHero(newkey); }; }(heroName)));
       var newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
-      newheroimage.heroname = key;
-    }
+      newheroimage.heroname = heroName;
+    });
   } else if (key === 'APdata' && data != null) {
     var length = Object.keys(data).length;
     if (panelscreated !== length) {
@@ -214,6 +217,8 @@ function PreviewHero (name) {
     preview.RemoveAndDeleteChildren();
     preview.BCreateChildren("<DOTAScenePanel unit='" + name + "'/>");
     selectedhero = name;
+    FindDotaHudElement('HeroLockIn').style.visibility = 'visible';
+    $('#SectionTitle').text = $.Localize('#' + name, $('#SectionTitle'));
   }
 }
 
@@ -262,15 +267,21 @@ function GoToStrategy () {
   FindDotaHudElement('MainContent').style.opacity = '0';
   FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
   FindDotaHudElement('StrategyContent').style.opacity = '1';
-  FindDotaHudElement('PregameBG').style.opacity = '0.15';
+  // FindDotaHudElement('PregameBG').style.opacity = '0.15';
+  FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
 
-  var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
+  // var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
 
-  bossMarkers.forEach(function (element) {
-    FindDotaHudElement(element).style.transform = 'translateY(0)';
-    FindDotaHudElement(element).style.opacity = '1';
-  });
+  // bossMarkers.forEach(function (element) {
+  //   FindDotaHudElement(element).style.transform = 'translateY(0)';
+  //   FindDotaHudElement(element).style.opacity = '1';
+  // });
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
+}
+
+function RandomHero () {
+  selectedhero = 'random';
+  SelectHero();
 }
