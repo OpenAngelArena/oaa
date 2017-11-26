@@ -12,16 +12,19 @@ function Music:Init ()
   DebugPrint('Init music')
   Music.currentTrack = ""
   -- Set everyone unmuted
+  local muteTable = {}
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    CustomNetTables:SetTableValue('music', 'mute', {playerID = 0})
+    muteTable[playerID] = 0
   end)
+  CustomNetTables:SetTableValue('music', 'mute', muteTable)
   --to recompile all music
 
   ChatCommand:LinkCommand("-compile_music", Dynamic_Wrap(Music, "Recompile"), Music)
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
-  Music:PlayBackground(1, 7)
+  -- let storyline handle it
+  --Music:PlayBackground(1, 7)
 end
 
 -- Play song command
@@ -32,7 +35,7 @@ function Music:SetMusic(itemnumber)
   Timers:RemoveTimer(backgroundTimer)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then
+    if not CustomNetTables:GetTableValue('music', 'mute')[playerID] or CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
       StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
       EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
@@ -53,11 +56,14 @@ function Music:PlayBackground(start, stop)
   DebugPrint('Playing' .. itemnumber)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    if CustomNetTables:GetTableValue('music', 'mute').playerID == 0 then
+    if not CustomNetTables:GetTableValue('music', 'mute')[playerID] or CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
       StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
       EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
   end)
+  if backgroundTimer then
+    Timers:RemoveTimer(backgroundTimer)
+  end
   backgroundTimer = Timers:CreateTimer(MusicList[itemnumber][4], function()
     Music:PlayBackground(start, stop)
   end)
@@ -75,7 +81,7 @@ function Music:FinishMatch(teamID)
 
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
-    if PlayerResource:GetPlayer(playerID) and PlayerResource:GetPlayer(playerID):GetTeam() == teamID then
+    if PlayerResource:GetPlayer(playerID):GetTeam() == teamID then
       -- team won
       EmitSoundOnClient(MusicList[itemnumber+1][2], PlayerResource:GetPlayer(playerID))
     else
@@ -94,7 +100,9 @@ end
 function Music:MuteHandler(keys)
   local playerID = keys.playerID
   --sets his state
-  CustomNetTables:SetTableValue('music', 'mute', {playerID = keys.mute})
+  local muteTable = CustomNetTables:GetTableValue('music', 'mute')
+  muteTable[playerID] = keys.mute
+  CustomNetTables:SetTableValue('music', 'mute', muteTable)
   if keys.mute == 1 then
     -- stops song if he muted
     StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
