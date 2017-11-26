@@ -23,8 +23,7 @@ function Music:Init ()
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
-  -- let storyline handle it
-  --Music:PlayBackground(1, 7)
+  Music:PlayBackground(1, 7)
 end
 
 -- Play song command
@@ -32,7 +31,10 @@ end
 -- i = number from music_list
 function Music:SetMusic(itemnumber)
   DebugPrint('Playing' .. itemnumber)
-  Timers:RemoveTimer(backgroundTimer)
+  if backgroundTimer then
+    Timers:RemoveTimer(backgroundTimer)
+    backgroundTimer = nil
+  end
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     if not CustomNetTables:GetTableValue('music', 'mute')[playerID] or CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
