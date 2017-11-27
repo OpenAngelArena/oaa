@@ -329,6 +329,7 @@ function SelectHero (hero) {
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
     } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
       herolocked = true;
+      isPicking = false;
       newhero = selectedhero;
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
