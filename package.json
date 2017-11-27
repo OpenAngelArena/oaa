@@ -7,7 +7,7 @@
     "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape \"./scripts/test/*test.js\" | tap-summary --no-progress",
     "spec": "tape \"./scripts/test/*test.js\" | tap-spec",
     "all-contributors": "all-contributors",
-    "semistandard": "semistandard",
+    "semistandard": "semistandard --global $ --global GameUI --global GameEvents --global Players",
     "tape": "tape",
     "tap-summary": "tap-summary",
     "tap-spec": "tap-spec"

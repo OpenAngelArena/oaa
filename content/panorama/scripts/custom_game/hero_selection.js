@@ -5,7 +5,8 @@ if (typeof module !== 'undefined' && module.exports) {
     SelectHero: SelectHero,
     CaptainSelectHero: CaptainSelectHero,
     BecomeCaptain: BecomeCaptain,
-    RandomHero: RandomHero
+    RandomHero: RandomHero,
+    PreviewHeroCM: PreviewHeroCM
   };
 }
 
@@ -27,8 +28,7 @@ ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 
 function onPlayerStatChange (table, key, data) {
-  // travis asked me, i didnt want to!
-  var nkey = null;
+  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
   if (key === 'herolist' && data != null) {
     var strengthholder = FindDotaHudElement('StrengthHeroes');
@@ -49,7 +49,7 @@ function onPlayerStatChange (table, key, data) {
       }
       var newhero = $.CreatePanel('RadioButton', currentstat, heroName);
       newhero.group = 'HeroChoises';
-      newhero.SetPanelEvent('onactivate', (function () { PreviewHero(heroName); }));
+      newhero.SetPanelEvent('onactivate', function () { PreviewHero(heroName); });
       var newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
@@ -65,7 +65,7 @@ function onPlayerStatChange (table, key, data) {
       panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
-      Object.keys(data).forEach(function(nkey) {
+      Object.keys(data).forEach(function (nkey) {
         var currentteam = null;
         switch (data[nkey].team) {
           case 2:
@@ -103,7 +103,6 @@ function onPlayerStatChange (table, key, data) {
       });
     } else {
       if (iscm) {
-        var teamID = Players.GetTeam(Game.GetLocalPlayerID());
         var cmData = CustomNetTables.GetTableValue('hero_selection', 'CMdata');
         Object.keys(cmData['order']).forEach(function (nkey) {
           var obj = cmData['order'][nkey];
@@ -116,7 +115,7 @@ function onPlayerStatChange (table, key, data) {
           }
         });
       }
-      Object.keys(data).forEach(function(nkey) {
+      Object.keys(data).forEach(function (nkey) {
         var currentplayer = FindDotaHudElement(data[nkey].steamid);
         currentplayer.heroname = data[nkey].selectedhero;
         currentplayer.RemoveClass('PreviewHero');
@@ -137,7 +136,6 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'CMdata' && data != null) {
     iscm = true;
-    var teamID = Players.GetTeam(Game.GetLocalPlayerID());
     var teamName = teamID === 2 ? 'radiant' : 'dire';
     if (data['captain' + teamName] === 'empty') {
       // "BECOME CAPTAIN" button
@@ -159,7 +157,6 @@ function onPlayerStatChange (table, key, data) {
     if (data['currentstage'] === 0) {
       isfirstpick = 1;
     } else if (data['currentstage'] < data['totalstages']) {
-      $.Msg('Current phase is mid-pick.. keeping going!')
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('CMHeroPreview').style.visibility = 'collapse';
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
@@ -215,7 +212,6 @@ function onPlayerStatChange (table, key, data) {
   }
 }
 
-
 function UpdatePreviews (data) {
   if (!data) {
     return;
@@ -249,10 +245,10 @@ function ReloadCMStatus (data) {
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
-      newbutton.SetPanelEvent('onactivate', (function () { SelectHero(obj.hero); }));
+      newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
       newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
 
-      var newimage = newbutton.BCreateChildren("<DOTAScenePanel unit='" + obj.hero + "'/>");
+      newbutton.BCreateChildren("<DOTAScenePanel unit='" + obj.hero + "'/>");
       var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
       newlabel.style.visibility = 'collapse';
       newlabel.steamid = null;
