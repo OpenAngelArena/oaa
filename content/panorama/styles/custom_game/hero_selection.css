@@ -3,7 +3,7 @@
   height: 100%;
   background-color: #252525;
   transition-property: opacity, transform;
-  transition-delay: 10s;
+  transition-delay: 3s;
   transition-timing-function: ease-in;
   transition-duration: 0.5s;
   transform: scaleX(1) scaleY(1) translateY(0);
@@ -18,6 +18,7 @@ Label {
 
 #SectionTitle {
   padding: 0 12px;
+  horizontal-align: center;
 }
 
 #PregameBG {
@@ -117,6 +118,11 @@ Label {
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #37425ddd ), to( #2B3445dd ) );
 }
 
+.PlayerImage.PreviewHero {
+  blur: gaussian(2);
+  brightness: 0.10;
+}
+
 #TeamDire .PlayerImage {
   transform: rotateY(180deg);
 }
@@ -204,14 +210,6 @@ DOTAMinimap {
   flow-children: right;
 }
 
-#CMPanel {
-  visibility: collapse;
-  width: 100%;
-  min-height: 150px;
-  background-color: #171A2590;
-  margin: 10px 0;
-}
-
 #HeroPanel {
   width: 100%;
   flow-children: right;
@@ -219,15 +217,50 @@ DOTAMinimap {
 
 #PreviewPanel {
   margin-top: 20px;
-  width: 30%;
+  width: fill-parent-flow(1.0);
   height: fill-parent-flow(1.0);
   flow-children: down;
   horizontal-align: center;
 }
 
+#CMPanel {
+  visibility: collapse;
+  width: 1100px;
+  min-height: 150px;
+  margin: 10px 0;
+  horizontal-align: center;
+}
+
 #CMProgress {
+  visibility: collapse;
+  background-color: #171A2590;
   width: 100%;
   height: 100%;
+  horizontal-align: center;
+}
+
+#BecomeCaptainPanel {
+  horizontal-align: center;
+}
+
+#BecomeCaptain {
+  visibility: collapse;
+  width: 400px;
+  padding-right: 90px;
+  background-image: url("s2r://panorama/images/status_icons/captain_overlay_psd.vtex");
+  background-position: 98% center;
+  background-size: contain;
+}
+
+#BecomeCaptain Label {
+  /*font-size: 12px;*/
+  text-align: center;
+  height: 80%;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
 .CMTeam {
@@ -427,16 +460,17 @@ RadioButton.Disabled:selected {
 }
 
 #HeroSelector {
-  width: 100%;
+  width: 30%;
   height: fill-parent-flow(1.0);
   flow-children: right;
+  horizontal-align: middle;
 }
 
 #HeroPreview {
   margin-left: 10%;
   margin-right: 10%;
-  width: 80%;
   height: 100%;
+  width: 100%;
   transform: translateY( -80px );
   vertical-align: top;
   horizontal-align: middle;
@@ -447,20 +481,23 @@ DOTAScenePanel {
   height: 100%;
 }
 
+#CMHeroPreview DOTAScenePanel {
+  height: 80%;
+}
+
 #CMHeroPreview {
   visibility: collapse;
-  margin: 12px;
   width: 100%;
-  height: 75%;
+  height: 100%;
   vertical-align: top;
   horizontal-align: middle;
-  flow-children: down;
+  flow-children: right;
 }
 
 .CMHeroPreviewItem {
-  width: 100%;
+  width: fill-parent-flow(1.0);
   height: fill-parent-flow(1.0);
-  flow-children: right;
+  flow-children: down;
   box-shadow: none;
   margin: 3px;
 }
@@ -487,6 +524,9 @@ DOTAScenePanel {
   padding-left: 10px;
 }
 
+.HeroPickLabel {
+  margin-bottom: -30px;
+}
 
 #HeroPickContainer {
   width: 60px;
@@ -529,12 +569,16 @@ DOTAScenePanel {
   sound: "ui.pick_play";
 }
 
-#BecomeCaptain {
+#CaptainLockIn {
   visibility: collapse;
 }
 
-#CaptainLockIn {
-  visibility: collapse;
+#CaptainLockIn.PickHero {
+  background-image: url("s2r://panorama/images/control_icons/check_shadow_png.vtex");
+}
+
+#CaptainLockIn.BanHero {
+  background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
 }
 
 #HeroRandom {
