@@ -2742,7 +2742,8 @@ read_globals = { -- these globals can only be accessed.
 "GameEvents",
 "PlayerTables",
 "Notifications",
-"MODIFIER_PROPERTY_STATUS_RESISTANCE"
+"MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"FORCE_PICKED_HERO"
 }
 
 ignore = {
