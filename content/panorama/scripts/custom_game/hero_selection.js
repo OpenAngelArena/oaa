@@ -153,6 +153,14 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
     }
+    var currentPickType = null;
+    if (data['currentstage'] < data['totalstages']) {
+      currentPickType = data['order'][data['currentstage'] + 1].type;
+    }
+
+    FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
+    FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
+    FindDotaHudElement('CaptainLockIn').AddClass(currentPickType + 'Hero');
 
     if (data['currentstage'] === 0) {
       isfirstpick = 1;
@@ -162,11 +170,6 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
-      var currentPickType = data['order'][data['currentstage'] + 1].type;
-
-      FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
-      FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
-      FindDotaHudElement('CaptainLockIn').AddClass(currentPickType + 'Hero');
 
       if (isfirstpick === 1) {
         data['currentstage'] = 0;
