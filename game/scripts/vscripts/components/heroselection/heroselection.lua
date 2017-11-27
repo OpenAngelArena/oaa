@@ -10,6 +10,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 
 -- available heroes
 local herolist = {}
+local lockedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
@@ -230,6 +231,15 @@ function HeroSelection:APTimer (time, message)
       end
       HeroSelection:SelectHero(key, selectedtable[key].selectedhero)
     end
+    PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
+      if not lockedHeroes[playerId] then
+        if GetMapName() == "oaa_captains_mode" then
+          HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
+        else
+          HeroSelection:UpdateTable(playerId, HeroSelection:RandomHero())
+        end
+      end
+    end)
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
@@ -244,6 +254,7 @@ function HeroSelection:APTimer (time, message)
 end
 
 function HeroSelection:SelectHero (playerId, hero)
+  lockedHeroes[playerId] = hero
   PrecacheUnitByNameAsync(hero, function()
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
     PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)

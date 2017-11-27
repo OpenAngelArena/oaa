@@ -155,35 +155,30 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
     }
-    var currentPickType = null;
 
-    if (data['order'][data['currentstage'] + 1]) {
-      currentPickType = data['order'][data['currentstage'] + 1].type;
-
-      FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
-      FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
-      FindDotaHudElement('CaptainLockIn').AddClass(currentPickType + 'Hero');
-    }
-
-    if (data['currentstage'] === 0) {
-      isfirstpick = 1;
-    } else if (data['currentstage'] < data['totalstages']) {
+    if (data['currentstage'] < data['totalstages']) {
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('CMHeroPreview').style.visibility = 'collapse';
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
-
-      if (isfirstpick === 1) {
-        data['currentstage'] = 0;
-        isfirstpick = 2;
-      } else if (isfirstpick === 0) {
-        ReloadCMStatus(data);
+      var currentPick = null;
+      if (data['order'][data['currentstage']].hero === 'empty') {
+        currentPick = data['order'][data['currentstage']];
       } else {
+        currentPick = data['order'][data['currentstage'] + 1];
+      }
+
+      FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
+      FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
+      FindDotaHudElement('CaptainLockIn').AddClass(currentPick.type + 'Hero');
+
+      if (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero && data['order'][data['currentstage']].hero !== 'empty') {
         FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
         DisableHero(data['order'][data['currentstage']].hero);
       }
-      if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === data['order'][data['currentstage'] + 1].side) {
+      $.Msg(data['currentstage'] + ", " + currentPick.side);
+      if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
         PreviewHero();
