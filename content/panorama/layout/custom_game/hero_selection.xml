@@ -34,6 +34,11 @@
       </Panel>
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
+          <Panel id="BecomeCaptainPanel">
+            <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
+              <Label text="Become Captain" />
+            </Button>
+          </Panel>
           <Panel id="CMProgress">
             <Panel class="CMTeam" id="CMRadiant">
               <Panel class="CMBan" id="CMRadiantBanLabel">
@@ -44,6 +49,16 @@
                 <Label text="18"/>
               </Panel>
               <Panel class="CMBan" id="CMRadiantBan">
+                <DOTAHeroImage id="CMStep1">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep3">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep10">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep12">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep18">
+                </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
                 <Label text="Radiant"/>
@@ -56,6 +71,16 @@
                 <Label text="19"/>
               </Panel>
               <Panel class="CMPick" id="CMRadiantPick">
+                <DOTAHeroImage id="CMStep5">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep8">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep14">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep16">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep19">
+                </DOTAHeroImage>
               </Panel>
             </Panel>
             <Panel class="CMInfo">
@@ -71,6 +96,16 @@
                 <Label text="17"/>
               </Panel>
               <Panel class="CMBan" id="CMDireBan">
+                <DOTAHeroImage id="CMStep2">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep4">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep9">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep11">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep17">
+                </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
                 <Label text="Dire"/>
@@ -83,6 +118,16 @@
                 <Label text="20"/>
               </Panel>
               <Panel class="CMPick" id="CMDirePick">
+                <DOTAHeroImage id="CMStep6">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep7">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep13">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep15">
+                </DOTAHeroImage>
+                <DOTAHeroImage id="CMStep20">
+                </DOTAHeroImage>
               </Panel>
             </Panel>
           </Panel>
@@ -111,18 +156,14 @@
           </Panel>
         </Panel>
         <Panel id="PreviewPanel">
-          <Label id="SectionTitle" text=""/>
           <Panel id="HeroSelector">
             <Panel id="HeroPreviewContainer">
+              <Label id="SectionTitle" text=""/>
               <Panel id="HeroPreview">
                 <DOTAScenePanel unit="" />
               </Panel>
-              <Panel id="CMHeroPreview">
-              </Panel>
             </Panel>
             <Panel id="HeroPickContainer">
-              <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
-              </Button>
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
               </Button>
               <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
@@ -130,6 +171,8 @@
               <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
               </Button>
             </Panel>
+          </Panel>
+          <Panel id="CMHeroPreview">
           </Panel>
         </Panel>
       </Panel>
