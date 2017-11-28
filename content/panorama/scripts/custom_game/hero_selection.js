@@ -248,7 +248,7 @@ function ReloadCMStatus (data) {
       newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
       newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
 
-      newbutton.BCreateChildren("<DOTAScenePanel unit='" + obj.hero + "'/>");
+      newbutton.BCreateChildren("<DOTAScenePanel particleonly='false' unit='" + obj.hero + "'/>");
       var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
       newlabel.style.visibility = 'collapse';
       newlabel.steamid = null;
