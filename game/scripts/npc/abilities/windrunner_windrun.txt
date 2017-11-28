@@ -9,16 +9,16 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13"
+    "AbilityCooldown"                                     "12"
     "AbilityDuration"                                     "3 4 5 6 7 9"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "60"
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus_pct"                             "50 50 50 50"    
+        "movespeed_bonus_pct"                             "60"
       }
       "02"
       {
@@ -45,6 +45,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "enemy_movespeed_bonus_pct"                       "-15 -20 -25 -30 -30 -30"
+        "LinkedSpecialBonus"    "special_bonus_unique_windranger_2"
       }
       "04"
       {

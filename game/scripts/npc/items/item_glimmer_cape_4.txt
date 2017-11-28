@@ -10,8 +10,8 @@
     "ID"              "3734"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
-  
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "8000" 
@@ -47,6 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
+    "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
     
     // Item Info
@@ -54,8 +55,8 @@
     "ItemCost"                    "14850"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
-    "ItemAliases"                 "glimmer cape"
-    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                 "glimmer cape 4;glimmer 4"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "4"
     
@@ -87,6 +88,16 @@
       {
         "var_type"                "FIELD_FLOAT"
         "duration"                "5"
+      }
+      "06"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "tooltip_range"           "800"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "building_duration_limit"     "180"
       }
     }
   }

@@ -28,7 +28,21 @@ globals = { -- these globals can be set and accessed.
 "DUEL_INTERVAL",
 "BOTTLE_DESPAWN_TIME",
 "GAME_ABANDON_TIME",
-"FindHeroesInRadius"
+"FindHeroesInRadius",
+"CAVE_TYPE_STATS_HEALTH",
+"CAVE_TYPE_STATS_MANA",
+"CAVE_TYPE_STATS_DAMAGE",
+"CAVE_TYPE_STATS_ARMOUR",
+"CAVE_TYPE_STATS_GOLD",
+"CAVE_TYPE_STATS_EXP",
+"CAVE_TYPE_STATS_RESITS",
+"POOP_WARD_COOLDOWN",
+"POOP_WARD_DURATION",
+"POOP_WARD_RADIUS",
+"CAPTAINS_MODE_PICK_BAN_TIME",
+"CAPTAINS_MODE_HERO_PICK_TIME",
+"PREGAME_TIME",
+"CAPTAINS_MODE_CAPTAIN_TIME",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -135,6 +149,9 @@ read_globals = { -- these globals can only be accessed.
 "ACT_MP_ATTACK_CROUCH_PRIMARY",
 "ACT_STARTDYING",
 "ACT_DOTA_MK_TREE_SOAR",
+"AP_GAME_TIME",
+"CM_GAME_TIME",
+"STARTING_GOLD",
 "SendToConsole",
 "CreateItemOnPositionForLaunch",
 "ACT_DOTA_LIFESTEALER_EJECT",
@@ -2725,6 +2742,8 @@ read_globals = { -- these globals can only be accessed.
 "GameEvents",
 "PlayerTables",
 "Notifications",
+"MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"FORCE_PICKED_HERO"
 }
 
 ignore = {

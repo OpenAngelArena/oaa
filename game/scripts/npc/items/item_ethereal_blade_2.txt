@@ -10,7 +10,7 @@
     "ID"                                                  "3142"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1500"
@@ -43,7 +43,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "FightRecapLevel"                                     "1"
-"AbilityTextureName"                                      "custom/ethereal_blade_2"
+    "AbilityTextureName"                                      "custom/ethereal_blade_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
@@ -63,8 +63,8 @@
     "ItemCost"                                            "6200"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemAliases"                                         "eb;ethereal blade"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "eb 2;ethereal blade 2;eblade 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -119,7 +119,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "projectile_speed"                                "1275"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

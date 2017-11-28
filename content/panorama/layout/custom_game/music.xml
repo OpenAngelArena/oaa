@@ -1,0 +1,15 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/music.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/music.js"/>
+  </scripts>
+  <Panel class="MusicContainer">
+    <Button class="MusicButton" id="ToggleMusic" text="music" onactivate="ToggleMusic()"/>
+    <Panel class="MusicProperties">
+      <Label class="MusicTitle" id="MusicTitle" text="Loading..."/>
+      <Label class="MusicSubTitle" id="MusicSubTitle" text="Loading..."/>
+    </Panel>
+  </Panel>
+</root>

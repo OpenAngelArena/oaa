@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_dragon_lance_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_dragon_lance_3;item_upgrade_core_3"
@@ -46,8 +46,8 @@
     "ItemCost"                                            "14900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "dragon lance"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "dragon lance 4"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_dragon_lance_3;item_dragon_lance_4"

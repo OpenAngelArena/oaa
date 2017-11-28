@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5068"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "MaxLevel"                                            "6"
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 12 8 4 4 4"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -37,7 +37,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 14 22 30 45 90"
+        "bonus_agility"                                   "6 14 22 30 60 90"
       }
       "05"
       {

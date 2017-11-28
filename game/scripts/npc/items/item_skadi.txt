@@ -21,7 +21,7 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom"
+      "01"                                                "item_ultimate_orb;item_ultimate_orb;item_point_booster"
     }
   }
 
@@ -37,10 +37,10 @@
     "AbilityTextureName"                                  "custom/skadi_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5775"
+    "ItemCost"                                            "5500"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "eos;eye of skadi"
+    "ItemAliases"                                         "eos;eye of skadi;skadi"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"

@@ -7,6 +7,8 @@ if BossAI == nil then
   BossAI.hasReflexCore = {}
 
   Debug.EnabledModules['boss:ai'] = false
+
+  CustomNetTables:SetTableValue("stat_display_team", "BK", { value = {} })
 end
 
 BossAI.IDLE = 1
@@ -99,6 +101,16 @@ function BossAI:DeathHandler (state, keys)
 
   PointsManager:AddPoints(teamId)
 
+  local bossKills = CustomNetTables:GetTableValue("stat_display_team", "BK").value
+  print(bossKills[tostring(teamId)])
+  if bossKills[tostring(teamId)] then
+    bossKills[tostring(teamId)] = bossKills[tostring(teamId)] + 1
+  else
+    bossKills[tostring(teamId)] = 1
+  end
+  print(bossKills[tostring(teamId)])
+  CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
+
   if state.tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
 
@@ -129,23 +141,23 @@ function BossAI:DeathHandler (state, keys)
     end
 
   elseif state.tier == 2 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
   elseif state.tier == 3 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif state.tier == 4 then
 
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 5 then
 
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif state.tier == 6 then
-    NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
+    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end

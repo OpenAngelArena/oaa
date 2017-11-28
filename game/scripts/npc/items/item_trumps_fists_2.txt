@@ -7,7 +7,7 @@
     "ID"                                                  "3263"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -40,10 +40,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38775"
+    "ItemCost"                                            "38500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "trumps_fists 2"
+    "ItemAliases"                                         "trumps fists 2;covfefe 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -53,7 +53,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 250"
+        "bonus_damage"                                    "100 200"
       }
       "02"
       {

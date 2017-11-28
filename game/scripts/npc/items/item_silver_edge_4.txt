@@ -7,11 +7,12 @@
   {
     "ID"                                                  "3152"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge_3;item_upgrade_core_3"
@@ -48,8 +49,8 @@
     "ItemCost"                                            "18550"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "sb;invis;shadow blade"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "invis 4;silver edge 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -79,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "windwalk_movement_speed"                         "20 24 27 30 34"
+        "windwalk_movement_speed"                         "25 30 35 40 45"
       }
       "06"
       {

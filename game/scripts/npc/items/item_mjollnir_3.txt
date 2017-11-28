@@ -10,7 +10,7 @@
     "ID"                                                  "3093"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -47,6 +47,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "mjollnir"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -60,8 +61,8 @@
     "ItemCost"                                            "10700"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "mjollnir"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "mjollnir 3;lightning 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -147,6 +148,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "chain_cooldown"                                  "0.2"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

@@ -41,22 +41,24 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_damage"                                 "80 120 160 200 280 600"
+        "snowball_damage"                                 "80 120 160 200 350 600"
+        "LinkedSpecialBonus"    "special_bonus_unique_tusk_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "snowball_speed"                                  "675"
+        "LinkedSpecialBonus"    "special_bonus_unique_tusk_3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_damage_bonus"                           "20 30 40 50 70 150"
+        "snowball_damage_bonus"                           "20 30 40 50 100 150"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5 0.75 1.0 1.25 1.5 2.0"
+        "stun_duration"                                   "0.5 0.75 1.0 1.25 1.5 1.75"
       }
       "05"
       {
@@ -90,5 +92,4 @@
       }
     }
   }
-
 }

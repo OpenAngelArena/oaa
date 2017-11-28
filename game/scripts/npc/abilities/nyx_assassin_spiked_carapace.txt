@@ -14,16 +14,16 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 18 14 10 9 8"
+    "AbilityCooldown"                                     "25 20 15 10 10 10"
     "AbilityCastPoint"                                    "0 0 0 0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40 40 40 40"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -60,7 +60,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reflect_pct_tooltip"                      "100"
+        "damage_reflect_pct"                      "100"
         "LinkedSpecialBonus"                              "special_bonus_unique_nyx"
       }
     }

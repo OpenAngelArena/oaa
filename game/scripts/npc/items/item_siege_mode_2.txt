@@ -11,7 +11,7 @@
     "ID"                                                  "3347"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -55,8 +55,8 @@
     "ItemCost"                                            "38700"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "dragon lance"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "siege mode 2;siege 2"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 

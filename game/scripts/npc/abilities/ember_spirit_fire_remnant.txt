@@ -12,13 +12,13 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "5"    
+    "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
@@ -49,7 +49,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 200 300 500 1200"
+        "damage"                                          "100 200 300 700 1200"
       }
       "05"
       {

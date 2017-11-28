@@ -1,87 +1,92 @@
 "DOTAItems"
 {
-    //=================================================================================================================
-	// Recipe: Force Staff 2
-	//=================================================================================================================
-	"item_recipe_force_staff_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3714"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    	"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-    	"AbilityTextureName"            "item_recipe"
+  //=================================================================================================================
+  // Recipe: Force Staff 2
+  //=================================================================================================================
+  "item_recipe_force_staff_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3714"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_datadriven"
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "1500"
+    "ItemShopTags"          ""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_force_staff_2"
-		"ItemRequirements"
-		{
-			"01"						"item_force_staff;item_upgrade_core"
-			"02"						"item_force_staff;item_upgrade_core_2"
-			"03"						"item_force_staff;item_upgrade_core_3"
-			"04"						"item_force_staff;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_force_staff_2"
+    "ItemRequirements"
+    {
+      "01"            "item_force_staff;item_upgrade_core"
+      "02"            "item_force_staff;item_upgrade_core_2"
+      "03"            "item_force_staff;item_upgrade_core_3"
+      "04"            "item_force_staff;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Force Staff 2
-	//=================================================================================================================
-	"item_force_staff_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3715"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_force_staff"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-    	"AbilityTextureName"            "custom/force_staff_2"
-		"FightRecapLevel"				"1"
+  //=================================================================================================================
+  // Force Staff 2
+  //=================================================================================================================
+  "item_force_staff_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3715"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_force_staff"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityTextureName"            "custom/force_staff_2"
+    "FightRecapLevel"       "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0 17.5 15.0 12.5 10.0"
-		"AbilitySharedCooldown"			"force"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "750"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
+    "AbilitySharedCooldown"     "force"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
-		"ItemCost"						"3750"
-		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"fs;force staff"
-    	"MaxUpgradeLevel"               "5"
-    	"ItemBaseLevel"                 "2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "25"
+    "ItemCost"            "3750"
+    "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
+    "ItemQuality"         "rare"
+    "ItemAliases"         "fs 2;force staff 2;force 2"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "2"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10 15 23 34 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"6 12 24 48 96"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"push_length"			"600"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_intellect"   "10 15 23 34 50"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health_regen"  "5 10 20 40 80"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "push_length"     "600"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "tooltip_range"   "800"
+      }
+    }
+  }
 }

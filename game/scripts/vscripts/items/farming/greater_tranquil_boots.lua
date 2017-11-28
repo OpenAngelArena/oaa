@@ -56,16 +56,28 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 	spell.tranqMod = self
 
+	self.interval = spell:GetSpecialValueFor( "check_interval" )
+
 	if IsServer() then
 		self:SetDuration( spell:GetCooldownTime(), true )
 
-		self:StartIntervalThink( 0.1 )
+		self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+
+	self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
+	self.distMax = spell:GetSpecialValueFor( "max_dist" )
+	self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
+	self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
+	self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
+
+	-- this stuff prob shouldn't get refreshed
+	self.originOld = self:GetParent():GetAbsOrigin()
+	self.fracCharge = 0
 end
 
 --------------------------------------------------------------------------------
@@ -75,31 +87,82 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 
 	spell.tranqMod = self
 
+	self.interval = spell:GetSpecialValueFor( "check_interval" )
+
 	if IsServer() then
 		self:SetDuration( spell:GetCooldownTime(), true )
 
-		self:StartIntervalThink( 0.1 )
+		self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+
+	self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
+	self.distMax = spell:GetSpecialValueFor( "max_dist" )
+	self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
+	self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
+	self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
 	function modifier_item_greater_tranquil_boots:OnIntervalThink()
+		local parent = self:GetParent()
+		local spell = self:GetAbility()
+
+		-- disable everything here for illusions
+		if parent:IsIllusion() then
+			return
+		end
+
+		--[[
 		if self.storedDamage and self.storedDamage > 0 then
 			local parent = self:GetParent()
-			local spell = self:GetAbility()
-			local maxHeal = math.min( spell:GetSpecialValueFor( "regen_from_creeps" ) * 0.1, self.storedDamage )
+			local maxHeal = math.min( spell:GetSpecialValueFor( "regen_from_creeps" ) * self.interval, self.storedDamage )
 
 			parent:Heal( maxHeal, parent )
 
 			self.storedDamage = self.storedDamage - maxHeal
 		end
+		--]]
+
+		local currentCharges = spell:GetCurrentCharges()
+
+		if currentCharges < self.maxCharges then
+			-- get the current point of the parent
+			local originParent = parent:GetAbsOrigin()
+
+			-- get the distance between that point and their old point
+			local dist = ( originParent - self.originOld ):Length2D()
+
+			-- cap the amount of distances so tps don't instafill it
+			dist = math.min( dist, self.distMax )
+
+			-- add the distance to the fraction charge
+			self.fracCharge = self.fracCharge + dist
+
+			-- determine the amount of charges to give
+			local addedCharges = math.floor( self.fracCharge / self.distPer )
+
+			-- give those charges, then subtract their fractional charge from the item
+			spell:SetCurrentCharges( math.min( currentCharges + addedCharges, self.maxCharges ) )
+			self.fracCharge = self.fracCharge - ( self.distPer * addedCharges )
+
+			-- set the old point of the parent
+			self.originOld = originParent
+		end
+	end
+
+--------------------------------------------------------------------------------
+
+	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
+		local parent = self:GetParent()
+
+		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
 	end
 end
 
@@ -111,7 +174,7 @@ function modifier_item_greater_tranquil_boots:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		--MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
 
 	return funcs
@@ -134,7 +197,9 @@ if IsServer() then
 			end
 
 			-- if the checked unit is a neutral creep, don't break
-			if UnitFilter( checkUnit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not checkUnit:IsControllableByAnyPlayer() then
+			if self:IsNeutralCreep( checkUnit ) then
+				-- nah
+				--[[
 				-- if both creep sap specials are greater than 0, and the attacker is the creep
 				-- apply the creep sap modifier
 				if checkUnit == event.attacker then
@@ -143,6 +208,36 @@ if IsServer() then
 							duration = spell:GetSpecialValueFor( "creep_sap_duration" ),
 						} )
 					end
+				end
+				--]]
+
+				-- then check for naturalize eating
+				local currentCharges = spell:GetCurrentCharges()
+
+				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() and not parent:IsIllusion() then
+					local player = parent:GetPlayerOwner()
+
+					-- remove 100 charges
+					spell:SetCurrentCharges( currentCharges - 100 )
+
+					-- bonus gold
+					PlayerResource:ModifyGold( player:GetPlayerID(), self.bonusGold, false, DOTA_ModifyGold_CreepKill )
+					SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD, parent, self.bonusGold, player )
+
+					-- bonus exp
+					if self.bonusXP > 0 then
+						parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
+					end
+
+					-- particle
+					local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, event.target )
+					ParticleManager:ReleaseParticleIndex( part )
+
+					-- sound
+					parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
+
+					-- kill the target
+					event.target:Kill( spell, parent )
 				end
 
 				return

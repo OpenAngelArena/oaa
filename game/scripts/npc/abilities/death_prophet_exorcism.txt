@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 300 400 600 1400"
+    "AbilityManaCost"                                     "200 300 400 900 1400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,28 +38,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700 700 700 700 700"
+        "radius"                                          "700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirits"                                         "8 16 24 40 100"
+        "spirits"                                         "8 16 24 64 104"
         "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_speed"                                    "500 500 500 500 500"
+        "spirit_speed"                                    "500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "2000 2000 2000 2000 2000"
+        "max_distance"                                    "2000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "give_up_distance"                                "1200 1200 1200 1200 1200"
+        "give_up_distance"                                "1200"
       }
       "06"
       {
@@ -69,17 +69,17 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "60"
+        "max_damage"                                      "61"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "25 25 25 25 25"
+        "heal_percent"                                    "25"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "58 58 58 58 58"
+        "average_damage"                                  "58"
       }
       "10"
       {

@@ -10,7 +10,7 @@
     "ID"                                                  "3648"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_6"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -54,8 +54,9 @@
     "ItemCost"                                            "34500"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "bot;boots of travel"
+    "ItemAliases"                                         "bot 5;boots of travel 5;greater boots of travel 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
@@ -71,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "50 70 95 130 175"
+        "assist_percent"                                  "50 70 95 125 160"
       }
       "03"
       {

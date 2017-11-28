@@ -12,19 +12,19 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 175 350"
+    "AbilityManaCost"                                     "80 90 100 110 220 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,19 +35,19 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "8.0 12.0 16.0 20.0 20.0 20.0"
       }
-      
+
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "400"
-      }  
-      
+      }
+
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "absorb_amount"                                   "50 200 350 500 800 1600"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_1"
-      }        
+      }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -56,7 +56,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 45 60 80 120 360"
+        "damage_per_second"                               "30 40 50 60 110 160"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
       }
     }
   }

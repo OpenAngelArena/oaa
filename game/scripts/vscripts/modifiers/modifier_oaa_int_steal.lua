@@ -27,6 +27,12 @@ function modifier_oaa_int_steal:OnDeath(keys)
     parent:GetTeamNumber()
   )
   local isWithinRange = #(keys.unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
+
+  -- Check for +2 Int Steal Talent
+  if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
+    stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
+  end
+
   if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and keys.unit:IsRealHero() and not keys.unit:IsClone() then
     local oldIntellect = keys.unit:GetBaseIntellect()
     keys.unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))

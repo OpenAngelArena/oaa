@@ -10,7 +10,7 @@
     "ID"                                                  "3906"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +36,19 @@
     "ID"                                                  "4045"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 18.0 16.0 13.0"
+    "AbilitySharedCooldown"                               "avatar"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemQuality"                                         "common"
+    "ItemAliases"                                         "charge bkb 3;cbkb 3;charge 3"
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
     "AbilitySpecial"
@@ -135,7 +137,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18940"
+    "ItemCost"                                            "18875"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb"

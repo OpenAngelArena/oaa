@@ -10,7 +10,7 @@
     "ID"                                                  "3335"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "FightRecapLevel"                                     "1"
 
     // Item Info
@@ -59,7 +59,7 @@
     "ItemCost"                                            "11000"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm;martyrs mail;martyrsmail"
+    "ItemAliases"                                         "mm 2;martyrs mail 2;martyrsmail 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

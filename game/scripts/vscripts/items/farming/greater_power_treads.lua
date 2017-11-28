@@ -80,6 +80,10 @@ end
 function modifier_item_greater_power_treads:OnCreated( event )
   local spell = self:GetAbility()
 
+  if not spell then
+    return
+  end
+
   if spell.attribute then
     self:SetStackCount( spell.attribute )
   end
@@ -96,6 +100,10 @@ end
 function modifier_item_greater_power_treads:OnRefresh( event )
   local spell = self:GetAbility()
 
+  if not spell then
+    return
+  end
+
   if spell.attribute then
     self:SetStackCount( spell.attribute )
   end
@@ -111,6 +119,10 @@ end
 
 function modifier_item_greater_power_treads:OnRemoved()
   local spell = self:GetAbility()
+
+  if not spell then
+    return
+  end
 
   if spell and not spell:IsNull() then
     spell.treadMod = nil

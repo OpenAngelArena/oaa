@@ -10,7 +10,7 @@
     "ID"                                                  "3340" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -63,6 +63,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -77,7 +78,7 @@
 
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "fs;pull staff"
+    "ItemAliases"                                         "pull staff"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemStackable"                                       "0"
@@ -106,12 +107,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "12 18 27 40"
+        "bonus_health_regen"                              "10 15 25 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "1500"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

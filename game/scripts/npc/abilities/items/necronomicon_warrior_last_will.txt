@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Necronomicon Warrior's Last Will
+  //=================================================================================================================
+  "necronomicon_warrior_last_will"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"          "5200"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "explosion"       "550 675 800 1200 1800 2600 3600"
+      }
+    }
+  }
+}

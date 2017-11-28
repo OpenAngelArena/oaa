@@ -7,12 +7,13 @@
   {
     "ID"                                                  "3168"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemBaseLevel"                                       "6"
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_necronomicon_6"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_necronomicon_5;item_upgrade_core_3"
@@ -41,12 +42,12 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "18050"
+    "ItemCost"                                            "18000"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "necronomicon 6"
+    "ItemAliases"                                         "necronomicon 6;necro 6"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "6"
+    "MaxUpgradeLevel"                                     "7"
     "ItemBaseLevel"                                       "6"
 
     // Special
@@ -56,12 +57,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 21 24 27 30 33"
+        "bonus_strength"                                  "10 15 20 36 54 70 86"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "8 12 16 20 24 28"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"    "1 1.25 1.5 2 2.75 3.75 5"
       }
       "03"
       {
@@ -71,27 +72,27 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warrior_health_tooltip"                          "700 800 900 1000 1100 1200"
+        "warrior_health_tooltip"                          "700 800 900 1600 2800 4800 8200"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warrior_damage_tooltip"                          "75 100 125 150 175 200"
+        "warrior_damage_tooltip"                          "75 100 125 180 250 380 550"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warrior_mana_feedback"                           "20 30 40 50 60 65"
+        "warrior_mana_feedback"                           "20 30 40 55 75 100 130"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warrior_mana_break_tooltip"                      "20 30 40 50 60 65"
+        "warrior_mana_break_tooltip"                      "20 30 40 55 75 100 130"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "explosion"                                       "550 675 800 1000 1200 1500"
+        "explosion"                                       "550 675 800 1200 1800 2600 3600"
       }
       "09"
       {
@@ -101,17 +102,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_health_tooltip"                           "700 800 900 1000 1100 1200"
+        "archer_health_tooltip"                           "700 800 900 1600 2800 4800 8200"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_damage_tooltip"                           "60 90 120 150 175 200"
+        "archer_damage_tooltip"                           "60 90 120 175 250 380 550"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_mana_burn"                                "200 300 400 500 600 650"
+        "archer_mana_burn"                                "125 175 225 350 500 750 1150"
       }
       "13"
       {
@@ -121,12 +122,12 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_move_speed"                               "5 7 9 10 11 12"
+        "archer_move_speed"                               "5 7 9 11 13 15 17"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 10 15 18 20 22"
+        "archer_attack_speed"                             "5 10 15 20 25 30 35"
       }
     }
   }

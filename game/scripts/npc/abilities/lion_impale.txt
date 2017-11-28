@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
@@ -21,19 +21,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 200 360"
-    
+    "AbilityManaCost"                                     "100 120 140 160 260 360"
+
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 140 200 260 450 1000"
-    
+    "AbilityDamage"                                       "80 140 200 260 630 1000"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -41,12 +41,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "125 125 125 125 125 125"
+        "width"                                           "125"
       }
       "02"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.1 1.6 2.1 2.6 2.85 3.1"
+        "duration"                                        "1.4 1.8 2.2 2.6 2.8 3.0"
       }
       "03"
       {
@@ -56,7 +56,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1600 1600 1600 1600 1600 1600"
+        "speed"                                           "1600"
       }
     }
   }

@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_blade_mail"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_broadsword;item_chainmail;item_robe"
@@ -40,6 +40,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------

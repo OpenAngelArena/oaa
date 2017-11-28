@@ -132,6 +132,8 @@ function modifier_item_manta_splitted:OnDestroy()
         teamID                        --iTeamNumber
       )
 
+      image:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
+
       image:SetForwardVector(forwardVector)
 
       image:SetControllableByPlayer(playerID, true)
@@ -179,13 +181,22 @@ function modifier_item_manta_splitted:OnDestroy()
         foreach(CopyModifiers, zip(modifierNames, abilityNames))
       end
 
+      -- Remove the TP scroll Dota puts in newly spawned heroes' inventory
+      image:RemoveItem(image:GetItemInSlot(DOTA_ITEM_SLOT_1))
+
       --Recreate the caster's items for the image.
-      for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_5 do
+      for itemSlot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
         local casterItem = caster:GetItemInSlot(itemSlot)
         if casterItem ~= nil then
-          local imageItem = CreateItem(casterItem:GetName(), image, image)
-          image:AddItem(imageItem)
-          imageItem:SetCurrentCharges(casterItem:GetCurrentCharges())
+          -- Temporarily remove the item in the first slot so we know where the new item will get placed in inventory
+          local firstSlotItem = image:TakeItem(image:GetItemInSlot(DOTA_ITEM_SLOT_1))
+          local imageItem = image:AddItemByName(casterItem:GetName())
+          -- Move item to proper slot
+          image:SwapItems(DOTA_ITEM_SLOT_1, itemSlot)
+          if imageItem:RequiresCharges() then
+            imageItem:SetCurrentCharges(casterItem:GetCurrentCharges())
+          end
+          image:AddItem(firstSlotItem)
         end
       end
 
@@ -199,8 +210,6 @@ function modifier_item_manta_splitted:OnDestroy()
         outgoing_damage = image_outgoing_damage,
         incoming_damage = image_incoming_damage
       })
-
-      image:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
 
       image:OnDeath(function()
         image:RemoveSelf()

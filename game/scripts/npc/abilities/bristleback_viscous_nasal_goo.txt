@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.5 1.5 1.5 1.5 1.5 1.5"
+    "AbilityCooldown"                                     "1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -60,12 +60,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow_per_stack"                             "3 6 9 12 15 20"
+        "move_slow_per_stack"                             "3 6 9 12 16 20"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "stack_limit"                                     "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
       }
       "07"
       {

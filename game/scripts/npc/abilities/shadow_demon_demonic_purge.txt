@@ -26,7 +26,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "5.0"
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "40"
 
 
     // Casting
@@ -50,7 +50,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "purge_damage"                                    "200 300 400 600 1400"
+        "purge_damage"                                    "200 300 400 900 1400"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
       }
       "03"

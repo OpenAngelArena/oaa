@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Necronomicon Archer's AoE
+  //=================================================================================================================
+  "necronomicon_archer_aoe"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"          "5204"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"        "900"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "ms_bonus"      "5 7 9 11 13 15 17"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "as_bonus"      "5 10 15 20 25 30 35" // OAA fix valves error
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5131"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -15,19 +15,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "2600"
     "AbilityCastPoint"                                    "0.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 11 10 9 9 9"
     "AbilityChannelTime"                                  "1.0 1.0 1.0 1.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "180 260 340 420 620 1420"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,35 +31,41 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_reduction"                                "0.2"
+        "var_type"        "FIELD_INTEGER"
+        "powershot_damage"    "180 260 340 420 920 1420"
+        "LinkedSpecialBonus"  "special_bonus_unique_windranger_3"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_width"                                     "125 125 125 125"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reduction"                                "0.2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_range"                                     "2600"
+        "arrow_width"                                     "125 125 125 125"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_speed"                                     "3000.0 3000.0 3000.0 3000.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_range"                                     "2600"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tree_width"                                      "75 75 75 75"
+        "arrow_speed"                                     "3000.0 3000.0 3000.0 3000.0"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tree_width"                                      "75 75 75 75"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "vision_radius"                                   "400"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "3.34 3.34 3.34 3.34"

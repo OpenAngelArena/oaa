@@ -10,7 +10,7 @@
     "ID"                                                  "3878"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -47,6 +47,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "12.0 11.0 10.0 9.0 8.0"
+    "AbilitySharedCooldown"                               "blink"
     "AbilityManaCost"                                     "0"
 
     // Item Info
@@ -54,7 +55,7 @@
     "ItemCost"                                            "3750"
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
-    "ItemAliases"                                         "blink dagger"
+    "ItemAliases"                                         "blink dagger 2;blink 2"
     "SideShop"                                            "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"

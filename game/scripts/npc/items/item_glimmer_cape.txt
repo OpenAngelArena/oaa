@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "253"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-  
+    
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "0" 
@@ -42,6 +42,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
+    "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
     
     // Item Info
@@ -49,7 +50,7 @@
     "ItemCost"                    "1850"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
-    "ItemAliases"                 "glimmer cape"
+    "ItemAliases"                 "glimmer cape;glimmer"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "1"
@@ -82,6 +83,16 @@
       {
         "var_type"                "FIELD_FLOAT"
         "duration"                "5"
+      }
+      "06"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "tooltip_range"            "800"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "building_duration_limit"     "180"
       }
     }
   }

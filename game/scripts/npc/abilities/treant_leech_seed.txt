@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 95 110 125 155 275"
+    "AbilityManaCost"                                     "80 95 110 125 200 275"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,8 +41,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leech_damage"                                    "15 30 45 60 90 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_2" 
+        "leech_damage"                                    "15 30 45 60 165 270"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_2"
       }
       "03"
       {

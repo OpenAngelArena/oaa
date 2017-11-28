@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-	"ID"                                                  "85116"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+  "ID"                                                  "85116"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_bash_of_the_deep.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -40,7 +40,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 100 120 200 500"
+        "bonus_damage"                                    "60 80 100 120 310 500"
+        "LinkedSpecialBonus"  "special_bonus_unique_slardar_2"
       }
       "03"
       {

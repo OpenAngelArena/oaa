@@ -15,18 +15,18 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0 40.0 40.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 100 100 100 100 100"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,28 +35,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "10 30 50 70 110 270"
+        "damage_per_second"                               "10 30 50 70 170 270"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "200 200 200 200 200 200"
+        "radius"                                          "200"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18.0 18.0 18.0 18.0 18.0 18.0"
+        "duration"                                        "18.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.5 0.5 0.5 0.5 0.5 0.5"
+        "tick_interval"                                   "0.5"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_radius"                                     "100 100 100 100 100 100"
+        "tree_radius"                                     "100"
       }
     }
   }

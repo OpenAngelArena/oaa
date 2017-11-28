@@ -1,0 +1,84 @@
+"DOTAAbilities"
+{
+//=================================================================================================================
+// Dark Willow: Bramble Maze
+//=================================================================================================================
+"dark_willow_bramble_maze"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6339"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"               "1"
+    "MaxLevel"                      "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "1200"
+    "AbilityCastPoint"              "0.3 0.3 0.3 0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "40 35 30 25 25 25"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "140 150 160 170 220 270"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "placement_range"       "500"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "placement_count"           "8"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "placement_duration"        "15"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "latch_duration"        "1 1.5 2 2.5 3 3.5"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "latch_range"       "90"
+        }
+        "06"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "latch_damage"      "100 150 200 250 500 750"
+        }
+        "07"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "latch_creation_interval"       "0.075"
+        }
+        "08"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "latch_creation_delay"      "0.1"
+        }
+        "09"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "initial_creation_delay"        "0.5"
+        }
+    }
+}
+}

@@ -1,91 +1,96 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Magic Wand 2
-	//=================================================================================================================
-	"item_recipe_magic_wand_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3700"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    	"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-    	"AbilityTextureName"            "item_recipe"
+  //=================================================================================================================
+  // Recipe: Magic Wand 2
+  //=================================================================================================================
+  "item_recipe_magic_wand_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3700"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_datadriven"
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
-        "ItemRecipe"                    "1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "1500"
+    "ItemShopTags"          ""
+    "ItemRecipe"                    "1"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_magic_wand_2"
-		"ItemRequirements"
-		{
-			"01"						"item_magic_wand;item_upgrade_core"
-			"02"						"item_magic_wand;item_upgrade_core_2"
-			"03"						"item_magic_wand;item_upgrade_core_3"
-			"04"						"item_magic_wand;item_upgrade_core_4"
-		}
-	}
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_magic_wand_2"
+    "ItemRequirements"
+    {
+      "01"            "item_magic_wand;item_upgrade_core"
+      "02"            "item_magic_wand;item_upgrade_core_2"
+      "03"            "item_magic_wand;item_upgrade_core_3"
+      "04"            "item_magic_wand;item_upgrade_core_4"
+    }
+  }
 
-	//=================================================================================================================
-	// Magic Wand 2
-	//=================================================================================================================
-	"item_magic_wand_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3701"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_magic_wand"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    	"AbilityTextureName"            "custom/magic_wand_2"
-		"Model"							"models/props_gameplay/magic_wand.vmdl"
+  //=================================================================================================================
+  // Magic Wand 2
+  //=================================================================================================================
+  "item_magic_wand_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3701"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_magic_wand"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"            "custom/magic_wand_2"
+    "Model"             "models/props_gameplay/magic_wand.vmdl"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0 10.0 7.0 4.0 1.0"
-		"AbilitySharedCooldown"			"magicwand"
-		"AbilityCastRange"				"1200"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "13.0 10.0 7.0 4.0 1.0"
+    "AbilitySharedCooldown"     "magicwand"
+    "AbilityCastRange"        "1200"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1965"
-		"ItemShopTags"					"regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"magic wand"
-		"ItemRequiresCharges"			"1"
-		"ItemDisplayCharges"			"1"
-    	"MaxUpgradeLevel"               "5"
-    	"ItemBaseLevel"                 "2"
-        "UpgradesItems"                 "item_magic_wand_2;item_magic_wand_3;item_magic_wand_4"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "1900"
+    "ItemShopTags"          "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+    "ItemQuality"         "common"
+    "ItemAliases"         "magic wand 2;wand 2"
+    "ItemRequiresCharges"     "1"
+    "ItemDisplayCharges"      "1"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "2"
+    "UpgradesItems"                 "item_magic_wand_2;item_magic_wand_3;item_magic_wand_4"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"17"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"charge_radius"			"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"4 12 24 48 96"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"restore_per_charge"	"15 30 60 120 240"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "max_charges"     "17"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "charge_radius"     "1200"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_all_stats"   "2 10 20 42 90"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "bonus_health_regen"    "1.5 3 6 12 24"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "restore_per_charge"  "15 30 60 120 240"
+      }
+    }
+  }
 }

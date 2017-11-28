@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3191"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -41,10 +42,10 @@
     "AbilityTextureName"                                  "custom/skadi_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10775"
+    "ItemCost"                                            "10500"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "eos;eye of skadi"
+    "ItemAliases"                                         "eos 3;eye of skadi 3;skadi 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
