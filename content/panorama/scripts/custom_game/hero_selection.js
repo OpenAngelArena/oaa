@@ -292,7 +292,7 @@ function PreviewHero (name) {
   if (!herolocked || iscm) {
     var preview = FindDotaHudElement('HeroPreview');
     preview.RemoveAndDeleteChildren();
-    preview.BCreateChildren("<DOTAScenePanel unit='" + name + "'/>");
+    preview.BCreateChildren("<DOTAScenePanel particleonly='false' unit='" + name + "'/>");
     selectedhero = name;
     selectedherocm = name;
 

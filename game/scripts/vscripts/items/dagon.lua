@@ -22,7 +22,8 @@ function item_dagon:OnSpellStart()
   local particleName = "particles/items/dagon_oaa.vpcf"
   local particleThickness = 300 + (100 * level) --Control Point 2 in Dagon's particle effect takes a number between 400 and 2000, depending on its level.
 
-  local damage = self:GetSpecialValueFor("damage")
+  local damage = (target:IsIllusion()) and 13371337 or self:GetSpecialValueFor("damage")
+  local damage_type = (target:IsIllusion()) and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL
 
   local particle = ParticleManager:CreateParticle(particleName,  PATTACH_POINT_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
@@ -45,7 +46,7 @@ function item_dagon:OnSpellStart()
     victim = target,
     attacker = caster,
     damage = damage,
-    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_type = damage_type,
     ability = self
   })
 end
