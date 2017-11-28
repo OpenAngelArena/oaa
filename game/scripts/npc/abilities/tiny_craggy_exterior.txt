@@ -8,8 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5108"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilitySound"          "Hero_Tiny.CraggyExterior.Stun"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -17,7 +21,20 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportBonus"                         "35"
+    "AbilityCastRange"        "165"
+    "AbilityCastPoint"        "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "18 16 14 12 10 7" // tiny talent gives -7 second CD, so at max with the talent you can be perma-tree
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "20 30 40 50 110 170"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"   "35"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,28 +42,38 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_chance"                                     "25"
+        "var_type"          "FIELD_INTEGER"
+        "attack_count"        "5"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5 1.0 1.5 2.0 2.0 2.0"
+        "var_type"          "FIELD_INTEGER"
+        "bonus_damage"        "10 20 30 40 80 120"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "3 4 5 6 10 20"
+        "var_type"          "FIELD_INTEGER"
+        "bonus_damage_buildings"        "60 80 100 120 140 160" // should be boss damage some day...
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 80 100 120 160 320"
+        "var_type"          "FIELD_INTEGER"
+        "attack_range"        "350"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "grow_chance"                                     "6 8 10"
+        "var_type"          "FIELD_INTEGER"
+        "splash_width"        "200"
+      }
+      "06"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "splash_range"        "400"
+      }
+      "07"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "splash_pct"        "100"
       }
     }
   }

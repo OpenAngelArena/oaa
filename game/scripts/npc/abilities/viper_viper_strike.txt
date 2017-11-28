@@ -12,7 +12,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
 
@@ -22,16 +22,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50.0 40.0 30.0 30.0 30.0"
-    
+    "AbilityCooldown"                                     "50 40 30 30 30"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 250 375 875"
-    
-    // Special  
+    "AbilityManaCost"                                     "125 175 250 550 875"
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -43,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 100 145 235 595"
+        "damage"                                          "60 100 145 370 595"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_2"
       }
       "03"
@@ -54,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-40 -60 -80 -80 -80"
+        "bonus_attack_speed"                              "-40 -60 -80 -180 -280"
       }
       "05"
       {
@@ -75,7 +75,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "projectile_speed"                                "1200"
-      }  
+      }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"

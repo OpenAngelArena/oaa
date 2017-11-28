@@ -13,8 +13,8 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -36,7 +36,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "16 20 24 28 42 84"
+        "bonus_gold_cap"                                  "16 20 24 28 56 84"
       }
       "05"
       {

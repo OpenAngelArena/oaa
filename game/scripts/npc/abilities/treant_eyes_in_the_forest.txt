@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "35"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +37,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_aoe"                                      "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "overgrowth_aoe"                                  "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
       }
       "03"
       {

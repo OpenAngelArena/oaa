@@ -40,6 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "dash_length"                                     "1400"
+        "LinkedSpecialBonus"  "special_bonus_unique_phoenix_4"
       }
       "03"
       {
@@ -70,6 +71,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed_pct"                         "-28"
+      }
+      "09"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "dive_duration"     "2.0"
       }
     }
   }

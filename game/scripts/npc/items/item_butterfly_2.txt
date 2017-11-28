@@ -10,7 +10,7 @@
     "ID"                                                  "3132"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_2"
@@ -39,6 +39,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
+    "AbilitySharedCooldown"                               "flutter"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -87,7 +88,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "2"
       }
     }
   }

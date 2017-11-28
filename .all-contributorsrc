@@ -7,17 +7,25 @@
   "imageSize": 100,
   "commit": true,
   "types": {
+    "founder": {
+      "symbol": "⭐️",
+      "description": "Founded the project"
+    },
     "design": {
-      "symbol": ":thinking:"
+      "symbol": "🤔",
+      "description": "Game design"
     },
     "balance": {
-      "symbol": ":chart_with_upwards_trend:"
+      "symbol": "📈",
+      "description": "Balance"
     },
     "art": {
-      "symbol": ":art:"
+      "symbol": "🎨",
+      "description": "Art and Map"
     },
     "music": {
-      "symbol": ":musical_note:"
+      "symbol": "🎵",
+      "description": "Music"
     }
   },
   "contributors": [
@@ -27,6 +35,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/422331?v=3",
       "profile": "https://github.com/chrisinajar",
       "contributions": [
+        "founder",
         "code",
         "tool",
         "infra",
@@ -40,6 +49,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/24982519?v=3",
       "profile": "https://github.com/l34Um1",
       "contributions": [
+        "founder",
         "design",
         "balance",
         "video",
@@ -143,7 +153,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/6454468?v=3",
       "profile": "https://github.com/Honeth",
       "contributions": [
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -338,7 +349,8 @@
       "contributions": [
         "doc",
         "balance",
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -410,6 +422,34 @@
       "name": "Daniel Velasquez",
       "avatar_url": "https://avatars3.githubusercontent.com/u/17147921?v=4",
       "profile": "https://github.com/Anemolo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Satsaa",
+      "name": "Samuel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/32210043?v=4",
+      "profile": "https://github.com/Satsaa",
+      "contributions": [
+        "art",
+        "code"
+      ]
+    },
+    {
+      "login": "wuwer",
+      "name": "Tomasz Wawro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1982987?v=4",
+      "profile": "https://github.com/wuwer",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "Yzanas",
+      "name": "Yzanas",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31249492?v=4",
+      "profile": "https://github.com/Yzanas",
       "contributions": [
         "code"
       ]

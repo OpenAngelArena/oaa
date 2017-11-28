@@ -10,7 +10,7 @@
     "ID"                                                  "3092"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "mjollnir"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------

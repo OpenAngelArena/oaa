@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_echo_sabre_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_echo_sabre_3;item_upgrade_core_3"
@@ -44,6 +44,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
+    "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -83,8 +84,8 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "75 125 175 250 350"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
       }
       "06"
       {

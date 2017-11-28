@@ -143,12 +143,12 @@ end
 
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
-  --PlayerResource:RandomHeroForPlayersWithoutHero()
+  PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
 function GameMode:OnPreGame()
   -- initialize modules
-  InitModule(PointsManager)
+  InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(ZoneControl)
@@ -163,7 +163,6 @@ function GameMode:OnPreGame()
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
-  InitModule(Music)
 
   CheckCheatMode()
 end
@@ -177,6 +176,7 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
+  InitModule(PointsManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)

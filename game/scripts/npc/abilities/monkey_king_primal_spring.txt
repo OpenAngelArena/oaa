@@ -15,10 +15,10 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0"
     "AbilityCastRange"                                    "0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "19 17 15 13 13 13"
     "AbilityChannelTime"                                  "1.7"
@@ -34,12 +34,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "140 210 280 350 490 1050"
+        "impact_damage"                                   "140 210 280 350 770 1190"
+        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_movement_slow"                            "20 40 60 80 80 80"
+        "impact_movement_slow"                            "20 40 60 80 85 90"
       }
       "03"
       {

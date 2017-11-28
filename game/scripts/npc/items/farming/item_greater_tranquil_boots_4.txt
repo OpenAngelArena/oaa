@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3043"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "8000"
@@ -45,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14075"
+    "ItemCost"                                            "14050"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 4;tranquil boots 4;tranquils 4"
@@ -56,8 +57,8 @@
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-	
-    "ItemDisplayCharges"			"1"
+
+    "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -75,7 +76,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "14 21 30 45 63"
+        "bonus_health_regen"                              "13 45 90 150 200"
       }
       "04"
       {
@@ -120,7 +121,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_per_charge"                             "330.0"
+        "distance_per_charge"                             "300.0"
       }
       "13"
       {
@@ -130,12 +131,12 @@
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_dist"                                        "1300" // rupture is 1300, mana leak is 300
+        "max_dist"                                        "2000" // rupture is 1300, mana leak is 300
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "250 400 600 900 1200"
+        "bonus_gold"                                      "2000 4000 8000 12000 18000"
       }
       "16"
       {
@@ -147,6 +148,14 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_charges"                                     "100"
       }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
     }
   }
 }

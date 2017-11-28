@@ -30,14 +30,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "5"    // Physical protection.
-    "MagicalResistance"                                   "45"    // Magical protection.
+    "ArmorPhysical"                                       "8"    // Physical protection.
+    "MagicalResistance"                                   "40"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "145"    // Damage range min.
-    "AttackDamageMax"                                     "165"    // Damage range max.
+    "AttackDamageMin"                                     "170"    // Damage range min.
+    "AttackDamageMax"                                     "190"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.75"    // Speed of attack.
     "AttackAnimationPoint"                                "0.56"    // Normalized time in animation cycle to attack.
@@ -58,9 +58,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "240"    // Experience earn.
-    "BountyGoldMin"                                       "240"    // Gold earned min.
-    "BountyGoldMax"                                       "240"    // Gold earned max.
+    "BountyXP"                                            "400"    // Experience earn.
+    "BountyGoldMin"                                       "400"    // Gold earned min.
+    "BountyGoldMax"                                       "400"    // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
@@ -75,7 +75,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1100"    // Base health.
+    "StatusHealth"                                        "1600"    // Base health.
     "StatusHealthRegen"                                   "6"      // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.

@@ -42,6 +42,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
+    "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
     
     // Item Info
@@ -87,6 +88,11 @@
       {
         "var_type"                "FIELD_INTEGER"
         "tooltip_range"            "800"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "building_duration_limit"     "180"
       }
     }
   }

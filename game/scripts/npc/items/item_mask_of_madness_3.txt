@@ -12,7 +12,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mask_of_madness_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness_2;item_upgrade_core_2"
@@ -35,7 +35,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_3"
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -83,7 +84,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_armor_reduction"                         "6"
+        "berserk_armor_reduction"                         "7"
       }
       "07"
       {

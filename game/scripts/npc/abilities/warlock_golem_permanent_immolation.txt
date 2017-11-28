@@ -8,10 +8,10 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                                            "3"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "5"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -24,7 +24,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "30 50 70 150 300"
+        "aura_damage"                                     "30 40 50 100 150"
       }
     }
   }

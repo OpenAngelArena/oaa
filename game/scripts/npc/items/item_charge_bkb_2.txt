@@ -10,7 +10,7 @@
     "ID"                                                  "3904"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +37,12 @@
     "ID"                                                  "4044"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 18.0 16.0 13.0"
+    "AbilitySharedCooldown"                               "avatar"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -137,7 +138,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10940"
+    "ItemCost"                                            "10875"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb"

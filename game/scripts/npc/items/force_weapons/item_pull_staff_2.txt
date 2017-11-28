@@ -10,7 +10,7 @@
     "ID"                                                  "3748" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -105,7 +106,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "12 18 27 40"
+        "bonus_health_regen"                              "10 15 25 40"
       }
       "03"
       {

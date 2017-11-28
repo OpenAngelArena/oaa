@@ -9,13 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5161"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"    
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
@@ -24,14 +24,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5 0.5 0.5"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 80 70 65 60"
+    "AbilityCooldown"                                     "120"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 340 500 800 2000"    
-    
+    "AbilityManaCost"                                     "200 350 500 1200 2000"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
@@ -39,7 +39,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.1"  // Primarily about the damage
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

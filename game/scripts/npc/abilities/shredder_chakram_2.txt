@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 300 700"
+    "AbilityManaCost"                                     "100 150 200 450 700"
 
 
     // Special
@@ -47,12 +47,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pass_damage"                                     "100 140 180 260 580"
+        "pass_damage"                                     "100 140 180 380 580"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "50 75 100 150 350"
+        "damage_per_second"                               "50 75 100 225 350"
       }
       "05"
       {
@@ -72,7 +72,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_per_second"                                 "20.0 25.0 30.0 40.0 80.0"
+        "mana_per_second"                                 "20.0 25.0 30.0 55.0 80.0"
       }
       "09"
       {

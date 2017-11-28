@@ -16,17 +16,17 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 105 130 150 190 350"    
+    "AbilityManaCost"                                     "90 105 130 150 190 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,8 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 175 250 300 450 1050"
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_2"
+        "damage"                                          "100 175 250 300 650 1050"
       }
       "03"
       {
@@ -52,7 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_slow"                               "25 35 45 55 75 150"
-      }      
+      }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -64,7 +63,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration_creeps"                                 "8.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
-      }      
+      }
     }
   }
 }

@@ -10,13 +10,13 @@
     "ID"              "3742"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
-    
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "8000"  
+    "ItemCost"            "8000"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -27,7 +27,7 @@
       "02"                                                "item_hurricane_pike_3;item_upgrade_core_4"
     }
   }
-  
+
   //=================================================================================================================
   // Hurricane Pike 4
   //=================================================================================================================
@@ -53,27 +53,27 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "25"
-    "ItemCost"            "17650"
+    "ItemCost"            "17615"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "hurricane pike 4;pike 4"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "4"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 22 30 40"
+        "bonus_intellect"   "13 19 27 37 49"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "6 9 14 21 32"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_health_regen"    "5.5 7.5 10 15 30"
       }
       "03"
       {

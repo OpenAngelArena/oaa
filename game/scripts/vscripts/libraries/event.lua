@@ -42,12 +42,25 @@ function Event ()
       return
     end
     local handlers = table.clone(state.listeners)
+    local data = {...}
+    local errors = {}
 
     for index = 1,#handlers do
       local handler = handlers[index]
       if handler and not handler.removed then
-        handler.fn(unpack({...}))
+        local status, err = pcall(function ()
+          handler.fn(unpack(data))
+        end)
+        if err then
+          print(err)
+          table.insert(errors, err)
+        end
       end
+    end
+
+    for index = 1,#errors do
+      -- this will throw and not print any of the others, but whatever
+      error(errors[index])
     end
   end
 

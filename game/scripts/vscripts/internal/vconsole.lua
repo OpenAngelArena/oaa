@@ -1,5 +1,5 @@
-_print = print
-_error = error
+_print = _print or print
+_error = _error or error
 --_assert = assert
 
 --_print("print", print)
@@ -13,7 +13,11 @@ function print(...)
       type = "print",
       data = data
     })
-    data[1] = '[Server] ' .. data[1]
+    if data[1] then
+      data[1] = '[Server] ' .. data[1]
+    else
+      data[1] = '[Server] --'
+    end
   end
   _print(unpack(data))
 end
@@ -33,7 +37,7 @@ function error(...)
   for k,v in pairs(data) do
     _print(k, tostring(v))
   end
-  _error(args[1], offset)
+  _error(unpack({...}))
 end
 
 --_print("print", print)

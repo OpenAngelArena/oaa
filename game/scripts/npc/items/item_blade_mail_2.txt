@@ -10,7 +10,7 @@
     "ID"                                                  "3088"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "FightRecapLevel"                                     "1"
 
     // Item Info
@@ -45,6 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------

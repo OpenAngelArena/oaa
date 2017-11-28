@@ -9,12 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3913"      // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

@@ -10,7 +10,7 @@
     "ID"                                                  "3923"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "7275"
+    "ItemCost"            "7250"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering 3;vlads 3"
@@ -64,13 +64,13 @@
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "hp_regen"        "3 6 12 24 48"
+        "var_type"        "FIELD_FLOAT"
+        "hp_regen"        "2.5 5 10 20 40"
       }
       "03"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura"   "0.8 2.0 4.0 6.0 8.0"
+        "mana_regen_aura"   "0.65 1.6 3.2 4.8 6.5"
       }
       "04"
       {

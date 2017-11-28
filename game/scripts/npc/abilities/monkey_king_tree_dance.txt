@@ -26,7 +26,7 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -50,11 +50,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "ground_jump_distance"                            "1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_7"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "perched_jump_distance"                           "1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_7"
       }
       "06"
       {
@@ -89,7 +91,8 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_tooltip"                           "100 180 260 340 500 1100"
+        "impact_damage_tooltip"                           "140 210 280 350 770 1190"
+        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_3"
       }
       "13"
       {

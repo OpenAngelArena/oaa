@@ -21,21 +21,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 650 700 750 850 1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 13 11 7 7 7"
+    "AbilityCooldown"                                     "35 30 25 20 20 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "14 20 26 36 51 110"
-    "AbilityDuration"                                     "10"
+    "AbilityManaCost"                                     "80"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,43 +42,49 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "set_time"                                        "3"
+        "var_type"          "FIELD_INTEGER"
+        "start_radius"        "200"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_1"                                          "-33 -33 -33 -33 -33 -66"
+        "var_type"          "FIELD_INTEGER"
+        "end_radius"        "300"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_2"                                          "-33 -33 -66 -66 -66 -100"
+        "var_type"          "FIELD_INTEGER"
+        "end_distance"        "500"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_3"                                          "-33 -66 -100 -100 -100 -100"
+        "var_type"          "FIELD_INTEGER"
+        "targets"         "4 5 6 7 9 11"
       }
       "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1300"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "damage"      "10 20 30 40 100 160"
+        "LinkedSpecialBonus"  "special_bonus_unique_dazzle_3"
       }
       "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "should_stun"                                     "0 0 0 1 1 1"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "slow"      "-14 -16 -18 -20 -22 -24"
       }
       "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "projectile_speed"  "1300"
       }
       "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "10"
+      { 
+        "var_type"      "FIELD_FLOAT"
+        "duration"    "4 5 6 7 9 11"
+      }
+      "09"
+      { 
+        "var_type"      "FIELD_INTEGER"
+        "range_tooltip"   "600 700 800 900 1000 1100"
       }
     }
   }

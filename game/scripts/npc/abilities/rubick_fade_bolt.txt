@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 170 250"
+    "AbilityManaCost"                                     "120 130 140 150 200 250"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 160 240 320 480 1120"
+        "damage"                                          "80 160 240 320 720 1120"
       }
       "02"
       {
@@ -58,13 +58,14 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_attack_damage_reduction"                    "20 25 30 35 45 85"
+        "hero_attack_damage_reduction"                    "20 25 30 35 60 85"
+        "LinkedSpecialBonus"    "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_attack_damage_reduction"                   "10 13 15 17 21 36"
+        "creep_attack_damage_reduction"                   "10 13 15 17 300 600"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
@@ -84,6 +85,4 @@
       }
     }
   }
-
-
 }

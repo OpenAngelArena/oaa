@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3143"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ethereal_blade_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_ethereal_blade_2;item_upgrade_core_2"
@@ -118,7 +119,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "projectile_speed"                                "1275"
       }
       "11"
       {

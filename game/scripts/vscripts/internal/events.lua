@@ -38,7 +38,9 @@ function GameMode:_OnGameRulesStateChange(keys)
       end
     end
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-    GameMode:OnGameInProgress()
+    if not HeroSelection then
+      GameMode:OnGameInProgress()
+    end
   end
 
   GameMode._reentrantCheck = true

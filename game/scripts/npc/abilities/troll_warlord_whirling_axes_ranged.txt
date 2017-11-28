@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 16 13 10 10 10"
+    "AbilityCooldown"                                     "9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -57,16 +57,17 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "axe_damage"                                      "75"
+        "LinkedSpecialBonus"    "special_bonus_unique_troll_warlord_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "axe_slow_duration"                               "3.0 3.75 4.5 5.25 6.0 7.5"
+        "axe_slow_duration"                               "2.5 3 3.5 4 5.5 7.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "30"
+        "movement_speed"                                  "40"
       }
       "07"
       {

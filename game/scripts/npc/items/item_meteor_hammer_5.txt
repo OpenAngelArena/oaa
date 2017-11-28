@@ -1,0 +1,144 @@
+"DOTAItems"
+{    //=================================================================================================================
+  // Recipe: Meteor Hammer 5
+  //=================================================================================================================
+  "item_recipe_meteor_hammer_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "8421"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                         "models/props_gameplay/recipe.vmdl"
+    "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "20000"
+    "ItemShopTags"                  ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_meteor_hammer_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Meteor Hammer 5
+  //=================================================================================================================
+  "item_meteor_hammer_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "8422"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityTextureName"            "custom/meteor_hammer_5"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"               "1"
+    "BaseClass"                      "item_meteor_hammer"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"            "3.0"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "600"
+    "AbilitySharedCooldown"         "meteor"
+    "AbilityCooldown"               "40"
+    "AbilityManaCost"               "125"
+
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "35625"
+    "ItemQuality"                   "epic"
+    "ItemAliases"                   "mh 5;meteor hammer 5"
+    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_strength"        "12 24 36 48 60"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_intellect"       "12 24 36 48 60"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bonus_health_regen"    "4.0 8.0 12.0 16.0 20.0"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bonus_mana_regen"      "1.5 3.0 4.5 6.0 7.5"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "burn_dps_buildings"    "50"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "burn_dps_units"        "90 180 270 360 450"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "burn_duration"         "6"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "stun_duration"         "2.0"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "burn_interval"         "1.0"
+      }
+      "10"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "land_time"             ".5"
+      }
+      "11"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "impact_radius"         "300"
+      }
+      "12"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "max_duration"          "3"
+      }
+      "13"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "impact_damage_buildings"   "75"
+      }
+      "14"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "impact_damage_units"   "150 300 450 600 750"
+      }
+    }
+  }
+}

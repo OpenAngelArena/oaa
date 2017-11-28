@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5504"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"    
@@ -23,33 +23,23 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_modifier"                                 "-20"
+        "damage_modifier"                                 "-70 -55 -40 -25 -15 -10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_modifier_tooltip"                         "80"
+        "damage_modifier_tooltip"                         "30 45 60 75 85 90"
       }
       "03"
       {  
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_count"                                     "1 2 3 4 6 14"
+        "arrow_count"                                     "3"
+        "LinkedSpecialBonus"      "special_bonus_unique_medusa_2"
       }
       "04"
-      {  
-        "var_type"                                        "FIELD_INTEGER"
-        "total_arrow_count"                               "2 3 4 5 7 15"
-        "LinkedSpecialBonus"                              "special_bonus_unique_medusa_2"
-      }
-      "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "700"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "var_type"            "FIELD_INTEGER"
+        "split_shot_bonus_range"    "100"
       }
     }
   }
