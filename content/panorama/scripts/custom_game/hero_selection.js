@@ -16,7 +16,6 @@ var herolocked = false;
 var panelscreated = 0;
 var iscm = false;
 var selectedherocm = 'empty';
-var isfirstpick = 0;
 var isPicking = true;
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
@@ -177,7 +176,7 @@ function onPlayerStatChange (table, key, data) {
         FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
         DisableHero(data['order'][data['currentstage']].hero);
       }
-      $.Msg(data['currentstage'] + ", " + currentPick.side);
+      $.Msg(data['currentstage'] + ', ' + currentPick.side);
       if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
