@@ -172,11 +172,14 @@
               </Button>
             </Panel>
           </Panel>
-          <Panel id="CMHeroPreview">
+          <Panel id="CMHeroPreview" hittest="false">
           </Panel>
         </Panel>
       </Panel>
     </Panel>
+    <!-- <Panel id="ChatBoxHolder" hittest="false"> -->
+      <!-- <DOTAChat id="ChatBox" class="ChatExpanded" chatstyle="hudpregame" /> -->
+    <!-- </Panel> -->
     <Panel id="StrategyContent">
       <Panel class="BossIcon" id="Boss1r">
         <Label text="Tier 1"/>
