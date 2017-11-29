@@ -6,7 +6,7 @@
     <include src="file://{resources}/scripts/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
-  <Panel class="MainHolder" onactivate=";">
+  <Panel class="HeroSelection" onactivate=";">
     <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
       <Panel class="FillWidth">
