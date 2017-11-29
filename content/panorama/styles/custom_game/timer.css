@@ -1,0 +1,22 @@
+.CustomTimer {
+  width: 100%;
+  height: 60px;
+  vertical-align: top;
+}
+
+#TimeHider {
+  visibility: collapse;
+  horizontal-align: center;
+}
+
+#NightstalkerNight {
+  visibility: collapse;
+}
+
+#GameTime {
+  margin-top: 18px;
+}
+
+.HIDE_TOP_TIMEOFDAY #TimeOfDay, .HIDE_TOP_TIMEOFDAY #TimeOfDayBG {
+  visibility: visible;
+}

@@ -29,6 +29,9 @@ function HandleStatChange () {
 
 function UpdateRegenDisplays (entity) {
   var stats = CustomNetTables.GetTableValue('entity_stats', String(entity));
+  if (!stats) {
+    return;
+  }
 
   HealthRegenLabel.text = FormatRegen(stats['HealthRegen']);
   ManaRegenLabel.text = FormatRegen(stats['ManaRegen']); // TODO Values are wrong

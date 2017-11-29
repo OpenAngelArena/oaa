@@ -19,6 +19,13 @@ local cmtimer = nil
 local selectedtable = {}
 -- force stop handle for timer, when all picked before time end
 local forcestop = false
+local LoadFinishEvent = Event()
+local loadingHeroes = 1
+local finishedLoading = false
+
+LoadFinishEvent.listen(function()
+  finishedLoading = true
+end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
@@ -214,12 +221,7 @@ end
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
   HeroSelection:CheckPause()
-  if forcestop == true then
-    for key, value in pairs(selectedtable) do
-      HeroSelection:SelectHero(key, value.selectedhero)
-    end
-    HeroSelection:StrategyTimer(3)
-  elseif time < 0 then
+  if forcestop == true or time < 0 then
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
@@ -240,6 +242,12 @@ function HeroSelection:APTimer (time, message)
         end
       end
     end)
+
+    loadingHeroes = loadingHeroes - 1
+    -- just incase all the heroes load syncronously
+    if loadingHeroes == 0 then
+      LoadFinishEvent.broadcast()
+    end
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
@@ -255,7 +263,13 @@ end
 
 function HeroSelection:SelectHero (playerId, hero)
   lockedHeroes[playerId] = hero
+  loadingHeroes = loadingHeroes + 1
+  -- LoadFinishEvent
   PrecacheUnitByNameAsync(hero, function()
+    loadingHeroes = loadingHeroes - 1
+    if loadingHeroes == 0 then
+      LoadFinishEvent.broadcast()
+    end
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
     PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
   end)
@@ -307,15 +321,25 @@ function HeroSelection:UnsafeRandomHero ()
 end
 
 -- start strategy timer
+function HeroSelection:EndStrategyTime ()
+  HeroSelection.shouldBePaused = false
+  HeroSelection:CheckPause()
+
+  GameRules:SetTimeOfDay(0.25)
+  GameMode:OnGameInProgress()
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
+end
+
 function HeroSelection:StrategyTimer (time)
   HeroSelection:CheckPause()
   if time < 0 then
-    HeroSelection.shouldBePaused = false
-    HeroSelection:CheckPause()
-    -- boy oh boy do i wish this worked...
-    GameRules:SetPreGameTime(GameRules:GetGameTime() + PREGAME_TIME)
-    GameMode:OnGameInProgress()
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
+    if finishedLoading then
+      HeroSelection:EndStrategyTime()
+    else
+      LoadFinishEvent.listen(function()
+        HeroSelection:EndStrategyTime()
+      end)
+    end
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
     Timers:CreateTimer({

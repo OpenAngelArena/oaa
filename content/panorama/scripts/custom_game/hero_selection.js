@@ -198,6 +198,7 @@ function onPlayerStatChange (table, key, data) {
 
       ReloadCMStatus(data);
       disabledheroes = [];
+      FindDotaHudElement('SectionTitle').style.visibility = 'collapse';
       FindDotaHudElement('CMHeroPreview').style.visibility = 'visible';
     }
   } else if (key === 'time' && data != null) {
