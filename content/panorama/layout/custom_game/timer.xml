@@ -12,7 +12,7 @@
   <Panel class="CustomTimer">
     <Panel id="TimeHider">
       <Panel id="TimeOfDayBG"/>
-      <Panel id="TimeOfDay" onmouseover="$('#TimeUntil').AddStyle('ShowTimeUntil') " onmouseout="$('#TimeUntil').RemoveStyle('ShowTimeUntil') ">
+      <Panel id="TimeOfDay">
         <Panel id="DayTime" class="TimeOfDayIcon DayIcon"/>
         <Panel id="NightTime" class="TimeOfDayIcon NightIcon"/>
         <DOTAHeroImage id="NightstalkerNight" class="TimeOfDayIcon" heroname="npc_dota_hero_night_stalker" heroimagestyle="icon"/>
