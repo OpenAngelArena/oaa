@@ -68,8 +68,8 @@ function HeroSelection:Init ()
     end
     local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
     if hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
-      DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. hero)
-      PlayerResource:ReplaceHeroWith(keys.PlayerID, hero, STARTING_GOLD, 0)
+      DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
+      PlayerResource:ReplaceHeroWith(keys.PlayerID, lockedHeroes[keys.PlayerID], STARTING_GOLD, 0)
     end
   end)
 end
