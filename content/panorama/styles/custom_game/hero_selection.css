@@ -3,7 +3,7 @@
   height: 100%;
   background-color: #252525;
   transition-property: opacity, transform;
-  transition-delay: 3s;
+  /*transition-delay: 3s;*/
   transition-timing-function: ease-in;
   transition-duration: 0.5s;
   transform: scaleX(1) scaleY(1) translateY(0);

@@ -11,6 +11,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 -- available heroes
 local herolist = {}
 local lockedHeroes = {}
+local loadedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
@@ -52,6 +53,24 @@ function HeroSelection:Init ()
 
   GameEvents:OnPreGame(function (keys)
     HeroSelection:StartSelection()
+  end)
+  GameEvents:OnPlayerReconnect(function (keys)
+    -- [VScript] [components\duels\duels:64] PlayerID: 1
+    -- [VScript] [components\duels\duels:64] name: Minnakht
+    -- [VScript] [components\duels\duels:64] networkid: [U:1:53917791]
+    -- [VScript] [components\duels\duels:64] reason: 2
+    -- [VScript] [components\duels\duels:64] splitscreenplayer: -1
+    -- [VScript] [components\duels\duels:64] userid: 3
+    -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
+    if not lockedHeroes[keys.PlayerID] then
+      -- we don't care if they haven't locked in yet
+      return
+    end
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+    if npc:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
+      DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
+      PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
+    end
   end)
 end
 
@@ -266,9 +285,14 @@ function HeroSelection:SelectHero (playerId, hero)
   loadingHeroes = loadingHeroes + 1
   -- LoadFinishEvent
   PrecacheUnitByNameAsync(hero, function()
+    loadedHeroes[hero] = true
     loadingHeroes = loadingHeroes - 1
     if loadingHeroes == 0 then
       LoadFinishEvent.broadcast()
+    end
+    local player = PlayerResource:GetPlayer(playerId)
+    if player == nil then -- disconnected! don't give em a hero yet...
+      return
     end
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
     PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
@@ -341,7 +365,7 @@ function HeroSelection:StrategyTimer (time)
       end)
     end
   else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "STRATEGY"})
     Timers:CreateTimer({
       useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
@@ -365,7 +389,7 @@ function HeroSelection:HeroPreview (event)
   if not previewTable[teamID] then
     previewTable[teamID] = {}
   end
-  previewTable[teamID][tostring(PlayerResource:GetSteamAccountID(event.PlayerID))] = event.hero
+  previewTable[teamID][HeroSelection:GetSteamAccountID(event.PlayerID)] = event.hero
   CustomNetTables:SetTableValue('hero_selection', 'preview_table', previewTable)
 end
 
@@ -374,6 +398,15 @@ function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   if hero == "random" then
     hero = self:RandomHero()
+  end
+
+  if lockedHeroes[playerID] then
+    hero = lockedHeroes[playerID]
+  end
+
+  if selectedtable[playerID] and selectedtable[playerID].selectedhero == hero then
+    DebugPrint('Player re-selected their hero again ' .. hero)
+    return
   end
 
   if self:IsHeroChosen(hero) then
@@ -395,12 +428,13 @@ function HeroSelection:UpdateTable (playerID, hero)
         hero = "empty"
       end
     end
+    -- if they've already selected a hero then unselect it
     if selectedtable[playerID] and selectedtable[playerID].selectedhero ~= "empty" then
       table.insert(cmpickorder[teamID.."picks"], selectedtable[playerID].selectedhero)
     end
   end
 
-  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
+  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = HeroSelection:GetSteamAccountID(playerID)}
 
   -- DebugPrintTable(selectedtable)
   -- if everyone has picked, stop
@@ -419,5 +453,18 @@ function HeroSelection:UpdateTable (playerID, hero)
   if isanyempty == false then
     forcestop = true
   end
+end
 
+local playerToSteamMap = {}
+function HeroSelection:GetSteamAccountID(playerID)
+  local steamid = PlayerResource:GetSteamAccountID(playerID)
+  if steamid == 0 then
+    if playerToSteamMap[playerID] then
+      return playerToSteamMap[playerID]
+    else
+      steamid = #playerToSteamMap + 1
+      playerToSteamMap[playerID] = tostring(steamid)
+    end
+  end
+  return tostring(steamid)
 end

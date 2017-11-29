@@ -59,6 +59,16 @@ function Precache( context )
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
 
+  -- precache all hero econ folders
+  -- this makes immortals and stuff work
+  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+    if value == 1 then
+      local hero = string.sub(key, 15)
+      PrecacheResource("particle_folder", "particles/econ/" .. hero, context)
+    end
+  end
+
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
   --PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
