@@ -27,6 +27,7 @@ function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
   self.CampPRDCounters = {}
+  self.firstSpawn = true
   if not SKIP_TEAM_SETUP then
     Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   else
@@ -49,8 +50,8 @@ function CreepCamps:CreepSpawnTimer ()
 
   self:UpgradeCreeps()
 
-
-  if GameRules:GetDOTATime(false, false) < CREEP_SPAWN_INTERVAL then
+  if self.firstSpawn then
+    self.firstSpawn = false
     return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
   return CREEP_SPAWN_INTERVAL

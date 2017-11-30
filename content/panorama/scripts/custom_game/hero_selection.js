@@ -154,8 +154,10 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
     }
-
     if (data['currentstage'] < data['totalstages']) {
+      if (!data['order'][data['currentstage']]) {
+        return;
+      }
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('CMHeroPreview').style.visibility = 'collapse';
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
@@ -202,13 +204,16 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('CMHeroPreview').style.visibility = 'visible';
     }
   } else if (key === 'time' && data != null) {
-    if (data['time'] > -1) {
-      FindDotaHudElement('TimeLeft').text = data['time'];
-      FindDotaHudElement('GameMode').text = data['mode'];
-    } else {
+    $.Msg(data);
+    if (data.mode === 'STRATEGY') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = data['mode'];
       GoToStrategy();
+    } else if (data['time'] > -1) {
+      FindDotaHudElement('TimeLeft').text = data['time'];
+      FindDotaHudElement('GameMode').text = data['mode'];
+    } else {
+      HideStrategy();
     }
   }
 }
@@ -249,7 +254,7 @@ function ReloadCMStatus (data) {
       newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
       newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
 
-      newbutton.BCreateChildren("<DOTAScenePanel particleonly='false' unit='" + obj.hero + "'/>");
+      CreateHeroPanel(newbutton, obj.hero);
       var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
       newlabel.style.visibility = 'collapse';
       newlabel.steamid = null;
@@ -293,7 +298,7 @@ function PreviewHero (name) {
   if (!herolocked || iscm) {
     var preview = FindDotaHudElement('HeroPreview');
     preview.RemoveAndDeleteChildren();
-    preview.BCreateChildren("<DOTAScenePanel particleonly='false' unit='" + name + "'/>");
+    CreateHeroPanel(preview, name);
     selectedhero = name;
     selectedherocm = name;
 
@@ -353,14 +358,7 @@ function CaptainSelectHero () {
   }
 }
 
-function GoToStrategy () {
-  FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
-  FindDotaHudElement('MainContent').style.opacity = '0';
-  FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
-  FindDotaHudElement('StrategyContent').style.opacity = '1';
-  // FindDotaHudElement('PregameBG').style.opacity = '0.15';
-  FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
-
+function HideStrategy () {
   // var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
 
   // bossMarkers.forEach(function (element) {
@@ -372,7 +370,24 @@ function GoToStrategy () {
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
 }
 
+function GoToStrategy () {
+  FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
+  FindDotaHudElement('MainContent').style.opacity = '0';
+  FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
+  FindDotaHudElement('StrategyContent').style.opacity = '1';
+  // FindDotaHudElement('PregameBG').style.opacity = '0.15';
+  FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
+}
+
 function RandomHero () {
   selectedhero = 'random';
   SelectHero();
+}
+
+function CreateHeroPanel (parent, hero) {
+  var id = 'Scene' + ~~(Math.random() * 100);
+  var scene = parent.BCreateChildren('<DOTAScenePanel id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
+  $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
+
+  return scene;
 }

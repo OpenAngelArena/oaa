@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.17.0"
+GAME_VERSION = "2.17.5"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 -- lets do this here too
 local mode = ""
@@ -58,6 +58,16 @@ function Precache( context )
   -- Ambient Sounds
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
+
+  -- precache all hero econ folders
+  -- this makes immortals and stuff work
+  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+    if value == 1 then
+      local hero = string.sub(key, 15)
+      PrecacheResource("particle_folder", "particles/econ/" .. hero, context)
+    end
+  end
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
