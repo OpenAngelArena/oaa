@@ -21,22 +21,11 @@
       <Panel class="FillWidth"/>
     </Panel>
     <Panel id="MainContent">
-      <Panel class="LeftColumn">
-        <Label class="SectionTitle" text="Minimap"/>
-        <Panel id="Minimap">
-          <DOTAMinimap require-composition-layer="true" />
-        </Panel>
-
-        <Label class="SectionTitle" text="Info"/>
-        <Panel id="GameInfo">
-          <Label text="Some info about game, i suggest text format"/>
-        </Panel>
-      </Panel>
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
           <Panel id="BecomeCaptainPanel">
             <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
-              <Label text="Become Captain" />
+              <Label text="#DOTA_Hero_Selection_BecomeCaptain" />
             </Button>
           </Panel>
           <Panel id="CMProgress">
@@ -61,7 +50,7 @@
                 </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
-                <Label text="Radiant"/>
+                <Label text="#DOTA_GoodGuysShort"/>
               </Panel>
               <Panel class="CMPick" id="CMRadiantPickLabel">
                 <Label text="5"/>
@@ -84,8 +73,8 @@
               </Panel>
             </Panel>
             <Panel class="CMInfo">
-              <Label class="BanLabel" text="BAN"/>
-              <Label class="PickLabel" text="PICK"/>
+              <Label class="BanLabel" text="#DOTA_Hero_Selection_BanTitle"/>
+              <Label class="PickLabel" text="#DOTA_Hero_Selection_PickTitle"/>
             </Panel>
             <Panel class="CMTeam" id="CMDire">
               <Panel class="CMBan" id="CMDireBanLabel">
@@ -108,7 +97,7 @@
                 </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
-                <Label text="Dire"/>
+                <Label text="#DOTA_BadGuysShort"/>
               </Panel>
               <Panel class="CMPick" id="CMDirePickLabel">
                 <Label text="6"/>
@@ -136,21 +125,21 @@
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="StrHolder"/>
-              <Label id="ChooseStrLabel" text="Strength"/>
+              <Label id="ChooseStrLabel" text="#DOTA_Hero_Selection_STR"/>
             </Panel>
             <Panel class="HeroHolder" id="StrengthHeroes" />
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="AgiHolder"/>
-              <Label id="ChooseAgiLabel" text="Agility"/>
+              <Label id="ChooseAgiLabel" text="#DOTA_Hero_Selection_AGI"/>
             </Panel>
             <Panel class="HeroHolder" id="AgilityHeroes"/>
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="IntHolder"/>
-              <Label id="ChooseIntLabel" text="Intelligence"/>
+              <Label id="ChooseIntLabel" text="#DOTA_Hero_Selection_INT"/>
             </Panel>
             <Panel class="HeroHolder" id="IntelligenceHeroes"/>
           </Panel>
@@ -165,10 +154,14 @@
             </Panel>
             <Panel id="HeroPickContainer">
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
+                <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
+                <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
               </Button>
               <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
+                <Label text="#DOTA_Hero_Selection_LOCKIN" />
               </Button>
               <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
+                <Label text="#random" />
               </Button>
             </Panel>
           </Panel>
