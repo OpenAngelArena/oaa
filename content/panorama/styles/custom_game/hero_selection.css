@@ -223,6 +223,10 @@ DOTAMinimap {
   horizontal-align: center;
 }
 
+.CMStep.active {
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
 #CMProgress {
   visibility: collapse;
   background-color: #171A2590;

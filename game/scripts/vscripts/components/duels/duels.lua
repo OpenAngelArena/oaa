@@ -137,6 +137,26 @@ function Duels:CountPlayerDeath (player)
   if Duels.currentDuel[scoreIndex] <= 0 then
     Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
     DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
+    local winningTeam = "bad"
+    if player.team == "bad" then
+      winningTeam = "good"
+    end
+
+    Duels:AllPlayers(Duels.currentDuel, function (otherPlayer)
+      if player.duelNumber ~= otherPlayer.duelNumber then
+        return
+      end
+      Notifications:Top(otherPlayer.id, {
+        text = "#DOTA_Winner_" .. winningTeam .. "Guys",
+        duration = 3.0,
+        style = {
+          color = "red",
+          ["font-size"] = "110px"
+        }
+      })
+    end)
+
+
   end
 
   if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then

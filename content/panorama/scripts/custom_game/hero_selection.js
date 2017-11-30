@@ -108,6 +108,7 @@ function onPlayerStatChange (table, key, data) {
         Object.keys(cmData['order']).forEach(function (nkey) {
           var obj = cmData['order'][nkey];
           FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+          FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
           if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
             var label = FindDotaHudElement('CMHeroPickLabel_' + obj.hero);
 
@@ -171,6 +172,7 @@ function onPlayerStatChange (table, key, data) {
       } else {
         currentPick = data['order'][data['currentstage'] + 1];
       }
+      FindDotaHudElement('CMStep' + currentPick).AddClass('active');
 
       FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
       FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
@@ -225,7 +227,6 @@ function UpdatePreviews (data) {
     return;
   }
   var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
-  $.Msg(apData);
   var heroesBySteamid = {};
   Object.keys(apData).forEach(function (playerId) {
     heroesBySteamid[apData[playerId].steamid] = apData[playerId].selectedhero;
@@ -278,8 +279,18 @@ function ReloadCMStatus (data) {
     // the CM picking order phase thingy
     if (obj.hero && obj.hero !== 'empty') {
       FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+      FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
     }
   });
+  var currentPick = null;
+  if (data['order'][data['currentstage']].hero === 'empty') {
+    currentPick = data['order'][data['currentstage']];
+  } else {
+    currentPick = data['order'][data['currentstage'] + 1];
+  }
+  if (currentPick < data['totalstages']) {
+    FindDotaHudElement('CMStep' + currentPick).AddClass('active');
+  }
 }
 
 function DisableHero (name) {
