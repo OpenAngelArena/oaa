@@ -32,7 +32,9 @@ function modifier_fountain_attack:GetModifierAura()
 end
 
 function modifier_fountain_attack:GetAuraRadius()
-  return self.trigger:GetBoundingMaxs():Length2D()
+  local caster = self:GetCaster()
+  local distance = caster:GetAbsOrigin() + self.trigger:GetAbsOrigin()
+  return self.trigger:GetBoundingMaxs():Length2D() + distance
 end
 
 function modifier_fountain_attack:GetAuraSearchFlags()
@@ -57,14 +59,13 @@ modifier_fountain_attack_aura = class(ModifierBaseClass)
 function modifier_fountain_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()
   local target = self:GetParent()
-  local attackEffect = "particles/fountain_lazor.vpcf"
+  local attackEffect = "particles/abilities/tesla_coil_radiant.vpcf"
 
   self.particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(self.particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
   ParticleManager:SetParticleControlEnt(self.particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 
-  EmitSoundOn("Hero_Phoenix.SunRay.Cast", caster)
-  EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
+  EmitSoundOn("Abilities.Fountain_Attack.Cast", caster)
 
   if IsServer() then
     self:StartIntervalThink(0.1)

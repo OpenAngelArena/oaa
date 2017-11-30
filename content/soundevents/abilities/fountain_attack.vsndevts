@@ -1,0 +1,12 @@
+{
+  Abilities.Fountain_Attack.Cast = {
+    type = "dota_update_default"
+    vsnd_files = [
+      "sounds/abilities/fountain_attack.vsnd",
+    ]
+    volume = "1.000000"
+    pitch = "1.000000"
+    soundlevel = "100.000000"
+    spread_radius = "1000.000000"
+  }
+}
