@@ -1,5 +1,6 @@
-ogre_tank_boss_melee_smash = class({})
+ogre_tank_boss_melee_smash = class( AbilityBaseClass )
 
+LinkLuaModifier( "modifier_ogre_tank_melee_smash_thinker", "modifiers/modifier_ogre_tank_melee_smash_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_melee_smash:ProcsMagicStick()

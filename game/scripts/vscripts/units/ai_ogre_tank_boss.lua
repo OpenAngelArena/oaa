@@ -1,4 +1,8 @@
 
+
+LinkLuaModifier("ogre_tank_boss_jump_smash", "abilities/siltbreaker/ogre_tank_boss_jump_smash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("ogre_tank_boss_melee_smash", "abilities/siltbreaker/ogre_tank_boss_melee_smash.lua", LUA_MODIFIER_MOTION_NONE)
+
 function Spawn( entityKeyValues )
 	if not IsServer() then
 		return
@@ -8,10 +12,6 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-
-	thisEntity:AddNewModifier( nil, nil, "modifier_invulnerable", { duration = -1 } )
-
 	thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
 	thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
 
@@ -19,7 +19,7 @@ function Spawn( entityKeyValues )
 end
 
 function OgreTankBossThink()
-	if ( not thisEntity:IsAlive() ) then
+	if ( not IsValidEntity(thisEntity) or not thisEntity:IsAlive() ) then
 		return -1
 	end
 
@@ -32,16 +32,9 @@ function OgreTankBossThink()
 		thisEntity.bInitialized = true
 	end
 
-	if thisEntity.bStarted == false then
-		return 0.1
-	else
-		thisEntity:RemoveModifierByName( "modifier_invulnerable" )
-		--print( "removed invuln modifier from ogre boss" )
-	end
-
 	-- Are we too far from our initial spawn position?
 	local fDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if fDist > 1000 then
+	if fDist > 2000 then
 		RetreatHome()
 		return 2.0
 	end
@@ -64,7 +57,7 @@ function OgreTankBossThink()
 	end
 
 	if #enemies == 0 then
-		-- @todo: Could check whether there are ogre magi nearby that I should be positioning myself next to.  Either that or have the magi come to me.
+		RetreatHome()
 		return 1
 	end
 

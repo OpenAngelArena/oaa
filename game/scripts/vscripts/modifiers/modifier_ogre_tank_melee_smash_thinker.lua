@@ -1,5 +1,5 @@
 
-modifier_ogre_tank_melee_smash_thinker = class({})
+modifier_ogre_tank_melee_smash_thinker = class( ModifierBaseClass )
 
 -----------------------------------------------------------------------------
 

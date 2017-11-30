@@ -1,5 +1,5 @@
+ogre_tank_boss_jump_smash = class( AbilityBaseClass )
 
-ogre_tank_boss_jump_smash = class({})
 LinkLuaModifier( "modifier_ogre_tank_melee_smash_thinker", "modifiers/modifier_ogre_tank_melee_smash_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 -----------------------------------------------------------------------------
 
@@ -10,7 +10,7 @@ end
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_jump_smash:GetPlaybackRateOverride()
-	return 0.9 -- keep this proportional to jump_speed
+	return self:GetSpecialValueFor("jump_speed") / 2
 end
 
 

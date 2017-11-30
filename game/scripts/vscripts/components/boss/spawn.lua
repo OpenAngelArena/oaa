@@ -74,7 +74,7 @@ function BossSpawner:SpawnBossAtPit (pit)
   local isProtected = bossList == 1 and pit.killCount == 1
 
   DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
-  BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)
+  BossSpawner:SpawnBoss(pit, 'npc_dota_creature_ogre_tank_boss', bossTier, isProtected)
 end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
