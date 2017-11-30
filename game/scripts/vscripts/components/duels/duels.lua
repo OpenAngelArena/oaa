@@ -148,7 +148,7 @@ function Duels:CountPlayerDeath (player)
       end
       Notifications:Top(otherPlayer.id, {
         text = "#DOTA_Winner_" .. winningTeam .. "Guys",
-        duration = 3.0,
+        duration = 5.0,
         style = {
           color = "red",
           ["font-size"] = "110px"
@@ -471,6 +471,9 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
+      if self.currentDuel == nil then
+        return
+      end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
     end)
   end

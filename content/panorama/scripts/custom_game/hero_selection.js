@@ -337,7 +337,7 @@ function PreviewHero (name) {
     selectedhero = name;
     selectedherocm = name;
 
-    lockButton.style.visibility = (!isPicking || IsHeroDisabled(name)) ? 'collapse' : 'visible';
+    lockButton.style.visibility = (!isPicking || IsHeroDisabled(currentHeroPreview)) ? 'collapse' : 'visible';
     $('#HeroRandom').style.visibility = !isPicking ? 'collapse' : 'visible';
 
     GameEvents.SendCustomGameEventToServer('preview_hero', {
