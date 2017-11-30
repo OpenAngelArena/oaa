@@ -49,7 +49,7 @@ test('test', function (t) {
             t.equal(abilityName.indexOf('bonus_gold'), -1, 'do not allow gold income talents, ' + ability + ': ' + abilityName);
             t.equal(abilityName.indexOf('bonus_exp'), -1, 'do not allow gold income talents, ' + ability + ': ' + abilityName);
           });
-        })
+        });
       t.end();
     });
   });

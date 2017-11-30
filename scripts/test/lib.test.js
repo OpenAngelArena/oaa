@@ -2,7 +2,7 @@ var test = require('tape');
 var Lib = require('../kv-lib');
 
 test('kv lib', function (t) {
-  t.plan(6);
+  t.plan(8);
 
   Lib.items(function (err, items) {
     t.notOk(err, 'no error');
@@ -17,6 +17,7 @@ test('kv lib', function (t) {
     t.ok(Object.keys(all).length, 'gets all');
   });
   Lib.heroes(function (err, heroes) {
-    console.log(heroes);
+    t.notOk(err, 'no error');
+    t.ok(Object.keys(heroes).length, 'gets heroes');
   });
 });
