@@ -23,7 +23,7 @@ function EntityStatProvider:EventHandler(keys)
 
   if not handle.GetManaRegen then
     CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
-      HealthRegen = 0,
+      HealthRegen = handle:GetHealthRegen(),
       ManaRegen = 0
     })
     return
