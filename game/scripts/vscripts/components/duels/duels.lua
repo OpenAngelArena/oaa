@@ -137,6 +137,26 @@ function Duels:CountPlayerDeath (player)
   if Duels.currentDuel[scoreIndex] <= 0 then
     Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
     DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
+    local winningTeam = "bad"
+    if player.team == "bad" then
+      winningTeam = "good"
+    end
+
+    Duels:AllPlayers(Duels.currentDuel, function (otherPlayer)
+      if player.duelNumber ~= otherPlayer.duelNumber then
+        return
+      end
+      Notifications:Top(otherPlayer.id, {
+        text = "#DOTA_Winner_" .. winningTeam .. "Guys",
+        duration = 5.0,
+        style = {
+          color = "red",
+          ["font-size"] = "110px"
+        }
+      })
+    end)
+
+
   end
 
   if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then
@@ -451,6 +471,9 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
+      if self.currentDuel == nil then
+        return
+      end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
     end)
   end
