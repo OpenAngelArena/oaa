@@ -31,15 +31,17 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 	if IsServer() then
 		if self:GetCaster() ~= nil and self:GetCaster():IsAlive() then
 			EmitSoundOnLocationWithCaster( self:GetParent():GetOrigin(), "OgreTank.GroundSmash", self:GetCaster() )
-			local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN,  self:GetCaster()  )
-			ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
-			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
-			ParticleManager:ReleaseParticleIndex( nFXIndex )
+			local smashParticle = ParticleManager:CreateParticle( "particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN,  self:GetCaster()  )
+			ParticleManager:SetParticleControl( smashParticle, 0, self:GetParent():GetOrigin() )
+			ParticleManager:SetParticleControl( smashParticle, 1, Vector( self.impact_radius, self.impact_radius, self.impact_radius ) )
+			ParticleManager:ReleaseParticleIndex( smashParticle )
 
 			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+			
+			local critParticle = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_CUSTOMORIGIN, nil )
 			for _,enemy in pairs( enemies ) do
 				if enemy ~= nil and enemy:IsInvulnerable() == false then
-					local damageInfo = 
+					local damageInfo =
 					{
 						victim = enemy,
 						attacker = self:GetCaster(),
@@ -50,12 +52,10 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 
 					ApplyDamage( damageInfo )
 					if enemy:IsAlive() == false then
-						local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_CUSTOMORIGIN, nil )
-						ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
-						ParticleManager:SetParticleControl( nFXIndex, 1, enemy:GetOrigin() )
-						ParticleManager:SetParticleControlForward( nFXIndex, 1, -self:GetCaster():GetForwardVector() )
-						ParticleManager:SetParticleControlEnt( nFXIndex, 10, enemy, PATTACH_ABSORIGIN_FOLLOW, nil, enemy:GetOrigin(), true )
-						ParticleManager:ReleaseParticleIndex( nFXIndex )
+						ParticleManager:SetParticleControlEnt( critParticle, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
+						ParticleManager:SetParticleControl( critParticle, 1, enemy:GetOrigin() )
+						ParticleManager:SetParticleControlForward( critParticle, 1, -self:GetCaster():GetForwardVector() )
+						ParticleManager:SetParticleControlEnt( critParticle, 10, enemy, PATTACH_ABSORIGIN_FOLLOW, nil, enemy:GetOrigin(), true )
 
 						EmitSoundOn( "Dungeon.BloodSplatterImpact", enemy )
 					else
@@ -63,6 +63,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 					end
 				end
 			end
+			ParticleManager:ReleaseParticleIndex( critParticle )
 		end
 
 		ScreenShake( self:GetParent():GetOrigin(), 10.0, 100.0, 0.5, 1300.0, 0, true )

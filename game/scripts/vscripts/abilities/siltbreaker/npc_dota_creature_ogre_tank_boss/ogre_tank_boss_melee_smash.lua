@@ -9,7 +9,7 @@ end
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_melee_smash:GetCooldown( iLevel )
-	return self.BaseClass.GetCooldown( self, self:GetLevel() ) / self:GetCaster():GetHasteFactor() 
+	return self.BaseClass.GetCooldown( self, self:GetLevel() ) / self:GetCaster():GetHasteFactor()
 end
 
 -----------------------------------------------------------------------------

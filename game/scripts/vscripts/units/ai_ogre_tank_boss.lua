@@ -12,8 +12,8 @@ function Spawn( entityKeyValues )
 
 	thisEntity:AddNewModifier( nil, nil, "modifier_invulnerable", { duration = -1 } )
 
-	SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
-	JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
+	thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
+	thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
 
 	thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
 end
@@ -22,7 +22,7 @@ function OgreTankBossThink()
 	if ( not thisEntity:IsAlive() ) then
 		return -1
 	end
-	
+
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
@@ -59,7 +59,7 @@ function OgreTankBossThink()
 		end
 	end
 
-	if JumpAbility ~= nil and JumpAbility:IsFullyCastable() and nEnemiesRemoved > 0 then
+	if thisEntity.JumpAbility ~= nil and thisEntity.JumpAbility:IsFullyCastable() and nEnemiesRemoved > 0 then
 		return Jump()
 	end
 
@@ -68,10 +68,10 @@ function OgreTankBossThink()
 		return 1
 	end
 
-	if SmashAbility ~= nil and SmashAbility:IsFullyCastable() then
+	if thisEntity.SmashAbility ~= nil and thisEntity.SmashAbility:IsFullyCastable() then
 		return Smash( enemies[ 1 ] )
 	end
-	
+
 	return 0.5
 end
 
@@ -80,7 +80,7 @@ function Jump()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = JumpAbility:entindex(),
+		AbilityIndex = thisEntity.JumpAbility:entindex(),
 		Queue = false,
 	})
 	
@@ -101,7 +101,7 @@ function Smash( enemy )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = SmashAbility:entindex(),
+		AbilityIndex = thisEntity.SmashAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
