@@ -79,6 +79,7 @@
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" /> -->
     <!-- <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/game_length_choice.xml" /> -->
 
+	<CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/debug_overlay.xml" />
     <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/need_greed_pass/layout.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
