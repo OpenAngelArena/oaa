@@ -9,15 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     // grave chill
     // soul assumption
-    "Ability3"    "visage_gravekeepers_cloak_oaa"    //OAA
-    // birds
-    "Ability10"   "special_bonus_cast_range_125"
-    "Ability11"   "special_bonus_attack_damage_30"
-    "Ability12"   "special_bonus_strength_10" //OAA
-    "Ability13"   "special_bonus_unique_visage_3" //Soul Assumption Double Strike
-    "Ability14"   "special_bonus_unique_visage_4" //+15 Soul Assumption Damage Per Charge
-    "Ability15"   "special_bonus_unique_visage_2" //+80 Familiars Movement Speed
-    "Ability16"   "special_bonus_unique_visage_5" //-2s Gravekeeper's Cloak
-    "Ability17"   "special_bonus_unique_visage_6" //+1 Familiar
+    "Ability3"    "visage_gravekeepers_cloak_oaa"    // replaces visage_gravekeepers_cloak
+    "Ability12"   "special_bonus_strength_10" // replaces special_bonus_exp_boost_40
   }
 }

@@ -16,4 +16,7 @@ test('kv lib', function (t) {
     t.notOk(err, 'no error');
     t.ok(Object.keys(all).length, 'gets all');
   });
+  Lib.heroes(function (err, heroes) {
+    console.log(heroes);
+  });
 });
