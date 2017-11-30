@@ -37,7 +37,6 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 			ParticleManager:ReleaseParticleIndex( smashParticle )
 
 			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
-			
 			local critParticle = ParticleManager:CreateParticle( "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_CUSTOMORIGIN, nil )
 			for _,enemy in pairs( enemies ) do
 				if enemy ~= nil and enemy:IsInvulnerable() == false then
