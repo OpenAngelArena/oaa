@@ -167,12 +167,16 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
       var currentPick = null;
+      var currentPickIndex = 0;
       if (data['order'][data['currentstage']].hero === 'empty') {
-        currentPick = data['order'][data['currentstage']];
+        currentPickIndex = data['currentstage'];
+        currentPick = data['order'][currentPickIndex];
       } else {
-        currentPick = data['order'][data['currentstage'] + 1];
+        currentPickIndex = data['currentstage'] + 1;
+        currentPick = data['order'][currentPickIndex];
       }
-      FindDotaHudElement('CMStep' + currentPick).AddClass('active');
+      $.Msg(currentPick);
+      FindDotaHudElement('CMStep' + currentPickIndex).AddClass('active');
 
       FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
       FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
@@ -180,6 +184,7 @@ function onPlayerStatChange (table, key, data) {
 
       if (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero && data['order'][data['currentstage']].hero !== 'empty') {
         FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
+        FindDotaHudElement('CMStep' + data['currentstage']).RemoveClass('active');
         DisableHero(data['order'][data['currentstage']].hero);
       }
       $.Msg(data['currentstage'] + ', ' + currentPick.side);
@@ -284,9 +289,9 @@ function ReloadCMStatus (data) {
   });
   var currentPick = null;
   if (data['order'][data['currentstage']].hero === 'empty') {
-    currentPick = data['order'][data['currentstage']];
+    currentPick = data['currentstage'];
   } else {
-    currentPick = data['order'][data['currentstage'] + 1];
+    currentPick = data['currentstage'] + 1;
   }
   if (currentPick < data['totalstages']) {
     FindDotaHudElement('CMStep' + currentPick).AddClass('active');
