@@ -83,7 +83,6 @@ function Jump()
 		AbilityIndex = thisEntity.JumpAbility:entindex(),
 		Queue = false,
 	})
-	
 	return 2.5
 end
 
