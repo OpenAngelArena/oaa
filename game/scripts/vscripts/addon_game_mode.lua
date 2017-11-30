@@ -66,6 +66,7 @@ function Precache( context )
     if value == 1 then
       local hero = string.sub(key, 15)
       PrecacheResource("particle_folder", "particles/econ/" .. hero, context)
+      PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
     end
   end
 

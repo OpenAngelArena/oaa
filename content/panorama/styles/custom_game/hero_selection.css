@@ -79,7 +79,7 @@ Label {
 }
 
 #Clock {
-  width: 10%;
+  width: 15%;
   height: 80%;
   background-color: #171A2590;
 }
@@ -221,6 +221,10 @@ DOTAMinimap {
   min-height: 150px;
   margin: 10px 0;
   horizontal-align: center;
+}
+
+.CMStep.active {
+  box-shadow: #999999ff -2px -2px 4px 4px;
 }
 
 #CMProgress {
@@ -452,7 +456,7 @@ RadioButton.Disabled:selected {
 }
 
 #HeroSelector {
-  width: 30%;
+  width: 40%;
   height: fill-parent-flow(1.0);
   flow-children: right;
   horizontal-align: middle;
@@ -544,31 +548,37 @@ DOTAScenePanel {
   margin-bottom: -30px;
 }
 
+#HeroPreviewContainer {
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+}
 #HeroPickContainer {
-  width: 60px;
+  width: 180px;
   height: fill-parent-flow(1.0);
   flow-children: down;
   margin: 12px;
   vertical-align: bottom;
   horizontal-align: middle;
 }
-#HeroPreviewContainer {
-  width: fill-parent-flow(1.0);
-  height: fill-parent-flow(1.0);
-}
 
 .HeroPickerButton {
   height: 60px;
-  width: 60px;
-  background-position: center;
+  width: fill-parent-flow(1.0);
+  background-position: 10px center;
   background-repeat: no-repeat;
-  background-size: 80% 80%;
+  background-size: auto 32px;
 
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
   box-shadow: #0000008f -6px -6px 12px 12px;
   transition-property: brightness;
   transition-duration: 0.2s;
   margin-bottom: 20px;
+  padding-left: 50px;
+}
+.HeroPickerButton Label {
+  margin-top: 5px;
+  vertical-align: center;
+  text-transform: uppercase;
 }
 
 .HeroPickerButton:hover {
@@ -587,6 +597,14 @@ DOTAScenePanel {
 
 #CaptainLockIn {
   visibility: collapse;
+}
+
+#pickLabel, #banLabel {
+  visibility: collapse;
+}
+
+#CaptainLockIn.PickHero #pickLabel, #CaptainLockIn.BanHero #banLabel {
+  visibility: visible;
 }
 
 #CaptainLockIn.PickHero {
