@@ -328,7 +328,7 @@ function PreviewHero (name) {
   }
   if (!herolocked || iscm) {
     var preview = FindDotaHudElement('HeroPreview');
-    if (name !== "random" && currentHeroPreview !== name) {
+    if (name !== 'random' && currentHeroPreview !== name) {
       currentHeroPreview = name;
       preview.RemoveAndDeleteChildren();
       CreateHeroPanel(preview, name);
