@@ -4,6 +4,7 @@
 ---
 
 modifier_scan_true_sight_thinker = class( ModifierBaseClass )
+modifier_scan_true_sight = class( ModifierBaseClass )
 
 --------- modifier_scan_true_sight_thinker ---------
 
@@ -29,8 +30,8 @@ if IsServer() then
 
         if #found_targets > 0 then
             for _,unit in pairs(found_targets) do
-                unit:AddNewModifier(self:GetCaster(), nil, "modifier_truesight", {
-                    duration = self.debuff_duration
+                unit:AddNewModifier(self:GetCaster(), nil, "modifier_scan_true_sight", {
+                    duration = self.debuff_duration,
                 })
             end
         end
@@ -40,4 +41,25 @@ if IsServer() then
         UTIL_Remove( self:GetParent() )
     end
 
+end
+
+--------- modifier_scan_true_sight ---------
+
+function modifier_scan_true_sight:IsPurgable()
+    return false
+end
+
+function modifier_scan_true_sight:IsDebuff()
+    return true
+end
+
+function modifier_scan_true_sight:GetPriority()
+    return MODIFIER_PRIORITY_HIGH
+end
+
+function modifier_scan_true_sight:CheckState()
+    local state = {
+        [MODIFIER_STATE_INVISIBLE] = false
+    }
+    return state
 end
