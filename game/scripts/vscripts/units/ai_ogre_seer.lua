@@ -10,8 +10,8 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite" )
-	BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust" )
+	thisEntity.IgniteAbility = thisEntity:FindAbilityByName( "ogre_seer_area_ignite" )
+	thisEntity.BloodlustAbility = thisEntity:FindAbilityByName( "ogre_magi_channelled_bloodlust" )
 
 	thisEntity:SetContextThink( "OgreSeerThink", OgreSeerThink, 1 )
 end
@@ -32,21 +32,21 @@ function OgreSeerThink()
 		thisEntity.bInitialized = true
 	end
 
-	if BloodlustAbility ~= nil and BloodlustAbility:IsChanneling() then
+	if thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsChanneling() then
 		return 0.5
 	end
 
 	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 
-	local bIgniteReady = ( #enemies > 0 and IgniteAbility ~= nil and IgniteAbility:IsFullyCastable() )
+	local bIgniteReady = ( #enemies > 0 and thisEntity.IgniteAbility ~= nil and thisEntity.IgniteAbility:IsFullyCastable() )
 
-	if BloodlustAbility ~= nil and BloodlustAbility:IsFullyCastable() then
+	if thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsFullyCastable() then
 		local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		for _,friendly in pairs ( friendlies ) do
 			if friendly ~= nil then
 				if ( friendly:GetUnitName() == "npc_dota_creature_ogre_tank" ) or ( friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" ) then
 					local fDist = ( friendly:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-					local fCastRange = BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
+					local fCastRange = thisEntity.BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
 					if ( fDist <= fCastRange ) and ( ( #enemies > 0 ) or ( friendly:GetAggroTarget() ) ) then
             return Bloodlust( friendly )
 					elseif ( fDist > 600 ) and ( fDist < 1500 ) and (friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss") and ( #enemies > 0 )  then
@@ -91,7 +91,7 @@ function Bloodlust( hUnit )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = BloodlustAbility:entindex(),
+		AbilityIndex = thisEntity.BloodlustAbility:entindex(),
 		TargetIndex = hUnit:entindex(),
 		Queue = false,
 	})
@@ -105,7 +105,7 @@ function IgniteArea( hEnemy )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = IgniteAbility:entindex(),
+		AbilityIndex = thisEntity.IgniteAbility:entindex(),
 		Position = hEnemy:GetOrigin(),
 		Queue = false,
 	})
