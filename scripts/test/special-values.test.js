@@ -147,7 +147,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     if (!isBuiltIn && item !== 'item_dummy_datadriven') {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
-      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);
 
       if (usedIDs[values.ID]) {
         t.fail('ID number is already in use by ' + usedIDs[values.ID]);
