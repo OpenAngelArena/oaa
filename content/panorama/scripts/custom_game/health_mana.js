@@ -19,7 +19,6 @@
 var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 var HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel');
 var ManaRegenLabel = HealthManaContainer.FindChildTraverse('ManaRegenLabel');
-var blockUpdate = {};
 
 function HandleStatChange () {
   GameEvents.SendCustomGameEventToServer('statprovider_entities_request', {
