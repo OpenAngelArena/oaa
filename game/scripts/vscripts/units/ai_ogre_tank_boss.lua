@@ -1,7 +1,5 @@
-
-
-LinkLuaModifier("ogre_tank_boss_jump_smash", "abilities/siltbreaker/ogre_tank_boss_jump_smash.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("ogre_tank_boss_melee_smash", "abilities/siltbreaker/ogre_tank_boss_melee_smash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("ogre_tank_boss_jump_smash", "abilities/siltbreaker/npc_dota_creature_ogre_tank_boss/ogre_tank_boss_jump_smash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("ogre_tank_boss_melee_smash", "abilities/siltbreaker/npc_dota_creature_ogre_tank_boss/ogre_tank_boss_melee_smash.lua", LUA_MODIFIER_MOTION_NONE)
 
 function Spawn( entityKeyValues )
 	if not IsServer() then
@@ -29,7 +27,8 @@ function OgreTankBossThink()
 
 	if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-		thisEntity.bInitialized = true
+    thisEntity.bInitialized = true
+    SpawnAllies()
 	end
 
 	-- Are we too far from our initial spawn position?
@@ -68,6 +67,16 @@ function OgreTankBossThink()
 	return 0.5
 end
 
+function SpawnAllies()
+  local posTopLeft = thisEntity:GetAbsOrigin()
+  posTopLeft.y = posTopLeft.y + 400
+  posTopLeft.x = posTopLeft.x - 400
+  local posTopRight = thisEntity:GetAbsOrigin()
+  posTopRight.y = posTopRight.y + 400
+  posTopRight.x = posTopRight.x + 400
+  local ally1 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopLeft, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
+  local ally2 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopRight, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
+end
 
 function Jump()
 	ExecuteOrderFromTable({
@@ -102,8 +111,6 @@ function Smash( enemy )
 end
 
 function RetreatHome()
-	--print( "OgreTankBoss - RetreatHome()" )
-
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,

@@ -54,10 +54,14 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_boss_simple_6", context)
   PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
+  PrecacheUnitByNameSync("npc_dota_creature_ogre_tank_boss", context)
 
   -- Ambient Sounds
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
+
+  PrecacheResource("soundfile", "soundevents/game_sounds_creeps.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work
