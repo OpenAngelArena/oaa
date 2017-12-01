@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Trident 4
   //=================================================================================================================
-  "item_recipe_trident_4"
+  "item_recipe_kaya_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,25 +20,25 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                    "1"
-    "ItemResult"                    "item_trident_4"
+    "ItemResult"                    "item_kaya_4"
     "ItemRequirements"
     {
-      "01"                                                "item_trident_3;item_upgrade_core_3"
-      "02"                                                "item_trident_3;item_upgrade_core_4"
+      "01"                                                "item_kaya_3;item_upgrade_core_3"
+      "02"                                                "item_kaya_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Kaya (was Trident) 4
   //=================================================================================================================
-  "item_trident_4"
+  "item_kaya_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                        "5036"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"            "custom/trident_4"
-    "BaseClass"                     "item_trident"
+    "BaseClass"                     "item_kaya"
 
 
 

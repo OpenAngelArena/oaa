@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Trident 3
   //=================================================================================================================
-  "item_recipe_trident_3"
+  "item_recipe_kaya_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,26 +20,26 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                    "1"
-    "ItemResult"                    "item_trident_3"
+    "ItemResult"                    "item_kaya_3"
     "ItemRequirements"
     {
-      "01"                                                "item_trident_2;item_upgrade_core_2"
-      "02"                                                "item_trident_2;item_upgrade_core_3"
-      "03"                                                "item_trident_2;item_upgrade_core_4"
+      "01"                                                "item_kaya_2;item_upgrade_core_2"
+      "02"                                                "item_kaya_2;item_upgrade_core_3"
+      "03"                                                "item_kaya_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Kaya (was Trident) 3
   //=================================================================================================================
-  "item_trident_3"
+  "item_kaya_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                        "5230"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"            "custom/trident_3"
-    "BaseClass"                     "item_trident"
+    "BaseClass"                     "item_kaya"
 
 
 

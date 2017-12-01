@@ -1,44 +1,45 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Combo Breaker 3
+  // Recipe: Combo Breaker 2
   //=================================================================================================================
-  "item_recipe_combo_breaker_3"
+  "item_recipe_aeon_disk_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8401"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "5254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-    "ItemCost"                                            "3500"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
-    "ItemResult"          "item_combo_breaker_3"
+    "ItemResult"          "item_aeon_disk_2"
     "ItemRequirements"
     {
-      "01"                                                "item_combo_breaker_2;item_upgrade_core_2"
-      "02"                                                "item_combo_breaker_2;item_upgrade_core_3"
-      "03"                                                "item_combo_breaker_2;item_upgrade_core_4"
+      "01"                                                "item_aeon_disk;item_upgrade_core"
+      "02"                                                "item_aeon_disk;item_upgrade_core_2"
+      "03"                                                "item_aeon_disk;item_upgrade_core_3"
+      "04"                                                "item_aeon_disk;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Combo Breaker 3
+  // Combo Breaker 2
   //=================================================================================================================
-  "item_combo_breaker_3"
+  "item_aeon_disk_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"            "8402"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"     "item_combo_breaker"
+    "ID"            "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"     "item_aeon_disk"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-    "ItemCost"                                            "8600"
-    "ItemAliases"                                         "ad 3;aeon disk 3"
+    "ItemBaseLevel"                                       "2"
+    "ItemCost"                                            "5100"
+    "ItemAliases"                                         "ad 2;aeon disk 2"
 
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityCooldown"       "100.0 80 60 40 20"
