@@ -7,6 +7,13 @@ end
 
 function EntityStatProvider:Init()
   CustomGameEventManager:RegisterListener("statprovider_entities_request", Dynamic_Wrap(self, "EventHandler"))
+
+  self.activeEntities = {}
+
+  Timers:CreateTimer(function ()
+    self:CollectGarbage()
+    return 300
+  end)
 end
 
 function EntityStatProvider:EventHandler(keys)
@@ -18,6 +25,7 @@ function EntityStatProvider:EventHandler(keys)
       HealthRegen = 0,
       ManaRegen = 0
     })
+    table.insert(EntityStatProvider.activeEntities, tostring(entity))
     return
   end
 
@@ -26,6 +34,7 @@ function EntityStatProvider:EventHandler(keys)
       HealthRegen = handle:GetHealthRegen(),
       ManaRegen = 0
     })
+    table.insert(EntityStatProvider.activeEntities, tostring(entity))
     return
   end
 
@@ -33,4 +42,14 @@ function EntityStatProvider:EventHandler(keys)
     HealthRegen = handle:GetHealthRegen(),
     ManaRegen = handle:GetManaRegen()
   })
+  table.insert(EntityStatProvider.activeEntities, tostring(entity))
+end
+
+function EntityStatProvider:CollectGarbage()
+  for _,entity in pairs(self.activeEntities) do
+    local handle = EntIndexToHScript(entity)
+    if not IsValidEntity(handle) then
+      CustomNetTables:SetTableValue("entity_stats", tostring(entity), nil)
+    end
+  end
 end

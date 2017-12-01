@@ -30,10 +30,10 @@ function HandleStatChange () {
 
 function onEntityStatChange (updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
-  if (updatedEntity !== selectedEntity || !data) { return; }
+  if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
   HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
-  ManaRegenLabel.text = FormatRegen(data['ManaRegen']); // TODO Values are wrong
+  ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
 }
 
 function FormatRegen (number) {
