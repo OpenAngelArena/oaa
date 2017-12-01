@@ -13,7 +13,7 @@
   GameEvents.Subscribe('dota_player_update_query_unit', HandleStatChange);
   GameEvents.Subscribe('dota_ability_changed', HandleStatChange);
 
-  CustomNetTables.SubscribeNetTableListener('entity_stats', onEntityStatChange)
+  CustomNetTables.SubscribeNetTableListener('entity_stats', onEntityStatChange);
 }());
 
 var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
@@ -21,16 +21,17 @@ var HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel')
 var ManaRegenLabel = HealthManaContainer.FindChildTraverse('ManaRegenLabel');
 
 function HandleStatChange () {
+  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   GameEvents.SendCustomGameEventToServer('statprovider_entities_request', {
-    entity: Players.GetLocalPlayerPortraitUnit();
+    entity: selectedEntity
   });
+  onEntityStatChange(selectedEntity, CustomNetTables.GetTableValue('entity_stats', selectedEntity));
 }
 
-function onEntityStatChange (arg, updatedEntity, data) {
+function onEntityStatChange (updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
-  if (updatedEntity !== selectedEntity || !data) {
-    return;
-  }
+  if (updatedEntity !== selectedEntity || !data) { return; }
+
   HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
   ManaRegenLabel.text = FormatRegen(data['ManaRegen']); // TODO Values are wrong
 }
