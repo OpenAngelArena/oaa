@@ -16,6 +16,10 @@ function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   end
 end
 
+function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
+  return self:GetCaster():GetAttackRange()
+end
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_glaives_of_wisdom = class(ModifierBaseClass)
