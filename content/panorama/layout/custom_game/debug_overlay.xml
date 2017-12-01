@@ -21,7 +21,7 @@
   </script>
   <Panel class="DebugOverlayContainer">
     <Panel class="DebugOverlayDisplay" id="DebugOverlay"  hittest="true" hittestchildren="true">
-      <Label class="DebugOverlayInfo" text="Debug Overlay:" />
+      <Label class="DebugOverlayInfo" text="Debug Overlay" />
       <Panel class="DebugOverlayGroup" id="DebugOverlay:root"/>
     </Panel>
     <Panel class="DebugOverlayToggle">

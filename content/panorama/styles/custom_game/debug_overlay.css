@@ -1,18 +1,19 @@
 .DebugOverlayContainer
 {
   height: 100%;
+  width: 100%;
 }
 
 .DebugOverlayDisplay
 {
-  horizontal-align: left;
+  horizontal-align: right;
   vertical-align: top;
   flow-children: down;
-  margin-left: 10px;
-  margin-top: 120px;
+  margin-right: 5px;
+  margin-top: 85px;
   background-color: rgba(85,85,85,.5);
   font-family: monospace;
-  /* overflow: squish scroll; */
+  overflow: squish scroll;
   height: 60%;
 }
 
@@ -49,8 +50,9 @@
 
 .DebugOverlayToggle
 {
-  vertical-align: bottom;
-  margin-bottom: 280px;
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 45px;
 }
 
 .DebugOverlayToggleButton

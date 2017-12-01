@@ -163,6 +163,7 @@ function GameMode:OnPreGame()
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
+  InitModule(DebugOverlay)
 
   CheckCheatMode()
 end
@@ -188,6 +189,7 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+  InitModule(DebugInfos)
 
 end
 
