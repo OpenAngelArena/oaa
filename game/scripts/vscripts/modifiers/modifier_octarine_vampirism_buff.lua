@@ -6,7 +6,7 @@ function modifier_octarine_vampirism_buff:DeclareFunctions(params)
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 		MODIFIER_PROPERTY_TOOLTIP
 	}
-	
+
 	return funcs
 end
 
@@ -65,29 +65,25 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 	if not isFirstVampModifier or heroHasOctarine then
 		return
 	end
-	
+
 	-- Ignore damage that has the no-reflect or no spell lifesteal flags
 	-- Thanks, Siltbreaker!
 	if bit.band( params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION ) > 0 then
 		return 0
 	end
-	
+
 	-- for ... some reason this still allow lifestealing off of cleave despite
 	-- this being taken from siltbreaker
 	-- but i'll leave it in since there's no harm
 	if bit.band( params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL ) > 0 then
 		return 0
 	end
-	
+
 	-- no idea why this one isn't used in siltbreaker
 	if bit.band( params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION  ) > 0 then
 		return 0
 	end
-	
-	for k, v in pairs( params ) do
-		print( k, v )
-	end
-	
+
 	local dmg = params.damage
 	local nHeroHeal = self.hero_lifesteal / 100
 	local nCreepHeal = self.creep_lifesteal / 100
@@ -100,7 +96,7 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 	if params.inflictor then
 		if params.attacker == hero then
 			local heal_amount = 0
-			
+
 			if params.unit:IsCreep() then
 				heal_amount = dmg * nCreepHeal
 			elseif params.unit:IsHero() then
@@ -108,7 +104,7 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 					heal_amount = dmg * nHeroHeal
 				end
 			end
-      
+
 			if heal_amount > 0 then
 				local healthCalculated = hero:GetHealth() + heal_amount
 				hero:Heal(heal_amount, self:GetAbility())
