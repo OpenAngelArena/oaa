@@ -58,12 +58,13 @@ modifier_fountain_attack_aura = class(ModifierBaseClass)
 
 function modifier_fountain_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()
-  local teamID caster:GetTeamNumber()
+  local teamID = caster:GetTeamNumber()
   local target = self:GetParent()
+  local attackEffect = ""
   if teamID == DOTA_TEAM_GOODGUYS then
-    local attackEffect = "particles/abilities/tesla_coil_radiant.vpcf"
+    attackEffect = "particles/abilities/tesla_coil_radiant.vpcf"
   elseif teamID == DOTA_TEAM_BADGUYS then
-    local attackEffect = "particles/abilities/tesla_coil_dire.vpcf"
+    attackEffect = "particles/abilities/tesla_coil_dire.vpcf"
   end
   local statusEffect = "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
 
