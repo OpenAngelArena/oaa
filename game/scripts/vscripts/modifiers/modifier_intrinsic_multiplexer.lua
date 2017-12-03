@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+
 require('libraries/fun')()
 
 modifier_intrinsic_multiplexer = class(ModifierBaseClass)
