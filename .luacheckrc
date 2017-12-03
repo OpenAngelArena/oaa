@@ -43,6 +43,9 @@ globals = { -- these globals can be set and accessed.
 "CAPTAINS_MODE_HERO_PICK_TIME",
 "PREGAME_TIME",
 "CAPTAINS_MODE_CAPTAIN_TIME",
+"SCAN_REVEAL_COOLDOWN",
+"SCAN_REVEAL_RADIUS",
+"SCAN_REVEAL_DURATION",
 }
 
 read_globals = { -- these globals can only be accessed.
