@@ -25,10 +25,10 @@ function HandleStatChange () {
   GameEvents.SendCustomGameEventToServer('statprovider_entities_request', {
     entity: selectedEntity
   });
-  onEntityStatChange(selectedEntity, CustomNetTables.GetTableValue('entity_stats', selectedEntity));
+  onEntityStatChange(null, selectedEntity, CustomNetTables.GetTableValue('entity_stats', selectedEntity));
 }
 
-function onEntityStatChange (updatedEntity, data) {
+function onEntityStatChange (arg, updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
