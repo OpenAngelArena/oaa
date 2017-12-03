@@ -68,7 +68,7 @@ function modifier_fountain_attack_aura:OnCreated(keys)
   end
   local statusEffect = "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
 
-  self.statusParticle = ParticleManager:CreateParticle(statusEffect, PATTACH_ABSORIGIN_FOLLOW, caster)
+  self.statusParticle = ParticleManager:CreateParticle(statusEffect, PATTACH_POINT_FOLLOW, caster)
 
   self.attackParticle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(self.attackParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
