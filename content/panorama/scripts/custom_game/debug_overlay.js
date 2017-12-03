@@ -1,19 +1,9 @@
-/* global GameEvents, $ */
+/* global $, CustomNetTables */
 'use strict';
 
 (function () {
-  GameEvents.Subscribe('debug_overlay_update', function (x) {
-    // $.Msg('<- Update');
-    UpdateDebugOverlay(x);
-  });
-  // $.Msg('Forcing Debug Overlay Update');
-  RequestDebugOverlayUpdate();
+  CustomNetTables.SubscribeNetTableListener('debug_overlay', UpdateDebugOverlay);
 }());
-
-function RequestDebugOverlayUpdate () {
-  // $.Msg('-> Update_Request');
-  GameEvents.SendCustomGameEventToServer('debug_overlay_request', {});
-}
 
 function UpdateDebugOverlay (keys) {
   // $.Msg('Updating Overlay');
@@ -61,7 +51,7 @@ function UpdateGroup (parent, group) {
     }
     // $.Msg('Updating group ' + group.Name + ' in Overlay');
     var grouplabel = parentPanel.FindChildTraverse(groupID + ':InfoLabel');
-    grouplabel.text = group.DisplayName;
+    grouplabel.text = $.Localize(group.DisplayName);
     grouplabel.style.color = group.Color;
   }
 }
@@ -82,6 +72,6 @@ function UpdateEntry (parent, entry) {
     child.SetHasClass('DebugOverlayEntry', true);
   }
   // $.Msg('Updating entry in Overlay');
-  child.text = entry.DisplayName + ': ' + entry.Value;
+  child.text = $.Localize(entry.DisplayName) + ': ' + $.Localize(entry.Value);
   child.style.color = entry.Color;
 }

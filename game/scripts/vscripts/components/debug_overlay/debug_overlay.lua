@@ -9,12 +9,7 @@ function DebugOverlay:Init()
   DebugPrint("Make Root Node")
   self.Overlay = self:_MakeRoot()
 
-  DebugPrint("Creating Game Events")
-  CustomGameEventManager:RegisterListener("debug_overlay_request", function (playerID)
-    --print("<- Update_Request")
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID - 1), "debug_overlay_update", { value = self.Overlay })
-    --print("-> Update")
-  end)
+  CustomNetTables:SetTableValue("debug_overlay", "overlay", self.Overlay)
 
   DebugPrint("Starting AutoUpdater")
   self.autoUpdateList = {}
@@ -85,6 +80,7 @@ function DebugOverlay:AddGroup(parentGroupName, settings)
     generic.ChildCount = 0
     return generic
   end)
+  CustomNetTables:SetTableValue("debug_overlay", "overlay", self.Overlay)
 end
 
 --[[
@@ -107,6 +103,7 @@ function DebugOverlay:AddEntry(parentGroupName, settings)
 
     return generic
   end)
+  CustomNetTables:SetTableValue("debug_overlay", "overlay", self.Overlay)
 end
 
 function DebugOverlay:Update(genericName, settings)
@@ -128,9 +125,7 @@ function DebugOverlay:Update(genericName, settings)
 
   self:_HandleUpdater(generic , settings)
 
-  if settings.forceUpdate then
-    self:UpdateDisplay()
-  end
+  CustomNetTables:SetTableValue("debug_overlay", "overlay", self.Overlay)
 end
 
 function DebugOverlay:_HandleUpdater(generic, settings)
@@ -142,7 +137,7 @@ function DebugOverlay:_HandleUpdater(generic, settings)
   if generic.autoUpdate then
     self:_AddAutoUpdater(generic)
   else
-    self:_RemoveAutoUpdater(genericName)
+    self:_RemoveAutoUpdater(generic.Name)
   end
 
   if generic.eventUpdate then
@@ -161,7 +156,6 @@ function DebugOverlay:_StartAutoUpdater()
         })
       end
     end
-    self:UpdateDisplay()
     return 0.1
   end)
 end
@@ -181,9 +175,3 @@ end
 function DebugOverlay:_AddEventUpdater(generic) end
 
 function DebugOverlay:_RemoveEventUpdater(generic) end
-
-function DebugOverlay:UpdateDisplay()
-  CustomGameEventManager:Send_ServerToAllClients("debug_overlay_update", {
-    value = self.Overlay
-  })
-end
