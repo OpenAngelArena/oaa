@@ -113,19 +113,18 @@ function modifier_item_aghanims_talents:SetTalents(tree)
 
     -- print('At leve ' .. level .. ' hero chose ' .. parent['talentChoice' .. level])
 
+    leftAbility:SetLevel(0)
+    rightAbility:SetLevel(0)
+
     if claim then
-      -- print ('enabling talents')
-      if parent['talentChoice' .. level] == 'left' then
-        rightAbility:SetLevel(1)
-      else
-        leftAbility:SetLevel(1)
-      end
+      leftAbility:SetLevel(1)
+      rightAbility:SetLevel(1)
     else
       -- print ('disabling talents')
       if parent['talentChoice' .. level] == 'left' then
-        rightAbility:SetLevel(0)
+        leftAbility:SetLevel(1)
       else
-        leftAbility:SetLevel(0)
+        rightAbility:SetLevel(1)
       end
     end
   end
