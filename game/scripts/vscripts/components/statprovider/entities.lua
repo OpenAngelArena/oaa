@@ -19,13 +19,13 @@ end
 function EntityStatProvider:EventHandler(keys)
   local entity = keys.entity
   local handle = EntIndexToHScript(entity)
+  EntityStatProvider.activeEntities[entity] = handle
 
   if not handle then
     CustomNetTables:SetTableValue("entity_stats", tostring(entity), {
       HealthRegen = 0,
       ManaRegen = 0
     })
-    table.insert(EntityStatProvider.activeEntities, tostring(entity))
     return
   end
 
@@ -34,7 +34,6 @@ function EntityStatProvider:EventHandler(keys)
       HealthRegen = handle:GetHealthRegen(),
       ManaRegen = 0
     })
-    table.insert(EntityStatProvider.activeEntities, tostring(entity))
     return
   end
 
@@ -42,14 +41,13 @@ function EntityStatProvider:EventHandler(keys)
     HealthRegen = handle:GetHealthRegen(),
     ManaRegen = handle:GetManaRegen()
   })
-  table.insert(EntityStatProvider.activeEntities, tostring(entity))
 end
 
 function EntityStatProvider:CollectGarbage()
-  for _,entity in pairs(self.activeEntities) do
-    local handle = EntIndexToHScript(entity)
+  for entity,handle in pairs(self.activeEntities) do
     if not IsValidEntity(handle) then
       CustomNetTables:SetTableValue("entity_stats", tostring(entity), nil)
+      self.activeEntities[entity] = nil
     end
   end
 end
