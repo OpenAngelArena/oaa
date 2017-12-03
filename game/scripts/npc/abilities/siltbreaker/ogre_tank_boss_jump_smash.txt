@@ -15,9 +15,9 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-        
+
         "IsOnCastBar"                   "0"
-                
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "150"
@@ -25,14 +25,14 @@
         "AnimationIgnoresModelScale"    "1"
         //"AnimationPlaybackRate"         "1.0" // default 1.0
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "3.75" // regular: 5.25
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "0"
-        
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -50,7 +50,7 @@
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "1833"
+                "damage"                "5000"
             }
             "04"
             {

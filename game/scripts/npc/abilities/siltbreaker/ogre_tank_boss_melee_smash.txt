@@ -15,8 +15,8 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-        
-        "IsOnCastBar"                   "0"        
+
+        "IsOnCastBar"                   "0"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
@@ -25,14 +25,14 @@
         "AnimationPlaybackRate"         "1.0"                       // Animation speed multiplier
         "AnimationIgnoresModelScale"    "1"
 
-        // Time     
+        // Time
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "2.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "0"
-        
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -40,17 +40,17 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "impact_radius"         "270" // regular version: 200
+                "impact_radius"         "200" // regular version: 200
             }
             "02"
             {
                 "var_type"              "FIELD_FLOAT"
-                "stun_duration"         "1.0" // regular version: 1.0
+                "stun_duration"         "1.2" // regular version: 1.0
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "1250" // regular version: 750
+                "damage"                "3500" // regular version: 750
             }
             "04"
             {

@@ -10,7 +10,7 @@ end
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_jump_smash:GetPlaybackRateOverride()
-	return self:GetSpecialValueFor("jump_speed") / 2
+	return self:GetSpecialValueFor("jump_speed") / 1.5 -- 0.9 for 1.8, 0.7 for 1.5
 end
 
 

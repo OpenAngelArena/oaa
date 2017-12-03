@@ -30,14 +30,14 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"27"
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"25"
+    "MagicalResistance"                                   "-25"            // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"200"
-		"AttackDamageMax"			"225"
+    "AttackDamageMin"                 "4687"      // Damage range min.
+    "AttackDamageMax"                 "4687"      // Damage range max.
 		"AttackRate"				"2.8"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"1200"
@@ -65,8 +65,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"7500"
-		"StatusHealthRegen"			"12"
+    "StatusHealth"                                        "15000"        // Base health.
+    "StatusHealthRegen"                                   "50.0"         // Health regeneration rate.
 		"StatusMana"				"1000"
 		"StatusManaRegen"			"5"
 
@@ -100,18 +100,8 @@
 				}
 			}
 
-			//Level Up Parameters
-			//------------------------------------------------------------
-			"HPGain"					"800"
-			"DamageGain"				"30"
-			"ArmorGain"					"1"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"0"
-			"XPGain"					"20"
-
 			"DefaultState"				"Invade"
-			"DisableResistance"			"100.0"
+			"DisableResistance"			"50.0"
 		}
 
     "precache"
