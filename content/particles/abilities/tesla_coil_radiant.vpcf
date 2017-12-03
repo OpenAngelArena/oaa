@@ -13,10 +13,7 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/units/heroes/hero_razor/razor_static_link_beam.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_razor/razor_static_link_light.vpcf"
+			m_ChildRef = resource:"particles/abilities/tesla_coil_radiant_beam.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 
