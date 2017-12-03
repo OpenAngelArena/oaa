@@ -270,7 +270,7 @@ modifier_item_lucience_regen_effect.OnRefresh = modifier_item_lucience_regen_eff
 function modifier_item_lucience_regen_effect:OnIntervalThink()
   local parent = self:GetParent()
 
-  parent:Heal(self.regenBonus / self.healInterval, self:GetParent())
+  parent:Heal(self.regenBonus * self.healInterval, self:GetParent())
 end
 
 function modifier_item_lucience_regen_effect:GetEffectName()
