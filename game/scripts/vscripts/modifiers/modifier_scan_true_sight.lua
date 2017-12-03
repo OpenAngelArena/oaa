@@ -9,57 +9,58 @@ modifier_scan_true_sight = class( ModifierBaseClass )
 --------- modifier_scan_true_sight_thinker ---------
 
 function modifier_scan_true_sight_thinker:IsPurgable()
-    return false
+  return false
+end
+
+function modifier_scan_true_sight_thinker:IsAura()
+  return true
+end
+
+function modifier_scan_true_sight_thinker:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_scan_true_sight_thinker:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_HERO
+end
+
+function modifier_scan_true_sight_thinker:GetModifierAura()
+  return "modifier_scan_true_sight"
+end
+
+function modifier_scan_true_sight_thinker:GetAuraRadius()
+  return SCAN_REVEAL_RADIUS
 end
 
 if IsServer() then
 
-    function modifier_scan_true_sight_thinker:OnCreated( event )
-
-        self.debuff_interval = 0.4
-        self.debuff_duration = 0.5
-        self.radius = SCAN_REVEAL_RADIUS
-
-        self:StartIntervalThink(self.debuff_interval)
-    end
-
-    function modifier_scan_true_sight_thinker:OnIntervalThink()
-
-        local found_targets = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-
-        if #found_targets > 0 then
-            for _,unit in pairs(found_targets) do
-                unit:AddNewModifier(self:GetCaster(), nil, "modifier_scan_true_sight", {
-                    duration = self.debuff_duration,
-                })
-            end
-        end
-    end
-
-    function modifier_scan_true_sight_thinker:OnDestroy()
-        UTIL_Remove( self:GetParent() )
-    end
+  function modifier_scan_true_sight_thinker:OnDestroy()
+    UTIL_Remove( self:GetParent() )
+  end
 
 end
 
 --------- modifier_scan_true_sight ---------
 
 function modifier_scan_true_sight:IsPurgable()
-    return false
+  return false
 end
 
 function modifier_scan_true_sight:IsDebuff()
-    return true
+  return true
+end
+
+function modifier_scan_true_sight:IsHidden()
+  return false
 end
 
 function modifier_scan_true_sight:GetPriority()
-    return MODIFIER_PRIORITY_HIGH
+  return MODIFIER_PRIORITY_HIGH
 end
 
 function modifier_scan_true_sight:CheckState()
-    local state = {
-        [MODIFIER_STATE_INVISIBLE] = false
-    }
-    return state
+  local state = {
+    [MODIFIER_STATE_INVISIBLE] = false
+  }
+  return state
 end

@@ -116,7 +116,6 @@ end
 
 function Glyph:CastScan(playerID, keys)
 
-
   if self:GetScanCooldown(playerID) > 0 then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
     return
