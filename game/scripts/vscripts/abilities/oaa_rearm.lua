@@ -106,11 +106,11 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_meteor_hammer_3 = true,
     item_meteor_hammer_4 = true,
     item_meteor_hammer_5 = true,
-    item_combo_breaker = true,
-    item_combo_breaker_2 = true,
-    item_combo_breaker_3 = true,
-    item_combo_breaker_4 = true,
-    item_combo_breaker_5 = true
+    item_aeon_disk = true,
+    item_aeon_disk_2 = true,
+    item_aeon_disk_3 = true,
+    item_aeon_disk_4 = true,
+    item_aeon_disk_5 = true
   }
 
   if not bInterrupted then
