@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_oaa_glaives_of_wisdom", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_of_wisdom_fx", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 
 silencer_glaives_of_wisdom_oaa = class(AbilityBaseClass)
 
@@ -14,6 +15,10 @@ function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   else
     return defaultResult
   end
+end
+
+function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
+  return self:GetCaster():GetAttackRange()
 end
 
 --------------------------------------------------------------------------------
@@ -46,42 +51,76 @@ modifier_oaa_glaives_of_wisdom.OnRefresh = modifier_oaa_glaives_of_wisdom.OnCrea
 
 function modifier_oaa_glaives_of_wisdom:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_EVENT_ON_ATTACK_FAIL,
     MODIFIER_EVENT_ON_ATTACK_START,
-    MODIFIER_EVENT_ON_ATTACK_FINISHED
+    MODIFIER_EVENT_ON_ATTACK,
+    MODIFIER_EVENT_ON_ATTACK_FINISHED,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_FAIL
   }
 end
 
+-- Only AttackStart is early enough to override the projectile
 function modifier_oaa_glaives_of_wisdom:OnAttackStart(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  -- Manual cast of attack modifier appears to make the damage_type 1115000
-  -- May or may not work properly in practice
-  if keys.attacker == parent and (keys.damage_type == 1115000 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
+  local target = keys.target
+  local condition = (
+    keys.attacker == parent and
+    (parent:GetCurrentActiveAbility() == ability or -- Checks if Glaives was manually cast
+    ability:GetAutoCastState()) and
+    not parent:IsSilenced() and
+    ability:IsOwnersManaEnough() and
+    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+    ability:IsCooldownReady() and
+    not target.IsItem and -- Existence of method is enough to indicate we're not attacking an NPC entity (most likely attacking an item)
+    (not target:IsMagicImmune() or parent:HasScepter()) and
+    not target:IsInvulnerable() and
+    not target:IsOther() and
+    target:GetTeamNumber() ~= parent:GetTeamNumber() and
+    not target:IsBuilding()
+  )
+
+  if condition then
+    -- Add modifier to change attack sound
+    parent:AddNewModifier( parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {} )
     -- Set projectile
     parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
-  end
-end
-
-function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
-  local parent = self:GetParent()
-  if keys.attacker == parent then
-    parent:SetRangedProjectileName(self.parentOriginalProjectile)
   end
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  -- Manual cast of attack modifier appears to make the damage_type 2
-  -- May or may not work properly in practice
-  if keys.attacker == parent and (keys.damage_type == 2 or ability:GetAutoCastState()) and ability:IsOwnersManaEnough() and keys.target.IsMagicImmune and (not keys.target:IsMagicImmune() or parent:HasScepter()) then
+  local target = keys.target
+  local condition = (
+    keys.attacker == parent and
+    (parent:GetCurrentActiveAbility() == ability or -- Checks if Glaives was manually cast
+    ability:GetAutoCastState()) and
+    not parent:IsSilenced() and
+    ability:IsOwnersManaEnough() and
+    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+    ability:IsCooldownReady() and
+    not target.IsItem and -- Existence of method is enough to indicate we're not attacking an NPC entity (most likely attacking an item)
+    (not target:IsMagicImmune() or parent:HasScepter()) and
+    not target:IsInvulnerable() and
+    not target:IsOther() and
+    target:GetTeamNumber() ~= parent:GetTeamNumber() and
+    not target:IsBuilding()
+  )
+
+  if condition then
     -- Enable proc for this attack record number
     self.procRecords[keys.record] = true
-    -- Using attack modifier abilities doesn't actually fire any cast events so we have to spend the mana here
-    ability:PayManaCost()
+    -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
+    ability:UseResources(true, true, true)
+  end
+end
+
+function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
+  local parent = self:GetParent()
+  if keys.attacker == parent then
+    parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
+    parent:SetRangedProjectileName(self.parentOriginalProjectile)
   end
 end
 
@@ -119,7 +158,30 @@ end
 
 function modifier_oaa_glaives_of_wisdom:OnAttackFail(keys)
   local parent = self:GetParent()
+
   if keys.attacker == parent and self.procRecords[keys.record] then
     self.procRecords[keys.record] = nil
   end
+end
+
+--------------------------------------------------------------------------------
+
+modifier_oaa_glaives_of_wisdom_fx = class(ModifierBaseClass)
+
+function modifier_oaa_glaives_of_wisdom_fx:IsPurgable()
+  return false
+end
+
+function modifier_oaa_glaives_of_wisdom_fx:IsHidden()
+  return true
+end
+
+function modifier_oaa_glaives_of_wisdom_fx:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND
+  }
+end
+
+function modifier_oaa_glaives_of_wisdom_fx:GetAttackSound()
+  return "Hero_Silencer.GlaivesOfWisdom"
 end
