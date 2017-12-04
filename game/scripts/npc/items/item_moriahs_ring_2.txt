@@ -1,9 +1,9 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Bloodmage
+  // Recipe: Moriah's Ring
   //=================================================================================================================
-  "item_recipe_bloodmage_2"
+  "item_recipe_moriahs_ring_2"
   {
 
     "ID"                                                  "8437"       // unique ID
@@ -13,24 +13,24 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodmage_2"
+    "ItemResult"                                          "item_moriahs_ring_2"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodmage;item_upgrade_core_4"
+      "01"                                                "item_moriahs_ring;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Bloodmage
+  // Moriah's Ring
   //=================================================================================================================
-  "item_bloodmage_2"
+  "item_moriahs_ring_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8438"       // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/bloodmage.lua"
+    "ScriptFile"                                          "items/moriahs_ring.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "2"
 
@@ -39,18 +39,18 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
-    "AbilitySharedCooldown"                               "bloodmage"
+    "AbilitySharedCooldown"                               "moriahs_ring"
     "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_bloodmage_2"
+    "UpgradesItems"                                       "item_moriahs_ring_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "37150"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "bm;bloodmage;get bkb"
+    "ItemAliases"                                         "moriah;ring;moriahs ring;get bkb"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
@@ -70,16 +70,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "sangromancy_self_damage"                         "100 100"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "start_delay"                                     "1.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_after_delay"                            "2"
       }
     }
   }
