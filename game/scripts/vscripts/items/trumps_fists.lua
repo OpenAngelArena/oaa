@@ -82,6 +82,7 @@ modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
     self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
+    self.totalDuration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
     self.health_fraction = 0
   end
 end
@@ -101,7 +102,8 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     if kv.unit == self:GetParent() and kv.gain > 0 then
-      local desiredHP = kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100 + self.health_fraction
+      local healPercent = self.heal_prevent_percent / 100 * (self:GetRemainingTime() / self.totalDuration)
+      local desiredHP = kv.unit:GetHealth() + kv.gain * healPercent + self.health_fraction
       desiredHP = math.max(desiredHP, 1)
       -- Keep record of fractions of health since Dota doesn't (mainly to make passive health regen sort of work)
       self.health_fraction = desiredHP % 1
