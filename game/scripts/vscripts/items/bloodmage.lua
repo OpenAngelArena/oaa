@@ -123,7 +123,6 @@ end
 
 function modifier_item_bloodmage_sangromancy:OnTakeDamage(event)
   if event.damage_category == 0 and event.attacker == self:GetCaster() and not (event.unit == self:GetCaster()) then
-    print(dump(event))
 
     local damage = {
       victim = event.attacker,
@@ -140,4 +139,4 @@ end
 
 --------------------------------------------------------------------------------
 
-item_bloodmage = item_bloodmage_2
+item_bloodmage_2 = item_bloodmage

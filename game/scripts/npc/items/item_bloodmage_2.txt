@@ -6,7 +6,7 @@
   "item_recipe_bloodmage_2"
   {
 
-    "ID"                                                  "8433"       // unique ID
+    "ID"                                                  "8437"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
@@ -17,7 +17,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodmage;item_upgrade_core_5"
+      "01"                                                "item_bloodmage;item_upgrade_core_4"
     }
   }
 
@@ -28,7 +28,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8434"       // unique ID
+    "ID"                                                  "8438"       // unique ID
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/bloodmage.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
