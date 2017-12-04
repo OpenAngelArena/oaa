@@ -62,16 +62,19 @@ function modifier_oaa_arcane_orb:OnAttackStart(keys)
 
   local ability = self:GetAbility()
   local target = keys.target
-  local autocast = (
-    ability:GetAutoCastState() and
-    not parent:IsSilenced() and
-    ability:IsOwnersManaEnough() and
-    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
-    ability:IsCooldownReady() and
-    ability:CastFilterResultTarget(target) == UF_SUCCESS
-  )
+  -- Wrap in function to defer evaluation
+  local function autocast()
+    return (
+      ability:GetAutoCastState() and
+      not parent:IsSilenced() and
+      ability:IsOwnersManaEnough() and
+      ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+      ability:IsCooldownReady() and
+      ability:CastFilterResultTarget(target) == UF_SUCCESS
+    )
+  end
 
-  if parent:GetCurrentActiveAbility() ~= ability and not autocast then
+  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
     return
   end
 
@@ -90,16 +93,19 @@ function modifier_oaa_arcane_orb:OnAttack(keys)
 
   local ability = self:GetAbility()
   local target = keys.target
-  local autocast = (
-    ability:GetAutoCastState() and
-    not parent:IsSilenced() and
-    ability:IsOwnersManaEnough() and
-    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
-    ability:IsCooldownReady() and
-    ability:CastFilterResultTarget(target) == UF_SUCCESS
-  )
+  -- Wrap in function to defer evaluation
+  local function autocast()
+    return (
+      ability:GetAutoCastState() and
+      not parent:IsSilenced() and
+      ability:IsOwnersManaEnough() and
+      ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+      ability:IsCooldownReady() and
+      ability:CastFilterResultTarget(target) == UF_SUCCESS
+    )
+  end
 
-  if parent:GetCurrentActiveAbility() ~= ability and not autocast then
+  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
     return
   end
 
