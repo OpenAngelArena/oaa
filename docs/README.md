@@ -16,43 +16,43 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 
 1. [Setup][1]
 
-1. [OAA Development Discord][2]
+2. [OAA Development Discord][2]
 
-2. [Git][3]
+3. [Git][3]
 
-3. [Dota 2 Tools][4]
+4. [Dota 2 Tools][4]
 
-4. [Dota 2 Addon Manager][5]
+5. [Dota 2 Addon Manager][5]
 
-5. [KV][6]
+6. [KV][6]
 
-6. [Sound][8]
+7. [Sound][7]
 
-7. [Map][9]
+8. [Map][8]
 
-8. [Materials][10]
+9. [Materials][9]
 
-9. [Models][11]
+10. [Models][10]
 
-10. [Particles][12]
+11. [Particles][11]
 
-11. [Icons][13]
+12. [Icons][12]
 
-12. [Lua][14]
+13. [Lua][13]
 
-13. [Panorama][15]
+14. [Panorama][14]
 
-14. [Design][16]
+15. [Design][15]
 
-15. [Balance][17]
+16. [Balance][16]
 
-16. [Bug-Reports][18]
+17. [Bug-Reports][17]
 
-17. [Documentation][19]
+18. [Documentation][18]
 
-18. [Writing][20]
+19. [Writing][19]
 
-19. [Translation][21]
+20. [Translation][20]
 
 [^ Top][99]
 
