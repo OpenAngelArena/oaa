@@ -20,7 +20,7 @@ Describe how the document is organized. Explain what the reader should expect to
 
 3. [Dota 2 Tools][4]
 
-4. [D2AM][5]
+4. [Dota 2 Addon Manager][5]
 
 5. [KV][6]
 

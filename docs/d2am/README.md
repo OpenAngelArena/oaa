@@ -1,4 +1,4 @@
-# Dota 2 Addon Manager (D2AM)
+# Dota 2 Addon Manager (d2am)
 
 Updated 2017-12-05
 
