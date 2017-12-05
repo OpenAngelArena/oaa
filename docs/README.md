@@ -8,7 +8,9 @@ Updated 2017-12-05
 
 ## Introduction
 
-Describe how the document is organized. Explain what the reader should expect to get out of reading it:
+This is your new reference guide for the development of custom games written by the OAA development team. During the development of OAA we are constantly learning new and more complex modding techniques like making custom models, animations, menus, etc. and here is where you will find in-depth guides, examples, case-histories, and other useful files made by us and also links to other great resources by Valve, Moddota, and more!
+
+A note to aspiring authors and subject-field experts who wish to contribute their knowledge: we strongly encouraged you to PR new documents here (be sure to link it in the department's README)! If something is out of date feel free to comment on it or PR any changes for review! Thanks, and happy modding!
 
 ## Table of Contents
 
