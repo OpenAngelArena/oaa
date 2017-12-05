@@ -26,35 +26,33 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 
 5. [KV][6]
 
-6. [Dota 2 API][7]
+6. [Sound][8]
 
-7. [Sound][8]
+7. [Map][9]
 
-8. [Map][9]
+8. [Materials][10]
 
-9. [Materials][10]
+9. [Models][11]
 
-10. [Models][11]
+10. [Particles][12]
 
-11. [Particles][12]
+11. [Icons][13]
 
-12. [Icons][13]
+12. [Lua][14]
 
-13. [Lua][14]
+13. [Panorama][15]
 
-14. [Panorama][15]
+14. [Design][16]
 
-15. [Design][16]
+15. [Balance][17]
 
-16. [Balance][17]
+16. [Bug-Reports][18]
 
-17. [Bug-Reports][18]
+17. [Documentation][19]
 
-19. [Documentation][19]
+18. [Writing][20]
 
-20. [Writing][20]
-
-21. [Translation][21]
+19. [Translation][21]
 
 [^ Top][99]
 
@@ -63,20 +61,19 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 [3]: git/README.md
 [4]: dota2tools/README.md
 [5]: d2am/README.md
-[6]: kv/README.md
-[7]: api/README.md
-[8]: sound/README.md
-[9]: map/README.md
-[10]: materials/README.md
-[11]: models/README.md
-[12]: particles/README.md
-[13]: icons/README.md
-[14]: lua/README.md
-[15]: panorama/README.md
-[16]: design/README.md
-[17]: balance/README.md
-[18]: bug-reports/README.md
-[19]: documentation/README.md
-[20]: writing/README.md
-[21]: translation/README.md
+[6]: kv/README.mdd
+[7]: sound/README.md
+[8]: map/README.md
+[9]: materials/README.md
+[10]: models/README.md
+[11]: particles/README.md
+[12]: icons/README.md
+[13]: lua/README.md
+[14]: panorama/README.md
+[15]: design/README.md
+[16]: balance/README.md
+[17]: bug-reports/README.md
+[18]: documentation/README.md
+[19]: writing/README.md
+[20]: translation/README.md
 [99]: README.md
