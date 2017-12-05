@@ -1,26 +1,31 @@
-# Intro to Documentation
+# OAA Development Guide
 
-Documentation involves the creation, organization, and communication of information for the use of developers, players, and the general audience. This documentation takes various forms, from developmental resources to official documentation
+v 0.0.1
 
-## The Documentation Hub
+# Sound
 
-It's fine to refer new contributors to http://warpdragon.github.io (The Documentation Hub) for resources. This site is just something I created because myself and others were finding our Bookmarks folder getting out-of-hand with all the links we needed to do our jobs. This website has, among other things, references for learning LUA, lists of useful Githubs, lots of the Artwork for the game, and tons of useful charts and graphs. Anyone can recommend adding things to this site.
+# Maps
 
-## The /docs/ folder
+# Materials
 
-These documents should only be "official" information directly related to the development, release, and support of the OAA project. Think of it this folder as a Library, ensuring that everyone has easy access to the most current information available. To that end, those who contribute are also asked to seek out and make contacts on the various teams, and work with key members to ensure that notes are taken and reported whenever ideas or designs become "official".
+# Models
 
-There's a lot of ideas floating around. But most aren't official. If you're not sure whether something is official, first check the Documentation Hub, the OAA github Issues, and the /docs/ folder. If the document is not there, click "Search" in discord to see if a similar question has already been asked. If you're positive it has not been asked & answered, and assuming you've followed each of the preceding steps thoroughly, the next step is to ask in the appropriate help channel with "@username" to a Core Member in the Discord.
+# Particles
 
-## Things you can contribute
+# Icons
 
-Anything any team feels would be necessary to publish in case new members need a reference to start working quickly and effectively. Artists can write up documentation on creating and baking textures, creating models, etc. Musicians can write up documentation on putting music into the game, Balance can publish their workflow, Design can publish the official design philosophies so they can stop repeating themselves every 10 seconds. You get the idea!
+# Git
 
-## Ways to contribute
+# Dota 2 Tools
 
-1. Open an issue at http://github.com/OpenAngelArena/oaa/issues. Tag your issue [Links], [Tables], [Instructionals], [Resource], etc please.
-2.  Create your own development branch (preferred method) and send a pull request to OpenAngelArena/oaa
+# D2AM
 
-## Questions?
+# LUA
 
-Don't open an issue, just ask!
+# JS
+
+# CSS
+
+# XML
+
+# DOTA 2 API
