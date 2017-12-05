@@ -36,7 +36,7 @@ Describe how the document is organized. Explain what the reader should expect to
 
 12. [Icons][12]
 
-13. [LUA][13]
+13. [Lua][13]
 
 14. [Panorama][14]
 
