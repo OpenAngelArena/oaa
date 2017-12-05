@@ -24,7 +24,4 @@ Are there known workarounds?
 
 Please attach any relevant pics, vids, notes, anything to help our coders resolve the issue.
 
-[^ Top][99]
-
 [0]: ../README.md
-[99]: bug-report-template.md

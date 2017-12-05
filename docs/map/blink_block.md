@@ -19,7 +19,4 @@ We have special boxes to prevent people from blinking over designated areas. The
 
  * Make sure `Build entities` and `Build griv nav` are both selected when you test the map!
 
-[^ Top][99]
-
 [0]: ../README.md
-[99]: blink_block.md

@@ -13,9 +13,6 @@ Text
 1. [Design Primer][1]
 2. [Townhall Meetings][2]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: design_primer.md
 [2]: townhall_meetings.md
-[99]: README.md

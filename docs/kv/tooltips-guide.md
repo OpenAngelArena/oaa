@@ -1,5 +1,9 @@
 # Tooltips Guide
 
+Updated 2017-12-05
+
+[< KV][0]
+
 Tooltips are used in the Dota 2 user interface to communicate information about units, abilities, debuffs, almost everything.
 
 ## General Information
@@ -74,3 +78,5 @@ Each individual NPC tooltip file in OAA contains multiple units. The different f
 Tooltips are fairly easy to learn, but properly creating the text requires a very high attention to detail and great communication skills. Changes to any file or set of files should be done completely at once to save the translators from having to re-translate files multiple times. Authors should maintain intimate knowledge of the designs of items and abilities so that their tooltips will be accurate. Descriptions should be succinct and clear, based on a complete understanding of how the item/ability/unit works. 
 
 Authors should also be prepared to maintain their own set of files, uploading their work independently using a Git client: https://github.com/OpenAngelArena/oaa/blob/master/docs/github-for-noobs.md
+
+[0]: ../README.md

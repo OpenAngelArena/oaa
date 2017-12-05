@@ -15,15 +15,9 @@ Programming the behaviors and effects of custom abilities, items, heroes, bots, 
 3. [Events][3]
 4. [Lua Functional Library Intro][4]
 5. [Points Manager][5]
-
-## External Links
-
-1. [LUA Abilities and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers)
-2. [](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)
-3. [](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names)
-
-
-[^ Top][99]
+1. [LUA Abilities and Modifiers][6]
+2. [Scripting API][7]
+3. [Built-In Modifier Names][8]
 
 [0]: ../README.md
 [1]: custom_tables.md
@@ -31,8 +25,6 @@ Programming the behaviors and effects of custom abilities, items, heroes, bots, 
 [3]: events.md
 [4]: lua_fun_intro.md
 [5]: pointsmanager.md
-
-
-
-
-[99]: README.md
+[6]: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers
+[7]: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
+[8]: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names

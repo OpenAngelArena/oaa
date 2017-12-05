@@ -6,14 +6,11 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Documentation manages the Development Guide and communication in general.
 
 ## Topics
 
 1. [Documentation Style Guide][1]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: docs-style-guide.md
-[99]: README.md

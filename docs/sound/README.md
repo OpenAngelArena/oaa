@@ -6,13 +6,11 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Sounds are the music and sound effects that can be called by the game using a number of different methods to create audio feedback and ambience in the game.
 
 ## Topics
 
 1. [Insert Links here]
-
-[^ Top][99]
 
 [0]: ../README.md
 [1]: filename.md
@@ -23,4 +21,3 @@ Text
 [6]: filename.md
 [7]: filename.md
 [8]: filename.md
-[99]: README.md

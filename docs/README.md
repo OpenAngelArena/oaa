@@ -1,7 +1,3 @@
-<head>
-
-</head>
-
 # OAA Development Guide
 
 Updated 2017-12-05
@@ -76,4 +72,3 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 [18]: documentation/README.md
 [19]: writing/README.md
 [20]: translation/README.md
-[99]: README.md

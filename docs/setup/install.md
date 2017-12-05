@@ -1,4 +1,9 @@
 # Installing Open Angel Arena
+
+Updated 2017-12-05
+
+[< Setup][0]
+
 You have to set up several things before you can run a local instance of OAA for development.
 
 ## System Dependencies
@@ -76,3 +81,5 @@ Select `oaa` below `Custom Games` and click `Launch Custom Game Tools`. `Dota 2`
 If you get the error 'Unable to load map specified by server', it means you have to first build the map in Hammer (map editor tool). Go back to 'Asset Browser' and click the hammer icon on the top left. Open one of the maps (probably oaa) and click the gamepad sybol to test the gamemode. Open `oaa.vmap` and click the gamepad icon on the top (or press `F9`). Untick `Load in engine after building` and click `Build`. This might take some time. Try to launch the game again.
 
 Now you are ready to start developing. Read the [Github guide](/docs/github-for-noobs.md) to learn about contributing. In case you are already familiar with Github there are [other guides](/docs/).
+
+[0]: ../README.md

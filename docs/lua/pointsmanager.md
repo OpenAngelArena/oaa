@@ -1,5 +1,9 @@
 # PointsManager Mini Documentation
 
+Updated 2017-12-05
+
+[< Lua][0]
+
 ## Functions
 
 ### Set Points
@@ -14,3 +18,5 @@ PointsManager:SetPoints(side, newPoints)
 ```Lua
 PointsManager:AddPoints(side, amount)
 ```
+
+[0]: ../README.md

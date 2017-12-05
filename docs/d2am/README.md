@@ -12,8 +12,6 @@ Text
 
 1. [Insert Links here]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: filename.md
 [2]: filename.md
@@ -23,4 +21,3 @@ Text
 [6]: filename.md
 [7]: filename.md
 [8]: filename.md
-[99]: README.md

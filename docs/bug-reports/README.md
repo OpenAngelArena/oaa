@@ -12,8 +12,5 @@ Filing a bug report is easy, but we do ask that you follow the proper procedure.
 
 1. [Bug Report Template][1]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: bug-report-template.md
-[99]: README.md

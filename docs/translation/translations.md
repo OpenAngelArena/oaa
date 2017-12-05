@@ -1,4 +1,9 @@
 # Writing and Translations
+
+Updated 2017-12-05
+
+[< Translation][0]
+
 There's a lot of text in OAA, varying between single word titles to paragraph descriptions.
 
 ## Languages 
@@ -32,3 +37,5 @@ It is also possible to use an [authentication token](https://www.transifex.com/b
 
 Open a **new** command prompt in your `oaa` folder and run `node scripts/generate-translations.js`.
 Start the game and check your strings.
+
+[0]: ../README.md

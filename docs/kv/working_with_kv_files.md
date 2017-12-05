@@ -1,4 +1,9 @@
-# KV Files
+# Working with KV Files
+
+Updated 2017-12-05
+
+[< KV][0]
+
 Welcome to the wonderful world of KV (Kivy), or KeyValue language. The name implies its structure: Keys on the left, Values on the right, forming pairs. KeyValues are stored information used primarily by LUA scripts. When invoked, these scripts trigger actions, pulling from the KeyValues when required
 ## Tools You'll need
 
@@ -94,3 +99,5 @@ Launch Dota 2 Tools; Load "oaa" addon; Load Console by pressing "~"; Launch the 
 ```
 "dota_launch_custom_game oaa oaa"
 ```
+
+[0]: ../README.md

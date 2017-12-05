@@ -6,13 +6,11 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Particles consist a sprite or model-based renderer, an emitter, as well as initialization/operationalization parameters. They can be used to create fire, water, bubbles, screen-shake, screen-tint, and other really cool effects to be used by the map, hero abilities, etc.
 
 ## Topics
 
 1. [Insert Links here]
-
-[^ Top][99]
 
 [0]: ../README.md
 [1]: filename.md
@@ -23,4 +21,3 @@ Text
 [6]: filename.md
 [7]: filename.md
 [8]: filename.md
-[99]: README.md

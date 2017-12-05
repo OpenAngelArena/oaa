@@ -1,9 +1,13 @@
-GitHub Contibuting Guide
+# GitHub Contibuting Guide
 
-# Intro
+Updated 2017-12-05
+
+[< Git][0]
+
+## Intro
 This is an introduction to GitHub and Git on the example of contributing to OpenAngelArena. Nearly all of the implementation (from KV files, localization, scripts, graphics, to models) can be streamlined by using a very basic software tool called a Version Control System (VCS). The one we're using is called Git and the repository (server storage) we are using is called GitHub. Essentially, Git enables the development teams to branch out and work on the exact same files as each other without overwriting each other's work. Also, every person can have multiple development branches of the same files available simultaneously using only a couple very basic commands. This enables one to modify files in a development branch without effecting the others (like if you wanted to test abilties you script but didn't want to have to overwrite and manually back up everytime you change something). Furthermore, Git tracks history, so if you make a mistake, you can just reset to ANY point in the development (even if you delete files). Yes it's going to take some effort to learn.
 
-# Terminology
+## Terminology
 At this point just familiarize yourself with the following terminology:
 
 - Add - Move changes from the working directory to the staging area.
@@ -32,9 +36,9 @@ At this point just familiarize yourself with the following terminology:
 - Tracked files - Any files that were in the latest snapshot.
 - Untracked files - Unstaged files not in the last snapshot.
 
-# Getting Started
+## Getting Started
 
-## Setup
+### Setup
 
 First, follow the [Installation Process](/docs/install.md) in order to create a Fork of openangelarena/oaa to work from.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
@@ -46,7 +50,7 @@ As described in the Installation Process, forking creates a simultaneous instanc
 - Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
 - Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
 
-## Cloning
+### Cloning
 Also described in the Installation Process, cloning copies your fork to your computer with the GitHub client (or by clicking "Clone or Download" on the main page of `GitHub.com/openangelarena/oaa`. As mentioned, you can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). You should have already done the following during the Installation Process:
 
 - Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
@@ -61,7 +65,7 @@ Also described in the Installation Process, cloning copies your fork to your com
 - Verify Clone to your repo.
 Now we should have a local copy of your fork of [OpenAngelArena/oaa]
 
-## Open Git Power Shell
+### Open Git Power Shell
 Git Power Shell enables you to control Git using a variety of commands. You can open Git Power Shell in a number of ways:
   - Desktop shortcut labelled Git Shell.
   - Startmenu shortcut labelled Git Shell.
@@ -69,13 +73,13 @@ Git Power Shell enables you to control Git using a variety of commands. You can 
   - Right-Click on your repository at 'GitHub.com/YOURUSERNAME/oaa' and select `Open in Git Shell`
 
  
-## Finish Installing oaa
+### Finish Installing oaa
 Continue the [Installation Process](/docs/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
 
-## Getting Started
+### Getting Started
 To be able to work on your own stuff but still have all the newest changes and to have a nice and organized repository, git features Branches. For more information about Branches, read [Git Branching - Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
 
-### Remotes and Updating
+#### Remotes and Updating
 
 Let's first look at the different remotes we have by typing 'git remote -v':
   ```
@@ -96,14 +100,14 @@ In order to stay up-to-date with the official OpenAngelArena/oaa (the official o
    * branch            master     - FETCH_HEAD
   Already up-to-date.
   ```
-### Pushing
+#### Pushing
 When updating, the newest changes are downloaded from OpenAngelArena/oaa to our [local] [master] [branch]. Now push them to your repo YOURUSERNAME/oaa on GitHub:
 ```
  git push
 Everything up-to-date
 ```
 
-## Workflow
+### Workflow
 When working, you want to keep two Branches. The first is your local master branch. Switch to it using:
 ```
  git checkout master
@@ -146,7 +150,7 @@ To https://GitHub.com/Chronophylos/oaa
    1554bf2..3be214d  GitHub-for-noobs - GitHub-for-noobs
 ```
 
-## Creating a PR
+### Creating a PR
 
 To create a PR goto [OpenAngelArena/oaa](https://GitHub.com/OpenAngelArena/oaa) on GitHub
 - Click 'New Pull Request'
@@ -156,13 +160,15 @@ To create a PR goto [OpenAngelArena/oaa](https://GitHub.com/OpenAngelArena/oaa) 
 - Now fill in the form
 - 'Create pull request' and you're done!
 
-#Links
+## Links
 - [Read the entire Pro Git Book](https://git-scm.com/book/en/v2)!
 - [Git on GitHub](https://GitHub.com/git/git)
 - [Wikipedia](https://en.wikipedia.org/wiki/GitHub)
 - [Git Questions?](https://stackoverflow.com/questions/tagged/git).
 - [OpenAngelArena/oaa Master Repo](https://GitHub.com/OpenAngelArena/oaa)
 
-## Authors
+### Authors
 Author Discord@Chronophylos#5199
 Editor Discord@Warpdragon#9105
+
+[0]: ../README.md

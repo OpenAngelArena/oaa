@@ -1733,7 +1733,4 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
     * detailed description
 ```
 
-[^ Top][99]
-
 [0]: ../README.md
-[99]: changelog.md

@@ -1,7 +1,12 @@
-# Intro
+# Lua Functional Libraries
+
+Updated 2017-12-05
+
+[< Lua][0]
+
 This is a quick introduction to the Lua Fun library and how to write code using it. If you're completely unfamiliar with functional programming, you might want to start by reading [this](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming).
 
-# Lua Fun
+## Lua Fun
 
 ## Intro
 Lua Fun is a library that provides several functions useful for writing Lua code in a functional style, such as the common `map` and `reduce`. For example, using Lua Fun, you would find the sum of the numbers 1 to 5 like this:
@@ -35,3 +40,5 @@ If you've used other languages with functional primitives before, you may be use
 
 ### Partial
 While Lua Fun doesn't have `partial`, the OAA project has an implemetation that can be found in `game/scripts/vscripts/libraries/functional.lua` ([file on GitHub](https://github.com/OpenAngelArena/oaa/blob/master/game/scripts/vscripts/libraries/functional.lua)). Usage should be similar to `partial` in other languages. The first parameter is the function to curry, followed by the parameters to pass to the curried function.
+
+[0]: ../README.md

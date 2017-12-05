@@ -6,13 +6,11 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Materials are special combinations of textures, parameters, shaders which give physical appearance, pathing and collision behavior, and other qualities to the surfaces of meshes.
 
 ## Topics
 
 1. [Insert Links here]
-
-[^ Top][99]
 
 [0]: ../README.md
 [1]: filename.md
@@ -23,4 +21,3 @@ Text
 [6]: filename.md
 [7]: filename.md
 [8]: filename.md
-[99]: README.md

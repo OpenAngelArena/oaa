@@ -12,8 +12,5 @@ Text
 
 1. [Old changelog][1]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: changelog.md
-[99]: README.md

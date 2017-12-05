@@ -1,5 +1,9 @@
 # Quick KV Updating/Testing
 
+Updated 2017-12-05
+
+[< KV][0]
+
 ## Setting up the Game
 1. Ensure you have the proper Clone of oaa. Check that you have the following:
   - '\oaa\game\scripts\npc\npc_abilities_override.txt' - containing ~500 abilities in ~29,000 lines of data.
@@ -44,3 +48,4 @@ You can compile these by running an automated script. Open Node.js command promp
 
 IMPORTANT: At the moment I'm writing this the Node.js script does not properly compile. It will cause the abilities to be compiled into npc_abilities_custom.txt which is not correct. Chris or someone in coding needs to make sure Node.js (or whatever script they decide to use) works properly by the time you do your Test Stream.
 
+[0]: ../README.md

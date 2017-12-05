@@ -1,4 +1,9 @@
-# Intro
+# Debug Print Lua
+
+Updated 2017-12-05
+
+[< Lua][0]
+
 This is documentation for the debug printing system found in `game/scripts/vscripts/internal/util.lua`.
 
 # Usage
@@ -16,3 +21,5 @@ So for example, to enable printing for the file `game/scripts/vscripts/component
 
 # Additional Debug Info
 `DebugPrint` and `DebugPrintTable` automatically prepend the filepath and line number where they are called to assist in debugging.
+
+[0]: ../README.md

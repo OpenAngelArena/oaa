@@ -2,7 +2,7 @@
 
 Updated 2017-12-05
 
-[< Design][../README.md]
+[< Design][0]
 
 ## Boss Concepts
 1. When submitting, outline purely the mechanics.
@@ -23,7 +23,4 @@ Updated 2017-12-05
 3. Design should promote the core gameplay.
   This goes hand in hand with the previous point. Each game has a draw, something players get out of it. In our case, it's a combination of ridiculous teamfights, challenging bosses, and the power trip value of heroes way more powerful than they are in Dota. Designs which reinforce these feelings are good designs. Designs which go against these - say, by reducing player agency, or making a boss fight boring or repetitive, are bad designs.
 
-[^ Top][99]
-
 [0]: ../README.md
-[99]: design_primer.md

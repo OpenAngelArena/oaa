@@ -1,4 +1,11 @@
 # Custom Events
+
+Updated 2017-12-05
+
+[< Lua][0]
+
+## Intro
+
 This is a list of events we have added to the game. All events **must** pass objects or else dota crashes lol thanks volvo. List the keys the object expects.
 
 ## Server to Client
@@ -52,3 +59,5 @@ Unique ID for this item instance
 **option**  
 Type: `string`
 Either `need`, `greed`, or `pass` depending on which button the player pressed.
+
+[0]: ../README.md

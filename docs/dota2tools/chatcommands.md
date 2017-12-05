@@ -1,4 +1,9 @@
 # Chat commands
+
+Updated 2017-12-05
+
+[< Dota 2 Tools][0]
+
 Commands to be used for debugging and testing purposes, currently requires the game to either be in tools mode or have sv_cheats 1 enabled. To use these types them into the chat prompt like you would messaging allies. <b>As for now, there is a bug that prevents the chat listener from working on workshop mode, and thus none of these commands will work in upload versions, only in tools mode.</b>
 <br>
 <br>
@@ -47,3 +52,5 @@ Commands to be used for debugging and testing purposes, currently requires the g
 -lazer - Gives the user the HP/Mana drain laser ability that the Fountain uses.
 <br>
 -spawncamps - Forces neutral creep camps to spawn
+
+[0]: ../README.md

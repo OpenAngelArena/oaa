@@ -12,8 +12,5 @@ Map building requires using Hammer, included in the Dota 2 Tools. Hammer is a to
 
 1. [Blink Blockers][1]
 
-[^ Top][99]
-
 [0]: ../README.md
 [1]: blink_block.md
-[99]: README.md
