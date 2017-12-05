@@ -14,4 +14,4 @@ Text
 [^ Top][99]
 
 [0]: ../README.md
-[99]: /README.md
+[99]: README.md
