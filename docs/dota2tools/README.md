@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Dota 2 Tools
 
 Updated 2017-12-05

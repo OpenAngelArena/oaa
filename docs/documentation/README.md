@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Documentation
 
 Updated 2017-12-05

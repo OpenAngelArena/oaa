@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Map
 
 Updated 2017-12-05

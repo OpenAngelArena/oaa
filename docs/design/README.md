@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Design
 
 Updated 2017-12-05

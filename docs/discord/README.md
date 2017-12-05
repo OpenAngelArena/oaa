@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # OAA Development Discord
 
 Updated 2017-12-05

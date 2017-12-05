@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # KeyValues (KV)
 
 Updated 2017-12-05

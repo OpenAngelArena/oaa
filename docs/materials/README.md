@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Materials
 
 Updated 2017-12-05

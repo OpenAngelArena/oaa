@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Translation
 
 Updated 2017-12-05

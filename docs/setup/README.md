@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Setup
 
 Updated 2017-12-05

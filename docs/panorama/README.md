@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Panorama
 
 Updated 2017-12-05

@@ -1,7 +1,4 @@
-<head>
-</head>
-
-# API
+# Application programming interface (API)
 
 Updated 2017-12-05
 

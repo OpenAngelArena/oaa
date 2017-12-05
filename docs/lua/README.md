@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Lua
 
 Updated 2017-12-05

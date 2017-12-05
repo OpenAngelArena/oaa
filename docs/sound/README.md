@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Sound
 
 Updated 2017-12-05

@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Dota 2 Addon Manager (D2AM)
 
 Updated 2017-12-05

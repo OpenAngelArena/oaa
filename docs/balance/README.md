@@ -1,6 +1,3 @@
-<head>
-</head>
-
 # Balance
 
 Updated 2017-12-05
