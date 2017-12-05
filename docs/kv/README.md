@@ -13,17 +13,14 @@ Text
 
 ## Topics
 
-[Insert Links here]
+1. [Quick KV Updating Testing][1]
+2. [Tooltips Guide][2]
+3. [Working with KV Files][3]
 
 [^ Top][99]
 
 [0]: ../README.md
-[1]: filename.md
-[2]: filename.md
-[3]: filename.md
-[4]: filename.md
-[5]: filename.md
-[6]: filename.md
-[7]: filename.md
-[8]: filename.md
+[1]: quick_kv_updating_testing.md
+[2]: tooltips-guide.md
+[3]: working_with_kv_files.md
 [99]: README.md

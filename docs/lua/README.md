@@ -13,17 +13,18 @@ Text
 
 ## Topics
 
-[Insert Links here]
+1. [Custom Tables][1]
+2. [Debug Print Lua][2]
+3. [Events][3]
+4. [Lua Functional Library Intro][4]
+5. [Points Manager][5]
 
 [^ Top][99]
 
 [0]: ../README.md
-[1]: filename.md
-[2]: filename.md
-[3]: filename.md
-[4]: filename.md
-[5]: filename.md
-[6]: filename.md
-[7]: filename.md
-[8]: filename.md
+[1]: custom_tables.md
+[2]: debug_print_lua.md
+[3]: events.md
+[4]: lua_fun_intro.md
+[5]: pointsmanager.md
 [99]: README.md
