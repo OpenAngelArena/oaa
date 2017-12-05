@@ -40,6 +40,12 @@ Describe how the document is organized. Explain what the reader should expect to
 
 14. [Panorama][14]
 
+15. [Design][14]
+
+16. [Balance][14]
+
+17. [Bug-Reports][14]
+
 [^ Top][99]
 
 [1]: discord/README.md
@@ -56,4 +62,7 @@ Describe how the document is organized. Explain what the reader should expect to
 [12]: icons/README.md
 [13]: lua/README.md
 [14]: panorama/README.md
+[15]: design/README.md
+[16]: balance/README.md
+[17]: bug-reports/README.md
 [99]: README.md
