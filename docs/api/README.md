@@ -6,16 +6,16 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Dota 2 has its own 
 
 ## Topics
 
-1. [Insert Links here]
+1. [Dota 2 Scripting API][1]
 
 [^ Top][99]
 
 [0]: ../README.md
-[1]: filename.md
+[1]: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 [2]: filename.md
 [3]: filename.md
 [4]: filename.md
