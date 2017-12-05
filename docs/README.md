@@ -50,7 +50,7 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 
 20. [Translation][20]
 
-![OAA Logo](.images/oaa-logo.png)
+![OAA Logo](.images/logo.png)
 
 [1]: setup/README.md
 [2]: discord/README.md
