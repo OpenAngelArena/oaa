@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  "boss_demon_king_doom_bring"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "ID"                    "5202"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_ALL"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"      "doom_bringer_doom"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.67"
+    "AbilityCastRange"        "1000"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "15.0"
+
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_ring.vpcf"
+    }
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Target"  "TARGET"
+        "Function" "boss_demon_king_doom_bring"
+      }
+    }
+    "Modifiers"
+    {
+      "fuckingdoomed"
+      {
+        "IsDebuff"  "1"
+        "EffectName"  "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_ring.vpcf"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+  "boss_true_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                          "5199"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"      "warlock_upheaval"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "truestrike_chance"                "30"
+      }
+    }
+
+    "Modifiers"
+    {
+      "truestike_activate"
+      {
+        "IsHidden"   "1"
+        "Passive"   "1"
+        "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
+        "OnAttackStart"
+        {
+          "Random"
+          {
+           "Chance" "%truestrike_chance"
+           "OnSuccess"
+           {
+             "ApplyModifier"
+            {
+              "ModifierName"   "truestike_modifier"
+              "Target"     "CASTER"
+            }
+           }
+           // I'm not sure if this is needed
+           "OnFailure" {
+           }
+          }
+        }
+        "OnAttackLanded"
+        {
+          "RemoveModifier"
+          {
+            "ModifierName"   "truestike_modifier"
+            "Target"     "CASTER"
+          }
+        }
+      }
+      "truestike_modifier"
+      {
+        "IsHidden"    "1"
+        "States"
+        {
+          "MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

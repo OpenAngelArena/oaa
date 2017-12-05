@@ -1,0 +1,116 @@
+"DOTAAbilities"
+{
+  "boss_death_archdemon_death_time"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "ID"                     "5183"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"      "custom/boss_death_archdemon_death_time"
+
+
+      // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AnimationPlaybackRate"      "0.8"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+    "AbilityCastPoint"              "0.5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "30.0"
+
+    // Damage.
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "radius" "500"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/generic_aoe_persistent_circle_1/death_timer_glow_rev.vpcf"
+      "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_chronosphere.vpcf"
+    }
+
+    "OnSpellStart"
+    {
+      "CreateThinker"
+      {
+        "ModifierName"  "target_telegraph_fx"
+        "Target"    "CASTER"
+      }
+      "CreateThinker"
+      {
+        "ModifierName"  "caster_chrono_fx"
+        "Target"    "CASTER"
+      }
+      "RunScript"
+      {
+        "ScriptFile"    "lua_abilities/abilities_simple.lua"
+        "Function"      "boss_death_time"
+      }
+    }
+    "Modifiers"
+    {
+      "target_telegraph_fx"
+      {
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"    "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"      "CASTER"
+            "ControlPoints"
+            {
+              "00" "0 0 0"
+              "01" "%radius 0 0"
+              "02" "6 0 1" // telegraph
+              "03" "175 250 75"
+              "04" "0 0 0"
+            }
+          }
+        }
+      }
+
+      "caster_chrono_fx"
+      {
+        "Duration"          "6" // Should work without the added time but appears to have a off by one error so time added so it doesnt destroy itself before occuring
+        "ThinkInterval"        "1.0"
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"    "particles/units/heroes/hero_faceless_void/faceless_void_chronosphere.vpcf"
+            "EffectAttachType"  "attach_origin"
+            "Target"        "CASTER"
+
+            "ControlPoints"
+            {
+              "01"    "%radius %radius 0"
+              "03" "175 250 75"
+            }
+          }
+        }
+      }
+      "target_warning"
+      {
+        "IsDebuff"  "1"
+        "IsPurgable"  "0"
+      }
+    }
+  }
+}

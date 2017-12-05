@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+  "boss_god_of_demons_flaming_fist"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                      "5207"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityTextureName"      "custom/boss_god_of_demons_flaming_fist"
+
+    "precache"
+    {
+      "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+      "particle"                      "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf"
+      "particle"                      "particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf"
+      "particle"                      "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf"
+      "particle"                      "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "100"
+    "AOERadius"           "%radius"
+
+    "AbilityCastAnimation"      "ACT_DOTA_DIE"  // Activity
+    "AnimationPlaybackRate"      "1.0"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "6.0"
+    "AbilityCastPoint"        "0.1"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"               "1000"  //The meteor lands on the ground this many seconds after it was cast.
+      }
+    }
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "FireSound"
+      {
+        "Target"                    "CASTER"
+        "EffectName"                "Hero_EmberSpirit.SleightOfFist.Cast"
+      }
+      "ApplyModifier"
+      {
+        "Target"                    "CASTER"
+        "ModifierName"              "modifier_sleight_of_fist_caster_datadriven"
+      }
+      "RunScript"
+      {
+        "ScriptFile"                                "abilities/god_of_demons.lua"
+        "Function"                                  "flaming_fist"
+        "Target"                              "POINT"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_sleight_of_fist_caster_datadriven"
+      {
+        "IsPurgable"                "0"
+
+        "States"
+        {
+          "MODIFIER_STATE_INVULNERABLE"       "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_ROOTED"             "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

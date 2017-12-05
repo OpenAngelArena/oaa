@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  "boss_death_archdemon_blink_on_far"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"             "ability_datadriven"
+      "ID"                    "5070"
+      "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+      "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY"
+      "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_ALL"
+      "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+      "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+      "FightRecapLevel"               "1"
+      "AbilityTextureName"      "custom/boss_death_archdemon_blink_on_far"
+
+      // Casting
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityCastPoint"              "0.1"
+      "AbilityCastRange"        "900"
+
+      // Time
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityCooldown"               "15.0"
+
+      // Cost
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityManaCost"               "0"
+
+      // Special
+      //-------------------------------------------------------------------------------------------------------------
+
+      "OnSpellStart"
+      {
+        "RunScript"
+        {
+          "ScriptFile"    "abilities/ebf_datadriven.lua"
+          "Function"      "boss_death_archdemon_blink_on_far"
+        }
+      }
+  }
+}

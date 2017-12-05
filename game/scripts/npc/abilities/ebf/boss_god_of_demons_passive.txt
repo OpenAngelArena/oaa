@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+  "boss_god_of_demons_passive"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "ID"                             "5205"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"      "custom/boss_god_of_demons_passive"
+    "MaxLevel"                      "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "precache"
+    {
+        "particle"          "particles/demon_shield.vpcf"
+    }
+    "Modifiers"
+    {
+      "modifier_spawn"
+      {
+        "Passive"           "1"
+        "IsHidden"          "1"
+        "IsBuff"            "1"
+        "IsDebuff"          "0"
+        "IsPurgable"        "0"
+        "Attributes"        "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile"                                "abilities/god_of_demons.lua"
+            "Function"                                  "creation"
+          }
+        }
+      }
+      "invincible"
+      {
+        "Passive"           "0"
+        "IsHidden"          "1"
+        "IsBuff"            "1"
+        "IsDebuff"          "0"
+        "IsPurgable"        "0"
+        "Attributes"        "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"      "1"
+            "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"      "1"
+            "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"      "1"
+            "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "0"
+        }
+        "OnAttacked"
+        {
+          "RunScript"
+          {
+            "ScriptFile"                                "abilities/god_of_demons.lua"
+            "Function"                                  "Charge_damage"
+          }
+        }
+      }
+    }
+  }
+}

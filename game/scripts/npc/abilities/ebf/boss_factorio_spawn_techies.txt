@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+  // Credit: EBF by yahnich
+  "boss_factorio_spawn_techies"
+  {
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "5036"
+    "ScriptFile"                                          "abilities/ebf/boss_factorio_spawn_techies.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityTextureName"                                  "techies_focused_detonate"
+    "AbilityChannelTime"                                  "2 1 0.9"
+    "AbilityCooldown"                                     "7 5 3"
+
+    "precache"
+    {
+      "particle"                                          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"                                         "soundevents/game_sounds/ability_summon_undead.vsndevts"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_limit"                                      "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_spawn_distance"                             "400"
+      }
+    }
+  }
+}

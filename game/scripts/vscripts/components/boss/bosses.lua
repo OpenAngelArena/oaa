@@ -1,7 +1,7 @@
 Bosses = {
   -- tier 1
   {
-    "npc_dota_boss_tier_1",
+    "npc_dota_boss_factorio",
     "npc_dota_boss_twin",
     "npc_dota_boss_tier_3",
     "npc_dota_boss_tier_4",
@@ -18,6 +18,7 @@ Bosses = {
       "npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_boss_factorio"
     },
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
@@ -34,6 +35,7 @@ Bosses = {
       "npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_boss_factorio"
     },
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
@@ -42,7 +44,12 @@ Bosses = {
   },
   -- tier 2
   {
-    "npc_dota_boss_shielder",
+    {
+      "npc_dota_boss_twin",
+      "npc_dota_boss_shielder",
+      "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_boss_factorio"
+    },
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
@@ -53,10 +60,15 @@ Bosses = {
     "npc_dota_boss_charger",
     "npc_dota_boss_tier_4",
     "npc_dota_boss_tier_5",
-    "npc_dota_boss_stopfightingyourself"
+    "npc_dota_boss_stopfightingyourself",
+    "npc_dota_boss_death_archdemon",
+    "npc_dota_boss_hell_golem",
+    "npc_dota_boss_nyx_slayer"
   },
-  -- unused
+  -- tier 4 (unused)
   {
-    "npc_dota_boss_stopfightingyourself"
+    "npc_dota_boss_stopfightingyourself",
+    "npc_dota_boss_demon_king",
+    "npc_dota_boss_god_of_demons"
   }
 }

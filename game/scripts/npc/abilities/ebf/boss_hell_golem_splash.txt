@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  "boss_hell_golem_splash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                  "5201"
+    "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilityTextureName"      "warlock_golem_flaming_fists"
+    "Modifiers"
+    {
+      "fury"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "OnAttackLanded"
+        {
+          "RunScript"
+          {
+            "ScriptFile"      "abilities/ebf_datadriven.lua"
+            "Function"        "hell_golem_splash"
+            "damage_on_hit"    "%attack_damage"
+          }
+          "FireEffect"
+          {
+            "EffectName" "particles/storm_fury_effect.vpcf"
+            "Target" "TARGET"
+            "EffectAttachType" "follow_origin"
+            "EffectRadius" "200"
+          }
+          "FireSound"
+          {
+            "Target" "TARGET"
+            "EffectName" "sounds/items/item_armlet_deactivate.vsnd"
+          }
+        }
+      }
+    }
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"    "500"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "splash_damage"    "25"
+      }
+    }
+  }
+}

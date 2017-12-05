@@ -1,0 +1,156 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dire Beast: Area Stun
+  //=================================================================================================================
+  "creature_slithereen_crush"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"        "ability_datadriven"
+    "ID"                    "5002"
+    "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"  "DAMAGE_TYPE_PHYSICAL"
+    "AbilityTextureName"    "slardar_slithereen_crush"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "0"
+    "AbilityCastPoint"        "0.35 0.35 0.35 0.35"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "8.0 8.0 8.0 8.0"
+    "AbilityDuration"        "1.0 1.5 2.0 2.5"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"          "1000 1500 2000 6000"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"        "80 95 105 115"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"  "0.5"  // Applies multiple modifiers
+
+    "OnSpellStart"
+    {
+      "FireSound"
+      {
+        "EffectName"  "Creature.Slithereen_Crush.Cast"
+        "Target"    "CASTER"
+      }
+
+      "FireEffect"
+      {
+        "EffectName" "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+        "EffectAttachType" "follow_origin"
+        "ControlPoints"
+        {
+          "00" "0 0 0"
+          "01" "%crush_radius %crush_radius %crush_radius"
+        }
+      }
+
+      "Damage"
+      {
+        "Type" "DAMAGE_TYPE_PHYSICAL"
+        "Damage" "%AbilityDamage"
+        "Target"
+        {
+          "Center" "CASTER"
+          "Radius" "%crush_radius"
+          "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+        }
+      }
+
+      "ApplyModifier"
+      {
+        "ModifierName" "creature_slithereen_crush_stun"
+        "Target"
+        {
+          "Center" "CASTER"
+          "Radius" "%crush_radius"
+          "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+        }
+      }
+
+      "ApplyModifier"
+      {
+        "ModifierName" "creature_slithereen_crush_slow"
+        "Target"
+        {
+          "Center" "CASTER"
+          "Radius" "%crush_radius"
+          "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+        }
+      }
+    }
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "Modifiers"
+    {
+      "creature_slithereen_crush_stun"
+      {
+        "IsHidden"  "1"
+        "IsDebuff"  "1"
+        "IsStunDebuff"  "1"
+        "IsPurgable"  "1"
+        "EffectName" "particles/generic_gameplay/generic_stunned.vpcf"
+        "EffectAttachType" "follow_overhead"
+        "Duration"  "%stun_duration"
+        "OverrideAnimation" "ACT_DOTA_DISABLED"
+        "States"
+        {
+          "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+
+      "creature_slithereen_crush_slow"
+      {
+        "Duration"  "%slow_duration"
+        "IsDebuff"  "1"
+        "IsPurgable"  "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%crush_extra_slow"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%crush_extra_slow"
+        }
+      }
+    }
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "crush_radius"          "350"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "crush_extra_slow"        "-20"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "slow_duration"          "3.0 3.5 4.0 4.5"
+      }
+      "04"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "stun_duration"          "1.5 2.0 2.5 3.0"
+      }
+    }
+  }
+
+}

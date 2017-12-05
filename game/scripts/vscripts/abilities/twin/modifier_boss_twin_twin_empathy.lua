@@ -23,6 +23,7 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
   end
 
   local master = self:GetCaster()
+  if not master then return end
   local twin = self:GetParent()
 
 	if twin:IsAlive() and master:IsAlive() then

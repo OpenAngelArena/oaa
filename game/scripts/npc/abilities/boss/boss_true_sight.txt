@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  "boss_true_sight"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                   "5000"
+    "AbilityType"          "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "900"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_truesight_datadriven"
+      {
+        "Passive"           "1"
+        "IsHidden"          "1"
+        "Aura" "modifier_truesight_reveal"
+        "Aura_Radius" "%radius"
+        "Aura_Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Aura_Types" "DOTA_UNIT_TARGET_ALL"
+        "Aura_Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+      }
+
+      "modifier_truesight_reveal"
+      {
+        "Duration"          "2.0"   //The True Sight effect lingers for 0.5 seconds.
+        "IsHidden"          "1"
+        "Priority"          "MODIFIER_PRIORITY_HIGH"
+        "States"
+        {
+          "MODIFIER_STATE_INVISIBLE"  "MODIFIER_STATE_VALUE_DISABLED"
+        }
+      }
+    }
+  }
+}

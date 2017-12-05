@@ -1,0 +1,22 @@
+"DOTAAbilities"
+{
+  "boss_phased"
+  {
+    "BaseClass"                                           "ability_datadriven"
+    "ID"                                                  "5208"
+    "MaxLevel"                                            "1"
+
+    "Modifiers"
+    {
+      "modifier_phased"
+      {
+        "IsHidden"                                        "1"
+        "Passive"                                         "1"
+        "States"
+        {
+          "MODIFIER_STATE_NO_UNIT_COLLISION"              "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

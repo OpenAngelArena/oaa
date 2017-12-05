@@ -1,0 +1,103 @@
+"DOTAAbilities"
+{
+  "boss_death_archdemon_death_orb"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "ability_datadriven"
+    "ID"                "5092"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"      "DAMAGE_TYPE_PURE"
+    "AbilityTextureName"      "custom/boss_death_archdemon_death_orb"
+
+    "precache"
+    {
+      "particle"        "particles/ebf/death_spear.vpcf"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "900"
+    "AbilityCastAnimation"      "ACT_DOTA_SPAWN"  // Activity
+    "AnimationPlaybackRate"      "0.8"            // Animation speed multiplier
+    "AnimationIgnoresModelScale"  "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "60"
+    "AbilityCastPoint"        "0.5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"        "0 0 0 0"
+
+
+    "OnAbilityPhaseStart"
+    {
+      "CreateThinker"
+      {
+        "ModifierName"  "target_telegraph_fx"
+        "Target"    "CASTER"
+      }
+    }
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"  "stun_skill"
+        "Target"  "CASTER"
+      }
+      "RunScript"
+      {
+        "ScriptFile" "abilities/ebf_datadriven.lua"
+        "Function" "death_archdemon_death_orbs"
+      }
+    }
+    "Modifiers"
+    {
+      "stun_skill"
+      {
+        "duration" "5.0"
+        "States"
+        {
+          "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+      "target_telegraph_fx"
+      {
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"    "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"      "CASTER"
+            "ControlPoints"
+            {
+              "00" "0 0 0"
+              "01" "500 0 0"
+              "02" "6 0 1" // telegraph
+              "03" "200 0 0"
+              "04" "0 0 0"
+            }
+          }
+        }
+      }
+    }
+
+
+    // Modifiers
+    //-------------------------------------------------------------------------------------------------------------
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"                   "1"
+
+      "RunScript"
+      {
+          "ScriptFile" "abilities/ebf_datadriven.lua"
+          "Function" "death_archdemon_death_orbs_hit"
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+  // Credit: EBF by yahnich
+  "boss_automaton_proximity"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"            "techies_land_mines"
+    "ID"                      "5001"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"        "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                                            "4"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "100"
+    "AbilityCastPoint"        "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"        "12"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"        "120"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "radius"          "300"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "proximity_threshold"    "1.6"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage"          "750"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "burn_duration"        "5"
+      }
+      "05"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "building_damage_pct"    "25"
+      }
+      "06"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "activation_delay"      "2"
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+"DOTAUnits"
+{
+  "npc_dota_boss_god_of_demons"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"            "models/items/warlock/golem/hellsworn_golem/hellsworn_golem.vmdl"  // Model.
+    "BaseClass"          "npc_dota_creature"
+    "GameSoundsFile"      "soundevents/game_sounds_creeps.vsndevts"
+    "Level"            "666"
+    "ModelScale"         "1.5"
+    "ConsideredHero"      "1"
+    "MinimapIcon"        "minimap_boss"
+    "MinimapIconSize"      "50"
+    "IsCore"          "1"
+    "vscripts"          "units/god_of_demons"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "AbilityLayout"        "6"
+    "Ability1"          "boss_god_of_demons_passive"      // Ability 1.
+    "Ability2"          "boss_god_of_demons_hell_on_earth"      // Ability 2.
+    //"Ability3"        "boss_god_of_demons_pantagram"      // Ability 2.
+    "Ability4"          "boss_god_of_demons_flaming_fist"      // Ability 2.
+    "Ability5"          "copied_from_ebf"
+    "Ability6"                                            "boss_resistance"
+    "Ability7"                                            "boss_cliffwalk"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"        "25"      // Physical protection.
+    "MagicalResistance"      "-25"    // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"      "10000"    // Damage range min.
+    "AttackDamageMax"      "10000"    // Damage range max.
+    "AttackRate"        "1.5"    // Speed of attack.
+    "AttackAnimationPoint"    "0.5"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "900"    // Range within a target can be acquired.
+    "AttackRange"        "500"    // Range within a target can be attacked.
+    "ProjectileModel"      ""              // Particle system model for projectile.
+    "ProjectileSpeed"      "0"                  // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"        "200"
+    "HealthBarOffset"      "500"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"             "0"    // Experience earn.
+    "BountyGoldMin"        "0"      // Gold earned min.
+    "BountyGoldMax"        "0"      // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"
+    "MovementSpeed"        "300"    // Speed.
+    "MovementTurnRate"      "50"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "25500"    // Base health.
+    "StatusHealthRegen"      "75"      // Health regeneration rate.
+    "StatusMana"        "1000"      // Base mana.
+    "StatusManaRegen"      "0"      // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "0"    // Range of vision during day HERO.
+    "VisionNighttimeRange"    "0"    // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"          "DOTA_TEAM_BADGUYS"
+    "CombatClassAttack"      "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"      "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    // Minimap
+    //----------------------------------------------------------------
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "StunResistance"      "50.0"
+    }
+  }
+}
