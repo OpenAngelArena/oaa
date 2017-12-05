@@ -82,4 +82,4 @@ If you get the error 'Unable to load map specified by server', it means you have
 
 Now you are ready to start developing. Read the [Github guide](/docs/github-for-noobs.md) to learn about contributing. In case you are already familiar with Github there are [other guides](/docs/).
 
-[0]: ../README.md
+[0]: README.md

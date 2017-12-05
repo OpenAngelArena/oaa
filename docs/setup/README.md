@@ -13,6 +13,6 @@ Text
 1. [Installation][1]
 2. [What you need][2]
 
-[0]: ../README.md
+[0]: README.md
 [1]: install.md
 [2]: what_you_need.md

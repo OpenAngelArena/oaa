@@ -174,4 +174,4 @@ To https://GitHub.com/Chronophylos/oaa
 Редактор Discord@Warpdragon#9105
 Переводчик на русский Discord@VoidsKeeper1900
 
-[0]: ../README.md
+[0]: README.md

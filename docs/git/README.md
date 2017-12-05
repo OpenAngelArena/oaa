@@ -12,5 +12,5 @@ Git is a Version Control System used for tracking and merging file histories as 
 
 1. [Github for Noobs][1]
 
-[0]: ../README.md
+[0]: README.md
 [1]: github-for-noobs.md

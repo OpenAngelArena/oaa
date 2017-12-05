@@ -60,4 +60,4 @@ Unique ID for this item instance
 Type: `string`
 Either `need`, `greed`, or `pass` depending on which button the player pressed.
 
-[0]: ../README.md
+[0]: README.md

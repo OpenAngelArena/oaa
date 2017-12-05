@@ -22,4 +22,4 @@ So for example, to enable printing for the file `game/scripts/vscripts/component
 # Additional Debug Info
 `DebugPrint` and `DebugPrintTable` automatically prepend the filepath and line number where they are called to assist in debugging.
 
-[0]: ../README.md
+[0]: README.md

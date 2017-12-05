@@ -171,4 +171,4 @@ To create a PR goto [OpenAngelArena/oaa](https://GitHub.com/OpenAngelArena/oaa) 
 Author Discord@Chronophylos#5199
 Editor Discord@Warpdragon#9105
 
-[0]: ../README.md
+[0]: README.md

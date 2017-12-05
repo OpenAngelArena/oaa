@@ -41,4 +41,4 @@ If you've used other languages with functional primitives before, you may be use
 ### Partial
 While Lua Fun doesn't have `partial`, the OAA project has an implemetation that can be found in `game/scripts/vscripts/libraries/functional.lua` ([file on GitHub](https://github.com/OpenAngelArena/oaa/blob/master/game/scripts/vscripts/libraries/functional.lua)). Usage should be similar to `partial` in other languages. The first parameter is the function to curry, followed by the parameters to pass to the curried function.
 
-[0]: ../README.md
+[0]: README.md

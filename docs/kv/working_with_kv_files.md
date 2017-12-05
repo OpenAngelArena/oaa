@@ -37,20 +37,20 @@ Here's a very simplified breakdown of what you should expect to see when you loo
 ```
 "ParentOne"
 {
-	// <- Notice the indent. Implies child-parent relationship of the {} enclosed set.
-	"Key"				"Value"
-	"Key"				"Value"
-	// The following is an array of values.
-	"Key"				"1 2 3 4 5 6"
-	// 
-	"ParentTwo"
-	{
-		// These values are the child of the parent element so they indent further.
-		"Key"			"Value"
-		"Key"			"Value"
-		"Key"			"Value"
+    // <- Notice the indent. Implies child-parent relationship of the {} enclosed set.
+    "Key"               "Value"
+    "Key"               "Value"
+    // The following is an array of values.
+    "Key"               "1 2 3 4 5 6"
+    // 
+    "ParentTwo"
+    {
+        // These values are the child of the parent element so they indent further.
+        "Key"           "Value"
+        "Key"           "Value"
+        "Key"           "Value"
 
-	}
+    }
 }
 ```
 
@@ -65,18 +65,18 @@ Here's a very simplified breakdown of what you should expect to see when you loo
 ```
 "SomeAbility"
 {
-	"Damage"				"0 0 0 0 0"
-	// Can be reduced to:
-	"Damage"				"0"
+    "Damage"                "0 0 0 0 0"
+    // Can be reduced to:
+    "Damage"                "0"
 }
 ```
 - "var_type" stands for variable type, and it's "Value" defines the acceptable subset of values in the pair following it.
 ```
 "MegaBuster"
 {
-	"var_type"				"FIELD_INTEGER"
-	// Integers are whole numbers. The "Damage" Key must be paired with whole number Values.
-	"Damage"				"2000"
+    "var_type"              "FIELD_INTEGER"
+    // Integers are whole numbers. The "Damage" Key must be paired with whole number Values.
+    "Damage"                "2000"
 }
 ```
 
@@ -100,4 +100,4 @@ Launch Dota 2 Tools; Load "oaa" addon; Load Console by pressing "~"; Launch the 
 "dota_launch_custom_game oaa oaa"
 ```
 
-[0]: ../README.md
+[0]: README.md

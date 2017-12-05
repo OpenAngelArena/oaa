@@ -19,4 +19,4 @@ We have special boxes to prevent people from blinking over designated areas. The
 
  * Make sure `Build entities` and `Build griv nav` are both selected when you test the map!
 
-[0]: ../README.md
+[0]: README.md

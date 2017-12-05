@@ -12,7 +12,7 @@ Particles consist a sprite or model-based renderer, an emitter, as well as initi
 
 1. [Insert Links here]
 
-[0]: ../README.md
+[0]: README.md
 [1]: filename.md
 [2]: filename.md
 [3]: filename.md

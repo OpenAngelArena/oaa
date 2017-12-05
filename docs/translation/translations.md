@@ -38,4 +38,4 @@ It is also possible to use an [authentication token](https://www.transifex.com/b
 Open a **new** command prompt in your `oaa` folder and run `node scripts/generate-translations.js`.
 Start the game and check your strings.
 
-[0]: ../README.md
+[0]: README.md

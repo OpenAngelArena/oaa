@@ -12,7 +12,7 @@ Models are what most physical objects and entities in game space are built from.
 
 1. [Insert Links here]
 
-[0]: ../README.md
+[0]: README.md
 [1]: filename.md
 [2]: filename.md
 [3]: filename.md

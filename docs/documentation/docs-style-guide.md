@@ -21,6 +21,6 @@ Updated 2017-12-05
 - Content contains Topic (# Topic), Sections (## Section), Sub-sections (### Subsection), text, and/or lists.
 - Contains an "Updated YYYY-MM-DD" beneath the Topic
 - Contains a link-back at the top [< Name of department]``[0]``
-- Contains the aliased links in a list at the bottom starting with ``[0]: ../README.md``
+- Contains the aliased links in a list at the bottom starting with ``[0]: README.md``
 
-[0]: ../README.md
+[0]: README.md

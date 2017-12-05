@@ -12,7 +12,7 @@ Writing usually encompasses a very large portion of post-production work includi
 
 1. [Insert Links here]
 
-[0]: ../README.md
+[0]: README.md
 [1]: filename.md
 [2]: filename.md
 [3]: filename.md

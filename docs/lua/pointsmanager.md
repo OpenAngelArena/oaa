@@ -19,4 +19,4 @@ PointsManager:SetPoints(side, newPoints)
 PointsManager:AddPoints(side, amount)
 ```
 
-[0]: ../README.md
+[0]: README.md

@@ -79,4 +79,4 @@ Tooltips are fairly easy to learn, but properly creating the text requires a ver
 
 Authors should also be prepared to maintain their own set of files, uploading their work independently using a Git client: https://github.com/OpenAngelArena/oaa/blob/master/docs/github-for-noobs.md
 
-[0]: ../README.md
+[0]: README.md

@@ -24,4 +24,4 @@ Are there known workarounds?
 
 Please attach any relevant pics, vids, notes, anything to help our coders resolve the issue.
 
-[0]: ../README.md
+[0]: README.md

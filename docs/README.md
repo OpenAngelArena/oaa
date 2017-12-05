@@ -55,7 +55,7 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 [3]: git/README.md
 [4]: dota2tools/README.md
 [5]: d2am/README.md
-[6]: kv/README.mdd
+[6]: kv/README.md
 [7]: sound/README.md
 [8]: map/README.md
 [9]: materials/README.md
@@ -65,7 +65,7 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 [13]: lua/README.md
 [14]: panorama/README.md
 [15]: design/README.md
-[16]: balance/README.md
+[16]: balancd/README.md
 [17]: bug-reports/README.md
 [18]: documentation/README.md
 [19]: writing/README.md

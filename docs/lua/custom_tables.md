@@ -14,4 +14,4 @@ Point system for winning.
 * **radiant**: The radiant team's score
 * **dire**: The dire team's score
 
-[0]: ../README.md
+[0]: README.md

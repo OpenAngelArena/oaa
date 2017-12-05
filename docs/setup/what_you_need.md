@@ -44,4 +44,4 @@ Google-Account to share and get documents
 For coordinating: discord: Soon  
 Mindmap ideas: coggle.it: https://coggle.it/diagram/WF0DTy-C0LZE5uuE
 
-[0]: ../README.md
+[0]: README.md

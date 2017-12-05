@@ -53,4 +53,4 @@ Commands to be used for debugging and testing purposes, currently requires the g
 <br>
 -spawncamps - Forces neutral creep camps to spawn
 
-[0]: ../README.md
+[0]: README.md

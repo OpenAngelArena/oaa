@@ -12,4 +12,4 @@ Updated 2017-12-05
 - [Townhall Meeting 25.03.17](https://www.youtube.com/watch?v=IGCweUxd2Kw)
 - [Townhall Meeting 01.04.17 + Test Game](https://www.youtube.com/watch?v=RMeNqYkotXA)
 
-[0]: ../README.md
+[0]: README.md
