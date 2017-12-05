@@ -1,4 +1,4 @@
-# OAA Development Guide
+# ![OAA](.images/logo.png) Development Guide
 
 Updated 2017-12-05
 
@@ -49,8 +49,6 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 19. [Writing][19]
 
 20. [Translation][20]
-
-![OAA Logo](.images/logo.png)
 
 [1]: setup/README.md
 [2]: discord/README.md
