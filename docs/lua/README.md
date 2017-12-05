@@ -16,6 +16,13 @@ Text
 4. [Lua Functional Library Intro][4]
 5. [Points Manager][5]
 
+## External Links
+
+1. [LUA Abilities and Modifiers](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers)
+2. [](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)
+3. [](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names)
+
+
 [^ Top][99]
 
 [0]: ../README.md
@@ -24,4 +31,8 @@ Text
 [3]: events.md
 [4]: lua_fun_intro.md
 [5]: pointsmanager.md
+
+
+
+
 [99]: README.md
