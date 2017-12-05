@@ -12,5 +12,5 @@ Translation is a requirement for most development teams due to the global nature
 
 1. [Translations][1]
 
-[0]: README.md
+[0]: ../README.md
 [1]: translations.md

@@ -12,5 +12,5 @@ Text
 
 1. [Icon Style Guide][1]
 
-[0]: README.md
+[0]: ../README.md
 [1]: icon_style_guide.md

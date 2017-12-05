@@ -12,7 +12,7 @@ Sounds are the music and sound effects that can be called by the game using a nu
 
 1. [Insert Links here]
 
-[0]: README.md
+[0]: ../README.md
 [1]: filename.md
 [2]: filename.md
 [3]: filename.md

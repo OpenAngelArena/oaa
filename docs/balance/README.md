@@ -12,5 +12,5 @@ Text
 
 1. [Old changelog][1]
 
-[0]: README.md
+[0]: ../README.md
 [1]: changelog.md

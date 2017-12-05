@@ -12,5 +12,5 @@ Documentation manages the Development Guide and communication in general.
 
 1. [Documentation Style Guide][1]
 
-[0]: README.md
+[0]: ../README.md
 [1]: docs-style-guide.md

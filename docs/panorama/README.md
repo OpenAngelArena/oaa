@@ -12,7 +12,7 @@ Panorama is a hidden editor in Dota 2 Tools which allows you to view and edit me
 
 1. [Insert Links here]
 
-[0]: README.md
+[0]: ../README.md
 [1]: filename.md
 [2]: filename.md
 [3]: filename.md
