@@ -6,21 +6,14 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Filing a bug report is easy, but we do ask that you follow the proper procedure. First go to http://www.github.com/openangelarena/bug-reports/issues and see if someone has reported it already. If so, drop a comment giving your own account of the bug. If it hasn't been reported, there's just a few specific details that should be included in every bug report outlined in the following Bug Report Template.
 
 ## Topics
 
-1. [Insert Links here]
+1. [Bug Report Template][1]
 
 [^ Top][99]
 
 [0]: ../README.md
-[1]: filename.md
-[2]: filename.md
-[3]: filename.md
-[4]: filename.md
-[5]: filename.md
-[6]: filename.md
-[7]: filename.md
-[8]: filename.md
+[1]: bug-report-template.md
 [99]: README.md

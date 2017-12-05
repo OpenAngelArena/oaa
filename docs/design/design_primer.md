@@ -1,5 +1,9 @@
 # Design Primer
 
+Updated 2017-12-05
+
+[< Design][../README.md]
+
 ## Boss Concepts
 1. When submitting, outline purely the mechanics.
 2. Be concise and to-the-point. Don't bother with number-values and lore.
@@ -18,3 +22,8 @@
   Assume people will go for the optimal play. If a mechanic stimulates players to do something which is against how we intend the game to function (say, it makes fountain camping an optimal late game strat), then it is bad design.
 3. Design should promote the core gameplay.
   This goes hand in hand with the previous point. Each game has a draw, something players get out of it. In our case, it's a combination of ridiculous teamfights, challenging bosses, and the power trip value of heroes way more powerful than they are in Dota. Designs which reinforce these feelings are good designs. Designs which go against these - say, by reducing player agency, or making a boss fight boring or repetitive, are bad designs.
+
+[^ Top][99]
+
+[0]: ../README.md
+[99]: design_primer.md

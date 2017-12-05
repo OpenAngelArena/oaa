@@ -6,7 +6,7 @@ Updated 2017-12-05
 
 ## Introduction
 
-Text
+Programming the behaviors and effects of custom abilities, items, heroes, bots, game mechanics, and anything that occurs in the Dota 2 game space usually relies very heavily on a programming language known as Lua.
 
 ## Topics
 

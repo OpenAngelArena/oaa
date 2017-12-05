@@ -1,4 +1,9 @@
 # OAA Changelog
+
+Updated 2017-12-05
+
+[< Balance][0]
+
 Changelog starts at `2017-03-24 16:40 UTC+0100`
 
 ## Translation Progress
@@ -1727,3 +1732,8 @@ Changelog starts at `2017-03-24 16:40 UTC+0100`
   * explicit change
     * detailed description
 ```
+
+[^ Top][99]
+
+[0]: ../README.md
+[99]: changelog.md
