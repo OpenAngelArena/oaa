@@ -10,23 +10,6 @@ Updated 2017-12-05
 
 Describe how the document is organized. Explain what the reader should expect to get out of reading it:
 
-How this guide is structured
-
-Layer 1: docs/
-
-- Contains subfolders for each "Department"
-- Contains the primary README with the Introduction and Table of Contents
-
-Layer 2: docs/subfolder/
-
-- Contains the documents for each "Topic"
-- Contains the secondary README with the Introduction and Table of Contents
-
-Layer 3: docs/subfolder/topic.md
-
-- The content on each topic
-- Contains Department (# Department), Topic (## Topic), Sections (### Section), Sub-sections (#### Subsection), text, and lists.
-
 ## Table of Contents
 
 1. [Setup][1]
@@ -65,6 +48,12 @@ Layer 3: docs/subfolder/topic.md
 
 17. [Bug-Reports][18]
 
+19. [Documentation][19]
+
+20. [Writing][20]
+
+21. [Translation][21]
+
 [^ Top][99]
 
 [1]: setup/README.md
@@ -85,4 +74,7 @@ Layer 3: docs/subfolder/topic.md
 [16]: design/README.md
 [17]: balance/README.md
 [18]: bug-reports/README.md
+[19]: documentation/README.md
+[20]: writing/README.md
+[21]: translation/README.md
 [99]: README.md
