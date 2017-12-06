@@ -1,0 +1,1584 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+ "Hellbear.Smash" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/brewmaster/thunder_clap.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "OgreTank.GroundSmash" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/leshrac/split_earth.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.950000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "OgreTank.GroundSmash.Lesser" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/leshrac/split_earth.vsnd",
+		]
+		volume = "0.500000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.950000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "OgreMagi.Bloodlust.Target" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ogre_magi/bloodlust_target.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "OgreMagi.Bloodlust.Target.FP" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ogre_magi/bloodlust_target_fp.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		delay = "1.500000"
+		spread_radius = "300.000000"
+		distance_max = "2500.000000"
+	}
+
+ "OgreMagi.Bloodlust.Loop" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/pugna/lifedrain_loop.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_in = "2.000000"
+		volume_fade_out = "0.500000"
+		stop_at_time = "10.000000"
+		spread_radius = "300.000000"
+	}
+
+ "TempleGuardian.Wrath.Explosion" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/pugna/netherblast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "Hound.QuillAttack.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bristlebog/quill_cast.vsnd",
+		]
+		volume_rand_min = "-0.149902"
+		volume_rand_max = "0.149902"
+		volume = "0.649902"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Hound.QuillAttack.Target" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bristlebog/quill_target01.vsnd",
+			"sounds/weapons/hero/bristlebog/quill_target02.vsnd",
+			"sounds/weapons/hero/bristlebog/quill_target03.vsnd",
+			"sounds/weapons/hero/bristlebog/quill_target04.vsnd",
+		]
+		volume_rand_min = "-0.099976"
+		volume_rand_max = "0.099976"
+		volume = "0.599976"
+		pitch_rand_min = "-0.100000"
+		pitch_rand_max = "0.100000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		distance_max = "2500.000000"
+		soundevent_layer2 = "Damage_Melee.Gore"
+		soundevent_layer2_on = "1.000000"
+		event_type = "1.000000"
+	}
+
+ "EggSack.Burst" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bristlebog/goo_target.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+		limiter_on = "1.000000"
+		limiter_event_name = "Hero_Bristleback.ViscousGoo.Target"
+		limiter_max = "0"
+		limiter_stop_oldest = "true"
+		limiter_match_event_duration = "1.000000"
+	}
+
+ "Spider.PoisonSpit" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/venomancer/venomancer_venomous_gale.vsnd",
+		]
+		volume = "0.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Spider.PoisonSpit.Impact" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/venomancer/venomancer_venomous_gale_impact1.vsnd",
+			"sounds/weapons/hero/venomancer/venomancer_venomous_gale_impact2.vsnd",
+			"sounds/weapons/hero/venomancer/venomancer_venomous_gale_impact3.vsnd",
+		]
+		volume = "0.799805"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "Lycan.RuptureBall" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bloodseeker/rupture_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Lycan.RuptureBall.Impact" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bloodseeker/rupture.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		spread_radius = "300.000000"
+	}
+
+ "TempleGuardian.Purification" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/omniknight/purification.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "TempleGuardian.Wrath.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/omniknight/guardian_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		spread_radius = "600.000000"
+	}
+
+ "TempleGuardian.HammerThrow" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/beastmaster/wild_axes.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "TempleGuardian.HammerThrow.Damage" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shared/impacts/heavy_blade_impact1.vsnd",
+			"sounds/weapons/hero/shared/impacts/heavy_blade_impact2.vsnd",
+			"sounds/weapons/hero/shared/impacts/heavy_blade_impact3.vsnd",
+		]
+		volume_rand_min = "-0.099976"
+		volume_rand_max = "0.099976"
+		volume = "0.699585"
+		pitch_rand_min = "-0.100000"
+		pitch_rand_max = "0.100000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		event_type = "1.000000"
+	}
+
+ "TreasureChest.MineTrap.Plant" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/techies/land_mine_plant.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "TreasureChest.MineTrap.Detonate" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/techies/land_mine01.vsnd",
+			"sounds/weapons/hero/techies/land_mine02.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "NoDuck"
+		spread_radius = "600.000000"
+		distance_max = "15000.000000"
+		soundevent_layer2 = "Hero_Techies.Debris"
+		soundevent_layer2_on = "1.000000"
+	}
+
+ "SandKingBoss.BurrowStrike" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/sand_king/sand_king_burrow_attack.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "SandKingBoss.Epicenter.spell" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/sand_king/sand_king_epicenter_spell.vsnd",
+		]
+		volume = "0.699707"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "0.500000"
+		spread_radius = "600.000000"
+	}
+
+ "SandKingBoss.SandStorm.start" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/sand_king/sand_king_sandstorm_start.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "SandKingBoss.SandStorm.loop" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/sand_king/sand_king_sandstorm_loop.vsnd",
+		]
+		volume = "0.300000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "75.000000"
+		mixgroup = "Ambience"
+		volume_fade_out = "1.000000"
+		spread_radius = "100.000000"
+		volume_use_FOW = "1.000000"
+	}
+
+ "LycanBoss.SummonWolves" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lycan/summon_wolves.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "LycanBoss.Howl" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lycan/howl.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "LycanBoss.Shapeshift.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lycan/shape_shift.vsnd",
+		]
+		volume = "0.599609"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		spread_radius = "600.000000"
+	}
+
+ "SandKingBoss.Epicenter.Impact" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/earthshaker/fissure.vsnd",
+		]
+		volume = "0.700000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+		volume_use_FOW = "1.000000"
+		volume_FOW_radius = "300"
+	}
+
+ "Burrower.PreSuicide" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/elder_titan/echo_stomp_channel.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Burrower.Explosion" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/elder_titan/echo_stomp_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Burrower.HealExplosion" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/slark/dark_pact_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Broodmother.LarvalParasite.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/broodmother/spiderling_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Broodmother.LarvalParasite.Impact" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/broodmother/spiderling_impact.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Broodmother.LarvalParasite.Burst" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/broodmother/spiderling_hatch.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "SpiderRavine.WebLoop" = {
+		type = "dota_src1_3d_multi"
+		vsnd_files =
+		[
+			"sounds/ambient/special/brood_web_loop.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		limiter_on = "0.000000"
+		volume_fade_in = "1.000000"
+		volume_fade_out = "0.500000"
+		mixgroup = "ambient"
+		spread_radius = "600"
+	}
+
+ "Torch.Light" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/clinkz/searing_arrow.vsnd",
+		]
+		volume = "0.399902"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Door.Open" = {
+		type = "dota_src1_2d"
+		vsnd_files =
+		[
+			"sounds/ui/crafting/crafting_slide.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+		mixgroup = "Physics"
+	}
+
+ "Door.Close" = {
+		type = "dota_src1_2d"
+		vsnd_files =
+		[
+			"sounds/ui/crafting/new_slot.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+		mixgroup = "Physics"
+	}
+
+ "TempleGuardian.Awaken" = {
+		type = "dota_src1_2d"
+		vsnd_files =
+		[
+			"sounds/addons/conquest/pendulum.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		event_type = "0"
+		memory_type = "0"
+	}
+
+ "TempleGuardian.PreAttack" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/chaos_knight/chaos_bolt_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "0.700000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Dungeon.FireTrap" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/fire_trap.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		rand_delay_min = "0.000000"
+		rand_delay_max = "0.150000"
+		soundlevel = "78.000000"
+		distance_max = "2000.000000"
+		limiter_on = "0.000000"
+	}
+
+ "SandKing.Epicenter.PulsesBegin" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/elder_titan/earth_split_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "SandKing.Epicenter.Pulse" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/earthshaker/echo_slam_small.vsnd",
+		]
+		volume = "0.250000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "OgreMagi.Ignite.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ogre_magi/ignite_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "OgreMagi.Ignite.Target" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ogre_magi/ignite_target.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "OgreTank.Grunt" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/creep/roshan/grunt01.vsnd",
+			"sounds/weapons/creep/roshan/grunt02.vsnd",
+			"sounds/weapons/creep/roshan/grunt03.vsnd",
+			"sounds/weapons/creep/roshan/grunt04.vsnd",
+			"sounds/weapons/creep/roshan/grunt05.vsnd",
+			"sounds/weapons/creep/roshan/grunt06.vsnd",
+		]
+		volume_rand_min = "-0.449951"
+		volume_rand_max = "0.449951"
+		volume = "0.849927"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Dungeon.BloodSplatterImpact" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd",
+		]
+		volume = "0.799805"
+		pitch_rand_min = "-0.100000"
+		pitch_rand_max = "0.100000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		distance_max = "2500.000000"
+		soundevent_layer2 = "Hero_PhantomAssassin.Spatter"
+		soundevent_layer2_on = "1.000000"
+	}
+
+ "Dungeon.BloodSplatterImpact.Lesser" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd",
+		]
+		volume = "0.399805"
+		pitch_rand_min = "-0.100000"
+		pitch_rand_max = "0.100000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		distance_max = "2500.000000"
+		soundevent_layer2 = "Hero_PhantomAssassin.Spatter"
+		soundevent_layer2_on = "1.000000"
+	}
+
+ "Dungeon.BanditDagger.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/phantom_assassin/stifling_dagger_cast.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Dungeon.BanditDagger.Target" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/phantom_assassin/stifling_dagger_target.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Dungeon.GhostTerror.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shadow_demon/shadow_poison_cast.vsnd",
+		]
+		volume = "0.500000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Dungeon.GhostTerror" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shadow_demon/shadow_poison.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_in = "0.100000"
+		volume_fade_out = "1.500000"
+		spread_radius = "150.000000"
+		use_entity_position = "0.000000"
+	}
+
+ "Dungeon.GhostTerror.Grip" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bane/fiends_grip_target.vsnd",
+		]
+		volume = "0.799805"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		volume_fade_out = "0.500000"
+		spread_radius = "300.000000"
+	}
+
+ "Dungeon.SpiderBoss.Rage" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/broodmother/insatiable_hunger.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		volume_fade_out = "1.000000"
+		spread_radius = "300.000000"
+	}
+
+ "SandStorm.StormFollow" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/invoker/tornado.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_in = "0.100000"
+		volume_fade_out = "1.000000"
+		spread_radius = "300.000000"
+		use_entity_position = "0.000000"
+	}
+
+ "Bogduggs.LuckyFemur" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ogre_magi/multicast01.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "0.900000"
+		soundlevel = "84.000000"
+		distance_max = "2500.000000"
+		event_type = "3.000000"
+	}
+
+ "WatchersGaze.Target" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/medusa/turntostone_01.vsnd",
+			"sounds/weapons/hero/medusa/turntostone_02.vsnd",
+			"sounds/weapons/hero/medusa/turntostone_03.vsnd",
+		]
+		volume = "0.700000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "DireHound.Attack" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lycan/wolf_preattack01.vsnd",
+			"sounds/weapons/hero/lycan/wolf_preattack02.vsnd",
+			"sounds/weapons/hero/lycan/wolf_preattack03.vsnd",
+			"sounds/weapons/hero/lycan/wolf_preattack04.vsnd",
+			"sounds/weapons/hero/lycan/wolf_preattack05.vsnd",
+			"sounds/weapons/hero/lycan/wolf_preattack06.vsnd",
+		]
+		volume_rand_min = "-0.250000"
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "1500.000000"
+		event_type = "1.000000"
+	}
+
+ "Dungeon.VaseBreak" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/addons/dungeon/vase_break01.vsnd",
+			"sounds/addons/dungeon/vase_break02.vsnd",
+		]
+		volume_rand_min = "-0.250000"
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		distance_max = "1500.000000"
+		event_type = "1.000000"
+	}
+
+ "Dungeon.ArcherPullArrow" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/windrunner/windrunner_powershot_pull.vsnd",
+		]
+		volume = "1.800000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		event_type = "1.000000"
+	}
+
+ "Dungeon.ArcherShootArrow" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/drow_ranger/arrow_1.vsnd",
+			"sounds/weapons/hero/drow_ranger/arrow_2.vsnd",
+			"sounds/weapons/hero/drow_ranger/arrow_3.vsnd",
+			"sounds/weapons/hero/drow_ranger/arrow_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		distance_max = "2500.000000"
+		event_type = "1.000000"
+	}
+
+ "IceBoss.IcePath.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/jakiro/ice_path_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "IceBoss.IcePath" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/jakiro/ice_path.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+		use_entity_position = "0.000000"
+	}
+
+ "IceGiant.IceBreath.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/ice_vortex_lp.vsnd",
+		]
+		volume = "0.500000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "IceGiant.Hex.Cast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/iceblast_release.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "IceGiant.Hex.Impact" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/ambient/sheep.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "90.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "Snowstorm.Bonefrost.Start" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/cold_feet.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Snowstorm.Effect.Tick" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/iceblast_tick01.vsnd",
+		]
+		volume = "1.200000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "PocketCampfire.Create" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ember_spirit/remnant_create01.vsnd",
+			"sounds/weapons/hero/ember_spirit/remnant_create02.vsnd",
+			"sounds/weapons/hero/ember_spirit/remnant_create03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "FrostbittenShaman.FreezingBlast.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/iceblast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_move_vol = "1.000000"
+		volume_falloff_min = "599999.000000"
+		volume_falloff_max = "600000.000000"
+		spread_radius = "100.000000"
+	}
+
+ "FrostbittenShaman.FreezingBlast.Impact" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lich/chain_frost_impact_hero01.vsnd",
+			"sounds/weapons/hero/lich/chain_frost_impact_hero02.vsnd",
+			"sounds/weapons/hero/lich/chain_frost_impact_hero03.vsnd",
+		]
+		volume = "0.799805"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		spread_radius = "150.000000"
+		distance_max = "2500.000000"
+		soundevent_layer2 = "Hero_Lich.ChainFrostImpact.LF"
+		soundevent_layer2_on = "1.000000"
+	}
+
+ "FrostbittenShaman.FrostArmor.Buff" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lich/frost_armor.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "FrostbittenShaman.FrostArmor.Debuff" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lich/impact01.vsnd",
+			"sounds/weapons/hero/lich/impact02.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "SpikeTrap.PreActivate" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lina/prelightstrikearray.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "SpikeTrap.Activate" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/addons/conquest/spike_trap.vsnd",
+		]
+		volume = "1.000000"
+		pitch_rand_min = "-0.100000"
+		pitch_rand_max = "0.100000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+	}
+
+ "Siltbreaker.Sprint" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/slardar/sprint_on.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.700000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "Siltbreaker.SummonMinions.Spawn" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/naga_siren/riptide01.vsnd",
+			"sounds/weapons/hero/naga_siren/riptide02.vsnd",
+			"sounds/weapons/hero/naga_siren/riptide03.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+	}
+
+ "Door.Triggering.loop" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/ui/rune_loop_01.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "75.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "1.000000"
+		spread_radius = "300.000000"
+		volume_use_FOW = "1.000000"
+	}
+
+ "Door.Triggered.Complete" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/ui/compendium_levelup.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "75.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "1.000000"
+		spread_radius = "300.000000"
+		volume_use_FOW = "1.000000"
+	}
+
+ "Siltbreaker.Waves.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/tidehunter/tidehunter_gush.vsnd",
+		]
+		volume = "0.200000"
+		pitch = "1.000000"
+		soundlevel = "15.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+
+ "Siltbreaker.Waves.Impact" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/tidehunter/tidehunter_gush_impact.vsnd",
+		]
+		volume = "0.200000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "300.000000"
+		limiter_on = "1.000000"
+		limiter_event_name = "Ability.GushImpact"
+		limiter_max = "1"
+		limiter_stop_oldest = "false"
+		limiter_match_event_duration = "0.100000"
+	}
+
+ "Siltbreaker.GoPhaseTwo" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lone_druid/battle_cry.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "7000.000000"
+	}
+
+ "Siltbreaker.GoPhaseThree" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/lone_druid/battle_cry.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.500000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "7000.000000"
+	}
+
+ "Siltbreaker.Bubble.Drowning" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/morphling/morph_loop02.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "0.500000"
+		spread_radius = "500.000000"
+	}
+
+ "Siltbreaker.Bubble.Killed" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shadow_demon/demonic_purge_damage.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.400000"
+		soundlevel = "81.000000"
+		mixgroup = "Ultimates"
+		spread_radius = "500.000000"
+	}
+
+ "Siltbreaker.LineWave.PreCast" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/naga_siren/riptide_precast.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.700000"
+		soundlevel = "78.000000"
+		distance_max = "1500.000000"
+	}
+
+ "Siltbreaker.LineWave.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/morphling/waveform.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "1200.000000"
+	}
+
+ "Siltbreaker.LineWave.Impact" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/chaos_knight/chaos_bolt_target.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "84.000000"
+		mixgroup = "Weapons"
+		spread_radius = "1000.000000"
+	}
+
+ "Siltbreaker.TailSpin.Windup" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/monkey_king/spring_channel.vsnd",
+		]
+		volume = "0.750000"
+		pitch = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600"
+	}
+
+ "Siltbreaker.TailSpin.Swipe" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/monkey_king/strike_cast01.vsnd",
+			"sounds/weapons/hero/monkey_king/strike_cast02.vsnd",
+			"sounds/weapons/hero/monkey_king/strike_cast03.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		volume_fade_out = "0.200000"
+	}
+
+ "Siltbreaker.Teleport.Channel" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/slark/pounce_cast.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "1.000000"
+		spread_radius = "500.000000"
+	}
+
+ "Siltbreaker.Teleport.Impact" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/slark/pounce_impact_immortal.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "600.000000"
+	}
+
+ "Siltbreaker.MindControl.PreCast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bane/fiends_grip_cast.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "0.500000"
+		spread_radius = "800.000000"
+	}
+
+ "Siltbreaker.MindControl.Cast" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bane/enfeeble.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "800.000000"
+	}
+
+ "Siltbreaker.MindControl.VictimLoop" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bane/nightmare_loop.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "0.500000"
+		stop_at_time = "8.000000"
+		spread_radius = "500.000000"
+	}
+
+ "Siltbreaker.MindControl.VictimEnd" = {
+		type = "dota_src1_3d"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/bane/nightmare_end.vsnd",
+		]
+		volume = "0.750000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.600000"
+		soundlevel = "78.000000"
+		distance_max = "2500.000000"
+		limiter_on = "0.000000"
+	}
+
+ "Campfire.Warmth.Loop" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/doom_bringer/idle_loop.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "0.600000"
+		soundlevel = "81.000000"
+		mixgroup = "ambient"
+		volume_move_vol = "0.300000"
+		volume_move_vel = "300.000000"
+		volume_move_filter_vel = "1.000000"
+		volume_falloff_min = "10.000000"
+		volume_falloff_max = "1000.000000"
+	}
+
+ "Snowstorm.Cold.Start" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/winter_wyvern/cold_embrace.vsnd",
+		]
+		volume = "5.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "78.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "1.000000"
+		spread_radius = "300.000000"
+	}
+
+ "Snowstorm.Cold.Loop" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/ice_vortex_lp.vsnd",
+		]
+		volume = "0.300000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		mixgroup = "ambient"
+		volume_fade_out = "1.000000"
+		distance_max = "10.000000"
+	}
+
+ "Snowstorm.Bonefrost.Loop" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/ancient_apparition/ice_vortex_lp.vsnd",
+		]
+		volume = "1.200000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+		mixgroup = "ambient"
+		volume_fade_out = "1.000000"
+		spread_radius = "150.000000"
+		use_entity_position = "0.000000"
+		distance_max = "700.000000"
+	}
+
+ "Lifestone.Activate" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/morphling/morph_loop01.vsnd",
+		]
+		volume = "0.900000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.700000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		volume_fade_out = "0.500000"
+		spread_radius = "150.000000"
+	}
+
+ "Lifestone.Deactivate" = {
+		type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/dark_seer/dota_dark_seer_ion_shield_end.vsnd",
+		]
+		volume = "1.500000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "0.700000"
+		soundlevel = "81.000000"
+		mixgroup = "Weapons"
+		spread_radius = "150.000000"
+	}
+}
