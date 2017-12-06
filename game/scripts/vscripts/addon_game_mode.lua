@@ -62,6 +62,7 @@ function Precache( context )
 
   PrecacheResource("soundfile", "soundevents/game_sounds_creeps.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work
