@@ -241,13 +241,13 @@ if IsServer() then
 			-- iterate through all targets
 			for k, unit in pairs( units ) do
 				-- inflict damage
-				-- DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS prevents spell amp and spell lifesteal
+				-- DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION prevents spell amp and spell lifesteal
 				ApplyDamage( {
 					victim = unit,
 					attacker = self:GetCaster(),
 					damage = damage,
 					damage_type = DAMAGE_TYPE_PHYSICAL,
-					damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
+					damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 					ability = self,
 				} )
 			end

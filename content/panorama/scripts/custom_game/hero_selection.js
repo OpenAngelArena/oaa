@@ -234,7 +234,9 @@ function UpdatePreviews (data) {
   var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
   var heroesBySteamid = {};
   Object.keys(apData).forEach(function (playerId) {
-    heroesBySteamid[apData[playerId].steamid] = apData[playerId].selectedhero;
+    if (apData[playerId].selectedhero && apData[playerId].selectedhero !== 'empty' && apData[playerId].selectedhero !== 'random') {
+      heroesBySteamid[apData[playerId].steamid] = apData[playerId].selectedhero;
+    }
   });
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   Object.keys(data[teamID] || {}).forEach(function (steamid) {
