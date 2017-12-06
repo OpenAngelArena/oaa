@@ -15,9 +15,9 @@ Programming the behaviors and effects of custom abilities, items, heroes, bots, 
 3. [Events][3]
 4. [Lua Functional Library Intro][4]
 5. [Points Manager][5]
-1. [LUA Abilities and Modifiers][6]
-2. [Scripting API][7]
-3. [Built-In Modifier Names][8]
+1. [Valve: LUA Abilities and Modifiers][6]
+2. [Valve: Scripting API][7]
+3. [Valve: Built-In Modifier Names][8]
 
 [0]: ../README.md
 [1]: custom_tables.md
