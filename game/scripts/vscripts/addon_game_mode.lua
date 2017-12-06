@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.18.3"
+GAME_VERSION = "2.17.6"
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 -- lets do this here too
 local mode = ""
@@ -54,10 +54,17 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_boss_simple_6", context)
   PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
   PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
+  PrecacheUnitByNameSync("npc_dota_creature_ogre_tank_boss", context)
+  PrecacheUnitByNameSync("npc_dota_creature_ogre_seer", context)
+  PrecacheUnitByNameSync("npc_dota_creature_lycan_boss", context)
+  PrecacheUnitByNameSync("npc_dota_creature_dire_hound", context)
+  PrecacheUnitByNameSync("npc_dota_creature_dire_hound_boss", context)
+  PrecacheUnitByNameSync("npc_dota_creature_werewolf", context)
 
   -- Ambient Sounds
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
+
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work
