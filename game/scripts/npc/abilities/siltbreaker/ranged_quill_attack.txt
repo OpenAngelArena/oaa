@@ -5,6 +5,7 @@
     //=================================================================================================================
     "ranged_quill_attack"
     {
+        "ID"                            "8439"
         // General
         //-------------------------------------------------------------------------------------------------------------
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -14,7 +15,6 @@
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
         "FightRecapLevel"               "1"
         "BaseClass"                     "ability_lua"
-        "AbilityTextureName"             "ranged_quill_attack"
         "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_dire_hound_boss/ranged_quill_attack.lua"
         "MaxLevel"                      "1"
 

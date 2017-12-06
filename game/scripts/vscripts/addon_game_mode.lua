@@ -57,11 +57,16 @@ function Precache( context )
 
   PrecacheUnitByNameSync("npc_dota_creature_ogre_tank_boss", context)
   PrecacheUnitByNameSync("npc_dota_creature_ogre_seer", context)
+  -- Needed for kill event on Ogre Boss
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
 
   PrecacheUnitByNameSync("npc_dota_creature_lycan_boss", context)
   PrecacheUnitByNameSync("npc_dota_creature_dire_hound", context)
   PrecacheUnitByNameSync("npc_dota_creature_dire_hound_boss", context)
   PrecacheUnitByNameSync("npc_dota_creature_werewolf", context)
+
+  -- Needed for Lycan Boss Wolf transformation
+  PrecacheUnitByNameSync("npc_dota_hero_bloodseeker", context)
 
   -- Ambient Sounds
   PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
@@ -69,7 +74,6 @@ function Precache( context )
 
   PrecacheResource("soundfile", "soundevents/game_sounds_creeps.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
-  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work

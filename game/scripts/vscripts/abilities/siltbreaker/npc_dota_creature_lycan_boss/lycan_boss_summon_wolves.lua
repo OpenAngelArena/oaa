@@ -109,7 +109,6 @@ function lycan_boss_summon_wolves:GetCooldown( iLevel )
 	local fReducedCD = self.BaseClass.GetCooldown( self, self:GetLevel() ) - ( self:GetCaster().nCAST_SUMMON_WOLVES_COUNT * 3 )
 	local fMinCD = ( self.BaseClass.GetCooldown( self, self:GetLevel() ) / 2 ) + 5
 	local fNewCD = math.max( fMinCD, fReducedCD )
-	--print( string.format( "lycan_boss_summon_wolves:GetCooldown - fReducedCD: %d, fMinCD: %d, fNewCD: %d", fReducedCD, fMinCD, fNewCD ) )
 
 	return fNewCD
 end

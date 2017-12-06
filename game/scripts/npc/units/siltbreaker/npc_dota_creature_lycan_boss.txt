@@ -89,9 +89,10 @@
 
     "precache"
     {
-      "soundfile"                                         "soundevents/game_sounds_dungeon_enemies.vsndevts"
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
       // Rupture
       "particle"                                          "particles/lycanboss_ruptureball_gale.vpcf"
+      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
       // Summon Wolves
       "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf"
       "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"

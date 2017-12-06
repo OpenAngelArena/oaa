@@ -54,7 +54,6 @@ function lycan_boss_rupture_ball:OnSpellStart()
 
 		self.attack_speed = self.attack_speed * ( self.attack_distance / ( self.attack_distance - self.attack_width_initial ) )
     print("RuptureBall")
-    print("self.attack_speed ")
 
 		local info = {
 			EffectName = "particles/lycanboss_ruptureball_gale.vpcf",
@@ -71,7 +70,6 @@ function lycan_boss_rupture_ball:OnSpellStart()
 
 		ProjectileManager:CreateLinearProjectile( info )
 		EmitSoundOn( "Lycan.RuptureBall", self:GetCaster() )
-    print("RuptureBall----END")
 	end
 end
 
@@ -79,7 +77,7 @@ end
 
 function lycan_boss_rupture_ball:OnProjectileHit( hTarget, vLocation )
 	if IsServer() then
-		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) and hTarget:GetUnitName() ~= "npc_dota_forest_camp_chief" then
+		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) and hTarget:GetUnitName() then
 			EmitSoundOn( "Lycan.RuptureBall.Impact", hTarget );
 
 			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_bloodseeker_rupture", { duration = self:GetSpecialValueFor( "duration" ) } )

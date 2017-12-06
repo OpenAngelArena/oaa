@@ -38,8 +38,6 @@ function lycan_boss_claw_lunge:OnSpellStart()
 		self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
 		self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
 
-		--EmitSoundOn( "Hero_Venomancer.PreAttack", self:GetCaster() )
-
 		local vPos = nil
 		if self:GetCursorTarget() then
 			vPos = self:GetCursorTarget():GetOrigin()
@@ -69,7 +67,6 @@ function lycan_boss_claw_lunge:OnSpellStart()
 		ProjectileManager:CreateLinearProjectile( info )
 
 		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_claw_lunge", {} )
-		--EmitSoundOn( "Hero_Bristleback.QuillSpray.Cast", self:GetCaster() )
 	end
 end
 
