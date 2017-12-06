@@ -22,13 +22,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_speed_pct"                              "4 8 12 16 32 50"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_razor_3"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "hit_interval"      "5"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_4"
+        "var_type"                                        "FIELD_FLOAT"
+        "hit_interval"                                    "5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_razor_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "03"
       {
@@ -42,14 +43,15 @@
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage"    "100 130 160 190 340 490"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 130 160 190 340 490"
       }
       "06"
       {
-        "var_type"    "FIELD_INTEGER"
-        "radius"    "350"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "350"
       }
     }
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
   }
 }
