@@ -11,6 +11,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 -- available heroes
 local herolist = {}
 local lockedHeroes = {}
+local loadedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
@@ -19,6 +20,13 @@ local cmtimer = nil
 local selectedtable = {}
 -- force stop handle for timer, when all picked before time end
 local forcestop = false
+local LoadFinishEvent = Event()
+local loadingHeroes = 1
+local finishedLoading = false
+
+LoadFinishEvent.listen(function()
+  finishedLoading = true
+end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
@@ -45,6 +53,24 @@ function HeroSelection:Init ()
 
   GameEvents:OnPreGame(function (keys)
     HeroSelection:StartSelection()
+  end)
+  GameEvents:OnPlayerReconnect(function (keys)
+    -- [VScript] [components\duels\duels:64] PlayerID: 1
+    -- [VScript] [components\duels\duels:64] name: Minnakht
+    -- [VScript] [components\duels\duels:64] networkid: [U:1:53917791]
+    -- [VScript] [components\duels\duels:64] reason: 2
+    -- [VScript] [components\duels\duels:64] splitscreenplayer: -1
+    -- [VScript] [components\duels\duels:64] userid: 3
+    -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
+    if not lockedHeroes[keys.PlayerID] then
+      -- we don't care if they haven't locked in yet
+      return
+    end
+    local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
+    if hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
+      DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
+      PlayerResource:ReplaceHeroWith(keys.PlayerID, lockedHeroes[keys.PlayerID], STARTING_GOLD, 0)
+    end
   end)
 end
 
@@ -214,12 +240,7 @@ end
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
   HeroSelection:CheckPause()
-  if forcestop == true then
-    for key, value in pairs(selectedtable) do
-      HeroSelection:SelectHero(key, value.selectedhero)
-    end
-    HeroSelection:StrategyTimer(3)
-  elseif time < 0 then
+  if forcestop == true or time < 0 then
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
@@ -240,6 +261,12 @@ function HeroSelection:APTimer (time, message)
         end
       end
     end)
+
+    loadingHeroes = loadingHeroes - 1
+    -- just incase all the heroes load syncronously
+    if loadingHeroes == 0 then
+      LoadFinishEvent.broadcast()
+    end
     HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
@@ -255,7 +282,18 @@ end
 
 function HeroSelection:SelectHero (playerId, hero)
   lockedHeroes[playerId] = hero
+  loadingHeroes = loadingHeroes + 1
+  -- LoadFinishEvent
   PrecacheUnitByNameAsync(hero, function()
+    loadedHeroes[hero] = true
+    loadingHeroes = loadingHeroes - 1
+    if loadingHeroes == 0 then
+      LoadFinishEvent.broadcast()
+    end
+    local player = PlayerResource:GetPlayer(playerId)
+    if player == nil then -- disconnected! don't give em a hero yet...
+      return
+    end
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
     PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
   end)
@@ -307,17 +345,27 @@ function HeroSelection:UnsafeRandomHero ()
 end
 
 -- start strategy timer
+function HeroSelection:EndStrategyTime ()
+  HeroSelection.shouldBePaused = false
+  HeroSelection:CheckPause()
+
+  GameRules:SetTimeOfDay(0.25)
+  GameMode:OnGameInProgress()
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
+end
+
 function HeroSelection:StrategyTimer (time)
   HeroSelection:CheckPause()
   if time < 0 then
-    HeroSelection.shouldBePaused = false
-    HeroSelection:CheckPause()
-    -- boy oh boy do i wish this worked...
-    GameRules:SetPreGameTime(GameRules:GetGameTime() + PREGAME_TIME)
-    GameMode:OnGameInProgress()
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = ""})
+    if finishedLoading then
+      HeroSelection:EndStrategyTime()
+    else
+      LoadFinishEvent.listen(function()
+        HeroSelection:EndStrategyTime()
+      end)
+    end
   else
-    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "GAME STARTING"})
+    CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "STRATEGY"})
     Timers:CreateTimer({
       useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
@@ -341,7 +389,7 @@ function HeroSelection:HeroPreview (event)
   if not previewTable[teamID] then
     previewTable[teamID] = {}
   end
-  previewTable[teamID][tostring(PlayerResource:GetSteamAccountID(event.PlayerID))] = event.hero
+  previewTable[teamID][HeroSelection:GetSteamAccountID(event.PlayerID)] = event.hero
   CustomNetTables:SetTableValue('hero_selection', 'preview_table', previewTable)
 end
 
@@ -350,6 +398,15 @@ function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   if hero == "random" then
     hero = self:RandomHero()
+  end
+
+  if lockedHeroes[playerID] then
+    hero = lockedHeroes[playerID]
+  end
+
+  if selectedtable[playerID] and selectedtable[playerID].selectedhero == hero then
+    DebugPrint('Player re-selected their hero again ' .. hero)
+    return
   end
 
   if self:IsHeroChosen(hero) then
@@ -371,12 +428,13 @@ function HeroSelection:UpdateTable (playerID, hero)
         hero = "empty"
       end
     end
+    -- if they've already selected a hero then unselect it
     if selectedtable[playerID] and selectedtable[playerID].selectedhero ~= "empty" then
       table.insert(cmpickorder[teamID.."picks"], selectedtable[playerID].selectedhero)
     end
   end
 
-  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = tostring(PlayerResource:GetSteamAccountID(playerID))}
+  selectedtable[playerID] = {selectedhero = hero, team = teamID, steamid = HeroSelection:GetSteamAccountID(playerID)}
 
   -- DebugPrintTable(selectedtable)
   -- if everyone has picked, stop
@@ -395,5 +453,18 @@ function HeroSelection:UpdateTable (playerID, hero)
   if isanyempty == false then
     forcestop = true
   end
+end
 
+local playerToSteamMap = {}
+function HeroSelection:GetSteamAccountID(playerID)
+  local steamid = PlayerResource:GetSteamAccountID(playerID)
+  if steamid == 0 then
+    if playerToSteamMap[playerID] then
+      return playerToSteamMap[playerID]
+    else
+      steamid = #playerToSteamMap + 1
+      playerToSteamMap[playerID] = tostring(steamid)
+    end
+  end
+  return tostring(steamid)
 end

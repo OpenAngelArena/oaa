@@ -1,9 +1,9 @@
-.MainHolder {
+.HeroSelection {
   width: 100%;
   height: 100%;
   background-color: #252525;
   transition-property: opacity, transform;
-  transition-delay: 3s;
+  /*transition-delay: 3s;*/
   transition-timing-function: ease-in;
   transition-duration: 0.5s;
   transform: scaleX(1) scaleY(1) translateY(0);
@@ -79,7 +79,7 @@ Label {
 }
 
 #Clock {
-  width: 10%;
+  width: 15%;
   height: 80%;
   background-color: #171A2590;
 }
@@ -215,20 +215,16 @@ DOTAMinimap {
   flow-children: right;
 }
 
-#PreviewPanel {
-  margin-top: 20px;
-  width: fill-parent-flow(1.0);
-  height: fill-parent-flow(1.0);
-  flow-children: down;
-  horizontal-align: center;
-}
-
 #CMPanel {
   visibility: collapse;
   width: 1100px;
   min-height: 150px;
   margin: 10px 0;
   horizontal-align: center;
+}
+
+.CMStep.active {
+  box-shadow: #999999ff -2px -2px 4px 4px;
 }
 
 #CMProgress {
@@ -460,13 +456,38 @@ RadioButton.Disabled:selected {
 }
 
 #HeroSelector {
-  width: 30%;
+  width: 40%;
   height: fill-parent-flow(1.0);
   flow-children: right;
   horizontal-align: middle;
 }
 
+#PreviewPanel {
+  margin-top: 20px;
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+  horizontal-align: center;
+}
+
+#ChatBoxHolder {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+  flow-children: down;
+}
+#ChatBox {
+  width: 30%;
+  horizontal-align: left;
+  vertical-align: bottom;
+  /*height: 80%;*/
+}
+
+#ChatLinesOverlay {
+  background-color: transparent;
+}
+
 #HeroPreview {
+  /*visibility: collapse;*/
   margin-left: 10%;
   margin-right: 10%;
   height: 100%;
@@ -486,7 +507,6 @@ DOTAScenePanel {
 }
 
 #CMHeroPreview {
-  visibility: collapse;
   width: 100%;
   height: 100%;
   vertical-align: top;
@@ -528,31 +548,37 @@ DOTAScenePanel {
   margin-bottom: -30px;
 }
 
+#HeroPreviewContainer {
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+}
 #HeroPickContainer {
-  width: 60px;
+  width: 180px;
   height: fill-parent-flow(1.0);
   flow-children: down;
   margin: 12px;
   vertical-align: bottom;
   horizontal-align: middle;
 }
-#HeroPreviewContainer {
-  width: fill-parent-flow(1.0);
-  height: fill-parent-flow(1.0);
-}
 
 .HeroPickerButton {
   height: 60px;
-  width: 60px;
-  background-position: center;
+  width: fill-parent-flow(1.0);
+  background-position: 10px center;
   background-repeat: no-repeat;
-  background-size: 80% 80%;
+  background-size: auto 32px;
 
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
   box-shadow: #0000008f -6px -6px 12px 12px;
   transition-property: brightness;
   transition-duration: 0.2s;
   margin-bottom: 20px;
+  padding-left: 50px;
+}
+.HeroPickerButton Label {
+  margin-top: 5px;
+  vertical-align: center;
+  text-transform: uppercase;
 }
 
 .HeroPickerButton:hover {
@@ -571,6 +597,14 @@ DOTAScenePanel {
 
 #CaptainLockIn {
   visibility: collapse;
+}
+
+#pickLabel, #banLabel {
+  visibility: collapse;
+}
+
+#CaptainLockIn.PickHero #pickLabel, #CaptainLockIn.BanHero #banLabel {
+  visibility: visible;
 }
 
 #CaptainLockIn.PickHero {
@@ -798,4 +832,3 @@ DOTAScenePanel {
   margin-top: 10%;
   transition-delay: 7s;
 }
-

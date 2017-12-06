@@ -14,13 +14,6 @@ function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local xSpaceVector = Vector(spawnSpacing, 0, 0)
   local ySpaceVector = Vector(0, spawnSpacing, 0)
 
-  -- Check whether the caster has extra ward talent
-  local casterHasExtraWards = caster:HasLearnedAbility("special_bonus_unique_shadow_shaman_4")
-  -- Increase ward spawn count for talent
-  if casterHasExtraWards then
-    wardCount = wardCount + caster:FindAbilityByName("special_bonus_unique_shadow_shaman_4"):GetSpecialValueFor("value")
-  end
-
   -- Check whether the caster has the extra ward hitpoint talent
   local casterHasWardHealth = caster:HasLearnedAbility("special_bonus_unique_shadow_shaman_1")
 

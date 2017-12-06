@@ -259,19 +259,20 @@ end
 modifier_item_lucience_regen_effect = class(ModifierBaseClass)
 
 function modifier_item_lucience_regen_effect:OnCreated()
-  self.regenBonus = self:GetAbility():GetSpecialValueFor("regen_bonus")
+  if IsServer() then
+    self.regenBonus = self:GetAbility():GetSpecialValueFor("regen_bonus")
+    self.healInterval = 1 / self:GetAbility():GetSpecialValueFor("heals_per_sec")
+
+    self:StartIntervalThink(self.healInterval)
+  end
 end
 
 modifier_item_lucience_regen_effect.OnRefresh = modifier_item_lucience_regen_effect.OnCreated
 
-function modifier_item_lucience_regen_effect:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
-  }
-end
+function modifier_item_lucience_regen_effect:OnIntervalThink()
+  local parent = self:GetParent()
 
-function modifier_item_lucience_regen_effect:GetModifierConstantHealthRegen()
-  return self.regenBonus
+  parent:Heal(self.regenBonus * self.healInterval, self:GetParent())
 end
 
 function modifier_item_lucience_regen_effect:GetEffectName()

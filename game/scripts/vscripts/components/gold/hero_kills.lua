@@ -162,6 +162,9 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local function getHeroNetworth (playerId)
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      return 0
+    end
     return hero:GetNetworth()
   end
 

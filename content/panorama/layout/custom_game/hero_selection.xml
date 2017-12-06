@@ -6,7 +6,7 @@
     <include src="file://{resources}/scripts/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
-  <Panel class="MainHolder" onactivate=";">
+  <Panel class="HeroSelection" onactivate=";">
     <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Panel class="TeamStatus">
       <Panel class="FillWidth">
@@ -21,22 +21,11 @@
       <Panel class="FillWidth"/>
     </Panel>
     <Panel id="MainContent">
-      <Panel class="LeftColumn">
-        <Label class="SectionTitle" text="Minimap"/>
-        <Panel id="Minimap">
-          <DOTAMinimap require-composition-layer="true" />
-        </Panel>
-
-        <Label class="SectionTitle" text="Info"/>
-        <Panel id="GameInfo">
-          <Label text="Some info about game, i suggest text format"/>
-        </Panel>
-      </Panel>
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
           <Panel id="BecomeCaptainPanel">
             <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
-              <Label text="Become Captain" />
+              <Label text="#DOTA_Hero_Selection_BecomeCaptain" />
             </Button>
           </Panel>
           <Panel id="CMProgress">
@@ -49,19 +38,19 @@
                 <Label text="18"/>
               </Panel>
               <Panel class="CMBan" id="CMRadiantBan">
-                <DOTAHeroImage id="CMStep1">
+                <DOTAHeroImage class="CMStep" id="CMStep1">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep3">
+                <DOTAHeroImage class="CMStep" id="CMStep3">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep10">
+                <DOTAHeroImage class="CMStep" id="CMStep10">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep12">
+                <DOTAHeroImage class="CMStep" id="CMStep12">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep18">
+                <DOTAHeroImage class="CMStep" id="CMStep18">
                 </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
-                <Label text="Radiant"/>
+                <Label text="#DOTA_GoodGuysShort"/>
               </Panel>
               <Panel class="CMPick" id="CMRadiantPickLabel">
                 <Label text="5"/>
@@ -71,21 +60,21 @@
                 <Label text="19"/>
               </Panel>
               <Panel class="CMPick" id="CMRadiantPick">
-                <DOTAHeroImage id="CMStep5">
+                <DOTAHeroImage class="CMStep" id="CMStep5">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep8">
+                <DOTAHeroImage class="CMStep" id="CMStep8">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep14">
+                <DOTAHeroImage class="CMStep" id="CMStep14">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep16">
+                <DOTAHeroImage class="CMStep" id="CMStep16">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep19">
+                <DOTAHeroImage class="CMStep" id="CMStep19">
                 </DOTAHeroImage>
               </Panel>
             </Panel>
             <Panel class="CMInfo">
-              <Label class="BanLabel" text="BAN"/>
-              <Label class="PickLabel" text="PICK"/>
+              <Label class="BanLabel" text="#DOTA_Hero_Selection_BanTitle"/>
+              <Label class="PickLabel" text="#DOTA_Hero_Selection_PickTitle"/>
             </Panel>
             <Panel class="CMTeam" id="CMDire">
               <Panel class="CMBan" id="CMDireBanLabel">
@@ -96,19 +85,19 @@
                 <Label text="17"/>
               </Panel>
               <Panel class="CMBan" id="CMDireBan">
-                <DOTAHeroImage id="CMStep2">
+                <DOTAHeroImage class="CMStep" id="CMStep2">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep4">
+                <DOTAHeroImage class="CMStep" id="CMStep4">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep9">
+                <DOTAHeroImage class="CMStep" id="CMStep9">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep11">
+                <DOTAHeroImage class="CMStep" id="CMStep11">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep17">
+                <DOTAHeroImage class="CMStep" id="CMStep17">
                 </DOTAHeroImage>
               </Panel>
               <Panel class="CMTeamInfo">
-                <Label text="Dire"/>
+                <Label text="#DOTA_BadGuysShort"/>
               </Panel>
               <Panel class="CMPick" id="CMDirePickLabel">
                 <Label text="6"/>
@@ -118,15 +107,15 @@
                 <Label text="20"/>
               </Panel>
               <Panel class="CMPick" id="CMDirePick">
-                <DOTAHeroImage id="CMStep6">
+                <DOTAHeroImage class="CMStep" id="CMStep6">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep7">
+                <DOTAHeroImage class="CMStep" id="CMStep7">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep13">
+                <DOTAHeroImage class="CMStep" id="CMStep13">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep15">
+                <DOTAHeroImage class="CMStep" id="CMStep15">
                 </DOTAHeroImage>
-                <DOTAHeroImage id="CMStep20">
+                <DOTAHeroImage class="CMStep" id="CMStep20">
                 </DOTAHeroImage>
               </Panel>
             </Panel>
@@ -136,21 +125,21 @@
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="StrHolder"/>
-              <Label id="ChooseStrLabel" text="Strength"/>
+              <Label id="ChooseStrLabel" text="#DOTA_Hero_Selection_STR"/>
             </Panel>
             <Panel class="HeroHolder" id="StrengthHeroes" />
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="AgiHolder"/>
-              <Label id="ChooseAgiLabel" text="Agility"/>
+              <Label id="ChooseAgiLabel" text="#DOTA_Hero_Selection_AGI"/>
             </Panel>
             <Panel class="HeroHolder" id="AgilityHeroes"/>
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="IntHolder"/>
-              <Label id="ChooseIntLabel" text="Intelligence"/>
+              <Label id="ChooseIntLabel" text="#DOTA_Hero_Selection_INT"/>
             </Panel>
             <Panel class="HeroHolder" id="IntelligenceHeroes"/>
           </Panel>
@@ -165,18 +154,25 @@
             </Panel>
             <Panel id="HeroPickContainer">
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
+                <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
+                <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
               </Button>
               <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
+                <Label text="#DOTA_Hero_Selection_LOCKIN" />
               </Button>
               <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
+                <Label text="#random" />
               </Button>
             </Panel>
           </Panel>
-          <Panel id="CMHeroPreview">
+          <Panel id="CMHeroPreview" hittest="false">
           </Panel>
         </Panel>
       </Panel>
     </Panel>
+    <!-- <Panel id="ChatBoxHolder" hittest="false"> -->
+      <!-- <DOTAChat id="ChatBox" class="ChatExpanded" chatstyle="hudpregame" /> -->
+    <!-- </Panel> -->
     <Panel id="StrategyContent">
       <Panel class="BossIcon" id="Boss1r">
         <Label text="Tier 1"/>

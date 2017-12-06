@@ -1,0 +1,49 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Combo Breaker
+  //=================================================================================================================
+  "item_aeon_disk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "ItemAliases"         "ad;aeon disk"
+
+    "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityTextureName"                                  "custom/combo_breaker"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"      "250 1000 2000 3000 4000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_mana"      "250 500 1000 1500 2000"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "health_threshold_pct"      "80"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "status_resistance"   "25"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "buff_duration"   "2.5"
+      }
+    }
+  }
+}

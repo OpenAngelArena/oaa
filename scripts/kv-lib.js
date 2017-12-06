@@ -10,12 +10,14 @@ var vscriptDir = path.join(scriptDir, 'vscripts');
 var npcDir = path.join(scriptDir, 'npc');
 var abilityDir = path.join(npcDir, 'abilities');
 var itemDir = path.join(npcDir, 'items');
+var heroDir = path.join(npcDir, 'heroes');
 
 module.exports = {
   itemFiles: findAllItems,
   abilityFiles: findAllAbilities,
   items: allItems,
   abilities: allAbilities,
+  heroes: allHeroes,
   all: getAll,
 
   gameDir: gameDir,
@@ -24,8 +26,10 @@ module.exports = {
   npcDir: npcDir,
   abilityDir: abilityDir,
   itemDir: itemDir,
+  heroDir: heroDir,
   dotaItems: dotaItems,
-  dotaAbilities: dotaAbilities
+  dotaAbilities: dotaAbilities,
+  dotaHeroes: dotaHeroes
 };
 
 function dotaAbilities (cb) {
@@ -49,6 +53,18 @@ function dotaItems (cb) {
     }
     var data = parseKV(result.body);
     cb(null, data.DOTAAbilities);
+  });
+}
+
+function dotaHeroes (cb) {
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_heroes.txt'
+  }, function (err, result) {
+    if (err) {
+      return cb(err);
+    }
+    var data = parseKV(result.body);
+    cb(null, data.DOTAHeroes);
   });
 }
 
@@ -90,6 +106,15 @@ function allAbilities (cb) {
   });
 }
 
+function allHeroes (cb) {
+  findAllHeroes(function (err, heroes) {
+    if (err) {
+      return cb(err);
+    }
+    parseAllKVs(heroes, cb);
+  });
+}
+
 function parseAllKVs (list, cb) {
   var result = {};
   var done = after(list.length, function (err) {
@@ -120,6 +145,10 @@ function findAllItems (cb) {
 
 function findAllAbilities (cb) {
   findAllKVFiles(abilityDir, cb);
+}
+
+function findAllHeroes (cb) {
+  findAllKVFiles(heroDir, cb);
 }
 
 function findAllKVFiles (dir, cb) {
