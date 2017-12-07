@@ -32,9 +32,7 @@ function modifier_fountain_attack:GetModifierAura()
 end
 
 function modifier_fountain_attack:GetAuraRadius()
-  local caster = self:GetCaster()
-  local distance = caster:GetAbsOrigin() + self.trigger:GetAbsOrigin()
-  return self.trigger:GetBoundingMaxs():Length2D() + distance
+  return self.trigger:GetBoundingMaxs():Length2D()
 end
 
 function modifier_fountain_attack:GetAuraSearchFlags()
