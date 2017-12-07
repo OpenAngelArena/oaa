@@ -29,8 +29,10 @@
 
     "precache"
     {
-      "particle"                                          "particles/fountain_lazor.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+      "particle"                                          "particles/abilities/tesla_coil_radiant.vpcf"
+      "particle"                                          "particles/abilities/tesla_coil_dire.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+      "soundfile"                                         "soundevents/abilities/fountain_attack.vsndevts"
     }
   }
 }
