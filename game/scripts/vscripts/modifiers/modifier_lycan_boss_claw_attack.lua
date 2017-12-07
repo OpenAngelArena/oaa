@@ -152,7 +152,7 @@ end
 function modifier_lycan_boss_claw_attack:HasHitTarget( hTarget )
 	for _, target in pairs( self.hHitTargets ) do
 		if target == hTarget then
-	    	return true
+        return true
 	    end
 	end
 
