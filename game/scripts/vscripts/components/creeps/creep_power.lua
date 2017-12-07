@@ -42,5 +42,5 @@ end
 function CreepPower:Init ()
   local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
   self.numPlayersXPFactor = 1 -- PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
-  self.BootGoldFactor = 0.7
+  self.BootGoldFactor = _G.BOOT_GOLD_FACTOR
 end
