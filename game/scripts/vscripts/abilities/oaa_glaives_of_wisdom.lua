@@ -62,58 +62,66 @@ end
 -- Only AttackStart is early enough to override the projectile
 function modifier_oaa_glaives_of_wisdom:OnAttackStart(keys)
   local parent = self:GetParent()
+
+  if keys.attacker ~= parent then
+    return
+  end
+
   local ability = self:GetAbility()
   local target = keys.target
-  local condition = (
-    keys.attacker == parent and
-    (parent:GetCurrentActiveAbility() == ability or -- Checks if Glaives was manually cast
-    ability:GetAutoCastState()) and
-    not parent:IsSilenced() and
-    ability:IsOwnersManaEnough() and
-    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
-    ability:IsCooldownReady() and
-    not target.IsItem and -- Existence of method is enough to indicate we're not attacking an NPC entity (most likely attacking an item)
-    (not target:IsMagicImmune() or parent:HasScepter()) and
-    not target:IsInvulnerable() and
-    not target:IsOther() and
-    target:GetTeamNumber() ~= parent:GetTeamNumber() and
-    not target:IsBuilding()
-  )
 
-  if condition then
-    -- Add modifier to change attack sound
-    parent:AddNewModifier( parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {} )
-    -- Set projectile
-    parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
+  -- Wrap in function to defer evaluation
+  local function autocast()
+    return (
+      ability:GetAutoCastState() and
+      not parent:IsSilenced() and
+      ability:IsOwnersManaEnough() and
+      ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+      ability:IsCooldownReady() and
+      ability:CastFilterResultTarget(target) == UF_SUCCESS
+    )
   end
+
+  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
+    return
+  end
+
+  -- Add modifier to change attack sound
+  parent:AddNewModifier( parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {} )
+  -- Set projectile
+  parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   local parent = self:GetParent()
+
+  if keys.attacker ~= parent then
+    return
+  end
+
   local ability = self:GetAbility()
   local target = keys.target
-  local condition = (
-    keys.attacker == parent and
-    (parent:GetCurrentActiveAbility() == ability or -- Checks if Glaives was manually cast
-    ability:GetAutoCastState()) and
-    not parent:IsSilenced() and
-    ability:IsOwnersManaEnough() and
-    ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
-    ability:IsCooldownReady() and
-    not target.IsItem and -- Existence of method is enough to indicate we're not attacking an NPC entity (most likely attacking an item)
-    (not target:IsMagicImmune() or parent:HasScepter()) and
-    not target:IsInvulnerable() and
-    not target:IsOther() and
-    target:GetTeamNumber() ~= parent:GetTeamNumber() and
-    not target:IsBuilding()
-  )
 
-  if condition then
-    -- Enable proc for this attack record number
-    self.procRecords[keys.record] = true
-    -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
-    ability:UseResources(true, true, true)
+  -- Wrap in function to defer evaluation
+  local function autocast()
+    return (
+      ability:GetAutoCastState() and
+      not parent:IsSilenced() and
+      ability:IsOwnersManaEnough() and
+      ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+      ability:IsCooldownReady() and
+      ability:CastFilterResultTarget(target) == UF_SUCCESS
+    )
   end
+
+  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
+    return
+  end
+
+  -- Enable proc for this attack record number
+  self.procRecords[keys.record] = true
+  -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
+  ability:UseResources(true, true, true)
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
@@ -126,8 +134,11 @@ end
 
 function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
   local parent = self:GetParent()
-  if keys.attacker == parent and self.procRecords[keys.record] then
-    local ability = self:GetAbility()
+  local ability = self:GetAbility()
+  local target = keys.target
+
+  if keys.attacker == parent and self.procRecords[keys.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
+
     local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
     local player = parent:GetPlayerOwner()
 
@@ -136,22 +147,22 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
       bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
     end
 
-    if parent:HasScepter() and keys.target:IsSilenced() then
+    if parent:HasScepter() and target:IsSilenced() then
       bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
     end
 
     local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
     local damageTable = {
-      victim = keys.target,
+      victim = target,
       attacker = parent,
       damage = bonusDamage,
       damage_type = ability:GetAbilityDamageType(),
       ability = ability
     }
     ApplyDamage(damageTable)
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, bonusDamage, player)
-    keys.target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
+    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+    target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
     self.procRecords[keys.record] = nil
   end
 end

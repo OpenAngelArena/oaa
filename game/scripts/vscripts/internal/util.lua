@@ -60,6 +60,11 @@ function IsAnyTraceEnabled (traces)
   return false
 end
 
+function Debug:EnableDebugging()
+  local trace, dir = GetCallingFile()
+  Debug.EnabledModules[trace[#trace]] = true
+end
+
 -- written by yeahbuddy, taken from https://github.com/OpenAngelArena/oaa/pull/80
 -- modified for clarity
 function GetCallingFile (offset)

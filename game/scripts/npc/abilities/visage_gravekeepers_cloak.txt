@@ -7,7 +7,7 @@
     "ID"                                                  "5482"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                                            "6"
-    
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,6 +27,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "recovery_time"                                   "6 5 4 3 2.5 1.5"
+        "LinkedSpecialBonus"  "special_bonus_unique_visage_5"
       }
       "04"
       {
