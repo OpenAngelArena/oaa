@@ -56,15 +56,23 @@ modifier_fountain_attack_aura = class(ModifierBaseClass)
 
 function modifier_fountain_attack_aura:OnCreated(keys)
   local caster = self:GetCaster()
+  local teamID = caster:GetTeamNumber()
   local target = self:GetParent()
-  local attackEffect = "particles/fountain_lazor.vpcf"
+  local attackEffect = ""
+  if teamID == DOTA_TEAM_GOODGUYS then
+    attackEffect = "particles/abilities/tesla_coil_radiant.vpcf"
+  elseif teamID == DOTA_TEAM_BADGUYS then
+    attackEffect = "particles/abilities/tesla_coil_dire.vpcf"
+  end
+  local statusEffect = "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
 
-  self.particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
-  ParticleManager:SetParticleControlEnt(self.particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-  ParticleManager:SetParticleControlEnt(self.particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+  self.statusParticle = ParticleManager:CreateParticle(statusEffect, PATTACH_POINT_FOLLOW, caster)
 
-  EmitSoundOn("Hero_Phoenix.SunRay.Cast", caster)
-  EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
+  self.attackParticle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
+  ParticleManager:SetParticleControlEnt(self.attackParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(self.attackParticle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+
+  EmitSoundOn("Abilities.Fountain_Attack.Cast", caster)
 
   if IsServer() then
     self:StartIntervalThink(0.1)
@@ -102,8 +110,11 @@ end
 function modifier_fountain_attack_aura:OnDestroy()
   local caster = self:GetCaster()
 
-  ParticleManager:DestroyParticle(self.particle, false)
-  ParticleManager:ReleaseParticleIndex(self.particle)
-  StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
-  EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
+  ParticleManager:DestroyParticle(self.attackParticle, false)
+  ParticleManager:ReleaseParticleIndex(self.attackParticle)
+  ParticleManager:DestroyParticle(self.statusParticle, false)
+  ParticleManager:ReleaseParticleIndex(self.statusParticle)
+
+  StopSoundOn("Abilities.Fountain_Attack.Cast", caster)
+  --EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
 end
