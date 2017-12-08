@@ -1,6 +1,6 @@
 
 "DOTAAbilities" {
-        //=================================================================================================================
+    //=================================================================================================================
     // Ability: Ogre Tank Boss Melee Smash
     //=================================================================================================================
     "ogre_tank_boss_melee_smash"
@@ -57,6 +57,13 @@
                 "var_type"              "FIELD_FLOAT"
                 "base_swing_speed"      "1.0"
             }
+        }
+
+        "precache"
+        {
+          "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+          "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
+          "particle"                                          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
         }
     }
 }
