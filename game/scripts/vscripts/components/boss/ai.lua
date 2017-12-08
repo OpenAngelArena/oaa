@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Taken from bb template
 if BossAI == nil then
@@ -80,6 +81,8 @@ end
 function BossAI:DeathHandler (state, keys)
   DebugPrint('Handling death of boss ' .. state.tier)
   state.state = BossAI.DEAD
+
+  CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", {}, state.origin, state.handle:GetTeamNumber(), false)
 
   state.handle = nil
   local killer = EntIndexToHScript(keys.entindex_attacker)

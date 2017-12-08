@@ -2,7 +2,7 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 16
+	m_nMaxParticles = 40
 	m_ConstantColor = [ 229, 187, 94, 55 ]
 	m_Renderers = 
 	[
@@ -67,6 +67,17 @@
 			m_flStartFadeOutTime = 0.2
 			m_flEndFadeOutTime = 0.4
 		},
+		{
+			_class = "C_OP_AlphaDecay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -10.0
+			m_flEndTime = 999999999999999967336168804116691273849533185806555472917961779471295845921727862608739868455469056.0
+			m_nField = 16
+			m_nOpEndCapState = 1
+		},
 	]
 	m_Initializers = 
 	[
@@ -80,10 +91,10 @@
 		},
 		{
 			_class = "C_INIT_RingWave"
-			m_nControlPointNumber = 2
-			m_flInitialRadius = 256.0
+			m_flInitialRadius = 1.0
 			m_bEvenDistribution = true
 			m_flParticlesPerOrbit = 16.0
+			m_nOverrideCP = 9
 		},
 		{
 			_class = "C_INIT_PositionOffset"
@@ -115,7 +126,8 @@
 	m_Emitters = 
 	[
 		{
-			_class = "C_OP_MaintainEmitter"
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 16.0
 		},
 	]
 	m_controlPointConfigurations = 

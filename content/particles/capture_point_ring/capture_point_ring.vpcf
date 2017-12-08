@@ -8,12 +8,13 @@
 	[
 		{
 			_class = "C_OP_SetSingleControlPointPosition"
-			m_vecCP1Pos = [ 0.0, 0.0, -25.0 ]
+			m_vecCP1Pos = [ 0.0, 0.0, 100.0 ]
 			m_nCP1 = 2
 		},
 		{
 			_class = "C_OP_SetSingleControlPointPosition"
 			m_vecCP1Pos = [ 0.0, 0.0, 100.0 ]
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_RestartAfterDuration"
@@ -24,13 +25,11 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/capture_point_ring/capture_point_ring_b.vpcf"
+			m_ChildRef = resource:"particles/capture_point_ring/capture_point_ring_endcap.vpcf"
+			m_bEndCap = true
 		},
 		{
 			m_ChildRef = resource:"particles/capture_point_ring/capture_point_ring_e.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/capture_point_ring/capture_point_ring_c.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 
@@ -133,12 +132,6 @@
 					m_entityName = "self"
 				},
 			]
-		},
-	]
-	m_Initializers = 
-	[
-		{
-			_class = "C_INIT_RemapCPtoVector"
 		},
 	]
 }
