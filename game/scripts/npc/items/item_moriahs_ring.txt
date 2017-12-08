@@ -1,0 +1,77 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Moriah's ring
+  //=================================================================================================================
+  "item_recipe_moriahs_ring"
+  {
+
+    "ID"                                                  "9434"       // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_moriahs_ring"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "ItemRequirements"
+    {
+      "01"                                                "item_blade_mail;item_kaya_3;item_upgrade_core_3"
+      "02"                                                "item_blade_mail;item_kaya_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Moriah's Ring
+  //=================================================================================================================
+  "item_moriahs_ring"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "9444"       // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/moriahs_ring.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "8.0"
+    "AbilitySharedCooldown"                               "moriahs_ring"
+    "AbilityTextureName"                                  "custom/bloodstone"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_moriahs_ring_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "17150"
+    "ItemShopTags"                                        "damage;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "moriah;ring;moriahs ring;get bkb"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "8.0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sangromancy_spell_amp"                           "75 125"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sangromancy_self_damage"                         "100 100"
+      }
+    }
+  }
+}
