@@ -18,6 +18,7 @@ Bosses = {
       "npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_creature_lycan_boss"
     },
     {
       "npc_dota_creature_ogre_tank_boss",
@@ -37,6 +38,7 @@ Bosses = {
       "npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_creature_lycan_boss"
     },
     {
       "npc_dota_creature_ogre_tank_boss",
@@ -48,7 +50,11 @@ Bosses = {
   },
   -- tier 2
   {
-    "npc_dota_boss_shielder",
+    {
+      "npc_dota_boss_twin",
+      "npc_dota_boss_shielder",
+      "npc_dota_creature_lycan_boss"
+    },
     {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_boss_charger",
