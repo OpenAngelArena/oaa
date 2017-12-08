@@ -85,7 +85,7 @@ function Jump()
 		AbilityIndex = thisEntity.JumpAbility:entindex(),
 		Queue = false,
 	})
-  return 3 / thisEntity:GetHasteFactor()
+  return 3
 end
 
 function Smash( enemy )
@@ -106,7 +106,7 @@ function Smash( enemy )
 		Queue = false,
 	})
 
-	return 3 / thisEntity:GetHasteFactor()
+  return thisEntity.SmashAbility:GetPlaybackRateOverride()
 end
 
 function RetreatHome()
