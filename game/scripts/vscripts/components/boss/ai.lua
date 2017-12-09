@@ -78,22 +78,9 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
   end
 end
 
-function BossAI:DeathHandler (state, keys)
-  DebugPrint('Handling death of boss ' .. state.tier)
-  state.state = BossAI.DEAD
+function BossAI:RewardBossKill(teamId, tier)
 
-  CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", {}, state.origin, state.handle:GetTeamNumber(), false)
-
-  state.handle = nil
-  local killer = EntIndexToHScript(keys.entindex_attacker)
-  local teamId = killer:GetTeam()
   local team = nil
-
-  state.deathEvent.broadcast(keys)
-
-  if state.isProtected then
-    teamId = state.owner
-  end
   if teamId == 2 then
     team = 'good'
   elseif teamId == 3 then
@@ -114,7 +101,7 @@ function BossAI:DeathHandler (state, keys)
   print(bossKills[tostring(teamId)])
   CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
-  if state.tier == 1 then
+  if tier == 1 then
     BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
 
     if not BossAI.hasFarmingCore[team] then
@@ -143,26 +130,39 @@ function BossAI:DeathHandler (state, keys)
       end
     end
 
-  elseif state.tier == 2 then
+  elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
-  elseif state.tier == 3 then
+  elseif tier == 3 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-  elseif state.tier == 4 then
+  elseif tier == 4 then
 
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
-  elseif state.tier == 5 then
+  elseif tier == 5 then
 
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
-  elseif state.tier == 6 then
+  elseif tier == 6 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
+end
+
+function BossAI:DeathHandler (state, keys)
+  DebugPrint('Handling death of boss ' .. state.tier)
+  state.state = BossAI.DEAD
+
+  state.deathEvent.broadcast(keys)
+
+  local kv ={ tier = state.tier }
+
+  CreateModifierThinker( state.handle, nil, "modifier_boss_capture_point", kv, state.origin, state.handle:GetTeamNumber(), false)
+
+  state.handle = nil
 end
 
 function BossAI:Agro (state, target)
