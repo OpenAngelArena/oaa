@@ -53,10 +53,12 @@ function modifier_boss_capture_point:GetColor()
   return SplineVectors(neutralColor, endColor, (self.captureProgress / self.captureTime) ^ (1/5))
 end
 
+function modifier_boss_capture_point:SetCallback(callbackFunc)
+  self.captureFinishCallback = callbackFunc
+end
+
 if IsServer() then
   function modifier_boss_capture_point:OnCreated(keys)
-    self.tier = keys.tier
-    self.captureFinishCallback = keys.finishFunction
     self.radius = keys.radius or 300
     self.captureTime = keys.captureTime or 10
     self.captureProgress = 0
@@ -128,11 +130,9 @@ function modifier_boss_capture_point:OnIntervalThink()
 
   self.captureProgress = self.captureProgress + self.thinkInterval
   if self.captureProgress >= self.captureTime then
-    BossAI:RewardBossKill(self.capturingTeam, self.tier)
     -- Point has been captured
-    if self.captureFinishCallback then
-      self.captureFinishCallback(self.capturingTeam)
-    end
+    self:StartIntervalThink(-1) -- Stop thinking first so that we don't accidentally finish twice
+    self.captureFinishCallback(self.capturingTeam)
     self:Destroy()
     return
   end
@@ -153,5 +153,6 @@ if IsServer() then
       "captureClockEffect"
     }
     foreach(partial(self.DestroyParticleByName, self), particles)
+    self:GetParent():ForceKill(false)
   end
 end

@@ -78,12 +78,12 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
   end
 end
 
-function BossAI:RewardBossKill(teamId, tier)
-
+function BossAI:RewardBossKill(state, deathEventData, teamId)
+  state.deathEvent.broadcast(deathEventData)
   local team = nil
-  if teamId == 2 then
+  if teamId == DOTA_TEAM_GOODGUYS then
     team = 'good'
-  elseif teamId == 3 then
+  elseif teamId == DOTA_TEAM_BADGUYS then
     team = 'bad'
   else
     return
@@ -100,6 +100,7 @@ function BossAI:RewardBossKill(teamId, tier)
   DebugPrint("Setting team " .. teamId .. " boss kills to " .. bossKills[tostring(teamId)])
   CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
+  local tier = state.tier
   if tier == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
 
@@ -155,12 +156,15 @@ function BossAI:DeathHandler (state, keys)
   DebugPrint('Handling death of boss ' .. state.tier)
   state.state = BossAI.DEAD
 
-  state.deathEvent.broadcast(keys)
+  if state.isProtected then
+    self:RewardBossKill(state, keys, state.owner)
+    state.handle = nil
+    return
+  end
 
-  local kv ={ tier = state.tier }
-
-  CreateModifierThinker( state.handle, nil, "modifier_boss_capture_point", kv, state.origin, state.handle:GetTeamNumber(), false)
-
+  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", {}, state.origin, state.handle:GetTeamNumber(), false)
+  local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+  capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
   state.handle = nil
 end
 
