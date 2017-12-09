@@ -50,10 +50,10 @@
 			m_nOpEndCapState = 1
 		},
 		{
-			_class = "C_OP_RampScalarLinearSimple"
-			m_Rate = -10.0
-			m_flEndTime = 1000000000000001424337837973413494463445963303445735454723091068575936784781035166786953772361842688.0
-			m_nField = 16
+			_class = "C_OP_LerpEndCapScalar"
+			m_nFieldOutput = 7
+			m_flOutput = 0.0
+			m_flLerpTime = 0.1
 			m_nOpEndCapState = 1
 		},
 	]
