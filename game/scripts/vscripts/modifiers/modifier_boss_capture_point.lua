@@ -50,7 +50,7 @@ function modifier_boss_capture_point:GetColor()
   else
     endColor = neutralColor
   end
-  return SplineVectors(neutralColor, endColor, self.captureProgress / self.captureTime)
+  return SplineVectors(neutralColor, endColor, (self.captureProgress / self.captureTime) ^ (1/5))
 end
 
 if IsServer() then
