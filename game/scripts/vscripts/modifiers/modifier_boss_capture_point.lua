@@ -60,7 +60,7 @@ if IsServer() then
     self.radius = keys.radius or 300
     self.captureTime = keys.captureTime or 10
     self.captureProgress = 0
-    self.thinkInterval = 0.025
+    self.thinkInterval = 0.02
     local parent = self:GetParent()
     self.captureRingEffect = ParticleManager:CreateParticle(particleDirectory .. "capture_point_ring.vpcf", PATTACH_ABSORIGIN, parent)
     -- Particle colour
