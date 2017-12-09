@@ -1,0 +1,98 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Nullifier 2
+  //=================================================================================================================
+  "item_recipe_nullifier_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8407"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_nullifier_2"
+    "ItemCost"                                            "1500"
+    "ItemRequirements"
+    {
+      "01"                                                "item_nullifier;item_upgrade_core"
+      "02"                                                "item_nullifier;item_upgrade_core_2"
+      "03"                                                "item_nullifier;item_upgrade_core_3"
+      "04"                                                "item_nullifier;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Nullifier 2
+  //=================================================================================================================
+  "item_nullifier_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8408"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_nullifier"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "FightRecapLevel"       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "6200"
+    "ItemAliases"         "nlf 2;nullifier 2"
+
+    "AbilitySharedCooldown"         "nullify"
+    "AbilityCooldown"       "14.0"
+    "AbilityCastRange"      "600"
+    "AbilityManaCost"       "100"
+    
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"      "65 95 140 210 285"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_armor"     "5 8 12 16 20"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_regen"     "5 8 12 18 26"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "mute_duration"     "5.0"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "projectile_speed"    "1200"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_pct"        "100"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "slow_interval_duration"  "0.4"
+      }
+    }
+  }
+}

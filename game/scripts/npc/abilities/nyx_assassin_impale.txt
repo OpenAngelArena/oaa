@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
@@ -20,19 +20,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.4"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "95 115 135 155 190 275"
-    
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 140 200 260 380 860"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -43,7 +39,7 @@
         "width"                                           "125 125 125 125"
       }
       "02"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "1.6 2.0 2.4 2.8 3.2 3.5"
       }
@@ -61,6 +57,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_upgrade"                                "7"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "impale_damage"     "80 140 200 260 560 860"
+        "LinkedSpecialBonus"  "special_bonus_unique_nyx_2"
       }
     }
   }

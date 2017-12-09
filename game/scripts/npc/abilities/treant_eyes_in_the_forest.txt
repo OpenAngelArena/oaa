@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "35"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,19 +36,20 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_aoe"                                      "800 800 800 850 900"
+        "vision_aoe"                                      "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "overgrowth_aoe"                                  "800 800 800 850 900"
+        "overgrowth_aoe"                                  "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "175 175 175 275 675"
+        "damage"                                          "175"
       }
     }
   }
-
 }

@@ -26,6 +26,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "crit_multiplier"                                 "150 175 200 225 250 275"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
       }
       "02"
       {
@@ -40,7 +41,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.0 3.0 3.0 3.0 3.0"
+        "duration"                                        "3.0"
       }
     }
   }

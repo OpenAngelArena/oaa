@@ -37,6 +37,7 @@ function item_hand_of_midas:OnSpellStart()
   target:EmitSound("DOTA_Item.Hand_Of_Midas")
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+  ParticleManager:ReleaseParticleIndex(midas_particle)
 
   target:SetDeathXP(0)
   target:SetMinimumGoldBounty(math.max(defaultMinGoldBounty, bonusGold))

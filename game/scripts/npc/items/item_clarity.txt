@@ -22,14 +22,19 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_mana"                                      "190"
+        "var_type"        "FIELD_FLOAT"
+        "mana_regen"      "3.2"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "buff_duration"                                   "50"
-      }      
+        "var_type"        "FIELD_INTEGER"
+        "buff_duration"     "50"
+      }     
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range_tooltip"     "250"
+      }    
     }
   }
 }

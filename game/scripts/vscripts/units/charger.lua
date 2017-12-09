@@ -87,10 +87,7 @@ local function ChargeHero ()
 end
 
 local function ChargerThink (state, target)
-  if not thisEntity:IsAlive() then
-    GetAllPillars():each(function (pillar)
-      pillar:Kill(thisEntity, ABILITY_charge)
-    end)
+  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
     return 0
   end
   if not GLOBAL_origin then

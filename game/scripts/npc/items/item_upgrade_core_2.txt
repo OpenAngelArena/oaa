@@ -1,5 +1,8 @@
 "DOTAItems"
 {
+  //=================================================================================================================
+  // Demons Blood
+  //=================================================================================================================
   "item_upgrade_core_2"
   {
     // General
@@ -18,7 +21,7 @@
     "ItemCost"                                            "2500"
     "ItemPurchasable"                                     "0"
     //"ItemSellable"                                      "0"
-    "ItemKillable"                                        "0"
+    "ItemKillable"                                        "1"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
     // Special

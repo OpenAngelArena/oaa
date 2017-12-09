@@ -20,15 +20,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0 60.0 60.0"
+    "AbilityCooldown"                                     "70"
     "AbilityDuration"                                     "20.0 20.0 20.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 100 125 175 375"
+    "AbilityManaCost"                                     "75 100 125 250 375"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "500"
+        "bonus_attack_speed"                              "350"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "focusfire_damage_reduction"                      "-50 -40 -30 -20 -0"
-      }            
+      }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -58,7 +58,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "focusfire_damage_reduction_scepter"              "-30 -15 -0 10 30"
-      }      
+      }
+      "06"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "focusfire_fire_on_the_move"  "1"
+      }
     }
   }
 }

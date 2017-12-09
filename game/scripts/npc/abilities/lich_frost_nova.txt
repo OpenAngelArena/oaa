@@ -11,29 +11,29 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8.0"
     "AbilityDuration"                                     "4.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 100 150 200 300 700"
+    "AbilityDamage"                                       "50 100 150 200 450 700"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 150 170 190 240 420"
+    "AbilityManaCost"                                     "125 150 170 190 290 390"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
-    {      
+    {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,7 +61,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aoe_damage"                                      "75 100 125 150 200 400"
+        "aoe_damage"                                      "75 100 125 150 275 400"
       }
     }
   }

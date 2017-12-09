@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_blade_mail_5"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_4;item_upgrade_core_4"
@@ -42,6 +42,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +55,7 @@
     "ItemCost"                                            "35200"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm;blade mail;blademail"
+    "ItemAliases"                                         "bm 5;blade mail 5;blademail 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

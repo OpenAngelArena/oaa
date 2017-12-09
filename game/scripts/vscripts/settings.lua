@@ -1,11 +1,29 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
-
 -----------------------------------------------------------------------------------
 -- OAA specific settings
 
+-- poop wards
+POOP_WARD_DURATION = 360
+POOP_WARD_COOLDOWN = 120
+POOP_WARD_RADIUS = 200
+
+-- scan reveal
+SCAN_REVEAL_COOLDOWN = 60
+SCAN_REVEAL_RADIUS = 900
+SCAN_REVEAL_DURATION = 7
+
+-- PICK SCREEN
+CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
+CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
+CAPTAINS_MODE_HERO_PICK_TIME = 20         -- time to choose which hero you're going to play
+
+-- Game timings
+PREGAME_TIME = 10
+AP_GAME_TIME = 90
+
 -- Duels
-INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -37,7 +55,6 @@ ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same 
 
 CUSTOM_GAME_SETUP_TIME = 30.0           -- How long to show custom game setup? 0 disables
 HERO_SELECTION_TIME = 30.0              -- How long should we let people select their hero?
-PRE_GAME_TIME = 10.0                    -- How long after people select their heroes should the horn blow and the game start?
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
@@ -115,7 +132,7 @@ LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the norma
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
 DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?
-FORCE_PICKED_HERO = nil                 -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
+FORCE_PICKED_HERO = "npc_dota_hero_meepo" -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
 
 FIXED_RESPAWN_TIME = 5                 -- What time should we use for a fixed respawn timer?  Use -1 to keep the default dota behavior.
 FOUNTAIN_CONSTANT_MANA_REGEN = -1       -- What should we use for the constant fountain mana regen?  Use -1 to keep the default dota behavior.

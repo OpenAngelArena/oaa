@@ -12,7 +12,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mask_of_madness_5"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness_4;item_upgrade_core_4"
@@ -33,7 +33,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_5"
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +47,7 @@
     "ItemCost"                                            "34975"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "mom;mask of madness"
+    "ItemAliases"                                         "mom 5;mask of madness 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -81,7 +82,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_armor_reduction"                         "5"
+        "berserk_armor_reduction"                         "7"
       }
       "07"
       {

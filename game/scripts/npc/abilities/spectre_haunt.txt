@@ -36,17 +36,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0 6.0 7.0 9.0 17.0"
+        "duration"                                        "5.0 6.0 7.0 12.0 17.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_outgoing"                        "-70"
+        "illusion_damage_outgoing"                        "-60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "30"
+        "tooltip_outgoing"                                "40"
+        "LinkedSpecialBonus"    "special_bonus_unique_spectre_4"
       }
       "04"
       {

@@ -8,7 +8,7 @@
     "ID"                                                  "3214" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "FightRecapLevel"                                     "2"
 
     // Item Info
@@ -48,7 +48,7 @@
     "ItemCost"                                            "45600"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "refresher_core orb"
+    "ItemAliases"                                         "refresher core 3;refresher 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -58,12 +58,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "18"
+        "bonus_health_regen"                              "17"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "400 450 500"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "5 6 7"
       }
       "03"
       {

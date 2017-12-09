@@ -7,14 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability2"                                            "silencer_glaives_of_wisdom_oaa"
-    "Ability10"                                           "special_bonus_armor_4"
-    "Ability11"                                           "special_bonus_intelligence_7"
-    "Ability12"                                           "special_bonus_hp_200"
-    "Ability13"                                           "special_bonus_spell_amplify_5"   //OAA
-    "Ability14"                                           "special_bonus_attack_speed_30"
-    "Ability15"                                           "special_bonus_magic_resistance_12"
-    "Ability16"                                           "special_bonus_attack_range_200"
-    "Ability17"                                           "special_bonus_unique_silencer" // +25% Arcane Curse Slow
+    "Ability2"    "silencer_glaives_of_wisdom_oaa" // replaces silencer_glaives_of_wisdom
+    "Ability12"   "special_bonus_spell_amplify_5" // replaces special_bonus_gold_income_15
   }
 }

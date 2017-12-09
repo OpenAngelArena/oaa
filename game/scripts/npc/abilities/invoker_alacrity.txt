@@ -11,21 +11,21 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "MaxLevel"                                            "1"
     "HotKeyOverride"                                      "Z"
-    
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "17"
-    "AbilityManaCost"                                     "45 45 45 45 45 45 45 45 45 45 50 55 60 65 70"
-    
+    "AbilityManaCost"                                     "60"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -35,12 +35,14 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
         "levelkey"                                        "wexlevel"
+        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "10 25 40 55 70 85 100 115 130 145 160 175 190 205 220"
         "levelkey"                                        "exortlevel"
+        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
       }
       "03"
       {
@@ -49,6 +51,4 @@
       }
     }
   }
-
-
 }

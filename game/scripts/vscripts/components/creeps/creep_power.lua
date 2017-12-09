@@ -30,10 +30,10 @@ function CreepPower:GetBasePowerForMinute (minute, multFactor)
 
   return {
     minute,                                   -- minute
-    (55 * ((minute / 100) ^ 4) - 45 * ((minute/100) ^ 3) + 25 * ((minute/100) ^ 2) - 0 * (minute/100)) + 1,   -- hp
-    (55 * ((minute / 100) ^ 4) - 45 * ((minute/100) ^ 3) + 25 * ((minute/100) ^ 2) - 0 * (minute/100)) + 1,   -- mana
-    (220 * ((minute / 100) ^ 4) - 180 * ((minute/100) ^ 3) + 100 * ((minute/100) ^ 2) - 0 * (minute/100)) + 1,     -- damage
-    (minute / 24) ^ 2 + minute / 7 + 1,       -- armor
+    (20 * ((minute / 100) ^ 4) - 10 * ((minute/100) ^ 3) + 28 * ((minute/100) ^ 2) + 0 * (minute/100)) + 1,   -- hp
+    (20 * ((minute / 100) ^ 4) - 10 * ((minute/100) ^ 3) + 28 * ((minute/100) ^ 2) + 0 * (minute/100)) + 1,   -- mana
+    (80 * ((minute / 100) ^ 4) - 40 * ((minute/100) ^ 3) + 112 * ((minute/100) ^ 2) + 0 * (minute/100)) + 1,     -- damage
+    (minute / 26) ^ 2 + minute / 6 + 1,       -- armor
     (23 * minute^2 + 375 * minute + 7116)/7116,                         -- gold
     ((45 * minute^2 + 67 * minute + 2500) / 2500) * self.numPlayersXPFactor * multFactor -- xp
   }

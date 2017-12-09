@@ -1,4 +1,7 @@
+LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
+
+DUEL_IS_STARTING = 21
 
 -- Taken from bb template
 if Duels == nil then
@@ -63,9 +66,25 @@ function Duels:Init ()
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
-          hero:RespawnHero(false, false, false)
+          hero:RespawnHero(false, false)
         end
       end
+
+      if not Duels:IsActive() then
+        return
+      end
+
+      local player = Duels:PlayerForDuel(playerID)
+      if not player or not player.assigned or not player.duelNumber then
+        -- player is not in a duel, they can just chill tf out
+        return
+      end
+      player.disconnected = false
+      if player.killed or not player.disconnected then
+        return
+      end
+
+      Duels:UnCountPlayerDeath(player)
     end
   end)
 
@@ -79,12 +98,29 @@ function Duels:Init ()
         hero:Stop()
         hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
       end
+
+      if not Duels:IsActive() then
+        return
+      end
+
+      local player = Duels:PlayerForDuel(playerID)
+      if not player or not player.assigned or not player.duelNumber then
+        -- player is not in a duel, they can just chill tf out
+        return
+      end
+      player.disconnected = true
+      if player.killed then
+        return
+      end
+
+      Duels:CountPlayerDeath(player)
     end
   end)
 
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     Duels:StartDuel({
       players = 5,
+      firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
     })
   end)
@@ -94,10 +130,54 @@ function Duels:Init ()
   ChatCommand:LinkCommand("-tptest", Dynamic_Wrap(Duels, "TestSafeTeleport"), Duels)
 end
 
-local DUEL_IS_STARTING = 21
+function Duels:CountPlayerDeath (player)
+  local scoreIndex = player.team .. 'Living' .. player.duelNumber
+  Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] - 1
 
+  if Duels.currentDuel[scoreIndex] <= 0 then
+    Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
+    DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
+    local winningTeam = "bad"
+    if player.team == "bad" then
+      winningTeam = "good"
+    end
+
+    Duels:AllPlayers(Duels.currentDuel, function (otherPlayer)
+      if player.duelNumber ~= otherPlayer.duelNumber then
+        return
+      end
+      Notifications:Top(otherPlayer.id, {
+        text = "#DOTA_Winner_" .. winningTeam .. "Guys",
+        duration = 5.0,
+        style = {
+          color = "red",
+          ["font-size"] = "110px"
+        }
+      })
+    end)
+
+
+  end
+
+  if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then
+    DebugPrint('both duels are over, resuming normal play!')
+    Duels:EndDuel()
+  end
+end
+
+function Duels:UnCountPlayerDeath (player)
+  local scoreIndex = player.team .. 'Living' .. player.duelNumber
+  Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] + 1
+end
+
+function Duels:IsActive ()
+  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+    return false
+  end
+  return true
+end
 function Duels:CheckDuelStatus (hero)
-  if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then -- <- There is nothing here, git.
+  if not Duels:IsActive() then
     return
   end
   if hero:IsReincarnating() then
@@ -109,32 +189,34 @@ function Duels:CheckDuelStatus (hero)
   end
 
   local playerId = hero:GetPlayerOwnerID()
-  local foundIt = false
 
-  Duels:AllPlayers(Duels.currentDuel, function (player)
-    if foundIt or player.id ~= playerId then
-      return
-    end
-    if not player.assigned or not player.duelNumber then
-      return
-    end
+  local player = Duels:PlayerForDuel(playerId)
+  if not player then
+    -- player is not in this duel!
+    return
+  end
 
-    foundIt = true
-    local scoreIndex = player.team .. 'Living' .. player.duelNumber
-    DebugPrint('Found dead player on ' .. player.team .. ' team with scoreindex ' .. scoreIndex)
+  if not player.assigned or not player.duelNumber then
+    DebugPrint('Player died who isnt in a duel?')
+    DebugPrintTable(Duels.currentDuel)
+    DebugPrintTable(player)
+    return
+  end
 
-    Duels.currentDuel[scoreIndex] = Duels.currentDuel[scoreIndex] - 1
+  if player.killed then
+    -- this player is already dead and shouldn't be counted again
+    -- this shouldn't happen, but is nice to have here for future use cases of this method
+    DebugPrint('Player died twice in duel?')
+    DebugPrintTable(Duels.currentDuel)
+    DebugPrintTable(player)
+    return
+  end
 
-    if Duels.currentDuel[scoreIndex] <= 0 then
-      Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
-      DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
-    end
+  if not player.disconnected then
+    player.killed = true
+  end
 
-    if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then
-      DebugPrint('both duels are over, resuming normal play!')
-      Duels:EndDuel()
-    end
-  end)
+  Duels:CountPlayerDeath(player)
 end
 
 function Duels:StartDuel (options)
@@ -143,7 +225,9 @@ function Duels:StartDuel (options)
     return
   end
   options = options or {}
-
+  if not options.firstDuel then
+    Music:SetMusic(12)
+  end
   Timers:RemoveTimer('EndDuel')
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
@@ -233,8 +317,11 @@ function Duels:ActuallyStartDuel (options)
     DebugPrint('There aren\'t enough players to start the duel')
     Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     self.currentDuel = nil
+    Music:PlayBackground(1, 7)
     return
   end
+
+  Music:SetMusic(13)
 
   local playerSplitOffset = RandomInt(0, maxPlayers)
   if options.players then
@@ -384,6 +471,9 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
+      if self.currentDuel == nil then
+        return
+      end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
     end)
   end
@@ -405,6 +495,8 @@ function Duels:EndDuel ()
   DebugPrint('Duel has ended')
   Timers:RemoveTimer('EndDuel')
 
+  Music:PlayBackground(1, 7)
+
   local nextDuelIn = DUEL_INTERVAL
   -- why dont these run?
   Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
@@ -421,8 +513,8 @@ function Duels:EndDuel ()
   self.currentDuel = nil
 
   Timers:CreateTimer(0.1, function ()
+    DebugPrint('Sending all players back!')
     self:AllPlayers(currentDuel, function (state)
-      -- DebugPrintTable(state)
       local player = PlayerResource:GetPlayer(state.id)
       if player == nil then -- disconnected!
         return
@@ -431,7 +523,7 @@ function Duels:EndDuel ()
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false,false)
+        hero:RespawnHero(false,false)
       else
         hero:RemoveModifierByName("modifier_out_of_duel")
       end
@@ -446,9 +538,13 @@ function Duels:EndDuel ()
     end)
     -- Remove Modifier
     for playerId = 0,19 do
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-      if hero ~= nil then
-        hero:RemoveModifierByName("modifier_out_of_duel")
+      local player = PlayerResource:GetPlayer(playerId)
+      if player then
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+
+        if hero ~= nil then
+          hero:RemoveModifierByName("modifier_out_of_duel")
+        end
       end
     end
     DuelEndEvent.broadcast(currentDuel)
@@ -471,8 +567,18 @@ function Duels:PurgeAfterDuel (hero)
 end
 
 function Duels:ResetPlayerState (hero)
+  if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
+    hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
+  end
+  if hero:HasModifier("modifier_offside") then
+    hero:RemoveModifierByName("modifier_offside")
+  end
+  if hero:HasModifier("modifier_is_in_offside") then
+    hero:RemoveModifierByName("modifier_is_in_offside")
+  end
+
   if not hero:IsAlive() then
-    hero:RespawnHero(false,false,false)
+    hero:RespawnHero(false,false)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
@@ -483,6 +589,7 @@ function Duels:ResetPlayerState (hero)
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability ~= nil and RefreshAbilityFilter(ability) then
       ability:EndCooldown()
+      ability:RefreshCharges()
     end
   end
 
@@ -502,6 +609,7 @@ function Duels:SavePlayerState (hero)
     abilities = {},
     items = {},
     modifiers = {},
+    offsidesStacks = 0,
     hp = hero:GetHealth(),
     mana = hero:GetMana(),
     assignable = true -- basically just for for clearer code
@@ -513,6 +621,12 @@ function Duels:SavePlayerState (hero)
         state.location = Vector(-5221.958496, -139.014923, 387.999023)
     else
         state.location = Vector(4908.748047, -91.460907, 392.000000)
+    end
+  else
+    -- hero is alive, lets check for offsides protection aura
+    local modifier = hero:FindModifierByName("modifier_offside")
+    if modifier then
+      state.offsidesStacks = modifier:GetStackCount()
     end
   end
 
@@ -564,6 +678,11 @@ function Duels:RestorePlayerState (hero, state)
       item:StartCooldown(state.items[itemIndex].cooldown)
     end
   end
+
+  if state.offsidesStacks > 0 then
+    local modifier = hero:AddNewModifier(hero, nil, "modifier_offside", {})
+    modifier:SetStackCount(state.offsidesStacks)
+  end
 end
 
 function Duels:AllPlayers (state, cb)
@@ -588,6 +707,19 @@ function Duels:AllPlayers (state, cb)
   end
 end
 
+function Duels:PlayerForDuel (playerId)
+  local foundIt = false
+
+  Duels:AllPlayers(Duels.currentDuel, function (player)
+    if foundIt or player.id ~= playerId then
+      return
+    end
+    foundIt = player
+  end)
+
+  return foundIt
+end
+
 function Duels:SafeTeleportAll(owner, location, maxDistance)
   self:SafeTeleport(owner, location, maxDistance)
   local children = FindUnitsInRadius(owner:GetTeam(),
@@ -595,7 +727,7 @@ function Duels:SafeTeleportAll(owner, location, maxDistance)
                                      nil,
                                      FIND_UNITS_EVERYWHERE,
                                      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                     DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC,
+                                     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
                                      DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
                                      FIND_ANY_ORDER,
                                      false)
@@ -628,7 +760,7 @@ function Duels:SafeTeleport(unit, location, maxDistance)
   Timers:CreateTimer(0.1, function()
     local distance = (location - unit:GetAbsOrigin()):Length2D()
     if distance > maxDistance then
-      self:SafeTeleport(unit, location, maxDistance)
+      self:SafeTeleport(unit, location, maxDistance + 100)
     end
   end)
 end

@@ -10,7 +10,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_mystic_staff;item_soul_booster"
@@ -73,6 +73,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_lifesteal"                                 "5 10"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "active_duration"   "7"
       }
     }
   }

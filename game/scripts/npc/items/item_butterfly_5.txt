@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3135"      // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_5"
     "ItemCost"                                            "20000"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_butterfly_4;item_upgrade_core_4"
@@ -35,6 +36,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
+    "AbilitySharedCooldown"                               "flutter"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +49,7 @@
     "ItemCost"                                            "38525"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bfly;butterfly"
+    "ItemAliases"                                         "bfly 5;butterfly 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -82,7 +84,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "2"
       }
     }
   }

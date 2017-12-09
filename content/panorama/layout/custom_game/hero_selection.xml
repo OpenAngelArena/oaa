@@ -1,0 +1,240 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/hero_selection.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
+  </scripts>
+  <Panel class="HeroSelection" onactivate=";">
+    <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <Panel class="TeamStatus">
+      <Panel class="FillWidth">
+        <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
+      </Panel>
+      <Panel id="TeamRadiant"/>
+      <Panel id="Clock">
+        <Label id="TimeLeft" text="WAIT"/>
+        <Label id="GameMode" text="WAIT"/>
+      </Panel>
+      <Panel id="TeamDire"/>
+      <Panel class="FillWidth"/>
+    </Panel>
+    <Panel id="MainContent">
+      <Panel class="MiddleColumn">
+        <Panel id="CMPanel">
+          <Panel id="BecomeCaptainPanel">
+            <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
+              <Label text="#DOTA_Hero_Selection_BecomeCaptain" />
+            </Button>
+          </Panel>
+          <Panel id="CMProgress">
+            <Panel class="CMTeam" id="CMRadiant">
+              <Panel class="CMBan" id="CMRadiantBanLabel">
+                <Label text="1"/>
+                <Label text="3"/>
+                <Label text="10"/>
+                <Label text="12"/>
+                <Label text="18"/>
+              </Panel>
+              <Panel class="CMBan" id="CMRadiantBan">
+                <DOTAHeroImage class="CMStep" id="CMStep1">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep3">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep10">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep12">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep18">
+                </DOTAHeroImage>
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="#DOTA_GoodGuysShort"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPickLabel">
+                <Label text="5"/>
+                <Label text="8"/>
+                <Label text="14"/>
+                <Label text="16"/>
+                <Label text="19"/>
+              </Panel>
+              <Panel class="CMPick" id="CMRadiantPick">
+                <DOTAHeroImage class="CMStep" id="CMStep5">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep8">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep14">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep16">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep19">
+                </DOTAHeroImage>
+              </Panel>
+            </Panel>
+            <Panel class="CMInfo">
+              <Label class="BanLabel" text="#DOTA_Hero_Selection_BanTitle"/>
+              <Label class="PickLabel" text="#DOTA_Hero_Selection_PickTitle"/>
+            </Panel>
+            <Panel class="CMTeam" id="CMDire">
+              <Panel class="CMBan" id="CMDireBanLabel">
+                <Label text="2"/>
+                <Label text="4"/>
+                <Label text="9"/>
+                <Label text="11"/>
+                <Label text="17"/>
+              </Panel>
+              <Panel class="CMBan" id="CMDireBan">
+                <DOTAHeroImage class="CMStep" id="CMStep2">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep4">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep9">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep11">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep17">
+                </DOTAHeroImage>
+              </Panel>
+              <Panel class="CMTeamInfo">
+                <Label text="#DOTA_BadGuysShort"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePickLabel">
+                <Label text="6"/>
+                <Label text="7"/>
+                <Label text="13"/>
+                <Label text="15"/>
+                <Label text="20"/>
+              </Panel>
+              <Panel class="CMPick" id="CMDirePick">
+                <DOTAHeroImage class="CMStep" id="CMStep6">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep7">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep13">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep15">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep" id="CMStep20">
+                </DOTAHeroImage>
+              </Panel>
+            </Panel>
+          </Panel>
+        </Panel>
+        <Panel id="HeroPanel">
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="StrHolder"/>
+              <Label id="ChooseStrLabel" text="#DOTA_Hero_Selection_STR"/>
+            </Panel>
+            <Panel class="HeroHolder" id="StrengthHeroes" />
+          </Panel>
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="AgiHolder"/>
+              <Label id="ChooseAgiLabel" text="#DOTA_Hero_Selection_AGI"/>
+            </Panel>
+            <Panel class="HeroHolder" id="AgilityHeroes"/>
+          </Panel>
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="IntHolder"/>
+              <Label id="ChooseIntLabel" text="#DOTA_Hero_Selection_INT"/>
+            </Panel>
+            <Panel class="HeroHolder" id="IntelligenceHeroes"/>
+          </Panel>
+        </Panel>
+        <Panel id="PreviewPanel">
+          <Panel id="HeroSelector">
+            <Panel id="HeroPreviewContainer">
+              <Label id="SectionTitle" text=""/>
+              <Panel id="HeroPreview">
+                <DOTAScenePanel unit="" />
+              </Panel>
+            </Panel>
+            <Panel id="HeroPickContainer">
+              <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
+                <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
+                <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
+              </Button>
+              <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
+                <Label text="#DOTA_Hero_Selection_LOCKIN" />
+              </Button>
+              <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
+                <Label text="#random" />
+              </Button>
+            </Panel>
+          </Panel>
+          <Panel id="CMHeroPreview" hittest="false">
+          </Panel>
+        </Panel>
+      </Panel>
+    </Panel>
+    <!-- <Panel id="ChatBoxHolder" hittest="false"> -->
+      <!-- <DOTAChat id="ChatBox" class="ChatExpanded" chatstyle="hudpregame" /> -->
+    <!-- </Panel> -->
+    <Panel id="StrategyContent">
+      <Panel class="BossIcon" id="Boss1r">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2r">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3r">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4r">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5r">
+        <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="BossIcon" id="Boss1d">
+        <Label text="Tier 1"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss2d">
+        <Label text="Tier 2"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss3d">
+        <Label text="Tier 3"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss4d">
+        <Label text="Tier 4"/>
+      </Panel>
+      <Panel class="BossIcon" id="Boss5d">
+        <Label text="Tier 5"/>
+      </Panel>
+
+      <Panel class="DuelIconHolder" id="Duel1">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 1"/>
+      </Panel>
+      <Panel class="DuelIconHolder" id="Duel2">
+        <Panel class="DuelIcon"/>
+        <Label text="Duel 2"/>
+      </Panel>
+
+      <Panel class="CaveIcon" id="Cave1r">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2r">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3r">
+        <Label text="Cave 3"/>
+      </Panel>
+
+      <Panel class="CaveIcon" id="Cave1d">
+        <Label text="Cave 1"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave2d">
+        <Label text="Cave 2"/>
+      </Panel>
+      <Panel class="CaveIcon" id="Cave3d">
+        <Label text="Cave 3"/>
+      </Panel>
+
+    </Panel>
+  </Panel>
+</root>

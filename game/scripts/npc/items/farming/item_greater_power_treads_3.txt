@@ -10,7 +10,7 @@
     "ID"                                                  "3012"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
@@ -45,8 +45,9 @@
     "ItemCost"                                            "6450"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "greater power treads 3"
+    "ItemAliases"                                         "greater power treads 3;power treads 3;treads 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
@@ -83,12 +84,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "20 30 40 50 60"
+        "split_damage"                                    "30 40 50 60 70"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "20 30 40 50 60"
+        "split_damage_ranged"                             "30 40 50 60 70"
       }
     }
   }

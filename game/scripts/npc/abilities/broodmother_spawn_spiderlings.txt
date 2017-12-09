@@ -21,7 +21,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -32,7 +32,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // Modifier has no support value
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -50,14 +50,14 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 420 980"
+        "damage"                                          "70 140 210 280 630 980"
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "1 2 3 4 6 14"
-      }   
+        "count"                                           "1 2 3 4 8 14"
+      }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"

@@ -24,6 +24,10 @@ function modifier_generic_bonus:Setup()
 
   local ability = self:GetAbility()
 
+  if not ability then
+    return
+  end
+
   for i,name in ipairs(attributesToCheck) do
     local value = ability:GetSpecialValueFor(name)
     if value ~= nil then

@@ -12,13 +12,13 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"
     "AbilityCastPoint"                                    "0.01"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16.0 12.0 8.0 4.0 4.0 4.0"
 
@@ -75,7 +75,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8 1.2 1.6 2 2.4 3.6"
+        "slow_duration"                                   "0.8 1.2 1.6 2.0 2.8 3.6"
       }
     }
   }

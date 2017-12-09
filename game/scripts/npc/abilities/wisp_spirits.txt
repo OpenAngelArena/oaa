@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5486"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"
@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 18.0 16.0 14.0 14.0 14.0"
     "AbilityDuration"                                     "19.0"
@@ -25,7 +25,7 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -33,12 +33,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage"                                    "8 14 20 26 38 70"
+        "creep_damage"                                    "8 14 20 26 48 70"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_damage"                                     "25 50 75 100 150 550"
+        "hero_damage"                                     "25 50 75 100 325 550"
         "LinkedSpecialBonus"                              "special_bonus_unique_wisp"
       }
       "04"
@@ -54,7 +54,8 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_range"                                       "875"
+        "max_range"                                       "700"
+        "LinkedSpecialBonus"    "special_bonus_unique_wisp_3"
       }
       "07"
       {
@@ -87,5 +88,5 @@
         "spirit_duration"                                 "19.0"
       }
     }
-  }  
+  }
 }

@@ -37,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "60.0"
+        "duration"                                        "60"
       }
       "02"
       {
@@ -67,12 +67,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "150 225 300"
+        "splash_radius"                                   "150 225 300 350 375"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "100 75 50"
+        "splash_damage_percent"                           "100 75 50 50 50"
       }
       "09"
       {
@@ -82,7 +82,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-30"
+        "frost_bonus_attack_speed"                        "-20"
       }
       "11"
       {

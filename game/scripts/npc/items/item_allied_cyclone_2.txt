@@ -7,7 +7,7 @@
     "ID"                                                  "3317"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "23.0"
+    "AbilitySharedCooldown"                               "cyclone"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +56,7 @@
     "ItemCost"                                            "7750"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "allied_cyclone euls;eul's scepter of divinity"
+    "ItemAliases"                                         "allied cyclone 2;allied euls 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -69,8 +70,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "175 250 350 450"
+        "var_type"              "FIELD_FLOAT"
+        "bonus_mana_regen"      "3.25 4.50 6.50 8.75"
       }
       "03"
       {
@@ -113,7 +114,7 @@
         "Properties"
         {
           "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"         "%bonus_intellect"
-          "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"         "%bonus_mana_regen"
+          "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
           "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
         }
       }

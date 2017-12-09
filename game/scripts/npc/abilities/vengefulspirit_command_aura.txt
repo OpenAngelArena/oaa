@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,15 +26,39 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "10 18 26 34 42 50"
+        "bonus_damage_pct"                                "12 18 24 30 36 42"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_do_damage_percent"  "0"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_do_damage_percent_tooltip"      "100"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_take_damage_percent"  "100"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "images_take_damage_percent_tooltip"      "200"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "illusion_duration"     "6"
       }
     }
   }
-
 }

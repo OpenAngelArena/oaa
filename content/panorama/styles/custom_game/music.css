@@ -1,0 +1,57 @@
+.MusicContainer
+{
+  horizontal-align: left;
+  vertical-align: top;
+  margin-top: 12px;
+  margin-left: 150px;
+  width: 200px;
+  flow-children: right;
+}
+
+.MusicButton
+{
+  width: 30px;
+  height: 28px;
+  margin: 2px;
+  background-size: 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  horizontal-align: center;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
+.MusicOn
+{
+    background-image: url("s2r://panorama/images/hud/reborn/icon_scoreboard_mute_sound_psd.vtex");
+}
+
+.MusicOff
+{
+    background-image: url("s2r://panorama/images/hud/reborn/icon_scoreboard_mute_sound_on_psd.vtex");
+}
+
+.MusicProperties
+{
+    flow-children: down;
+    margin-left: 2px;
+}
+
+.MusicTitle
+{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: #A3B5D0CC;
+    font-weight: thin;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px 2 #00000099;
+}
+
+.MusicSubTitle
+{
+    padding-top: 1px;
+    color:#A3B5D0CC;
+    font-weight: thin;
+    font-size: 10px;
+    text-shadow: 1px 1px 1px 2 #00000099;
+}

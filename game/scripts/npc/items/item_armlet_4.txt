@@ -9,7 +9,7 @@
     "ID"                                                  "3860"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -51,7 +51,7 @@
     "ItemCost"                                            "15370"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "armlet of mordiggian"
+    "ItemAliases"                                         "armlet of mordiggian 4;armlet 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -76,7 +76,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 10 15 20 25"
+        "bonus_health_regen"                              "4 6 9 12 16"
       }
       "05"
       {
@@ -101,12 +101,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "5 6 7 10 15"
+        "unholy_health_drain_per_tick"                    "6 7 10 15 20"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "45 54 63 90 120"
+        "unholy_health_drain_per_second_tooltip"          "54 63 90 135 180"
       }
       "11"
       {

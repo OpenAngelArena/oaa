@@ -9,12 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5395"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0 30.0 30.0 30.0 30.0 30.0"
 
@@ -44,12 +44,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wolf_damage"                                     "18 29 37 46 65 140"
+        "wolf_damage"                                     "18 29 37 46 165 340"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wolf_hp"                                         "200 240 280 320 400 720"
+        "wolf_hp"                                         "200 240 280 320 1320 2720"
       }
       "06"
       {
@@ -60,6 +60,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bash_duration"                                   "1.0"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "tooltip_wolf_count"      "2 2 2 2"
+        "LinkedSpecialBonus"  "special_bonus_unique_lycan_2"
       }
     }
   }

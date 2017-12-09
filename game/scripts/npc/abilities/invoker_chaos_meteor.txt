@@ -21,12 +21,12 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "55"
-    "AbilityManaCost"                                     "200 200 200 200 200 200 200 200 200 200 205 210 220 230 240"
+    "AbilityManaCost"                                     "200"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // Mainly about damage
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -51,7 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "travel_speed"                                    "300"
-      }      
+      }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -72,6 +72,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "main_damage"                                     "57.5 75 92.5 110 127.5 145 162.5 180"
+        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_6"
         "levelkey"                                        "exortlevel"
       }
       "09"

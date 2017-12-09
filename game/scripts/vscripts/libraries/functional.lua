@@ -79,3 +79,15 @@ end)
 --   end
 --   return newAr
 -- end
+
+function after (count, callback)
+  local result = {}
+  local function done(...)
+    table.insert(result, {...})
+    count = count - 1
+    if count == 0 then
+      callback(result)
+    end
+  end
+  return done
+end

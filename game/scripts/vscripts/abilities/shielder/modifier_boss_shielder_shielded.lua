@@ -124,6 +124,7 @@ target: hScript
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(nil, 0, 0))
+    ParticleManager:ReleaseParticleIndex(particle)
 
     return 0 - ability:GetSpecialValueFor("damage_reduction_pct")
   end

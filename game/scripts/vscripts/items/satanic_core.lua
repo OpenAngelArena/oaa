@@ -97,7 +97,8 @@ function modifier_item_satanic_core:OnTakeDamage( kv )
       if hCaster:HasModifier("modifier_satanic_core_unholy") then
         heal_percent = self.lifesteal_percent + self.unholy_lifesteal_percent
       end
-      ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster )
+      local particle = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster )
+      ParticleManager:ReleaseParticleIndex(particle)
       local healAmount = kv.damage * heal_percent / 100
       if healAmount > 0 then
         hCaster:Heal( healAmount, hCaster)

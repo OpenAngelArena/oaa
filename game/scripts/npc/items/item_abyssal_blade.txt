@@ -10,7 +10,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_basher;item_vanguard"
@@ -35,6 +35,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
+    "AbilitySharedCooldown"                               "abyssal"
     "AbilityCastRange"                                    "140"
     "AbilityCastPoint"                                    "0.0"
 
@@ -66,7 +67,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "15 20 25 30 35"
+        "bonus_health_regen"                              "7 14 21 28 35"
       }
       "03"
       {
@@ -86,39 +87,34 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10"
+        "bonus_strength"                                  "10 15 20 25 30"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25 30"
+        "bash_chance_melee"                               "25"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bash_chance_melee"                               "25"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bash_chance_ranged"                              "10"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bash_duration"                                   "1.4"
       }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "85 100 140 200 275"
-      }
-      "12"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bash_cooldown"                                   "2.3"
       }
-      "13"
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_chance_damage"                             "100 150 225 325 475"
+      }
+      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "2"

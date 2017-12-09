@@ -10,7 +10,7 @@
     "ID"                                                  "3132"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_2"
@@ -39,6 +39,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
+    "AbilitySharedCooldown"                               "flutter"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +53,7 @@
     "ItemCost"                                            "7025"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bfly;butterfly"
+    "ItemAliases"                                         "bfly 2;butterfly 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -87,7 +88,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "2"
       }
     }
   }

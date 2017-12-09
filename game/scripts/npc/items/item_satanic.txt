@@ -15,7 +15,7 @@
     "ItemResult"                                          "item_satanic"
     "ItemRequirements"
     {
-      "01"                                                "item_lifesteal;item_mithril_hammer;item_reaver"
+      "01"                                                "item_lifesteal;item_claymore;item_reaver"
     }
   }
 
@@ -33,6 +33,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "satanic"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5700"
+    "ItemCost"                                            "5500"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic"

@@ -10,7 +10,7 @@
     "ID"                                                  "3030"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
@@ -50,11 +50,12 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "5475"
+    "ItemCost"                                            "5450"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "guardian greaves"
+    "ItemAliases"                                         "greater guardian greaves;guardian greaves;ggg"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemAlertable"                                       "1"
 
     "MaxUpgradeLevel"                                     "5"
@@ -88,8 +89,8 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "4 6 9 12 15"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen"                               "3.5 5 7.5 10 12.5"
       }
       "06"
       {
@@ -99,7 +100,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "15 20 25 30 35"
+        "aura_health_regen_bonus"                         "12 16 20 24 28"
       }
       "08"
       {
@@ -134,7 +135,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "300 600 1200 2400 4800"
+        "bonus_gold_per_minute"                           "1200 2400 4200 6200 9600"
       }
     }
   }

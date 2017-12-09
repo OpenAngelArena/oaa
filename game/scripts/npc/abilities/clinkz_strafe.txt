@@ -15,15 +15,15 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40 35 30 25 24 22"
+    "AbilityCooldown"                                     "45 35 25 15 5 0"
     "AbilityCastPoint"                                    "0.0"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "90"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -31,12 +31,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 6.0 8.0 10.0 12.0 14.0"
+        "duration"                                        "3.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "130"
+        "attack_speed_bonus_pct"                          "80 140 200 260 320 380"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "disjoint_count"                                  "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
       }
     }

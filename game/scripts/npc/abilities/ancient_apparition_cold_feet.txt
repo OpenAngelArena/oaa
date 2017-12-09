@@ -18,24 +18,24 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 800 900 1000 1200 1600"
-    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01 0.1 0.1"
+    "AbilityCastRange"                                    "700 800 900 1000 1300 1600"
+    "AbilityCastPoint"                                    "0.01"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 11 9 7 7 7"
-    "AbilityDuration"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "10 9 8 7 7 7"
+    "AbilityDuration"                                     "4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 125 125 125 200 400"
+    "AbilityManaCost"                                     "125 125 125 125 275 400"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.5"  // Does two modifiers 
+    "AbilityModifierSupportValue"                         "0.5"  // Does two modifiers
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,22 +44,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "30 50 70 90 130 290"
+        "damage"                                          "30 50 70 90 190 290"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "break_distance"                                  "740 740 740 740 740 740"
+        "break_distance"                                  "740"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2 2.5 3 3.5 4 4.5"
+        "stun_duration"                                   "2.0 2.5 3.0 3.5 4 4.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700 800 900 1000 1200 1600"
+        "cast_range_tooltip"                              "700 800 900 1000 1300 1600"
       }
       "05"
       {

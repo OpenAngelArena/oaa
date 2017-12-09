@@ -41,12 +41,13 @@
     "AbilityTextureName"                                  "custom/ring_of_aquila_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "985"
+    "ItemCost"                                            "965"
     "ItemShopTags"                                        ""
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "roa;ring of aquila"
+    "ItemAliases"                                         "roa;ring of aquila;aquila"
     "ItemShareability"                                    ""
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ActiveDescriptionLine"                               "2"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
@@ -95,7 +96,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "0.65 0.75 0.85"
+        "aura_mana_regen"                                 "0.5 0.6 0.7"
       }
       "08"
       {

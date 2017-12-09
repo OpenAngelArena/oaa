@@ -10,7 +10,7 @@
     "ID"                                                  "3613"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "7625"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "solar crest 3"
@@ -72,8 +72,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen_pct"                            "75 125 175 250 325"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen_pct"                            "1.0 2.0 3.0 4.0 5.0"
       }
       "03"
       {
@@ -83,7 +83,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "truestrike_chance"                               "35"
+        "truestrike_chance"                               "40"
       }
       "05"
       {

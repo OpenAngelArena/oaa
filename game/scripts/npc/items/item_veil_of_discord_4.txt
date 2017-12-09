@@ -10,7 +10,7 @@
     "ID"                                                  "3689"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "veil"
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.0"
 
@@ -49,10 +50,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "15340"
+    "ItemCost"                                            "15330"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "vod;veil of discord 4"
+    "ItemAliases"                                         "vod 4;veil of discord 4;veil 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
@@ -64,8 +65,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 15 23 35"
+        "var_type"                                        "FIELD_INTEGER" // 3 6 8 12, 3 6 7 11
+        "bonus_health_regen"                              "5 8 14 21 32"
       }
       "02"
       {
@@ -84,28 +85,28 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9 15 24 36"
+        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
+        "bonus_int"                                       "14 20 30 44 66"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "12 18 27 40 60"
+        "resist_debuff"                                   "-25 -30 -36 -42 -50"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30 -36 -42 -50"
+        "debuff_radius"                                   "600"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "debuff_radius"                                   "600"
+        "var_type"                                        "FIELD_FLOAT"
+        "resist_debuff_duration"                          "16.0"
       }
       "09"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "resist_debuff_duration"                          "16.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "1000"
       }
     }
   }

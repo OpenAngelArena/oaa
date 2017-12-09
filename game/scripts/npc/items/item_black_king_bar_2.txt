@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3866"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "81115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_datadriven"
     "Model"                         "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"            "item_recipe"
+    "AbilityTextureName"            "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -23,10 +23,10 @@
     "ItemResult"                    "item_black_king_bar_2"
     "ItemRequirements"
     {
-      "01"                        "item_black_king_bar;item_upgrade_core"
-      "02"                        "item_black_king_bar;item_upgrade_core_2"
-      "03"                        "item_black_king_bar;item_upgrade_core_3"
-      "04"                        "item_black_king_bar;item_upgrade_core_4"
+      "01"                        "item_black_king_bar_1;item_upgrade_core"
+      "02"                        "item_black_king_bar_1;item_upgrade_core_2"
+      "03"                        "item_black_king_bar_1;item_upgrade_core_3"
+      "04"                        "item_black_king_bar_1;item_upgrade_core_4"
     }
   }
 
@@ -37,14 +37,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3867"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_black_king_bar"
+    "ID"                            "81116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/black_king_bar.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "80 75 70 65 60 55"
+    "AbilityCooldown"               "65"
+    "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar_2"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "2"
@@ -55,7 +57,7 @@
     "ItemCost"                      "5475"
     "ItemShopTags"                  "str;damage;hard_to_tag"
     "ItemQuality"                   "epic"
-    "ItemAliases"                   "bkb;black king bar"
+    "ItemAliases"                   "bkb 2;black king bar 2"
     "ItemSellable"                  "1"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -65,28 +67,23 @@
     {
       "01"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_strength"        "10 20 30 40 55"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_strength"        "10 20 30 40 55"
       }
       "02"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_damage"          "24 48 72 96 120"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"          "24 48 72 96 120"
       }
       "03"
       {
-          "var_type"              "FIELD_FLOAT"
-          "duration"              "10.0 9.0 8.0 7.0 6.0 5.0"
-      }
-      "04"
-      {
-          "var_type"              "FIELD_INTEGER"
-          "max_level"             "6"
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "7.0"
       }
       "05"
       {
-          "var_type"              "FIELD_INTEGER"
-          "model_scale"           "30 34 38 42 45"     // Percentage over model scale
+        "var_type"              "FIELD_INTEGER"
+        "model_scale"           "30"     // Percentage over model scale
       }
     }
   }

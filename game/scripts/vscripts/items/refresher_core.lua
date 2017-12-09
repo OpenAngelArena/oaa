@@ -29,6 +29,10 @@ end
 
 function item_refresher_core:OnSpellStart()
   local caster = self:GetCaster()
+  caster:EmitSound( "DOTA_Item.Refresher.Activate" )
+  local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
+  ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true )
+  ParticleManager:ReleaseParticleIndex(particle)
 
   -- Put ability exemption in here
   local exempt_ability_table = {
@@ -103,7 +107,7 @@ function modifier_item_refresher_core:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-    MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
@@ -112,7 +116,7 @@ function modifier_item_refresher_core:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
-function modifier_item_refresher_core:GetModifierPercentageManaRegen()
+function modifier_item_refresher_core:GetModifierConstantManaRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_mana_regen')
 end
 

@@ -10,7 +10,7 @@
     "ID"                                                  "3308"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -46,15 +46,15 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 18.0 16.0 13.0"    //RamonNZ: Baumi changed this from 10.0 to 20.0
-    "AbilitySharedCooldown"                               "item_black_king_bar"
+    "AbilitySharedCooldown"                               "avatar"
     "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7440"
+    "ItemCost"                                            "7375"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "charge bkb"
+    "ItemAliases"                                         "charge bkb;cbkb;charge"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
     "ItemPermanent"                                       "1"

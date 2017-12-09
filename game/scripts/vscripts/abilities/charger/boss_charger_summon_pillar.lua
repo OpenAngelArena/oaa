@@ -9,11 +9,16 @@ function boss_charger_summon_pillar:OnSpellStart()
 
   tower:AddNewModifier(caster, self, "modifier_invulnerable", {})
 
-
   if caster.GetPlayerID then
     tower:SetControllableByPlayer(caster:GetPlayerID(), false)
   end
   tower:SetOwner(caster)
+
+  caster:OnDeath(function()
+    if IsValidEntity(tower) then
+      tower:Destroy()
+    end
+  end)
 
   return true
 end

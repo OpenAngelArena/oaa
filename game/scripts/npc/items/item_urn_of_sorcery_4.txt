@@ -7,7 +7,7 @@
     "ID"                                                  "3267"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -36,15 +36,15 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0"
-    "AbilitySharedCooldown"                               "urn_of_shadows"
+    "AbilitySharedCooldown"                               "urn"
     "AbilityCastRange"                                    "950"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36715"
+    "ItemCost"                                            "36625"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "magic wand"
+    "ItemAliases"                                         "urn of sorcery 4;melon 4"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
     "MaxUpgradeLevel"                                     "4"

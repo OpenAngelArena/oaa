@@ -13,7 +13,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodstone_5"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_4;item_upgrade_core_4"
@@ -47,10 +47,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37850"
+    "ItemCost"                                            "38800"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bs;bloodstone"
+    "ItemAliases"                                         "bs 5;bloodstone 5"
     "ItemDisplayCharges"                                  "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "AllowedInBackpack"                                   "0"
@@ -72,12 +72,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "9 25 45 65 90"
+        "bonus_health_regen"                              "7 21 35 49 63"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "200 350 500 750 1000"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.0 2.5 3.25 4.0 5.0"
       }
       "05"
       {
@@ -87,37 +87,22 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_on_death_range"                             "1675"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_on_death_base"                              "500 1000 1500 2000 2500"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_on_death_per_charge"                        "30 60 120 240 480"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "respawn_time_reduction"                          "3"
       }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "death_gold_reduction"                            "0"
-      }
-      "11"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "on_death_removal"                                "0.67" //33% gone
       }
-      "12"
+      "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "var_type"        "FIELD_INTEGER"
+        "tooltip_charges" "14"
+      }
+      "09"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "mana_per_charge" "0.4 0.5 0.6 0.7 0.8"
       }
     }
   }

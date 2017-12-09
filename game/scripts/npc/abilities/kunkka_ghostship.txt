@@ -11,29 +11,29 @@
     "ID"                                                  "5035"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60 50 40 40 40"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "400 500 600 800 1600"
-    
+    "AbilityDamage"                                       "400 500 600 1100 1600"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 325 725"
+    "AbilityManaCost"                                     "125 175 225 475 725"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "ghostship_width"                                 "425 425 425 425 425"
-      }      
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -87,7 +87,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ghostship_absorb"                                "40 45 50 60 80"
+        "ghostship_absorb"                                "40 45 50 55 60"
       }
     }
   }

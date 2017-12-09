@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -22,8 +22,8 @@
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0"
     "AbilityChannelTime"                                  "2.5"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15 12 9 6 6 6"
 
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 120 150 180 240 480"
+        "damage"                                          "90 120 150 180 330 480"
       }
       "02"
       {
@@ -54,6 +54,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "maximum_purge_duration"                          "2.5"
+        "LinkedSpecialBonus"  "special_bonus_unique_oracle_2"
       }
       "05"
       {

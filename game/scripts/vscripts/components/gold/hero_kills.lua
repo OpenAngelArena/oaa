@@ -103,17 +103,22 @@ function HeroKillGold:HeroDeathHandler (keys)
   end
 
   local killerPlayer = keys.killer:GetPlayerOwner()
-  if not killerPlayer then
-    return
-  end
   local killedPlayer = keys.killed:GetPlayerOwner()
   if not killedPlayer then
+    -- the killed thing wasn't a player even though it's definitely a player lololololol ???????
     return
   end
 
+  local killerHero = nil
+  local killerHeroID = nil
+
+  if killerPlayer then
+    killerHero = killerPlayer:GetAssignedHero()
+    killerHeroID = killerHero:GetPlayerOwnerID()
+  end
+
+  local killerTeam = keys.killer:GetTeamNumber()
   local killedHero = killedPlayer:GetAssignedHero()
-  local killerHero = killerPlayer:GetAssignedHero()
-  local killerTeam = killerHero:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
   local killedNetworth = killedHero:GetNetworth()
@@ -142,12 +147,12 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local foundKiller = false
   each(function (hero)
-    if not foundKiller and hero:GetPlayerOwnerID() == killerHero:GetPlayerOwnerID() then
+    if not foundKiller and hero:GetPlayerOwnerID() == killerHeroID then
       foundKiller = true
     end
   end, heroes)
 
-  if not foundKiller then
+  if not foundKiller and killerHero then
     table.insert(heroes, killerHero)
   end
 
@@ -157,6 +162,9 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local function getHeroNetworth (playerId)
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      return 0
+    end
     return hero:GetNetworth()
   end
 
@@ -205,13 +213,13 @@ function HeroKillGold:HeroDeathHandler (keys)
     DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)] .. ' = ...')
     assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)]
     DebugPrint(assistGold)
-    Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
 
-    if hero:GetPlayerOwnerID() == killerHero:GetPlayerOwnerID() then
+    if hero:GetPlayerOwnerID() == killerHeroID then
       assistGold = assistGold + baseGold
     end
 
-    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, keys.killed, math.floor(assistGold), killerPlayer)
+    Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
+    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, keys.killed, math.floor(assistGold), hero:GetPlayerOwner())
 
   end, heroes)
 end

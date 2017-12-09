@@ -12,7 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
 
@@ -38,7 +38,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "75 100 125 150 225 450"
+        "bonus_damage"                                    "60 90 120 150 225 + 300"
+        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_2"
       }
       "05"
       {

@@ -10,7 +10,7 @@
     "ID"                                                  "3638"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1500"
@@ -46,6 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
+    "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
@@ -56,8 +57,8 @@
     "ItemCost"                                            "4900"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "heaven's halberd 2"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "heaven's halberd 2;halberd 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
@@ -116,7 +117,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "5"
+        "disarm_range"                                    "5.0"
       }
       "11"
       {

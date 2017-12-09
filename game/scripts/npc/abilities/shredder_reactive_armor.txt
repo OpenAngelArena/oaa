@@ -28,12 +28,13 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_hp_regen"                                  "1 1.2 1.4 1.6 1.8 2.2"
+        "bonus_hp_regen"                                  "1 1.15 1.3 1.45 1.6 1.9"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "stack_limit"                                     "5 10 15 20 25 35"
+        "LinkedSpecialBonus"        "special_bonus_unique_timbersaw_2"
       }
       "04"
       {

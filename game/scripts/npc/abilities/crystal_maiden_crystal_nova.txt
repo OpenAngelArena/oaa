@@ -10,7 +10,7 @@
     "ID"                                                  "5126"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -22,16 +22,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 11 10 9 9 9"
-    
+
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 180 240"
-    
+    "AbilityManaCost"                                     "100 120 140 160 200 240"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -64,7 +64,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "nova_damage"                                     "100 150 200 250 350 550"
+        "nova_damage"                                     "100 150 200 250 500 750"
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_2"
       }
     }

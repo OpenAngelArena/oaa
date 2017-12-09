@@ -11,27 +11,27 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1075"
     "AbilityCastPoint"                                    "0.45"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8.0"
     "AbilityDuration"                                     "0.6875 0.6875 0.6875 0.6875 0.6875 0.6875"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "85 160 235 310 460 1060"
+    "AbilityDamage"                                       "85 160 235 310 660 1060"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 115 130 145 175 400"
+    "AbilityManaCost"                                     "100 115 130 145 265 400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "dragon_slave_speed"                              "1200"
       }
-      
+
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -53,7 +53,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "dragon_slave_width_end"                          "200"
       }
-      
+
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,5 +61,5 @@
       }
     }
   }
-  
+
 }

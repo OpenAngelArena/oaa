@@ -8,7 +8,7 @@
     "ID"                                                  "3074"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -46,10 +46,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6000"
+    "ItemCost"                                            "5600"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf;battle fury"
+    "ItemAliases"                                         "bf 2;battle fury 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -59,7 +59,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "55 75 105 155 205"
+        "bonus_damage"                                    "45 65 95 145 195"
       }
       "02"
       {
@@ -68,8 +68,8 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225 330 475 650"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3.3 4.75 6.5 9"
       }
       "04"
       {
@@ -94,12 +94,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "300 315 330 345 360"
+        "cleave_ending_width"                             "330 345 360 375 390"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "570 590 610 630 650"
+        "cleave_distance"                                 "625 645 665 685 705"
       }
       "10"
       {
@@ -110,6 +110,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_ward"                                 "450"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus"                          "60"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus_ranged"                   "25"
       }
     }
   }

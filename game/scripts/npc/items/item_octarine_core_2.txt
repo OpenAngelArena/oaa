@@ -8,7 +8,7 @@
     "ID"                                                  "3178"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -39,9 +39,9 @@
     "ItemCost"                                            "7400"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "mana;mb;octarine core"
+    "ItemAliases"                                         "octarine core 2;octarine 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -79,6 +79,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_lifesteal"                                 "5 10"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "active_duration"   "7"
       }
     }
   }

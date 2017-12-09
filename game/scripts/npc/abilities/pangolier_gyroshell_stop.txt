@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+//=================================================================================================================
+// Pangolier: Gyroshell Stop
+//=================================================================================================================
+"pangolier_gyroshell_stop"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6459"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.0 0.0 0.0 0.0"
+}
+}

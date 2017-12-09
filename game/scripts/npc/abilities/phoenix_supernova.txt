@@ -13,7 +13,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
@@ -23,15 +23,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.01"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "110.0 110.0 110.0"
     "AbilityDuration"                                     "6.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 200 200 250 350"
+    "AbilityManaCost"                                     "200 200 200 275 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,9 +45,9 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_sec"                                  "60 90 120 180 450"
+        "damage_per_sec"                                  "60 90 120 280 450"
       }
-      
+
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -57,13 +57,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks"                                "5 8 11 16 25"
+        "max_hero_attacks"                                "5 8 11 18 25"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks_scepter"                        "7 10 13 20 30"
+        "max_hero_attacks_scepter"                        "7 10 13 21 30"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
       "06"

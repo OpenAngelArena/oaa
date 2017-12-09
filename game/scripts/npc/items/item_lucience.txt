@@ -10,7 +10,7 @@
     "ID"                                                  "3328"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
     "ItemCost"                                            "10150"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "lucience"
+    "ItemAliases"                                         "lucience;lucio"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "UpgradesItems"                                       "item_lucience;item_lucience_2"
     // Precache
@@ -87,6 +87,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heals_per_sec"                                   "3"
       }
     }
   }

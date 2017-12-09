@@ -46,6 +46,7 @@ function item_greater_arcane_boots:OnSpellStart()
 
   local particleArcaneActivateName = "particles/items_fx/arcane_boots.vpcf"
   local particleArcaneActivate = ParticleManager:CreateParticle(particleArcaneActivateName, PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:ReleaseParticleIndex(particleArcaneActivate)
 
   caster:EmitSound("DOTA_Item.ArcaneBoots.Activate")
 end

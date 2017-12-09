@@ -7,7 +7,7 @@
     "ID"                                                  "3939"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
     "ItemCost"                                            "36350"
     "ItemShopTags"                                        "int;agi;str;hard_to_tag"
     "ItemQuality"                                         "component"
-    "ItemAliases"                                         "shroud of Shadows 4;sos;sos4"
+    "ItemAliases"                                         "shroud of Shadows 4;sos 4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -146,7 +146,9 @@ function modifier_item_greater_travel_boots:DeclareFunctions()
 end
 
 function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Boots()
-  return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
+  if self:GetAbility() then
+    return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
+  end
 end
 
 --------------------------------------------------------------------------------

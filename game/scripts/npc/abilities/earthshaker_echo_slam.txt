@@ -10,25 +10,25 @@
     "ID"                                                  "5026"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "150.0 130.0 110.0 105.0 100.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "160 210 270 375 800"
+    "AbilityDamage"                                       "160 210 270 530 800"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "145 205 265 385 850"    
+    "AbilityManaCost"                                     "145 205 265 385 850"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_damage"                           "40 55 70 100 220"
+        "echo_slam_echo_damage"                           "60 85 110 235 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
     }

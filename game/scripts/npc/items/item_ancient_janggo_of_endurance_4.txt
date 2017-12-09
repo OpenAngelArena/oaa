@@ -8,7 +8,7 @@
     "ID"                                                  "3856"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -37,6 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
+    "AbilitySharedCooldown"                               "drums"
     "AbilityCastRange"                                    "900"
 
     // Spicy Parameters
@@ -47,11 +48,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14640"
+    "ItemCost"                                            "14615"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "drum of endurance"
-//  Infinite Charges:
+    "ItemAliases"                                         "drum of endurance 4;drums 4"
+    //  Infinite Charges:
     "ItemInitialCharges"                                  "-1"
     "ItemDisplayCharges"                                  "0"
     "ItemRequiresCharges"                                 "0"
@@ -69,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 15 30 45 60"
+        "bonus_str"                                       "7 16 32 48 64"
       }
       "03"
       {
@@ -78,35 +79,30 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "3 20 40 60 80"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0.75 1.5 3.0 4.5 6.25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "50 100 200 300 425"
+        "bonus_aura_movement_speed"                       "20 25 30 35 40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aura_movement_speed"                       "20 25 30 35 40"
+        "bonus_attack_speed_pct"                          "35 50 65 80 95"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed_pct"                          "25 35 50 70 95"
+        "bonus_movement_speed_pct"                        "13 16 19 22 25"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "13 16 19 22 25"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "6"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "900"

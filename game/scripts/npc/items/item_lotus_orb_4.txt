@@ -10,7 +10,7 @@
     "ID"                                                  "3662"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -43,6 +43,7 @@
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/lotus_orb_4"
     "AbilityCooldown"                                     "15.0"
+    "AbilitySharedCooldown"                               "lotus"
     "AbilityCastRange"                                    "900 1200 1500 1800 2100"
     "AbilityManaCost"                                     "75"
 
@@ -55,9 +56,9 @@
     "ItemCost"                                            "17000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ls;lotus orb"
+    "ItemAliases"                                         "ls 4;lotus orb 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -66,34 +67,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40 60"
+        "bonus_armor"                                     "10 17 25 32 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 17.5 25 32.5 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "5.5 7.5 10 15 30"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 21 32"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.75 2.50 3.50 5.0 7.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "125 175 250 350 500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "250 350 500 700 1000"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "active_duration"                                 "6"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cast_range_tooltip"                              "900 1200 1500 1800 2100"

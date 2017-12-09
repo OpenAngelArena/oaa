@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodthorn_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
@@ -61,7 +61,7 @@
     "ItemCost"                                            "20195"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "orchid malevolence"
+    "ItemAliases"                                         "bloodthorn 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -85,8 +85,8 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 175 200 225 250"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
       }
       "05"
       {
@@ -112,6 +112,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "target_crit_multiplier"                          "140 155 170 185 200"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_crit_chance"                             "100"
       }
     }
   }

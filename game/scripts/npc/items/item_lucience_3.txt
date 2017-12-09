@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
     "ItemCost"                                            "38150"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "lucience"
+    "ItemAliases"                                         "lucience 3;lucio 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Precache
@@ -86,6 +86,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heals_per_sec"                                   "3"
       }
     }
   }

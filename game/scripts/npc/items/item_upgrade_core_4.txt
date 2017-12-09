@@ -1,5 +1,8 @@
 "DOTAItems"
 {
+  //=================================================================================================================
+  // Demons Soul
+  //=================================================================================================================
   "item_upgrade_core_4"
   {
     // General
@@ -18,7 +21,7 @@
     "ItemCost"                                            "4500"
     "ItemPurchasable"                                     "0"
     //"ItemSellable"                                      "0"
-    "ItemKillable"                                        "0"
+    "ItemKillable"                                        "1"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
     // Special

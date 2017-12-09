@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
@@ -24,13 +24,13 @@
     "AbilityCastRange"                                    "2400"
     "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "100.0 100.0 100.0 100.0 100.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 425 1225"
+    "AbilityManaCost"                                     "125 175 225 725 1225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -77,7 +77,7 @@
         "vision_width"                                    "500"
       }
       "09"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
         "vision_interval"                                 "0.22"
       }

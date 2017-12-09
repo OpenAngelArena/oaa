@@ -12,12 +12,12 @@
     "DisplayAdditionalHeroes"                             "1"
 
     "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "120.0"
 
@@ -32,12 +32,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_hp"                                         "1400 1800 2300 2700 3600 7200"
+        "bear_hp"                                         "1500 2000 2500 3000 6000 9000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_regen_tooltip"                              "2 3 4 5 7 15"
+        "bear_regen_tooltip"                              "4 5 6 7 11 15"
       }
       "03"
       {
@@ -47,7 +47,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_armor"                                      "3 4 5 6 8 16"
+        "bear_armor"                                      "3 4 5 6 24 32"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_2"
       }
       "05"
       {

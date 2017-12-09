@@ -16,8 +16,8 @@
     //----------------------------------------------------------------
     "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap"		// Ability 1
     "Ability2"                                            "centaur_khan_endurance_aura"				// Ability 2
-    "Ability3"                                            ""							// Ability 3
-    "Ability4"                                            ""						     	// Ability 4
+    "Ability3"                                            "necronomicon_warrior_sight"				// Ability 3
+    "Ability4"                                            "boss_inner_beast"				     	// Ability 4
 
     // Armor
     //----------------------------------------------------------------
@@ -28,7 +28,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "49"							// Damage range min.
     "AttackDamageMax"                                     "55"        						// Damage range max.    
-    "AttackRate"                                          "1.55"      						// Speed of attack.
+    "AttackRate"                                          "3.1"      						// Speed of attack.
     "AttackAnimationPoint"                                "0.3"       						// Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"       						// Range within a target can be acquired.
     "AttackRange"                                         "100"       						// Range within a target can be attacked.

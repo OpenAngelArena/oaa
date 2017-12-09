@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -21,86 +21,88 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "7.0 7.0 7.0 7.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 150 200 250 350 700"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 130 135 140 150 200"    
-    
+    "AbilityManaCost"                                     "125 130 135 140 170 200"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
+        "var_type"          "FIELD_INTEGER"
+        "lance_damage"        "100 150 200 250 475 700"
+        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_2"
+      }
+      "02"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "lance_speed"                                     "1000 1000 1000 1000"
       }
-      "02"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3.25"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_speed_pct"                              "-10 -20 -30 -40 -45 -50"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "2.0 4.0 6.0 8.0 12.0 20.0"
-      }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_duration"                               "2.0 4.0 6.0 8.0 14.0 20.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "20 20 20 20 25 30"
+        "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "300 300 300 300"
+        "tooltip_illusion_damage"                         "20 20 20 20 25 30"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "400 400 400 400"
-      }      
+        "illusion_damage_in_pct"                          "300 300 300 300"
+      }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fake_lance_distance"                             "675"
+        "tooltip_illusion_total_damage_in_pct"            "400 400 400 400"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "400"
+        "fake_lance_distance"                             "675"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_jumps"                                   "5"
+        "scepter_radius"                                  "400"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "scepter_jumps"                                   "5"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "lance_speed_bounces"                             "700"
       }
-    }  
+    }
   }
 }

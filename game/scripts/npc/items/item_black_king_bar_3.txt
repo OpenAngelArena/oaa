@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3868"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "82115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_datadriven"
     "Model"                         "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"            "item_recipe"
+    "AbilityTextureName"            "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +36,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3869"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "82116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "BaseClass"                     "item_black_king_bar"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/black_king_bar.lua"
     "FightRecapLevel"               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "80 75 70 65 60 55"
+    "AbilityCooldown"               "65"
+    "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar_3"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "3"
@@ -54,7 +56,7 @@
     "ItemCost"                      "8975"
     "ItemShopTags"                  "str;damage;hard_to_tag"
     "ItemQuality"                   "epic"
-    "ItemAliases"                   "bkb;black king bar"
+    "ItemAliases"                   "bkb 3;black king bar 3"
     "ItemSellable"                  "1"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -64,28 +66,23 @@
     {
       "01"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_strength"        "10 20 30 40 55"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_strength"        "10 20 30 40 55"
       }
       "02"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_damage"          "24 48 72 96 120"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"          "24 48 72 96 120"
       }
       "03"
       {
-          "var_type"              "FIELD_FLOAT"
-          "duration"              "10.0 9.0 8.0 7.0 6.0 5.0"
-      }
-      "04"
-      {
-          "var_type"              "FIELD_INTEGER"
-          "max_level"             "6"
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "7.0"
       }
       "05"
       {
-          "var_type"              "FIELD_INTEGER"
-          "model_scale"           "30 34 38 42 45"     // Percentage over model scale
+        "var_type"              "FIELD_INTEGER"
+        "model_scale"           "30"     // Percentage over model scale
       }
     }
   }

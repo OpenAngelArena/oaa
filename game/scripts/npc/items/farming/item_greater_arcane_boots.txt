@@ -10,7 +10,7 @@
     "ID"                                                  "3358"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
     "ItemCost"                                            "1400"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "mana;mb;arcane boots"
+    "ItemAliases"                                         "greater arcane boots;greater arcanes;arcanes"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemAlertable"                                       "1"
@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "400 800 1600 3200 6400"
+        "bonus_gold_per_minute"                           "1200 2400 4200 6200 9600"
       }
     }
   }

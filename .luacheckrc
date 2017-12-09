@@ -35,7 +35,17 @@ globals = { -- these globals can be set and accessed.
 "CAVE_TYPE_STATS_ARMOUR",
 "CAVE_TYPE_STATS_GOLD",
 "CAVE_TYPE_STATS_EXP",
-"CAVE_TYPE_STATS_RESITS"
+"CAVE_TYPE_STATS_RESITS",
+"POOP_WARD_COOLDOWN",
+"POOP_WARD_DURATION",
+"POOP_WARD_RADIUS",
+"CAPTAINS_MODE_PICK_BAN_TIME",
+"CAPTAINS_MODE_HERO_PICK_TIME",
+"PREGAME_TIME",
+"CAPTAINS_MODE_CAPTAIN_TIME",
+"SCAN_REVEAL_COOLDOWN",
+"SCAN_REVEAL_RADIUS",
+"SCAN_REVEAL_DURATION",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -142,6 +152,9 @@ read_globals = { -- these globals can only be accessed.
 "ACT_MP_ATTACK_CROUCH_PRIMARY",
 "ACT_STARTDYING",
 "ACT_DOTA_MK_TREE_SOAR",
+"AP_GAME_TIME",
+"CM_GAME_TIME",
+"STARTING_GOLD",
 "SendToConsole",
 "CreateItemOnPositionForLaunch",
 "ACT_DOTA_LIFESTEALER_EJECT",
@@ -234,6 +247,7 @@ read_globals = { -- these globals can only be accessed.
 "DOTA_TEAM_COUNT",
 "ACT_MP_WALK_PRIMARY",
 "ACT_DOTA_RUN",
+"ACT_DOTA_RUN_STATUE",
 "RELOAD_NPC",
 "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE",
 "ACT_STEP_FORE",
@@ -2732,6 +2746,9 @@ read_globals = { -- these globals can only be accessed.
 "GameEvents",
 "PlayerTables",
 "Notifications",
+"MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"FORCE_PICKED_HERO",
+"DotProduct"
 }
 
 ignore = {

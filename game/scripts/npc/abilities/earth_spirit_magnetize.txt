@@ -15,13 +15,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
     "AbilityCastPoint"                                    "0.01"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "100 90 80 80 80"
 
@@ -41,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "50 75 100 150 350"
+        "damage_per_second"                               "50 75 100 225 350"
       }
       "03"
       {
@@ -57,7 +57,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "rock_explosion_radius"                           "600"
-      }      
+      }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"

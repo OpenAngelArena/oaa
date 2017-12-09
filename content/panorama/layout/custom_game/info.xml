@@ -3,9 +3,15 @@
     <include src="file://{resources}/styles/custom_game/info.css" />
   </styles>
   <script>
-    $.GetContextPanel().FindChildTraverse('InfoVersion').text = 'Version: ' + CustomNetTables.GetTableValue('info', 'version').value
+    $.GetContextPanel().FindChildTraverse('InfoVersion').text = 'Version: ' + CustomNetTables.GetTableValue('info', 'version').value + ' ';
+    $.GetContextPanel().FindChildTraverse('InfoMap').text = 'Map: ' + Game.GetMapInfo().map_display_name + ' ';
+    $.GetContextPanel().FindChildTraverse('InfoDateTime').text = 'Gametime: ' + CustomNetTables.GetTableValue('info', 'datetime').value; + ' ';
+    $.GetContextPanel().FindChildTraverse('InfoMode').text = CustomNetTables.GetTableValue('info', 'mode').value + ' ';
   </script>
   <Panel class="InfoContainer">
-    <Label class="InfoLabel" id="InfoVersion" text=""/>
+    <Label class="InfoLabel" id="InfoVersion"/>
+    <Label class="InfoLabel" id="InfoMap"/>
+    <Label class="InfoLabel" id="InfoDateTime"/>
+    <Label class="InfoLabel" id="InfoMode"/>
   </Panel>
 </root>

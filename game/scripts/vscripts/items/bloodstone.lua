@@ -76,9 +76,12 @@ function modifier_item_bloodstone_oaa:Setup(created)
         needsSetCharges = true
         ability.addedCharges = true
       else
+        if not caster.surplusCharges then
+          caster.surplusCharges = 14
+        end
         print('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
-        self.charges = 12
-        caster.surplusCharges = math.min(12, caster.surplusCharges)
+        self.charges = 14
+        caster.surplusCharges = math.min(14, caster.surplusCharges)
         needsSetCharges = true
       end
     end
@@ -135,15 +138,16 @@ function modifier_item_bloodstone_oaa:IsPurgable()
   return false
 end
 
-function modifier_item_bloodstone_oaa:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_DEATH,
-    MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
-    MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
-    MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE, -- GetModifierPercentageManaRegen
-    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
-  }
+if IsServer() then
+  function modifier_item_bloodstone_oaa:DeclareFunctions()
+    return {
+      MODIFIER_EVENT_ON_DEATH,
+      MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+      MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
+      MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
+      MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+    }
+  end
 end
 
 --------------------------------------------------------------------------
@@ -161,12 +165,9 @@ function modifier_item_bloodstone_oaa:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
-function modifier_item_bloodstone_oaa:GetModifierPercentageManaRegen()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-end
-
 function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
-  return self:GetAbility():GetCurrentCharges()
+  local ability = self:GetAbility()
+  return self:GetAbility():GetSpecialValueFor("bonus_mana_regen") + (self:GetAbility():GetCurrentCharges() * self:GetAbility():GetSpecialValueFor("mana_per_charge"))
 end
 
 --------------------------------------------------------------------------

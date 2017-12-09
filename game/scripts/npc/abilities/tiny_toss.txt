@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,25 +58,23 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "20"
+        "bonus_damage_pct"                                "30"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "grow_bonus_damage_pct"                           "35 50 65 80 110 110"
+        "tooltip_range"                                   "1300"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1300"
+        "toss_damage"                                     "75 150 225 300 675 1050"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "toss_damage"                                     "75 150 225 300 450 1050"
+        "var_type"        "FIELD_INTEGER"
+        "charge_restore_time" "8"
       }
-
     }
   }
-
 }

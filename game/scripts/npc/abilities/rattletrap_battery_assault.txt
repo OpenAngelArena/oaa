@@ -6,7 +6,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5237"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
@@ -17,23 +17,23 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "32.0 28.0 24.0 20.0 20.0 20.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    
+
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "20 45 70 95 145 350"
+    "AbilityDamage"                                       "20 45 70 95 215 350"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.2"  // applies many mini-stuns
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -44,15 +44,15 @@
         "radius"                                          "275"
       }
       "02"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "10.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk"
       }
       "03"
-      {  
+      {
         "var_type"                                        "FIELD_FLOAT"
         "interval"                                        "0.7"
+        "LinkedSpecialBonus"    "special_bonus_unique_clockwerk"
       }
     }
   }

@@ -1,5 +1,6 @@
 var test = require('tape');
 var findTooltips = require('../find-tooltips');
+var luaEntitiesUtil = require('../lua-entities-util');
 
 test('can read in tooltip list', function (t) {
   var getTranslations = require('../parse-translation');
@@ -8,7 +9,7 @@ test('can read in tooltip list', function (t) {
 });
 
 test('can read list of items', function (t) {
-  findTooltips.findAllItems(function (err, data) {
+  luaEntitiesUtil.findAllItems(function (err, data) {
     t.notOk(err, 'no error');
     t.ok(data.length);
     t.end();
@@ -16,7 +17,7 @@ test('can read list of items', function (t) {
 });
 var itemPaths = null;
 test('lists item paths', function (t) {
-  findTooltips.listAllItems(function (err, lines) {
+  luaEntitiesUtil.listAllItems(function (err, lines) {
     t.notOk(err);
     t.ok(lines.length);
     itemPaths = lines;
@@ -30,7 +31,7 @@ test('can parse item', function (t) {
   console.log('Running tests with', path);
   t.ok(path);
 
-  findTooltips.parseFile(path, function (err, data) {
+  luaEntitiesUtil.parseFile(path, function (err, data) {
     t.notOk(err);
     t.ok(data);
     t.end();

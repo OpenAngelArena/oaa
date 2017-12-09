@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"
@@ -20,7 +20,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 200 360"
+    "AbilityManaCost"                                     "100 120 140 160 260 360"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -35,7 +35,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage"                                 "100 200 300 400 600 1400"
+        "illusion_damage"                                 "100 200 300 400 900 1400"
       }
       "03"
       {

@@ -47,7 +47,7 @@
     "ItemCost"                                            "25000"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "wing chun"
+    "ItemAliases"                                         "reflex;postactive_3c"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -89,8 +89,8 @@
     //-------------------------------------------------------------------------------------------------------------
     // "precache"
     // {
-      //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-      //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+    //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
     // }
   }
 }

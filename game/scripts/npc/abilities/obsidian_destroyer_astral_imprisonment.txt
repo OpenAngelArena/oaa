@@ -12,12 +12,12 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "6"
     "HasScepterUpgrade"                                   "1"
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4.0"
     "AbilityCooldown"                                     "22 18 14 10 10 10"
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 140 160 180 220 380"
+    "AbilityManaCost"                                     "120 140 160 180 280 380"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 175 250 325 475 1075"
+        "damage"                                          "100 175 250 325 700 1075"
       }
       "04"
       {
@@ -76,5 +76,5 @@
         "scepter_range_bonus"                             "300"
       }
     }
-  }  
+  }
 }

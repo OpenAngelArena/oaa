@@ -14,19 +14,19 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.0 3.0 3.0 3.0 3.0 3.0"
+    "AbilityCooldown"                                     "3.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 20 20 20 20 20"
+    "AbilityManaCost"                                     "20"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,33 +40,33 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "10 15 20 25 35 75"
+        "damage"                                          "10 15 20 25 50 75"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375 375 375 375 375 375"
+        "radius"                                          "375"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0 8.0 8.0 8.0 8.0 8.0"
+        "duration"                                        "8.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "-3 -5 -7 -9 -11 -15"
+        "movement_speed_pct"                              "-3 -5 -7 -9 -12 -15"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "turn_rate_pct"                                   "-70 -70 -70 -70 -70 -70"
+        "turn_rate_pct"                                   "-70"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "10 10 10 10 10 10"
+        "max_stacks"                                      "10"
       }
     }
   }

@@ -9,25 +9,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5028"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"  
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "42 34 26 18 17 16"
-    "AbilityDuration"                                     "5.0 5.0 5.0 5.0 5.0 5.0"
 
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 110 100 90 75 50"    
+    "AbilityManaCost"                                     "120 110 100 90 75 50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +45,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blade_fury_damage"                               "80 105 130 155 205 405"
+        "blade_fury_damage"                               "80 105 130 155 280 405"
+        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut"
       }
     }

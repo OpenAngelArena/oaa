@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "113"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
     "ItemCost"                                            "5200"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "hot;heart of tarrasque"
+    "ItemAliases"                                         "hot;heart of tarrasque;heart"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "UpgradesItems"                                       "item_heart;item_heart_2;item_heart_3;item_heart_4;item_heart_5"
@@ -59,17 +59,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "40 60 80 100 120"
+        "bonus_strength"                                  "40 55 75 95 115"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "500 800 1800 2800 4100"
+        "bonus_health"                                    "500 700 1200 2000 2800"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "3 4 5 6 7"
+        "health_regen_rate"                               "3 4 5 6 7" // OAA -- we nerf heart early game because it's insane against bosses
       }
       "04"
       {

@@ -31,13 +31,9 @@
     "AbilityCooldown"                                     "12"
     "AbilityDuration"                                     "4.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "110 160 210 260 360 760"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
+    "AbilityManaCost"                                     "90 100 110 120 160 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,36 +41,42 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "2500"
+        "var_type"      "FIELD_INTEGER"
+        "gush_damage"   "110 160 210 260 510 760"
+        "LinkedSpecialBonus"  "special_bonus_unique_tidehunter_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "-40"
+        "projectile_speed"                                "2500"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "negative_armor"                                  "3 4 5 6 8 16"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "-40"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_scepter"                                   "1500"
+        "var_type"                                        "FIELD_FLOAT"
+        "negative_armor"                                  "3 4 5 6 10 16"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aoe_scepter"                                     "240"
+        "speed_scepter"                                   "1500"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "7"
+        "aoe_scepter"                                     "240"
       }
       "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "7"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "1800"

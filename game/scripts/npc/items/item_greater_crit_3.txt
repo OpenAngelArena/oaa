@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_greater_crit_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_greater_crit_2;item_upgrade_core_2"
@@ -50,7 +50,7 @@
     "ItemCost"                                            "10320"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "daedalus"
+    "ItemAliases"                                         "daedalus 3;crit 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "UpgradesItems"                                       "item_greater_crit_3;item_greater_crit_4"
 
@@ -61,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 120 180 250 330"
+        "bonus_damage"                                    "80 110 150 210 280"
       }
       "02"
       {
@@ -71,7 +71,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "235 245 260 280 305"
+        "crit_multiplier"                                 "235 245 255 265 290"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_crit_damage"                             "135 145 160 180 205"
       }
     }
   }

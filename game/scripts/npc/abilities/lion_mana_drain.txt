@@ -14,21 +14,21 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.3"
     "AbilityChannelTime"                                  "5.1"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 12 8 4 4 4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "10"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "5.0"  // better then the mana cost implies
@@ -45,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_per_second"                                 "20 40 60 120 180 350"
+        "mana_per_second"                                 "20 40 60 120 240 350"
       }
       "03"
       {

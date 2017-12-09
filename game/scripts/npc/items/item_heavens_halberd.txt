@@ -18,7 +18,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_heavens_halberd"
-    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
       "01"                                                "item_sange;item_talisman_of_evasion"
@@ -41,6 +40,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
+    "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
@@ -51,7 +51,7 @@
     "ItemCost"                                            "3400"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "heaven's halberd"
+    "ItemAliases"                                         "heaven's halberd;halberd"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
@@ -111,7 +111,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "5"
+        "disarm_range"                                    "5.0"
       }
       "11"
       {

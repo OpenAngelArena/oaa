@@ -18,6 +18,7 @@ end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
+local OnPreGameEvent = CreateGameEvent('OnPreGame')
 function GameMode:OnGameRulesStateChange(keys)
   OnGameRulesStateChangeEvent(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -29,6 +30,7 @@ function GameMode:OnGameRulesStateChange(keys)
     GameMode:OnStrategyTime()
   -- Pre-Game started
   elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
+    OnPreGameEvent(keys)
     GameMode:OnPreGame()
   end
 end
