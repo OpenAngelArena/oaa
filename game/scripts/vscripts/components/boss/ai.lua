@@ -92,13 +92,12 @@ function BossAI:RewardBossKill(teamId, tier)
   PointsManager:AddPoints(teamId)
 
   local bossKills = CustomNetTables:GetTableValue("stat_display_team", "BK").value
-  print(bossKills[tostring(teamId)])
   if bossKills[tostring(teamId)] then
     bossKills[tostring(teamId)] = bossKills[tostring(teamId)] + 1
   else
     bossKills[tostring(teamId)] = 1
   end
-  print(bossKills[tostring(teamId)])
+  DebugPrint("Setting team " .. teamId .. " boss kills to " .. bossKills[tostring(teamId)])
   CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
   if tier == 1 then
