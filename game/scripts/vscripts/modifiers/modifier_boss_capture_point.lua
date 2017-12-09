@@ -98,51 +98,63 @@ function modifier_boss_capture_point:OnIntervalThink()
     FIND_ANY_ORDER,
     false
   )
-  if radiantUnits[1] and direUnits[1] then
-    -- Point is being contested, just destroy capture in progress effect
-    self:DestroyParticleByName("captureInProgressEffect")
-    return
-  end
+  local captureTick
 
-  local function ResetStateToNeutral()
-    self:DestroyParticleByName("captureInProgressEffect")
-    self:DestroyParticleByName("captureClockEffect")
-    self.captureProgress = 0
-    self.capturingTeam = nil
-    -- Update ring color
-    ParticleManager:SetParticleControl(self.captureRingEffect, 3, self:GetColor())
-  end
-  if not radiantUnits[1] and not direUnits[1] then
-    -- Point is empty, reset to neutral state
-      ResetStateToNeutral()
-    return
-  end
-
-  if radiantUnits[1] and self.capturingTeam ~= DOTA_TEAM_GOODGUYS then
-    ResetStateToNeutral()
+  -- Start capturing from neutral
+  if radiantUnits[1] and self.capturingTeam == nil then
     self.capturingTeam = DOTA_TEAM_GOODGUYS
-    return
-  elseif direUnits[1] and self.capturingTeam ~= DOTA_TEAM_BADGUYS then
-    ResetStateToNeutral()
+  elseif direUnits[1] and self.capturingTeam == nil then
     self.capturingTeam = DOTA_TEAM_BADGUYS
-    return
   end
 
-  self.captureProgress = self.captureProgress + self.thinkInterval
-  if self.captureProgress >= self.captureTime then
+  if radiantUnits[1] and direUnits[1] then
+    -- Point is being contested, halt progress
+    captureTick = 0
+  elseif not radiantUnits[1] and not direUnits[1] then
+    -- Point is empty, reverse progress at half speed
+    captureTick = -self.thinkInterval / 2
+  elseif (radiantUnits[1] and self.capturingTeam ~= DOTA_TEAM_GOODGUYS) or (direUnits[1] and self.capturingTeam ~= DOTA_TEAM_BADGUYS) then
+    -- Point has switched capturing team, reverse progress at 1.5 times speed
+    captureTick = -self.thinkInterval * 1.5
+  else
+    -- Point is being captured by a team
+    captureTick = self.thinkInterval
+  end
+  self.captureProgress = min(self.captureTime, max(0, self.captureProgress + captureTick))
+
+  -- if not radiantUnits[1] and not direUnits[1] then
+  --   -- Point is empty, reset to neutral state
+  --     ResetStateToNeutral()
+  --   return
+  -- end
+
+  if self.captureProgress == 0 then
+    self.capturingTeam = nil
+  end
+
+  if captureTick > 0 then
+    self:StartInProgressParticle()
+  else
+    self:DestroyParticleByName("captureInProgressEffect")
+  end
+
+  if self.capturingTeam then
+    self:StartClockParticle()
+    -- Set the orientation of the clock hand based on progress
+    local theta = self.captureProgress / self.captureTime * 2 * math.pi
+    ParticleManager:SetParticleControlForward(self.captureClockEffect, 1, Vector(math.cos(theta), math.sin(theta), 0))
+  else
+    self:DestroyParticleByName("captureClockEffect")
+  end
+  -- Update ring color
+  ParticleManager:SetParticleControl(self.captureRingEffect, 3, self:GetColor())
+
+  if self.captureProgress == self.captureTime then
     -- Point has been captured
     self:StartIntervalThink(-1) -- Stop thinking first so that we don't accidentally finish twice
     self.captureFinishCallback(self.capturingTeam)
     self:Destroy()
-    return
   end
-  self:StartInProgressParticle()
-  self:StartClockParticle()
-  -- Set the orientation of the clock hand based on progress
-  local theta = self.captureProgress / self.captureTime * 2 * math.pi
-  ParticleManager:SetParticleControlForward(self.captureClockEffect, 1, Vector(math.cos(theta), math.sin(theta), 0))
-  -- Update ring color
-  ParticleManager:SetParticleControl(self.captureRingEffect, 3, self:GetColor())
 end
 
 if IsServer() then
