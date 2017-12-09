@@ -38,10 +38,10 @@ function BossAI:Create (unit, options)
   }
 
   unit:OnHurt(function (keys)
-    BossAI:HurtHandler(state, keys)
+    self:HurtHandler(state, keys)
   end)
   unit:OnDeath(function (keys)
-    BossAI:DeathHandler(state, keys)
+    self:DeathHandler(state, keys)
   end)
 
   unit:SetIdleAcquire(false)
@@ -60,7 +60,7 @@ function BossAI:HurtHandler (state, keys)
     state.currentDamage = state.currentDamage + keys.damage
 
     if state.currentDamage > state.agroDamage then
-      BossAI:Agro(state, EntIndexToHScript(keys.entindex_attacker))
+      self:Agro(state, EntIndexToHScript(keys.entindex_attacker))
       state.currentDamage = 0
     end
   elseif state.state == BossAI.AGRO then --luacheck: ignore
@@ -101,12 +101,12 @@ function BossAI:RewardBossKill(teamId, tier)
   CustomNetTables:SetTableValue("stat_display_team", "BK", { value = bossKills })
 
   if tier == 1 then
-    BossAI:GiveItemToWholeTeam("item_upgrade_core", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core", teamId)
 
-    if not BossAI.hasFarmingCore[team] then
-      BossAI.hasFarmingCore[team] = true
-    elseif not BossAI.hasReflexCore[team] then
-      BossAI.hasReflexCore[team] = true
+    if not self.hasFarmingCore[team] then
+      self.hasFarmingCore[team] = true
+    elseif not self.hasReflexCore[team] then
+      self.hasReflexCore[team] = true
 
       BossSpawner[team .. "Zone1"].disable()
       BossSpawner[team .. "Zone2"].disable()
@@ -118,10 +118,10 @@ function BossAI:RewardBossKill(teamId, tier)
         local hero = player:GetAssignedHero()
 
         if hero then
-          if BossAI.hasFarmingCore[team] and not hero.hasFarmingCore then
+          if self.hasFarmingCore[team] and not hero.hasFarmingCore then
             hero:AddItemByName("item_farming_core")
             hero.hasFarmingCore = true
-          elseif BossAI.hasReflexCore[team] and not hero.hasReflexCore then
+          elseif self.hasReflexCore[team] and not hero.hasReflexCore then
             hero:AddItemByName("item_reflex_core")
             hero.hasReflexCore = true
           end
@@ -132,22 +132,22 @@ function BossAI:RewardBossKill(teamId, tier)
   elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
 
   elseif tier == 3 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif tier == 4 then
 
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 5 then
 
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 6 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
-    BossAI:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end
 
@@ -175,7 +175,7 @@ function BossAI:Agro (state, target)
       return
     end
 
-    if not BossAI:Think(state) or state.state == BossAI.IDLE then
+    if not self:Think(state) or state.state == BossAI.IDLE then
       DebugPrint('Stopping think timer')
       return
     end
@@ -214,7 +214,7 @@ function BossAI:Think (state)
   DebugPrint(distance)
 
   if distance > state.leash then
-    BossAI:Leash(state)
+    self:Leash(state)
   elseif distance < state.leash / 2 and state.state == BossAI.LEASHING then
     state.state = BossAI.IDLE
     return false
