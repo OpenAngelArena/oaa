@@ -3,7 +3,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	hPoisonSpit = thisEntity:FindAbilityByName( "spider_poison_spit" )
+	thisEntity.hPoisonSpit = thisEntity:FindAbilityByName( "spider_poison_spit" )
 	thisEntity:SetContextThink( "PoisonSpiderThink", PoisonSpiderThink, 1 )
 end
 
@@ -41,7 +41,7 @@ function PoisonSpiderThink()
 	end
 
 	if hPoisonSpitTarget then
-		if hPoisonSpit:IsFullyCastable() then
+		if thisEntity.hPoisonSpit:IsFullyCastable() then
 			return CastPoisonSpit( hPoisonSpitTarget )
 		end
 
@@ -57,7 +57,7 @@ function CastPoisonSpit( unit )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = hPoisonSpit:entindex(),
+		AbilityIndex = thisEntity.hPoisonSpit:entindex(),
 		Position = unit:GetOrigin(),
 		Queue = false,
 	})

@@ -1,4 +1,4 @@
-modifier_mini_spider_slow_attack = class({})
+modifier_mini_spider_slow_attack = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_mini_spider_slow_attack:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_EVENT_ON_ATTACKED,
 	}
@@ -37,14 +37,14 @@ end
 function modifier_mini_spider_slow_attack:OnAttacked( params )
 	if IsServer() then
 		if params.attacker == self:GetParent() then
-			local hTarget = params.target 
+			local hTarget = params.target
 			if hTarget ~= nil then
 				local hDebuff = hTarget:FindModifierByName( "modifier_mini_spider_slow_attack_debuff" )
 				if hDebuff ~= nil then
 					hDebuff:SetDuration( self.duration, true )
 					hDebuff:IncrementStackCount()
 				else
-					hTarget:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_mini_spider_slow_attack_debuff", { duration = self.duration } )			
+					hTarget:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_mini_spider_slow_attack_debuff", { duration = self.duration } )
 				end
 			end
 		end

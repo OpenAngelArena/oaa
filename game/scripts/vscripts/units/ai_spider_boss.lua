@@ -109,7 +109,7 @@ function CastLarvalParasite()
 		Queue = false,
 	})
 
-	return 4.0
+	return 2.3
 end
 
 ----------------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ function CastSummonEggs()
 		AbilityIndex = thisEntity.hSummonEggsAbility:entindex(),
 	})
 
-	return 4.0
+	return 2.3
 end
 
 ----------------------------------------------------------------------------------------------
@@ -135,7 +135,7 @@ function CastRage()
 		AbilityIndex = thisEntity.hRageAbility:entindex(),
 	})
 
-	return 4.0
+	return 1.8
 end
 
 ----------------------------------------------------------------------------------------------

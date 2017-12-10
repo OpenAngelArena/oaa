@@ -1,4 +1,4 @@
-modifier_mini_spider_slow_attack_debuff = class({})
+modifier_mini_spider_slow_attack_debuff = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_mini_spider_slow_attack_debuff:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 	}

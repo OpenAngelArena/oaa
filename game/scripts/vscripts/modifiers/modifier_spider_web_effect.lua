@@ -50,7 +50,7 @@ function modifier_spider_web_effect:OnIntervalThink()
 			self:GetParent():SetAngles( 0, vAngles.y, vAngles.z )
 			self.flLastTraversableHeight = vOrigin.z
 		else
-			local flNewPitch = 0
+			flNewPitch = 0
 			local flHeightDiff = self.flLastZ - vOrigin.z
 			local flRemappedHeightDiffToPitch = flHeightDiff / ( 128 / 90 )
 
@@ -70,14 +70,6 @@ function modifier_spider_web_effect:OnIntervalThink()
 					flNewPitch = math.max( vAngles.x + flRemappedHeightDiffToPitch, -90.0 )
 					self:GetParent():SetAngles( flNewPitch, vAngles.y, vAngles.z )
 				end
-			end
-
-			if flNewPitch ~= self.flLastPitch then
-				--print( "Z: " .. vOrigin.z )
-				--print( "Remainder: " .. flRemainder )
-				--print( "Remapped Height to Pitch: " .. flRemappedHeightDiffToPitch )
-				--print( "Pitch: " .. flNewPitch )
-
 			end
 		end
 
