@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Mini Spider Slow Attack
+  //=================================================================================================================
+  "mini_spider_slow_attack"
+  {
+      "ID"                            "8450"
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"                     "ability_lua"
+      "AbilityTextureName"            "broodmother_poison_sting"
+      "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/mini_spider_slow_attack.lua"
+
+      "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+      "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+      "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+      "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
+      "IsOnCastBar"                   "0"
+
+      // Stats
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityModifierSupportBonus"       "15"
+
+      // Special
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+          "01"
+          {
+              "var_type"              "FIELD_INTEGER"
+              "movement_speed_slow"    "-5"
+          }
+          "02"
+          {
+              "var_type"              "FIELD_FLOAT"
+              "duration"              "2.0"
+          }
+      }
+  }
+}

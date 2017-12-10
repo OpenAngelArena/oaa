@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Egg Sack
+  //=================================================================================================================
+  "spider_egg_sack"
+  {
+    "ID"                            "8455"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "AbilityTextureName"            "venomancer_venomous_gale"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_egg_sack.lua"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+    "IsOnCastBar"                   "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "radius"                "275"
+      }
+      "02"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "damage"                 "150"
+      }
+      "03"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "spider_min"                "5"
+      }
+      "04"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "spider_max"                "7"
+      }
+      "05"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "trigger_radius"                "100"
+      }
+      "06"
+      {
+          "var_type"              "FIELD_FLOAT"
+          "duration"                "3.0"
+      }
+    }
+  }
+}
