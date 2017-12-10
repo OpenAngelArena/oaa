@@ -71,11 +71,12 @@ function spider_boss_larval_parasite:OnSpellStart()
 
 			ProjectileManager:CreateLinearProjectile( info )
 
-			-- local nFXIndex = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, nil )
-			-- ParticleManager:SetParticleControl( nFXIndex, 0, self:GetCaster():GetOrigin() )
-			-- ParticleManager:SetParticleControl( nFXIndex, 1, info.vVelocity )
-			-- ParticleManager:SetParticleControl( nFXIndex, 2, Vector( self.projectile_width_end, self.projectile_width_end, self.projectile_width_end ) )
-      -- ParticleManager:ReleaseParticleIndex( nFXIndex )
+			local nFXIndex = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, nil )
+			ParticleManager:SetParticleControl( nFXIndex, 0, self:GetCaster():GetOrigin() )
+			ParticleManager:SetParticleControl( nFXIndex, 1, info.vVelocity )
+			ParticleManager:SetParticleControl( nFXIndex, 2, Vector( self.projectile_width_end, self.projectile_width_end, self.projectile_width_end ) )
+      ParticleManager:DestroyParticle( nFXIndex , false)
+      ParticleManager:ReleaseParticleIndex( nFXIndex )
 		end
 
 		EmitSoundOn( "Broodmother.LarvalParasite.Cast", self:GetCaster() )

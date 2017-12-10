@@ -21,12 +21,12 @@ function modifier_spider_boss_larval_parasite:OnCreated( kv )
 
     -- Removing particle because of the particle not beind deleted
 
-		-- self.nFXWarningIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_generic_aoe.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-		-- ParticleManager:SetParticleControl( self.nFXWarningIndex, 0, self:GetParent():GetOrigin() )
-		-- ParticleManager:SetParticleControl( self.nFXWarningIndex, 1, Vector( self.infection_radius, self.infection_radius, self.infection_radius ) )
-		-- ParticleManager:SetParticleControl( self.nFXWarningIndex, 2, Vector( self.buff_duration, self.buff_duration, self.buff_duration ) )
-		-- ParticleManager:SetParticleControl( self.nFXWarningIndex, 15, Vector( 131, 251, 40 ) )
-		-- ParticleManager:SetParticleControl( self.nFXWarningIndex, 16, Vector( 1, 0, 0 ) )
+		self.nFXWarningIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_generic_aoe.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+		ParticleManager:SetParticleControl( self.nFXWarningIndex, 0, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( self.nFXWarningIndex, 1, Vector( self.infection_radius, self.infection_radius, self.infection_radius ) )
+		ParticleManager:SetParticleControl( self.nFXWarningIndex, 2, Vector( self.buff_duration, self.buff_duration, self.buff_duration ) )
+		ParticleManager:SetParticleControl( self.nFXWarningIndex, 15, Vector( 131, 251, 40 ) )
+		ParticleManager:SetParticleControl( self.nFXWarningIndex, 16, Vector( 1, 0, 0 ) )
 
 		self:StartIntervalThink( 0.0 )
 	end
@@ -54,8 +54,8 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
   if IsServer() then
 
     -- This should be destroy the particle but is not destroying it
-		--ParticleManager:ReleaseParticleIndex( self.nFXWarningIndex )
-    --ParticleManager:DestroyParticle( self.nFXWarningIndex, false )
+    ParticleManager:DestroyParticle( self.nFXWarningIndex, false )
+		ParticleManager:ReleaseParticleIndex( self.nFXWarningIndex )
 
 		if self:GetCaster() == nil or self:GetCaster():IsNull() then
 			return
