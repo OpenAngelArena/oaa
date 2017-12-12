@@ -1,6 +1,6 @@
 # Models
 
-Updated 2017-12-05
+Updated 2017-12-12
 
 [< Table of Contents][0]
 
@@ -10,10 +10,10 @@ Models are what most physical objects and entities in game space are built from.
 
 ## Topics
 
-1. [Insert Links here]
+1. [Importing from Blender][1]
 
 [0]: ../README.md
-[1]: filename.md
+[1]: importing_from_blender.md
 [2]: filename.md
 [3]: filename.md
 [4]: filename.md
