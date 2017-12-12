@@ -33,31 +33,42 @@ In addition to the general design principles, here are some things to keep in mi
 
 2. Bosses should rely on a very small number of active abilities
 
-3. Try and avoid passive abilities for bosses
+3. Try and avoid passive abilities for bosses when possible.
 
-4. Successfully completing Boss encounters should require learning new mechanics
+4. When employing passives make them easily noticeable.
 
-5. The mechanics should be taught during the battle with either:
+5. Successfully completing Boss encounters should require learning new mechanics
+
+6. The mechanics should be taught during the battle with either:
 
   - Highly visible/audible cues. (these cues should be clearly outlined in the design document)
 
   - The use of easily recognizable unaltered dota 2 mechanics (like stuns or knockups).
 
-6. Proper boss encounters are 3-stages, becoming increasingly difficult each stage.
+7. Proper boss encounters are 3-stages, becoming increasingly difficult each stage.
 
-7. Each stage adds on top of the previous stage, teaching players the Boss's mechanics in the early stages before becoming difficult later.
+8. Each stage adds on top of the previous stage, teaching players the Boss's mechanics in the early stages before becoming difficult later.
 
-8. Players should understand Bosses' abilities without having to read them.
-
+9. Players should understand Bosses' abilities without having to read them.
 
 ## Item design guidelines
 
 In addition to the general design principles, here are some thing to keep in mind when designing Items:
 
-1. Items should fill a niche. If a 
+1. Items should fill a niche.
 
+2. Items should increase the number of viable builds.
 
+2. Items can employ a variety of possible abilities to that end:
 
-2. Items should introduce 
+  - Completely new abilities/stats
+
+  - Combination of existing abilities/stats
+
+  - New applications of existing abilities/stats
+
+3. New items should be on average more powerful than the highest level vanilla dota 2 items.
+
+4. New items should have progression through multiple tiers.
 
 [0]: README.md

@@ -15,6 +15,7 @@ The Charger custom model includes:
 5 Animations
 
 These were the steps taken:
+
 1 The base mesh was modelled using the software Blender. 
 
 2 Using Blender, the mesh was UV unwrapped. The UV layout was exported as a ".png" file. Then, in Photoshop CS3 the layout was divided into separate layers, one for each part of the body (e.g. legs, horns, head, tail, etc). In that same software a new very basic texture was creature, and saved as a ".psd" file (in this case, "charger_texturetest.psd". This file was then opened in Blender to texture the 3D mesh.
@@ -42,3 +43,5 @@ These were the steps taken:
 ## Results
 
 Results were negative. Boss never worked in game due to a "channel animation" bug. Workflow needs updating.
+
+[0]: README.md
