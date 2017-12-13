@@ -25,6 +25,8 @@ The following list of design principles should apply to all functional designs (
 
 - Don't bother with number-values and lore.
 
+- No memes.
+
 ## Boss design guidelines
 
 In addition to the general design principles, here are some things to keep in mind when designing Bosses:
@@ -59,7 +61,7 @@ In addition to the general design principles, here are some thing to keep in min
 
 2. Items should increase the number of viable builds.
 
-2. Items can employ a variety of possible abilities to that end:
+3. Items can employ a variety of possible abilities to that end:
 
   - Completely new abilities/stats
 
@@ -67,8 +69,12 @@ In addition to the general design principles, here are some thing to keep in min
 
   - New applications of existing abilities/stats
 
-3. New items should be on average more powerful than the highest level vanilla dota 2 items.
+4. Try not to design items which are simply an existing item blown out of proportion. This is the opposite of filling a niche.
 
-4. New items should have progression through multiple tiers.
+5. Items should not simply be mergers of existing items because, instead of forcing players to choose between two different items, they will always choose to get the one with both effects.
+
+6. New items should be on average more powerful than the highest level vanilla dota 2 items.
+
+7. New items should have progression through multiple tiers.
 
 [0]: README.md
