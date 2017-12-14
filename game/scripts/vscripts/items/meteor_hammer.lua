@@ -18,13 +18,15 @@ function item_meteor_hammer:OnSpellStart()
   caster:StartGesture(ACT_DOTA_TELEPORT)
 
   if IsServer() then
+    --dehardcode ---------------------------------------
+    self:CreateVisibilityNode(self:GetCursorPosition(),self:GetSpecialValueFor("impact_radius"), 3.8 )
 
     --Particle that surrounds caster
     self.channel_particle_caster = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_cast.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
     --Particle that surrounds meteor_hammer's aoe.
-    self.channel_particle =ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+    self.channel_particle = ParticleManager:CreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeam())
     ParticleManager:SetParticleControl(self.channel_particle, 0, self:GetCursorPosition())
-    ParticleManager:SetParticleControl(self.channel_particle, 1, Vector(300, 0, 0))
+    ParticleManager:SetParticleControl(self.channel_particle, 1, Vector(self:GetSpecialValueFor("impact_radius"), 0, 0))
 
 
 
@@ -84,17 +86,15 @@ end
 function modifier_item_meteor_hammer_thinker:OnIntervalThink()
 
   self:GetParent():EmitSound("DOTA_Item.MeteorHammer.Impact")
-
+  --PATTACH_ABSORIGIN_FOLLOW, self:GetParent()
   if IsServer() then
-    --This particle is currently misbehaving. This is the one the does the impact of meteor hammer
-    self.impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    self.impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
 
    --Controls the metoer position to origin
-    ParticleManager:SetParticleControl(self.impact_particle, 0, Vector(0, 0, 1000))
+    ParticleManager:SetParticleControl(self.impact_particle, 0, self:GetParent():GetOrigin() + Vector(0, 0, 1000))
+    ParticleManager:SetParticleControl(self.impact_particle, 1, self:GetParent():GetOrigin())
     --Fade time of cetain particles
     ParticleManager:SetParticleControl(self.impact_particle, 2, Vector(0.5, 0,0 ) )
-    --I haven't a single clue. Rotation maybe?
-    ParticleManager:SetParticleControl(self.impact_particle, 3, Vector(0, 0, 0) )
 
     GridNav:DestroyTreesAroundPoint(self:GetParent():GetOrigin(), self.impact_radius, true)
 
@@ -127,16 +127,13 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
         enemy:AddNewModifier(self:GetCaster(), ability, "modifier_item_meteor_hammer_damage_over_time", {duration = self.burn_duration} )
         enemy:AddNewModifier(self:GetCaster(), ability, "modifier_stunned", {duration = self.stun_duration} )
 
-        --Particle applied to enemies struck by metoer hammer
-        self.enemy_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-
       end-- end of for enemy pairs
     end-- end of if enemies statemnt
 
   self:StartIntervalThink(-1)
   end-- end of if server
 
---UTIL_Remove(self:GetParent() )
+UTIL_Remove(self:GetParent() )
 end-- end of function
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -188,6 +185,12 @@ function modifier_item_meteor_hammer_damage_over_time:OnIntervalThink()
     ApplyDamage(self.damage)
 
   end -- IsServer() if
+end
+
+function modifier_item_meteor_hammer_damage_over_time:GetEffectName()
+
+  return "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+
 end
 
 function modifier_item_meteor_hammer_damage_over_time:IsDebuff()
