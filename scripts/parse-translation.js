@@ -23,7 +23,7 @@ function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
   recursionCheck[key]++;
 
   tokens.forEach(function (token) {
-    let tokenKey = token.substr(2, token.length-3).toLowerCase();
+    let tokenKey = token.substr(2, token.length - 3).toLowerCase();
     if (!allTooltips[tokenKey]) {
       throw new Error([
         'References invalid token name, ',
@@ -57,7 +57,7 @@ function generateTooltips (fileData, allTooltips) {
           return ('"' + key + '"' + SPACE_PADDING).substring(0, SPACE_PADDING.length) + JSON.stringify(allTooltips[key]);
         }).join('\n')
     ].join('\n');
-  }).join('\n')
+  }).join('\n');
 }
 
 module.exports = function (shouldParse, languageFolder, dotaLanguage) {

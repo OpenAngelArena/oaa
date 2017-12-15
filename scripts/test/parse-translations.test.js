@@ -15,7 +15,7 @@ test('before', function (t) {
     }
     dotaEnglish = parseKV(result.body);
     t.ok(dotaEnglish);
-    t.end()
+    t.end();
   });
 });
 
