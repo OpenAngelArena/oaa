@@ -2,9 +2,23 @@
 // Ancient Janggo of Endurance
 //===================================================================
 
+"DOTA_Tooltip_ability_item_ancient_janggo_Description"         "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br>Upgrading Drums of Endurance removes charges from active ability. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
+"DOTA_Tooltip_ability_item_ancient_janggo_Note0"          "Re-purchasing the Drum of Endurance recipe will refresh its charges."
+"DOTA_Tooltip_ability_item_ancient_janggo_Note1"          "Multiple instances of Swiftness Aura do not stack."
+"DOTA_Tooltip_ability_item_ancient_janggo_Lore"           "A relic that enchants the bodies of those around it for swifter movement in times of crisis."
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_int"          "+$int"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_str"          "+$str"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_agi"          "+$agi"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_mana_regen"       "+$mana_regen"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_aura_movement_speed"    "AURA MOVE SPEED:"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_attack_speed_pct"     "ENDURANCE ATTACK SPEED:"
+"DOTA_Tooltip_ability_item_ancient_janggo_bonus_movement_speed_pct" "%ENDURANCE MOVE SPEED:"
+"DOTA_Tooltip_ability_item_ancient_janggo_duration"       "ENDURANCE DURATION:"
+"DOTA_Tooltip_ability_item_ancient_janggo_radius"       "AURA/ENDURANCE RADIUS:"
+
 "DOTA_Tooltip_Ability_item_ancient_janggo_2"            "Drum of Endurance"
 "DOTA_Tooltip_Ability_item_recipe_ancient_janggo_2"     "Drum of Endurance Recipe"
-"DOTA_Tooltip_Ability_item_ancient_janggo_2_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
+"DOTA_Tooltip_Ability_item_ancient_janggo_2_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br>Upgrading Drums of Endurance removes charges from active ability. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
 "DOTA_Tooltip_Ability_item_ancient_janggo_2_Lore"                               "A relic that enchants the bodies of those around it for swifter movement in times of crisis."
 "DOTA_Tooltip_ability_item_ancient_janggo_2_Note0"                            "Multiple instances of Swiftness Aura do not stack."
 "DOTA_Tooltip_Ability_item_ancient_janggo_2_bonus_int"                      "+$int"
@@ -20,7 +34,7 @@
 
 "DOTA_Tooltip_Ability_item_ancient_janggo_3"            "Drum of Endurance"
 "DOTA_Tooltip_Ability_item_recipe_ancient_janggo_3"     "Drum of Endurance Recipe"
-"DOTA_Tooltip_Ability_item_ancient_janggo_3_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
+"DOTA_Tooltip_Ability_item_ancient_janggo_3_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br>Upgrading Drums of Endurance removes charges from active ability. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
 "DOTA_Tooltip_Ability_item_ancient_janggo_3_Lore"                               "A relic that enchants the bodies of those around it for swifter movement in times of crisis."
 "DOTA_Tooltip_ability_item_ancient_janggo_3_Note0"                            "Multiple instances of Swiftness Aura do not stack."
 "DOTA_Tooltip_Ability_item_ancient_janggo_3_bonus_int"                      "+$int"
@@ -36,7 +50,7 @@
 
 "DOTA_Tooltip_Ability_item_ancient_janggo_4"            "Drum of Endurance"
 "DOTA_Tooltip_Ability_item_recipe_ancient_janggo_4"     "Drum of Endurance Recipe"
-"DOTA_Tooltip_Ability_item_ancient_janggo_4_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
+"DOTA_Tooltip_Ability_item_ancient_janggo_4_Description"                        "<h1>Active: Endurance</h1> Gives +%bonus_attack_speed_pct% attack speed and +%bonus_movement_speed_pct%%% movement speed to nearby allies for %duration% seconds. <br>Upgrading Drums of Endurance removes charges from active ability. <br><br>Radius: %radius%\n<h1>Passive: Swiftness Aura</h1>Gives %bonus_aura_movement_speed% movement speed to nearby allies. <br><br>Radius: %radius%"
 "DOTA_Tooltip_Ability_item_ancient_janggo_4_Lore"                               "A relic that enchants the bodies of those around it for swifter movement in times of crisis."
 "DOTA_Tooltip_ability_item_ancient_janggo_4_Note0"                            "Multiple instances of Swiftness Aura do not stack."
 "DOTA_Tooltip_Ability_item_ancient_janggo_4_bonus_int"                      "+$int"
