@@ -68,24 +68,18 @@ function BossAI:HurtHandler (state, keys)
 end
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
-  for playerId = 0,19 do
-    if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
-      local player = PlayerResource:GetPlayer(playerId)
-      local hero = player:GetAssignedHero()
+  PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+    local player = PlayerResource:GetPlayer(playerId)
+    local hero = player:GetAssignedHero()
 
-      hero:AddItemByName(item)
-    end
-  end
+    hero:AddItemByName(item)
+  end)
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
   state.deathEvent.broadcast(deathEventData)
-  local team = nil
-  if teamId == DOTA_TEAM_GOODGUYS then
-    team = 'good'
-  elseif teamId == DOTA_TEAM_BADGUYS then
-    team = 'bad'
-  else
+  local team = GetShortTeamName(teamId)
+  if not IsPlayerTeam(teamId) then
     return
   end
 
@@ -113,22 +107,20 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
       BossSpawner[team .. "Zone2"].disable()
     end
 
-    for playerId = 0,19 do
-      if PlayerResource:GetTeam(playerId) == teamId and PlayerResource:GetPlayer(playerId) ~= nil then
-        local player = PlayerResource:GetPlayer(playerId)
-        local hero = player:GetAssignedHero()
+    PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+      local player = PlayerResource:GetPlayer(playerId)
+      local hero = player:GetAssignedHero()
 
-        if hero then
-          if self.hasFarmingCore[team] and not hero.hasFarmingCore then
-            hero:AddItemByName("item_farming_core")
-            hero.hasFarmingCore = true
-          elseif self.hasReflexCore[team] and not hero.hasReflexCore then
-            hero:AddItemByName("item_reflex_core")
-            hero.hasReflexCore = true
-          end
+      if hero then
+        if self.hasFarmingCore[team] and not hero.hasFarmingCore then
+          hero:AddItemByName("item_farming_core")
+          hero.hasFarmingCore = true
+        elseif self.hasReflexCore[team] and not hero.hasReflexCore then
+          hero:AddItemByName("item_reflex_core")
+          hero.hasReflexCore = true
         end
       end
-    end
+    end)
 
   elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
@@ -162,9 +154,10 @@ function BossAI:DeathHandler (state, keys)
     return
   end
 
-  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", {}, state.origin, state.handle:GetTeamNumber(), false)
+  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, state.handle:GetTeamNumber(), false)
   local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
   capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
+
   state.handle = nil
 end
 
