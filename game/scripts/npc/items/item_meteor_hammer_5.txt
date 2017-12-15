@@ -140,6 +140,13 @@
         "var_type"              "FIELD_INTEGER"
         "impact_damage"         "150 300 450 600 750"
       }
+      "precache"
+      {
+      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf" 
+      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      }
     }
   }
 }
