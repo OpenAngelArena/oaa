@@ -16,7 +16,7 @@ function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
   recursionCheck[key] = recursionCheck[key] || 0;
 
   let value = allTooltips[key];
-  let tokens = value.match(/#{[^\s}]+}/g);
+  let tokens = value.match(/#{[_\- A-Za-z0-9]+}/g); // alphanumeric, _- and space
   if (!tokens) {
     return value;
   }
