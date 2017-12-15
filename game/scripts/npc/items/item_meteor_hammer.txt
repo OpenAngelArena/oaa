@@ -8,7 +8,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "222"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "4049"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                         "models/props_gameplay/recipe.vmdl"
     "BaseClass"                     "item_datadriven"
     "AbilityTextureName"            "custom/recipe/recipe_1"
@@ -36,7 +36,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "223"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "4050"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
     "ScriptFile"                    "items/meteor_hammer.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
