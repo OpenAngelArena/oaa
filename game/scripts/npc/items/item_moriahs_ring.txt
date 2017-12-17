@@ -6,7 +6,7 @@
   "item_recipe_moriahs_ring"
   {
 
-    "ID"                                                  "8434"       // unique ID
+    "ID"                                                  "9434"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
@@ -29,11 +29,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8439"       // unique ID
+    "ID"                                                  "9444"       // unique ID
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/moriahs_ring.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/moriahs_ring_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

@@ -85,13 +85,12 @@ function Jump()
 		AbilityIndex = thisEntity.JumpAbility:entindex(),
 		Queue = false,
 	})
-	return 2.5
+  return 3 / thisEntity:GetHasteFactor()
 end
-
 
 function Smash( enemy )
 	if enemy == nil then
-		return
+		return 0.5
 	end
 
 	if ( not thisEntity:HasModifier( "modifier_provide_vision" ) ) then
