@@ -46,6 +46,12 @@ BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 -- Player
 GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
 
+-- Logging
+-- TODO: Make this a module loader so the following can be handled:
+    -- Multiple log instances for different logging levels
+    -- Simple configuration for several setups, such as Loggly and a custom implementation
+LOGGLY_ACCOUNT_ID = ''                  -- The Loggly token to toss errors to
+
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
 
