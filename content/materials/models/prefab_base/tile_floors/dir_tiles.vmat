@@ -18,7 +18,7 @@ Layer0
 
 	//---- Normal Map ----
 	g_flBumpStrength "0.804"
-	TextureNormal "materials/models/prefab_base/tile_floors/dire_tiles_normal.tga"
+	TextureNormal "materials/models/prefab_base/tile_floors/dir_tiles_normal.tga"
 
 	//---- Self Illum ----
 	TextureSelfIllumMask "materials/default/default_selfillum.tga"
@@ -27,7 +27,7 @@ Layer0
 	g_flSpecularBloom "0.000"
 	g_flSpecularIntensity "0.528"
 	TextureBloom "materials/default/default_bloom.tga"
-	TextureReflectance "materials/models/prefab_base/tile_floors/dire_tiles_refl.tga"
+	TextureReflectance "materials/models/prefab_base/tile_floors/dir_tiles_refl.tga"
 
 	Attributes
 	{
