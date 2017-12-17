@@ -16,8 +16,8 @@
 		"IsAncient"					"1"
 		"IsBossMonster"				"1"
 
-		"MinimapIcon"				"minimap_enemyicon"
-		"MinimapIconSize"			"275"
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -25,6 +25,8 @@
 		"Ability2"					"spider_boss_summon_eggs"
 		"Ability3"					"spider_boss_rage"
 		"Ability4"					"spider_boss_passive"
+		"Ability5"                  "boss_resistance"
+		"Ability6"                  "boss_cliffwalk"
 
 		// Armor
 		//----------------------------------------------------------------

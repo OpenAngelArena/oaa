@@ -46,7 +46,7 @@ function spider_boss_larval_parasite:OnSpellStart()
 		self.projectile_distance = self:GetSpecialValueFor( "projectile_distance" )
 
 		local fCastRange = self:GetCastRange( self:GetCaster():GetOrigin(), nil )
-		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, fCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, fCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 
 		for _, hEnemy in pairs( hEnemies ) do
 			local vPos = hEnemy:GetOrigin()

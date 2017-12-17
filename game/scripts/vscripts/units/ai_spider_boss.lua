@@ -41,67 +41,90 @@ function SpiderBossThink()
 	if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
-    if thisEntity.hSummonEggsAbility ~= nil and thisEntity.hSummonEggsAbility:IsFullyCastable() then
-			return CastSummonEggs()
-		end
+    thisEntity.bHasAgro = false
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    -- if thisEntity.hSummonEggsAbility ~= nil and thisEntity.hSummonEggsAbility:IsFullyCastable() then
+		-- 	return CastSummonEggs()
+		-- end
   end
 
-	-- Are we too far from our initial spawn position?
-	local fDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if fDist > 2000 then
-		RetreatHome()
-		return 0.5
+  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES , FIND_CLOSEST, false )
+  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+
+  --Aggro
+  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
+    print("Spider Boss Deaggro")
+    thisEntity.bHasAgro = false
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    return 2
+  elseif fHpPercent < 100 and #enemies > 0 then
+    if not thisEntity.bHasAgro then
+      print("Spider Boss Aggro")
+      thisEntity.bHasAgro = true
+      thisEntity:SetIdleAcquire(false)
+      thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
+    end
   end
 
-  local healthPercent = thisEntity:GetHealthPercent()
-
-  if fDist < 50 and healthPercent > 90 then
-    -- Do not agro
-		return 0.5
+  -- Leash
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+    return 1
   end
 
-	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #hEnemies == 0 then
-		return 1
-  end
-
-	if healthPercent < 85 and #thisEntity.hSummonedUnits < thisEntity.nMaxSummonedUnits then
+	if fHpPercent < 85 and #thisEntity.hSummonedUnits < thisEntity.nMaxSummonedUnits then
 		if thisEntity.hSummonEggsAbility ~= nil and thisEntity.hSummonEggsAbility:IsFullyCastable() then
 			return CastSummonEggs()
 		end
 	end
 
-	if thisEntity.bIsEnraged == false and healthPercent < 50 and thisEntity.hRageAbility ~= nil and thisEntity.hRageAbility:IsFullyCastable() then
+	if thisEntity.bIsEnraged == false and fHpPercent < 50 and thisEntity.hRageAbility ~= nil and thisEntity.hRageAbility:IsFullyCastable() then
 		return CastRage()
   end
 
-	if healthPercent < 95 and thisEntity.hLarvalParasiteAbility ~= nil and thisEntity.hLarvalParasiteAbility:IsFullyCastable() then
+	if fHpPercent < 95 and thisEntity.hLarvalParasiteAbility ~= nil and thisEntity.hLarvalParasiteAbility:IsFullyCastable() then
 		return CastLarvalParasite()
 	end
 
+	return Attack(enemies[1])
+end
+
+
+----------------------------------------------------------------------------------------------
+function Attack( target)
+  print("Attack")
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    TargetIndex = hEnemies[1]:entindex(),
-    Queue = 0
+    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    Position = target:GetAbsOrigin(),
+    Queue = 0,
   })
 
 	return 1.5
 end
 
----------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 
 function RetreatHome()
+  print("RetreatHome")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
-	})
+  })
+  return 2
 end
 
 ----------------------------------------------------------------------------------------------
 
 function CastLarvalParasite()
+  print("CastLarvalParasite")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -115,6 +138,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function CastSummonEggs()
+  print("CastSummonEggs")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -127,6 +151,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function CastRage()
+  print("CastRage")
 	PlayHungerSpeech()
 
 	ExecuteOrderFromTable({
