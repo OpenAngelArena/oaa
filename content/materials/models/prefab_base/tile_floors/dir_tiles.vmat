@@ -1,0 +1,36 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[0.500 0.500]"
+	TextureColor "materials/models/prefab_base/tile_floors/dir_tiles_color.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "0.804"
+	TextureNormal "materials/models/prefab_base/tile_floors/dire_tiles_normal.tga"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/default/default_selfillum.tga"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.000"
+	g_flSpecularIntensity "0.528"
+	TextureBloom "materials/default/default_bloom.tga"
+	TextureReflectance "materials/models/prefab_base/tile_floors/dire_tiles_refl.tga"
+
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+}
