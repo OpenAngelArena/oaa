@@ -5,7 +5,7 @@
     //=================================================================================================================
     "lycan_boss_summon_wolves"
     {
-        "ID"                            "8438"
+        "ID"                            "8448"
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
@@ -13,8 +13,6 @@
         "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_summon_wolves.lua"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
-
-        "IsOnCastBar"                   "0"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
