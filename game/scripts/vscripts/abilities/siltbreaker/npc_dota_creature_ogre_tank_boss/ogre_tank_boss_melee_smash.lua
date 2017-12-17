@@ -10,7 +10,8 @@ end
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_melee_smash:GetCooldown( iLevel )
-	return self.BaseClass.GetCooldown( self, self:GetLevel() ) / self:GetCaster():GetHasteFactor()
+  -- the cooldown should be lower than the default value if hasted by ogre seer
+	return self.BaseClass.GetCooldown( self, self:GetLevel() ) / math.max( self:GetCaster():GetHasteFactor(), 1.0 )
 end
 
 -----------------------------------------------------------------------------

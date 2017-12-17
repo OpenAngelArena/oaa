@@ -30,19 +30,39 @@ function LycanBossThink()
   if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
+    thisEntity.bHasAgro = false
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
 	end
 
-	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #hEnemies == 0 then
-    RetreatHome()
-    return 2.0
+  local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange() , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES , FIND_CLOSEST, false )
+  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+
+	--Agro
+  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #hEnemies == 0) then
+    DebugPrint("Lycan Boss Deagro")
+    thisEntity.bHasAgro = false
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    return 2
+  elseif (fHpPercent < 100 and #hEnemies > 0) then
+    if not thisEntity.bHasAgro then
+      DebugPrint("Lycan Boss Agro")
+      thisEntity.bHasAgro = true
+      thisEntity:SetIdleAcquire(true)
+      thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
+    end
   end
 
-  local fDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if fDist > 2000 then
-		RetreatHome()
-		return 2.0
-	end
+  -- Leash
+  if not thisEntity.bHasAgro or #hEnemies==0 or fDistanceToOrigin > 2000 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+    return 1
+  end
 
 	thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
 	if thisEntity.bShapeshift then
@@ -102,18 +122,13 @@ function RetreatHome()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
   })
+  return 2
 end
 
 
 function CastClawAttack( enemy )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		TargetIndex = enemy:entindex(),
-		AbilityIndex = thisEntity.hClawAttackAbility:entindex(),
-	})
-
-	return 1.00
+  thisEntity:CastAbilityOnTarget( enemy, thisEntity.hClawAttackAbility, thisEntity:entindex() )
+	return 2
 end
 
 function CastClawLunge( enemy )

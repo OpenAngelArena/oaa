@@ -25,8 +25,9 @@
 		//----------------------------------------------------------------
 		"Ability1"					"ogre_tank_boss_melee_smash"
 		"Ability2"					"ogre_tank_boss_jump_smash"
-		"Ability3"                  "boss_resistance"
-		"Ability4"                  "boss_cliffwalk"
+		"Ability3"          "boss_resistance"
+		"Ability4"          "boss_cliffwalk"
+		"Ability5"          "siltbreaker_boss_immunity"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -77,7 +78,7 @@
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

@@ -46,6 +46,20 @@ BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 -- Player
 GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
 
+--Gold
+_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+
+--Cave
+_G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
+_G.CAVE_DIFFICULTY = 2                  -- Multiplies cave difficulty growth compared to normal creeps
+_G.CAVE_BOUNTY = 1                      -- Accelerates cave bounty increase compared to the rest of the game
+
+-- Logging
+-- TODO: Make this a module loader so the following can be handled:
+    -- Multiple log instances for different logging levels
+    -- Simple configuration for several setups, such as Loggly and a custom implementation
+LOGGLY_ACCOUNT_ID = ''                  -- The Loggly token to toss errors to
+
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
 
