@@ -137,6 +137,7 @@ read_globals = { -- these globals can only be accessed.
 "IsInTrigger",
 "MoveCameraToPlayer",
 "MoveCameraToEntity",
+"IsPlayerTeam",
 
 
 "ACT_MELEE_VM_RELOAD",
