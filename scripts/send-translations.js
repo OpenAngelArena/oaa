@@ -55,6 +55,7 @@ request.get({
     }
   }, function (err, data) {
     if (err) {
+      console.log(englishStrings);
       throw err;
     }
     console.log(data.body);
