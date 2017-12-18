@@ -1,4 +1,5 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
+LinkLuaModifier( "modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
@@ -409,6 +410,9 @@ function GameMode:OnItemCombined(keys)
 
   -- The cost of the item purchased
   local itemcost = keys.itemcost
+
+  local hero = player:GetAssignedHero()
+  local hthinker = CreateModifierThinker( hero, hero , "modifier_aura_item_upgrade", { ItemName = itemName, PlayerId = plyID}, hero:GetOrigin(), hero:GetTeamNumber(), false )
 end
 
 -- This function is called whenever an ability begins its PhaseStart phase (but before it is actually cast)
