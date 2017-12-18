@@ -54,7 +54,7 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
 		local a = 15
 		local b = 103
 		local c = 116401
-		local divisor = 5760 * 20 -- this isn't any different from adding a 0 but it's more future proof
+		local divisor = 5760 * 5 -- this isn't any different from adding a 0 but it's more future proof
 
 		local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) / divisor
 
