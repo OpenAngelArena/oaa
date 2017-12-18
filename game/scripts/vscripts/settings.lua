@@ -11,7 +11,7 @@ POOP_WARD_RADIUS = 200
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
 SCAN_REVEAL_RADIUS = 900
-SCAN_REVEAL_DURATION = 7
+SCAN_REVEAL_DURATION = 14
 
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
