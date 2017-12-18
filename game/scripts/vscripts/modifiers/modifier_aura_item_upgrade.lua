@@ -2,23 +2,46 @@ modifier_aura_item_upgrade = class(ModifierBaseClass)
 
 if IsServer() then
   function modifier_aura_item_upgrade:OnCreated( kv )
-    print("modifier_aura_item_upgrade AURA CREATED")
     self.ItemName = kv.ItemName
     self.PlayerId = kv.PlayerId
-    print("modifier_aura_item_upgrade : " .. self.ItemName)
-    print("modifier_aura_item_upgrade Player: " .. self.PlayerId)
+
+    self.AuraItems =
+    {
+      "item_greater_guardian_greaves_",
+      "item_greater_travel_boots_",
+      "item_ancient_jangoo_of_endurance_",
+      "item_assault_",
+      "item_crimson_pipe_",
+      "item_helm_of_the_dominator_",
+      "item_lucience_",
+      "item_mekansm_",
+      "item_pipe_",
+      "item_radiance_",
+      "item_ring_of_aquila_",
+      "item_shivas_guard_",
+      "item_urn_of_sorcery_",
+      "item_vladmir_",
+    }
 
     local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
 
-    -- only remove the item if it is in a active slot
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = hero:GetItemInSlot(i)
-      if item then
-        if item:GetName() == self.ItemName then
-          self.ItemSlot = i
-          hero:RemoveItem(item)
-          self:StartIntervalThink( 1 )
+    print(self.ItemName)
+    -- Only remove the item if it has aura upgrade
+    for _, value in ipairs(self.AuraItems) do
+      if string.find(self.ItemName, value) then
+        -- only remove the item if it is in a active slot
+        for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+          local item = hero:GetItemInSlot(i)
+          if item then
+            if item:GetName() == self.ItemName then
+              self.ItemSlot = i
+              hero:RemoveItem(item)
+              self:StartIntervalThink( 1 )
+              return
+            end
+          end
         end
+
       end
     end
 
