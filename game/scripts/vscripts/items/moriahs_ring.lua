@@ -3,13 +3,13 @@
 --- DateTime: 03-Dec-17 21:32
 ---
 
-item_moriahs_ring = class(ItemBaseClass)
+item_dagger_of_moriah = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_item_moriahs_ring_sangromancy", "items/moriahs_ring.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function item_moriahs_ring:GetAbilityTextureName()
+function item_dagger_of_moriah:GetAbilityTextureName()
   local baseName = self.BaseClass.GetAbilityTextureName( self )
 
   local activeName = ""
@@ -23,19 +23,19 @@ end
 
 --------------------------------------------------------------------------------
 
-function item_moriahs_ring:GetIntrinsicModifierName()
-  return "modifier_item_moriahs_ring"
+function item_dagger_of_moriah:GetIntrinsicModifierName()
+  return "modifier_item_dagger_of_moriah"
 end
 
 --------------------------------------------------------------------------------
 
-function item_moriahs_ring:OnSpellStart()
+function item_dagger_of_moriah:OnSpellStart()
   local caster = self:GetCaster()
 
   -- if we have the modifier while this thing is "toggled"
   -- ( which we should, but 'should' isn't a concept in programming )
   -- remove it
-  local mod = caster:FindModifierByName( "modifier_item_moriahs_ring_sangromancy" )
+  local mod = caster:FindModifierByName( "modifier_item_dagger_of_moriah_sangromancy" )
 
   if mod and not mod:IsNull() then
     mod:Destroy()
@@ -43,7 +43,7 @@ function item_moriahs_ring:OnSpellStart()
     -- caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
   else
     -- if it isn't toggled, add the modifier and keep track of it
-    caster:AddNewModifier( caster, self, "modifier_item_moriahs_ring_sangromancy", {} )
+    caster:AddNewModifier( caster, self, "modifier_item_dagger_of_moriah_sangromancy", {} )
 
     -- caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
   end
@@ -51,26 +51,26 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_item_moriahs_ring_sangromancy = class(ModifierBaseClass)
+modifier_item_dagger_of_moriah_sangromancy = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:IsHidden()
+function modifier_item_dagger_of_moriah_sangromancy:IsHidden()
   return false
 end
 
-function modifier_item_moriahs_ring_sangromancy:IsDebuff()
+function modifier_item_dagger_of_moriah_sangromancy:IsDebuff()
   return false
 end
 
-function modifier_item_moriahs_ring_sangromancy:IsPurgable()
+function modifier_item_dagger_of_moriah_sangromancy:IsPurgable()
   return false
 end
 
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:OnCreated( event )
+function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
   local spell = self:GetAbility()
 
   spell.mod = self
@@ -81,7 +81,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:OnRefresh( event )
+function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
   local spell = self:GetAbility()
 
   spell.mod = self
@@ -92,7 +92,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:OnRemoved()
+function modifier_item_dagger_of_moriah_sangromancy:OnRemoved()
   local spell = self:GetAbility()
 
   if spell and not spell:IsNull() then
@@ -102,7 +102,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:DeclareFunctions()
+function modifier_item_dagger_of_moriah_sangromancy:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
@@ -113,7 +113,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:GetModifierSpellAmplify_Percentage( event )
+function modifier_item_dagger_of_moriah_sangromancy:GetModifierSpellAmplify_Percentage( event )
   local spell = self:GetAbility()
 
   return self.spellamp or spell:GetSpecialValueFor( "sangromancy_spell_amp" )
@@ -121,7 +121,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_moriahs_ring_sangromancy:OnTakeDamage(event)
+function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
   if event.damage_category == 0 and event.attacker == self:GetParent() and not (event.unit == self:GetParent()) then
 
     local damage = {
@@ -138,4 +138,4 @@ end
 
 --------------------------------------------------------------------------------
 
-item_moriahs_ring_2 = item_moriahs_ring
+item_dagger_of_moriah_2 = item_dagger_of_moriah

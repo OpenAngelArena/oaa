@@ -1,9 +1,9 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Moriah's ring
+  // Recipe: Dagger of Moriah
   //=================================================================================================================
-  "item_recipe_moriahs_ring"
+  "item_recipe_dagger_of_moriah"
   {
 
     "ID"                                                  "9434"       // unique ID
@@ -13,7 +13,7 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_moriahs_ring"
+    "ItemResult"                                          "item_dagger_of_moriah"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
@@ -23,36 +23,36 @@
   }
 
   //=================================================================================================================
-  // Moriah's Ring
+  // Dagger of Moriah
   //=================================================================================================================
-  "item_moriahs_ring"
+  "item_dagger_of_moriah"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9444"       // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/moriahs_ring.lua"
+    "ScriptFile"                                          "items/dagger_of_moriah.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "2"
-    "AbilityTextureName"                                  "custom/moriahs_ring_1"
+    "AbilityTextureName"                                  "custom/dagger_of_moriah_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
-    "AbilitySharedCooldown"                               "moriahs_ring"
+    "AbilitySharedCooldown"                               "dagger_of_moriah"
     "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_moriahs_ring_2"
+    "UpgradesItems"                                       "item_dagger_of_moriah_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "17150"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "moriah;ring;moriahs ring;get bkb"
+    "ItemAliases"                                         "moriah;dagger;dagger of moriah"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
