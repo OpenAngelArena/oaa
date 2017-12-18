@@ -65,6 +65,7 @@ function modifier_oaa_arcane_orb:OnAttackStart(keys)
   -- Wrap in function to defer evaluation
   local function autocast()
     return (
+      target.GetUnitName and -- Check for existence of GetUnitName method to determine if target is a unit
       ability:GetAutoCastState() and
       not parent:IsSilenced() and
       ability:IsOwnersManaEnough() and
@@ -96,6 +97,7 @@ function modifier_oaa_arcane_orb:OnAttack(keys)
   -- Wrap in function to defer evaluation
   local function autocast()
     return (
+      target.GetUnitName and -- Check for existence of GetUnitName method to determine if target is a unit
       ability:GetAutoCastState() and
       not parent:IsSilenced() and
       ability:IsOwnersManaEnough() and
