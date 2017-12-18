@@ -41,6 +41,7 @@ g_ParticlePrecache = {
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
+  "particles/econ/items", -- Precache all hero cosmetics
 }
 
 g_SoundPrecache = {
