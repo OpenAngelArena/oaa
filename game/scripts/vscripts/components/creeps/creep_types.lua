@@ -46,14 +46,6 @@ CreepTypes = {
       {"npc_dota_neutral_custom_small_horse",       800,  240,  20,    1,    50,  31},
     },
     {
-      {"npc_dota_neutral_custom_big_horse",        1200,  400,  30,    2,    90,  31},
-      {"npc_dota_neutral_custom_small_horse",       800,  240,  20,    1,    50,  31},
-    },
-    {
-      {"npc_dota_neutral_custom_big_horse",        1200,  400,  30,    2,    90,  31},
-      {"npc_dota_neutral_custom_small_horse",       800,  240,  20,    1,    50,  31},
-    },
-    {
       {"npc_dota_neutral_custom_small_pupper",      640,  160,  15,    1,    30,  21},
       {"npc_dota_neutral_custom_small_pupper",      420,  160,  15,    1,    30,  21},
       {"npc_dota_neutral_custom_big_pupper",        800,  480,  35,    3,   100,  34}
