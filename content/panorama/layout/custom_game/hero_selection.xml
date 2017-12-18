@@ -149,7 +149,7 @@
             <Panel id="HeroPreviewContainer">
               <Label id="SectionTitle" text=""/>
               <Panel id="HeroPreview">
-                <DOTAScenePanel unit="" />
+                <DOTAScenePanel hittest="false" unit="" />
               </Panel>
             </Panel>
             <Panel id="HeroPickContainer">
