@@ -68,7 +68,7 @@ function Precache( context )
   for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
     if value == 1 then
       local hero = string.sub(key, 15)
-      PrecacheResource("particle_folder", "particles/econ/" .. hero, context)
+      -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
       PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
     end
   end
