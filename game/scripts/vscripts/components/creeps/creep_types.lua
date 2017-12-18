@@ -76,6 +76,10 @@ CreepTypes = {
       {"npc_dota_neutral_granite_golem",           1600,    0,  40,    3,   166,  44}
     },
     {
+      {"npc_dota_neutral_prowler_acolyte",          900,    0,  30,    1,   112,  29},
+      {"npc_dota_neutral_prowler_shaman",          1200,    0,  60,    2,   220,  57}
+    },
+    {
       {"npc_dota_neutral_custom_black_dragon",     1840,    0,  80,    3,   332,  86}
     }
   }
