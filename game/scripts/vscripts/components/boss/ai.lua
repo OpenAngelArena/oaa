@@ -69,8 +69,7 @@ end
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
   PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-    local player = PlayerResource:GetPlayer(playerId)
-    local hero = player:GetAssignedHero()
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
     hero:AddItemByName(item)
   end)
@@ -108,8 +107,7 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
     end
 
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-      local player = PlayerResource:GetPlayer(playerId)
-      local hero = player:GetAssignedHero()
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
       if hero then
         if self.hasFarmingCore[team] and not hero.hasFarmingCore then
