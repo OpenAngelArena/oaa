@@ -45,8 +45,8 @@ function GameMode:_InitGameMode()
   -- exponential gpm increase
   local goldTickCount = 0
   Timers:CreateTimer(5, function ()
-    goldTickCount = goldTickCount + 1
-    GameRules:SetGoldPerTick((goldTickCount*goldTickCount + goldTickCount + 16800)/4320)
+    goldTickCount = goldTickCount + 2
+    GameRules:SetGoldPerTick((goldTickCount*goldTickCount + goldTickCount + 16800)/3320)
     return 5
   end)
 
