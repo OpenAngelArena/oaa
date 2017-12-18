@@ -46,7 +46,7 @@ CreepTypes = {
       {"npc_dota_neutral_custom_small_horse",       800,  240,  20,    1,    50,  31},
     },
     {
-      {"npc_dota_neutral_custom_small_pupper",      640,  160,  15,    1,    30,  21},
+      {"npc_dota_neutral_custom_small_pupper",      420,  160,  15,    1,    30,  21},
       {"npc_dota_neutral_custom_small_pupper",      420,  160,  15,    1,    30,  21},
       {"npc_dota_neutral_custom_big_pupper",        800,  480,  35,    3,   100,  34}
     },
@@ -57,6 +57,11 @@ CreepTypes = {
     {
       {"npc_dota_neutral_custom_small_pupper",      420,  160,  15,    1,    30,  21},
       {"npc_dota_neutral_custom_big_pupper",        800,  480,  35,    3,   100,  34}
+    },
+    {
+      {"npc_dota_neutral_satyr_tickster",           300,  160,  10,    1,    20,  11},
+      {"npc_dota_neutral_satyr_soulstealer",        400,  480,  20,    1,    40,  20},
+      {"npc_dota_neutral_satyr_hellcaller",         600,  480,  30,   1.5,   80,  31}
     }
   },
    -- 4 "ancient camp"
