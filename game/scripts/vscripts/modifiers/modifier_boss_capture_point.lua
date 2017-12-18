@@ -99,12 +99,15 @@ function modifier_boss_capture_point:OnIntervalThink()
     false
   )
   local captureTick
+  local heroMultiplier = 0
 
   -- Start capturing from neutral
   if radiantUnits[1] and self.capturingTeam == nil then
     self.capturingTeam = DOTA_TEAM_GOODGUYS
+    heroMultiplier = #radiantUnits
   elseif direUnits[1] and self.capturingTeam == nil then
     self.capturingTeam = DOTA_TEAM_BADGUYS
+    heroMultiplier = #direUnits
   end
 
   if radiantUnits[1] and direUnits[1] then
@@ -120,6 +123,7 @@ function modifier_boss_capture_point:OnIntervalThink()
     -- Point is being captured by a team
     captureTick = self.thinkInterval
   end
+  captureTick = captureTick * math.max(1, heroMultiplier/2)
   self.captureProgress = min(self.captureTime, max(0, self.captureProgress + captureTick))
 
   -- if not radiantUnits[1] and not direUnits[1] then
