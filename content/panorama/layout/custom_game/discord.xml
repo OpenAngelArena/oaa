@@ -1,0 +1,11 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/discord.css" />
+  </styles>
+  <Panel class="Discord">
+    <Panel id="DiscordContainer">
+      <Image id="DiscordLogo" src="file://{images}/custom_game/hud/discord.png" scaling="stretch-to-fit-x-preserve-aspect" />
+      <Label id="DiscordLink" text="discord.gg/jBa9vsR" />
+    </Panel>
+  </Panel>
+</root>
