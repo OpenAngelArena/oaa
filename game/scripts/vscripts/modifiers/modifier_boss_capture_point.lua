@@ -165,6 +165,6 @@ if IsServer() then
       "captureClockEffect"
     }
     foreach(partial(self.DestroyParticleByName, self), particles)
-    self:GetParent():ForceKill(false)
+    UTIL_Remove(self:GetParent())
   end
 end
