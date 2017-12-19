@@ -123,7 +123,8 @@ function modifier_boss_capture_point:OnIntervalThink()
     -- Point is being captured by a team
     captureTick = self.thinkInterval
   end
-  captureTick = captureTick * math.max(1, heroMultiplier/2)
+  heroMultiplier = math.max(0, heroMultiplier - 1)
+  captureTick = captureTick * (1 + heroMultiplier / 2)
   self.captureProgress = min(self.captureTime, max(0, self.captureProgress + captureTick))
 
   -- if not radiantUnits[1] and not direUnits[1] then
