@@ -46,4 +46,4 @@ Clearly identify in this section the anticipated benefits of undertaking the pro
 
 Define any technical terms.
 
-[0]: ../README.md
+[0]: README.md

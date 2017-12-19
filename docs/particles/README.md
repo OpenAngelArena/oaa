@@ -12,7 +12,7 @@ Particles consist a sprite or model-based renderer, an emitter, as well as initi
 
 1. [Moddota: Particle Attachment][1]
 
-[0]: ../README.md
+[0]: README.md
 [1]: https://moddota.com/forums/discussion/69/particle-attachment
 [2]: filename.md
 [3]: filename.md

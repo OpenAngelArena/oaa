@@ -14,7 +14,7 @@ Text
 2. [Tooltips Guide][2]
 3. [Working with KV Files][3]
 
-[0]: ../README.md
+[0]: README.md
 [1]: quick_kv_updating_testing.md
 [2]: tooltips-guide.md
 [3]: working_with_kv_files.md

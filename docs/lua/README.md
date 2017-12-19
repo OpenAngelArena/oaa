@@ -19,7 +19,7 @@ Programming the behaviors and effects of custom abilities, items, heroes, bots, 
 2. [Valve: Scripting API][7]
 3. [Valve: Built-In Modifier Names][8]
 
-[0]: ../README.md
+[0]: README.md
 [1]: custom_tables.md
 [2]: debug_print_lua.md
 [3]: events.md

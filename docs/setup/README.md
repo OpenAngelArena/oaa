@@ -25,7 +25,7 @@ Here's some answers to commonly asked questions:
 
 
 
-[0]: ../README.md
+[0]: README.md
 [1]: install.md
 [2]: what_you_need.md
 [3]: http://github.com/openangelarena/suggestions/issues
