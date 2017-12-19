@@ -1,0 +1,127 @@
+"DOTAUnits"
+{
+  "npc_dota_creature_spider_boss"
+	{
+		// Script
+		"vscripts"					"units/ai_spider_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/broodmother/broodmother.vmdl"
+		"SoundSet"					"Hero_Broodmother"
+		"Level"						"15"
+		"ModelScale" 				"2.15"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"IsBossMonster"				"1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"spider_boss_larval_parasite"
+		"Ability2"					"spider_boss_summon_eggs"
+		"Ability3"					"spider_boss_rage"
+		"Ability4"					"spider_boss_passive"
+		"Ability5"                  "boss_resistance"
+		"Ability6"                  "boss_cliffwalk"
+		"Ability7"                  "siltbreaker_boss_immunity"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"800"
+		"AttackDamageMax"			"850"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"2000"
+		"AttackRange"				"160"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		"RingRadius"				"100"
+		"HealthBarOffset"			"280"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"22000"
+		"StatusHealthRegen"			"25"
+		"StatusMana"				"2400"
+		"StatusManaRegen"			"25"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"2000"
+		"VisionNighttimeRange"		"2000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"90.0"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8295"	// head: Crown of the arachnarok
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"8303"	// legs: Legs of arachnarok
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"9090"	// back: Lycosidae's Brood
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"9091"	// ability1: Lycosidae's Spiderling
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"8296"	// misc: pedipalps
+				}
+			}
+		}
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf"
+      "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
+      "particle"                                          "particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
+      "particle"                                          "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
+      "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+      "particle"                                          "particles/units/heroes/hero_visage/visage_summon_familiars.vpcf"
+      "particle"                                          "particles/econ/items/broodmother/bm_lycosidaes/bm_lycosidaes_spiderlings_debuff.vpcf"
+      "particle"                                          "particles/test_particle/dungeon_broodmother_linear.vpcf"
+      "particle"                                          "particles/test_particle/dungeon_broodmother_debuff_explode.vpcf"
+      "particle"                                          "particles/test_particle/dungeon_generic_aoe.vpcf"
+      "particle"                                          "particles/generic_gameplay/generic_lifesteal.vpcf"
+      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
+      "particle"                                          "particles/dungeon_overhead_timer.vpcf"
+    }
+	}
+}
