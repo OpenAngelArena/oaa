@@ -1,5 +1,4 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
-LinkLuaModifier( "modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE )
 
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect

@@ -1,4 +1,6 @@
 
+LinkLuaModifier( "modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE )
+
 GameEvents:OnItemCombined(function (keys)
     -- The playerID of the hero who is buying something
     local plyID = keys.PlayerID
