@@ -8,9 +8,10 @@ Feel free to browse the helpful links below. They have been chosen to assist wri
 
 ## Links
 
-1. [Lesser Key of Solomon][1]
+1. [Lesser Key of Solomon][1] - A Demonology text.
+2. [Mathematical Writing][2] - Help with communicating balance things.
 
 [0]: README.md
 [1]: http://www.chaosmatrix.org/library/books/lesserkey/lesserkey1.pdf
-[2]: filename
+[2]: https://www.math.hmc.edu/~su/math131/good-math-writing.pdf
 [3]: filename
