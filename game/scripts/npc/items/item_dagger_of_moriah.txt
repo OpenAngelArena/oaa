@@ -17,8 +17,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail;item_kaya_3;item_upgrade_core_3"
-      "02"                                                "item_blade_mail;item_kaya_3;item_upgrade_core_4"
+      "01"                                                "item_force_staff;item_kaya_3;item_upgrade_core_3"
+      "02"                                                "item_force_staff;item_kaya_3;item_upgrade_core_4"
     }
   }
 
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17150"
+    "ItemCost"                                            "17200"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -66,12 +66,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_spell_amp"                           "75 125"
+        "sangromancy_spell_amp"                           "50 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "sangromancy_self_damage"                         "100 100"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_intellect"       "50 75"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "spell_amp"             "10 10"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health_regen"  "20 30"
       }
     }
   }
