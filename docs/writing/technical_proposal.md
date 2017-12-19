@@ -2,7 +2,7 @@
 
 Updated 2017-12-18
 
-[< Writing][0]
+[< Resources for Writers][0]
 
 ## Abstract
 
@@ -46,4 +46,4 @@ Clearly identify in this section the anticipated benefits of undertaking the pro
 
 Define any technical terms.
 
-[0]: README.md
+[0]: resources.md
