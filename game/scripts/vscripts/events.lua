@@ -410,9 +410,6 @@ function GameMode:OnItemCombined(keys)
 
   -- The cost of the item purchased
   local itemcost = keys.itemcost
-
-  local hero = player:GetAssignedHero()
-  local hthinker = CreateModifierThinker( hero, hero , "modifier_aura_item_upgrade", { ItemName = itemName, PlayerId = plyID}, hero:GetOrigin(), hero:GetTeamNumber(), false )
 end
 
 -- This function is called whenever an ability begins its PhaseStart phase (but before it is actually cast)

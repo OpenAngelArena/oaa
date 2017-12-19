@@ -25,17 +25,16 @@ if IsServer() then
 
     local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
 
-    print(self.ItemName)
     -- Only remove the item if it has aura upgrade
     for _, value in ipairs(self.AuraItems) do
-      if string.find(self.ItemName, value) then
+      if string.find(kv.ItemName, value) then
         -- only remove the item if it is in a active slot
         for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
           local item = hero:GetItemInSlot(i)
           if item then
-            if item:GetName() == self.ItemName then
+            if item:GetName() == kv.ItemName then
               self.ItemSlot = i
-              hero:RemoveItem(item)
+              self.hUpgradeItem = hero:TakeItem(item)
               self:StartIntervalThink( 1 )
               return
             end
@@ -51,7 +50,7 @@ if IsServer() then
 
   function modifier_aura_item_upgrade:FindItemSlot(hItem)
     local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
       local item = hero:GetItemInSlot(i)
       if item == hItem then
         return i
@@ -66,25 +65,27 @@ if IsServer() then
     local itemOnUpgradeSpot = hero:GetItemInSlot(self.ItemSlot)
     local itemOnUpgradeSpotName = ""
 
+    -- if there is a item on the slot remove it, otherwise the upgraded item can
+    -- be sent to stash, backpack or ground
     if itemOnUpgradeSpot ~= nil then
       itemOnUpgradeSpotName = itemOnUpgradeSpot:GetName()
-      hero:RemoveItem( itemOnUpgradeSpot )
+      itemOnUpgradeSpot = hero:TakeItem( itemOnUpgradeSpot )
     end
 
-    local upgradeItem = hero:AddItemByName( self.ItemName )
+    local upgradeItem = hero:AddItem( self.hUpgradeItem )
     local upgradeItemSlot = self:FindItemSlot(upgradeItem)
+
+    -- if the item is in another slot swap it to its place
     if upgradeItemSlot ~= self.ItemSlot and  upgradeItemSlot > -1 then
       hero:SwapItems(upgradeItemSlot, self.ItemSlot)
     end
 
+    -- readd the item that was on the upgrade slot
     if itemOnUpgradeSpot ~= nil then
-      hero:AddItemByName( itemOnUpgradeSpotName )
+      hero:AddItem( itemOnUpgradeSpot )
     end
 
     UTIL_Remove( self:GetParent() )
 	end
 
-end
-
-function modifier_aura_item_upgrade:OnDestroy()
 end
