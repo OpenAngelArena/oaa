@@ -10,8 +10,9 @@ Feel free to browse the helpful links below. They have been chosen to assist wri
 
 1. [Lesser Key of Solomon][1] - A Demonology text.
 2. [Mathematical Writing][2] - Help with communicating balance things.
+3. [Technical Proposal Guidelines][3] - Guideline/template for a technical proposal. Useful when writing up extensive projects.
 
 [0]: README.md
 [1]: http://www.chaosmatrix.org/library/books/lesserkey/lesserkey1.pdf
 [2]: https://www.math.hmc.edu/~su/math131/good-math-writing.pdf
-[3]: filename
+[3]: technical_proposal.md
