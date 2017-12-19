@@ -12,5 +12,5 @@ Dota 2 Tools is the custom game authoring suite found in your steam browser by r
 
 1. [Chat Commands][1]
 
-[0]: README.md
+[0]: ../README.md
 [1]: chatcommands.md
