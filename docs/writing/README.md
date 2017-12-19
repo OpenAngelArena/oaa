@@ -10,7 +10,7 @@ Writing usually encompasses a very large portion of post-production work includi
 
 ## Topics
 
-1. [Insert Links here]
+1. [Helpful resources][1]
 
 [0]: ../README.md
 [1]: resources.md
