@@ -1,0 +1,31 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/debug_overlay.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/debug_overlay.js" />
+  </scripts>
+  <script>
+    function ToggleDebugOverlay () {
+      // $.Msg('Toggle Debug Overlay');
+      var Overlay = $.GetContextPanel().FindChild('DebugOverlay');
+      Overlay.visible = !Overlay.visible;
+      if (Overlay.visible) RequestDebugOverlayUpdate();
+    }
+
+    function ToggleGroup (id) {
+      var group = $.GetContextPanel().FindChildTraverse(id);
+      group.visible = !group.visible;
+    }
+    ToggleDebugOverlay();
+  </script>
+  <Panel class="DebugOverlayContainer">
+    <Panel class="DebugOverlayDisplay" id="DebugOverlay"  hittest="true" hittestchildren="true">
+      <Label class="DebugOverlayInfo" text="Debug Overlay" />
+      <Panel class="DebugOverlayGroup" id="DebugOverlay:root"/>
+    </Panel>
+    <Panel class="DebugOverlayToggle">
+      <Button class="DebugOverlayToggleButton" onactivate="ToggleDebugOverlay()" />
+    </Panel>
+  </Panel>
+</root>

@@ -1,0 +1,64 @@
+.DebugOverlayContainer
+{
+  height: 100%;
+  width: 100%;
+}
+
+.DebugOverlayDisplay
+{
+  horizontal-align: right;
+  vertical-align: top;
+  flow-children: down;
+  margin-right: 5px;
+  margin-top: 85px;
+  background-color: rgba(85,85,85,.5);
+  font-family: monospace;
+  overflow: squish scroll;
+  height: 60%;
+}
+
+.DebugOverlayInfo
+{
+  color: rgba(205,36,36,.80);
+  margin-left: 4px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.DebugOverlayEntry
+{
+  /* color: rgba(205,36,36,.80); */
+  font-size: 14px;
+}
+
+.DebugOverlayGroup
+{
+  /* color: rgba(205,36,36,.80); */
+  margin-left: 8px;
+  margin-bottom: 4px;
+  margin-right: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  flow-children: down;
+  /* background-color: rgba(255,0,0,.4); */
+}
+
+.DebugOverlayButton
+{
+  flow-children: down;
+}
+
+.DebugOverlayToggle
+{
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 45px;
+}
+
+.DebugOverlayToggleButton
+{
+  background-image: url("file://{images}/custom_game/DebugButton.png");
+  background-size: contain;
+  width: 35px;
+  height: 35px;
+}

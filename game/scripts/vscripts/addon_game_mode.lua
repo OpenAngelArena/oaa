@@ -14,7 +14,6 @@ elseif GameRules:IsCheatMode() then
   mode = "Cheat Mode"
 end
 CustomNetTables:SetTableValue("info", "mode", { value = mode })
-CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. " " .. GetSystemTime() })
 
 require('internal/vconsole')
 require('internal/eventwrapper')
