@@ -31,8 +31,7 @@ Bosses = {
   -- tier 1
   {
     {
-      "npc_dota_boss_simple_1", -- Juxtapose, Geostrike
-      "npc_dota_boss_simple_5", -- Great Cleave
+      "npc_dota_creature_spider_boss"
     },
     {
       "npc_dota_boss_twin",
