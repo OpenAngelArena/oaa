@@ -3,23 +3,9 @@
 --- DateTime: 03-Dec-17 21:32
 ---
 
-item_dagger_of_moriah = class(ItemBaseClass)
+item_dagger_of_moriah = class(TransformationBaseClass)
 
 LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
-
---------------------------------------------------------------------------------
-
-function item_dagger_of_moriah:GetAbilityTextureName()
-  local baseName = self.BaseClass.GetAbilityTextureName( self )
-
-  local activeName = ""
-
-  if self.mod and not self.mod:IsNull() then
-    activeName = "_active"
-  end
-
-  return baseName .. activeName
-end
 
 --------------------------------------------------------------------------------
 
@@ -27,26 +13,8 @@ function item_dagger_of_moriah:GetIntrinsicModifierName()
   return "modifier_item_dagger_of_moriah"
 end
 
---------------------------------------------------------------------------------
-
-function item_dagger_of_moriah:OnSpellStart()
-  local caster = self:GetCaster()
-
-  -- if we have the modifier while this thing is "toggled"
-  -- ( which we should, but 'should' isn't a concept in programming )
-  -- remove it
-  local mod = caster:FindModifierByName( "modifier_item_dagger_of_moriah_sangromancy" )
-
-  if mod and not mod:IsNull() then
-    mod:Destroy()
-
-    -- caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
-  else
-    -- if it isn't toggled, add the modifier and keep track of it
-    caster:AddNewModifier( caster, self, "modifier_item_dagger_of_moriah_sangromancy", {} )
-
-    -- caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
-  end
+function item_dagger_of_moriah:GetTransformationModifierName()
+  return "modifier_item_dagger_of_moriah_sangromancy"
 end
 
 --------------------------------------------------------------------------------
