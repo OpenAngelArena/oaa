@@ -4,13 +4,14 @@ LinkLuaModifier( "modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upg
 GameEvents:OnItemCombined(function (keys)
     -- The playerID of the hero who is buying something
     local plyID = keys.PlayerID
-    if not plyID then return end
-    local player = PlayerResource:GetPlayer(plyID)
+    if not PlayerResource:IsValidPlayerID(plyID) then
+      return
+    end
 
     -- The name of the item purchased
     local itemName = keys.itemname
 
-    local hero = player:GetAssignedHero()
-    local hthinker = CreateModifierThinker( hero, nil , "modifier_aura_item_upgrade", { ItemName = itemName, PlayerId = plyID}, hero:GetOrigin(), hero:GetTeamNumber(), false )
+    local hero = PlayerResource:GetSelectedHeroEntity(plyID)
+    hero:AddNewModifier(hero, nil, "modifier_aura_item_upgrade", {duration = 1.5, ItemName = itemName})
 end)
 

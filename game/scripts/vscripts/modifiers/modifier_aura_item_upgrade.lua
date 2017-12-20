@@ -1,11 +1,20 @@
 modifier_aura_item_upgrade = class(ModifierBaseClass)
 
+function modifier_aura_item_upgrade:IsHidden()
+  return true
+end
+
+function modifier_aura_item_upgrade:IsPurgable()
+  return false
+end
+
+function modifier_aura_item_upgrade:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 if IsServer() then
   function modifier_aura_item_upgrade:OnCreated( kv )
-    self.ItemName = kv.ItemName
-    self.PlayerId = kv.PlayerId
-
-    self.AuraItems =
+    local auraItems =
     {
       "item_greater_guardian_greaves_",
       "item_greater_travel_boots_",
@@ -23,33 +32,30 @@ if IsServer() then
       "item_vladmir_",
     }
 
-    local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
+    local hero = self:GetParent()
+    local item
 
     -- Only remove the item if it has aura upgrade
-    for _, value in ipairs(self.AuraItems) do
+    for _, value in ipairs(auraItems) do
       if string.find(kv.ItemName, value) then
         -- only remove the item if it is in a active slot
         for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-          local item = hero:GetItemInSlot(i)
-          if item then
-            if item:GetName() == kv.ItemName then
-              self.ItemSlot = i
-              self.hUpgradeItem = hero:TakeItem(item)
-              self:StartIntervalThink( 1 )
-              return
-            end
+          item = hero:GetItemInSlot(i)
+          if item and item:GetName() == kv.ItemName then
+            self.ItemSlot = i
+            self.hUpgradeItem = hero:TakeItem(item)
+            self:StartIntervalThink(1)
+            return
           end
         end
-
       end
     end
-
   end
 
 --------------------------------------------------------------------------------
 
   function modifier_aura_item_upgrade:FindItemSlot(hItem)
-    local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
+    local hero = self:GetParent()
     for i = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
       local item = hero:GetItemInSlot(i)
       if item == hItem then
@@ -61,7 +67,7 @@ if IsServer() then
 --------------------------------------------------------------------------------
 
   function modifier_aura_item_upgrade:OnIntervalThink()
-    local hero = PlayerResource:GetPlayer(self.PlayerId):GetAssignedHero()
+    local hero = self:GetParent()
     local itemOnUpgradeSpot = hero:GetItemInSlot(self.ItemSlot)
     local itemOnUpgradeSpotName = ""
 
@@ -85,7 +91,6 @@ if IsServer() then
       hero:AddItem( itemOnUpgradeSpot )
     end
 
-    UTIL_Remove( self:GetParent() )
+    self:Destroy()
 	end
-
 end
