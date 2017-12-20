@@ -2,5 +2,6 @@
 
 require("abilities/baseclass")
 require("items/baseclass")
-require("items/transformation")
 require("modifiers/baseclass")
+
+require("items/transformation")
