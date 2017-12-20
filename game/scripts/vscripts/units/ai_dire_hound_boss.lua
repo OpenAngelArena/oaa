@@ -9,6 +9,11 @@ function Spawn( entityKeyValues )
 end
 
 function DireHoundBossThink()
+
+  if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
+		return -1
+  end
+
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end

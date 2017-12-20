@@ -23,7 +23,7 @@ end
 ---------------------------------------------------------------------------
 
 function SpiderBossThink()
-	if ( thisEntity:IsNull() ) or ( thisEntity == nil ) or ( thisEntity:IsAlive() == false ) then
+	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) then
 		return -1
 	end
 
