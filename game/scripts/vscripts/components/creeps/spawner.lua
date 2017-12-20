@@ -147,9 +147,21 @@ function CreepCamps:AddCreepPropertiesWithScale( propertiesOne, scaleOne, proper
   local addedCreepProperties = {}
 
   addedCreepProperties[HEALTH_ENUM] = propertiesOne[HEALTH_ENUM] * scaleOne + propertiesTwo[HEALTH_ENUM] * scaleTwo
+  if addedCreepProperties[HEALTH_ENUM] > propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[HEALTH_ENUM] = propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[MANA_ENUM] = propertiesOne[MANA_ENUM] * scaleOne + propertiesTwo[MANA_ENUM] * scaleTwo
+  if addedCreepProperties[MANA_ENUM] > propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[MANA_ENUM] = propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[DAMAGE_ENUM] = propertiesOne[DAMAGE_ENUM] * scaleOne + propertiesTwo[DAMAGE_ENUM] * scaleTwo
+  if addedCreepProperties[DAMAGE_ENUM] > propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[DAMAGE_ENUM] = propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[ARMOR_ENUM] = propertiesOne[ARMOR_ENUM] * scaleOne + propertiesTwo[ARMOR_ENUM] * scaleTwo
+  if addedCreepProperties[ARMOR_ENUM] > propertiesTwo[ARMOR_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[ARMOR_ENUM] = propertiesTwo[ARMOR_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[GOLD_BOUNTY_ENUM] = propertiesOne[GOLD_BOUNTY_ENUM] * scaleOne + propertiesTwo[GOLD_BOUNTY_ENUM] * scaleTwo
   addedCreepProperties[EXP_BOUNTY_ENUM] = propertiesOne[EXP_BOUNTY_ENUM] * scaleOne + propertiesTwo[EXP_BOUNTY_ENUM] * scaleTwo
 

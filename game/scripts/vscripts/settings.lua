@@ -42,6 +42,7 @@ BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage befo
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
 INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
+CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 
 -- Player
 GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
