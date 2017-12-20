@@ -51,12 +51,13 @@ end
 function modifier_xpm_thinker:GetXPMForPlayer( playerID )
 	if IsServer() then
 		local gameTime = ( GameRules:GetDOTATime( true, true ) - self.baseTime ) / 5.0
-		local a = 15
-		local b = 103
-		local c = 116401
-		local divisor = 5760 * 5 -- this isn't any different from adding a 0 but it's more future proof
+		local a = 3
+		local b = 5
+		local c = 43202
+    local divisor = 1728
+		local percent = 20
 
-		local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) / divisor
+		local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) * (percent / 100) / divisor
 
 		-- quick and dirty rounding
 		value = math.floor( value + 0.5 )
