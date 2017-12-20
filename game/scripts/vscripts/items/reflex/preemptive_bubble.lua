@@ -130,6 +130,12 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
   foreach(ApplyBlockModifier, iter(alliedUnitsInBubble))
 end
 
+if IsServer() then
+  function modifier_item_preemptive_bubble_aura_block:OnDestroy()
+    UTIL_Remove(self:GetParent())
+  end
+end
+
 -- function modifier_item_preemptive_bubble_aura_block:GetAuraRadius()
 --   return self:GetAbility():GetSpecialValueFor("radius")
 -- end
