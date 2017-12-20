@@ -32,7 +32,7 @@ end
 --------------------------------------------------------------------------------
 
 function OgreSeerThink()
-	if ( not thisEntity:IsAlive() ) then
+	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
 		return -1
 	end
 

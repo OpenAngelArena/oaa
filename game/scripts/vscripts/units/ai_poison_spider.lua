@@ -8,7 +8,8 @@ function Spawn( entityKeyValues )
 end
 
 function PoisonSpiderThink()
-	if ( not thisEntity:IsAlive() ) or thisEntity:IsNull() then
+
+	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
 		return -1
 	end
 
