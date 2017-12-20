@@ -67,8 +67,7 @@ function modifier_generic_bonus:GetModifierMagicalResistanceBonus()
 end
 
 function modifier_generic_bonus:GetModifierConstantHealthRegen()
-  print (self.health_regen)
-  return self.health_regen or 0
+  return self.bonus_health_regen or 0
 end
 
 function modifier_generic_bonus:GetModifierBonusStats_Strength()
@@ -92,7 +91,7 @@ function modifier_generic_bonus:GetModifierMoveSpeedBonus_Constant()
 end
 
 function modifier_generic_bonus:GetModifierConstantManaRegen()
-  return self.mana_regen or 0
+  return self.bonus_mana_regen or 0
 end
 
 function modifier_generic_bonus:GetModifierSpellAmplify_Percentage()
