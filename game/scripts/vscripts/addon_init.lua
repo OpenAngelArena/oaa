@@ -4,4 +4,4 @@ require("abilities/baseclass")
 require("items/baseclass")
 require("modifiers/baseclass")
 
-require("items/transformation")
+require("items/transformation/baseclass")

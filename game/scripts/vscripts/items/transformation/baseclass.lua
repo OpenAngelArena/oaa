@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_transformation_item_watcher", "items/transformation.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_transformation_item_watcher", "items/transformation/baseclass.lua", LUA_MODIFIER_MOTION_NONE )
 
 TransformationBaseClass = class(ItemBaseClass)
 

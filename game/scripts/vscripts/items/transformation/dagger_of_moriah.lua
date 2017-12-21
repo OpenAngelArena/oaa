@@ -5,7 +5,7 @@
 
 item_dagger_of_moriah = class(TransformationBaseClass)
 
-LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
