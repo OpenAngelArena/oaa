@@ -40,7 +40,7 @@ function Minimap:SpawnBossIcon(hPit, iTier)
 
   for _,teamID in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
     local boss_minimap_camp = CreateUnitByName(minimap_bosses[iTier], hPit:GetAbsOrigin(), false, nil, nil, teamID)
-    boss_minimap_camp:AddNewModifier(dummy, nil, "modifier_minimap", {IsBoss = true})
+    boss_minimap_camp:AddNewModifier(boss_minimap_camp, nil, "modifier_minimap", {IsBoss = true})
     boss_minimap_camp.Respawn = true
   end
 end
