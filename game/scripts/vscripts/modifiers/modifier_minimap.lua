@@ -9,7 +9,7 @@ if IsServer() then
       [MODIFIER_STATE_UNSELECTABLE] = true,
       [MODIFIER_STATE_NO_HEALTH_BAR] = true,
       [MODIFIER_STATE_OUT_OF_GAME] = true,
-      [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = false,
+      [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
       [MODIFIER_STATE_NOT_ON_MINIMAP] = self.hidden,
     }
 
