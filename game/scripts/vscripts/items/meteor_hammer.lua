@@ -78,12 +78,12 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
     self.impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
 
    --Controls the metoer position to origin
-    ParticleManager:SetParticleControl(self.impact_particle, 0, self:GetParent():GetOrigin() + Vector(0, 0, 1000))
-    ParticleManager:SetParticleControl(self.impact_particle, 1, self:GetParent():GetOrigin())
+    ParticleManager:SetParticleControl(self.impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
+    ParticleManager:SetParticleControl(self.impact_particle, 1, parent:GetOrigin())
     --Fade time of cetain particles
     ParticleManager:SetParticleControl(self.impact_particle, 2, Vector(0.5, 0,0 ) )
 
-    GridNav:DestroyTreesAroundPoint(self:GetParent():GetOrigin(), self.impact_radius, true)
+    GridNav:DestroyTreesAroundPoint(parent:GetOrigin(), self.impact_radius, true)
 
     local ability = self:GetAbility()
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), caster, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE , FIND_ANY_ORDER, false)
@@ -125,6 +125,10 @@ end-- end of function
 
 function modifier_item_meteor_hammer_thinker:IsPurgable()
   return false
+end
+
+function modifier_item_meteor_hammer_thinker:IsHidden()
+  return true
 end
 
 -----------------------------------------------------------------------------------------------------------------------
