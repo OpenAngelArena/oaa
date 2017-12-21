@@ -33,6 +33,9 @@ function CreepCamps:Init ()
   else
     Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   end
+
+  Minimap:InitializeCampIcons()
+
   ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
@@ -44,11 +47,14 @@ function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
+
   for _,camp in pairs(camps) do
     self:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
   self:UpgradeCreeps()
+
+  Minimap:Respawn()
 
   if self.firstSpawn then
     self.firstSpawn = false
