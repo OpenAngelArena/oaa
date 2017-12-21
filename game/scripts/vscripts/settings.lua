@@ -52,7 +52,7 @@ _G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presenc
 
 --Cave
 _G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
-_G.CAVE_DIFFICULTY = 2                  -- Multiplies cave difficulty growth compared to normal creeps
+_G.CAVE_DIFFICULTY = 3                  -- Multiplies cave difficulty growth compared to normal creeps
 _G.CAVE_BOUNTY = 1                      -- Accelerates cave bounty increase compared to the rest of the game
 
 -- Logging
