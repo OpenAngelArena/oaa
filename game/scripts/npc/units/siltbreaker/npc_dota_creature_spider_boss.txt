@@ -23,15 +23,14 @@
 		//----------------------------------------------------------------
 		"Ability1"					"spider_boss_larval_parasite"
 		"Ability2"					"spider_boss_summon_eggs"
-		"Ability3"					"spider_boss_rage"
-		"Ability4"					"spider_boss_passive"
-		"Ability5"                  "boss_resistance"
-		"Ability6"                  "boss_cliffwalk"
-		"Ability7"                  "siltbreaker_boss_immunity"
+		"Ability3"					"spider_boss_passive"
+		"Ability4"                  "boss_resistance"
+		"Ability5"                  "boss_cliffwalk"
+		"Ability6"                  "siltbreaker_boss_immunity"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"
+		"ArmorPhysical"				"25"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -58,7 +57,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2200"
+		"StatusHealth"				"2000"
 		"StatusHealthRegen"			"2.5"
 		"StatusMana"				"2400"
 		"StatusManaRegen"			"25"
