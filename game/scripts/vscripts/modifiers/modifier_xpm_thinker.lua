@@ -52,9 +52,9 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
 	if IsServer() then
 		local gameTime = ( GameRules:GetDOTATime( true, true ) - self.baseTime ) / 5.0
 		local a = 3
-		local b = 5
-		local c = 43202
-    local divisor = 1728
+		local b = 35
+		local c = 28817
+    local divisor = 1152
 		local percent = 20
 
 		local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) * (percent / 100) / divisor
