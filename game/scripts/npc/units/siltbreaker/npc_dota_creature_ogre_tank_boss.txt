@@ -1,0 +1,115 @@
+"DOTAUnits"
+{
+    //=================================================================================
+	// Creature: Ogre Tank Boss
+	// Zones: darkforest_rescue
+	//=================================================================================
+	"npc_dota_creature_ogre_tank_boss"
+	{
+		// Script
+		"vscripts"					"units/ai_ogre_tank_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/ogre_1/boss_ogre.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_Ogre"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				"2.1"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ogre_tank_boss_melee_smash"
+		"Ability2"					"ogre_tank_boss_jump_smash"
+		"Ability3"          "boss_resistance"
+		"Ability4"          "boss_cliffwalk"
+		"Ability5"          "siltbreaker_boss_immunity"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+    "MagicalResistance"                                   "-25"            // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                 "4687"      // Damage range min.
+    "AttackDamageMax"                 "4687"      // Damage range max.
+		"AttackRate"				"2.8"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"1"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"100"
+		"HealthBarOffset"			"360"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"1000"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"200"
+		"MovementTurnRate"			"0.2"
+
+		// Status
+		//----------------------------------------------------------------
+    "StatusHealth"                                        "12000"        // Base health.
+    "StatusHealthRegen"                                   "5.0"         // Health regeneration rate.
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"5"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		// Team
+		//----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//------------------------------------------------------------
+			"DefaultState"				"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"DefaultState"				"Invade"
+			"DisableResistance"			"50.0"
+		}
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      "particle"                                          "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
+    }
+	}
+}

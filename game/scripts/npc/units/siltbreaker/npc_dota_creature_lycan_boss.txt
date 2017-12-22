@@ -1,0 +1,147 @@
+"DOTAUnits"
+{
+//=================================================================================
+	// Creature: Lycan Boss
+	// Zones: forest, forest_holdout
+	//=================================================================================
+	"npc_dota_creature_lycan_boss"
+	{
+		// Script
+		"vscripts"					"units/ai_lycan_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						  "models/heroes/lycan/lycan.vmdl"
+		"SoundSet"					"Hero_Lycan"
+		"Level"						  "1"
+		"ModelScale" 				"1.6"
+		"ConsideredHero"		"1"
+		"IsAncient"					"1"
+		"IsBossMonster"			"1"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"		"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					        "lycan_boss_summon_wolves"
+		"Ability2"					        "lycan_boss_shapeshift"
+		"Ability3"					        "lycan_boss_claw_lunge"
+		"Ability4"					        "lycan_boss_claw_attack"
+		"Ability5"					        "lycan_boss_rupture_ball"
+		"Ability6"                  "boss_resistance"
+		"Ability7"                  "boss_cliffwalk"
+		"Ability8"                  "siltbreaker_boss_immunity"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"28"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		  "DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			    "300"
+		"AttackDamageMax"			    "320"
+		"AttackRate"				      "1.45"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				      "200"
+		"ProjectileModel"			    ""
+		"ProjectileSpeed"			    "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				  "75"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					  "900"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"2500"
+		"StatusManaRegen"			"5"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		// Team
+		//----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      // Rupture
+      "particle"                                          "particles/lycanboss_ruptureball_gale.vpcf"
+      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
+      // Summon Wolves
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
+      // Model Attack Animation Lycan
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_weapon_blur.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_weapon_blur_b.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_weapon_blur_both.vpcf"
+      // Model Attack Animation Transformed
+      "particle"                                          "particles/units/heroes/hero_bloodseeker/bs_atk_blur_alt.vpcf"
+      "particle"                                          "particles/units/heroes/hero_bloodseeker/bs_atk3_blur_r.vpcf"
+      "particle"                                          "particles/units/heroes/hero_bloodseeker/bs_atk3_blur_l.vpcf"
+      "particle"                                          "particles/units/heroes/hero_bloodseeker/bs_atk2_blur_alt.vpcf"
+    }
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"80.0"
+      // Lucius LongClaw items
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"7851" // back: default
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"7852" // misc: default
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"7853" // legs: default
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"7854" // arms: default
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"7855" // weapon: default
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"207" // weapon: head
+				}
+			}
+		}
+
+	}
+}

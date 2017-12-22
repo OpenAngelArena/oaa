@@ -60,6 +60,11 @@ function IsAnyTraceEnabled (traces)
   return false
 end
 
+function Debug:EnableDebugging()
+  local trace, dir = GetCallingFile()
+  Debug.EnabledModules[trace[#trace]] = true
+end
+
 -- written by yeahbuddy, taken from https://github.com/OpenAngelArena/oaa/pull/80
 -- modified for clarity
 function GetCallingFile (offset)
@@ -248,15 +253,15 @@ function HideWearables( unit )
     end
 end
 
-function ShowWearables( unit )
-
+function ShowWearables(unit)
   for i,v in pairs(unit.hiddenWearables) do
     v:RemoveEffects(EF_NODRAW)
   end
 end
 
 
-function GetShortTeamName (teamID)
+function GetShortTeamName(teamID)
+  assert(type(teamID) == "number", "teamID: " .. teamID .. " is not of type number but " .. type(teamID))
   local teamNames = {
     [DOTA_TEAM_GOODGUYS] = "good",
     [DOTA_TEAM_BADGUYS] = "bad",
@@ -271,6 +276,11 @@ function GetShortTeamName (teamID)
     [DOTA_TEAM_CUSTOM_8] = "custom8",
   }
   return teamNames[teamID]
+end
+
+function IsPlayerTeam(teamID)
+  assert(type(teamID) == "number", "teamID: " .. teamID .. " is not of type number but " .. type(teamID))
+  return teamID == DOTA_TEAM_GOODGUYS or teamID == DOTA_TEAM_BADGUYS
 end
 
 function IsInTrigger(entity, trigger)

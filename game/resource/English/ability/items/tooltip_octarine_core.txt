@@ -1,13 +1,12 @@
 //===================================================================
 // Octarine Core
 //===================================================================
-"DOTA_Tooltip_Ability_item_octarine_core_2"             "Octarine Core"
-"DOTA_Tooltip_Ability_item_recipe_octarine_core_2"      "Octarine Core Recipe"
-"DOTA_Tooltip_Ability_item_octarine_core_2_Description"                     "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%.\n<h1>Passive: Spell Lifesteal</h1>%hero_lifesteal%%% of spell damage dealt to enemy heroes is returned to the caster as health, regardless of spell damage type.  <br><br>Lifesteal reduced to %creep_lifesteal%%% against creeps."
-"DOTA_Tooltip_Ability_item_octarine_core_2_Lore"                            "At the core of spellcraft are spectrums only the very gifted can sense."
-"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_intelligence"          "+$int"
-"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_health"                "+$health"
-"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_mana"                  "+$mana"
+"DOTA_Tooltip_Ability_item_octarine_core_2"                             "#{DOTA_Tooltip_Ability_item_octarine_core}"
+"DOTA_Tooltip_Ability_item_octarine_core_2_Description"                 "#{DOTA_Tooltip_ability_item_octarine_core_Description}"
+"DOTA_Tooltip_Ability_item_octarine_core_2_Lore"                        "#{DOTA_Tooltip_ability_item_octarine_core_Lore}"
+"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_intelligence"          "#{DOTA_Tooltip_ability_item_octarine_core_bonus_intelligence}"
+"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_health"                "#{DOTA_Tooltip_ability_item_octarine_core_bonus_health}"
+"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_mana"                  "#{DOTA_Tooltip_ability_item_octarine_core_bonus_mana}"
 //"DOTA_Tooltip_Ability_item_octarine_core_2_bonus_cooldown"              "%COOLDOWN REDUCTION:"
 //"DOTA_Tooltip_Ability_item_octarine_core_2_hero_lifesteal"              "%HERO SPELL LIFESTEAL:"
 //"DOTA_Tooltip_Ability_item_octarine_core_2_creep_lifesteal"             "%CREEP SPELL LIFESTEAL:"

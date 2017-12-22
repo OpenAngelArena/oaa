@@ -11,7 +11,7 @@
     "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -19,12 +19,12 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "burn_amount"     "20 30 40 55 75 100 130"
+        "burn_amount"     "30 40 50 65 85 110 140"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "burn_damage_conversion"  "60"
+        "burn_damage_conversion"  "50"
       }
     }
   }

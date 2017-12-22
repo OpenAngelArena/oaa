@@ -38,11 +38,12 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "ItemCost"                                            "5100"
+    "ItemCost"                                            "4850"
     "ItemAliases"                                         "ad 2;aeon disk 2"
 
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilityTextureName"                                  "custom/combo_breaker_2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

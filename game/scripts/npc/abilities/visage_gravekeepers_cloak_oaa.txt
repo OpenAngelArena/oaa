@@ -1,5 +1,7 @@
-"DOTAAbilities" {
-  "visage_gravekeepers_cloak_oaa" {
+"DOTAAbilities"
+{
+  "visage_gravekeepers_cloak_oaa"
+  {
     "ID"                                                  "85482"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/visage_gravekeepers_cloak.lua"
@@ -28,6 +30,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "recovery_time"                                   "6 5 4 3 2.5 1.5"
+        "LinkedSpecialBonus"  "special_bonus_unique_visage_5"
       }
       "04"
       {

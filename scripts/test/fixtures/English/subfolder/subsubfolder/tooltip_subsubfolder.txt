@@ -1,0 +1,7 @@
+"tooltip_subsubfolder_key"     "#{some_complex_key}"
+"CASE_insensitivity"            "should work"
+"SO_INSENSITIVE"            "#{case_insensitivity}"
+"less_insensitive"            "#{CASE_INSENSITIVITY}"
+
+"less_insensitive_reverse"            "#{case_insensitivity}"
+"SO_INSENSITIVE_reverse"            "#{CASE_INSENSITIVITY}"

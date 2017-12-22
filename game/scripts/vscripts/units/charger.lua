@@ -13,7 +13,7 @@ local function GetAllPillars ()
     1200,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_BASIC,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE ,
     FIND_CLOSEST,
     false
   )
@@ -64,7 +64,7 @@ local function ChargeHero ()
     1000,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_CLOSEST,
     false
   )
@@ -87,10 +87,7 @@ local function ChargeHero ()
 end
 
 local function ChargerThink (state, target)
-  if not thisEntity:IsAlive() then
-    GetAllPillars():each(function (pillar)
-      pillar:Kill(thisEntity, ABILITY_charge)
-    end)
+  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
     return 0
   end
   if not GLOBAL_origin then

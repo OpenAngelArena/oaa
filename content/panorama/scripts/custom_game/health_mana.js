@@ -2,39 +2,38 @@
 'use strict';
 
 (function () {
-  GameEvents.Subscribe('dota_portrait_unit_stats_changed', HandleStatChange);
   GameEvents.Subscribe('player_stats_updated', HandleStatChange);
+  GameEvents.Subscribe('dota_portrait_unit_stats_changed', HandleStatChange);
   GameEvents.Subscribe('dota_portrait_unit_modifiers_changed', HandleStatChange);
   GameEvents.Subscribe('dota_inventory_changed', HandleStatChange);
   GameEvents.Subscribe('dota_inventory_item_changed', HandleStatChange);
   GameEvents.Subscribe('dota_inventory_changed_query_unit', HandleStatChange);
+  GameEvents.Subscribe('dota_player_update_hero_selection', HandleStatChange);
+  GameEvents.Subscribe('dota_player_update_selected_unit', HandleStatChange);
+  GameEvents.Subscribe('dota_player_update_query_unit', HandleStatChange);
+  GameEvents.Subscribe('dota_ability_changed', HandleStatChange);
+
+  CustomNetTables.SubscribeNetTableListener('entity_stats', onEntityStatChange);
 }());
 
 var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 var HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel');
 var ManaRegenLabel = HealthManaContainer.FindChildTraverse('ManaRegenLabel');
-var recentlyFired = false;
 
 function HandleStatChange () {
-  if (recentlyFired) return;
-  recentlyFired = true;
-  var entity = Players.GetLocalPlayerPortraitUnit();
+  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   GameEvents.SendCustomGameEventToServer('statprovider_entities_request', {
-    entity: entity
+    entity: selectedEntity
   });
-  $.Schedule(0.1, function () {
-    UpdateRegenDisplays(entity); recentlyFired = false;
-  });
+  onEntityStatChange(null, selectedEntity, CustomNetTables.GetTableValue('entity_stats', selectedEntity));
 }
 
-function UpdateRegenDisplays (entity) {
-  var stats = CustomNetTables.GetTableValue('entity_stats', String(entity));
-  if (!stats) {
-    return;
-  }
+function onEntityStatChange (arg, updatedEntity, data) {
+  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
+  if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
-  HealthRegenLabel.text = FormatRegen(stats['HealthRegen']);
-  ManaRegenLabel.text = FormatRegen(stats['ManaRegen']); // TODO Values are wrong
+  HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
+  ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
 }
 
 function FormatRegen (number) {

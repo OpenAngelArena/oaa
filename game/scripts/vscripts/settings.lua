@@ -8,6 +8,11 @@ POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
 POOP_WARD_RADIUS = 200
 
+-- scan reveal
+SCAN_REVEAL_COOLDOWN = 60
+SCAN_REVEAL_RADIUS = 900
+SCAN_REVEAL_DURATION = 14
+
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
@@ -37,9 +42,24 @@ BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage befo
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
 INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
+CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 
 -- Player
 GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
+
+--Gold
+_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+
+--Cave
+_G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
+_G.CAVE_DIFFICULTY = 3                  -- Multiplies cave difficulty growth compared to normal creeps
+_G.CAVE_BOUNTY = 1                      -- Accelerates cave bounty increase compared to the rest of the game
+
+-- Logging
+-- TODO: Make this a module loader so the following can be handled:
+    -- Multiple log instances for different logging levels
+    -- Simple configuration for several setups, such as Loggly and a custom implementation
+LOGGLY_ACCOUNT_ID = ''                  -- The Loggly token to toss errors to
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
