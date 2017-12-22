@@ -16,6 +16,9 @@ function TransformationBaseClass:GetAbilityTextureName()
   return baseName .. activeName
 end
 
+function TransformationBaseClass:OnDestroy()
+end
+
 function TransformationBaseClass:OnSpellStart()
   self.isTransformation = true
   local caster = self:GetCaster()
@@ -123,7 +126,7 @@ if IsServer() then
       return
     end
     local item = self:GetAbility()
-    if item:GetItemState() ~= 1 then
+    if not item or item:GetItemState() ~= 1 then
       self:Stop()
     end
   end

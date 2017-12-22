@@ -1,64 +1,64 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Sieghe Mode 2
+  // Recipe: Siege Mode
   //=================================================================================================================
-
-  "item_recipe_siege_mode_2"
+  "item_recipe_giant_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3347"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3346"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_siege_mode_2"
+    "ItemResult"                                          "item_giant_form"
     "ItemRequirements"
     {
-      "01"                                                "item_siege_mode;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_3;item_upgrade_core_3;item_relic"  //item added so that it doesn't clash with dragon lance 3
+      "02"                                                "item_dragon_lance_3;item_upgrade_core_4;item_relic"  //item added so that it doesn't clash with dragon lance 3
 
     }
   }
 
-  //=================================================================================================================
-  // Siege Mode 2
-  //=================================================================================================================
 
-  "item_siege_mode_2"
+  //=================================================================================================================
+  // Siege Mode
+  //=================================================================================================================
+  "item_giant_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3349"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3348"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/siege_mode.lua"
+    "ScriptFile"                                          "items/transformation/giant_form.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NONE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityTextureName"                                  "custom/siege_mode_2"
+    "AbilityTextureName"                                  "custom/giant_form_1"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38700"
+    "ItemCost"                                            "18700"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "siege mode 2;siege 2"
+    "ItemAliases"                                         "siege mode;siege;giant form;giant"
     "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_giant_form"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -82,35 +82,51 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_attack_range"                              "600"
+        "giant_attack_range"                              "600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_damage_bonus"                              "300 450"
+        "giant_damage_bonus"                              "300 450"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_atkspd_bonus"                              "-150"
-        // meant for negative bonus
-        // aka a self-slow
+        "var_type"                                        "FIELD_FLOAT"
+        "giant_attack_rate"                               "1.5"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_cast_range"                                "0"
+        "giant_cast_range"                                "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_aoe"                                       "300"
+        "giant_aoe"                                       "300"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_splash"                                    "100"
+        "giant_splash"                                    "100"
       }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "melee_move_speed"                                "100"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "giant_scale"                                     "1.5 1.6"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
+      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
     }
   }
 }
