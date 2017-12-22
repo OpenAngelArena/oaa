@@ -52,7 +52,7 @@
     "ItemCost"                                            "18500"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "moriah;dagger;dagger of moriah"
+    "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
@@ -81,7 +81,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "70 90"
+        "active_lifesteal_percent"                        "80 100"
       }
     }
     "precache"
