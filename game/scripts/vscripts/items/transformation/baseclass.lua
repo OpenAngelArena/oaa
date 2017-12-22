@@ -2,55 +2,56 @@ LinkLuaModifier( "modifier_transformation_item_watcher", "items/transformation/b
 
 TransformationBaseClass = class(ItemBaseClass)
 
-if IsServer() then
 --------------------------------------------------------------------------------
 
-  function TransformationBaseClass:GetAbilityTextureName()
-    local baseName = self.BaseClass.GetAbilityTextureName( self )
+function TransformationBaseClass:GetAbilityTextureName()
+  local baseName = self.BaseClass.GetAbilityTextureName( self )
 
-    local activeName = ""
+  local activeName = ""
 
-    if self.mod and not self.mod:IsNull() then
-      activeName = "_active"
-    end
-
-    return baseName .. activeName
+  if self.mod and not self.mod:IsNull() then
+    activeName = "_active"
   end
 
-  function TransformationBaseClass:OnSpellStart()
-    self.isTransformation = true
-    local caster = self:GetCaster()
-    local modifierName = self:GetTransformationModifierName()
+  return baseName .. activeName
+end
 
-    -- if we have the modifier while this thing is "toggled"
-    -- ( which we should, but 'should' isn't a concept in programming )
-    -- remove it
-    local mod = caster:FindModifierByName(modifierName)
+function TransformationBaseClass:OnSpellStart()
+  self.isTransformation = true
+  local caster = self:GetCaster()
+  local modifierName = self:GetTransformationModifierName()
 
-    if mod then
-      if not mod:IsNull() then
-        mod:Destroy()
-      end
-      self.mod = nil
+  -- if we have the modifier while this thing is "toggled"
+  -- ( which we should, but 'should' isn't a concept in programming )
+  -- remove it
+  local mod = caster:FindModifierByName(modifierName)
 
-      -- caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
-    else
-      -- if it isn't toggled, add the modifier and keep track of it
-      self:EndOthers()
-
-      self.mod = caster:AddNewModifier( caster, self, modifierName, {} )
-
-      if self.watcher and not self.watcher:IsNull() then
-        self.watcher:Destroy()
-      end
-      self.watcher = caster:AddNewModifier(caster, self, "modifier_transformation_item_watcher", {})
-      self.watcher.mod = self.mod
-      self.watcher:Start()
-
-      -- caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
+  if mod then
+    if not mod:IsNull() then
+      mod:Destroy()
     end
-  end
+    self.mod = nil
+    if self.watcher and not self.watcher:IsNull() then
+      self.watcher:Destroy()
+    end
 
+    -- caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
+  else
+    -- if it isn't toggled, add the modifier and keep track of it
+    self:EndOthers()
+
+    self.mod = caster:AddNewModifier( caster, self, modifierName, {} )
+
+    if self.watcher and not self.watcher:IsNull() then
+      self.watcher:Destroy()
+    end
+    self.watcher = caster:AddNewModifier(caster, self, "modifier_transformation_item_watcher", {})
+
+    -- caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
+  end
+end
+
+if IsServer() then
   function TransformationBaseClass:EndOthers()
     local caster = self:GetCaster()
 
@@ -71,9 +72,9 @@ if IsServer() then
       end
     end)
   end
+end
 
 --------------------------------------------------------------------------------
-end
 
 modifier_transformation_item_watcher = class(ModifierBaseClass)
 
@@ -89,11 +90,33 @@ function modifier_transformation_item_watcher:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-if IsServer() then
-  function modifier_transformation_item_watcher:Start()
-    self:StartIntervalThink(1)
+if not IsServer() then
+  function modifier_transformation_item_watcher:OnDestroy()
+    local item = self:GetAbility()
+    if item then
+      item.mod = nil
+    end
   end
+end
 
+function modifier_transformation_item_watcher:OnCreated()
+  local item = self:GetAbility()
+  local modifierName = item:GetTransformationModifierName()
+  local caster = self:GetParent()
+
+  if IsServer() then
+    local mod = caster:FindModifierByName(modifierName)
+
+    self.mod = mod
+    item.mod = mod
+    self:StartIntervalThink(1)
+  else
+    item.mod = self
+  end
+end
+modifier_transformation_item_watcher.OnRefresh = modifier_transformation_item_watcher.OnCreated
+
+if IsServer() then
   function modifier_transformation_item_watcher:OnIntervalThink()
     if self.mod:IsNull() then
       self:Stop()

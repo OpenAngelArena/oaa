@@ -29,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9454"       // unique ID
+    "ID"                                                  "9455"       // unique ID
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -81,8 +81,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "75 100"
+        "active_lifesteal_percent"                        "70 90"
       }
+    }
+    "precache"
+    {
+      "particle"                  "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf"
     }
   }
 }

@@ -20,6 +20,13 @@ end
 --------------------------------------------------------------------------------
 
 modifier_item_dagger_of_moriah_sangromancy = class(ModifierBaseClass)
+modifier_item_dagger_of_moriah = class(ModifierBaseClass)
+
+--------------------------------------------------------------------------------
+
+function modifier_item_dagger_of_moriah:IsHidden()
+  return true
+end
 
 --------------------------------------------------------------------------------
 
