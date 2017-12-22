@@ -1,57 +1,58 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Dagger of Moriah 2
+  // Recipe: Vampire
   //=================================================================================================================
-  "item_recipe_dagger_of_moriah_2"
+  "item_recipe_vampire"
   {
 
-    "ID"                                                  "9445"       // unique ID
+    "ID"                                                  "9454"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_dagger_of_moriah_2"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemResult"                                          "item_vampire"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
-      "01"                                                "item_dagger_of_moriah;item_upgrade_core_4"
+      "01"                                                "item_satanic_3;item_upgrade_core_3"
+      "02"                                                "item_satanic_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Dagger of Moriah 2
+  // Vampire
   //=================================================================================================================
-  "item_dagger_of_moriah_2"
+  "item_vampire"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9446"       // unique ID
+    "ID"                                                  "9455"       // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/transformation/dagger_of_moriah.lua"
+    "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "2"
-    "AbilityTextureName"                                  "custom/dagger_of_moriah_2"
+    "AbilityTextureName"                                  "custom/vampire_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
-    "AbilitySharedCooldown"                               "dagger_of_moriah"
+    "AbilitySharedCooldown"                               "vampire"
     "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_dagger_of_moriah_2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_vampire_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37200"
+    "ItemCost"                                            "18500"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "moriah;dagger;dagger of moriah"
+    "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
@@ -65,28 +66,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_spell_amp"                           "50 75"
+        "bonus_strength"                                  "75 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100 100"
-      }
-      "03"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "50 75"
+        "bonus_damage"                                    "150 225"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 10"
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "40 45"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "20 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "active_lifesteal_percent"                        "80 100"
       }
+    }
+    "precache"
+    {
+      "particle"                  "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf"
     }
   }
 }
