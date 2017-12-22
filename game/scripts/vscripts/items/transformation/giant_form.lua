@@ -1,103 +1,84 @@
-item_siege_mode = class(TransformationBaseClass)
+item_giant_form = class(TransformationBaseClass)
 
-LinkLuaModifier( "modifier_item_siege_mode_siege", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_giant_form_grow", "items/transformation/giant_form.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function item_siege_mode:GetIntrinsicModifierName()
+function item_giant_form:GetIntrinsicModifierName()
   -- we're not modifying the passive benefits at all
   -- ( besides the numbers )
   -- so we can just reuse the normal dragon lance modifier
   return "modifier_item_dragon_lance"
 end
 
-function item_siege_mode:GetTransformationModifierName()
-  return "modifier_item_siege_mode_siege"
+function item_giant_form:GetTransformationModifierName()
+  return "modifier_item_giant_form_grow"
 end
 
 --------------------------------------------------------------------------------
 
-modifier_item_siege_mode_siege = class(ModifierBaseClass)
+modifier_item_giant_form_grow = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:IsHidden()
+function modifier_item_giant_form_grow:IsHidden()
   return false
 end
 
-function modifier_item_siege_mode_siege:IsDebuff()
+function modifier_item_giant_form_grow:IsDebuff()
   return false
 end
 
-function modifier_item_siege_mode_siege:IsPurgable()
+function modifier_item_giant_form_grow:IsPurgable()
   return false
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:GetEffectName()
+function modifier_item_giant_form_grow:GetEffectName()
   return "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:OnCreated( event )
+function modifier_item_giant_form_grow:OnCreated( event )
   local spell = self:GetAbility()
 
   spell.mod = self
 
-  self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
-  self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
-  self.atkDmg = spell:GetSpecialValueFor( "siege_damage_bonus" )
-  self.atkSpd = spell:GetSpecialValueFor( "siege_atkspd_bonus" )
-  self.splashRadius = spell:GetSpecialValueFor( "siege_aoe" )
-  self.splashDmg = spell:GetSpecialValueFor( "siege_splash" )
+  self.atkRange = spell:GetSpecialValueFor( "giant_attack_range" )
+  self.castRange = spell:GetSpecialValueFor( "giant_cast_range" )
+  self.atkDmg = spell:GetSpecialValueFor( "giant_damage_bonus" )
+  self.atkSpd = spell:GetSpecialValueFor( "giant_atkspd_bonus" )
+  self.splashRadius = spell:GetSpecialValueFor( "giant_aoe" )
+  self.splashDmg = spell:GetSpecialValueFor( "giant_splash" )
 end
+modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:OnRefresh( event )
-  local spell = self:GetAbility()
-
-  spell.mod = self
-
-  self.atkRange = spell:GetSpecialValueFor( "siege_attack_range" )
-  self.castRange = spell:GetSpecialValueFor( "siege_cast_range" )
-  self.atkDmg = spell:GetSpecialValueFor( "siege_damage_bonus" )
-  self.atkSpd = spell:GetSpecialValueFor( "siege_atkspd_bonus" )
-  self.splashRadius = spell:GetSpecialValueFor( "siege_aoe" )
-  self.splashDmg = spell:GetSpecialValueFor( "siege_splash" )
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_siege_mode_siege:OnRemoved()
-  local spell = self:GetAbility()
-
-  if spell and not spell:IsNull() then
-    spell.mod = nil
+if IsServer() then
+  function modifier_item_giant_form_grow:CheckState()
+    if self:GetParent() and self:GetParent():IsRangedAttacker() then
+      return {
+        [MODIFIER_STATE_ROOTED] = true,
+      }
+    end
+    return {}
   end
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:CheckState()
-  local state = {
-    [MODIFIER_STATE_ROOTED] = true,
-  }
-
-  return state
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_siege_mode_siege:DeclareFunctions()
+function modifier_item_giant_form_grow:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_CAST_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+    MODIFIER_PROPERTY_MODEL_SCALE
   }
 
   return funcs
@@ -105,45 +86,55 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:GetModifierPreAttack_BonusDamage( event )
+function modifier_item_giant_form_grow:GetModifierPreAttack_BonusDamage( event )
   local spell = self:GetAbility()
 
-  return self.atkDmg or spell:GetSpecialValueFor( "siege_damage_bonus" )
+  return self.atkDmg or spell:GetSpecialValueFor( "giant_damage_bonus" )
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:GetModifierAttackSpeedBonus_Constant( event )
-  local spell = self:GetAbility()
-
-  return self.atkSpd or spell:GetSpecialValueFor( "siege_atkspd_bonus" )
+function modifier_item_giant_form_grow:GetModifierFixedAttackRate( event )
+  return self:GetAbility():GetSpecialValueFor( "giant_attack_rate" )
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:GetModifierAttackRangeBonus( event )
+function modifier_item_giant_form_grow:GetModifierAttackRangeBonus( event )
   local spell = self:GetAbility()
   local parent = self:GetParent()
 
-  if parent:IsRangedAttacker() then
-    return self.atkRange or spell:GetSpecialValueFor( "siege_attack_range" )
-  end
-
-  return 0
+  return spell:GetSpecialValueFor( "giant_attack_range" )
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_siege_mode_siege:GetModifierCastRangeBonus( event )
+function modifier_item_giant_form_grow:GetModifierCastRangeBonus( event )
   local spell = self:GetAbility()
 
-  return self.castRange or spell:GetSpecialValueFor( "siege_cast_range" )
+  return self.castRange or spell:GetSpecialValueFor( "giant_cast_range" )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_giant_form_grow:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+function modifier_item_giant_form_grow:GetModifierMoveSpeed_Absolute()
+  return self:GetAbility():GetSpecialValueFor("melee_move_speed")
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_giant_form_grow:GetModifierModelScale()
+  return self:GetAbility():GetSpecialValueFor("giant_scale")
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
-  function modifier_item_siege_mode_siege:OnAttackLanded( event )
+  function modifier_item_giant_form_grow:OnAttackLanded( event )
     local parent = self:GetParent()
 
     -- i can just use code from greater power treads here!
@@ -172,7 +163,7 @@ if IsServer() then
       targetFlags = spell:GetAbilityTargetFlags()
 
       -- get the radius
-      local radius = self.splashRadius or spell:GetSpecialValueFor( "siege_aoe" )
+      local radius = self.splashRadius or spell:GetSpecialValueFor( "giant_aoe" )
 
       -- find all appropriate targets around the initial target
       local units = FindUnitsInRadius(
@@ -199,7 +190,7 @@ if IsServer() then
       local damage = event.original_damage
 
       -- get the damage modifier
-      local damageMod = self.splashDmg or spell:GetSpecialValueFor( "siege_splash" )
+      local damageMod = self.splashDmg or spell:GetSpecialValueFor( "giant_splash" )
 
       damageMod = damageMod * 0.01
 
@@ -232,4 +223,4 @@ end
 
 --------------------------------------------------------------------------------
 
-item_siege_mode_2 = item_siege_mode
+item_giant_form_2 = item_giant_form
