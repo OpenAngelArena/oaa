@@ -117,8 +117,16 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "giant_scale"                                     "2.5 2.6"
+        "giant_scale"                                     "1.5 1.6"
       }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
+      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
     }
   }
 }
