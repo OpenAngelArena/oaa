@@ -128,6 +128,7 @@ function Duels:Init ()
   ChatCommand:LinkCommand("-duel", Dynamic_Wrap(Duels, "StartDuel"), Duels)
   ChatCommand:LinkCommand("-end_duel", Dynamic_Wrap(Duels, "EndDuel"), Duels)
   ChatCommand:LinkCommand("-tptest", Dynamic_Wrap(Duels, "TestSafeTeleport"), Duels)
+  ChatCommand:LinkCommand("-tpstate", Dynamic_Wrap(Duels, "TestSaveAndLoadState"), Duels)
 end
 
 function Duels:CountPlayerDeath (player)
@@ -651,7 +652,7 @@ function Duels:SavePlayerState (hero)
 end
 
 function Duels:RestorePlayerState (hero, state)
-  self:SafeTeleport(hero, state.location, 150)
+  self:SafeTeleportAll(hero, state.location, 150)
 
   if state.hp > 0 then
     hero:SetHealth(state.hp)
@@ -769,4 +770,11 @@ end
 function Duels:TestSafeTeleport(keys)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
   self:SafeTeleportAll(hero, Vector(0, 0, 0), 150)
+end
+
+function Duels:TestSaveAndLoadState(keys)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local state = self:SavePlayerState(hero)
+  state.location = Vector(0, 0, 0)
+  self:RestorePlayerState(hero,state)
 end
