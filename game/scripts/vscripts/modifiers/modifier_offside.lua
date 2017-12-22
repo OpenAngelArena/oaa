@@ -95,7 +95,8 @@ function modifier_offside:DrawParticles()
 
     if alpha >= 0 and isInOffside then
       if self.BloodOverlay == nil then
-        self.BloodOverlay = ParticleManager:CreateParticle( "particles/misc/screen_blood_overlay.vpcf", PATTACH_WORLDORIGIN, self:GetParent() )
+        -- Creates a new particle effect
+        self.BloodOverlay = ParticleManager:CreateParticleForPlayer( "particles/misc/screen_blood_overlay.vpcf", PATTACH_WORLDORIGIN, self:GetParent(), self:GetParent():GetPlayerOwner() )
         ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
         print("Create Blood Overlay Alpha =" ..alpha)
       end
@@ -107,7 +108,7 @@ function modifier_offside:DrawParticles()
     if self.stackParticle ~= nil then
       ParticleManager:DestroyParticle(self.stackParticle, false)
     end
-    self.stackParticle = ParticleManager:CreateParticle( "particles/dungeon_overhead_timer_colored.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+    self.stackParticle = ParticleManager:CreateParticleForPlayer( "particles/dungeon_overhead_timer_colored.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner() )
     ParticleManager:SetParticleControl( self.stackParticle, 1, Vector( 0, stackCount, 0 ) )
     ParticleManager:SetParticleControl( self.stackParticle, 2, Vector( 2, 0, 0 ) )
     ParticleManager:SetParticleControl( self.stackParticle, 3, Vector( 255, 50, 0 ) )
