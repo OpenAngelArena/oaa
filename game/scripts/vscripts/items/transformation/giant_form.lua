@@ -43,6 +43,7 @@ end
 
 function modifier_item_giant_form_grow:OnCreated( event )
   local spell = self:GetAbility()
+  local parent = self:GetParent()
 
   spell.mod = self
 
@@ -52,8 +53,28 @@ function modifier_item_giant_form_grow:OnCreated( event )
   self.atkSpd = spell:GetSpecialValueFor( "giant_atkspd_bonus" )
   self.splashRadius = spell:GetSpecialValueFor( "giant_aoe" )
   self.splashDmg = spell:GetSpecialValueFor( "giant_splash" )
+
+  if IsServer() then
+    if not self.modelScale then
+      self.modelScale = parent:GetModelScale()
+      self.giantScale = spell:GetSpecialValueFor("giant_scale")
+    end
+    parent:SetModelScale(self.giantScale)
+  end
 end
 modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
+
+--------------------------------------------------------------------------------
+
+function modifier_item_giant_form_grow:OnDestroy()
+  if IsServer() then
+    if self.modelScale then
+      local parent = self:GetParent()
+      parent:SetModelScale(self.modelScale + (parent:GetModelScale() - self.giantScale))
+      self.modelScale = nil
+    end
+  end
+end
 
 --------------------------------------------------------------------------------
 
@@ -77,8 +98,7 @@ function modifier_item_giant_form_grow:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_CAST_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-    MODIFIER_PROPERTY_MODEL_SCALE
+    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE
   }
 
   return funcs
@@ -95,7 +115,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:GetModifierFixedAttackRate( event )
-  return self:GetAbility():GetSpecialValueFor( "giant_attack_rate" )
+  local spell = self:GetAbility()
+
+  return spell:GetSpecialValueFor( "giant_attack_rate" )
 end
 
 --------------------------------------------------------------------------------
@@ -103,6 +125,13 @@ end
 function modifier_item_giant_form_grow:GetModifierAttackRangeBonus( event )
   local spell = self:GetAbility()
   local parent = self:GetParent()
+
+  if not spell then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
 
   return spell:GetSpecialValueFor( "giant_attack_range" )
 end
@@ -122,13 +151,16 @@ function modifier_item_giant_form_grow:GetPriority()
 end
 
 function modifier_item_giant_form_grow:GetModifierMoveSpeed_Absolute()
-  return self:GetAbility():GetSpecialValueFor("melee_move_speed")
-end
+  local spell = self:GetAbility()
 
---------------------------------------------------------------------------------
+  if not spell then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
 
-function modifier_item_giant_form_grow:GetModifierModelScale()
-  return self:GetAbility():GetSpecialValueFor("giant_scale")
+  return spell:GetSpecialValueFor("melee_move_speed")
 end
 
 --------------------------------------------------------------------------------

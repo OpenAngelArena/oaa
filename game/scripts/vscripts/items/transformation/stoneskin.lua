@@ -31,6 +31,14 @@ modifier_item_stoneskin = class(ModifierBaseClass)
 --   end
 -- end
 
+function modifier_item_stoneskin:OnDestroy()
+  local item = self:GetAbility()
+  if item and item.mod and not item.mod:IsNull() then
+    item.mod:Destroy()
+    item.mod = nil
+  end
+end
+
 function modifier_item_stoneskin:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
@@ -54,18 +62,42 @@ function modifier_item_stoneskin:GetAttributes()
 end
 
 function modifier_item_stoneskin:GetModifierPreAttack_BonusDamage()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_stoneskin:GetModifierAttackSpeedBonus_Constant()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_stoneskin:GetModifierPhysicalArmorBonus()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_stoneskin:GetModifierConstantHealthRegen()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
@@ -92,10 +124,22 @@ function modifier_item_stoneskin_stone_armor:DeclareFunctions()
 end
 
 function modifier_item_stoneskin_stone_armor:GetModifierPhysicalArmorBonus()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("stone_armor")
 end
 
 function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("stone_resist")
 end
 
@@ -104,5 +148,11 @@ function modifier_item_stoneskin_stone_armor:GetPriority()
 end
 
 function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return
+  end
   return self:GetAbility():GetSpecialValueFor("stone_move_speed")
 end
