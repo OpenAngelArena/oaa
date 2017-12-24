@@ -80,7 +80,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "80 100"
+        "active_lifesteal_percent"                        "100 150"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second_pct"                           "8"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ticks_per_second"                                "4"
       }
     }
     "precache"
