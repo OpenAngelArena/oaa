@@ -99,7 +99,6 @@ end
 function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
   if event.damage_category == 0 and event.attacker == self:GetParent() and not (event.unit == self:GetParent()) then
 
-    print(event.damage_flags)
     local damage = {
       victim = event.attacker,
       attacker = event.attacker,
