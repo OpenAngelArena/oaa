@@ -99,11 +99,13 @@ end
 function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
   if event.damage_category == 0 and event.attacker == self:GetParent() and not (event.unit == self:GetParent()) then
 
+    print(event.damage_flags)
     local damage = {
       victim = event.attacker,
       attacker = event.attacker,
       damage = event.original_damage * (self.selfDamage / 100),
       damage_type = event.damage_type,
+      damage_flags = bit.bor(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION),
       ability = self:GetAbility(),
     }
 
