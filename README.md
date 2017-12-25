@@ -6,7 +6,7 @@ Useful Links: https://warpdragon.github.io
 # Installation
 This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
 
-For detailed instructions, check [here](docs/install.md)
+For detailed instructions, check [here](docs/setup/install.md)
 
 # Contributing
 Check out the Discord!
