@@ -11,8 +11,7 @@ function item_far_sight:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
 	if IsServer() then
-		team_id = caster:GetTeam()
-		AddFOWViewer(team_id,target,self:GetSpecialValueFor("reveal_radius"),self:GetSpecialValueFor("reveal_duration"),false)
+		AddFOWViewer(caster:GetTeam(),target,self:GetSpecialValueFor("reveal_radius"),self:GetSpecialValueFor("reveal_duration"),false)
 	end
 	--particle effect at cast location
 	 --if IsServer() then
@@ -42,7 +41,7 @@ end
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 	    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT 
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
     }
   return funcs
 end
@@ -66,9 +65,3 @@ end
 function modifier_item_far_sight:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
-
-
-
-
-
-
