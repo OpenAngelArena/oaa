@@ -46,6 +46,22 @@ function Duels:Init ()
     }
   })
 
+  Duels.zone3 = ZoneControl:CreateZone('duel_3', {
+    mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 500,
+    padding = 200,
+    players = {
+    }
+  })
+
+  Duels.zone4 = ZoneControl:CreateZone('duel_4', {
+    mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 500,
+    padding = 200,
+    players = {
+    }
+  })
+
   GameEvents:OnHeroDied(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
@@ -244,6 +260,8 @@ function Duels:StartDuel (options)
     Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
     ZoneCleaner:CleanZone(Duels.zone1)
     ZoneCleaner:CleanZone(Duels.zone2)
+    ZoneCleaner:CleanZone(Duels.zone3)
+    ZoneCleaner:CleanZone(Duels.zone4)
     Duels:ActuallyStartDuel(options)
   end)
 end
@@ -330,8 +348,14 @@ function Duels:ActuallyStartDuel (options)
   end
   -- local playerSplitOffset = maxPlayers
   local spawnLocations = RandomInt(0, 1) == 1
-  local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
-  local spawn2 = Entities:FindByName(nil, 'duel_1_spawn_2'):GetAbsOrigin()
+  local arenaChoice = RandomInt(0, 1) == 1
+  local duel_1 = 'duel_1'
+  local duel_2 = 'duel_2'
+  if arenaChoice then
+    duel_1 = 'duel_3'
+  end
+  local spawn1 = Entities:FindByName(nil, duel_1 .. '_spawn_1'):GetAbsOrigin()
+  local spawn2 = Entities:FindByName(nil, duel_1 .. '_spawn_2'):GetAbsOrigin()
 
   if spawnLocations then
     local tmp = spawn1
@@ -354,8 +378,13 @@ function Duels:ActuallyStartDuel (options)
     self:SafeTeleportAll(goodHero, spawn1, 150)
     self:SafeTeleportAll(badHero, spawn2, 150)
 
-    self.zone1.addPlayer(goodGuy.id)
-    self.zone1.addPlayer(badGuy.id)
+    if arenaChoice then
+      self.zone3.addPlayer(goodGuy.id)
+      self.zone3.addPlayer(badGuy.id)
+    else
+      self.zone1.addPlayer(goodGuy.id)
+      self.zone1.addPlayer(badGuy.id)
+    end
 
     MoveCameraToPlayer(goodHero)
     MoveCameraToPlayer(badHero)
@@ -369,8 +398,14 @@ function Duels:ActuallyStartDuel (options)
     badHero:SetRespawnsDisabled(true)
   end
 
-  spawn1 = Entities:FindByName(nil, 'duel_2_spawn_1'):GetAbsOrigin()
-  spawn2 = Entities:FindByName(nil, 'duel_2_spawn_2'):GetAbsOrigin()
+  spawnLocations = RandomInt(0, 1) == 1
+  arenaChoice = RandomInt(0, 1) == 1
+  if arenaChoice then
+    duel_2 = 'duel_4'
+  end
+
+  spawn1 = Entities:FindByName(nil, duel_2 .. '_spawn_1'):GetAbsOrigin()
+  spawn2 = Entities:FindByName(nil, duel_2 .. '_spawn_2'):GetAbsOrigin()
 
   if spawnLocations then
     local tmp = spawn1
@@ -393,8 +428,13 @@ function Duels:ActuallyStartDuel (options)
     self:SafeTeleportAll(goodHero, spawn1, 150)
     self:SafeTeleportAll(badHero, spawn2, 150)
 
-    self.zone2.addPlayer(goodGuy.id)
-    self.zone2.addPlayer(badGuy.id)
+    if arenaChoice then
+      self.zone4.addPlayer(goodGuy.id)
+      self.zone4.addPlayer(badGuy.id)
+    else
+      self.zone2.addPlayer(goodGuy.id)
+      self.zone2.addPlayer(badGuy.id)
+    end
 
     MoveCameraToPlayer(goodHero)
     MoveCameraToPlayer(badHero)
@@ -508,6 +548,8 @@ function Duels:EndDuel ()
   for playerId = 0,19 do
     self.zone1.removePlayer(playerId, false)
     self.zone2.removePlayer(playerId, false)
+    self.zone3.removePlayer(playerId, false)
+    self.zone4.removePlayer(playerId, false)
   end
 
   local currentDuel = self.currentDuel
