@@ -57,6 +57,35 @@ end
 
 --------------------------------------------------------------------------------
 
+if IsServer() then
+  function modifier_item_vampire_active:OnCreated()
+    self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
+  end
+  function modifier_item_vampire_active:OnIntervalThink()
+    local parent = self:GetParent()
+    local spell = self:GetAbility()
+    if not spell then
+      if not self:IsNull() then
+        self:Destroy()
+      end
+      return
+    end
+    local damage = parent:GetHealth() * spell:GetSpecialValueFor('damage_per_second_pct') / 100
+    damage = damage / spell:GetSpecialValueFor('ticks_per_second')
+
+    local damageTable = {
+      victim = parent,
+      attacker = parent,
+      damage = damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+      ability = spell,
+    }
+
+    ApplyDamage( damageTable )
+  end
+end
+
 function modifier_item_vampire_active:IsPurgable()
   return false
 end

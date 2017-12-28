@@ -36,18 +36,18 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "8420"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/meteor_hammer.lua"     
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"            "custom/meteor_hammer_4"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
-    "BaseClass"                      "item_meteor_hammer"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"            "2.5"
@@ -94,12 +94,12 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_buildings"    "50"
+        "burn_dps_boss"         "90 180 270 360 450"
       }
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_units"        "90 180 270 360 450"
+        "burn_dps"              "90 180 270 360 450"
       }
       "07"
       {
@@ -134,13 +134,20 @@
       "13"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_buildings"   "75"
+        "impact_damage_boss"    "150 300 450 600 750"
       }
       "14"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_units"   "150 300 450 600 750"
+        "impact_damage"         "150 300 450 600 750"
       }
+    }
+    "precache"
+    {
+    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf" 
+    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"      
     }
   }
 }

@@ -12,7 +12,9 @@ function modifier_generic_bonus:Setup()
   local attributesToCheck = {
     'bonus_health',
     'bonus_armor',
+    'bonus_health_regen',
     'magic_resistance',
+    'bonus_mana_regen',
     'bonus_strength',
     'bonus_agility',
     'bonus_intellect',
@@ -39,7 +41,9 @@ end
 function modifier_generic_bonus:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -62,6 +66,10 @@ function modifier_generic_bonus:GetModifierMagicalResistanceBonus()
   return self.magic_resistance or 0
 end
 
+function modifier_generic_bonus:GetModifierConstantHealthRegen()
+  return self.bonus_health_regen or 0
+end
+
 function modifier_generic_bonus:GetModifierBonusStats_Strength()
   return (self.bonus_all_stats or 0) + (self.bonus_strength or 0)
 end
@@ -80,6 +88,10 @@ end
 
 function modifier_generic_bonus:GetModifierMoveSpeedBonus_Constant()
   return self.bonus_movement_speed or 0
+end
+
+function modifier_generic_bonus:GetModifierConstantManaRegen()
+  return self.bonus_mana_regen or 0
 end
 
 function modifier_generic_bonus:GetModifierSpellAmplify_Percentage()
