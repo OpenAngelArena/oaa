@@ -120,6 +120,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     isProtected = isProtected
   })
 
+  Minimap:SpawnBossIcon(pit, bossTier)
+
   local newBossTier = math.min(6, bossTier + 1)
 
   bossAI.onDeath(function ()

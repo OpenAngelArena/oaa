@@ -3,6 +3,7 @@
 require('components/filters/index')
 require('components/abilities/index')
 require('components/reflexfilters/index')
+require('components/minimap/index')
 require('components/creeps/index')
 require('components/points/index')
 require('components/gold/index')

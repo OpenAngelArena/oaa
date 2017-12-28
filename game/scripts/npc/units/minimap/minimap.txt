@@ -1,0 +1,124 @@
+// Show the minimap icon on the world
+"DOTAUnits"
+{
+  "minimap_boss_tier1"
+  {
+    "MinimapIcon"				"minimap_boss_tier1"
+    "MinimapIconSize"			"500"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_boss_tier2"
+  {
+    "MinimapIcon"				"minimap_boss_tier2"
+    "MinimapIconSize"			"500"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_boss_tier3"
+  {
+    "MinimapIcon"				"minimap_boss_tier3"
+    "MinimapIconSize"			"500"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_boss_tier4"
+  {
+    "MinimapIcon"				"minimap_boss_tier4"
+    "MinimapIconSize"			"500"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_ancient_camp"
+  {
+    "MinimapIcon"				"minimap_ancient_camp"
+    "MinimapIconSize"			"300"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_hard_camp"
+  {
+    "MinimapIcon"				"minimap_hard_camp"
+    "MinimapIconSize"			"300"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_medium_camp"
+  {
+    "MinimapIcon"				"minimap_medium_camp"
+    "MinimapIconSize"			"300"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_small_camp"
+  {
+    "MinimapIcon"				"minimap_small_camp"
+    "MinimapIconSize"			"300"
+    "MinimapDisableTint"		"1"
+
+    "BaseClass"					"npc_dota_creature"
+    "Model"						"models/development/invisiblebox.vmdl"
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"		"0"
+    "VisionNighttimeRange"		"0"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+  }
+}
+

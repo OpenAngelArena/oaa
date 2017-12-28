@@ -2,53 +2,69 @@
 {
     "TextureData"
     {
-        "minimap_easy"
+        "minimap_boss_tier1"
         {
-            "file"     "materials/vgui/hud/minimap_green.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_boss_tier1.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"32"
+          "height"		"32"
         }
-        "minimap_medium"
+        "minimap_boss_tier2"
         {
-            "file"     "materials/vgui/hud/minimap_gold.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_boss_tier2.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"32"
+          "height"		"32"
         }
-        "minimap_hard"
+        "minimap_boss_tier3"
         {
-            "file"     "materials/vgui/hud/minimap_red.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_boss_tier3.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"32"
+          "height"		"32"
         }
-        "minimap_cave"
+        "minimap_boss_tier4"
         {
-            "file"     "materials/vgui/hud/minimap_cyan.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_boss_tier4.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"32"
+          "height"		"32"
         }
-        "minimap_boss"
+        "minimap_ancient_camp"
         {
-            "file"     "materials/vgui/hud/minimap_purple.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_ancient_camp.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"16"
+          "height"		"16"
         }
-        "minimap_spawn"
+        "minimap_hard_camp"
         {
-            "file"     "materials/vgui/hud/minimap_white.vmat"
-            "x"        "0"
-            "y"        "0"
-            "width"    "64"
-            "height"   "64"
+          "file"		"materials/vgui/hud/minimap_hard_camp.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"16"
+          "height"		"16"
+        }
+        "minimap_medium_camp"
+        {
+          "file"		"materials/vgui/hud/minimap_medium_camp.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"16"
+          "height"		"16"
+        }
+        "minimap_small_camp"
+        {
+          "file"		"materials/vgui/hud/minimap_small_camp.vmat"
+          "x"		"0"
+          "y"		"0"
+          "width"		"16"
+          "height"		"16"
         }
     }
 }
