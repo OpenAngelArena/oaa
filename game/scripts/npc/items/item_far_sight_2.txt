@@ -3,48 +3,47 @@
   //=================================================================================================================
   // Recipe: Far Sight
   //=================================================================================================================
-  "item_recipe_far_sight"
+  "item_recipe_far_sight_2"
   {
    // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127001"    // unique ID
+    "ID"                                                  "127003"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                             "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                         "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                        "1500"
+    "ItemCost"                                        "3500"
     "ItemShopTags"                                 ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                      "1"
-    "ItemResult"                                      "item_far_sight"
+    "ItemResult"                                      "item_far_sight_2"
     "ItemRequirements"
     {
-      "01"                                                "item_veil_of_discord;item_upgrade_core"
-      "02"                                                "item_veil_of_discord;item_upgrade_core_2"
-      "03"                                                "item_veil_of_discord;item_upgrade_core_3"
-      "04"                                                "item_veil_of_discord;item_upgrade_core_4"
+      "01"                                                "item_far_sight;item_upgrade_core_2"
+      "02"                                                "item_far_sight;item_upgrade_core_3"
+      "03"                                                "item_far_sight;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Far Sight
   //=================================================================================================================
-  "item_far_sight"
+  "item_far_sight_2"
   {
 
     // General
     //-------------------------------------------------------------------------------------------------------------
 
-    "ID"                                                      "127002"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                      "127004"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_NONE"
-    "AbilityTextureName"                                  "custom/far_sight"
+    "AbilityTextureName"                                  "custom/far_sight_2"
 
 
     // Stats
@@ -58,17 +57,17 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_far_sight_2;item_far_sight_3;item_far_sight_4"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_far_sight_3;item_far_sight_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "3830"
+    "ItemCost"                                            "7330"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
-   // "ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"
+   // "ItemDisassembleRule"                              "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
