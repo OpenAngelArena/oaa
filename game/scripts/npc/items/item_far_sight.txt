@@ -49,7 +49,7 @@
 	
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "125.0"
+    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0"
     "AbilitySharedCooldown"                          "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
@@ -73,27 +73,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER" 
-        "bonus_health_regen"                              "5"
+        "bonus_health_regen"                              "10 20 30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 "
+        "bonus_armor"                                     "10 20 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6"
+        "bonus_agi"                                       "10 20 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6"
+        "bonus_str"                                       "10 20 30 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "14"
+        "bonus_int"                                       "10 20 30 40"
       }
       "06"
       {
@@ -103,7 +103,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "reveal_duration"                          "20.0"
+        "reveal_duration"                          "10.0"
       }
 
     }
