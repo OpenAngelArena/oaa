@@ -8,11 +8,11 @@ local special_bottles = {
   [7131038] = 1, -- chrisinajar
   [43305444] = 3, -- baumi
   -- golden tournament winners
-  -- OTA except for nael
   [124585666] = 2,
   [75435056] = 2,
   [136897804] = 2,
-  [57898114] = 2
+  [57898114] = 2,
+  [89367798] = 2
 }
 
 local bonusNames = {
