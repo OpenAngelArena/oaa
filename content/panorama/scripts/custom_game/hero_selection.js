@@ -162,6 +162,9 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
     }
+    FindDotaHudElement('RadiantReserve').text = data['reserveradiant'];
+    FindDotaHudElement('DireReserve').text = data['reservedire'];
+
     if (data['currentstage'] < data['totalstages']) {
       if (!data['order'][data['currentstage']]) {
         return;

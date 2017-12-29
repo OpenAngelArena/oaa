@@ -180,9 +180,9 @@ function HeroSelection:CMManager (event)
 end
 
 -- manage cm timer
-function HeroSelection:CMTimer (time, message)
+function HeroSelection:CMTimer (time, message, isReserveTime)
   HeroSelection:CheckPause()
-  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message, isReserveTime = isReserveTime})
 
   if cmpickorder["currentstage"] > 0 and forcestop == false then
     if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
@@ -196,16 +196,38 @@ function HeroSelection:CMTimer (time, message)
     end
   end
 
-  if time < 0 then
-    HeroSelection:CMManager({hero = "random"})
-    return
+  if time <= 0 then
+    if cmpickorder["currentstage"] > 0 then
+     if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["reservedire"] > 0 then
+        -- start using reserve time
+        time = cmpickorder["reservedire"]
+        isReserveTime = true
+      elseif cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["reserveradiant"] > 0 then
+        -- start using reserve time
+        time = cmpickorder["reserveradiant"]
+        isReserveTime = true
+      end
+    end
+    if time <= 0 then
+      HeroSelection:CMManager({hero = "random"})
+      return
+    end
+  end
+
+  if isReserveTime then
+    if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS then
+      cmpickorder["reservedire"] = time
+    elseif cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS then
+      cmpickorder["reserveradiant"] = time
+    end
+    CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
   end
 
   cmtimer = Timers:CreateTimer({
     useGameTime = not HERO_SELECTION_WHILE_PAUSED,
     endTime = 1,
     callback = function()
-      HeroSelection:CMTimer(time -1, message)
+      HeroSelection:CMTimer(time -1, message, isReserveTime)
     end
   })
 end
