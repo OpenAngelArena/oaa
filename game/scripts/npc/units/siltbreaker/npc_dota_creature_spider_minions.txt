@@ -31,8 +31,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"55"
-		"AttackDamageMax"			"60"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"600"
 		"AttackRate"				"1.7"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"750"
@@ -53,7 +53,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"200"
+		"StatusHealth"				"2000"
 		"StatusHealthRegen"			"1"
 		"StatusMana"				"200"
 		"StatusManaRegen"			"3"
@@ -107,8 +107,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"200"
-		"AttackDamageMax"			"220"
+		"AttackDamageMin"			"2000"
+		"AttackDamageMax"			"2200"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"750"
@@ -129,7 +129,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1150"
+		"StatusHealth"				"11500"
 		"StatusHealthRegen"			"3"
 		"StatusMana"				"400"
 		"StatusManaRegen"			"5"
@@ -180,8 +180,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"55"
-		"AttackDamageMax"			"60"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"600"
 		"AttackRate"				"1.7"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"750"
@@ -202,7 +202,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"200"
+		"StatusHealth"				"2000"
 		"StatusHealthRegen"			"1"
 		"StatusMana"				"200"
 		"StatusManaRegen"			"3"
