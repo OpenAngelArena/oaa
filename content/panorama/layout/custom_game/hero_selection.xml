@@ -23,6 +23,15 @@
     <Panel id="MainContent">
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
+          <Panel id="ReserveTimePanel">
+            <Panel class="ReserveTimeHolder">
+              <Label id="RadiantReserve" text="130" />
+            </Panel>
+            <Label id="ReserveLabel" text="#dota_cm_bonus_time" />
+            <Panel class="ReserveTimeHolder">
+              <Label id="DireReserve" text="130" />
+            </Panel>
+          </Panel>
           <Panel id="BecomeCaptainPanel">
             <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
               <Label text="#DOTA_Hero_Selection_BecomeCaptain" />
