@@ -10,17 +10,17 @@
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_postactive_3c"
     "ItemRequirements"
     {
-      "01"                                                "item_postactive_2b;item_upgrade_core_4"
-      "02"                                                "item_postactive_2a;item_upgrade_core_4"
+      "01"                                                "item_heart_2;item_upgrade_core_2"
+      "02"                                                "item_heart_2;item_upgrade_core_3"
+      "03"                                                "item_heart_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Postactive Reflex 3c
   //=================================================================================================================
@@ -39,15 +39,15 @@
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "25000"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "10200"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;postactive_3c"
+    "ItemAliases"                                         "regen crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -56,29 +56,22 @@
 
     "AbilitySpecial"
     {
-
-
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_health"                                    "1200 2000 2800"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "bonus_strength"                                  "75 95 115"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_health_regen"                              "1000"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "5"

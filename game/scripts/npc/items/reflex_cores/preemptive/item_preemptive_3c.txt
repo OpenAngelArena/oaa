@@ -8,18 +8,17 @@
     "ID"                                                  "3823"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_preemptive_3c"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive_2b;item_upgrade_core_4"
-      "02"                                                "item_preemptive_2a;item_upgrade_core_4"
+      "01"                                                "item_lotus_orb_3;item_upgrade_core_3"
+      "02"                                                "item_lotus_orb_3;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // preemptive_3c
   //=================================================================================================================
@@ -34,8 +33,8 @@
     "ScriptFile"                                          "items/reflex/preemptive_bubble.lua"
     "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,10 +45,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25000"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive_3c"
+    "ItemAliases"                                         "bubble orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -61,29 +60,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_armor"                                     "32 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "15.0 30.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "5.0 7.5"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "700 1000"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "10.0"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "150"
       }
-      "06"
+      "07"
       {
         // The time that the buff effect lingers after exiting the bubble
         "var_type"                                        "FIELD_FLOAT"

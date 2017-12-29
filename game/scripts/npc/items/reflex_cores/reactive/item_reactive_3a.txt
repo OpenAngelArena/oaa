@@ -17,10 +17,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_reactive_2a;item_upgrade_core_4"
-      "02"                                                "item_reactive_2b;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Reactive Reflex 3a
   //=================================================================================================================
@@ -49,10 +47,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "25000"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "38050"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;reactive_3a"
+    "ItemAliases"                                         "reflect shard"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -63,17 +61,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_all_stats"                                 "35 45 55"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "bonus_health_regen"                              "16 28 42"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
+        "bonus_mana_regen"                                "4.5 6.0 8.0"
       }
       "04"
       {
