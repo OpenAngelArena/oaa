@@ -9,6 +9,7 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
+
 Label {
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
   font-weight: normal;
@@ -219,8 +220,37 @@ DOTAMinimap {
   visibility: collapse;
   width: 90%;
   min-height: 150px;
-  margin: 10px 0;
+  margin: 40px 0;
   horizontal-align: center;
+}
+#ReserveTimePanel {
+  margin-top: -30px;
+  width: 300px;
+  height: 100%;
+  flow-children: right;
+  horizontal-align: center;
+}
+#ReserveLabel {
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+.ReserveTimeHolder {
+  horizontal-align: center;
+  width: fill-parent-flow(1.0);
+  height: 80px;
+}
+.ReserveTimeHolder Label {
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#RadiantReserve {
+  color: #00ff00;
+}
+#DireReserve {
+  color: #ff0000;
 }
 
 .CMStep.active {
@@ -329,7 +359,7 @@ DOTAMinimap {
   transition-duration: 0.2s;
 }
 #CMDireProgress {
-  align: right;
+  horizontal-align: right;
   margin-right: -5%;
 }
 #CMRadiantProgress {
