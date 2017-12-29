@@ -296,7 +296,7 @@ function ReloadCMStatus (data) {
   } else {
     currentPick = data['currentstage'] + 1;
   }
-  var currentPickData = data['order'][currentPick]
+  var currentPickData = data['order'][currentPick];
 
   FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
   Object.keys(data['order']).forEach(function (nkey) {
