@@ -1,11 +1,11 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Postactive Reflex 2b
+  // Recipe: Reactive Reflex 2a
   //=================================================================================================================
-  "item_recipe_postactive_2b"
+  "item_recipe_reactive_2a"
   {
-    "ID"                                                  "3829"    // unique ID
+    "ID"                                                  "3815"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
@@ -13,40 +13,40 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_postactive_2b"
+    "ItemResult"                                          "item_reactive_2a"
     "ItemRequirements"
     {
-      "01"                                                "item_postactive;item_upgrade_core_3"
-      "02"                                                "item_postactive;item_upgrade_core_4"
+      "01"                                                "item_reactive;item_upgrade_core_3"
+      "02"                                                "item_reactive;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // Postactive Reflex 2b
+  // Reactive Reflex 2a
   //=================================================================================================================
-  "item_postactive_2b"
+  "item_reactive_2a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3830"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3816"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/postactive_soft_dispell.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/postactive_2b"
+    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"                                  "custom/reactive_2a"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "16975"
-    "ItemShopTags"                                        "str;damage;hard_to_tag"
+    "ItemCost"                                            "18050"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "hard enrage crystal"
+    "ItemAliases"                                         "reflect shard"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -57,12 +57,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "30 40 55"
+        "bonus_all_stats"                                 "35 45 55"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "72 96 120"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "16 28 42"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "4.5 6.0 8.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "0.75"
       }
     }
 

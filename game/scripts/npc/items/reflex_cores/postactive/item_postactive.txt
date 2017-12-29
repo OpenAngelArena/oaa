@@ -10,16 +10,17 @@
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_postactive"
     "ItemRequirements"
     {
-      "01"                                                "item_reflex_core"
+      "01"                                                "item_black_king_bar_2;item_upgrade_core_2"
+      "02"                                                "item_black_king_bar_2;item_upgrade_core_3"
+      "03"                                                "item_black_king_bar_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Postactive Reflex 1
   //=================================================================================================================
@@ -38,16 +39,16 @@
     "AbilityCooldown"                                     "10.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "1"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "8975"
+    "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;postactive"
+    "ItemAliases"                                         "enrage crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -58,17 +59,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000"
+        "bonus_strength"                                  "30 40 55"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "5"
+        "bonus_damage"                                    "72 96 120"
       }
     }
 

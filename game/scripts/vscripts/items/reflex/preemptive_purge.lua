@@ -29,6 +29,7 @@ end
 ------------------------------------------------------------------------
 
 item_preemptive_3a = item_preemptive_2a --luacheck: ignore item_preemptive_3a
+item_preemptive_4a = item_preemptive_2a
 
 ------------------------------------------------------------------------
 

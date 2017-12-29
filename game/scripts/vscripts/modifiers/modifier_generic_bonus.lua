@@ -21,7 +21,8 @@ function modifier_generic_bonus:Setup()
     'bonus_all_stats',
     'bonus_attack_speed',
     'bonus_movement_speed',
-    'spell_amp'
+    'spell_amp',
+    'bonus_mana'
   }
 
   local ability = self:GetAbility()
@@ -50,7 +51,8 @@ function modifier_generic_bonus:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_MANA_BONUS
   }
 end
 
@@ -96,6 +98,10 @@ end
 
 function modifier_generic_bonus:GetModifierSpellAmplify_Percentage()
   return self.spell_amp or 0
+end
+
+function modifier_generic_bonus:GetModifierManaBonus()
+  return self.bonus_mana or 0
 end
 
 function modifier_generic_bonus:GetAttributes()

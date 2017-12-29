@@ -8,17 +8,18 @@
     "ID"                                                  "3801"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_preemptive"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_reflex_core"
+      "01"                                                "item_crimson_guard_2;item_upgrade_core_2"
+      "02"                                                "item_crimson_guard_2;item_upgrade_core_3"
+      "03"                                                "item_crimson_guard_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Preemptive Reflect Core 1
   //=================================================================================================================
@@ -48,10 +49,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemCost"                                            "8550"
+    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive"
+    "ItemAliases"                                         "half damage reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -62,25 +63,30 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000"
+        "var_type"					  "FIELD_INTEGER"
+        "bonus_all_stats"				  "5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
+        "bonus_health"                                    "750"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "5"
+        "bonus_armor"                                     "9"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "50"
+        "bonus_health_regen"                              "14"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "50"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"

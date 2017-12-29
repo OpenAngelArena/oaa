@@ -2,6 +2,8 @@ LinkLuaModifier( "modifier_item_postactive_regen", "items/reflex/postactive_rege
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_postactive_3c = class(ItemBaseClass)
+item_postactive_4c = item_postactive_3c
+item_postactive_5c = item_postactive_3c
 
 function item_postactive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
