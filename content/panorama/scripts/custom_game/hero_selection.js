@@ -18,6 +18,11 @@ var iscm = false;
 var selectedherocm = 'empty';
 var isPicking = true;
 var currentHeroPreview = '';
+var stepsCompleted = {
+  2: 0,
+  3: 0
+};
+var lastPickIndex = 0;
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
@@ -175,8 +180,27 @@ function onPlayerStatChange (table, key, data) {
         currentPickIndex = data['currentstage'] + 1;
         currentPick = data['order'][currentPickIndex];
       }
+      if (currentPickIndex > lastPickIndex) {
+        stepsCompleted[currentPick.side]++;
+        lastPickIndex = currentPickIndex;
+      }
       $.Msg(currentPick);
+      $.Msg(stepsCompleted);
+
+      FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
+      FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
       FindDotaHudElement('CMStep' + currentPickIndex).AddClass('active');
+
+      FindDotaHudElement('CMRadiant').RemoveClass('Pick');
+      FindDotaHudElement('CMRadiant').RemoveClass('Ban');
+      FindDotaHudElement('CMDire').RemoveClass('Pick');
+      FindDotaHudElement('CMDire').RemoveClass('Ban');
+
+      if (currentPick.side === 2) {
+        FindDotaHudElement('CMRadiant').AddClass(currentPick.type);
+      } else {
+        FindDotaHudElement('CMDire').AddClass(currentPick.type);
+      }
 
       FindDotaHudElement('CaptainLockIn').RemoveClass('PickHero');
       FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
@@ -261,6 +285,19 @@ function ReloadCMStatus (data) {
   }
   // reset all data for people, who lost it
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  stepsCompleted = {
+    2: 0,
+    3: 0
+  };
+
+  var currentPick = null;
+  if (data['order'][data['currentstage']].hero === 'empty') {
+    currentPick = data['currentstage'];
+  } else {
+    currentPick = data['currentstage'] + 1;
+  }
+  var currentPickData = data['order'][currentPick];
+
   FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
   Object.keys(data['order']).forEach(function (nkey) {
     var obj = data['order'][nkey];
@@ -287,16 +324,29 @@ function ReloadCMStatus (data) {
     if (obj.hero && obj.hero !== 'empty') {
       FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
       FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
+
+      FindDotaHudElement('CMRadiant').RemoveClass('Pick');
+      FindDotaHudElement('CMRadiant').RemoveClass('Ban');
+      FindDotaHudElement('CMDire').RemoveClass('Pick');
+      FindDotaHudElement('CMDire').RemoveClass('Ban');
+    }
+
+    if (currentPick >= nkey) {
+      stepsCompleted[obj.side]++;
+      lastPickIndex = nkey;
     }
   });
-  var currentPick = null;
-  if (data['order'][data['currentstage']].hero === 'empty') {
-    currentPick = data['currentstage'];
-  } else {
-    currentPick = data['currentstage'] + 1;
-  }
+  $.Msg(stepsCompleted);
+  FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
+  FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
   if (currentPick < data['totalstages']) {
     FindDotaHudElement('CMStep' + currentPick).AddClass('active');
+
+    if (currentPickData.side === 2) {
+      FindDotaHudElement('CMRadiant').AddClass(currentPickData.type);
+    } else {
+      FindDotaHudElement('CMDire').AddClass(currentPickData.type);
+    }
   }
 }
 
