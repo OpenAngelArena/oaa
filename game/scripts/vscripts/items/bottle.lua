@@ -5,9 +5,10 @@ LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIF
 
 local special_bottles = {
   -- haste rune devs
-  [7131038] = 1,
-  -- [43305444] = 1,
+  [7131038] = 1, -- chrisinajar
+  [43305444] = 3, -- baumi
   -- golden tournament winners
+  -- OTA except for nael
   [124585666] = 2,
   [75435056] = 2,
   [136897804] = 2,
@@ -16,7 +17,8 @@ local special_bottles = {
 
 local bonusNames = {
   'haste',
-  'bounty'
+  'bounty',
+  'arcane'
 }
 
 --------------------------------------------------------------------------------
