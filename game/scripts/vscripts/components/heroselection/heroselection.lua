@@ -196,6 +196,15 @@ function HeroSelection:CMTimer (time, message, isReserveTime)
     end
   end
 
+  if isReserveTime then
+    if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS then
+      cmpickorder["reservedire"] = time
+    elseif cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS then
+      cmpickorder["reserveradiant"] = time
+    end
+    CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
+  end
+
   if time <= 0 then
     if cmpickorder["currentstage"] > 0 then
      if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["reservedire"] > 0 then
@@ -212,15 +221,6 @@ function HeroSelection:CMTimer (time, message, isReserveTime)
       HeroSelection:CMManager({hero = "random"})
       return
     end
-  end
-
-  if isReserveTime then
-    if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS then
-      cmpickorder["reservedire"] = time
-    elseif cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS then
-      cmpickorder["reserveradiant"] = time
-    end
-    CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
   end
 
   cmtimer = Timers:CreateTimer({
