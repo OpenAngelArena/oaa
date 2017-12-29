@@ -43,10 +43,14 @@ function item_infinite_bottle:OnSpellStart()
 end
 
 function item_infinite_bottle:GetAbilityTextureName()
+  if self.bonus then
+    return "bottle_" .. self.bonus
+  end
   if self.mod and not self.mod:IsNull() then
     local stacks = self.mod:GetStackCount()
     if stacks > 0 then
-      return "bottle_" .. bonusNames[self.mod:GetStackCount()]
+      self.bonus = bonusNames[self.mod:GetStackCount()]
+      return "bottle_" .. self.bonus
     end
   end
   return "item_bottle"
