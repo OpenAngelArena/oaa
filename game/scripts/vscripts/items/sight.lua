@@ -7,22 +7,23 @@ function item_far_sight:GetIntrinsicModifierName()
 end
 
 function item_far_sight:OnSpellStart()
-
-	local caster = self:GetCaster()
-	local target = self:GetCursorPosition()
-	if IsServer() then
-		AddFOWViewer(caster:GetTeam(),target,self:GetSpecialValueFor("reveal_radius"),self:GetSpecialValueFor("reveal_duration"),false)
-	end
-	--particle effect at cast location
-	 --if IsServer() then
-	--	SpawnEntiy()
-		--particle = ParticleManager:CreateParticle("particles/test_particle/dungeon_broodmother_debuff_explode_ring.vpcf", PATTACH_ABSORIGIN, caster)
-	--end
+  local caster = self:GetCaster()
+  local target = self:GetCursorPosition()
+  if IsServer() then
+    AddFOWViewer(caster:GetTeam(), target, self:GetSpecialValueFor("reveal_radius"), self:GetSpecialValueFor("reveal_duration"), false)
+  end
+  --particle effect at cast location
+  --  if IsServer() then
+  -- 	SpawnEntiy()
+  --   particle = ParticleManager:CreateParticle("particles/test_particle/dungeon_broodmother_debuff_explode_ring.vpcf", PATTACH_ABSORIGIN, caster)
+  -- end
 end
 
 item_far_sight_2 = item_far_sight
 item_far_sight_3 = item_far_sight
 item_far_sight_4 = item_far_sight
+
+--------------------------------------------------------------------------------
 
 modifier_item_far_sight = class(ModifierBaseClass)
 
@@ -39,16 +40,16 @@ function modifier_item_far_sight:IsPurgable()
 end
 
 function modifier_item_far_sight:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_far_sight:DeclareFunctions()
   local funcs  = {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
   return funcs
 end
