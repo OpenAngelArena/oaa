@@ -682,14 +682,26 @@ function Duels:SavePlayerState (hero)
     end
   end
 
+  local function last()
+    return true
+  end
+  local restoreItems = last
+
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil then
-      state.items[itemIndex] = {
-        cooldown = item:GetCooldownTimeRemaining()
-      }
+      local itemCooldown = item:GetCooldownTimeRemaining()
+      local lastRestore = restoreItems
+      restoreItems = function()
+        if not item:IsNull() then
+          item:EndCooldown()
+          item:StartCooldown(itemCooldown)
+        end
+        return lastRestore()
+      end
     end
   end
+  state.items = restoreItems
   return state
 end
 
@@ -714,13 +726,7 @@ function Duels:RestorePlayerState (hero, state)
     end
   end
 
-  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = hero:GetItemInSlot(itemIndex)
-    if item ~= nil and state.items[itemIndex] then
-      item:EndCooldown()
-      item:StartCooldown(state.items[itemIndex].cooldown)
-    end
-  end
+  state.items()
 
   if state.offsidesStacks > 0 then
     local modifier = hero:AddNewModifier(hero, nil, "modifier_offside", {})
