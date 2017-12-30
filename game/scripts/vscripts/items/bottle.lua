@@ -74,11 +74,7 @@ function modifier_bottle_texture_tracker:OnCreated()
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     DebugPrint(steamid)
 
-    self:SetStackCount(0)
-
-    if special_bottles[steamid] then
-      self:SetStackCount(special_bottles[steamid])
-    end
+    self:SetStackCount(special_bottles[steamid] or 0)
   end
 end
 
