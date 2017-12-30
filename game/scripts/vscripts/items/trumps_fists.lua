@@ -69,8 +69,10 @@ end
 
 function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
-    if kv.attacker == self:GetParent() and not kv.attacker:IsIllusion() then
-      kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+    local attacker = kv.attacker
+    local target = kv.target
+    if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
+      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
     end
   end
 end
