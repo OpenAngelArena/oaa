@@ -12,7 +12,9 @@ This is documentation for the debug printing system found in `game/scripts/vscri
 Keep in mind that files must be explicitly whitelisted to enable usage of `DebugPrint` and `DebugPrintTable`. The process for whitelisting files is explained just below.
 
 ## Enabling Printing
-By default, files won't be allowed to print debug information using `DebugPrint` and `DebugPrintTable`. Printing can be enabled by setting keys in the `Debug.EnabledModules` table to true.
+By default, files won't be allowed to print debug information using `DebugPrint` and `DebugPrintTable`. Printing can be enabled by calling `Debug:EnableDebugging()` in the file which you wish to enable printing for.
+
+If more control is necessary, one can disable and enable printing by modifying the keys in the `Debug.EnabledModules` table. Setting a key to `true` will enable printing, while setting it to `nil` will disable it.
 - The keys are strings of the filepaths to enable printing for, with : as the file separator.
 - \* can be used as the wildcard symbol, which will enable printing for all files in a folder and its subfolders.
 - `game/scripts/vscripts` and `game/scripts/vscripts/components` are both considered as root directories.
