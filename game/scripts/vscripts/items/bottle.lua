@@ -18,6 +18,7 @@ local special_bottles = {
   [53917791] = 1, -- Minnakht
   [103179022] = 1, -- Allan vbhg
   [114538910] = 1, -- Apisal
+  [53999591] = 1, -- carlosrpg
   -- golden tournament winners
   [124585666] = 2,
   [75435056] = 2,
