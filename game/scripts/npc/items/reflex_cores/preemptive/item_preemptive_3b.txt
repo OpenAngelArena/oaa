@@ -16,10 +16,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_preemptive_2b;item_upgrade_core_4"
-      "02"                                                "item_preemptive_2a;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // preemptive_3b
   //=================================================================================================================
@@ -46,10 +44,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25000"
+    "ItemCost"                                            "36550"
     "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive_3b"
+    "ItemAliases"                                         "heal damage reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -61,29 +59,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_all_stats"                                 "10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "bonus_health"                                    "1500"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
+        "bonus_armor"                                     "13"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
+        "bonus_health_regen"                              "27"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "50"
+        "damage_reduction"                                "100"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_as_healing"                               "50"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
