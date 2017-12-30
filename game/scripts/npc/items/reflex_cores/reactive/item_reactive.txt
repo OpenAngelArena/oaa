@@ -11,16 +11,17 @@
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "item_recipe"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_reactive"
     "ItemRequirements"
     {
-      "01"                                                "item_reflex_core"
+      "01"                                                "item_sphere_2;item_upgrade_core_2"
+      "02"                                                "item_sphere_2;item_upgrade_core_3"
+      "03"						                                    "item_sphere_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Reactive Reflex
   //=================================================================================================================
@@ -45,10 +46,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "10050"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;reactive"
+    "ItemAliases"                                         "invulnerability shard"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -59,22 +60,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000"
+        "bonus_all_stats"                                 "35 45 55"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "16 28 42"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "4.50 6.0 8.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "reactive_duration"                               ".75"
+        "reactive_duration"                               ".75 "
       }
     }
   }

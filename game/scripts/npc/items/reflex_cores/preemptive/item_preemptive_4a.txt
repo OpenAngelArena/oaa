@@ -1,40 +1,39 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_2b
+  // Recipe: preemptive_4a
   //=================================================================================================================
-  "item_recipe_preemptive_2b"
+  "item_recipe_preemptive_4a"
   {
-    "ID"                                                  "3806"   // unique ID
+    "ID"                                                  "8438"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive_2b"
+    "ItemResult"                                          "item_preemptive_4a"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive;item_upgrade_core_3"
-      "02"                                                "item_preemptive;item_upgrade_core_4"
+      "01"                                                "item_preemptive_3a;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // preemptive_2b
+  // preemptive_4a
   //=================================================================================================================
-  "item_preemptive_2b"
+  "item_preemptive_4a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3805"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8439"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/preemptive_2b"
-    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
+    "AbilityTextureName"                                  "custom/preemptive_3a"
+    "ScriptFile"                                          "items/reflex/preemptive_purge.lua"
     "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,10 +44,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16550"
-    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
+    "ItemCost"                                            "37000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "full damage reduction orb"
+    "ItemAliases"                                         "purge orb;purge crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -59,38 +58,33 @@
     {
       "01"
       {
-        "var_type"					  "FIELD_INTEGER"
-        "bonus_all_stats" 				  "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "25 32 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "10.0 15.0 30.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "11"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 5.0 7.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "19"
+        "bonus_mana"                                      "500 700 1000"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.2"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "0"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0"
+        "duration"                                        "6.0"
       }
     }
   }

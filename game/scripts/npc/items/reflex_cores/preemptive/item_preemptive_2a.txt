@@ -15,12 +15,11 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive;item_upgrade_core_2"
-      "02"                                                "item_preemptive;item_upgrade_core_3"
-      "03"                                                "item_preemptive;item_upgrade_core_4"
+      "01"                                                "item_lotus_orb_2;item_upgrade_core_2"
+      "02"                                                "item_lotus_orb_2;item_upgrade_core_3"
+      "03"                                                "item_lotus_orb_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // preemptive_2a
   //=================================================================================================================
@@ -36,8 +35,8 @@
     "ScriptFile"                                          "items/reflex/preemptive_purge.lua"
     "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -48,10 +47,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5000"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemCost"                                            "9000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive_2a;purge"
+    "ItemAliases"                                         "purge orb;purge crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -63,24 +62,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2000"
+        "bonus_armor"                                     "25 32 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "10.0 15.0 30.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 5.0 7.5"
       }
       "04"
+      {
+        "var_type"					  "FIELD_INTEGER"
+	"bonus_mana"					  "500 700 1000"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "0.2"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3.0"

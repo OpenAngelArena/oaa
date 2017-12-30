@@ -8,18 +8,17 @@
     "ID"                                                  "3807"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_preemptive_3a"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive_2a;item_upgrade_core_4"
-      "02"                                                "item_preemptive_2b;item_upgrade_core_4"
+      "01"                                                "item_preemptive_2a;item_upgrade_core_3"
+      "02"                                                "item_preemptive_2a;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // preemptive_3a
   //=================================================================================================================
@@ -35,7 +34,7 @@
     "FightRecapLevel"                                     "1"
 
     "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,10 +45,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25000"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive_3a;purge"
+    "ItemAliases"                                         "purge orb; purge crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -61,24 +60,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_armor"                                     "25 32 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "10.0 15.0 30.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 5.0 7.5"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500 700 1000"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "0.2"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"

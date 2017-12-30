@@ -15,6 +15,7 @@ require('libraries/timers')
 ------------------------------------------------------------------------
 
 item_preemptive_3c = class(ItemBaseClass)
+item_preemptive_4c = item_preemptive_3c
 
 function item_preemptive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"

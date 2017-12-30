@@ -1,54 +1,56 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Reactive Reflex 2b
+  // Recipe: Reactive Reflex 3a
   //=================================================================================================================
-  "item_recipe_reactive_2b"
+  "item_recipe_reactive_3a"
   {
-    "ID"                                                  "3817"    // unique ID
+    "ID"                                                  "3819"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reactive_2b"
+    "ItemResult"                                          "item_reactive_3a"
     "ItemRequirements"
     {
-      "01"                                                "item_reactive;item_upgrade_core_2"
-      "02"                                                "item_reactive;item_upgrade_core_3"
-      "03"                                                "item_reactive;item_upgrade_core_4"
+      "01"                                                "item_reactive_2a;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
-  // Reactive Reflex 2b
+  // Reactive Reflex 3a
   //=================================================================================================================
-  "item_reactive_2b"
+  "item_reactive_3a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3818"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3820"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/reactive_block_blink.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reactive_2b"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "0.5"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
+
+    "ItemPermanent"                                       "1"
+    "ItemInitialCharges"                                  "3"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "5000"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "38050"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;reactive_2b"
+    "ItemAliases"                                         "reflect shard"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -59,17 +61,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2000"
+        "bonus_all_stats"                                 "35 45 55"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10"
+        "bonus_health_regen"                              "16 28 42"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "10"
+        "bonus_mana_regen"                                "4.5 6.0 8.0"
       }
       "04"
       {
@@ -79,7 +81,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "1000"
+        "max_charges"                                     "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "20"
       }
     }
 

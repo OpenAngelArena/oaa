@@ -1,89 +1,88 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Reactive Reflex 2a
+  // Recipe: Postactive Reflex 4c
   //=================================================================================================================
-  "item_recipe_reactive_2a"
+  "item_recipe_postactive_4c"
   {
-    "ID"                                                  "3815"    // unique ID
+    "ID"                                                  "8437"        // unique ID
     "BaseClass"                                           "item_datadriven"
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reactive_2a"
+    "ItemResult"                                          "item_postactive_4c"
     "ItemRequirements"
     {
-      "01"                                                "item_reactive;item_upgrade_core_2"
-      "02"                                                "item_reactive;item_upgrade_core_3"
-      "03"                                                "item_reactive;item_upgrade_core_4"
+      "01"                                                "item_postactive_3c;item_upgrade_core_3"
+      "02"                                                "item_postactive_3c;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
-  // Reactive Reflex 2a
+  // Postactive Reflex 4c
   //=================================================================================================================
-  "item_reactive_2a"
+  "item_postactive_4c"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3816"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8434"                                                      // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityTextureName"                                  "custom/reactive_2a"
+    "ScriptFile"                                          "items/reflex/postactive_regen.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"                                  "custom/regen_crystal_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "20.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "5000"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
+    "ItemCost"                                            "18200"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;reactive_2"
+    "ItemAliases"                                         "regen crystal 4"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
+
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2000"
+        "bonus_health"                                    "1200 2000 2800"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10"
+        "bonus_strength"                                  "75 95 115"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "10"
+        "bonus_health_regen"                              "1000"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "0.75"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "5"
       }
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-      "particle"                                          "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-    }
+    // "precache"
+    // {
+    //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+    // }
   }
 }
