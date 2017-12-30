@@ -60,7 +60,7 @@ end
 
 --------------------------------------------------------------------------------
 
-Debug:EnableDebugging()
+--Debug:EnableDebugging()
 
 modifier_bottle_texture_tracker = class(ModifierBaseClass)
 
