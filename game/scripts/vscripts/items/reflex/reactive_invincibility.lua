@@ -8,7 +8,7 @@ function item_reflection_shard_1:GetIntrinsicModifierName()
 end
 
 function item_reflection_shard_1:OnSpellStart()
-  local duration = self:GetSpecialValueFor("reactive_duration")
+  local duration = self:GetSpecialValueFor("duration")
   local caster = self:GetCaster()
 
   caster:AddNewModifier(caster, self, "modifier_reactive_immunity", {duration = duration})

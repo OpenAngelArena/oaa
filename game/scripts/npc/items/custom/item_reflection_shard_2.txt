@@ -37,7 +37,7 @@
     "AbilityCooldown"                                     "10.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
@@ -67,7 +67,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.5 6.0 8.0"
+        "bonus_mana_regen"                                "4.50 6.0 8.0"
       }
       "04"
       {

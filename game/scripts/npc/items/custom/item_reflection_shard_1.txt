@@ -39,7 +39,7 @@
     "AbilityCooldown"                                     "10.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "1"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
 
 
@@ -75,7 +75,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "reactive_duration"                               ".75 "
+        "duration"                                        "0.75"
       }
     }
   }
