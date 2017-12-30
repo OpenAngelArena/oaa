@@ -16,9 +16,9 @@ local special_bottles = {
 }
 
 local bonusNames = {
-  'haste',
-  'bounty',
-  'arcane'
+  'custom/bottle_contributor',
+  'custom/bottle_tournament',
+  'custom/bottle_lotus'
 }
 
 --------------------------------------------------------------------------------
@@ -46,13 +46,13 @@ end
 
 function item_infinite_bottle:GetAbilityTextureName()
   if self.bonus then
-    return "bottle_" .. self.bonus
+    return self.bonus
   end
   if self.mod and not self.mod:IsNull() then
     local stacks = self.mod:GetStackCount()
     if stacks > 0 then
       self.bonus = bonusNames[self.mod:GetStackCount()]
-      return "bottle_" .. self.bonus
+      return self.bonus
     end
   end
   return "item_bottle"
