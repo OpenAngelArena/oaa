@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Reactive Reflex 2a
   //=================================================================================================================
-  "item_recipe_reactive_2a"
+  "item_recipe_reflection_shard_2"
   {
     "ID"                                                  "3815"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -13,17 +13,17 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reactive_2a"
+    "ItemResult"                                          "item_reflection_shard_2"
     "ItemRequirements"
     {
-      "01"                                                "item_reactive;item_upgrade_core_3"
-      "02"                                                "item_reactive;item_upgrade_core_4"
+      "01"                                                "item_reflection_shard_1;item_upgrade_core_3"
+      "02"                                                "item_reflection_shard_1;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
   // Reactive Reflex 2a
   //=================================================================================================================
-  "item_reactive_2a"
+  "item_reflection_shard_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
