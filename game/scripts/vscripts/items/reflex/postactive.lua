@@ -1,13 +1,13 @@
 LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive = class(ItemBaseClass)
+item_enrage_crystal_1 = class(ItemBaseClass)
 
-function item_postactive:GetIntrinsicModifierName()
+function item_enrage_crystal_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 
-function item_postactive:OnSpellStart()
+function item_enrage_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
   -- Tests if given modifier is a debuff and purgable with a basic dispel

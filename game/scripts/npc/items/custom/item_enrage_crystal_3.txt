@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Postactive Reflex 3b
   //=================================================================================================================
-  "item_recipe_postactive_3b"
+  "item_recipe_enrage_crystal_3"
   {
     "ID"                                                  "3833"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -13,16 +13,16 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_postactive_3b"
+    "ItemResult"                                          "item_enrage_crystal_3"
     "ItemRequirements"
     {
-      "01"                                                "item_postactive_2b;item_upgrade_core_4"
+      "01"                                                "item_enrage_crystal_2;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
   // Postactive Reflex 3b
   //=================================================================================================================
-  "item_postactive_3b"
+  "item_enrage_crystal_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------

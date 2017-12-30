@@ -49,7 +49,7 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_aeon_disk_2 = true,
     item_aeon_disk_3 = true,
     item_aeon_disk_4 = true,
-    item_aeon_disk_5 = true
+    item_aeon_disk_5 = true,
     item_black_king_bar_1 = true,
     item_black_king_bar_2 = true,
     item_black_king_bar_3 = true,
@@ -60,6 +60,9 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_charge_bkb_3 = true,
     item_charge_bkb_4 = true,
     item_charge_bkb_5 = true,
+    item_enrage_crystal_1 = true,
+    item_enrage_crystal_2 = true,
+    item_enrage_crystal_3 = true,
     item_hand_of_midas = true,
     item_hand_of_midas_2 = true,
     item_hand_of_midas_3 = true,
@@ -83,11 +86,8 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_pipe_3 = true,
     item_pipe_4 = true,
     item_pipe_5 = true,
-    item_postactive = true,
     item_postactive_2a = true,
-    item_postactive_2b = true,
     item_postactive_3a = true,
-    item_postactive_3b = true,
     item_preemptive = true,
     item_preemptive_2a = true,
     item_preemptive_2b = true,
@@ -112,7 +112,7 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_sphere_2 = true,
     item_sphere_3 = true,
     item_sphere_4 = true,
-    item_sphere_5 = true,
+    item_sphere_5 = true
   }
 
   if not bInterrupted then
