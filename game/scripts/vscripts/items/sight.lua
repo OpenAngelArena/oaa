@@ -38,6 +38,10 @@ function modifier_item_far_sight:IsPurgable()
   return false
 end
 
+function modifier_item_far_sight:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_far_sight:DeclareFunctions()
   local funcs  = {
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
