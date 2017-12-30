@@ -4,9 +4,20 @@ LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIF
 --------------------------------------------------------------------------------
 
 local special_bottles = {
-  -- haste rune devs
-  [7131038] = 1, -- chrisinajar
+  -- TP master, and Lord of the Lotus Orb
   [43305444] = 3, -- baumi
+  -- devs
+  [7131038] = 1, -- chrisinajar
+  [109151532] = 1, -- Chronophylos
+  [60408038] = 1, -- Trildar
+  [141335296] = 1, -- SquawkyArctangent
+  [56309069] = 1, -- imaGecko
+  [116407282] = 1, -- Haganeko
+  [123791730] = 1, -- Warpdragon
+  [98536810] = 1, -- Honeth
+  [53917791] = 1, -- Minnakht
+  [103179022] = 1, -- Allan vbhg
+  [114538910] = 1, -- Apisal
   -- golden tournament winners
   [124585666] = 2,
   [75435056] = 2,
