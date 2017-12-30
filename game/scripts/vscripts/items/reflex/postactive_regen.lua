@@ -1,15 +1,15 @@
 LinkLuaModifier( "modifier_item_postactive_regen", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_postactive_3c = class(ItemBaseClass)
-item_postactive_4c = item_postactive_3c
-item_postactive_5c = item_postactive_3c
+item_regen_crystal_1 = class(ItemBaseClass)
+item_regen_crystal_2 = item_regen_crystal_1
+item_regen_crystal_3 = item_regen_crystal_1
 
-function item_postactive_3c:GetIntrinsicModifierName()
+function item_regen_crystal_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 
-function item_postactive_3c:OnSpellStart()
+function item_regen_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, 'modifier_item_postactive_regen', {
     duration = self:GetSpecialValueFor( "duration" )
@@ -25,5 +25,5 @@ function modifier_item_postactive_regen:DeclareFunctions()
 end
 
 function modifier_item_postactive_regen:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor( "bonus_health_regen" )
+  return self:GetAbility():GetSpecialValueFor( "active_health_regen" )
 end
