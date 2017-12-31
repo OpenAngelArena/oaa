@@ -72,7 +72,7 @@ end
 
 --------------------------------------------------------------------------------
 
---Debug:EnableDebugging()
+Debug:EnableDebugging()
 
 modifier_bottle_texture_tracker = class(ModifierBaseClass)
 
@@ -84,7 +84,8 @@ function modifier_bottle_texture_tracker:OnCreated()
   if IsServer() then
     local playerID = parent:GetPlayerOwnerID()
     local steamid = PlayerResource:GetSteamAccountID(playerID)
-    DebugPrint(steamid)
+    local playerName = PlayerResource:GetPlayerName(playerID)
+    DebugPrint("Steam ID of " .. playerName .. ": " .. steamid)
 
     self:SetStackCount(special_bottles[steamid] or 0)
   end
