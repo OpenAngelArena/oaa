@@ -44,7 +44,7 @@ function modifier_fountain_attack:GetAuraSearchTeam()
 end
 
 function modifier_fountain_attack:GetAuraSearchType()
-  return self:GetAbility():GetAbilityTargetType()
+  return bit.bor(self:GetAbility():GetAbilityTargetType(), DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_fountain_attack:GetAuraEntityReject(entity)
