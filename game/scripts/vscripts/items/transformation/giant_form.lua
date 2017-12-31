@@ -53,28 +53,8 @@ function modifier_item_giant_form_grow:OnCreated( event )
   self.atkSpd = spell:GetSpecialValueFor( "giant_atkspd_bonus" )
   self.splashRadius = spell:GetSpecialValueFor( "giant_aoe" )
   self.splashDmg = spell:GetSpecialValueFor( "giant_splash" )
-
-  if IsServer() then
-    if not self.modelScale then
-      self.modelScale = parent:GetModelScale()
-      self.giantScale = spell:GetSpecialValueFor("giant_scale")
-    end
-    parent:SetModelScale(self.giantScale)
-  end
 end
 modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
-
---------------------------------------------------------------------------------
-
-function modifier_item_giant_form_grow:OnDestroy()
-  if IsServer() then
-    if self.modelScale then
-      local parent = self:GetParent()
-      parent:SetModelScale(self.modelScale + (parent:GetModelScale() - self.giantScale))
-      self.modelScale = nil
-    end
-  end
-end
 
 --------------------------------------------------------------------------------
 
@@ -98,7 +78,8 @@ function modifier_item_giant_form_grow:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_CAST_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE
+    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+    MODIFIER_PROPERTY_MODEL_SCALE
   }
 
   return funcs
@@ -161,6 +142,12 @@ function modifier_item_giant_form_grow:GetModifierMoveSpeed_Absolute()
   end
 
   return spell:GetSpecialValueFor("melee_move_speed")
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_giant_form_grow:GetModifierModelScale()
+  return self:GetAbility():GetSpecialValueFor("giant_scale")
 end
 
 --------------------------------------------------------------------------------
