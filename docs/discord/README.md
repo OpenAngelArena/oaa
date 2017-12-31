@@ -1,12 +1,12 @@
 # OAA Discord
 
-Updated 2017-12-05
+Updated 2017-12-31
 
 [< Table of Contents][0]
 
 ## Introduction
 
-The OAA Development team holds meetings and discusses development work using the [OAA Dev server][1]. Stop by and drop us a line in #general and we'll help you get started contributing! Help channels are for everyone so feel free to stop in and talk shop and post memes in our memes channel. The conversations on the Dev server are project related. Keep all such conversations in the chat as it keeps the channels hopping and you're more likely to get answers to your questions if everyone can read them. Please do not DM members about the project (creeping) - keep it in the chat!
+We have two discords dedicated to OAA. The [OAA Dev server][1] is a structured work environment where OAA contributors discuss various aspects of the project. Stop by and drop us a line in #general and we'll help you get started contributing! Help channels are for everyone so feel free to stop in and talk shop. These public Help channels are a great community resource. Feel free to ask project related questions - you're likely to get answers to your questions within a few minutes. Please do not DM or @ members you do not know (creeping) keep it in the public chat and you're more likely to get help!
 
 The [OAA Player server][2] is where players meet to find lobbies and play OAA, discuss strategies and share ideas, as well as report bugs. We're always looking for new teams for tournaments, more players for scrims, and welcome any and all constructive feedback. If you do submit a bug report, remember we have a [bug report template][3] that makes it easier for coders to troubleshoot the issue quickly.
 
