@@ -36,7 +36,7 @@ function modifier_fountain_attack:GetAuraRadius()
 end
 
 function modifier_fountain_attack:GetAuraSearchFlags()
-  return self:GetAbility():GetAbilityTargetFlags()
+  return bit.bor(self:GetAbility():GetAbilityTargetFlags(), DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
 function modifier_fountain_attack:GetAuraSearchTeam()
