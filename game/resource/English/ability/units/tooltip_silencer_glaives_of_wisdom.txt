@@ -1,8 +1,8 @@
 //=============================================================================
 // Silencer Glaives of Wisdom
 //=============================================================================
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa"                                   "Glaives of Wisdom"
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Lore"                              "Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description"                       "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence.\n\nUpgradable by Aghanim's Scepter."
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_intellect_damage_pct"              "%INT TO DAMAGE:"
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_aghanim_description"               "Causes Glaives to pierce Spell Immunity and deal 100% more damage against silenced units."
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa"                                   "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom}"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Lore"                              "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Lore}"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description"                       "<font color='#FFA500'>Glaives of Wisdom deals physical damage.</font>\n#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Description}"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_intellect_damage_pct"              "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_intellect_damage_pct}"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_aghanim_description"               "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_aghanim_description}"
