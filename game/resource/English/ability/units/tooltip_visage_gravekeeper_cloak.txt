@@ -2,14 +2,14 @@
 // Visage Gravekeepers Cloak oaa
 //=============================================================================
 
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa"        "Gravekeeper's Cloak"
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Description"  "Visage generates a layered barrier that protects him from damage.  If he receives damage from a player, one layer is removed, and takes time to recover."
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Lore"     "Visage's tough scales share equal properties of ghost and stone, making it nearly impervious to blade and magical assault."
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Note0"      "Each time Visage receives damage greater than 50 that was not self-inflicted and was from a player owned source, a layer is removed."
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_damage_reduction""%DAMAGE REDUCTION PER LAYER:"
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_max_layers"   "MAX LAYERS:"
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_recovery_time"  "LAYER RECOVERY TIME:"
-    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_minimum_damage" "MINIMUM DAMAGE:"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa"                      "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Description"          "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_Description}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Lore"                 "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_Lore}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_Note0"                "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_Note0}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_damage_reduction"     "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_damage_reduction}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_max_layers"           "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_max_layers}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_recovery_time"        "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_recovery_time}"
+    "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_minimum_damage"       "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_minimum_damage}"
 
-    "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa"               "Gravekeeper's Cloak"
-    "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_Description"         "Gaining bonus armor and bonus magic damage resistance per stack."
+    "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa"                     "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak}"
+    "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_Description"         "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_Description}"

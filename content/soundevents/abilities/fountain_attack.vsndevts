@@ -1,31 +1,18 @@
-"Abilities.Fountain_Attack.Cast"
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
 {
-    "operator_stacks"
-    {
-        "update_stack"
-        {
-            "reference_operator"
-            {
-                "operator"              "sos_reference_stack"
-                "reference_stack"       "dota_src1_3d"
-                "operator_variables"
-                {
-                    "vsnd_files"
-                    {
-                        "value"
-                        {
-                              "value0"        "sounds/abilities/fountain_attack.vsnd"
-                        }
-                    }
-                    "volume"            {   "value"     "100.00000"  }
-                    "pitch_rand_min"    {   "value"     "0.00000"  }
-                    "pitch_rand_max"    {   "value"     "0.000000"  }
-                    "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "100.00000" }
-                    "distance_max"      {   "value"     "1600.000"  }
-                    "event_type"        {   "value"     "1.000000"  }
-                }
-            }
-        }
-    }
+  Abilities.Fountain_Attack.Cast = {
+    type = "dota_src1_3d"
+    vsnd_files =
+    [
+      "sounds/abilities/fountain_attack.vsnd"
+    ]
+    volume = "8.000000"
+		pitch_rand_min = "0.000000"
+		pitch_rand_max = "0.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+    distance_max = "1600.000"
+    mixgroup = "Weapons"
+  }
 }

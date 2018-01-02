@@ -24,13 +24,16 @@ local special_bottles = {
   [75435056] = 2,
   [136897804] = 2,
   [57898114] = 2,
-  [89367798] = 2
+  [89367798] = 2,
+  -- timo
+  [55159483] = 4
 }
 
 local bonusNames = {
   'custom/bottle_contributor',
   'custom/bottle_tournament',
-  'custom/bottle_lotus'
+  'custom/bottle_lotus',
+  'custom/bottle_timo'
 }
 
 --------------------------------------------------------------------------------
@@ -72,7 +75,7 @@ end
 
 --------------------------------------------------------------------------------
 
---Debug:EnableDebugging()
+Debug:EnableDebugging()
 
 modifier_bottle_texture_tracker = class(ModifierBaseClass)
 
@@ -84,7 +87,8 @@ function modifier_bottle_texture_tracker:OnCreated()
   if IsServer() then
     local playerID = parent:GetPlayerOwnerID()
     local steamid = PlayerResource:GetSteamAccountID(playerID)
-    DebugPrint(steamid)
+    local playerName = PlayerResource:GetPlayerName(playerID)
+    DebugPrint("Steam ID of " .. playerName .. ": " .. steamid)
 
     self:SetStackCount(special_bottles[steamid] or 0)
   end

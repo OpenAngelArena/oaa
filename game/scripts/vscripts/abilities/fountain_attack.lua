@@ -36,7 +36,7 @@ function modifier_fountain_attack:GetAuraRadius()
 end
 
 function modifier_fountain_attack:GetAuraSearchFlags()
-  return self:GetAbility():GetAbilityTargetFlags()
+  return bit.bor(self:GetAbility():GetAbilityTargetFlags(), DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
 function modifier_fountain_attack:GetAuraSearchTeam()
@@ -44,7 +44,7 @@ function modifier_fountain_attack:GetAuraSearchTeam()
 end
 
 function modifier_fountain_attack:GetAuraSearchType()
-  return self:GetAbility():GetAbilityTargetType()
+  return bit.bor(self:GetAbility():GetAbilityTargetType(), DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_fountain_attack:GetAuraEntityReject(entity)
