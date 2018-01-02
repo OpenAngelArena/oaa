@@ -107,6 +107,18 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
+  local core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
+  
+  if(bossTier==1){
+	core = CreateItem("item_upgrade_core2", bossHandle, bossHandle)
+  } else if(bossTier==2){
+	core = CreateItem("item_upgrade_core3", bossHandle, bossHandle)
+  } else if(bossTier>=3){
+	core = CreateItem("item_upgrade_core4", bossHandle, bossHandle)
+  }
+  
+  bossHandle:AddItem(core)
+  
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
   if resistance then
     DebugPrint('Leveling up the boss resistance manager')
