@@ -14,8 +14,12 @@
 		"Model"						    "models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
 		"SoundSet"					  "DireHound"
 		"Level"						    "1"
+		"IsAncient"					"1"
 		"ModelScale" 				  ".67"
 		"IsNeutralUnitType"	  "1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -32,8 +36,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"35"
-		"AttackDamageMax"			"40"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"400"
 		"AttackRate"				"1.45"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"500"
@@ -59,7 +63,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"45"
+		"StatusHealth"				"1500"
 		"StatusHealthRegen"			"0.5"
 		"StatusMana"				"100"
 		"StatusManaRegen"			"1"
@@ -71,7 +75,7 @@
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

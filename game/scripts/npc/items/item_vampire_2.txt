@@ -1,0 +1,101 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Vampire 2
+  //=================================================================================================================
+  "item_recipe_vampire_2"
+  {
+
+    "ID"                                                  "9456"       // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "BaseClass"                                           "item_datadriven"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_vampire_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_vampire;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Vampire 2
+  //=================================================================================================================
+  "item_vampire_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "9457"       // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/transformation/vampire.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/vampire_2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "8.0"
+    "AbilitySharedCooldown"                               "vampire"
+    "AbilityTextureName"                                  "custom/bloodstone"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_vampire_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "38500"
+    "ItemShopTags"                                        "damage;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "8.0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "75 100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "150 225"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "40 45"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_lifesteal_percent"                        "100 150"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second_pct"                           "8"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ticks_per_second"                                "4"
+      }
+    }
+    "precache"
+    {
+      "particle"                  "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf"
+    }
+  }
+}

@@ -1,6 +1,8 @@
-var after = require('after');
-var getTranslations = require('./parse-translation');
-var luaEntitiesUtil = require('./lua-entities-util');
+const request = require('request');
+const parseKV = require('parse-kv');
+const after = require('after');
+const getTranslations = require('./parse-translation');
+const luaEntitiesUtil = require('./lua-entities-util');
 
 module.exports = {
   findMissingTooltips: findMissingTooltips
@@ -20,88 +22,97 @@ if (require.main === module) {
 }
 
 function findMissingTooltips (cb) {
-  var translations = getTranslations(true);
-  translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
-    return name.toLowerCase();
-  });
-  var result = [];
-
-  var done = after(3, function (err) {
-    cb(err, result);
-  });
-
-  luaEntitiesUtil.findAllUnits(function (err, data) {
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+  }, function (err, dotaEnglish) {
     if (err) {
       console.log(err);
       return done(err);
     }
-    data.map(function (name) {
-      if (translations.indexOf(name) === -1) {
-        console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + name + '"');
-        result.push([name, name]);
-      }
+    dotaEnglish = parseKV(dotaEnglish.body);
+
+    var translations = getTranslations(true, false, dotaEnglish);
+    translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
+      return name.toLowerCase();
     });
-    done();
-  });
+    var result = [];
 
-  luaEntitiesUtil.findAllAbilities(function (err, data) {
-    if (err) {
-      console.log(err);
-      return done(err);
-    }
-    data.map(function (name) {
-      var prefix = 'DOTA_Tooltip_Ability_';
-      var title = prefix + name;
-      var description = prefix + name + '_description';
-
-      title = title.toLowerCase();
-      description = description.toLowerCase();
-
-      if (translations.indexOf(title) === -1) {
-        console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
-        result.push([name, title]);
-      } else {
-        // console.log(translations.lang.Tokens.values[title]);
-      }
-      if (translations.indexOf(description) === -1) {
-        console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
-        result.push([name, description]);
-      }
+    var done = after(3, function (err) {
+      cb(err, result);
     });
-    done();
-  });
 
-  luaEntitiesUtil.findAllItems(function (err, data) {
-    if (err) {
-      console.log(err);
-      return done(err);
-    }
-    data.map(function (name) {
-      var prefix = 'DOTA_Tooltip_';
-      var requiredTitle = !name.startsWith('item_recipe');
-      var requiredDescription = (name.startsWith('item_') && !name.startsWith('item_recipe'));
-
-      if (name.startsWith('item_')) {
-        prefix = prefix + 'Ability_';
+    luaEntitiesUtil.findAllUnits(function (err, data) {
+      if (err) {
+        console.log(err);
+        return done(err);
       }
-      var title = prefix + name;
-      var description = prefix + name + '_description';
-
-      title = title.toLowerCase();
-      description = description.toLowerCase();
-
-      if (translations.indexOf(title) === -1 && requiredTitle) {
-        console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
-        result.push([name, title]);
-      } else {
-        // console.log(translations.lang.Tokens.values[title]);
-      }
-      if (translations.indexOf(description) === -1 && requiredDescription) {
-        console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
-        result.push([name, description]);
-      }
+      data.map(function (name) {
+        if (translations.indexOf(name) === -1) {
+          console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + name + '"');
+          result.push([name, name]);
+        }
+      });
+      done();
     });
-    done();
+
+    luaEntitiesUtil.findAllAbilities(function (err, data) {
+      if (err) {
+        console.log(err);
+        return done(err);
+      }
+      data.map(function (name) {
+        var prefix = 'DOTA_Tooltip_Ability_';
+        var title = prefix + name;
+        var description = prefix + name + '_description';
+
+        title = title.toLowerCase();
+        description = description.toLowerCase();
+
+        if (translations.indexOf(title) === -1) {
+          console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
+          result.push([name, title]);
+        } else {
+          // console.log(translations.lang.Tokens.values[title]);
+        }
+        if (translations.indexOf(description) === -1) {
+          console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
+          result.push([name, description]);
+        }
+      });
+      done();
+    });
+
+    luaEntitiesUtil.findAllItems(function (err, data) {
+      if (err) {
+        console.log(err);
+        return done(err);
+      }
+      data.map(function (name) {
+        var prefix = 'DOTA_Tooltip_';
+        var requiredTitle = !name.startsWith('item_recipe');
+        var requiredDescription = (name.startsWith('item_') && !name.startsWith('item_recipe'));
+
+        if (name.startsWith('item_')) {
+          prefix = prefix + 'Ability_';
+        }
+        var title = prefix + name;
+        var description = prefix + name + '_description';
+
+        title = title.toLowerCase();
+        description = description.toLowerCase();
+
+        if (translations.indexOf(title) === -1 && requiredTitle) {
+          console.log(name, 'is missing a title', Array(45 - name.length).join(' '), '- Add the key: "' + title + '"');
+          result.push([name, title]);
+        } else {
+          // console.log(translations.lang.Tokens.values[title]);
+        }
+        if (translations.indexOf(description) === -1 && requiredDescription) {
+          console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
+          result.push([name, description]);
+        }
+      });
+      done();
+    });
   });
 }
-

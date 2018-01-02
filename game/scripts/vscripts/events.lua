@@ -377,7 +377,10 @@ function GameMode:OnConnectFull(keys)
   local ply = EntIndexToHScript(entIndex)
 
   -- The Player ID of the joining player
-  local playerID = ply:GetPlayerID()
+  if ply then
+    local playerID = ply:GetPlayerID()
+    -- do stuff?
+  end
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity

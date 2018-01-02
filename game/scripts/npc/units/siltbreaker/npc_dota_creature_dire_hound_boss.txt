@@ -15,8 +15,12 @@
 		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
 		"SoundSet"					"Hero_Lycan"
 		"Level"						"1"
+		"IsAncient"					"1"
 		"ModelScale" 				"0.9"
 		"IsNeutralUnitType"			"1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -60,7 +64,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"150"
+		"StatusHealth"				"2500"
 		"StatusHealthRegen"			"0.5"
 		"StatusMana"				"350"
 		"StatusManaRegen"			"1"
@@ -72,7 +76,7 @@
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

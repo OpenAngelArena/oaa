@@ -14,8 +14,6 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
 
-        "IsOnCastBar"                   "0"
-
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"              "0.4"
@@ -50,7 +48,7 @@
             "03"
             {
                 "var_type"          "FIELD_INTEGER"
-                "bonus_damage"      "35"
+                "bonus_damage"      "350"
             }
             "04"
             {

@@ -16,7 +16,11 @@
 		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
 		"SoundSet"					"n_creep_Melee"
 		"Level"						"1"
+		"IsAncient"                 "1"
 		"ModelScale" 				"1.1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -59,7 +63,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2400"
+		"StatusHealth"				"7500"
 		"StatusHealthRegen"			"5"
 		"StatusMana"				"1200"
 		"StatusManaRegen"			"10"
@@ -71,7 +75,7 @@
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -81,29 +85,6 @@
 		//----------------------------------------------------------------
 		"Creature"
 		{
-			//Basic AI State
-			//------------------------------------------------------------
-			"DefaultState"				"Invade"
-			"States"
-			{
-				"Invade"
-				{
-					"Name"				"Invade"
-					"Aggression"		"100.0"
-					"Avoidance"			"0.0"
-					"Support"			"0.0"
-				}
-			}
-
-			//Level Up Parameters
-			//------------------------------------------------------------
-			"HPGain"					"75"
-			"DamageGain"				"15"
-			"ArmorGain"					"1"
-			"MagicResistGain"			"1"
-			"MoveSpeedGain"				"1"
-			"BountyGain"				"5"
-			"XPGain"					"20"
 		}
     "precache"
     {

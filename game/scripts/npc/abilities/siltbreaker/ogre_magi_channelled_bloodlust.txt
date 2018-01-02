@@ -18,8 +18,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 
-        "IsOnCastBar"                   "0"
-
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "650"
@@ -52,12 +50,12 @@
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_movement_speed"  "50"
+                "bonus_movement_speed"  "100"
             }
             "04"
             {
                 "var_type"              "FIELD_INTEGER"
-                "bonus_attack_speed"    "20"
+                "bonus_attack_speed"    "100"
             }
             "05"
             {

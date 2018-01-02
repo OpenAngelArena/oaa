@@ -18,8 +18,21 @@ end
 
 --------------------------------------------------------------------------------
 
+function FindOgreBoss()
+  local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+  for _,friendly in pairs ( friendlies ) do
+    if friendly ~= nil then
+      if friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" then
+        return friendly
+      end
+    end
+  end
+end
+
+--------------------------------------------------------------------------------
+
 function OgreSeerThink()
-	if ( not thisEntity:IsAlive() ) then
+	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
 		return -1
 	end
 
@@ -29,41 +42,67 @@ function OgreSeerThink()
 
   if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-		thisEntity.bInitialized = true
-	end
+    thisEntity.bInitialized = true
+    thisEntity.bHasAgro = false
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    thisEntity.hOgreBoss = FindOgreBoss()
+  end
+
+  if thisEntity.hOgreBoss == nil or not thisEntity.hOgreBoss:IsAlive() then
+    thisEntity.hOgreBoss = FindOgreBoss()
+  end
+
+	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+
+  --Agro
+  if (IsValidEntity(thisEntity.hOgreBoss) and thisEntity.hOgreBoss:IsAlive() and not thisEntity.hOgreBoss.bHasAgro and thisEntity.bHasAgro and #enemies == 0) then
+    DebugPrint("Ogre Seer Deagro")
+    thisEntity.bHasAgro = false
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    return 2
+  elseif thisEntity.hOgreBoss==nil or not thisEntity.hOgreBoss:IsAlive() or (fHpPercent < 100 and #enemies > 0) or (thisEntity.hOgreBoss~=nil and thisEntity.hOgreBoss.bHasAgro) then
+    if not thisEntity.bHasAgro then
+      DebugPrint("Ogre Seer Agro")
+      thisEntity.bHasAgro = true
+      thisEntity:SetIdleAcquire(true)
+      thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
+    end
+  end
+
+  -- Leash
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+    return 1
+  end
 
 	if thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsChanneling() then
 		return 0.5
 	end
 
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-
-	local bIgniteReady = ( #enemies > 0 and thisEntity.IgniteAbility ~= nil and thisEntity.IgniteAbility:IsFullyCastable() )
-
-	if thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsFullyCastable() then
-		local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
-		for _,friendly in pairs ( friendlies ) do
-			if friendly ~= nil then
-				if ( friendly:GetUnitName() == "npc_dota_creature_ogre_tank" ) or ( friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" ) then
-					local fDist = ( friendly:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-					local fCastRange = thisEntity.BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
-					if ( fDist <= fCastRange ) and ( ( #enemies > 0 ) or ( friendly:GetAggroTarget() ) ) then
-            return Bloodlust( friendly )
-					elseif ( fDist > 600 ) and ( fDist < 1500 ) and (friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss") and ( #enemies > 0 )  then
-						if bIgniteReady == false then
-              return Approach( friendly )
-          elseif #enemies == 0 then
-            RetreatHome()
-            return 1
-						end
-					end
-				end
-			end
-		end
-  end
+  local bIgniteReady = ( #enemies > 0 and thisEntity.IgniteAbility ~= nil and thisEntity.IgniteAbility:IsFullyCastable() )
+  local bBloodlustReady = ( thisEntity.hOgreBoss ~= nil and thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsFullyCastable() )
+  local fBloodlustCastRange = thisEntity.BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
 
 	if bIgniteReady then
 		return IgniteArea( enemies[ RandomInt( 1, #enemies ) ] )
+	end
+
+  if bBloodlustReady then
+    local fDistanceToOgreBoss = ( thisEntity.hOgreBoss:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
+    -- If can cast bloodlust do it
+    if ( fDistanceToOgreBoss <= fBloodlustCastRange )   then
+      return Bloodlust( thisEntity.hOgreBoss )
+    -- If cannot cast try to ignite first, then approach ogre
+    elseif ( fDistanceToOgreBoss > 600 ) and ( fDistanceToOgreBoss < 1500 ) and ( not bIgniteReady )  then
+      return Approach( thisEntity.hOgreBoss )
+    end
 	end
 
 	local fFuzz = RandomFloat( -0.1, 0.1 ) -- Adds some timing separation to these seers
@@ -73,6 +112,7 @@ end
 --------------------------------------------------------------------------------
 
 function Approach( hUnit )
+  print("Approach")
 	local vToUnit = hUnit:GetOrigin() - thisEntity:GetOrigin()
 	vToUnit = vToUnit:Normalized()
 
@@ -88,37 +128,25 @@ end
 --------------------------------------------------------------------------------
 
 function Bloodlust( hUnit )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = thisEntity.BloodlustAbility:entindex(),
-		TargetIndex = hUnit:entindex(),
-		Queue = false,
-	})
-
+  thisEntity:CastAbilityOnTarget( hUnit, thisEntity.BloodlustAbility, thisEntity:entindex() )
 	return 1
 end
 
 --------------------------------------------------------------------------------
 
 function IgniteArea( hEnemy )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.IgniteAbility:entindex(),
-		Position = hEnemy:GetOrigin(),
-		Queue = false,
-	})
-
-	return 0.55
+  thisEntity:CastAbilityOnPosition( hEnemy:GetOrigin(), thisEntity.IgniteAbility, thisEntity:entindex() )
+	return 1
 end
 
 --------------------------------------------------------------------------------
 
 function RetreatHome()
+  print("RetreatHome Ogre Seer")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
-	})
+  })
+  return 1
 end

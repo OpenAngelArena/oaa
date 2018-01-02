@@ -24,7 +24,10 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_boss_charger",
     },
-    "npc_dota_boss_tier_4",
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },
@@ -32,7 +35,7 @@ Bosses = {
   {
     {
       "npc_dota_boss_simple_1", -- Juxtapose, Geostrike
-      "npc_dota_boss_simple_5", -- Great Cleave
+      "npc_dota_boss_simple_5",
     },
     {
       "npc_dota_boss_twin",
@@ -44,7 +47,10 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_boss_charger",
     },
-    "npc_dota_boss_tier_4",
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },
@@ -59,7 +65,10 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_boss_charger",
     },
-    "npc_dota_boss_tier_4",
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },
@@ -69,7 +78,10 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_boss_charger",
     },
-    "npc_dota_boss_tier_4",
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
     "npc_dota_boss_tier_5",
     "npc_dota_boss_stopfightingyourself"
   },

@@ -12,8 +12,21 @@ function Spawn( entityKeyValues )
 
 	thisEntity.SmashAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_melee_smash" )
 	thisEntity.JumpAbility = thisEntity:FindAbilityByName( "ogre_tank_boss_jump_smash" )
+	thisEntity.OgreSummonSeers = { }
 
 	thisEntity:SetContextThink( "OgreTankBossThink", OgreTankBossThink, 1 )
+end
+
+function FrendlyHasAgro()
+  for i, hSummonedUnit in ipairs( thisEntity.OgreSummonSeers ) do
+    if ( IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro) then
+      local fHpPercent = (hSummonedUnit:GetHealth() / hSummonedUnit:GetMaxHealth()) * 100
+      if fHpPercent < 100 then
+        return true
+      end
+		end
+  end
+  return false
 end
 
 function OgreTankBossThink()
@@ -28,36 +41,49 @@ function OgreTankBossThink()
 	if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
+    thisEntity.bHasAgro = false
     SpawnAllies()
 	end
 
-	-- Are we too far from our initial spawn position?
-	local fDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if fDist > 2000 then
-		RetreatHome()
-		return 2.0
-	end
 
-	local nEnemiesRemoved = 0
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	for i = 1, #enemies do
+  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES , FIND_CLOSEST, false )
+  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+
+  --Agro
+  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
+    DebugPrint("Ogre Boss Deagro")
+    thisEntity.bHasAgro = false
+    return 2
+  elseif (fHpPercent < 100 and #enemies > 0) or FrendlyHasAgro() then
+    if not thisEntity.bHasAgro then
+      DebugPrint("Ogre Boss Agro")
+      thisEntity.bHasAgro = true
+    end
+  end
+
+  -- Leash
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+    return 1
+  end
+
+	local nCloseEnemies = 0
+  for i = 1, #enemies do
 		local enemy = enemies[i]
 		if enemy ~= nil then
 			local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 			if flDist < 300 then
-				nEnemiesRemoved = nEnemiesRemoved + 1
+				nCloseEnemies = nCloseEnemies + 1
 				table.remove( enemies, i )
 			end
 		end
-	end
+  end
 
-	if thisEntity.JumpAbility ~= nil and thisEntity.JumpAbility:IsFullyCastable() and nEnemiesRemoved > 0 then
+	if thisEntity.JumpAbility ~= nil and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies > 0 then
 		return Jump()
-	end
-
-	if #enemies == 0 then
-		RetreatHome()
-		return 1
 	end
 
 	if thisEntity.SmashAbility ~= nil and thisEntity.SmashAbility:IsFullyCastable() then
@@ -74,8 +100,14 @@ function SpawnAllies()
   local posTopRight = thisEntity:GetAbsOrigin()
   posTopRight.y = posTopRight.y + 400
   posTopRight.x = posTopRight.x + 400
-  local ally1 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopLeft, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
-  local ally2 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopRight, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
+  local ally1 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopLeft, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  local ally2 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopRight, true, nil, nil, DOTA_TEAM_NEUTRALS)
+
+  table.insert(thisEntity.OgreSummonSeers, ally1)
+  table.insert(thisEntity.OgreSummonSeers, ally2)
+
+  ally2:AddItem(CreateItem("item_heart", ally2, ally2))
+  ally1:AddItem(CreateItem("item_heart", ally1, ally1))
 end
 
 function Jump()
@@ -85,7 +117,7 @@ function Jump()
 		AbilityIndex = thisEntity.JumpAbility:entindex(),
 		Queue = false,
 	})
-  return 3 / thisEntity:GetHasteFactor()
+  return 3
 end
 
 function Smash( enemy )
@@ -106,14 +138,16 @@ function Smash( enemy )
 		Queue = false,
 	})
 
-	return 3 / thisEntity:GetHasteFactor()
+  return thisEntity.SmashAbility:GetPlaybackRateOverride()
 end
 
 function RetreatHome()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos
-	})
+		Position = thisEntity.vInitialSpawnPos,
+		Queue = false,
+  })
+  return 2
 end
 

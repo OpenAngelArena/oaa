@@ -10,7 +10,15 @@ Map building requires using Hammer, included in the Dota 2 Tools. Hammer is a to
 
 ## Topics
 
-1. [Blink Blockers][1]
+1. [Tile Editor][1]
+2. [Advanced Editing][2]
+3. [Tilesets][3]
+4. [Prefabs][4]
+5. [Blink Blockers][5]
 
 [0]: README.md
-[1]: blink_block.md
+[1]: tile_editor.md
+[2]: advanced.md
+[3]: tilesets.md
+[4]: prefabs.md
+[5]: blink_block.md

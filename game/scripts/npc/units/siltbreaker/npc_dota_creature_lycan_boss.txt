@@ -27,13 +27,14 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"lycan_boss_summon_wolves"
-		"Ability2"					"lycan_boss_shapeshift"
-		"Ability3"					"lycan_boss_claw_lunge"
-		"Ability4"					"lycan_boss_claw_attack"
-		"Ability5"					"lycan_boss_rupture_ball"
+		"Ability1"					        "lycan_boss_summon_wolves"
+		"Ability2"					        "lycan_boss_shapeshift"
+		"Ability3"					        "lycan_boss_claw_lunge"
+		"Ability4"					        "lycan_boss_claw_attack"
+		"Ability5"					        "lycan_boss_rupture_ball"
 		"Ability6"                  "boss_resistance"
 		"Ability7"                  "boss_cliffwalk"
+		"Ability8"                  "siltbreaker_boss_immunity"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -70,19 +71,19 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"8500"
+		"StatusHealth"				"6500"
 		"StatusHealthRegen"			"10"
 		"StatusMana"				"2500"
 		"StatusManaRegen"			"5"
 
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"800"
-		"VisionNighttimeRange"		"800"
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

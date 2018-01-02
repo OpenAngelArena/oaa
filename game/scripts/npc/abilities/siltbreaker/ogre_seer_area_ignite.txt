@@ -15,8 +15,6 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
 
-        "IsOnCastBar"                   "0"
-
         "MaxLevel"                      "1"
 
          // Casting
@@ -45,7 +43,7 @@
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "burn_damage"       "200"
+                "burn_damage"       "1000"
             }
 
             "03"

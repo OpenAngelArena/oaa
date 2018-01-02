@@ -8,19 +8,17 @@
     "ID"                                                  "3806"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_preemptive_2b"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive;item_upgrade_core_2"
-      "02"                                                "item_preemptive;item_upgrade_core_3"
-      "03"                                                "item_preemptive;item_upgrade_core_4"
+      "01"                                                "item_preemptive;item_upgrade_core_3"
+      "02"                                                "item_preemptive;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // preemptive_2b
   //=================================================================================================================
@@ -47,10 +45,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5000"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemCost"                                            "16550"
+    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflex;preemptive_2b"
+    "ItemAliases"                                         "full damage reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -61,30 +59,35 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2000"
+        "var_type"					  "FIELD_INTEGER"
+        "bonus_all_stats" 				  "7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10"
+        "bonus_health"                                    "1000"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "10"
+        "bonus_armor"                                     "11"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
+        "bonus_health_regen"                              "19"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "0"
+        "damage_reduction"                                "100"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_as_healing"                               "0"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"

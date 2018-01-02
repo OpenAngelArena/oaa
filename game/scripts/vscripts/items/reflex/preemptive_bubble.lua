@@ -15,6 +15,7 @@ require('libraries/timers')
 ------------------------------------------------------------------------
 
 item_preemptive_3c = class(ItemBaseClass)
+item_preemptive_4c = item_preemptive_3c
 
 function item_preemptive_3c:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -128,6 +129,12 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
   end
 
   foreach(ApplyBlockModifier, iter(alliedUnitsInBubble))
+end
+
+if IsServer() then
+  function modifier_item_preemptive_bubble_aura_block:OnDestroy()
+    UTIL_Remove(self:GetParent())
+  end
 end
 
 -- function modifier_item_preemptive_bubble_aura_block:GetAuraRadius()

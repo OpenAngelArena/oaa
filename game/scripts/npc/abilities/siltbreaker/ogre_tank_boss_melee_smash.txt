@@ -16,11 +16,9 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
 
-        "IsOnCastBar"                   "0"
-
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "583" // regular version: 500
+        "AbilityCastRange"              "540" // regular version: 500
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"   // Activity
         "AnimationPlaybackRate"         "1.0"                       // Animation speed multiplier
         "AnimationIgnoresModelScale"    "1"

@@ -28,7 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3246"       // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/stoneskin.lua"
+    "ScriptFile"                                          "items/transformation/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
     // Stats
@@ -38,6 +38,7 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySharedCooldown"                               "stoneskin"
+    "AbilityCooldown"                                     "8.0"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_stoneskin"
@@ -99,16 +100,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "stone_resist"                                    "10 15"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "start_delay"                                     "1.5"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_after_delay"                            "2"
       }
     }
   }

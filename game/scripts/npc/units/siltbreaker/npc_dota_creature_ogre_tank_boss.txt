@@ -17,16 +17,18 @@
 		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
 		"Level"						"1"
 		"ModelScale" 				"2.1"
-		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
 
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"ogre_tank_boss_melee_smash"
 		"Ability2"					"ogre_tank_boss_jump_smash"
-		"Ability3"                  "boss_resistance"
-		"Ability4"                  "boss_cliffwalk"
+		"Ability3"          "boss_resistance"
+		"Ability4"          "boss_cliffwalk"
+		"Ability5"          "siltbreaker_boss_immunity"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -65,8 +67,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-    "StatusHealth"                                        "15000"        // Base health.
-    "StatusHealthRegen"                                   "50.0"         // Health regeneration rate.
+    "StatusHealth"                                        "12000"        // Base health.
+    "StatusHealthRegen"                                   "5.0"         // Health regeneration rate.
 		"StatusMana"				"1000"
 		"StatusManaRegen"			"5"
 
@@ -77,7 +79,7 @@
 
 		// Team
 		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_BADGUYS"
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

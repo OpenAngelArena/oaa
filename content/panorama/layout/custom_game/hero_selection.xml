@@ -23,6 +23,15 @@
     <Panel id="MainContent">
       <Panel class="MiddleColumn">
         <Panel id="CMPanel">
+          <Panel id="ReserveTimePanel">
+            <Panel class="ReserveTimeHolder">
+              <Label id="RadiantReserve" text="130" />
+            </Panel>
+            <Label id="ReserveLabel" text="#dota_cm_bonus_time" />
+            <Panel class="ReserveTimeHolder">
+              <Label id="DireReserve" text="130" />
+            </Panel>
+          </Panel>
           <Panel id="BecomeCaptainPanel">
             <Button class="HeroPickerButton" id="BecomeCaptain" onactivate="BecomeCaptain()">
               <Label text="#DOTA_Hero_Selection_BecomeCaptain" />
@@ -30,45 +39,43 @@
           </Panel>
           <Panel id="CMProgress">
             <Panel class="CMTeam" id="CMRadiant">
-              <Panel class="CMBan" id="CMRadiantBanLabel">
-                <Label text="1"/>
-                <Label text="3"/>
-                <Label text="10"/>
-                <Label text="12"/>
-                <Label text="18"/>
+              <Panel class="ProgressBar" id="CMRadiantProgress">
               </Panel>
-              <Panel class="CMBan" id="CMRadiantBan">
-                <DOTAHeroImage class="CMStep" id="CMStep1">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep3">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep10">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep12">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep18">
-                </DOTAHeroImage>
+              <Panel class="CMLabels">
+                <Label class="ban" text="1"/>
+                <Label class="ban" text="3"/>
+                <Label class="ban" text="5"/>
+                <Label class="pick" text="7"/>
+                <Label class="pick" text="10"/>
+                <Label class="ban" text="12"/>
+                <Label class="ban" text="14"/>
+                <Label class="pick" text="16"/>
+                <Label class="pick" text="18"/>
+                <Label class="ban" text="20"/>
+                <Label class="pick" text="21"/>
               </Panel>
-              <Panel class="CMTeamInfo">
-                <Label text="#DOTA_GoodGuysShort"/>
-              </Panel>
-              <Panel class="CMPick" id="CMRadiantPickLabel">
-                <Label text="5"/>
-                <Label text="8"/>
-                <Label text="14"/>
-                <Label text="16"/>
-                <Label text="19"/>
-              </Panel>
-              <Panel class="CMPick" id="CMRadiantPick">
-                <DOTAHeroImage class="CMStep" id="CMStep5">
+              <Panel class="CMHeroImages">
+                <DOTAHeroImage class="CMStep ban" id="CMStep1" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep8">
+                <DOTAHeroImage class="CMStep ban" id="CMStep3" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep14">
+                <DOTAHeroImage class="CMStep ban" id="CMStep5" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep16">
+                <DOTAHeroImage class="CMStep pick" id="CMStep7" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep19">
+                <DOTAHeroImage class="CMStep pick" id="CMStep10" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep12" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep14" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep16" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep18" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep20" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep21" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
               </Panel>
             </Panel>
@@ -77,45 +84,43 @@
               <Label class="PickLabel" text="#DOTA_Hero_Selection_PickTitle"/>
             </Panel>
             <Panel class="CMTeam" id="CMDire">
-              <Panel class="CMBan" id="CMDireBanLabel">
-                <Label text="2"/>
-                <Label text="4"/>
-                <Label text="9"/>
-                <Label text="11"/>
-                <Label text="17"/>
+              <Panel class="ProgressBar" id="CMDireProgress">
               </Panel>
-              <Panel class="CMBan" id="CMDireBan">
-                <DOTAHeroImage class="CMStep" id="CMStep2">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep4">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep9">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep11">
-                </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep17">
-                </DOTAHeroImage>
+              <Panel class="CMLabels">
+                <Label class="ban" text="2"/>
+                <Label class="ban" text="4"/>
+                <Label class="ban" text="6"/>
+                <Label class="pick" text="8"/>
+                <Label class="pick" text="9"/>
+                <Label class="ban" text="11"/>
+                <Label class="ban" text="13"/>
+                <Label class="pick" text="15"/>
+                <Label class="pick" text="17"/>
+                <Label class="ban" text="19"/>
+                <Label class="pick" text="22"/>
               </Panel>
-              <Panel class="CMTeamInfo">
-                <Label text="#DOTA_BadGuysShort"/>
-              </Panel>
-              <Panel class="CMPick" id="CMDirePickLabel">
-                <Label text="6"/>
-                <Label text="7"/>
-                <Label text="13"/>
-                <Label text="15"/>
-                <Label text="20"/>
-              </Panel>
-              <Panel class="CMPick" id="CMDirePick">
-                <DOTAHeroImage class="CMStep" id="CMStep6">
+              <Panel class="CMHeroImages">
+                <DOTAHeroImage class="CMStep ban" id="CMStep2" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep7">
+                <DOTAHeroImage class="CMStep ban" id="CMStep4" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep13">
+                <DOTAHeroImage class="CMStep ban" id="CMStep6" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep15">
+                <DOTAHeroImage class="CMStep pick" id="CMStep8" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
-                <DOTAHeroImage class="CMStep" id="CMStep20">
+                <DOTAHeroImage class="CMStep pick" id="CMStep9" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep11" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep13" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep15" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep17" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep ban" id="CMStep19" scaling="stretch-to-cover-preserve-aspect">
+                </DOTAHeroImage>
+                <DOTAHeroImage class="CMStep pick" id="CMStep22" scaling="stretch-to-cover-preserve-aspect">
                 </DOTAHeroImage>
               </Panel>
             </Panel>
@@ -149,7 +154,7 @@
             <Panel id="HeroPreviewContainer">
               <Label id="SectionTitle" text=""/>
               <Panel id="HeroPreview">
-                <DOTAScenePanel unit="" />
+                <DOTAScenePanel hittest="false" unit="" />
               </Panel>
             </Panel>
             <Panel id="HeroPickContainer">

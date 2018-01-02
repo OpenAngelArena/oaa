@@ -20,8 +20,6 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "AnimationIgnoresModelScale"     "1"
 
-        "IsOnCastBar"                   "0"
-
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "200"
@@ -42,7 +40,7 @@
             "01"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "675"
+                "damage"                    "3000"
             }
             "02"
             {
@@ -72,7 +70,7 @@
             "07"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage_cap_amount"         "200"
+                "damage_cap_amount"         "3000"
             }
             "08"
             {

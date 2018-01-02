@@ -76,10 +76,14 @@ game/screenshots/
 !game/materials/
 game/materials/*
 !game/materials/models/
+!game/materials/particle/
 game/materials/models/*
 !game/materials/models/creeps/
-!game/materials/models/creeps/knoll_1/*
-game/materials/models/creeps/neutral_creeps/*
-!game/materials/models/creeps/neutral_creeps/*ogre_boss*
-!game/materials/models/creeps/neutral_creeps/*ogre_med*
+!game/materials/models/heroes/
+!game/materials/models/items/
+!game/materials/models/creeps/knoll_1/
+!game/materials/models/creeps/neutral_creeps/
+!game/materials/models/creeps/spiders/
 
+# IDE specific directories
+.idea
