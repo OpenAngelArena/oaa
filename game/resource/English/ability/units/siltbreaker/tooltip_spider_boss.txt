@@ -3,27 +3,26 @@
 //=============================================================================
 
 "dota_tooltip_ability_mini_spider_slow_attack"                     "Mini spider attack slow"
-"dota_tooltip_ability_mini_spider_slow_attack_description"         "Spider poisonus attacks that causes movement slow per stack"
-"dota_tooltip_ability_mini_spider_slow_attack_movement_speed_slow" "%MOVEMENT_SPEED_SLOW"
-"dota_tooltip_ability_mini_spider_slow_attack_duration"            "DURATION"
+"dota_tooltip_ability_mini_spider_slow_attack_description"         "The mini spider's poisonous attacks cause %movement_speed_slow% movement slow for %duration% seconds. Stacks with itself."
 
 "dota_tooltip_ability_spider_boss_larval_parasite"                "Larval parasite"
-"dota_tooltip_ability_spider_boss_larval_parasite_description"    "Larval parasite infects the target and spawn spider after its effects"
+"dota_tooltip_ability_spider_boss_larval_parasite_description"    "Larval parasite infects the target, dealing %damage% damage on impact and is able to spread in an %infection_radius% radius over it's duration. Creates an %explosion_damage% damage explosion after %buff_duration% seconds which spawns %num_spawns% spiders. <br><br><h1>Range:</h1>%projectile_distance%"
 
 "dota_tooltip_ability_spider_boss_passive"                        "Ankaboot passive"
-"dota_tooltip_ability_spider_boss_passive_description"            "Ankaboot presence"
+"dota_tooltip_ability_spider_boss_passive_description"            "When you get attacked by the Spiderboss, then you'll be able to see her - no matter if you have vision or not."
+"dota_tooltip_ability_spider_boss_passive_lore"                   "Mother's watching you (even through walls)"
 
 "dota_tooltip_ability_spider_boss_rage"                           "Ankaboot rage"
-"dota_tooltip_ability_spider_boss_rage_description"               "Ankaboot becomes filled with rage dealing more damage and great lifesteal"
+"dota_tooltip_ability_spider_boss_rage_description"               "Ankaboot becomes filled with rage, gaining %bonus_damage% bonus damage, %bonus_movespeed_pct%%% additional Movementspeed and %lifesteal_pct%%% lifesteal for %duration% seconds.
 
 "dota_tooltip_ability_spider_boss_summon_eggs"                    "Summon Spider"
-"dota_tooltip_ability_spider_boss_summon_eggs_description"        "Summon spiders and eggs that expodes on contact and spawning more spider and dealing damage"
+"dota_tooltip_ability_spider_boss_summon_eggs_description"        "Summon spiders and eggs, which explode on contact and then spawn more spiders"
 
 "dota_tooltip_ability_spider_egg_sack"                            "Spider Eggs"
-"dota_tooltip_ability_spider_egg_sack_description"                "Eggs that expodes on contact and spawning more spider and dealing damage"
+"dota_tooltip_ability_spider_egg_sack_description"                "Eggs which explode on contact, spawning %pider_min% - %pider_max% spiders and dealing %damage% damage"
 
 "dota_tooltip_ability_spider_poison_spit"                         "Spider poison spit"
-"dota_tooltip_ability_spider_poison_spit_description"             "Spider spit that disarm the pray on contact"
+"dota_tooltip_ability_spider_poison_spit_description"             "Spiders spit at the enemy, inflicting %strike_damage% damage on impact, which disarms, slows movementspeed by %movement_slow% and dealing %tick_damage% damage every %tick_interval% seconds over %duration% second duration"
 
 "dota_tooltip_ability_spider_web"                                 "Spider Web"
-"dota_tooltip_ability_spider_web_description"                     "Spider Web"
+"dota_tooltip_ability_spider_web_description"                     "Spider Web cosmetic<br>Radius:%radius%"
