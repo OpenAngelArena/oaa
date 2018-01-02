@@ -26,7 +26,7 @@ local special_bottles = {
   [57898114] = 2,
   [89367798] = 2,
   -- timo
-  [55159483] = 3
+  [55159483] = 4
 }
 
 local bonusNames = {
