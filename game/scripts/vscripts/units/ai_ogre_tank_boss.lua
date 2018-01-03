@@ -100,8 +100,8 @@ function SpawnAllies()
   local posTopRight = thisEntity:GetAbsOrigin()
   posTopRight.y = posTopRight.y + 400
   posTopRight.x = posTopRight.x + 400
-  local ally1 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopLeft, true, nil, nil, DOTA_TEAM_NEUTRALS)
-  local ally2 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopRight, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  local ally1 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopLeft, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
+  local ally2 = CreateUnitByName("npc_dota_creature_ogre_seer", posTopRight, true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
 
   table.insert(thisEntity.OgreSummonSeers, ally1)
   table.insert(thisEntity.OgreSummonSeers, ally2)
