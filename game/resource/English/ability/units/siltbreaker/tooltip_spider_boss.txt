@@ -6,7 +6,8 @@
 "dota_tooltip_ability_mini_spider_slow_attack_description"         "The mini spider's poisonous attacks cause %movement_speed_slow% movement slow for %duration% seconds. Stacks with itself."
 
 "dota_tooltip_ability_spider_boss_larval_parasite"                "Larval parasite"
-"dota_tooltip_ability_spider_boss_larval_parasite_description"    "Larval parasite infects the target, dealing %damage% damage on impact and is able to spread in an %infection_radius% radius over it's duration. Creates an %explosion_damage% damage explosion after %buff_duration% seconds which spawns %num_spawns% spiders. <br><br><h1>Range:</h1>%projectile_distance%"
+"dota_tooltip_ability_spider_boss_larval_parasite_description"    "Larval parasite infects the target, dealing %damage% damage on impact and is able to spread in an %infection_radius% radius over it's duration. Creates an %explosion_damage% damage explosion after %buff_duration% seconds which spawns %num_spawns% spiders."
+"dota_tooltip_ability_spider_boss_larval_parasite_projectile_distance""RANGE:"
 
 "dota_tooltip_ability_spider_boss_passive"                        "Ankaboot passive"
 "dota_tooltip_ability_spider_boss_passive_description"            "When you get attacked by the Spiderboss, then you'll be able to see her - no matter if you have vision or not."
@@ -25,4 +26,5 @@
 "dota_tooltip_ability_spider_poison_spit_description"             "Spiders spit at the enemy, inflicting %strike_damage% damage on impact, which disarms, slows movementspeed by %movement_slow% and dealing %tick_damage% damage every %tick_interval% seconds over %duration% second duration"
 
 "dota_tooltip_ability_spider_web"                                 "Spider Web"
-"dota_tooltip_ability_spider_web_description"                     "Spider Web cosmetic<br>Radius:%radius%"
+"dota_tooltip_ability_spider_web_description"                     "Spider Web cosmetic"
+"dota_tooltip_ability_spider_web_radius"                          "RADIUS:"
