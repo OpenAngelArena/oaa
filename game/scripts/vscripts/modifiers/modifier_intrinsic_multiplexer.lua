@@ -76,3 +76,22 @@ function modifier_intrinsic_multiplexer:DestroyModifiers()
   end)
   self.modifiers = {}
 end
+
+function modifier_intrinsic_multiplexer:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_RESPAWN
+  }
+end
+
+function modifier_intrinsic_multiplexer:OnRespawn(keys)
+  local parent = self:GetParent()
+  if keys.unit ~= parent then
+    return
+  end
+
+  for name, mod in pairs(self.modifiers) do
+    if mod:IsNull() then
+      self.modifiers[name] = parent:AddNewModifier(self:GetCaster(), self:GetAbility(), name, {})
+    end
+  end
+end
