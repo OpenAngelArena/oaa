@@ -51,7 +51,6 @@ function modifier_item_aghanims_talents:OnCreated()
     -- Make Talent Agh's undroppable for certain heroes
     if noDropHeroes[parent:GetName()] and self.aghsPower > 1 then
       local item = self:GetAbility()
-      item:SetCanBeUsedOutOfInventory(false)
       item:SetDroppable(false)
       item:SetSellable(false)
     end
