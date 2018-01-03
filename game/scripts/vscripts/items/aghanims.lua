@@ -59,6 +59,10 @@ function modifier_item_aghanims_talents:IsPurgable()
   return false
 end
 
+function modifier_item_aghanims_talents:RemoveOnDeath()
+  return false
+end
+
 function modifier_item_aghanims_talents:OnDestroy()
   if IsServer () then
     self.isRunning = false

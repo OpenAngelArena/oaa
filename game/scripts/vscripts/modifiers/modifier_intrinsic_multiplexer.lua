@@ -12,6 +12,10 @@ function modifier_intrinsic_multiplexer:IsPurgable()
   return false
 end
 
+function modifier_intrinsic_multiplexer:RemoveOnDeath()
+  return false
+end
+
 function modifier_intrinsic_multiplexer:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
