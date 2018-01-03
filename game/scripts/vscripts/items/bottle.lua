@@ -25,15 +25,19 @@ local special_bottles = {
   [136897804] = 2,
   [57898114] = 2,
   [89367798] = 2,
-  -- timo
+  -- special people
   [55159483] = 4
+  [34314091] = 5
+  [117027938] = 6
 }
 
 local bonusNames = {
   'custom/bottle_contributor',
   'custom/bottle_tournament',
   'custom/bottle_lotus',
-  'custom/bottle_timo'
+  'custom/bottle_timo',
+  'custom/bottle_frej',
+  'custom/bottle_rearm'
 }
 
 --------------------------------------------------------------------------------
