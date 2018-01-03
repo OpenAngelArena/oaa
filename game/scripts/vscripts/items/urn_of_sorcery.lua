@@ -68,9 +68,7 @@ function modifier_item_urn_of_sorcery:IsPurgable()
 end
 
 function modifier_item_urn_of_sorcery:GetAttributes()
-  return {
-    MODIFIER_ATTRIBUTE_MULTIPLE
-  }
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_urn_of_sorcery:OnCreated()
