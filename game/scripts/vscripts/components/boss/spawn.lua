@@ -109,7 +109,6 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   local core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
 
-
   if(bossTier==1) then
     core = CreateItem("item_upgrade_core_2", bossHandle, bossHandle)
   end
