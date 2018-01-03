@@ -25,14 +25,16 @@ modifier_item_aghanims_talents = class(ModifierBaseClass)
 
 function modifier_item_aghanims_talents:OnCreated()
   if IsServer () then
-    local caster = self:GetParent()
-
+    local parent = self:GetParent()
+    local noDropHeroes = {
+      npc_dota_hero_undying = true
+    }
     self.isRunning = true
 
     self.aghsPower = 0
 
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = caster:GetItemInSlot(i)
+      local item = parent:GetItemInSlot(i)
 
       if item then
         if string.sub(item:GetName(), 0, 22) == 'item_ultimate_scepter_' then
@@ -46,6 +48,13 @@ function modifier_item_aghanims_talents:OnCreated()
 
     -- print('Found an aghs of power ' .. self.aghsPower)
 
+    -- Make Talent Agh's undroppable for certain heroes
+    if noDropHeroes[parent:GetName()] and self.aghsPower > 1 then
+      local item = self:GetAbility()
+      item:SetCanBeUsedOutOfInventory(false)
+      item:SetDroppable(false)
+      item:SetSellable(false)
+    end
     self:StartIntervalThink(1)
   end
 end
