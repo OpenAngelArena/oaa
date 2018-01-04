@@ -1,14 +1,12 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Underlord
+  // HERO: Shadow Fiend
   //=================================================================================================================
-  "npc_dota_hero_abyssal_underlord"
+  "npc_dota_hero_nevermore"
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability6"   "abyssal_underlord_cancel_dark_rift_oaa" // replaces abyssal_underlord_dark_rift
-    "Ability7"   "abyssal_underlord_dark_rift_oaa" // replaces abyssal_underlord_cancel_dark_rift
-    "Ability17"		"special_bonus_spell_amplify_15" // replaces special_bonus_unique_underlord_4
+    "Ability12"   "special_bonus_hp_300" // replaces special_bonus_unique_nevermore_3
   }
 }
