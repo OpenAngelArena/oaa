@@ -7,7 +7,7 @@ function Spawn( entityKeyValues )
 	end
 
 	thisEntity.hSummonedUnits = { }
-	thisEntity.nMaxSummonedUnits = 60
+	thisEntity.nMaxSummonedUnits = 40
 	thisEntity.nNumSummonCasts = 0
 
 	thisEntity.bIsEnraged = false

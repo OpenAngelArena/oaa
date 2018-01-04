@@ -14,6 +14,7 @@ function modifier_spider_boss_larval_parasite:OnCreated( kv )
 	self.buff_duration = self:GetAbility():GetSpecialValueFor( "buff_duration" )
 	self.infection_radius = self:GetAbility():GetSpecialValueFor( "infection_radius" )
 	self.vision_radius = self:GetAbility():GetSpecialValueFor( "vision_radius" )
+	self.spider_lifetime = self:GetAbility():GetSpecialValueFor( "spider_lifetime" )
 
 	self.fStartTime = GameRules:GetGameTime()
 
@@ -86,7 +87,9 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 				end
 
 				local hSpiderling = CreateUnitByName( "npc_dota_creature_small_lycosidae", hEnemy:GetAbsOrigin(), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber() )
-				if hSpiderling ~= nil then
+        if hSpiderling ~= nil then
+
+          hSpiderling:AddNewModifier(self:GetCaster(), self, "modifier_kill", {duration = self.spider_lifetime })
 					table.insert( self:GetCaster().hSummonedUnits, hSpiderling )
 					if self:GetCaster().zone ~= nil then
 						self:GetCaster().zone:AddEnemyToZone( hSpiderling )
