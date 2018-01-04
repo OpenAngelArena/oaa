@@ -8,8 +8,12 @@ function modifier_aura_item_upgrade:IsPurgable()
   return false
 end
 
-function modifier_aura_item_upgrade:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
+function modifier_aura_item_upgrade:RemoveOnDeath()
+  return false
+end
+
+function modifier_aura_item_upgrade:DestroyOnExpire()
+  return false
 end
 
 if IsServer() then
@@ -50,6 +54,9 @@ if IsServer() then
         end
       end
     end
+
+    self:Destroy()
+
   end
 
 --------------------------------------------------------------------------------
@@ -92,5 +99,7 @@ if IsServer() then
     end
 
     self:Destroy()
-	end
+  end
+
 end
+
