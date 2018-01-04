@@ -1,14 +1,12 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Underlord
+  // HERO: Viper
   //=================================================================================================================
-  "npc_dota_hero_abyssal_underlord"
+  "npc_dota_hero_viper"
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability6"   "abyssal_underlord_cancel_dark_rift_oaa" // replaces abyssal_underlord_dark_rift
-    "Ability7"   "abyssal_underlord_dark_rift_oaa" // replaces abyssal_underlord_cancel_dark_rift
-    "Ability17"		"special_bonus_spell_amplify_15" // replaces special_bonus_unique_underlord_4
+    "Ability15"		"special_bonus_mp_regen_4" // replaces special_bonus_unique_viper_4
   }
 }
