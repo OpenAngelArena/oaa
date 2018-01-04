@@ -6,11 +6,12 @@
 item_dagger_of_moriah = class(TransformationBaseClass)
 
 LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function item_dagger_of_moriah:GetIntrinsicModifierName()
-  return "modifier_item_dagger_of_moriah"
+  return "modifier_generic_bonus"
 end
 
 function item_dagger_of_moriah:GetTransformationModifierName()
@@ -20,13 +21,6 @@ end
 --------------------------------------------------------------------------------
 
 modifier_item_dagger_of_moriah_sangromancy = class(ModifierBaseClass)
-modifier_item_dagger_of_moriah = class(ModifierBaseClass)
-
---------------------------------------------------------------------------------
-
-function modifier_item_dagger_of_moriah:IsHidden()
-  return true
-end
 
 --------------------------------------------------------------------------------
 
