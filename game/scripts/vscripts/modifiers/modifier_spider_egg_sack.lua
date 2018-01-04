@@ -27,6 +27,7 @@ function modifier_spider_egg_sack:OnCreated( kv )
 		self.trigger_radius = self:GetAbility():GetSpecialValueFor( "trigger_radius" )
 		self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 		self.duration = self:GetAbility():GetSpecialValueFor( "duration" )
+		self.egg_spider_lifetime = self:GetAbility():GetSpecialValueFor( "egg_spider_lifetime" )
 
 		self.bBurst = false
 		self.bTriggered = false
@@ -87,6 +88,7 @@ function modifier_spider_egg_sack:Burst( hHero )
 
 		for i=0,RandomInt( self.spider_min, self.spider_max ) do
 			local hUnit = CreateUnitByName( "npc_dota_creature_spider_small", self:GetParent():GetOrigin(), true, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber() )
+      hUnit:AddNewModifier(self:GetCaster(), self, "modifier_kill", {duration = self.egg_spider_lifetime })
 			if hUnit ~= nil and self:GetParent().zone ~= nil then
 				self:GetParent().zone:AddEnemyToZone( hUnit )
 			end

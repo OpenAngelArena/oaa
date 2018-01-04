@@ -44,6 +44,7 @@ function spider_boss_larval_parasite:OnSpellStart()
 		self.projectile_width_initial = self:GetSpecialValueFor( "projectile_width_initial" )
 		self.projectile_width_end = self:GetSpecialValueFor( "projectile_width_end" )
 		self.projectile_distance = self:GetSpecialValueFor( "projectile_distance" )
+		self.spider_lifetime = self:GetSpecialValueFor( "spider_lifetime" )
 
 		local fCastRange = self:GetCastRange( self:GetCaster():GetOrigin(), nil )
 		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, fCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
