@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "91"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,6 @@
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
     "FightRecapLevel"               "1"
-    "AbilityTextureName"            "custom/urn_of_shadows_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -65,8 +63,6 @@
     "ItemQuality"                   "rare"
     "ItemAliases"                   "urn of shadows;urn"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
