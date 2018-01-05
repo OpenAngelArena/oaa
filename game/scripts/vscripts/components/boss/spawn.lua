@@ -107,16 +107,22 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
-  local core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
+  local core = nil
 
-  if(bossTier==1) then
+  if bossTier < 1 then
+    core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
+  elseif bossTier == 1 then
     core = CreateItem("item_upgrade_core_2", bossHandle, bossHandle)
-  end
-  if(bossTier==2) then
+  elseif bossTier == 2 then
     core = CreateItem("item_upgrade_core_3", bossHandle, bossHandle)
-  end
-  if(bossTier>=3) then
+  elseif bossTier >= 3  then
     core = CreateItem("item_upgrade_core_4", bossHandle, bossHandle)
+  end
+
+  if core == nil then
+  error('Got bad core, tier must have bad value ' .. tostring(bossTier))
+  else
+    bossHandle:AddItem(core)
   end
 
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
