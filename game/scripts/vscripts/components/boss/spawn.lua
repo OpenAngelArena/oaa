@@ -121,7 +121,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   end
 
   if core == nil then
-  error('Got bad core, tier must have bad value ' .. tostring(bossTier))
+    error('Got bad core, tier must have bad value ' .. tostring(bossTier))
   else
     bossHandle:AddItem(core)
   end
