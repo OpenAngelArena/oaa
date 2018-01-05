@@ -12,8 +12,8 @@ function modifier_aura_item_upgrade:RemoveOnDeath()
   return false
 end
 
-function modifier_aura_item_upgrade:DestroyOnExpire()
-  return false
+function modifier_aura_item_upgrade:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 if IsServer() then
@@ -56,7 +56,6 @@ if IsServer() then
     end
 
     self:Destroy()
-
   end
 
 --------------------------------------------------------------------------------
@@ -100,6 +99,5 @@ if IsServer() then
 
     self:Destroy()
   end
-
 end
 
