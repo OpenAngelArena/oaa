@@ -58,6 +58,10 @@ function modifier_scan_true_sight:IsHidden()
   return false
 end
 
+function modifier_scan_true_sight:GetTexture()
+  return "custom/icon_scan_on_psd"
+end
+
 function modifier_scan_true_sight:GetPriority()
   return MODIFIER_PRIORITY_HIGH
 end
