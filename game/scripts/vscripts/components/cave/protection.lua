@@ -6,13 +6,15 @@ if ProtectionAura == nil then
   Debug.EnabledModules['cave:protection'] = true
 end
 
+local MAX_ROOMS = 6
+
 function ProtectionAura:Init ()
   ProtectionAura.zones = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {},
   }
 
-  for roomID = 0,5 do
+  for roomID = 0,MAX_ROOMS do
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_OUT,
       margin = 0,
@@ -24,7 +26,7 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouchGood)
   end
 
-  for roomID = 0,5 do
+  for roomID = 0,MAX_ROOMS do
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_OUT,
       margin = 0,
@@ -41,7 +43,7 @@ function ProtectionAura:Init ()
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  for roomID = 0,5 do
+  for roomID = 0,MAX_ROOMS do
     if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
       return true
     end
