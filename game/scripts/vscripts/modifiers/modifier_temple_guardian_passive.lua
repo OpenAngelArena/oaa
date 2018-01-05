@@ -24,7 +24,6 @@ end
 
 -----------------------------------------------------------------------------------------
 
-
 function modifier_temple_guardian_passive:GetModifierMoveSpeed_Absolute( params )
-	return 300
+	return self:GetAbility():GetSpecialValueFor( "movement_speed" )
 end

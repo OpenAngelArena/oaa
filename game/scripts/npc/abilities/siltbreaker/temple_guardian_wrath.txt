@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "effect_radius"             "2000"
+        "effect_radius"             "1500"
       }
       "02"
       {
@@ -64,11 +64,6 @@
       {
         "var_type"                  "FIELD_FLOAT"
         "interval"                  "0.06"
-      }
-      "07"
-      {
-        "var_type"                  "FIELD_FLOAT"
-        "block_cooldown"            "0.001"
       }
     }
   }
