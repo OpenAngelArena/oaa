@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Purification
+  //=================================================================================================================
+  "temple_guardian_purification"
+  {
+    "ID"                            "99457"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_purification"
+    "AbilityTextureName"            "omniknight_purification"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_NO"
+    "FightRecapLevel"               "1"
+
+    "IsOnCastBar"                   "0"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "800"
+    "AbilityCastPoint"              "1.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "20"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "130"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal"                  "1000"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "300"
+      }
+    }
+  }
+}

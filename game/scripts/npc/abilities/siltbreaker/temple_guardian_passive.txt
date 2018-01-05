@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian Passive
+  //=================================================================================================================
+  "temple_guardian_passive"
+  {
+    "ID"                            "99456"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "AbilityTextureName"            "temple_guardian_passive"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_passive"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+    "IsOnCastBar"                   "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+
+    }
+  }
+}

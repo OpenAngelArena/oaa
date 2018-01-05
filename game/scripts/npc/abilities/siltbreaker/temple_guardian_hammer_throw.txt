@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Hammer Throw
+  //=================================================================================================================
+  "temple_guardian_hammer_throw"
+  {
+    "ID"                            "99455"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_hammer_throw"
+    "AbilityTextureName"            "sven_storm_bolt"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_REFRACTION"
+
+    "IsOnCastBar"                   "0"
+
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "1300"
+    "AbilityCastPoint"              "1.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "10"
+
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "radius"                    "200"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "throw_duration"            "2.3"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "stun_duration"             "2.0"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "hammer_damage"             "600"
+      }
+    }
+  }
+}
