@@ -107,6 +107,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
+--Adding cores to the bosses inventory
   local core = nil
 
   if bossTier < 1 then
