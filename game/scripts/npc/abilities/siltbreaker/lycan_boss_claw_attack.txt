@@ -62,32 +62,18 @@
                 "var_type"                  "FIELD_FLOAT"
                 "duration"                  "6.0"
             }
+
             "06"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "movement_damage_pct"       "15"
-            }
-            "07"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "damage_cap_amount"         "3000"
-            }
-            "08"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "damage_cap_interval"       "0.25"
-            }
-            "09"
             {
                 "var_type"                              "FIELD_FLOAT"
                 "shapeshift_animation_time"            "1.14"
             }
-            "10"
+            "07"
             {
                 "var_type"                               "FIELD_FLOAT"
                 "shapeshift_initial_delay"             "0.84"
             }
-            "11"
+            "08"
             {
                 "var_type"                               "FIELD_FLOAT"
                 "stun_duration"             "1.0"

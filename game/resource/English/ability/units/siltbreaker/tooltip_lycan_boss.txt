@@ -3,23 +3,23 @@
 //=============================================================================
 
 
-"DOTA_Tooltip_Ability_lycan_boss_summon_wolves"                               "Summon Wolves"
-"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_Description"                   "LongClaw howl to summon a powerfull pack of wolf beasts."
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves"								"Summon Wolves"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_Description"					"LongClaw howls. Summoning %num_hound_spawn% hounds, %num_hound_boss_spawn" boss hounds and %num_werewolf_spawn% werewolfs. When LongClaw used shapeshift he'll summon %num_hound_ss_spawn% hounds %num_hound_boss_ss_spawn% boss hounds and %num_werewolf_ss_spawn% werewolfs."
 
-"DOTA_Tooltip_Ability_lycan_boss_shapeshift"                                  "Shapeshift"
-"DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description"                      "LongClaw is consumed by its rage letting his inner beast to take control of his physical form."
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift"								"Shapeshift"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description"					"LongClaw transform into his beast form. Gaining %bonus_night_vision% bonus night vision,a %crit_multiplier%%% crit with a %crit_chance%%% crit chance and setting his movementspeed to %speed%."
 
-"DOTA_Tooltip_Ability_lycan_boss_claw_lunge"                                  "Claw Lunge"
-"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_Description"                      "LongClaw charges the enemy dealing damage in a large area."
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge"								"Claw Lunge"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_Description"					"LongClaw charges the enemy. Dealing %lunge_damage% damage in a straight line with a %lunge_distance% range."
 
-"DOTA_Tooltip_Ability_lycan_boss_claw_attack"                                 "Claw Attack"
-"DOTA_Tooltip_Ability_lycan_boss_claw_attack_Description"                     "LongClaw use his claws to delivery a powerfull blow, stunning enemies in the area and dealing damage."
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack"								"Claw Attack"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_Description"					"LongClaw uses his claws to deliver a powerful blow, stunning enemies in a %damage_radius% units radius for %stun_duration% second and dealing %damage% damage. Cast time decreases when LongClaw is in shapeshift-form"
 
-"DOTA_Tooltip_Ability_lycan_boss_rupture_ball"                                "Rupture Ball"
-"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_Description"                    "A powerfull magic that will rupture all enemies in its path."
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball"								"Rupture Ball"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_Description"					"Shoots a Ball in a straight line, applying Bloodseeker-Rupture and dealing %movement_damage_pct%%% of units walked in damage. Has a %damage_cap_amount% damage cap every %damage_cap_interval% second interval."
 
-"DOTA_Tooltip_Ability_ranged_quill_attack"                                    "Raged Quill"
-"DOTA_Tooltip_Ability_ranged_quill_attack_Description"                         "A ranged quill attack."
+"DOTA_Tooltip_Ability_ranged_quill_attack"									"Ranged Quill"
+"DOTA_Tooltip_Ability_ranged_quill_attack_Description"						"A ranged quill attack in a straight line, dealing %attack_damage% damage."
 
-"DOTA_Tooltip_Ability_werewolf_howl"                                          "Werewolf Howl"
-"DOTA_Tooltip_Ability_werewolf_howl_Description"                              "The werewolf howls buffing nearby wolfs."
+"DOTA_Tooltip_Ability_werewolf_howl"										"Werewolf Howl"
+"DOTA_Tooltip_Ability_werewolf_howl_Description"							"The werewolf howls to buff nearby wolfs in a %radius% unit radius. Granting them %bonus_damage% bonus damage and %bonus_move_speed% bonus movementspeed for %duration% seconds"

@@ -32,8 +32,8 @@ function spider_boss_summon_eggs:OnSpellStart()
 
 		EmitSoundOn( "LycanBoss.SummonWolves", self:GetCaster() )
 
-		local nEggSpawns = 8
-		local nPoisonSpiderSpawns = 4
+		local nEggSpawns = self:GetSpecialValueFor("num_egg_spawn")
+		local nPoisonSpiderSpawns = self:GetSpecialValueFor("num_poison_spider_spawn")
 
 		for i = 0, nEggSpawns do
 			if #self:GetCaster().hSummonedUnits + 1 < self:GetCaster().nMaxSummonedUnits then
