@@ -16,6 +16,10 @@ function modifier_scan_true_sight_thinker:IsAura()
   return true
 end
 
+function modifier_scan_true_sight_thinker:IsHidden()
+  return true
+end
+
 function modifier_scan_true_sight_thinker:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
