@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_purification"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_purification.lua"
     "AbilityTextureName"            "omniknight_purification"
 
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
