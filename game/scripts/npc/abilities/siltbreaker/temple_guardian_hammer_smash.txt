@@ -9,15 +9,18 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_hammer_smash"
-    "AbilityTextureName"            "centaur_double_edge"
 
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_hammer_smash"
+
+    "AbilityTextureName"            "centaur_double_edge"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
 
-    "IsOnCastBar"                   "0"
-
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

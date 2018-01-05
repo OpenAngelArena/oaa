@@ -12,6 +12,7 @@
     "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_hammer_throw"
     "AbilityTextureName"            "sven_storm_bolt"
 
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,8 +22,9 @@
 
     "AbilityCastAnimation"          "ACT_DOTA_CAST_REFRACTION"
 
-    "IsOnCastBar"                   "0"
-
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

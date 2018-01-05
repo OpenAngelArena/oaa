@@ -21,7 +21,9 @@
 
     "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
 
-    "IsOnCastBar"                   "0"
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

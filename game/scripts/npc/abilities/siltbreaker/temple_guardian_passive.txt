@@ -9,15 +9,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "AbilityTextureName"            "temple_guardian_passive"
-    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_passive"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_passive.lua"
 
+    "AbilityTextureName"            "silencer_last_word"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "IsOnCastBar"                   "0"
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

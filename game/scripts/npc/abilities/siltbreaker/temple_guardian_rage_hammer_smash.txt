@@ -12,12 +12,14 @@
     "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_rage_hammer_smash"
     "AbilityTextureName"            "centaur_double_edge"
 
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
 
-    "IsOnCastBar"                   "0"
-
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

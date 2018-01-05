@@ -13,6 +13,7 @@
     "AbilityTextureName"            "omniknight_purification"
 
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
@@ -20,7 +21,9 @@
     "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_NO"
     "FightRecapLevel"               "1"
 
-    "IsOnCastBar"                   "0"
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
