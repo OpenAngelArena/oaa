@@ -16,6 +16,10 @@ function modifier_scan_true_sight_thinker:IsAura()
   return true
 end
 
+function modifier_scan_true_sight_thinker:IsHidden()
+  return true
+end
+
 function modifier_scan_true_sight_thinker:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
@@ -52,6 +56,10 @@ end
 
 function modifier_scan_true_sight:IsHidden()
   return false
+end
+
+function modifier_scan_true_sight:GetTexture()
+  return "custom/icon_scan_on_psd"
 end
 
 function modifier_scan_true_sight:GetPriority()
