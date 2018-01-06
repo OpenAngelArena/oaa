@@ -107,6 +107,25 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
+--Adding cores to the bosses inventory
+  local core = nil
+
+  if bossTier < 1 then
+    core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
+  elseif bossTier == 1 then
+    core = CreateItem("item_upgrade_core_2", bossHandle, bossHandle)
+  elseif bossTier == 2 then
+    core = CreateItem("item_upgrade_core_3", bossHandle, bossHandle)
+  elseif bossTier >= 3  then
+    core = CreateItem("item_upgrade_core_4", bossHandle, bossHandle)
+  end
+
+  if core == nil then
+    error('Got bad core, tier must have bad value ' .. tostring(bossTier))
+  else
+    bossHandle:AddItem(core)
+  end
+
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
   if resistance then
     DebugPrint('Leveling up the boss resistance manager')
