@@ -67,6 +67,7 @@ function SpawnPedestals()
   return
 end
 
+-- Pedestal death animation
 function RemovePedestals()
   -- Ideally we would set the velocity but it does not work on Z axis.
   local offset = 0
@@ -84,7 +85,7 @@ function RemovePedestals()
     useGameTime = false,
     endTime = 0.1,
     callback = function()
-      print("OFFSET " .. tostring(offset))
+      -- print("OFFSET " .. tostring(offset))
       if offset > 480 then
         thisEntity.Pedestal1:ForceKill(false)
         thisEntity.Pedestal2:ForceKill(false)
