@@ -11,13 +11,13 @@ function Spawn( entityKeyValues )
 
 	thisEntity.bIsEnraged = false
 
-	HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" )
-	HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" )
-	PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" )
-	WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" )
+	thisEntity.HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" )
+	thisEntity.HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" )
+	thisEntity.PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" )
+	thisEntity.WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" )
 
-	RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" )
-	RageHammerSmashAbility:SetHidden( false )
+	thisEntity.RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" )
+	thisEntity.RageHammerSmashAbility:SetHidden( false )
   thisEntity:StartGesture( ACT_DOTA_CAST_ABILITY_7 )
 
 	thisEntity:SetContextThink( "TempleGuardianThink", TempleGuardianThink, 1 )
@@ -90,13 +90,13 @@ function TempleGuardianThink()
 		thisEntity.fTimeEnrageStarted = GameRules:GetGameTime()
 	end
 
-	if WrathAbility ~= nil and WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.WrathAbility ~= nil and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
 		if thisEntity.fTimeEnrageStarted and ( GameRules:GetGameTime() > ( thisEntity.fTimeEnrageStarted + 5 ) ) then
 			return Wrath()
 		end
 	end
 
-	if HammerThrowAbility ~= nil and HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.HammerThrowAbility ~= nil and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
 		local hLastEnemy = enemies[ #enemies ]
 		if hLastEnemy ~= nil then
 			local flDist = (hLastEnemy:GetOrigin() - thisEntity:GetOrigin()):Length2D()
@@ -107,17 +107,17 @@ function TempleGuardianThink()
 	end
 
 	for _, hGuardian in pairs( hGuardians ) do
-		if hGuardian ~= nil and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and PurificationAbility ~= nil and PurificationAbility:IsFullyCastable() then
+		if hGuardian ~= nil and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and thisEntity.PurificationAbility ~= nil and thisEntity.PurificationAbility:IsFullyCastable() then
 			return Purification( hGuardian )
 		end
 	end
 
 	if not thisEntity.bIsEnraged then
-		if HammerSmashAbility ~= nil and HammerSmashAbility:IsCooldownReady() then
+		if thisEntity.HammerSmashAbility ~= nil and thisEntity.HammerSmashAbility:IsCooldownReady() then
 			return Smash( enemies[ 1 ] )
 		end
 	else
-		if RageHammerSmashAbility ~= nil and RageHammerSmashAbility:IsFullyCastable() then
+		if thisEntity.RageHammerSmashAbility ~= nil and thisEntity.RageHammerSmashAbility:IsFullyCastable() then
 			return RageSmash( enemies[ 1 ] )
 		end
 	end
@@ -154,7 +154,7 @@ function Wrath()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = WrathAbility:entindex(),
+		AbilityIndex = thisEntity.WrathAbility:entindex(),
 		Queue = false,
 	})
 	return 8
@@ -165,7 +165,7 @@ function Throw( enemy )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = HammerThrowAbility:entindex(),
+		AbilityIndex = thisEntity.HammerThrowAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
@@ -177,7 +177,7 @@ function Purification( friendly )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = PurificationAbility:entindex(),
+		AbilityIndex = thisEntity.PurificationAbility:entindex(),
 		TargetIndex = friendly:entindex(),
 		Queue = false,
 	})
@@ -189,7 +189,7 @@ function Smash( enemy )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = HammerSmashAbility:entindex(),
+		AbilityIndex = thisEntity.HammerSmashAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
@@ -201,7 +201,7 @@ function RageSmash( enemy )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = RageHammerSmashAbility:entindex(),
+		AbilityIndex = thisEntity.RageHammerSmashAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
