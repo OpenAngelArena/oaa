@@ -67,8 +67,13 @@
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
-   // "ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"
+    // "ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "precache"
+    {
+      "particle"                                          "particles/items/far_sight.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
