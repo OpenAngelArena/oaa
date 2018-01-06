@@ -121,6 +121,12 @@ function DebugPrintTable(...)
   end
 end
 
+function DevPrintTable(...)
+  local trace, dir = GetCallingFile()
+
+  PrintTable("[" .. dir .. "]", ...)
+end
+
 function PrintTable(prefix, t, indent, done)
   --print ( string.format ('PrintTable type %s', type(keys)) )
   if type(prefix) == "table" then
