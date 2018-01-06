@@ -1581,4 +1581,13 @@
 		mixgroup = "Weapons"
 		spread_radius = "150.000000"
 	}
+
+  "TempleGuardian.Pedestal.Explosion" = {
+      type = "dota_update_default"
+      vsnd_files =
+      [
+        "sounds/bosses/temple_guardian/Magnetize.vsnd"
+      ]
+      volume = "2.500000"
+  }
 }

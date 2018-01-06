@@ -74,6 +74,8 @@ function TempleGuardianThink()
     return 1
   end
 
+  thisEntity.fFuzz = RandomFloat( 0, 0.2 ) -- Adds some timing separation to these units
+
   local hGuardians = {}
 
   table.insert( hGuardians, thisEntity )
@@ -167,7 +169,7 @@ function Throw( enemy )
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
-	return 3
+	return 3 + thisEntity.fFuzz
 end
 
 function Purification( friendly )
@@ -179,7 +181,7 @@ function Purification( friendly )
 		TargetIndex = friendly:entindex(),
 		Queue = false,
 	})
-	return 1.3
+	return 1.3 + thisEntity.fFuzz
 end
 
 function Smash( enemy )
@@ -191,7 +193,7 @@ function Smash( enemy )
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
-	return 1.4
+	return 1.4 + thisEntity.fFuzz
 end
 
 function RageSmash( enemy )
@@ -203,7 +205,7 @@ function RageSmash( enemy )
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
-	return 1.1
+	return 1.1 + thisEntity.fFuzz
 end
 
 
