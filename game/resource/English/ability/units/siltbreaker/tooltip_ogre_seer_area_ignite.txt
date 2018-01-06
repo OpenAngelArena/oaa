@@ -2,8 +2,8 @@
 // Ogre Seer Ignite
 //=============================================================================
 "DOTA_Tooltip_Ability_ogre_seer_area_ignite"                              "Ignite"
-"DOTA_Tooltip_Ability_ogre_seer_area_ignite_Description"                  "Ogre Seer launches into a target area dealing damage and slowing movement speed."
-"DOTA_Tooltip_Ability_ogre_seer_area_ignite_burn_damage"                  "DAMAGE:"
-"DOTA_Tooltip_Ability_ogre_seer_area_ignite_slow_movement_speed_pct"      "SLOW:"
-"DOTA_Tooltip_Ability_ogre_seer_area_ignite_area_duration"                "DURATION:"
-"DOTA_Tooltip_Ability_ogre_seer_area_ignite_radius"                       "Radius:"
+"DOTA_Tooltip_Ability_ogre_seer_area_ignite_Description"                  "Ogre Seer launches a pit of fire into a target area, dealing %burn_damage% damage per second and slows for %slow_movement_speed_pct%%% movement speed in a %radius% radius. The pit lasts for %area_duration% seconds and lingers for %duration% seconds on the hero after leaving the pit."
+
+
+
+
