@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Reactive Reflex 3a
   //=================================================================================================================
-  "item_recipe_reactive_3a"
+  "item_recipe_reflection_shard_3"
   {
     "ID"                                                  "3819"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -13,16 +13,16 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reactive_3a"
+    "ItemResult"                                          "item_reflection_shard_3"
     "ItemRequirements"
     {
-      "01"                                                "item_reactive_2a;item_upgrade_core_4"
+      "01"                                                "item_reflection_shard_2;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
   // Reactive Reflex 3a
   //=================================================================================================================
-  "item_reactive_3a"
+  "item_reflection_shard_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityTextureName"                                  "custom/reactive_2b"
+    "AbilityTextureName"                                  "custom/reflection_shard_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.5"
@@ -65,13 +65,13 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
+        "var_type"                                        "FIELD_FLOAT"
         "bonus_health_regen"                              "16 28 42"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "4.5 6.0 8.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "4.50 6.0 8.0"
       }
       "04"
       {

@@ -1,0 +1,28 @@
+//==========================================
+// Reactive Reflex
+//==========================================
+
+"DOTA_Tooltip_Ability_item_reactive"                                             "Invincibility Shard"
+"DOTA_Tooltip_Ability_item_reactive_Description"                                 "<h1>Active: Parry</h1> Grants %reactive_duration% seconds of invulnerability."
+"DOTA_Tooltip_Ability_item_reactive_Lore"                                        "Shard of a great warrior's shield."
+"DOTA_Tooltip_Ability_item_reactive_bonus_health"                                "+$health"
+"DOTA_Tooltip_Ability_item_reactive_bonus_armor"                                 "+$armor"
+"DOTA_Tooltip_Ability_item_reactive_magic_resistance"                            "%+$spell_resist"
+
+"DOTA_Tooltip_Ability_item_reactive_2a"                                             "Reflection Shard"
+"DOTA_Tooltip_Ability_item_reactive_2a_Description"                                 "<h1>Active: Counter</h1> Grants %duration% seconds of invulnerability and returns targeted spells."
+"DOTA_Tooltip_Ability_item_reactive_2a_Lore"                                        "A chromatic shard from another dimension."
+"DOTA_Tooltip_Ability_item_reactive_2a_bonus_health"                                "+$health"
+"DOTA_Tooltip_Ability_item_reactive_2a_bonus_armor"                                 "+$armor"
+"DOTA_Tooltip_Ability_item_reactive_2a_magic_resistance"                            "%+$spell_resist"
+
+"DOTA_Tooltip_Ability_item_reactive_3a"                                             "Divine Reflection Shard"
+"DOTA_Tooltip_Ability_item_reactive_3a_Description"                                 "<h1>Active: Riposte</h1> Grants %duration% seconds of invulnerability and returns targeted spells. Can store up to %max_charges% charges. Restores a charge every %charge_restore_time% seconds-"
+"DOTA_Tooltip_Ability_item_reactive_3a_Lore"                                        "An even shinier shard of awesomeness!"
+"DOTA_Tooltip_Ability_item_reactive_3a_bonus_health"                                "+$health"
+"DOTA_Tooltip_Ability_item_reactive_3a_bonus_armor"                                 "+$armor"
+"DOTA_Tooltip_Ability_item_reactive_3a_magic_resistance"                            "%+$spell_resist"
+
+"dota_tooltip_modifier_item_reactive_reflect"                                       "Spell Reflector"
+"dota_tooltip_modifier_item_reactive_reflect_description"                           "Taking no damage and reflecting spells for a short duration"
+"dota_tooltip_modifier_reactive_immunity"                                           "Invulnerability"

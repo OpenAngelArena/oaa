@@ -1,14 +1,14 @@
 LinkLuaModifier("modifier_reactive_immunity", "items/reflex/reactive_invincibility.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reactive = class(ItemBaseClass)
+item_reflection_shard_1 = class(ItemBaseClass)
 
-function item_reactive:GetIntrinsicModifierName()
+function item_reflection_shard_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 
-function item_reactive:OnSpellStart()
-  local duration = self:GetSpecialValueFor("reactive_duration")
+function item_reflection_shard_1:OnSpellStart()
+  local duration = self:GetSpecialValueFor("duration")
   local caster = self:GetCaster()
 
   caster:AddNewModifier(caster, self, "modifier_reactive_immunity", {duration = duration})

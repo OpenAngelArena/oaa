@@ -1,52 +1,54 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Postactive Reflex 2b
+  // Recipe: postactive Reflex
   //=================================================================================================================
-  "item_recipe_postactive_2b"
+  "item_recipe_enrage_crystal_1"
   {
-    "ID"                                                  "3829"    // unique ID
+    "ID"                                                  "3562"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_postactive_2b"
+    "ItemResult"                                          "item_enrage_crystal_1"
     "ItemRequirements"
     {
-      "01"                                                "item_postactive;item_upgrade_core_3"
-      "02"                                                "item_postactive;item_upgrade_core_4"
+      "01"                                                "item_black_king_bar_2;item_upgrade_core_2"
+      "02"                                                "item_black_king_bar_2;item_upgrade_core_3"
+      "03"                                                "item_black_king_bar_2;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // Postactive Reflex 2b
+  // Postactive Reflex 1
   //=================================================================================================================
-  "item_postactive_2b"
+  "item_enrage_crystal_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3830"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3563"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/postactive_soft_dispell.lua"
+    "ScriptFile"                                          "items/reflex/postactive.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/postactive_2b"
+    "AbilityTextureName"                                  "custom/enrage_crystal_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "16975"
+    "ItemCost"                                            "8975"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "hard enrage crystal"
+    "ItemAliases"                                         "enrage crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
