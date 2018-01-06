@@ -32,10 +32,10 @@
 		"Ability8"          "boss_cliffwalk"
 		"Ability9"          "siltbreaker_boss_immunity"
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"55"
-		"MagicalResistance"		"20"
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"        // Physical protection.
+    "MagicalResistance"                                   "-25"        // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -63,8 +63,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				  "20000"
-		"StatusHealthRegen"			"5"
+		"StatusHealth"				  "25000"
+		"StatusHealthRegen"			"25" // they can spam heal bombs for effective 500 hp/s heals
 		"StatusMana"				    "5000"
 		"StatusManaRegen"			  "30"
 
@@ -84,23 +84,7 @@
 		//----------------------------------------------------------------
 		"Creature"
 		{
-			//Basic AI State
-			//------------------------------------------------------------
-			"DefaultState"				"Invade"
-			"States"
-			{
-				"Invade"
-				{
-					"Name"				"Invade"
-					"Aggression"		"100.0"
-					"Avoidance"			"0.0"
-					"Support"			"0.0"
-				}
-			}
-
-			"DefaultState"				"Invade"
-
-			"DisableResistance"			"100.0"
+			"DisableResistance"			"90.0"
 		}
 
     "precache"

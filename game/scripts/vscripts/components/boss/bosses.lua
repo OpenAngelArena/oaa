@@ -5,7 +5,7 @@ Bosses = {
     "npc_dota_boss_twin",
     "npc_dota_creature_ogre_tank_boss",
     "npc_dota_boss_tier_4",
-    "npc_dota_boss_tier_5",
+    "npc_dota_creature_temple_guardian",
     "npc_dota_boss_tier_6"
   },
   -- tier 1
@@ -28,7 +28,7 @@ Bosses = {
       "npc_dota_boss_tier_4",
       "npc_dota_creature_spider_boss"
     },
-    "npc_dota_boss_tier_5",
+    "npc_dota_creature_temple_guardian",
     "npc_dota_boss_stopfightingyourself"
   },
   -- tier 1
@@ -51,7 +51,7 @@ Bosses = {
       "npc_dota_boss_tier_4",
       "npc_dota_creature_spider_boss"
     },
-    "npc_dota_boss_tier_5",
+    "npc_dota_creature_temple_guardian",
     "npc_dota_boss_stopfightingyourself"
   },
   -- tier 2
@@ -69,7 +69,7 @@ Bosses = {
       "npc_dota_boss_tier_4",
       "npc_dota_creature_spider_boss"
     },
-    "npc_dota_boss_tier_5",
+    "npc_dota_creature_temple_guardian",
     "npc_dota_boss_stopfightingyourself"
   },
   -- tier 3
@@ -82,7 +82,7 @@ Bosses = {
       "npc_dota_boss_tier_4",
       "npc_dota_creature_spider_boss"
     },
-    "npc_dota_boss_tier_5",
+    "npc_dota_creature_temple_guardian",
     "npc_dota_boss_stopfightingyourself"
   },
   -- unused

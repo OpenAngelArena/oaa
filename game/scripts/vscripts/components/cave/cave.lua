@@ -429,46 +429,48 @@ end
 
 function CaveHandler:TeleportAll(units, spawns)
   for _,unit in pairs(units) do
-    local origin = ParticleManager:CreateParticle(
-      'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
-      PATTACH_ABSORIGIN_FOLLOW, -- attach point
-      unit -- owner
-    )
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS or unit:GetTeam() == DOTA_TEAM_BADGUYS then
+      local origin = ParticleManager:CreateParticle(
+        'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
+        PATTACH_ABSORIGIN_FOLLOW, -- attach point
+        unit -- owner
+      )
 
-    local target = ParticleManager:CreateParticle(
-      'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
-      PATTACH_CUSTOMORIGIN, -- attach point
-      unit -- owner
-    )
-    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
+      local target = ParticleManager:CreateParticle(
+        'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
+        PATTACH_CUSTOMORIGIN, -- attach point
+        unit -- owner
+      )
+      ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
 
-    Timers:CreateTimer(3, function ()
-      if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
-        FindClearSpaceForUnit(
-          unit, -- unit
-        spawns[unit:GetTeam()], -- locatio
-          false -- ???
-        )
-        MoveCameraToPlayer(unit)
-        unit:Stop()
-      else
-        local unlisten = Duels.onEnd(function ()
+      Timers:CreateTimer(3, function ()
+        if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+          FindClearSpaceForUnit(
+            unit, -- unit
+          spawns[unit:GetTeam()], -- locatio
+            false -- ???
+          )
+          MoveCameraToPlayer(unit)
+          unit:Stop()
+        else
+          local unlisten = Duels.onEnd(function ()
 
-        FindClearSpaceForUnit(
-          unit, -- unit
-          spawns[unit:GetTeamNumber()], -- location
-          false -- ???
-        )
-        MoveCameraToPlayer(unit)
-        unit:Stop()
+          FindClearSpaceForUnit(
+            unit, -- unit
+            spawns[unit:GetTeamNumber()], -- location
+            false -- ???
+          )
+          MoveCameraToPlayer(unit)
+          unit:Stop()
+          end)
+        end
+        Timers:CreateTimer(0, function ()
+          ParticleManager:DestroyParticle(origin, false)
+          ParticleManager:DestroyParticle(target, true)
+          ParticleManager:ReleaseParticleIndex(origin)
+          ParticleManager:ReleaseParticleIndex(target)
         end)
-      end
-      Timers:CreateTimer(0, function ()
-        ParticleManager:DestroyParticle(origin, false)
-        ParticleManager:DestroyParticle(target, true)
-        ParticleManager:ReleaseParticleIndex(origin)
-        ParticleManager:ReleaseParticleIndex(target)
       end)
-    end)
+    end
   end
 end
