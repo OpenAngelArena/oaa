@@ -16,8 +16,6 @@ if IsServer() then
 
     AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
     local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
-    --particle effect at cast location
-    -- particle = ParticleManager:CreateParticle("particles/test_particle/dungeon_broodmother_debuff_explode_ring.vpcf", PATTACH_ABSORIGIN, trueSightThinker)
   end
 end
 
@@ -93,6 +91,10 @@ end
 
 function modifier_item_far_sight_true_sight:OnCreated()
   self.revealRadius = self:GetAbility():GetSpecialValueFor("reveal_radius")
+
+  self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+  ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+  ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
 end
 
 function modifier_item_far_sight_true_sight:GetModifierAura()
@@ -112,5 +114,7 @@ function modifier_item_far_sight_true_sight:GetAuraSearchType()
 end
 
 function modifier_item_far_sight_true_sight:OnDestroy()
+  ParticleManager:DestroyParticle( self.nFXIndex , false)
+  ParticleManager:ReleaseParticleIndex( self.nFXIndex )
   UTIL_Remove(self:GetParent())
 end
