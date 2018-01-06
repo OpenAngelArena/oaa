@@ -71,7 +71,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "main_damage"                                     "57.5 75 92.5 110 127.5 145 162.5 180"
+        "main_damage"                                     "57.5 75 92.5 110 127.5 145 162.5 180 200 225 250 275 300 350 400"
         "LinkedSpecialBonus"                              "special_bonus_unique_invoker_6"
         "levelkey"                                        "exortlevel"
       }
@@ -83,7 +83,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "burn_dps"                                        "11.5 15 18.5 22 25.5 29 32.5 36"
+        "burn_dps"                                        "11.5 15 18.5 22 25.5 29 32.5 36 40 44 48 52 57 65 75"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
       }

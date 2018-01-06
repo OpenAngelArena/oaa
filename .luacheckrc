@@ -47,6 +47,7 @@ globals = { -- these globals can be set and accessed.
 "SCAN_REVEAL_COOLDOWN",
 "SCAN_REVEAL_RADIUS",
 "SCAN_REVEAL_DURATION",
+"SCAN_DURATION",
 "CREEP_POWER_MAX",
 }
 
