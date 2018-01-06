@@ -25,14 +25,16 @@ modifier_item_aghanims_talents = class(ModifierBaseClass)
 
 function modifier_item_aghanims_talents:OnCreated()
   if IsServer () then
-    local caster = self:GetParent()
-
+    local parent = self:GetParent()
+    local noDropHeroes = {
+      npc_dota_hero_undying = true
+    }
     self.isRunning = true
 
     self.aghsPower = 0
 
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = caster:GetItemInSlot(i)
+      local item = parent:GetItemInSlot(i)
 
       if item then
         if string.sub(item:GetName(), 0, 22) == 'item_ultimate_scepter_' then
@@ -46,6 +48,12 @@ function modifier_item_aghanims_talents:OnCreated()
 
     -- print('Found an aghs of power ' .. self.aghsPower)
 
+    -- Make Talent Agh's undroppable for certain heroes
+    if noDropHeroes[parent:GetName()] and self.aghsPower > 1 then
+      local item = self:GetAbility()
+      item:SetDroppable(false)
+      item:SetSellable(false)
+    end
     self:StartIntervalThink(1)
   end
 end
@@ -59,32 +67,14 @@ function modifier_item_aghanims_talents:IsPurgable()
   return false
 end
 
+function modifier_item_aghanims_talents:RemoveOnDeath()
+  return false
+end
+
 function modifier_item_aghanims_talents:OnDestroy()
   if IsServer () then
     self.isRunning = false
     self:SetTalents({})
-  end
-end
-
-if IsServer() then
-  function modifier_item_aghanims_talents:DeclareFunctions()
-    return {
-      MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
-      MODIFIER_PROPERTY_MANA_BONUS , -- GetModifierManaBonus
-      MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT, -- GetModifierMoveSpeedBonus_Constant
-    }
-  end
-
-  function modifier_item_aghanims_talents:GetModifierHealthBonus()
-    return self.hp or 0
-  end
-
-  function modifier_item_aghanims_talents:GetModifierManaBonus()
-    return self.mp or 0
-  end
-
-  function modifier_item_aghanims_talents:GetModifierMoveSpeedBonus_Constant()
-    return self.movement_speed or 0
   end
 end
 
@@ -108,7 +98,6 @@ end
 function modifier_item_aghanims_talents:SetTalents(tree)
   -- 10 - 17
   -- input is { [10] = true, [15] = true, ... }
-  local madeChanges = false
   local talentOverrides = {}
   local parent = self:GetParent()
   local function setTalentLevel (level, leftAbility, rightAbility, claim)
@@ -116,16 +105,18 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       -- print('No ability for index ' .. leftIndex .. ', ' .. rightIndex)
       return
     end
+    local leftLevel = leftAbility:GetLevel()
+    local rightLevel = rightAbility:GetLevel()
     -- print (leftAbility:GetName() .. ' vs ' .. rightAbility:GetName())
-    if leftAbility:GetLevel() == 0 and rightAbility:GetLevel() == 0 then
+    if leftLevel == 0 and rightLevel == 0 then
       -- the player hasn't chosen a talent yet
       return
     end
-    if leftAbility:GetLevel() == 0 or rightAbility:GetLevel() == 0 then
+    if leftLevel ~= rightLevel then
       -- they have chosen a talent and it's the only one skilled
-      if leftAbility:GetLevel() == 0 then
+      if leftLevel == 0 then
         parent['talentChoice' .. level] = 'right'
-      elseif rightAbility:GetLevel() == 0 then
+      elseif rightLevel == 0 then
         parent['talentChoice' .. level] = 'left'
       end
     end
@@ -135,34 +126,24 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       'Trying to update talent but talent choice was let through!'
     )
 
-    -- print('At leve ' .. level .. ' hero chose ' .. parent['talentChoice' .. level])
-
-    if self:IsStatsTalent(leftAbility:GetName()) and parent['talentChoice' .. level] == 'right' then
-      talentOverrides[#talentOverrides + 1] = leftAbility:GetName()
-    elseif self:IsStatsTalent(rightAbility:GetName()) and parent['talentChoice' .. level] == 'left' then
-      talentOverrides[#talentOverrides + 1] = rightAbility:GetName()
+    if claim then
+      if leftLevel == 0 then
+        leftAbility:SetLevel(1)
+      end
+      if rightLevel == 0 then
+        rightAbility:SetLevel(1)
+      end
     else
-
-      if claim then
-        if leftAbility:GetLevel() == 0 or rightAbility:GetLevel() == 0 then
-          leftAbility:SetLevel(0)
+      -- print ('disabling talents')
+      if parent['talentChoice' .. level] == 'left' then
+        if rightLevel ~= 0 then
           rightAbility:SetLevel(0)
-          leftAbility:SetLevel(1)
-          rightAbility:SetLevel(1)
-          madeChanges = true
+          parent:RemoveModifierByName(self:GetTalentModifier(rightAbility:GetName()))
         end
       else
-        -- print ('disabling talents')
-        if parent['talentChoice' .. level] == 'left' then
-          if rightAbility:GetLevel() ~= 0 then
-            rightAbility:SetLevel(0)
-            madeChanges = true
-          end
-        else
-          if leftAbility:GetLevel() ~= 0 then
-            leftAbility:SetLevel(0)
-            madeChanges = true
-          end
+        if leftLevel ~= 0 then
+          leftAbility:SetLevel(0)
+          parent:RemoveModifierByName(self:GetTalentModifier(leftAbility:GetName()))
         end
       end
     end
@@ -177,71 +158,35 @@ function modifier_item_aghanims_talents:SetTalents(tree)
     end
   end
 
-  setTalentLevel("10", abilityTable[1], abilityTable[2], tree[10])
-  setTalentLevel("15", abilityTable[3], abilityTable[4], tree[15])
-  setTalentLevel("20", abilityTable[5], abilityTable[6], tree[20])
-  setTalentLevel("25", abilityTable[7], abilityTable[8], tree[25])
-
-  local statsOverride = {}
-  for _,abilityName in ipairs(talentOverrides) do
-    statsOverride = self:AddTalentStats(abilityName, statsOverride)
-  end
-
-  if statsOverride.hp ~= self.hp then
-    madeChanges = true
-    self.hp = statsOverride.hp
-  end
-  if statsOverride.mp ~= self.mp then
-    madeChanges = true
-    self.mp = statsOverride.mp
-  end
-  if statsOverride.movement_speed ~= self.movement_speed then
-    madeChanges = true
-    self.movement_speed = statsOverride.movement_speed
-  end
-
-  if madeChanges then
-    print('Edited talents, recalculating stat bonus')
-    parent:CalculateStatBonus()
-  end
+  setTalentLevel("10", abilityTable[2], abilityTable[1], tree[10])
+  setTalentLevel("15", abilityTable[4], abilityTable[3], tree[15])
+  setTalentLevel("20", abilityTable[6], abilityTable[5], tree[20])
+  setTalentLevel("25", abilityTable[8], abilityTable[7], tree[25])
 end
 
-function modifier_item_aghanims_talents:IsStatsTalent(name)
-  if string.sub(name, 0, 22) == 'special_bonus_hp_regen' then
-    return false
+function modifier_item_aghanims_talents:GetTalentModifier(name)
+  -- Map of special_bonus names to modifier names for Talents that don't follow the pattern
+  local exceptionBonuses = {
+    special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
+    special_bonus_haste = "modifier_special_bonus_haste",
+    special_bonus_truestrike = "modifier_special_bonus_truestrike",
+    special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
+    special_bonus_unique_treant_3 = "modifier_special_bonus_unique_treant_3",
+    special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
+    special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
+    special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger"
+  }
+
+  if exceptionBonuses[name] then
+    return exceptionBonuses[name]
   end
-  if string.sub(name, 0, 17) == 'special_bonus_hp_' then
-    return true
-  end
-  if string.sub(name, 0, 22) == 'special_bonus_mp_regen' then
-    return false
-  end
-  if string.sub(name, 0, 17) == 'special_bonus_mp_' then
-    return true
-  end
-  if string.sub(name, 0, 29) == 'special_bonus_movement_speed_' then
-    return true
+  -- Handle crit specially as it has a unique pattern
+  if string.find(name, "_crit_") then
+    return "modifier_special_bonus_crit"
   end
 
-  return false
-end
+  -- Cut out the last underscore and everything following it
+  local chopBonusName = string.match(name, "(.*)_")
 
-function modifier_item_aghanims_talents:AddTalentStats(name, data)
-  if string.sub(name, 0, 17) == 'special_bonus_hp_' then
-    if not data['hp'] then
-      data['hp'] = 0
-    end
-    data['hp'] = data['hp'] + tonumber(string.sub(name, 18))
-  elseif string.sub(name, 0, 17) == 'special_bonus_mp_' then
-    if not data['mp'] then
-      data['mp'] = 0
-    end
-    data['mp'] = data['mp'] + tonumber(string.sub(name, 18))
-  elseif string.sub(name, 0, 29) == 'special_bonus_movement_speed_' then
-    if not data['movement_speed'] then
-      data['movement_speed'] = 0
-    end
-    data['movement_speed'] = data['movement_speed'] + tonumber(string.sub(name, 30))
-  end
-  return data
+  return "modifier_" .. chopBonusName
 end

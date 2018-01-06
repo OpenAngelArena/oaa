@@ -12,6 +12,10 @@ function modifier_intrinsic_multiplexer:IsPurgable()
   return false
 end
 
+function modifier_intrinsic_multiplexer:RemoveOnDeath()
+  return false
+end
+
 function modifier_intrinsic_multiplexer:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
@@ -71,4 +75,23 @@ function modifier_intrinsic_multiplexer:DestroyModifiers()
     end
   end)
   self.modifiers = {}
+end
+
+function modifier_intrinsic_multiplexer:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_RESPAWN
+  }
+end
+
+function modifier_intrinsic_multiplexer:OnRespawn(keys)
+  local parent = self:GetParent()
+  if keys.unit ~= parent then
+    return
+  end
+
+  for name, mod in pairs(self.modifiers) do
+    if mod:IsNull() then
+      self.modifiers[name] = parent:AddNewModifier(self:GetCaster(), self:GetAbility(), name, {})
+    end
+  end
 end
