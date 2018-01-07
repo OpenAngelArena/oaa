@@ -70,8 +70,8 @@
 
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1500"
-		"VisionNighttimeRange"	"1500"
+		"VisionDaytimeRange"		"1300"
+		"VisionNighttimeRange"	"1300"
 
 		// Team
 		//----------------------------------------------------------------
@@ -84,7 +84,7 @@
 		//----------------------------------------------------------------
 		"Creature"
 		{
-			"DisableResistance"			"90.0"
+			"DisableResistance"			"100"
 		}
 
     "precache"
