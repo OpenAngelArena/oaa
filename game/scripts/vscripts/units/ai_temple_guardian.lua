@@ -43,7 +43,7 @@ function TempleGuardianThink()
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
 	end
 
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES , FIND_CLOSEST, false )
+  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
   local fHpPercent = thisEntity:GetHealthPercent()
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
@@ -67,7 +67,7 @@ function TempleGuardianThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 1500 then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -137,7 +137,7 @@ function RetreatHome()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos + Vector(0,10,0),
+		Position = thisEntity.vInitialSpawnPos + Vector(0,15,0),
 		Queue = false,
   })
 	ExecuteOrderFromTable({
@@ -146,7 +146,7 @@ function RetreatHome()
 		Position = thisEntity.vInitialSpawnPos,
 		Queue = true,
   })
-  return 2
+  return 6
 end
 
 function Wrath()

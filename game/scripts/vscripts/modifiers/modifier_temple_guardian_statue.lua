@@ -10,8 +10,7 @@ end
 
 function modifier_temple_guardian_statue:OnCreated( kv )
 	if IsServer() then
-		local vAngles = self:GetParent():GetAnglesAsVector()
-		self:GetParent():SetAngles( vAngles.x, vAngles.y - 90.0, vAngles.z )
+		self:GetParent():SetAngles( 0, - 90.0, 0 )
 		self:GetParent():StartGesture( ACT_DOTA_CAST_ABILITY_7 )
 	end
 end
