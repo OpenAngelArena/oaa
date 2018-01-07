@@ -1,6 +1,6 @@
 g_ItemPrecache = {
   "item_postactive",
-  "item_preemptive_3c",
+  "item_bubble_orb_1",
   "item_stoneskin",
   "item_greater_phase_boots",
   "item_greater_power_treads",

@@ -1,9 +1,9 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_3c
+  // Recipe: bubble_orb_1
   //=================================================================================================================
-  "item_recipe_preemptive_3c"
+  "item_recipe_bubble_orb_1"
   {
     "ID"                                                  "3823"   // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -11,7 +11,7 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive_3c"
+    "ItemResult"                                          "item_bubble_orb_1"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
@@ -20,9 +20,9 @@
     }
   }
   //=================================================================================================================
-  // preemptive_3c
+  // bubble_orb_1
   //=================================================================================================================
-  "item_preemptive_3c"
+  "item_bubble_orb_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "reflex"
+    "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info

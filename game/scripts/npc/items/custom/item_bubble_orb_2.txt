@@ -1,9 +1,9 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_4c
+  // Recipe: bubble_orb_2
   //=================================================================================================================
-  "item_recipe_preemptive_4c"
+  "item_recipe_bubble_orb_2"
   {
     "ID"                                                  "8446"   // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -11,17 +11,17 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive_4c"
+    "ItemResult"                                          "item_bubble_orb_2"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive_3c;item_upgrade_core_4"
+      "01"                                                "item_bubble_orb_1;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // preemptive_4c
+  // bubble_orb_2
   //=================================================================================================================
-  "item_preemptive_4c"
+  "item_bubble_orb_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "reflex"
+    "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
@@ -74,7 +74,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-	"bonus_mana"                                      "700 1000"
+	      "bonus_mana"                                      "700 1000"
       }
       "05"
       {
