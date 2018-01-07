@@ -1,17 +1,17 @@
--- defines item_preemptive
+-- defines item_reduction_orb_1
 -- defines modifier_item_preemptive
 LinkLuaModifier( "modifier_item_preemptive", "items/reflex/preemptive.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 ------------------------------------------------------------------------
 
-item_preemptive = class(ItemBaseClass)
+item_reduction_orb_1 = class(ItemBaseClass)
 
-function item_preemptive:GetIntrinsicModifierName()
+function item_reduction_orb_1:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end
 
-function item_preemptive:OnSpellStart()
+function item_reduction_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   caster:AddNewModifier(caster, self, 'modifier_item_preemptive', {
     duration = self:GetSpecialValueFor( "duration" )
@@ -20,7 +20,7 @@ function item_preemptive:OnSpellStart()
   return true
 end
 
-function item_preemptive:ProcsMagicStick ()
+function item_reduction_orb_1:ProcsMagicStick ()
   return false
 end
 
