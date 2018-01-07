@@ -110,13 +110,13 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 --Adding cores to the bosses inventory
   local core = nil
 
-  if bossTier < 2 then
+  if bossTier == 1 then
     core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
-  elseif bossTier == 3 then
+  elseif bossTier == 2 then
     core = CreateItem("item_upgrade_core_2", bossHandle, bossHandle)
-  elseif bossTier == 4 then
+  elseif bossTier == 3 then
     core = CreateItem("item_upgrade_core_3", bossHandle, bossHandle)
-  elseif bossTier >= 5  then
+  elseif bossTier >= 4  then
     core = CreateItem("item_upgrade_core_4", bossHandle, bossHandle)
   end
 
