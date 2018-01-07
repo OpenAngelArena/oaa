@@ -49,6 +49,8 @@ globals = { -- these globals can be set and accessed.
 "SCAN_REVEAL_DURATION",
 "SCAN_DURATION",
 "CREEP_POWER_MAX",
+"CAVE_RELEVANCE_FACTOR",
+"CAVE_MAX_MULTIPLIER",
 }
 
 read_globals = { -- these globals can only be accessed.

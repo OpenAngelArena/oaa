@@ -177,7 +177,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
       if not hero then
         return 0
       end
-      return hero:GetNetworth()
+      return hero:GetNetworth() + XP_PER_LEVEL_TABLE[hero:GetLevel()]
     end
 
     local otherTeamID = nil
@@ -198,16 +198,23 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     -- -1 is when my team is max amount ahead (and gets the least)
     -- 1 is when my team is max amount behind (and gets the most)
     local maxTeamDifference = math.max(1, math.min(theirTeamNW, myTeamNW))
-    -- scales between doubling in either direction
-    local newFactor = math.min(1, math.max(-1, (theirTeamNW - myTeamNW) / maxTeamDifference)) + 1
 
-    -- figure out multiplier...
-    -- base guarenteed value
-    local multiplier = 0.10
-    multiplier = multiplier + (newFactor * 0.95)
-    -- multiplier is between 0.10 and 2.0
+    local nwFactor = CAVE_RELEVANCE_FACTOR * ((theirTeamNW - myTeamNW) / maxTeamDifference)
+    local multiplier = math.exp(math.log(CAVE_MAX_MULTIPLIER) * nwFactor / (1 + math.abs(nwFactor)))
+
+    DebugPrint('Multiplier: ' .. multiplier .. ' based on nwFactor ' .. nwFactor)
 
     return multiplier
+    -- scales between doubling in either direction
+    -- local newFactor = math.min(1, math.max(-1, (theirTeamNW - myTeamNW) / maxTeamDifference)) + 1
+
+    -- -- figure out multiplier...
+    -- -- base guarenteed value
+    -- local multiplier = 0.10
+    -- multiplier = multiplier + (newFactor * 0.95)
+    -- -- multiplier is between 0.10 and 2.0
+
+    -- return multiplier
   end
 
   local function giveBounty (bounty, exp, playerID)
@@ -242,7 +249,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     self:CreepDeath(_teamID, _roomID)
   end
 
-  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, _teamID, roomID))
+  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, teamID, roomID))
 
   if properties.magicResist ~= nil then
     creep:SetBaseMagicalResistanceValue(properties.magicResist)

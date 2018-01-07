@@ -56,6 +56,8 @@ _G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presenc
 _G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
 _G.CAVE_DIFFICULTY = 3                  -- Multiplies cave difficulty growth compared to normal creeps
 _G.CAVE_BOUNTY = 1                      -- Accelerates cave bounty increase compared to the rest of the game
+CAVE_RELEVANCE_FACTOR = 10              -- magic haga value, originally "k"
+CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
 
 -- Logging
 -- TODO: Make this a module loader so the following can be handled:
