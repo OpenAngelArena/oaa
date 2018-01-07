@@ -171,7 +171,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   creep:SetMaximumGoldBounty(0)
   creep:SetDeathXP(0)
 
-  local function calculateMultiplier (teamID)
+  local function calculateMultiplier (myTeamID)
     local function getHeroNetworth (playerId)
       local hero = PlayerResource:GetSelectedHeroEntity(playerId)
       if not hero then
@@ -180,15 +180,17 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
       return hero:GetNetworth()
     end
 
-    if teamID == DOTA_TEAM_BADGUYS then
+    local otherTeamID = nil
+
+    if myTeamID == DOTA_TEAM_BADGUYS then
       otherTeamID = DOTA_TEAM_GOODGUYS
-    elseif teamID == DOTA_TEAM_GOODGUYS then
+    elseif myTeamID == DOTA_TEAM_GOODGUYS then
       otherTeamID = DOTA_TEAM_BADGUYS
     else
-      error('Got bad teamID value, should be goodguys or badguys ' .. tostring(teamID))
+      error('Got bad myTeamID value, should be goodguys or badguys ' .. tostring(myTeamID))
     end
 
-    local myTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(teamID)))
+    local myTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(myTeamID)))
     local theirTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(otherTeamID)))
 
     -- generate a number between -1 and 1
@@ -226,21 +228,21 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     end
   end
 
-  local function handleCreepDeath (gold, exp, teamID, roomID)
-    local playerIDs = PlayerResource:GetPlayerIDsForTeam(teamID)
+  local function handleCreepDeath (gold, exp, _teamID, _roomID)
+    local playerIDs = PlayerResource:GetPlayerIDsForTeam(_teamID)
     local bounty = math.ceil(gold / playerIDs:length())
     exp = exp / playerIDs:length()
 
-    local multiplier = calculateMultiplier(teamID)
+    local multiplier = calculateMultiplier(_teamID)
     bounty = bounty * multiplier
     exp = exp * multiplier
 
     each(partial(giveBounty, bounty, exp), playerIDs)
 
-    self:CreepDeath(teamID, roomID)
+    self:CreepDeath(_teamID, _roomID)
   end
 
-  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, teamID, roomID))
+  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, _teamID, roomID))
 
   if properties.magicResist ~= nil then
     creep:SetBaseMagicalResistanceValue(properties.magicResist)
