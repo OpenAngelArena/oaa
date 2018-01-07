@@ -1,17 +1,17 @@
--- defines item_preemptive_2a
+-- defines item_dispel_orb_1
 -- defines modifier_item_preemptive_purge
 LinkLuaModifier( "modifier_item_preemptive_purge", "items/reflex/preemptive_purge.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 ------------------------------------------------------------------------
 
-item_preemptive_2a = class(ItemBaseClass)
+item_dispel_orb_1 = class(ItemBaseClass)
 
-function item_preemptive_2a:GetIntrinsicModifierName()
+function item_dispel_orb_1:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end
 
-function item_preemptive_2a:OnSpellStart()
+function item_dispel_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   local mod = caster:AddNewModifier(caster, self, 'modifier_item_preemptive_purge', {
     duration = self:GetSpecialValueFor( "duration" )
@@ -22,14 +22,14 @@ function item_preemptive_2a:OnSpellStart()
   return true
 end
 
-function item_preemptive_2a:ProcsMagicStick ()
+function item_dispel_orb_1:ProcsMagicStick ()
   return false
 end
 
 ------------------------------------------------------------------------
 
-item_preemptive_3a = item_preemptive_2a --luacheck: ignore item_preemptive_3a
-item_preemptive_4a = item_preemptive_2a
+item_dispel_orb_2 = item_dispel_orb_1 --luacheck: ignore item_dispel_orb_2
+item_dispel_orb_3 = item_dispel_orb_1
 
 ------------------------------------------------------------------------
 

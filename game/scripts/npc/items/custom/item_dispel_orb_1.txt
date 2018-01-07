@@ -1,9 +1,9 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_2a
+  // Recipe: dispel_orb_1
   //=================================================================================================================
-  "item_recipe_preemptive_2a"
+  "item_recipe_dispel_orb_1"
   {
     "ID"                                                  "3803"   // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -11,7 +11,7 @@
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive_2a"
+    "ItemResult"                                          "item_dispel_orb_1"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
@@ -21,16 +21,16 @@
     }
   }
   //=================================================================================================================
-  // preemptive_2a
+  // dispel_orb_1
   //=================================================================================================================
-  "item_preemptive_2a"
+  "item_dispel_orb_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3804"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/preemptive_2a"
+    "AbilityTextureName"                                  "custom/dispel_orb_1"
 
     "ScriptFile"                                          "items/reflex/preemptive_purge.lua"
     "FightRecapLevel"                                     "1"
@@ -42,7 +42,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "reflex"
+    "AbilitySharedCooldown"                               "purge"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
@@ -76,8 +76,8 @@
       }
       "04"
       {
-        "var_type"					  "FIELD_INTEGER"
-	"bonus_mana"					  "500 700 1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500 700 1000"
       }
       "05"
       {
