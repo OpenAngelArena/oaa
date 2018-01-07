@@ -183,7 +183,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     if teamID == DOTA_TEAM_BADGUYS then
       otherTeamID = DOTA_TEAM_GOODGUYS
     elseif teamID == DOTA_TEAM_GOODGUYS then
-      otherTeamID = DOTA_TEAM_GOODGUYS
+      otherTeamID = DOTA_TEAM_BADGUYS
     else
       error('Got bad teamID value, should be goodguys or badguys ' .. tostring(teamID))
     end
@@ -195,7 +195,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     -- 0 is when teams are even
     -- -1 is when my team is max amount ahead (and gets the least)
     -- 1 is when my team is max amount behind (and gets the most)
-    local maxTeamDifference = math.min(theirTeamNW, myTeamNW)
+    local maxTeamDifference = math.max(1, math.min(theirTeamNW, myTeamNW))
     -- scales between doubling in either direction
     local newFactor = math.min(1, math.max(-1, (theirTeamNW - myTeamNW) / maxTeamDifference)) + 1
 
@@ -215,11 +215,9 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
       true, -- is reliable gold
       DOTA_ModifyGold_RoshanKill -- reason
     )
-    DebugPrint('Granting gold to ' .. playerID)
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
     if hero then
-      DebugPrint('Giving xp ' .. exp)
       hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
       local player = hero:GetPlayerOwner()
       if player then
@@ -230,14 +228,11 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
 
   local function handleCreepDeath (gold, exp, teamID, roomID)
     local playerIDs = PlayerResource:GetPlayerIDsForTeam(teamID)
-    DebugPrint('number of players ' .. playerIDs:length())
     local bounty = math.ceil(gold / playerIDs:length())
     exp = exp / playerIDs:length()
-    DebugPrint('Gold was ' .. gold)
-    DebugPrint('Creep bounty was ' .. bounty)
 
     local multiplier = calculateMultiplier(teamID)
-    gold = gold * multiplier
+    bounty = bounty * multiplier
     exp = exp * multiplier
 
     each(partial(giveBounty, bounty, exp), playerIDs)
