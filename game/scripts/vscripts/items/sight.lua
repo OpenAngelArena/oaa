@@ -92,9 +92,11 @@ end
 function modifier_item_far_sight_true_sight:OnCreated()
   self.revealRadius = self:GetAbility():GetSpecialValueFor("reveal_radius")
 
-  self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-  ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-  ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
+  if IsServer() then
+    self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
+  end
 end
 
 function modifier_item_far_sight_true_sight:GetModifierAura()
@@ -114,7 +116,9 @@ function modifier_item_far_sight_true_sight:GetAuraSearchType()
 end
 
 function modifier_item_far_sight_true_sight:OnDestroy()
-  ParticleManager:DestroyParticle( self.nFXIndex , false)
-  ParticleManager:ReleaseParticleIndex( self.nFXIndex )
-  UTIL_Remove(self:GetParent())
+  if IsServer() then
+    ParticleManager:DestroyParticle( self.nFXIndex , false)
+    ParticleManager:ReleaseParticleIndex( self.nFXIndex )
+    UTIL_Remove(self:GetParent())
+  end
 end

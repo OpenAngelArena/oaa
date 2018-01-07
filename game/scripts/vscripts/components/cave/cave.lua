@@ -2,8 +2,9 @@
 local MAX_DOORS = 2
 local MAX_ZONES = 2
 
+Debug.EnableDebugging()
+
 if CaveHandler == nil then
-  Debug.EnabledModules['cave:cave'] = true
   DebugPrint ('creating new CaveHandler object.')
   CaveHandler = class({})
 end
@@ -106,15 +107,11 @@ function CaveHandler:SpawnRoom (teamID, roomID)
     local creepProperties = self:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
 
     -- spawn the creep
-    local creepHandle = self:SpawnCreepInRoom(room.handle, creepProperties)
+    local creepHandle = self:SpawnCreepInRoom(room.handle, creepProperties, teamID, roomID)
 
     if roomID == 4 then
       creepHandle:SetModelScale( creepHandle:GetModelScale() / (0.5 * (cave.timescleared + 1)) )
     end
-
-    creepHandle:OnDeath(function(keys)
-      self:CreepDeath(teamID, roomID)
-    end)
 
     room.creepCount = room.creepCount + 1
   end
@@ -134,9 +131,15 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
   }
 end
 
-function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
+function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   -- get random position
   local randPosition = room:GetAbsOrigin() + RandomVector(RandomFloat(10, 300))
+
+  --EXP BOUNTY
+  local minutes = math.floor(GameRules:GetGameTime() / 60)
+  if minutes > 60 then
+    properties.exp = properties.exp * 1.5^(minutes - 60)
+  end
 
   local creep = CreateUnitByName(
     properties.name, -- name
@@ -162,20 +165,91 @@ function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
   --ARMOR
   creep:SetPhysicalArmorBaseValue(properties.armour)
 
-  --GOLD BOUNTY
-  creep:SetMinimumGoldBounty(properties.gold)
-  creep:SetMaximumGoldBounty(properties.gold)
+  -- BOUNTY
+  -- bounty is given on death to whole team
+  creep:SetMinimumGoldBounty(0)
+  creep:SetMaximumGoldBounty(0)
+  creep:SetDeathXP(0)
+
+  local function calculateMultiplier (teamID)
+    local function getHeroNetworth (playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not hero then
+        return 0
+      end
+      return hero:GetNetworth()
+    end
+
+    if teamID == DOTA_TEAM_BADGUYS then
+      otherTeamID = DOTA_TEAM_GOODGUYS
+    elseif teamID == DOTA_TEAM_GOODGUYS then
+      otherTeamID = DOTA_TEAM_GOODGUYS
+    else
+      error('Got bad teamID value, should be goodguys or badguys ' .. tostring(teamID))
+    end
+
+    local myTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(teamID)))
+    local theirTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(otherTeamID)))
+
+    -- generate a number between -1 and 1
+    -- 0 is when teams are even
+    -- -1 is when my team is max amount ahead (and gets the least)
+    -- 1 is when my team is max amount behind (and gets the most)
+    local maxTeamDifference = math.min(theirTeamNW, myTeamNW)
+    -- scales between doubling in either direction
+    local newFactor = math.min(1, math.max(-1, (theirTeamNW - myTeamNW) / maxTeamDifference)) + 1
+
+    -- figure out multiplier...
+    -- base guarenteed value
+    local multiplier = 0.10
+    multiplier = multiplier + (newFactor * 0.95)
+    -- multiplier is between 0.10 and 2.0
+
+    return multiplier
+  end
+
+  local function giveBounty (bounty, exp, playerID)
+    PlayerResource:ModifyGold(
+      playerID, -- player
+      bounty, -- amount
+      true, -- is reliable gold
+      DOTA_ModifyGold_RoshanKill -- reason
+    )
+    DebugPrint('Granting gold to ' .. playerID)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+
+    if hero then
+      DebugPrint('Giving xp ' .. exp)
+      hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
+      local player = hero:GetPlayerOwner()
+      if player then
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, creep, bounty, player)
+      end
+    end
+  end
+
+  local function handleCreepDeath (gold, exp, teamID, roomID)
+    local playerIDs = PlayerResource:GetPlayerIDsForTeam(teamID)
+    DebugPrint('number of players ' .. playerIDs:length())
+    local bounty = math.ceil(gold / playerIDs:length())
+    exp = exp / playerIDs:length()
+    DebugPrint('Gold was ' .. gold)
+    DebugPrint('Creep bounty was ' .. bounty)
+
+    local multiplier = calculateMultiplier(teamID)
+    gold = gold * multiplier
+    exp = exp * multiplier
+
+    each(partial(giveBounty, bounty, exp), playerIDs)
+
+    self:CreepDeath(teamID, roomID)
+  end
+
+  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, teamID, roomID))
 
   if properties.magicResist ~= nil then
     creep:SetBaseMagicalResistanceValue(properties.magicResist)
   end
-
-  --EXP BOUNTY
-  local minutes = math.floor(GameRules:GetGameTime() / 60)
-  if minutes > 60 then
-    properties.exp = properties.exp * 1.5^(minutes - 60)
-  end
-  creep:SetDeathXP(properties.exp)
 
   return creep
 end
