@@ -20,9 +20,9 @@ if IsServer() then
   function modifier_aura_item_upgrade:OnCreated( kv )
     local auraItems =
     {
-      "item_greater_guardian_greaves_",
+      "item_greater_guardian_greaves",
       "item_greater_travel_boots_",
-      "item_ancient_jangoo_of_endurance_",
+      "item_ancient_janggo_of_endurance_",
       "item_assault_",
       "item_crimson_pipe_",
       "item_helm_of_the_dominator_",
