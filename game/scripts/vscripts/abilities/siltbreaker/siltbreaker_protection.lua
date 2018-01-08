@@ -2,7 +2,7 @@
 function siltbreaker_protection_purge(kv)
   local unit = kv.unit
   if unit:IsStunned() or unit:IsSilenced() then
-    unit:Purge( false, true, true, true, true )
+    unit:Purge( false, true, false, true, true )
   end
 end
 
@@ -12,7 +12,7 @@ function siltbreaker_protection_trigger(kv)
   local protection_duration = ability:GetSpecialValueFor("duration")
 
   if ability:IsCooldownReady() and (unit:IsStunned() or unit:IsSilenced()) then
-    unit:Purge( false, true, true, true, true )
+    unit:Purge( false, true, false, true, true )
     ability:CastAbility()
   end
 end
