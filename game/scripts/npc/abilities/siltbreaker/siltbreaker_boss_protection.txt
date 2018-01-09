@@ -82,12 +82,45 @@
 
         "Duration"                                        "%duration"
         // If state changes, reapply the modifier
+
+        "EffectName" "particles/items_fx/black_king_bar_overhead.vpcf"
+        "EffectAttachType" "follow_overhead"
+
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
+            "Target"                                          "CASTER"
+            "EffectAttachType" "follow_origin"
+          }
+
+          "FireSound"
+          {
+            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
+            "Target"                                          "CASTER"
+          }
+        }
+
         "OnStateChanged"
         {
           "RunScript"
           {
             "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
             "Function"                                    "siltbreaker_protection_purge"
+          }
+
+          "AttachEffect"
+          {
+            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
+            "Target"                                          "CASTER"
+            "EffectAttachType" "follow_origin"
+          }
+
+          "FireSound"
+          {
+            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
+            "Target"                                          "CASTER"
           }
         }
 
@@ -106,6 +139,12 @@
           "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_DISABLED"
         }
       }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/items_fx/black_king_bar_overhead.vpcf"
+      "particle"  "particles/items_fx/immunity_sphere.vpcf"
     }
   }
 }
