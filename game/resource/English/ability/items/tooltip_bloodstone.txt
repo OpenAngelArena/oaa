@@ -2,6 +2,7 @@
 // Bloodstone
 //=============================================================================
 "DOTA_Tooltip_Ability_item_bloodstone_1"                                    "Bloodstone"
+"DOTA_Tooltip_Ability_item_recipe_bloodstone_1"                             "Bloodstone Recipe"
 "DOTA_Tooltip_Ability_item_bloodstone_1_Description"                        "<h1>Active: Pocket Deny</h1>Instantly causes you to die.<br><br>Must ground target to cast.  Cannot self cast.\n<h1>Passive: Bloodpact</h1>Begins with %tooltip_charges% charges, and gains a charge each time an enemy hero dies within %charge_range% range. <br><br>If the bearer dies, the Bloodstone loses a third of its charges."
 "DOTA_Tooltip_Ability_item_bloodstone_1_Lore"                               "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
 "DOTA_Tooltip_Ability_item_bloodstone_1_Note0"                              "Only the first Bloodstone will gain charges."
@@ -11,6 +12,7 @@
 "DOTA_Tooltip_Ability_item_bloodstone_1_bonus_mana_regen"                   "+$mana_regen"
 
 "DOTA_Tooltip_Ability_item_bloodstone_2"                                    "#{DOTA_Tooltip_Ability_item_bloodstone_1}"
+"DOTA_Tooltip_Ability_item_recipe_bloodstone_2"                             "#{DOTA_Tooltip_Ability_item_recipe_bloodstone_1}"
 "DOTA_Tooltip_Ability_item_bloodstone_2_Description"                        "#{DOTA_Tooltip_Ability_item_bloodstone_1_Description}"
 "DOTA_Tooltip_Ability_item_bloodstone_2_Lore"                               "#{DOTA_Tooltip_ability_item_bloodstone_1_Lore}"
 "DOTA_Tooltip_Ability_item_bloodstone_2_Note0"                              "#{DOTA_Tooltip_ability_item_bloodstone_1_Note0}"
@@ -20,6 +22,7 @@
 "DOTA_Tooltip_Ability_item_bloodstone_2_bonus_mana_regen"                   "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_3"                                    "#{DOTA_Tooltip_Ability_item_bloodstone_1}"
+"DOTA_Tooltip_Ability_item_recipe_bloodstone_3"                             "#{DOTA_Tooltip_Ability_item_recipe_bloodstone_1}"
 "DOTA_Tooltip_Ability_item_bloodstone_3_Description"                        "#{DOTA_Tooltip_Ability_item_bloodstone_1_Description}"
 "DOTA_Tooltip_Ability_item_bloodstone_3_Lore"                               "#{DOTA_Tooltip_ability_item_bloodstone_1_Lore}"
 "DOTA_Tooltip_Ability_item_bloodstone_3_Note0"                              "#{DOTA_Tooltip_ability_item_bloodstone_1_Note0}"
@@ -29,6 +32,7 @@
 "DOTA_Tooltip_Ability_item_bloodstone_3_bonus_mana_regen"                   "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_4"                                    "#{DOTA_Tooltip_Ability_item_bloodstone_1}"
+"DOTA_Tooltip_Ability_item_recipe_bloodstone_4"                             "#{DOTA_Tooltip_Ability_item_recipe_bloodstone_1}"
 "DOTA_Tooltip_Ability_item_bloodstone_4_Description"                        "#{DOTA_Tooltip_Ability_item_bloodstone_1_Description}"
 "DOTA_Tooltip_Ability_item_bloodstone_4_Lore"                               "#{DOTA_Tooltip_ability_item_bloodstone_1_Lore}"
 "DOTA_Tooltip_Ability_item_bloodstone_4_Note0"                              "#{DOTA_Tooltip_ability_item_bloodstone_1_Note0}"
@@ -38,6 +42,7 @@
 "DOTA_Tooltip_Ability_item_bloodstone_4_bonus_mana_regen"                   "#{DOTA_Tooltip_ability_item_bloodstone_1_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_bloodstone_5"                                    "#{DOTA_Tooltip_Ability_item_bloodstone_1}"
+"DOTA_Tooltip_Ability_item_recipe_bloodstone_5"                             "#{DOTA_Tooltip_Ability_item_recipe_bloodstone_1}"
 "DOTA_Tooltip_Ability_item_bloodstone_5_Description"                        "#{DOTA_Tooltip_Ability_item_bloodstone_1_Description}"
 "DOTA_Tooltip_Ability_item_bloodstone_5_Lore"                               "#{DOTA_Tooltip_ability_item_bloodstone_1_Lore}"
 "DOTA_Tooltip_Ability_item_bloodstone_5_Note0"                              "#{DOTA_Tooltip_ability_item_bloodstone_1_Note0}"
