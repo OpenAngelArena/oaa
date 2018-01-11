@@ -84,8 +84,11 @@ function GameMode:_OnEntityKilled( keys )
   end
 
   if killedUnit:IsRealHero() then
-    local killerTeam = killerEntity:GetTeam()
-    DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
+    local killerTeam = DOTA_TEAM_NEUTRALS
+    if killerEntity then
+      killerTeam = killerEntity:GetTeam()
+      DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
+    end
     if END_GAME_ON_KILLS and GetTeamHeroKills(killerTeam) >= KILLS_TO_END_GAME_FOR_TEAM then
       GameRules:SetSafeToLeave( true )
       GameRules:SetGameWinner( killerTeam )
