@@ -1,6 +1,6 @@
 "DOTAUnits"
 {
-  "npc_dota_boss_stopfightingyourself_1"
+  "npc_dota_boss_stopfightingyourself"
   {
     // General
     //
@@ -100,7 +100,9 @@
     }
   }
 
-  "npc_dota_boss_stopfightingyourself_2"
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+  "npc_dota_boss_stopfightingyourself_t5"
   {
     // General
     //
@@ -159,7 +161,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"             // Base health
+    "StatusHealth"                                        "20000"             // Base health
     "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
     "StatusMana"                                          "500"               // Base mana.
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
