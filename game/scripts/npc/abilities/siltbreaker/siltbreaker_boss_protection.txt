@@ -1,0 +1,150 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // SiltBreaker Boss Protection
+  //=================================================================================================================
+  "siltbreaker_boss_protection"
+  {
+    "ID"                                                  "8443"
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "silencer_last_word"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "AbilityCooldown"                                     "10.0"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
+      }
+    }
+
+    "OnUpgrade"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_siltbreaker_boss_protection_trigger"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_siltbreaker_boss_protection"
+        "Target"                                          "CASTER"
+        "Duration"                                        "%duration"
+      }
+      "RemoveModifier"
+      {
+        "ModifierName"                                    "modifier_siltbreaker_boss_protection_trigger"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_siltbreaker_boss_protection_trigger"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        "OnStateChanged"
+        {
+          "RunScript"
+          {
+            "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
+            "Function"                                    "siltbreaker_protection_trigger"
+          }
+        }
+      }
+
+      "modifier_siltbreaker_boss_protection"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "0"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+        "Priority"                                        "MODIFIER_PRIORITY_SUPER_ULTRA"
+
+        "Duration"                                        "%duration"
+        // If state changes, reapply the modifier
+
+        "EffectName" "particles/items_fx/black_king_bar_overhead.vpcf"
+        "EffectAttachType" "follow_overhead"
+
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
+            "Target"                                          "CASTER"
+            "EffectAttachType" "follow_origin"
+          }
+
+          "FireSound"
+          {
+            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
+            "Target"                                          "CASTER"
+          }
+        }
+
+        "OnStateChanged"
+        {
+          "RunScript"
+          {
+            "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
+            "Function"                                    "siltbreaker_protection_purge"
+          }
+
+          "AttachEffect"
+          {
+            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
+            "Target"                                          "CASTER"
+            "EffectAttachType" "follow_origin"
+          }
+
+          "FireSound"
+          {
+            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
+            "Target"                                          "CASTER"
+          }
+        }
+
+        "OnDestroy"
+        {
+          "ApplyModifier"
+          {
+            "ModifierName"                                    "modifier_siltbreaker_boss_protection_trigger"
+            "Target"                                          "CASTER"
+          }
+        }
+
+        "States"
+        {
+          "MODIFIER_STATE_SILENCED"  "MODIFIER_STATE_VALUE_DISABLED"
+          "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_DISABLED"
+        }
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/items_fx/black_king_bar_overhead.vpcf"
+      "particle"  "particles/items_fx/immunity_sphere.vpcf"
+    }
+  }
+}
