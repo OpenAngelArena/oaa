@@ -71,7 +71,9 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
   PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-    hero:AddItemByName(item)
+    if hero then
+      hero:AddItemByName(item)
+    end
   end)
 end
 
