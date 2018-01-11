@@ -1,54 +1,53 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: preemptive_3a
+  // Recipe: bubble_orb_2
   //=================================================================================================================
-  "item_recipe_preemptive_3a"
+  "item_recipe_bubble_orb_2"
   {
-    "ID"                                                  "3807"   // unique ID
+    "ID"                                                  "8446"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive_3a"
+    "ItemResult"                                          "item_bubble_orb_2"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_preemptive_2a;item_upgrade_core_3"
-      "02"                                                "item_preemptive_2a;item_upgrade_core_4"
+      "01"                                                "item_bubble_orb_1;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // preemptive_3a
+  // bubble_orb_2
   //=================================================================================================================
-  "item_preemptive_3a"
+  "item_bubble_orb_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3808"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8458"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/preemptive_3a"
-    "ScriptFile"                                          "items/reflex/preemptive_purge.lua"
+    "AbilityTextureName"                                  "custom/bubble_orb_2"
+    "ScriptFile"                                          "items/reflex/preemptive_bubble.lua"
     "FightRecapLevel"                                     "1"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "reflex"
+    "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17000"
-    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemCost"                                            "37000"
+    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "purge orb; purge crystal"
+    "ItemAliases"                                         "bubble orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -60,33 +59,45 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "25 32 40"
+        "bonus_armor"                                     "32 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "10.0 15.0 30.0"
+        "bonus_health_regen"                              "15.0 30.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.5 5.0 7.5"
+        "bonus_mana_regen"                                "5.0 7.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "500 700 1000"
+	      "bonus_mana"                                      "700 1000"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.2"
+        "duration"                                        "10.0"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150"
       }
+      "07"
+      {
+        // The time that the buff effect lingers after exiting the bubble
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_stickiness"                                 "0.1"
+      }
+    }
+
+    "Precache"
+    {
+      "particle"                                          "particles/items/bubble_orb_base.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
     }
   }
 }

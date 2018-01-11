@@ -1,58 +1,53 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Preemptive Reflect Core 1
+  // Recipe: reduction orb 3
   //=================================================================================================================
-  "item_recipe_preemptive"
+  "item_recipe_reduction_orb_3"
   {
-    "ID"                                                  "3801"   // unique ID
+    "ID"                                                  "3821"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_preemptive"
+    "ItemResult"                                          "item_reduction_orb_3"
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_crimson_guard_2;item_upgrade_core_2"
-      "02"                                                "item_crimson_guard_2;item_upgrade_core_3"
-      "03"                                                "item_crimson_guard_2;item_upgrade_core_4"
+      "01"                                                "item_reduction_orb_2;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
-  // Preemptive Reflect Core 1
+  // reduction orb 3
   //=================================================================================================================
-  "item_preemptive"
+  "item_reduction_orb_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3822"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/preemptive"
-    "ScriptFile"                                          "items/reflex/preemptive.lua"
+    "AbilityTextureName"                                  "custom/reduction_orb_3"
+    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
     "FightRecapLevel"                                     "1"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "reflex"
+    "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    // even though this levels up, it splits at every level, so we dont show it that way
-    // "MaxUpgradeLevel"                                  "1"
-    // "ItemBaseLevel"                                    "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8550"
-    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
+    "ItemCost"                                            "36550"
+    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "half damage reduction orb"
+    "ItemAliases"                                         "heal damage reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -63,33 +58,38 @@
     {
       "01"
       {
-        "var_type"					  "FIELD_INTEGER"
-        "bonus_all_stats"				  "5"
+        "var_type"                                          "FIELD_INTEGER"
+        "bonus_health"                                      "750 1000 1500"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "750"
+        "var_type"                                          "FIELD_INTEGER"
+        "bonus_health_regen"                                "14 19 27"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "9"
+        "var_type"                                          "FIELD_INTEGER"
+        "bonus_all_stats"                                   "5 7 10"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "14"
+        "var_type"                                          "FIELD_INTEGER"
+        "bonus_armor"                                       "9 11 13"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "50"
+        "var_type"                                          "FIELD_INTEGER"
+        "damage_reduction"                                  "50 100 100"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0"
+        "var_type"                                          "FIELD_FLOAT"
+        "duration"                                          "2.0 2.0 4.0"
+      }
+      "07"
+      {
+        "var_type"                                          "FIELD_INTEGER"
+        "damage_as_healing"                                 "0 0 50"
       }
     }
   }

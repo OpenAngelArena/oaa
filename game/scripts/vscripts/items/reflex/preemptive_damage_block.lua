@@ -1,5 +1,5 @@
--- defines item_preemptive_2b
--- defines item_preemptive_3b
+-- defines item_reduction_orb_2
+-- defines item_reduction_orb_3
 -- defines modifier_item_preemptive_damage_reduction
 LinkLuaModifier( "modifier_item_preemptive_damage_reduction", "items/reflex/preemptive_damage_block.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
@@ -8,13 +8,13 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_preemptive_2b = class(ItemBaseClass)
+item_reduction_orb_2 = class(ItemBaseClass)
 
-function item_preemptive_2b:GetIntrinsicModifierName()
+function item_reduction_orb_2:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end
 
-function item_preemptive_2b:OnSpellStart()
+function item_reduction_orb_2:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
   local damageToHealPercent = self:GetSpecialValueFor("damage_as_healing")
@@ -34,11 +34,11 @@ function item_preemptive_2b:OnSpellStart()
   return true
 end
 
-function item_preemptive_2b:ProcsMagicStick ()
+function item_reduction_orb_2:ProcsMagicStick ()
   return false
 end
 
-item_preemptive_3b = item_preemptive_2b
+item_reduction_orb_3 = item_reduction_orb_2
 
 ------------------------------------------------------------------------
 
