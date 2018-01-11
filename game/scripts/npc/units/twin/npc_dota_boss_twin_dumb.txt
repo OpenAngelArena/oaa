@@ -93,6 +93,7 @@
 //=================================================================================
 // Dumb Twin Tier 5
 //=================================================================================
+
   "npc_dota_boss_twin_dumb_t5"
   {
     // General
@@ -118,8 +119,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "500"    // Damage range min.
-    "AttackDamageMax"                                     "600"    // Damage range max.
+    "AttackDamageMin"                                     "2000"    // Damage range min.
+    "AttackDamageMax"                                     "2500"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -146,7 +147,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "3500"    // Base health
+    "StatusHealth"                                        "15000"    // Base health
     "StatusHealthRegen"                                   "3.5"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
