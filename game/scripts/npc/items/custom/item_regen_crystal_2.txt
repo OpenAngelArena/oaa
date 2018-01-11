@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "200"
     "ItemCost"                                            "18200"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
@@ -58,17 +58,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1200 2000 2800"
+        "bonus_health"                                    "600 1000 1400"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "75 95 115"
+        "bonus_strength"                                  "105 145 185"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                              "1000"
+        "active_health_regen"                              "200 225 250"
       }
       "04"
       {
