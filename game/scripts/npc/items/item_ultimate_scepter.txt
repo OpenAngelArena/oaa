@@ -5,6 +5,7 @@
   //=================================================================================================================
   "item_ultimate_scepter"
   {
+    "ID"                                                  "108"
     "AbilityTextureName"                                  "custom/ultimate_scepter"
 
     "MaxUpgradeLevel"                                     "5"
@@ -29,7 +30,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "175 250 400 600 800"
       }
-      "04"
+      "04" // OAA
       {
         "var_type"                                        "FIELD_INTEGER"
         "talent_level_tooltip"                            "0 10 15 20 25"
