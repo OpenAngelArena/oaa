@@ -173,9 +173,9 @@
     //----------------------------------------------------------------
     "Ability1"                  "lycan_boss_summon_wolves"
     "Ability2"                  "lycan_boss_shapeshift"
-    "Ability3"                  "lycan_boss_claw_lunge"
-    "Ability4"                  "lycan_boss_claw_attack"
-    "Ability5"                  "lycan_boss_rupture_ball"
+    "Ability3"                  "lycan_boss_claw_lunge_t5"
+    "Ability4"                  "lycan_boss_claw_attack_t5"
+    "Ability5"                  "lycan_boss_rupture_ball_t5"
     "Ability6"                  "boss_resistance"
     "Ability7"                  "boss_cliffwalk"
     "Ability8"                  "siltbreaker_boss_protection"
@@ -187,8 +187,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"      "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"         "300"
-    "AttackDamageMax"         "320"
+    "AttackDamageMin"         "7500"
+    "AttackDamageMax"         "8000"
     "AttackRate"              "1.45"
     "AttackAnimationPoint"    "0.55"
     "AttackAcquisitionRange"  "600"
@@ -215,7 +215,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"        "6500"
+    "StatusHealth"        "35000"
     "StatusHealthRegen"     "10"
     "StatusMana"        "2500"
     "StatusManaRegen"     "5"
