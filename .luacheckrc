@@ -126,6 +126,10 @@ read_globals = { -- these globals can only be accessed.
 "operator",
 "op",
 
+-- functional
+"CallMethod",
+"compose",
+
 -- util
 "split",
 "regexsplit",
