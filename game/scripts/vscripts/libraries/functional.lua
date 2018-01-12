@@ -111,3 +111,15 @@ function CallMethod(methodName, ...)
   end
   return caller
 end
+
+-- Takes a set of functions and returns a fn that is the composition of those fns.
+-- The returned fn takes a variable number of args, applies the rightmost of fns to the args,
+-- the next fn (right-to-left) to the result, etc.
+function compose(f, ...)
+  local function compose1(f, g)
+    return function (...)
+      return f(g(...))
+    end
+  end
+  return reduce(compose1, f, {...})
+end
