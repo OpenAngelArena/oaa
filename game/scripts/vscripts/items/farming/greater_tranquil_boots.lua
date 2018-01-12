@@ -2,6 +2,8 @@ item_greater_tranquil_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -20,7 +22,14 @@ end
 --------------------------------------------------------------------------------
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
-	return "modifier_item_greater_tranquil_boots"
+	return "modifier_intrinsic_multiplexer"
+end
+
+function item_greater_tranquil_boots:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_greater_tranquil_boots",
+    "modifier_creep_bounty"
+  }
 end
 
 --------------------------------------------------------------------------------
