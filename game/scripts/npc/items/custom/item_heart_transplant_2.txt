@@ -38,14 +38,15 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "0.0"
     "AbilitySharedCooldown"                               "transplant"
     "AbilityTextureName"                                  "custom/heart_transplant_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "45825"
+    "AbilityManaCost"                                     "200"
+    "ItemCost"                                            "40825"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -74,18 +75,18 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_range_tooltip"                        "1000"
+        "transplant_range_tooltip"                        "700"
       }
       // Heart Parameters
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "135 180"
+        "bonus_strength"                                  "80 85"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1350"
+        "bonus_health"                                    "2300 3400"
       }
       "06"
       {
