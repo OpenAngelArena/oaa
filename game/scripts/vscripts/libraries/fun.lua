@@ -48,12 +48,12 @@ local iterator_mt = {
   -- usually called by for-in loop
   __call = function(self, param, state)
     return self.gen(param, state)
-  end;
+  end,
   __tostring = function(self)
     return '<generator>'
-  end;
+  end,
   -- add all exported methods
-  __index = methods;
+  __index = methods
 }
 
 local wrap = function(gen, param, state)
@@ -97,7 +97,7 @@ end
 local rawiter = function(obj, param, state)
   assert(obj ~= nil, "invalid iterator")
   if type(obj) == "table" then
-    local mt = getmetatable(obj);
+    local mt = getmetatable(obj)
     if mt ~= nil then
       if mt == iterator_mt then
         return obj.gen, obj.param, obj.state
@@ -509,7 +509,7 @@ exports.elem_indices = exports.indexes
 
 local filter1_gen = function(fun, gen_x, param_x, state_x, a)
   while true do
-    if state_x == nil or fun(a) then break; end
+    if state_x == nil or fun(a) then break end
     state_x, a = gen_x(param_x, state_x)
   end
   return state_x, a
