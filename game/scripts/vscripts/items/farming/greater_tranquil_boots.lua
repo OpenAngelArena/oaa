@@ -68,7 +68,7 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 	self.interval = spell:GetSpecialValueFor( "check_interval" )
 
 	if IsServer() then
-		self:SetDuration( spell:GetCooldownTime(), true )
+		self:SetDuration( spell:GetCooldownTimeRemaining(), true )
 
 		self:StartIntervalThink( self.interval )
 	end
@@ -252,7 +252,7 @@ if IsServer() then
 				return
 			end
 
-			spell:UseResources( false, false, true )
+			spell:StartCooldown(spell:GetCooldown(spell:GetLevel()))
 
 			-- seriously, this is easy
 
