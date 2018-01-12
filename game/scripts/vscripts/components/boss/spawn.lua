@@ -4,6 +4,8 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
+  BossSpawner.CoreItems = {'item_upgrade_core', 'item_upgrade_core_2', 'item_upgrade_core_3', 'item_upgrade_core_4', 'item_upgrade_core_4'}
+
   Debug.EnabledModules['boss:spawn'] = false
 end
 
@@ -107,18 +109,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
---Adding cores to the bosses inventory
-  local core = nil
-
-  if bossTier == 1 then
-    core = CreateItem("item_upgrade_core", bossHandle, bossHandle)
-  elseif bossTier == 2 then
-    core = CreateItem("item_upgrade_core_2", bossHandle, bossHandle)
-  elseif bossTier == 3 then
-    core = CreateItem("item_upgrade_core_3", bossHandle, bossHandle)
-  elseif bossTier >= 4  then
-    core = CreateItem("item_upgrade_core_4", bossHandle, bossHandle)
-  end
+  --Adding cores to the bosses inventory
+  local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)
 
   if core == nil then
     error('Got bad core, tier must have bad value ' .. tostring(bossTier))
