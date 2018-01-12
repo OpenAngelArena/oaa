@@ -1,0 +1,37 @@
+
+.OAACooldown
+{
+    width: 39px;
+    height: 39px;
+    background-color: #000000dd;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    horizontal-align : center;
+    vertical-align : middle;
+    transition-timing-function: linear;
+    transition-property: clip;
+    clip: radial(50% 50%, 0deg, -360deg);
+}
+
+.PoopWardActive
+{
+  width: 39px;
+  height: 39px;
+  background-size: 100% 100%;
+  background-image: url("file://{resources}/images/hud/reborn/poop_ward.png");
+  visibility: collapse;
+}
+
+.PoopWardInactive
+{
+  width: 39px;
+  height: 39px;
+  background-size: 100% 100%;
+  background-image: url("file://{resources}/images/hud/reborn/poop_ward_inactive.png");
+  visibility: collapse;
+}
+
+.OAACooldownHold .OAACooldown
+{
+  visibility: collapse;
+}

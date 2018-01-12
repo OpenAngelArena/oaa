@@ -141,7 +141,7 @@ function Glyph:SetScanCooldown(playerID, time)
   time = time or 0
 
   self.scan.cooldowns[team] = time
-  CustomGameEventManager:Send_ServerToPlayer(player, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() })
+  CustomGameEventManager:Send_ServerToTeam( team, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() } )
   Timers:CreateTimer(time, function ()
     self.scan.cooldowns[team] = 0
   end)
