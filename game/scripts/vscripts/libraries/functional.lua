@@ -91,3 +91,23 @@ function after (count, callback)
   end
   return done
 end
+
+-- Returns a function that calls methodName on any given object, passing the object
+-- as the first argument along with any additional arguments given to CallMethod
+function CallMethod(methodName, ...)
+  local caller
+  -- Since this is meant to call C++, it has to be very specific about the number of arguments.
+  -- Using unpack(args) unconditionally would result in an extra nil argument
+  -- if no argument was given to CallMethod
+  if select('#', ...) > 0 then
+    local args = {...}
+    caller = function (object)
+      return object[methodName](object, unpack(args))
+    end
+  else
+    caller = function (object)
+      return object[methodName](object)
+    end
+  end
+  return caller
+end
