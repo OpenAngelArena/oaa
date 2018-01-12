@@ -4,6 +4,7 @@
       "noImplicitThis" : true,
       "alwaysStrict" : true,
       "strictNullChecks" : true,
-      "target": "es3"
+      "target": "es3",
+      "watch": true
   }
 }
