@@ -23,8 +23,8 @@
     "ItemResult"                                          "item_heart_transplant"
     "ItemRequirements"
     {
-      "01"                                                "item_heart_3;item_solar_crest_3;item_upgrade_core_3"
-      "02"                                                "item_heart_3;item_solar_crest_3;item_upgrade_core_4"
+      "01"                                                "item_heart_3;item_solar_crest;item_upgrade_core_3"
+      "02"                                                "item_heart_3;item_solar_crest;item_upgrade_core_4"
     }
   }
 
@@ -45,7 +45,7 @@
     "AbilityTextureName"                                  "custom/heart_transplant"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "0.0"
     "AbilitySharedCooldown"                               "transplant"
 
@@ -53,7 +53,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25825"
+    "AbilityManaCost"                                     "200"
+    "ItemCost"                                            "20825"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -81,18 +82,18 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_range_tooltip"                        "1000"
+        "transplant_range_tooltip"                        "700"
       }
       // Heart Parameters
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "135 180"
+        "bonus_strength"                                  "80 85"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1350"
+        "bonus_health"                                    "2300 3400"
       }
       "06"
       {
