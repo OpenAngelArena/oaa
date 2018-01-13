@@ -25,21 +25,23 @@ function TempleGuardianSpawnerThink()
   end
 
   thisEntity.bossHandle1 = CreateUnitByName('npc_dota_creature_temple_guardian', thisEntity:GetAbsOrigin() +  Vector( 300, 0, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
-  thisEntity.bossHandle2 = CreateUnitByName('npc_dota_creature_temple_guardian', thisEntity:GetAbsOrigin() -  Vector( 300, 0, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  thisEntity.bossHandle2 = CreateUnitByName('npc_dota_creature_temple_guardian', thisEntity:GetAbsOrigin() +  Vector(-300, 0, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
   thisEntity.bossHandle1:SetHullRadius( 150 )
   thisEntity.bossHandle2:SetHullRadius( 150 )
-
-  local heart = CreateItem("item_heart", thisEntity.bossHandle1, thisEntity.bossHandle1)
-  thisEntity.bossHandle1:AddItem(thisEntity.bossHandle1)
-
-  heart = CreateItem("item_heart", thisEntity.bossHandle2, thisEntity.bossHandle2)
-  thisEntity.bossHandle2:AddItem(heart)
 
   thisEntity.bossHandle1.hBrother = thisEntity.bossHandle2
   thisEntity.bossHandle2.hBrother = thisEntity.bossHandle1
 
   thisEntity.bossHandle1:OnDeath(OnBossKill)
   thisEntity.bossHandle2:OnDeath(OnBossKill)
+
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    local item = thisEntity:GetItemInSlot(i)
+    if item ~= nil then
+      thisEntity.bossHandle1:AddItemByName( item:GetName() )
+      thisEntity.bossHandle2:AddItemByName( item:GetName() )
+    end
+  end
 
   SpawnPedestals()
 

@@ -50,6 +50,8 @@ function TempleGuardianThink()
   --Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
     thisEntity.bHasAgro = false
+    thisEntity:SetAbsOrigin( thisEntity.vInitialSpawnPos )
+    thisEntity:SetAngles(0, 90, 0);
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
     return 5
   elseif (fHpPercent < 100 and #enemies > 0) or FrendlyHasAgro() then
@@ -150,7 +152,7 @@ function RetreatHome()
 end
 
 function Wrath()
-	print( "ai_temple_guardian - Wrath" )
+	--print( "ai_temple_guardian - Wrath" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -161,7 +163,7 @@ function Wrath()
 end
 
 function Throw( enemy )
-	print( "ai_temple_guardian - Throw" )
+	--print( "ai_temple_guardian - Throw" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
@@ -173,7 +175,7 @@ function Throw( enemy )
 end
 
 function Purification( friendly )
-	print( "ai_temple_guardian - Purification" )
+	--print( "ai_temple_guardian - Purification" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -185,7 +187,7 @@ function Purification( friendly )
 end
 
 function Smash( enemy )
-	print( "ai_temple_guardian - Smash" )
+	--print( "ai_temple_guardian - Smash" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
@@ -197,7 +199,7 @@ function Smash( enemy )
 end
 
 function RageSmash( enemy )
-	print( "ai_temple_guardian - RageSmash" )
+	--print( "ai_temple_guardian - RageSmash" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,

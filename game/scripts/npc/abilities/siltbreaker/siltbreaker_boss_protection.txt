@@ -81,7 +81,6 @@
         "Priority"                                        "MODIFIER_PRIORITY_SUPER_ULTRA"
 
         "Duration"                                        "%duration"
-        // If state changes, reapply the modifier
 
         "EffectName" "particles/items_fx/black_king_bar_overhead.vpcf"
         "EffectAttachType" "follow_overhead"
@@ -104,23 +103,11 @@
 
         "OnStateChanged"
         {
+          // If state changes, purge it
           "RunScript"
           {
             "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
             "Function"                                    "siltbreaker_protection_purge"
-          }
-
-          "AttachEffect"
-          {
-            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
-            "Target"                                          "CASTER"
-            "EffectAttachType" "follow_origin"
-          }
-
-          "FireSound"
-          {
-            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
-            "Target"                                          "CASTER"
           }
         }
 
