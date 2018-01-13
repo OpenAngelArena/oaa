@@ -1,0 +1,25 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_glyph_radar.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/custom_glyph_radar.js"/>
+  </scripts>
+
+  <snippets>
+    <snippet name="CustomGlyphRadarContainerSnippet">
+      <Panel class="CustomGlyphRadarContainer" hittest="false">
+        <Panel class="OAACooldownHold RadarContainer" hittest="false">
+          <!-- <Image class="Icon ScanActive" id="OAARadarIcon" /> -->
+          <Panel class="OAACooldown" id="OAARadarCooldown" hittest="false"/>
+        </Panel>
+        <Panel class="OAACooldownHold GlyphContainer" hittest="false">
+          <!-- <Image class="Icon PoopWardActive" id="OAAGlyphIcon"/> -->
+          <Panel class="OAACooldown" id="OAAGlyphCooldown" hittest="false"/>
+        </Panel>
+      </Panel>
+    </snippet>
+  </snippets>
+  <Panel class="CustomGlyphRadarContainerParent" hittest="false"/>
+</root>
