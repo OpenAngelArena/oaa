@@ -3,13 +3,26 @@ var GlyphScanContainer = /** @class */ (function () {
     // constructor
     function GlyphScanContainer() {
         this.root = FindDotaHudElement('GlyphScanContainer');
-        this.GlyphIcon = this.root.FindChildTraverse('GlyphButton');
+        $.GetContextPanel().RemoveAndDeleteChildren();
+        var panel = $.CreatePanel("Panel", $.GetContextPanel(), "");
+        panel.RemoveAndDeleteChildren();
+        panel.BLoadLayoutSnippet("CustomGlyphRadarContainerSnippet");
+        this.RadarCooldown = $('#OAARadarCooldown');
+        this.GlyphCooldown = $('#OAAGlyphCooldown');
         this.RadarIcon = this.root.FindChildTraverse('RadarIcon');
+        this.GlyphIcon = this.root.FindChildTraverse('GlyphButton');
+        this.GlyphCooldown.style.clip = "radial(50% 50%, 0deg, 0deg)";
+        this.RadarCooldown.style.clip = "radial(50% 50%, 0deg, 0deg)";
+        this.StartGlyphCooldown(0.1);
+        this.StartRadarCooldown(0.1);
     }
+    GlyphScanContainer.prototype.PreStart = function () {
+        this.SetRadarIcon(false);
+        this.SetGlyphIcon(true);
+    };
     GlyphScanContainer.prototype.Initialize = function () {
-        this.InitializeCooldownOverlays();
-        controller.StartGlyphCooldown(0);
-        controller.StartRadarCooldown(0);
+        this.DisableDotaGlyphAndRadar();
+        this.StartRadarCooldown(210);
     };
     GlyphScanContainer.prototype.SetGlyphIcon = function (isActive) {
         if (isActive) {
@@ -27,46 +40,27 @@ var GlyphScanContainer = /** @class */ (function () {
             this.RadarIcon.style.backgroundImage = 'url("s2r://panorama/images/hud/reborn/icon_scan_off_psd.vtex")';
         }
     };
-    GlyphScanContainer.prototype.InitializeCooldownOverlays = function () {
+    GlyphScanContainer.prototype.DisableDotaGlyphAndRadar = function () {
         // disable default Dota cover because it starts the game with style changed by script that we can't override
         var vanilaRadarCD = this.root.FindChildTraverse('CooldownCover');
         vanilaRadarCD.visible = false;
         vanilaRadarCD.style.opacity = "0";
-        var radarCD = this.root.FindChildTraverse('OAARadarCooldown');
-        if (radarCD == null) {
-            radarCD = $('#OAARadarCooldown');
-            radarCD.SetParent(vanilaRadarCD.GetParent());
-        }
-        this.RadarCooldown = radarCD;
         var vanilaGlyphCD = this.root.FindChildTraverse('GlyphCooldown');
         vanilaGlyphCD.visible = false;
         vanilaGlyphCD.style.opacity = "0";
-        var glyphCD = this.root.FindChildTraverse('OAAGlyphCooldown');
-        if (glyphCD == null) {
-            glyphCD = $('#OAAGlyphCooldown');
-            glyphCD.SetParent(vanilaGlyphCD.GetParent());
-        }
-        this.GlyphCooldown = glyphCD;
-        radarCD = $.GetContextPanel().FindChildTraverse('OAARadarCooldown');
-        if (radarCD != null)
-            radarCD.DeleteAsync(1);
-        glyphCD = $.GetContextPanel().FindChildTraverse('OAAGlyphCooldown');
-        if (glyphCD != null)
-            glyphCD.DeleteAsync(1);
     };
     GlyphScanContainer.prototype.StartPanelCooldown = function (panel, duration) {
-        panel.style.visibility = 'visible';
         $.Msg('StartingCooldown for ' + panel.id);
-        panel.style.opacity = "1";
+        panel.style.visibility = 'visible';
+        panel.style.opacity = "0.75";
         panel.style.transitionDuration = duration + "s ";
         panel.style.clip = "radial(50% 50%, 0deg, 0deg)";
         //Schedule hiding of the panel
         $.Schedule(duration, function () {
             $.Msg('FinishCooldown for ' + panel.id);
-            panel.style.transitionDuration = 0 + "s ";
-            panel.style.clip = "radial(50% 50%, 0deg, -360deg)";
-            panel.style.visibility = 'collapse';
             panel.style.opacity = "0";
+            panel.style.transitionDuration = 0.1 + "s ";
+            panel.style.clip = "radial(50% 50%, 0deg, -359deg)";
         });
     };
     GlyphScanContainer.prototype.StartGlyphCooldown = function (duration) {
@@ -89,6 +83,7 @@ var GlyphScanContainer = /** @class */ (function () {
 }());
 var controller = new GlyphScanContainer();
 if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)) {
+    controller.PreStart();
     GameEvents.Subscribe('oaa_state_change', function (args) {
         controller.Initialize();
         // Initial Dota Radar Cooldown
@@ -109,9 +104,7 @@ else {
         controller.StartRadarCooldown(args.maxCooldown);
     });
     GameEvents.Subscribe('glyph_ward_cooldown', function (args) {
-        $.Msg('Panorama Recieve GLYPH');
+        $.Msg('Panorama Recieve GLYPH ');
         controller.StartGlyphCooldown(args.maxCooldown);
     });
-    //controller.StartGlyphCooldown(30);
-    //controller.StartRadarCooldown(30);
 }

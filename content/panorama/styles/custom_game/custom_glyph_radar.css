@@ -1,3 +1,39 @@
+.CustomGlyphRadarContainer
+{
+    vertical-align: bottom;
+    background-size: 100% 100%;
+    width: 100%;
+    margin-left: 244px;
+    height: 280px;
+    width: 74px;
+    vertical-align: bottom;
+    background-size: cover;
+}
+
+.CustomGlyphRadarContainerParent
+{
+    vertical-align: bottom;
+}
+
+.GlyphContainer
+{
+    vertical-align: bottom;
+    horizontal-align : right;
+    width: 44px;
+    height: 44px;
+    margin-right: 24px;
+    margin-bottom: 6px;
+}
+
+.RadarContainer
+{
+    vertical-align: bottom;
+    horizontal-align : right;
+    width: 44px;
+    height: 44px;
+    margin-right: 24px;
+    margin-bottom: 50px;
+}
 
 .OAACooldown
 {
@@ -10,28 +46,40 @@
     vertical-align : middle;
     transition-timing-function: linear;
     transition-property: clip;
-    clip: radial(50% 50%, 0deg, -360deg);
+    transition-duration: 10ms;
 }
 
 .PoopWardActive
 {
-  width: 39px;
-  height: 39px;
-  background-size: 100% 100%;
   background-image: url("file://{resources}/images/hud/reborn/poop_ward.png");
-  visibility: collapse;
+}
+.PoopWardInActive
+{
+  background-image: url("file://{resources}/images/hud/reborn/poop_ward_inactive.png");
+}
+.ScanActive
+{
+  background-image: url("s2r://panorama/images/hud/reborn/icon_scan_on_psd.vtex");
+}
+.ScanInactive
+{
+  background-image: url("s2r://panorama/images/hud/reborn/icon_scan_off_psd.vtex");
 }
 
-.PoopWardInactive
+.Icon
 {
   width: 39px;
   height: 39px;
   background-size: 100% 100%;
-  background-image: url("file://{resources}/images/hud/reborn/poop_ward_inactive.png");
-  visibility: collapse;
+  border-radius: 50%;
+  horizontal-align : center;
+  vertical-align : middle;
+  visibility: visible;
 }
 
-.OAACooldownHold .OAACooldown
+.Hidden
 {
   visibility: collapse;
 }
+
+
