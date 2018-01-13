@@ -36,8 +36,7 @@ function TempleGuardianSpawnerThink()
   thisEntity.bossHandle2:OnDeath(OnBossKill)
 
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    item = thisEntity:GetItemInSlot(i)
-    -- Add an item to this unit's inventory.
+    local item = thisEntity:GetItemInSlot(i)
     if item ~= nil then
       thisEntity.bossHandle1:AddItemByName( item:GetName() )
       thisEntity.bossHandle2:AddItemByName( item:GetName() )
