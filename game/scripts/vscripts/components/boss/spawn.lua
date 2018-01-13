@@ -4,7 +4,14 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
-  BossSpawner.CoreItems = {'item_upgrade_core', 'item_upgrade_core_2', 'item_upgrade_core_3', 'item_upgrade_core_4', 'item_upgrade_core_4'}
+  BossSpawner.CoreItems = {
+    'item_upgrade_core',
+    'item_upgrade_core_2',
+    'item_upgrade_core_3',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4'
+  }
 
   Debug.EnabledModules['boss:spawn'] = false
 end
