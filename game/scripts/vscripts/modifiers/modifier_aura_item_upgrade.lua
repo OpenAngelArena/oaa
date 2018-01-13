@@ -34,6 +34,8 @@ if IsServer() then
       "item_shivas_guard_",
       "item_urn_of_sorcery_",
       "item_vladmir_",
+      "item_greater_arcane_boots_",
+      "item_greater_tranquil_boots_",
     }
 
     local hero = self:GetParent()

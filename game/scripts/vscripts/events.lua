@@ -67,6 +67,9 @@ function GameMode:OnNPCSpawned(keys)
   end
 end
 
+-- Custom event that fires when an entity takes damage that reduces its health to 0
+local OnEntityFatalDamage = CreateGameEvent('OnEntityFatalDamage')
+
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
 -- operations here
 -- game event object for OnEntityHurt
@@ -80,6 +83,10 @@ function GameMode:OnEntityHurt(keys)
   if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
     local entCause = EntIndexToHScript(keys.entindex_attacker)
     local entVictim = EntIndexToHScript(keys.entindex_killed)
+
+    if entVictim.GetHealth and entVictim:GetHealth() == 0 then
+      OnEntityFatalDamage(keys)
+    end
 
     -- The ability/item used to damage, or nil if not damaged by an item/ability
     local damagingAbility = nil
