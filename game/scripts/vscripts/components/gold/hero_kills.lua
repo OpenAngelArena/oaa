@@ -134,12 +134,6 @@ function HeroKillGold:HeroDeathHandler (keys)
     false
   )
 
-  local function sortByNetworth (a, b)
-    return a:GetNetworth() > b:GetNetworth()
-  end
-
-  table.sort(heroes, sortByNetworth)
-
   local killerIsInHeroesTable = iter(heroes)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
@@ -147,6 +141,12 @@ function HeroKillGold:HeroDeathHandler (keys)
   if not killerIsInHeroesTable then
     table.insert(heroes, killerHero)
   end
+
+  local function sortByNetworth (a, b)
+    return a:GetNetworth() > b:GetNetworth()
+  end
+
+  table.sort(heroes, sortByNetworth)
 
   DebugPrint(#heroes .. ' heroes getting assist gold')
 
