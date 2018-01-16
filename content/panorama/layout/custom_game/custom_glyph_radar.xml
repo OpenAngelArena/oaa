@@ -20,6 +20,40 @@
         </Panel>
       </Panel>
     </snippet>
+    <snippet name="DotaCustomTooltipGlyph">
+      <Panel class='TooltipContainer LeftArrowVisible Hidden Glyph' hittest="false" >
+        <Panel class='TooltipRow'>
+          <Panel id='LeftArrow'/>
+          <Panel id='Contents'>
+            <Label id="title" text="#Dota_tooltip_oaa_poop_ward_title" hittest="false" />
+            <Label id="description" text="#Dota_tooltip_oaa_poop_ward_description" hittest="false" />
+            <Panel id="cooldown" hittest="false" >
+              <Panel id="cooldown_icon" hittest="false" />
+              <Label id="cooldown_duration" text="5:00" hittest="false" />
+            </Panel>
+            <Label id="cooldown_timer_label" text="#DOTA_HUD_GlyphCooldown" hittest="false" />
+            <Label id="cooldown_ready_label" text="#DOTA_Tooltip_glyph_cooldown_ready" hittest="false" />
+          </Panel>
+        </Panel>
+      </Panel >
+    </snippet>
+    <snippet name="DotaCustomTooltipScan">
+      <Panel class='TooltipContainer LeftArrowVisible Hidden Scan' hittest="false" >
+        <Panel class='TooltipRow'>
+          <Panel id='LeftArrow'/>
+          <Panel id='Contents'>
+            <Label id="title" text="#Dota_tooltip_oaa_scan_title" hittest="false" />
+            <Label id="description" text="#Dota_tooltip_oaa_scan_description" hittest="false" />
+            <Panel id="cooldown" hittest="false" >
+              <Panel id="cooldown_icon" hittest="false" />
+              <Label id="cooldown_duration" text="5:00" hittest="false" />
+            </Panel>
+            <Label id="cooldown_timer_label" text="#DOTA_HUD_GlyphCooldown" hittest="false" />
+            <Label id="cooldown_ready_label" text="#DOTA_Tooltip_glyph_cooldown_ready" hittest="false" />
+          </Panel>
+        </Panel>
+      </Panel >
+    </snippet>
   </snippets>
   <Panel class="CustomGlyphRadarContainerParent" hittest="false"/>
 </root>

@@ -79,7 +79,142 @@
 
 .Hidden
 {
+  opacity: 0;
+}
+
+.TooltipContainer
+{
+  flow-children: down;
+  transition-property: opacity;
+  transition-duration: 0.35s ;
+  transition-timing-function: ease-in-out;
+  position: 294px -2px 0px;
+  vertical-align: bottom;
+}
+
+.TooltipRow
+{
+  flow-children: right;
+}
+
+.TooltipContainer.LeftArrowVisible #LeftArrow
+{
+  visibility: visible;
+}
+
+.Glyph #LeftArrow
+{
+  margin-bottom: 13px;
+}
+
+.Scan #LeftArrow
+{
+  margin-bottom: 36px;
+}
+
+.Scan .TooltipRow
+{
+  margin-bottom: 20px;
+}
+
+#LeftArrow
+{
+  position: 0px 0px 0px;
+  background-image: url("s2r://panorama/images/tooltips/tooltip_arrow_left_png.vtex");
+  wash-color: #252b30;
+  width: 24px;
+  height: 24px;
+  margin-right: -5px;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  z-index: 2;
+  background-size: contain;
+  vertical-align: bottom;
+}
+
+#Contents
+{
+  position: 18.5px 0px 0px;
+  margin-left: 0px;
+  min-height: 40px;
+  flow-children: down;
+  width: 400px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#2d2d2dfc), to (#000000fc));
+  padding: 12px;
+  border: 2px solid black;
+  margin: 0px;
+  box-shadow: #00000066 -4px -4px 8px 8px;
+}
+
+#title
+{
+  color: white;
+  font-size: 20px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#description
+{
+  position: 0px 26.12px 0px;
+  color: #CCCCCC;
+  font-size: 16px;
+  border-top: 1px solid #626262;
+  width: 100%;
+  padding: 5px 0px 2px 0px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#cooldown_timer_label
+{
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 3px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#cooldown_ready_label
+{
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 3px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  position: 0px 99px 0px;
   visibility: collapse;
 }
 
+#cooldown
+{
+  position: 0px 76.2px 0px;
+  flow-children: right;
+}
 
+#cooldown_icon
+{
+  width: 19px;
+  height: 19px;
+  background-image: url("s2r://panorama/images/hud/cooldown_png.vtex");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  margin-right: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#cooldown_duration
+{
+  position: 24px 0px 0px;
+  color: white;
+  font-size: 16px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.IsCooldownReady #cooldown_timer_label
+{
+  visibility: collapse;
+}
+.IsCooldownReady #cooldown_ready_label
+{
+  visibility: visible;
+}

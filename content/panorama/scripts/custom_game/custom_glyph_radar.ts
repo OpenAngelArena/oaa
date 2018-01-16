@@ -21,6 +21,11 @@ class GlyphScanContainer {
   GlyphCooldown: Panel;
   RadarIcon: ImagePanel;
   RadarCooldown: Panel;
+  GlyphTooltip: Panel;
+  RadarTooltip: Panel;
+
+  GlyphCDRemain: number;
+  RadarCDRemain: number;
 
   // constructor
   constructor() {
@@ -28,8 +33,8 @@ class GlyphScanContainer {
 
     $.GetContextPanel().RemoveAndDeleteChildren();
     let panel = $.CreatePanel('Panel', $.GetContextPanel(), '');
-    panel.RemoveAndDeleteChildren();
     panel.BLoadLayoutSnippet('CustomGlyphRadarContainerSnippet');
+
 
     this.RadarCooldown = $('#OAARadarCooldown');
     this.GlyphCooldown = $('#OAAGlyphCooldown');
@@ -40,6 +45,8 @@ class GlyphScanContainer {
     this.GlyphCooldown.style.clip = 'radial(50% 50%, 0deg, 0deg)';
     this.RadarCooldown.style.clip = 'radial(50% 50%, 0deg, 0deg)';
 
+    this.CreateTooltips();
+
     this.StartGlyphCooldown(0.1);
     this.StartRadarCooldown(0.1);
 
@@ -48,11 +55,14 @@ class GlyphScanContainer {
       this.SetGlyphIcon(true);
     });
 
+    // First Cooldown
+    (<LabelPanel>this.GlyphTooltip.FindChildTraverse('cooldown_duration')).text = this.NumberToTime(120);
   }
 
   Initialize()
   {
     this.DisableDotaGlyphAndRadar();
+    this.UpdateCooldowns();
     this.StartRadarCooldown(210);
 
     GameEvents.Subscribe('glyph_scan_cooldown', (args: GlyphScanEvtArgs) => {
@@ -61,6 +71,60 @@ class GlyphScanContainer {
     GameEvents.Subscribe('glyph_ward_cooldown', (args: GlyphScanEvtArgs) => {
       this.StartGlyphCooldown(args.maxCooldown);
     });
+
+  }
+
+  CreateTooltips()
+  {
+    this.CreateGlyphTooltip();
+    this.CreateRadarTooltip();
+  }
+
+  UpdateCooldowns()
+  {
+    $.Schedule(1, ()=>{
+      if(this.GlyphCDRemain > 0)
+      {
+        this.GlyphCDRemain--;
+      }
+      if(this.RadarCDRemain > 0)
+      {
+        this.RadarCDRemain--;
+      }
+
+      this.GlyphTooltip.SetHasClass('IsCooldownReady', this.GlyphCDRemain <= 0);
+      this.RadarTooltip.SetHasClass('IsCooldownReady', this.RadarCDRemain <= 0);
+
+      this.GlyphTooltip.FindChildTraverse('cooldown_timer_label').SetDialogVariable('cooldown_time', this.NumberToTime(this.GlyphCDRemain));
+      this.RadarTooltip.FindChildTraverse('cooldown_timer_label').SetDialogVariable('cooldown_time', this.NumberToTime(this.RadarCDRemain));
+
+      this.UpdateCooldowns();
+    })
+  }
+
+  NumberToTime (seconds: number) : string
+  {
+    let date = new Date(0);
+    date.setSeconds(seconds);
+    return date.toUTCString().substr(21, 4);
+  }
+
+  CreateGlyphTooltip ()
+  {
+    this.GlyphTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
+    this.GlyphTooltip.BLoadLayoutSnippet('DotaCustomTooltipGlyph');
+
+    this.GlyphIcon.SetPanelEvent(PanelEvent.ON_MOUSE_OVER , ()=>{ this.GlyphTooltip.SetHasClass('Hidden', false)})
+    this.GlyphIcon.SetPanelEvent(PanelEvent.ON_MOUSE_OUT  , ()=>{ this.GlyphTooltip.SetHasClass('Hidden', true)})
+  }
+
+  CreateRadarTooltip()
+  {
+    this.RadarTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
+    this.RadarTooltip.BLoadLayoutSnippet('DotaCustomTooltipScan');
+
+    this.root.FindChildTraverse('RadarButton').SetPanelEvent(PanelEvent.ON_MOUSE_OVER, ()=>{ this.RadarTooltip.SetHasClass('Hidden', false)})
+    this.root.FindChildTraverse('RadarButton').SetPanelEvent(PanelEvent.ON_MOUSE_OUT, ()=>{ this.RadarTooltip.SetHasClass('Hidden', true)})
   }
 
   SetGlyphIcon(isActive : boolean)
@@ -104,7 +168,7 @@ class GlyphScanContainer {
     $.Msg('StartingCooldown for ' + panel.id );
     SetIcon(false);
     panel.style.visibility = 'visible'
-    panel.style.opacity = '0.75';
+    panel.style.opacity = '1';
     panel.style.transitionDuration = duration + 's ';
     panel.style.clip = 'radial(50% 50%, 0deg, 0deg)';
 
@@ -120,6 +184,8 @@ class GlyphScanContainer {
 
   StartGlyphCooldown(duration: number)
   {
+    this.GlyphCDRemain = duration;
+    (<LabelPanel>this.GlyphTooltip.FindChildTraverse('cooldown_duration')).text = this.NumberToTime(duration);
     this.StartPanelCooldown(this.GlyphCooldown, duration, (IsActive: boolean) => {
       this.SetGlyphIcon(IsActive);
     });
@@ -127,6 +193,8 @@ class GlyphScanContainer {
 
   StartRadarCooldown(duration: number)
   {
+    this.RadarCDRemain = duration;
+    (<LabelPanel>this.RadarTooltip.FindChildTraverse('cooldown_duration')).text = this.NumberToTime(duration);
     this.StartPanelCooldown(this.RadarCooldown, duration, (IsActive: boolean) => {
       this.SetRadarIcon(IsActive);
     });
