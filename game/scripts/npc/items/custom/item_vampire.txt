@@ -40,7 +40,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "vampire"
     "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
@@ -86,7 +86,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "10"
+        "damage_per_second_pct"                           "15"
       }
       "07"
       {
