@@ -35,6 +35,19 @@ if IsServer() then
     }
   end
 
+  function modifier_visage_gravekeepers_cloak_oaa:DecreaseStacks()
+    local stackCount = self:GetStackCount()
+    self:SetStackCount(math.max(0, stackCount - 1))
+  end
+
+  function modifier_visage_gravekeepers_cloak_oaa:IncreaseStacks()
+    local ability = self:GetAbility()
+    local stackCount = self:GetStackCount()
+    if stackCount < ability:GetSpecialValueFor("max_layers") then
+      self:SetStackCount(stackCount + 1)
+    end
+  end
+
   function modifier_visage_gravekeepers_cloak_oaa:GetModifierTotal_ConstantBlock(keys)
     local ability = self:GetAbility()
     local caster = self:GetCaster()
@@ -43,12 +56,9 @@ if IsServer() then
     local damageThreshold = self:GetAbility():GetSpecialValueFor("minimum_damage")
     if keys.attacker:GetTeam() ~= caster:GetTeam() and (keys.attacker:GetTeam() == DOTA_TEAM_GOODGUYS or keys.attacker:GetTeam() == DOTA_TEAM_BADGUYS) then
       if keys.damage > damageThreshold then
-        self:SetStackCount(math.max(0, stackCount - 1))
+        self:DecreaseStacks()
         Timers:CreateTimer(ability:GetSpecialValueFor("recovery_time"), function()
-          local stackCount = self:GetStackCount()
-          if stackCount < ability:GetSpecialValueFor("max_layers") then
-            self:SetStackCount(stackCount + 1)
-          end
+          self:IncreaseStacks()
         end)
       end
     end
