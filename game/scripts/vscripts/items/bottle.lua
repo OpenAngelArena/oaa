@@ -29,7 +29,7 @@ local special_bottles = {
   [110318967] = 4, -- timo
   [34314091] = 5, -- frej
   [117027938] = 6,
-  [370166341] = , -- Melon
+  [370166341] = 7, -- Melon
 }
 
 local bonusNames = {
