@@ -30,6 +30,7 @@ local special_bottles = {
   [34314091] = 5, -- frej
   [117027938] = 6,
   [370166341] = 7, -- Melon
+  [110964954] = 8, -- Karmatic
 }
 
 local bonusNames = {
@@ -39,7 +40,8 @@ local bonusNames = {
   'custom/bottle_timo',
   'custom/bottle_frej',
   'custom/bottle_rearm',
-  'custom/bottle_melon'
+  'custom/bottle_melon',
+  'custom/bottle_karmatic'
 }
 
 --------------------------------------------------------------------------------
