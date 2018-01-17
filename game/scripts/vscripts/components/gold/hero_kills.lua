@@ -114,12 +114,15 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
   local baseGold = math.floor(110 + streakValue + (killedHeroLevel * 8))
+  local IsValidTeamPlayerID = partial(PlayerResource.IsValidTeamPlayerID, PlayerResource)
 
-  -- Grant the base last hit bounty
-  Gold:ModifyGold(killerHero, baseGold, true, DOTA_ModifyGold_RoshanKill)
-  local killerPlayer = killerHero:GetPlayerOwner()
-  if killerPlayer then
-    SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, baseGold, killerPlayer)
+  if IsValidTeamPlayerID(killerPlayerID) then
+    -- Grant the base last hit bounty
+    Gold:ModifyGold(killerHero, baseGold, true, DOTA_ModifyGold_RoshanKill)
+    local killerPlayer = killerHero:GetPlayerOwner()
+    if killerPlayer then
+      SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, baseGold, killerPlayer)
+    end
   end
 
   local heroes = FindHeroesInRadius(
@@ -138,7 +141,7 @@ function HeroKillGold:HeroDeathHandler (keys)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
 
-  if not killerIsInHeroesTable then
+  if IsValidTeamPlayerID(killerPlayerID) and not killerIsInHeroesTable then
     table.insert(heroes, killerHero)
   end
 
