@@ -8,7 +8,7 @@
     Angel Arena Blackstar
 */
 
-if (module !== undefined && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports.FindDotaHudElement = FindDotaHudElement;
   module.exports.ColorToHexCode = ColorToHexCode;
   module.exports.ColoredText = ColoredText;
