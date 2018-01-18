@@ -28,8 +28,7 @@ local special_bottles = {
   -- special people
   [110318967] = 4, -- timo
   [34314091] = 5, -- frej
-  [117027938] = 6,
-  [370166341] = 7, -- Melon
+  [117027938] = 6
 }
 
 local bonusNames = {
@@ -38,8 +37,7 @@ local bonusNames = {
   'custom/bottle_lotus',
   'custom/bottle_timo',
   'custom/bottle_frej',
-  'custom/bottle_rearm',
-  'custom/bottle_melon'
+  'custom/bottle_rearm'
 }
 
 --------------------------------------------------------------------------------

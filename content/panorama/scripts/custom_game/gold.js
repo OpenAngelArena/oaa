@@ -24,7 +24,7 @@ function onQueryChange () {
 function onGoldChange (table, data) {
   var unit = Players.GetLocalPlayerPortraitUnit();
   var localPlayerID = Game.GetLocalPlayerID();
-  var playerID = Entities.GetPlayerOwnerID(unit);
+  var playerID = Entities.GetHeroPlayerOwner(unit);
 
   if (playerID === -1 || Entities.GetTeamNumber(unit) !== Players.GetTeam(localPlayerID)) {
     playerID = localPlayerID;
