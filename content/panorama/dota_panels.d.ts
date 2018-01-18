@@ -152,22 +152,22 @@ interface LabelPanel extends Panel {
 }
 
 declare const enum PanelEvent {
-  ON_LEFT_CLICK = 'onactivate',
-  ON_RIGHT_CLICK = 'oncontextmenu',
-  ON_MOUSE_OVER = 'onmouseover',
-  ON_MOUSE_OUT = 'onmouseout',
-  ON_ESCAPE_PRESS = 'oncancel'
+  ON_LEFT_CLICK = "onactivate",
+  ON_RIGHT_CLICK = "oncontextmenu",
+  ON_MOUSE_OVER = "onmouseover",
+  ON_MOUSE_OUT = "onmouseout",
+  ON_ESCAPE_PRESS = "oncancel"
 }
 
 declare const enum ScalingFunction {
-  NONE = 'none',
-  STRETCH = 'stretch', // the default
-  STRETCH_X = 'stretchx',
-  STRETCH_Y = 'stretchy',
-  STRETCH_TO_FIT_PRESERVE_ASPECT = 'stretch-to-fit-preserve-aspect',
-  STRETCH_TO_FIT_X_PRESERVE_ASPECT = 'stretch-to-fit-x-preserve-aspect',
-  STRETCH_TO_FIT_Y_PRESERVE_ASPECT = 'stretch-to-fit-y-preserve-aspect',
-  STRETCH_TO_COVER_PRESERVE_ASPECT = 'stretch-to-cover-preserve-aspect'
+  NONE = "none",
+  STRETCH = "stretch", // the default
+  STRETCH_X = "stretchx",
+  STRETCH_Y = "stretchy",
+  STRETCH_TO_FIT_PRESERVE_ASPECT = "stretch-to-fit-preserve-aspect",
+  STRETCH_TO_FIT_X_PRESERVE_ASPECT = "stretch-to-fit-x-preserve-aspect",
+  STRETCH_TO_FIT_Y_PRESERVE_ASPECT = "stretch-to-fit-y-preserve-aspect",
+  STRETCH_TO_COVER_PRESERVE_ASPECT = "stretch-to-cover-preserve-aspect"
 }
 
 interface ImagePanel extends Panel {
@@ -202,11 +202,11 @@ interface ScenePanel extends Panel {
 
 //Only put single string literals in here, it'll be merged with the main one
 interface DollarStatic {
-  CreatePanel(type: 'Label', root: Panel, name: string): LabelPanel;
-  CreatePanel(type: 'Image', root: Panel, name: string): ImagePanel;
-  CreatePanel(type: 'DOTAAbilityImage', root: Panel, name: string): AbilityImage;
-  CreatePanel(type: 'DOTAItemImage', root: Panel, name: string): ItemImage;
-  CreatePanel(type: 'Image', root: Panel, name: string): ImagePanel;
-  CreatePanel(type: 'ContextMenuScript', root: Panel, name: String): ContextMenuScriptPanel;
-  CreatePanel(type: 'DOTAScenePanel', root: Panel, name: String): ScenePanel;
+  CreatePanel(type: "Label", root: Panel, name: string): LabelPanel;
+  CreatePanel(type: "Image", root: Panel, name: string): ImagePanel;
+  CreatePanel(type: "DOTAAbilityImage", root: Panel, name: string): AbilityImage;
+  CreatePanel(type: "DOTAItemImage", root: Panel, name: string): ItemImage;
+  CreatePanel(type: "Image", root: Panel, name: string): ImagePanel;
+  CreatePanel(type: "ContextMenuScript", root: Panel, name: String): ContextMenuScriptPanel;
+  CreatePanel(type: "DOTAScenePanel", root: Panel, name: String): ScenePanel;
 }
