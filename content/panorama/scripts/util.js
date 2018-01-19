@@ -33,6 +33,18 @@ function GetDotaHud () {
   }
 }
 /**
+ * Takes an array-like table passed from Lua that has stringified indices starting from 1
+ * and returns an array of type T containing the elements of the table.
+ * Order of elements is preserved.
+ */
+function LuaTableToArray (table) {
+  var array = [];
+  for (var i = 1; table[i.toString()] !== undefined; i++) {
+    array.push(table[i.toString()]);
+  }
+  return array;
+}
+/**
  * Takes an integer and returns a hex code string of the color represented by the integer
  */
 function ColorToHexCode (color) {
