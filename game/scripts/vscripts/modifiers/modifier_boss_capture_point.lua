@@ -99,7 +99,14 @@ function modifier_boss_capture_point:OnIntervalThink()
     false
   )
   local captureTick
-  local heroMultiplier = 0
+  local heroMultiplierTable = {
+    1,
+    1.11,
+    1.25,
+    1.42,
+    1.66
+  }
+  local numHeroes = 1
 
   -- Start capturing from neutral
   if radiantUnits[1] and self.capturingTeam == nil then
@@ -117,16 +124,21 @@ function modifier_boss_capture_point:OnIntervalThink()
   elseif (radiantUnits[1] and self.capturingTeam ~= DOTA_TEAM_GOODGUYS) or (direUnits[1] and self.capturingTeam ~= DOTA_TEAM_BADGUYS) then
     -- Point has switched capturing team, reverse progress at 1.5 times speed
     captureTick = -self.thinkInterval * 1.5
+    if self.capturingTeam == DOTA_TEAM_GOODGUYS then
+      numHeroes = #direUnits
+    elseif self.capturingTeam == DOTA_TEAM_BADGUYS then
+      numHeroes = #radiantUnits
+    end
   else
     -- Point is being captured by a team
     captureTick = self.thinkInterval
     if self.capturingTeam == DOTA_TEAM_GOODGUYS then
-      heroMultiplier = math.max(0, #radiantUnits - 1)
+      numHeroes = #radiantUnits
     elseif self.capturingTeam == DOTA_TEAM_BADGUYS then
-      heroMultiplier = math.max(0, #direUnits - 1)
+      numHeroes = #direUnits
     end
   end
-  captureTick = captureTick * (1 + heroMultiplier / 2)
+  captureTick = captureTick * heroMultiplierTable[math.min(#heroMultiplierTable, numHeroes)]
   self.captureProgress = min(self.captureTime, max(0, self.captureProgress + captureTick))
 
   if self.captureProgress == 0 then
