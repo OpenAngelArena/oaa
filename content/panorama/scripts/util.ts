@@ -1,4 +1,4 @@
-/* global $, GameUI, PlayerTables */
+/* global $, GameUI */
 'use strict';
 
 /*
@@ -19,8 +19,6 @@ class HudNotFoundException {
   constructor(readonly message: string) {
   }
 }
-
-var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 
 function FindDotaHudElement(id: string): Panel {
   return GetDotaHud().FindChildTraverse(id);

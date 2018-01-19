@@ -1,4 +1,4 @@
-/* global $, GameUI, PlayerTables */
+/* global $, GameUI */
 'use strict';
 /*
   Author:
@@ -18,7 +18,6 @@ var HudNotFoundException = /** @class */ (function () {
   }
   return HudNotFoundException;
 }());
-var PlayerTables = GameUI.CustomUIConfig().PlayerTables;
 function FindDotaHudElement (id) {
   return GetDotaHud().FindChildTraverse(id);
 }
