@@ -1,4 +1,4 @@
-/* global $, GameUI, Entities, Players */
+/* global $, GameUI, PlayerTables */
 'use strict';
 /*
   Author:
@@ -10,6 +10,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.FindDotaHudElement = FindDotaHudElement;
   module.exports.ColorToHexCode = ColorToHexCode;
   module.exports.ColoredText = ColoredText;
+  module.exports.LuaTableToArray = LuaTableToArray;
 }
 var HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
