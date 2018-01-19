@@ -112,7 +112,9 @@ if IsServer() then
       target:EmitSound( "Hero_FacelessVoid.TimeLockImpact" )
 
       -- use cooldown ( and mana, if necessary )
-      spell:UseResources( true, true, true )
+      spell:PayManaCost()
+      spell:PayGoldCost()
+      spell:StartCooldown(spell:GetCooldown(spell:GetLevel()))
 
       -- because talents are dumb we need to manually get its value
       local damageTalent = 0

@@ -123,7 +123,9 @@ function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   -- Enable proc for this attack record number
   self.procRecords[keys.record] = true
   -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
-  ability:UseResources(true, true, true)
+  ability:PayManaCost()
+  ability:PayGoldCost()
+  ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
