@@ -113,13 +113,35 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
-  local baseGold = math.floor(110 + streakValue + (killedHeroLevel * 8))
-  local IsValidTeamPlayerID = partial(PlayerResource.IsValidTeamPlayerID, PlayerResource)
+  local numAttackers = killedHero:GetNumAttackers()
+  local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
+  local rewardHeroes = iter({killerHero})
+  local distributeCount = 1
 
-  if IsValidTeamPlayerID(killerPlayerID) then
-    -- Grant the base last hit bounty
-    Gold:ModifyGold(killerHero, baseGold, true, DOTA_ModifyGold_RoshanKill)
-    local killerPlayer = killerHero:GetPlayerOwner()
+  -- Handle non-player kills (usually the fountain in OAA's case)
+  if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    if numAttackers == 0 then
+      -- Distribute gold to all heroes on the killer team
+      rewardPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killerTeam)
+      distributeCount = math.max(1, length(rewardPlayerIDs))
+    elseif numAttackers == 1 then
+      -- Give gold to single hero
+      rewardPlayerIDs = iter({killedHero:GetAttacker(0)})
+    else
+      -- Distribute gold to heroes who assisted in kill
+      rewardPlayerIDs = range(0, numAttackers - 1)
+                          :map(partial(killedHero.GetAttacker, killedHero))
+      distributeCount = numAttackers
+    end
+    rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
+  end
+
+  local baseGold = math.floor((110 + streakValue + (killedHeroLevel * 8)) / distributeCount)
+
+  -- Grant the base last hit bounty
+  for _, hero in rewardHeroes:unwrap() do
+    Gold:ModifyGold(hero, baseGold, true, DOTA_ModifyGold_RoshanKill)
+    local killerPlayer = hero:GetPlayerOwner()
     if killerPlayer then
       SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, baseGold, killerPlayer)
     end
@@ -137,12 +159,15 @@ function HeroKillGold:HeroDeathHandler (keys)
     false
   )
 
-  local killerIsInHeroesTable = iter(heroes)
-                                  :map(CallMethod("GetPlayerOwnerID"))
-                                  :contains(killerPlayerID)
+  -- When last hit by a hero, that hero should always receive assist gold, regardless of distance
+  if PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    local killerIsInHeroesTable = iter(heroes)
+                                    :map(CallMethod("GetPlayerOwnerID"))
+                                    :contains(killerPlayerID)
 
-  if IsValidTeamPlayerID(killerPlayerID) and not killerIsInHeroesTable then
-    table.insert(heroes, killerHero)
+    if not killerIsInHeroesTable then
+      table.insert(heroes, killerHero)
+    end
   end
 
   local function sortByNetworth (a, b)
@@ -180,6 +205,19 @@ function HeroKillGold:HeroDeathHandler (keys)
   DebugPrint(killedNetworth .. ' hero is in ' .. killedNWRanking .. 'th place of')
   DebugPrintTable(entireKilledTeamNW)
 
+  -- Modify the kill toast message to display properly for non-player last hits
+  if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    CustomGameEventManager:Send_ServerToAllClients(
+      "override_hero_bounty_toast",
+      {
+        rewardIDs = rewardPlayerIDs:totable(),
+        killedID = killedPlayerID,
+        goldBounty = baseGold,
+        displayHeroes = numAttackers > 0,
+        rewardTeam = killerTeam,
+      })
+  end
+
   for nwRank, hero in ipairs(heroes) do
     --[[
       base = 140,
@@ -199,9 +237,17 @@ function HeroKillGold:HeroDeathHandler (keys)
     assistGold = math.floor(assistGold)
     DebugPrint(assistGold)
 
-    -- Change the gold value displayed in the kill toast message
+    -- Modify gold displayed in kill toast message for player last hits
     if hero:GetPlayerOwnerID() == killerPlayerID then
-      CustomGameEventManager:Send_ServerToAllClients("override_hero_bounty_toast", {killerID = killerPlayerID, killedID = killedPlayerID, goldBounty = baseGold + assistGold})
+      CustomGameEventManager:Send_ServerToAllClients(
+        "override_hero_bounty_toast",
+        {
+          rewardIDs = rewardPlayerIDs:totable(),
+          killedID = killedPlayerID,
+          goldBounty = baseGold + assistGold,
+          displayHeroes = numAttackers > 0,
+          rewardTeam = killerTeam,
+        })
     end
 
     Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
