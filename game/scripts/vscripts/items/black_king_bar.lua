@@ -18,6 +18,7 @@ function item_black_king_bar_1:OnSpellStart()
 	} )
 	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 
+  caster:Purge( false, true, false, false, true )
 	-- wow bkb is a basic item without the decay
 end
 
