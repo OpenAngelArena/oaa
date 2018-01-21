@@ -51,6 +51,7 @@ local special_bottles = {
 
   -- twitch donators 3
 
+   --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided link didn't work
   [370630108] = 3, --steam: http://steamcommunity.com/profiles/76561198330895836 - twitch: angerywalrus
   [144242481] = 3, --steam: http://steamcommunity.com/profiles/76561198104508209 - twitch: B0bbyxy
   [105264015] = 3, --steam: http://steamcommunity.com/profiles/76561198065529743 - twitch: B4mnb1
@@ -74,9 +75,6 @@ local special_bottles = {
   [82051827] = 3, --steam: http://steamcommunity.com/profiles/76561198042317555 - twitch: FilipTomek
   [108384611] = 3, --steam: http://steamcommunity.com/profiles/76561198068650339 - twitch: FoxDeath
   [178432042] = 3, --steam: http://steamcommunity.com/profiles/76561198138697770 - twitch: Foxy_Goat
-
-   --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided link didn't work
-
   [159410103] = 3, --steam: http://steamcommunity.com/profiles/76561198119675831 - twitch: Geogorna
   [126497930] = 3, --steam: http://steamcommunity.com/profiles/76561198086763658 - twitch: GuessWh0Is
   [61767281] = 3, --steam: http://steamcommunity.com/profiles/76561198022033009 - twitch: hideandseekNL
@@ -149,12 +147,6 @@ local special_bottles = {
 
   -- twitch donators 50
 
-  [144060401] = 5, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
-  [157312955] = 5, --steam: http://steamcommunity.com/profiles/76561198117578683 - twitch: adhesivejotun
-  [101264976] = 5, --steam: http://steamcommunity.com/profiles/76561198061530704 - twitch: Archimo
-  [101238957] = 5, --steam: http://steamcommunity.com/profiles/76561198061504685 - twitch: AssassinsFurr
-  [113802823] = 5, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
-  [116097701] = 5, --steam: http://steamcommunity.com/profiles/76561198076363429 - twitch: Azure_Robe
 }
 
 local bonusNames = {
