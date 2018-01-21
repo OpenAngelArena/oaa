@@ -4,28 +4,6 @@ LinkLuaModifier( "modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_loc
 
 --------------------------------------------------------------------------------
 
--- this should probably be moved elsewhere somewhere down the line
--- probably somewhere where anything prng can access it
-faceless_void_time_lock_oaa.prngTable = {}
-faceless_void_time_lock_oaa.prngTable[5] = 0.038
-faceless_void_time_lock_oaa.prngTable[10] = 0.01475
-faceless_void_time_lock_oaa.prngTable[15] = 0.03221
-faceless_void_time_lock_oaa.prngTable[20] = 0.0557
-faceless_void_time_lock_oaa.prngTable[25] = 0.08475
-faceless_void_time_lock_oaa.prngTable[30] = 0.11895
-faceless_void_time_lock_oaa.prngTable[35] = 0.14628
-faceless_void_time_lock_oaa.prngTable[40] = 0.18128
-faceless_void_time_lock_oaa.prngTable[45] = 0.21867
-faceless_void_time_lock_oaa.prngTable[50] = 0.25701
-faceless_void_time_lock_oaa.prngTable[55] = 0.29509
-faceless_void_time_lock_oaa.prngTable[60] = 0.33324
-faceless_void_time_lock_oaa.prngTable[65] = 0.38109
-faceless_void_time_lock_oaa.prngTable[70] = 0.42448
-faceless_void_time_lock_oaa.prngTable[75] = 0.46134
-faceless_void_time_lock_oaa.prngTable[80] = 0.50276
-
---------------------------------------------------------------------------------
-
 function faceless_void_time_lock_oaa:GetIntrinsicModifierName()
   return "modifier_faceless_void_time_lock_oaa"
 end
@@ -89,14 +67,14 @@ if IsServer() then
       return 0
     end
 
-    local chance = spell:GetSpecialValueFor( "chance_pct" )
+    local chance = spell:GetSpecialValueFor( "chance_pct" ) / 100
 
     -- we're using the modifier's stack to store the amount of prng failures
     -- this could be something else but since this modifier is hidden anyway ...
     local prngMult = self:GetStackCount() + 1
 
     -- compared prng to slightly less prng
-    if RandomFloat( 0.0, 1.0 ) <= ( spell.prngTable[chance] * prngMult ) then
+    if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult ) then
       -- reset failure count
       self:SetStackCount( 0 )
 
