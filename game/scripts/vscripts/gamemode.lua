@@ -215,6 +215,7 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(FilterManager)
+  InitModule(Battlepass)
   InitModule(GameLengthVotes)
   InitModule(Courier)
   InitModule(HeroSelection)

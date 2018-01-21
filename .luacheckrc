@@ -2750,6 +2750,8 @@ read_globals = { -- these globals can only be accessed.
 "FindByNameWithin",
 "Timers",
 "DebugPrint",
+"Battlepass",
+"OnGameInProgressEvent",
 "DebugPrintTable",
 "CreateGameEvent",
 "Event",
