@@ -32,6 +32,10 @@ function item_greater_tranquil_boots:GetIntrinsicModifierNames()
   }
 end
 
+function item_greater_tranquil_boots:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 modifier_item_greater_tranquil_boots = class(ModifierBaseClass)
@@ -252,7 +256,7 @@ if IsServer() then
 				return
 			end
 
-			spell:StartCooldown(spell:GetCooldown(spell:GetLevel()))
+      spell:UseResources(false, false, true)
 
 			-- seriously, this is easy
 
