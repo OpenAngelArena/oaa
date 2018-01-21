@@ -43,12 +43,21 @@ local special_bottles = {
   [370166341] = 9, -- Melon
   [117027938] = 10, -- Yzanas
 
+
+  -- twitch donators 50
+
+  [144060401] = 5, --steam: http://steamcommunity.com/profiles/76561198104326129/ - twitch: abandonedking
+  [157312955] = 5, --steam: http://steamcommunity.com/profiles/76561198117578683/ - twitch: adhesivejotun
+  [101264976] = 5, --steam: http://steamcommunity.com/profiles/76561198061530704/ - twitch: Archimo
+  [101238957] = 5, --steam: http://steamcommunity.com/profiles/76561198061504685/ - twitch: AssassinsFurr
+  [113802823] = 5, --steam: http://steamcommunity.com/profiles/76561198074068551/ - twitch: Athight
+  [116097701] = 5, --steam: http://steamcommunity.com/profiles/76561198076363429/ - twitch: Azure_Robe
 }
 
 local bonusNames = {
   'custom/bottles/bottle_contributor',
   'custom/bottles/bottle_tournament',
-  'custom/bottles/bottle_05',
+  'custom/bottles/bottle_03',
   'custom/bottles/bottle_20',
   'custom/bottles/bottle_50',
   'custom/bottles/bottle_baumi',
