@@ -4,9 +4,15 @@ LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIF
 --------------------------------------------------------------------------------
 
 local special_bottles = {
+
+
   -- TP master, and Lord of the Lotus Orb
+
   [43305444] = 3, -- baumi
+
+
   -- devs
+
   [7131038] = 1, -- chrisinajar
   [109151532] = 1, -- Chronophylos
   [60408038] = 1, -- Trildar
@@ -19,27 +25,37 @@ local special_bottles = {
   [103179022] = 1, -- Allan vbhg
   [114538910] = 1, -- Apisal
   [53999591] = 1, -- carlosrpg
+
+
   -- golden tournament winners
+
   [124585666] = 2,
   [75435056] = 2,
   [136897804] = 2,
   [57898114] = 2,
   [89367798] = 2,
+
+
   -- special people
-  [110318967] = 4, -- timo
-  [34314091] = 5, -- frej
-  [117027938] = 6,
-  [370166341] = 7, -- Melon
+
+  [110318967] = 7, -- timo
+  [34314091] = 8, -- frej
+  [370166341] = 9, -- Melon
+  [117027938] = 10, -- Yzanas
+
 }
 
 local bonusNames = {
-  'custom/bottle_contributor',
-  'custom/bottle_tournament',
-  'custom/bottle_lotus',
-  'custom/bottle_timo',
-  'custom/bottle_frej',
-  'custom/bottle_rearm',
-  'custom/bottle_melon'
+  'custom/bottles/bottle_contributor',
+  'custom/bottles/bottle_tournament',
+  'custom/bottles/bottle_05',
+  'custom/bottles/bottle_20',
+  'custom/bottles/bottle_50',
+  'custom/bottles/bottle_baumi',
+  'custom/bottles/bottle_timo',
+  'custom/bottles/bottle_frej',
+  'custom/bottles/bottle_melon',
+  'custom/bottles/bottle_yzanas'
 }
 
 --------------------------------------------------------------------------------
