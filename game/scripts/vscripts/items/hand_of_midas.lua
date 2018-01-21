@@ -32,10 +32,6 @@ function item_hand_of_midas_1:OnSpellStart()
   local player = caster:GetPlayerOwner()
   local playerID = caster:GetPlayerOwnerID()
 
-  target:SetDeathXP(0)
-  target:SetMinimumGoldBounty(0)
-  target:SetMaximumGoldBounty(0)
-
   if caster.AddExperience then
     caster:AddExperience(target:GetDeathXP() * xpMult, DOTA_ModifyXP_CreepKill, false, false)
   end
@@ -47,6 +43,10 @@ function item_hand_of_midas_1:OnSpellStart()
   local midas_particle = ParticleManager:CreateParticle("particles/items2_fx/hand_of_midas.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
   ParticleManager:SetParticleControlEnt(midas_particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
   ParticleManager:ReleaseParticleIndex(midas_particle)
+
+  target:SetDeathXP(0)
+  target:SetMinimumGoldBounty(0)
+  target:SetMaximumGoldBounty(0)
 
   target:Kill(self, caster)
 end
