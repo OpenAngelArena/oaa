@@ -14,11 +14,17 @@ function Battlepass:Init ()
 end
 
 function Battlepass:SendWinner (winner)
+  if self.winner then
+    -- only send winner once
+    return
+  end
+
   if winner == DOTA_TEAM_GOODGUYS then
     winner = 'radiant'
   else
     winner = 'dire'
   end
+  self.winner = winner
   DebugPrint('Sending winner data')
   local endTime = GetSystemDate() .. GetSystemTime()
   local gameLength = HudTimer.gameTime
