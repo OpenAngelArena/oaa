@@ -30,6 +30,10 @@ function slardar_bash_oaa:GetIntrinsicModifierName()
   return "modifier_slardar_bash_oaa"
 end
 
+function slardar_bash_oaa:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 modifier_slardar_bash_oaa = class( ModifierBaseClass )

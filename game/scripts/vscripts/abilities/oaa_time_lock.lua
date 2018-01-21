@@ -30,6 +30,10 @@ function faceless_void_time_lock_oaa:GetIntrinsicModifierName()
   return "modifier_faceless_void_time_lock_oaa"
 end
 
+function faceless_void_time_lock_oaa:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 modifier_faceless_void_time_lock_oaa = class( ModifierBaseClass )
