@@ -10,20 +10,24 @@ function CreateGameEvent (name) --luacheck: ignore CreateGameEvent
   return event.broadcast
 end
 
+
 -- The overall game state has changed
+OnCustomGameSetupEvent = CreateGameEvent('OnCustomGameSetup')
+OnGameInProgressEvent = CreateGameEvent('OnGameInProgress')
 function GameMode:_OnGameRulesStateChange(keys)
   if GameMode._reentrantCheck then
     return
   end
-
   local newState = GameRules:State_Get()
+
   CustomGameEventManager:Send_ServerToAllClients( 'oaa_state_change', {
     newState = newState
   })
 
   if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
     self.bSeenWaitForPlayers = true
-  elseif newState == DOTA_GAMERULES_STATE_INIT then
+  elseif newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+    OnCustomGameSetupEvent(keys)
     --Timers:RemoveTimer("alljointimer")
   elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     GameMode:PostLoadPrecache()
@@ -40,6 +44,7 @@ function GameMode:_OnGameRulesStateChange(keys)
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
     if not HeroSelection then
       GameMode:OnGameInProgress()
+      OnGameInProgressEvent()
     end
   end
 

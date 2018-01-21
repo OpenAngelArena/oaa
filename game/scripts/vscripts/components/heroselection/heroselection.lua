@@ -373,6 +373,7 @@ function HeroSelection:EndStrategyTime ()
 
   GameRules:SetTimeOfDay(0.25)
   GameMode:OnGameInProgress()
+  OnGameInProgressEvent()
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
 end
 
