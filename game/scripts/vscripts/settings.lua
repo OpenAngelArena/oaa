@@ -63,7 +63,7 @@ CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
 -- TODO: Make this a module loader so the following can be handled:
     -- Multiple log instances for different logging levels
     -- Simple configuration for several setups, such as Loggly and a custom implementation
-LOGGLY_ACCOUNT_ID = ''                  -- The Loggly token to toss errors to
+LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly token to toss errors to
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------

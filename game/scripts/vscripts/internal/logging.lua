@@ -5,7 +5,7 @@ if (D2CustomLogging == nil) then
         --[[
             @var bool isEnabled - State true if logging is to be enabled
         ]]--
-        isEnabled = true,
+        isEnabled = (not IsInToolsMode()),
 
         --[[
             @var string gameClientVersion - The string game client version detected when the game started up
