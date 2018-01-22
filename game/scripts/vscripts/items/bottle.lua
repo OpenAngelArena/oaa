@@ -44,12 +44,12 @@ local special_bottles = {
 
   -- special people
 
-
   [110318967] = 7, -- timo
   [34314091] = 8, -- frej
   [370166341] = 9, -- Melon
   [117027938] = 10, -- Yzanas
   [110964954] = 11, -- Karmatic
+
 
 
   -- twitch donators 3
@@ -122,8 +122,6 @@ local special_bottles = {
 
 
   -- twitch donators 20
-
-  --KarmaticNeutral
   [259101879] = 4, --steam: http://steamcommunity.com/profiles/76561198219367607 - twitch: Chives donated 2x10 with same profile link and different message
   [144379677] = 4, --steam: http://steamcommunity.com/profiles/76561198104645405 - twitch: 99LuftBalloons
   [106881079] = 4, --steam: http://steamcommunity.com/profiles/76561198067146807 - twitch: Alsher7
@@ -163,8 +161,8 @@ local bonusNames = {
   'custom/bottles/bottle_timo',
   'custom/bottles/bottle_frej',
   'custom/bottles/bottle_melon',
-  'custom/bottles/bottle_yzanas' --10
-  'custom/bottles/bottle_karmatic' -- 11
+  'custom/bottles/bottle_yzanas', --10
+  'custom/bottles/bottle_karmatic' --11
 }
 
 --------------------------------------------------------------------------------
