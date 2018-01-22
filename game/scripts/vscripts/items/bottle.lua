@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIF
 --------------------------------------------------------------------------------
 
 local special_bottles = {
+  --comments with names indicate a person having access to that icon but another one being currently active
 
 
 
@@ -13,8 +14,9 @@ local special_bottles = {
 
 
 
-  -- devs
+  -- contributors
 
+  --Yzanas
   [7131038] = 1, -- chrisinajar
   [109151532] = 1, -- Chronophylos
   [60408038] = 1, -- Trildar
@@ -32,11 +34,11 @@ local special_bottles = {
 
   -- golden tournament winners
 
-  [124585666] = 2,
-  [75435056] = 2,
-  [136897804] = 2,
-  [57898114] = 2,
-  [89367798] = 2,
+  [124585666] = 2, --DerpySoccerBall
+  [75435056] = 2, --Chogex
+  [136897804] = 2, --JumperJay
+  [57898114] = 2, --KGBurger
+  [89367798] = 2, --Naeil
 
 
 
@@ -51,7 +53,8 @@ local special_bottles = {
 
   -- twitch donators 3
 
-   --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided link didn't work
+  --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided steam link didn't work
+  --chrisinajar
   [370630108] = 3, --steam: http://steamcommunity.com/profiles/76561198330895836 - twitch: angerywalrus
   [144242481] = 3, --steam: http://steamcommunity.com/profiles/76561198104508209 - twitch: B0bbyxy
   [105264015] = 3, --steam: http://steamcommunity.com/profiles/76561198065529743 - twitch: B4mnb1
