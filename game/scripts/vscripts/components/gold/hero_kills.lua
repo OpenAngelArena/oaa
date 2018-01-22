@@ -202,6 +202,11 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killedNWRanking = index(killedNetworth, entireKilledTeamNW)
 
+  -- - don't know why this is nil sometimes but it's breaking things
+  if not killedNWRanking then
+    killedNWRanking = #entireKilledTeamNW
+  end
+
   DebugPrint(killedNetworth .. ' hero is in ' .. killedNWRanking .. 'th place of')
   DebugPrintTable(entireKilledTeamNW)
 
