@@ -91,13 +91,16 @@ function Battlepass:Ready ()
       DebugPrint(err)
     end
     if data then
-      DebugPrintTable(data)
       self.token = data.token
     end
   end)
 end
 
 function Battlepass:Request(api, data, cb)
+  if IsInToolsMode () then
+    -- don't send stuff from tools
+    return
+  end
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
   local encoded = json.encode(data)
 
