@@ -23,5 +23,5 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
     caster:RemoveItem(self)
   else
     self:SetCurrentCharges(self:GetCurrentCharges() - 1)
-
+	end
 end
