@@ -165,7 +165,6 @@ local bonusNames = {
   'custom/bottles/bottle_melon',
   'custom/bottles/bottle_yzanas' --10
   'custom/bottles/bottle_karmatic' -- 11
->>>>>>> master
 }
 
 --------------------------------------------------------------------------------
