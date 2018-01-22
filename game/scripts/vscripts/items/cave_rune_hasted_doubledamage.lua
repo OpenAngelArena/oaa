@@ -18,7 +18,6 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
 
 	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 
-	caster:RemoveItem(self)
 	if self:GetCurrentCharges() - 1 <= 0 then
     caster:RemoveItem(self)
   else
