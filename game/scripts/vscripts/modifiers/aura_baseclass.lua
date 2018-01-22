@@ -67,24 +67,30 @@ if IsServer() then
         local existingIndex = iter(modifiers)
                                 :map(CallMethod("GetAbility"))
                                 :index(ability)
-        -- If the above search found a modifier, we just reset its duration
+
         if existingIndex then
-          modifiers[existingIndex]:SetDuration(self:GetAuraDuration(), false)
-        -- Else create the modifier
-        else
-          unit:AddNewModifier(
-            caster,
-            ability,
-            modifierName,
-            {
-              duration = self:GetAuraDuration(),
-              effectModName = effectModName,
-              auraStackType = auraStackType,
-              removeOnDeath = bit.band(self:GetAuraSearchFlags(), DOTA_UNIT_TARGET_FLAG_DEAD) ~= 0,
-              isProvidedByAura = 1 -- This makes the UI not display modifier duration
-            }
-          )
+          -- If the above search found a modifier and the caster is the same as self, we just reset its duration
+          if modifiers[existingIndex]:GetCaster() == caster then
+            modifiers[existingIndex]:SetDuration(self:GetAuraDuration(), false)
+            return
+          -- If casters are different, then we destroy the modifier and recreate it with the proper caster
+          else
+            modifiers[existingIndex]:Destroy()
+          end
         end
+
+        unit:AddNewModifier(
+          caster,
+          ability,
+          modifierName,
+          {
+            duration = self:GetAuraDuration(),
+            effectModName = effectModName,
+            auraStackType = auraStackType,
+            removeOnDeath = bit.band(self:GetAuraSearchFlags(), DOTA_UNIT_TARGET_FLAG_DEAD) ~= 0,
+            isProvidedByAura = 1 -- This makes the UI not display modifier duration
+          }
+        )
       end)
   end
 end
