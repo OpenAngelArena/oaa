@@ -5,6 +5,7 @@ item_cave_rune_hasted_doubledamage = class(ItemBaseClass)
 
 function item_satanic_core:GetIntrinsicModifierName()
   return "modifier_rune_haste", "modifier_rune_doubledamage"
+end
 
 function item_cave_rune_hasted_doubledamage:OnSpellStart()
 	local caster = self:Getcaster()
