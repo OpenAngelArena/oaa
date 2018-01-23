@@ -2,6 +2,7 @@
 // Urn of Sorcery
 //==========================================================================================
 "DOTA_Tooltip_Ability_item_urn_of_sorcery"                                      "Urn of Sorcery"
+"DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery"                               "Urn of Sorcery Recipe"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_Description"                          "<h1>Active: Energy Release</h1> Apply a healing buff to nearby ally heroes and a pure damage over time debuff to nearby enemy heroes. The maximum number of units affected is based on the number of charges. Gains a charge (max %max_charges%) whenever a nearby visible enemy uses an Ability.<br>The healing effect is lost if the affected ally takes damage from an enemy hero or tower. <br><br>Maximum Heal: %soul_heal_amount%<br>Maximum Damage: %soul_damage_amount%<br>Effect Duration: %soul_heal_duration%<br>Radius: %soul_release_radius%\n<h1>Passive: Mekansm Aura</h1>Grants %aura_health_regen% health regeneration to allied units in a %aura_radius% radius."
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_Lore"                                 "An urn demon, who has an insatiable hunger for magic."
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_Note0"                                "Gains charges for spells cast by visible enemies in 1200 range."
@@ -19,6 +20,7 @@
 //"DOTA_Tooltip_Ability_item_urn_of_sorcery_aura_radius"                          "AURA RADIUS:"
 
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_2"                                    "#{DOTA_Tooltip_Ability_item_urn_of_sorcery}"
+"DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery_2"                             "#{DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_2_Description"                        "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Description}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_2_Lore"                               "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Lore}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_2_Note0"                              "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Note0}"
@@ -36,6 +38,7 @@
 //"DOTA_Tooltip_Ability_item_urn_of_sorcery_2_aura_radius"                        "AURA RADIUS:"
 
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_3"                                    "#{DOTA_Tooltip_Ability_item_urn_of_sorcery}"
+"DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery_3"                             "#{DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_3_Description"                        "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Description}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_3_Lore"                               "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Lore}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_3_Note0"                              "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Note0}"
@@ -53,6 +56,7 @@
 //"DOTA_Tooltip_Ability_item_urn_of_sorcery_3_aura_radius"                        "AURA RADIUS:"
 
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_4"                                    "#{DOTA_Tooltip_Ability_item_urn_of_sorcery}"
+"DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery_4"                             "#{DOTA_Tooltip_Ability_item_recipe_urn_of_sorcery}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_4_Description"                        "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Description}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_4_Lore"                               "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Lore}"
 "DOTA_Tooltip_Ability_item_urn_of_sorcery_4_Note0"                              "#{DOTA_Tooltip_Ability_item_urn_of_sorcery_Note0}"
