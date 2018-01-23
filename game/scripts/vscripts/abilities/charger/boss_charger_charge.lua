@@ -123,7 +123,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
         })
       end)
     else
-      caster:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_pillar_debuff", {
+      caster:AddNewModifier(caster, caster:FindAbilityByName("boss_charger_super_armor"), "modifier_boss_charger_pillar_debuff", {
         duration = self.debuff_duration
       })
     end

@@ -45,25 +45,15 @@
         "var_type"                                        "FIELD_FLOAT"
         "debuff_duration"                                 "5.0 4.0 3.0"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "debuff_magic_resist"                             "-1500"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "debuff_armor"                                    "-225"
-      }
       //----------------------------
       // hero is dragged into a pillar
       //----------------------------
-      "08"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "hero_stun_duration"                              "2.0 2.75 3.5"
       }
-      "09"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "hero_pillar_damage"                              "8000 10000 12000"
@@ -71,22 +61,22 @@
       //----------------------------------
       // Glancing blow, when the charger strikes a hero indirectly and pushes them away
       //----------------------------------
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glancing_damage"                                  "75 100 150"
       }
-      "11"
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glancing_slow"                                    "10 30 50"
       }
-      "12"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glancing_duration"                                "1 2 3"
       }
-      "13"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "glancing_knockback"                               "200 250 300"
