@@ -14,12 +14,12 @@ end
 
 function boss_charger_charge:OnChannelFinish(interrupted) --You misspelled "Interrupted"
   local caster = self:GetCaster()
-  self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interrupted then
-    self:StartCooldown(self:GetSpecialValueFor('cooldown') / 2)
+    self:StartCooldown(self:GetSpecialValueFor("cooldown") / 2)
     caster:StopSound("Boss_Charger.Charge.Begin")
     return
   end
+  self:StartCooldown(self:GetSpecialValueFor("cooldown"))
 
   caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {
     duration = self:GetSpecialValueFor( "charge_duration" )

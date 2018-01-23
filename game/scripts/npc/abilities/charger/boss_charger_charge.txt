@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown"                                        "6 4 0"
+        "cooldown"                                        "6 4 0" // Put cooldown in AbilitySpecial to avoid triggering cooldown on channel start
       }
       "02"
       {
