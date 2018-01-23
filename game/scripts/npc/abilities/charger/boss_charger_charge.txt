@@ -69,27 +69,27 @@
         "hero_pillar_damage"                              "8000 10000 12000"
       }
       //----------------------------------
-      // Glacing blow, when the charger strikes a hero indirectly and pushes them away
+      // Glancing blow, when the charger strikes a hero indirectly and pushes them away
       //----------------------------------
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glacing_damage"                                  "75 100 150"
+        "glancing_damage"                                  "75 100 150"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glacing_slow"                                    "10 30 50"
+        "glancing_slow"                                    "10 30 50"
       }
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glacing_duration"                                "1 2 3"
+        "glancing_duration"                                "1 2 3"
       }
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glacing_knockback"                               "200 250 300"
+        "glancing_knockback"                               "200 250 300"
       }
     }
   }
