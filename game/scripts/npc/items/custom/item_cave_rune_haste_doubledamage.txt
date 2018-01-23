@@ -7,7 +7,8 @@
 {
 	//General
 	//----------------------------------------------------------------------------------------------------
-	"ID" 				"9999" -- PLEASE GIVE THIS A REAL NUMBER
+	-- please gvie this a real ID
+	"ID" 				"9999" 
 	"BaseClass" 			"item_lua"
 	"AbilityTextureName"		"custom/cave_rune_haste_doubledamage"
 	"ScriptFile" 	 		"items/cave_rune_hasted_doubledamage.lua"
