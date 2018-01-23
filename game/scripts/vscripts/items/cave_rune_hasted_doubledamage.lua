@@ -1,22 +1,12 @@
-LinkLuaModifier("modifier_rune_haste", LUA_MODIDIER_MOTION_NONE)
-LinkLuaModifier("modifier_rune_doubledamage", LUA_MODIDIER_MOTION_NONE)
-
 item_cave_rune_hasted_doubledamage = class(ItemBaseClass)
 
-function item_cave_rune_hasted_doubledamage:GetIntrinsicModifierName()
-
-  return "modifier_rune_haste", "modifier_rune_doubledamage"
-
-end
 
 function item_cave_rune_hasted_doubledamage:OnSpellStart()
 	local caster = self:Getcaster()
 
-	caster:AddNewModifier(caster, self, "modifier_rune_haste", {duration = 30.0})
+	caster:AddNewModifier(caster, self, "modifier_rune_haste_doubledamage", {duration = self:GetSpecialValueFor("duration")})
 
-	caster:AddNewModifier(caster, self, "modifier_rune_doubledamage", {duration = 30.0})
-
-	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
+	caster:EmitSound( "sounds/items/rune_haste.vsnd" )
 
 	if self:GetCurrentCharges() - 1 <= 0 then
     caster:RemoveItem(self)
