@@ -130,8 +130,6 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
       or BossProtectionFilter.UniqueBashSpell[keys.abilityName]
       or BossProtectionFilter.SilenceSpells[keys.abilityName]
       or BossProtectionFilter.SilenceItems[keys.abilityName] then
-
-    print("Bash/Silence blocked!")
     return false
   end
 
@@ -142,12 +140,9 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
         or BossProtectionFilter.UniqueStunItems[keys.abilityName]
         or BossProtectionFilter.HexSpells[keys.abilityName]
         or BossProtectionFilter.HexItems[keys.abilityName] then
-
-      print("Stun blocked!")
       return false
     end
   end
-
 
   return true
 end
