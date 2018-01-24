@@ -2,6 +2,10 @@ LinkLuaModifier( "modifier_creep_bounty_effect", "items/farming/modifier_creep_b
 LinkLuaModifier("modifier_aura_origin_tracker", "modifiers/aura_baseclass.lua", LUA_MODIFIER_MOTION_NONE)
 modifier_creep_bounty = class(AuraProviderBaseClass)
 
+function modifier_creep_bounty:IsHidden()
+  return true
+end
+
 function modifier_creep_bounty:GetAuraStackingType()
   return AURA_TYPE_NON_STACKING
 end
