@@ -17,6 +17,7 @@ var stupidItemNames = [
   'item_halloween_candy_corn',
   'item_halloween_rapier',
   'item_firework_mine',
+  'sylph_sprite_shield',
   'nothing'
 ];
 
