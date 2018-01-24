@@ -51,7 +51,7 @@ end
 
 function modifier_ward_invisibility:GetAuraEntityReject(entity)
   if self.isInvis then
-    print(self.id .. ': showing self')
+    DebugPrint(self.id .. ': showing self')
   end
   self.isInvis = false
 
@@ -59,7 +59,7 @@ function modifier_ward_invisibility:GetAuraEntityReject(entity)
   Timers:CreateTimer(self.id, {
     endTime = 3,
     callback = function()
-      print(self.id .. ': hiding self')
+      DebugPrint(self.id .. ': hiding self')
       self.isInvis = true
     end
   })
