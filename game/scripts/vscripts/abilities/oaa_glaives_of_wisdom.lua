@@ -21,6 +21,10 @@ function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
   return self:GetCaster():GetAttackRange()
 end
 
+function silencer_glaives_of_wisdom_oaa:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_glaives_of_wisdom = class(ModifierBaseClass)

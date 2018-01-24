@@ -1,7 +1,5 @@
 /* global FindDotaHudElement, GameEvents, $, DOTA_GameState, Game */
-'use strict'
-
-declare function FindDotaHudElement(param1: string): Panel;
+'use strict';
 
 interface StateChangeEvtArgs
 {

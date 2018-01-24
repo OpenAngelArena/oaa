@@ -265,7 +265,9 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCooldown',
     'AbilityManaCost',
     'AbilityUnitTargetType',
+    'AbilityUnitDamageType',
     'SpellImmunityType',
+    'SpellDispellableType',
     'ItemInitialCharges',
     'ItemRequiresCharges',
     'ItemDisplayCharges'

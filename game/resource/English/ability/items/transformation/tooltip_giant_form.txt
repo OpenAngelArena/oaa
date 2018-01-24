@@ -3,7 +3,8 @@
 //==================================================================
 
 "DOTA_Tooltip_Ability_item_giant_form"                          "Giant Form"
-"DOTA_Tooltip_Ability_item_giant_form_Description"              "<h1>Toggle: Giant Form</h1> When active, Giant Form grants %giant_attack_range% attack range, %giant_damage_bonus% damage, and causes your attacks to deal %giant_splash%%% splash damage with a set attack rate of %giant_attack_rate%. Ranged heroes are rooted in place, but melee heroes move at minimum speed.\n<h1>Passive: Dragon's Reach</h1> Increases attack range of ranged heroes by %base_attack_range%."
+"DOTA_Tooltip_Ability_item_recipe_giant_form"                   "Giant Form Recipe"
+"DOTA_Tooltip_Ability_item_giant_form_Description"              "<h1>Transformation: Giant Form</h1> When active, Giant Form grants %giant_attack_range% attack range, %giant_damage_bonus% damage, and causes your attacks to deal %giant_splash%%% splash damage with a set attack rate of %giant_attack_rate%. Ranged heroes are rooted in place, but melee heroes move at minimum speed.\n<h1>Passive: Dragon's Reach</h1> Increases attack range of ranged heroes by %base_attack_range%."
 "DOTA_Tooltip_Ability_item_giant_form_Note0"                    "Multiple instances do not stack."
 "DOTA_Tooltip_Ability_item_giant_form_Note1"                    "You are unable to move while in Giant Form."
 "DOTA_Tooltip_Ability_item_giant_form_Note2"                    "#{transformation_note0}"
@@ -17,6 +18,7 @@
 //"DOTA_Tooltip_Ability_item_giant_form_grow_splash"             "%SIEGE AOE DAMAGE:"
 
 "DOTA_Tooltip_Ability_item_giant_form_2"                        "#{DOTA_Tooltip_Ability_item_giant_form}"
+"DOTA_Tooltip_Ability_item_recipe_giant_form_2"                 "#{DOTA_Tooltip_Ability_item_recipe_giant_form}"
 "DOTA_Tooltip_Ability_item_giant_form_2_Description"            "#{DOTA_Tooltip_Ability_item_giant_form_Description}"
 "DOTA_Tooltip_Ability_item_giant_form_2_Note0"                  "#{DOTA_Tooltip_Ability_item_giant_form_Note0}"
 "DOTA_Tooltip_Ability_item_giant_form_2_Note1"                  "#{DOTA_Tooltip_Ability_item_giant_form_Note1}"

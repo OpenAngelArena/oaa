@@ -149,6 +149,9 @@ read_globals = { -- these globals can only be accessed.
 "MoveCameraToEntity",
 "IsPlayerTeam",
 
+--cfinder
+"PrdCFinder",
+
 
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
@@ -2750,6 +2753,8 @@ read_globals = { -- these globals can only be accessed.
 "FindByNameWithin",
 "Timers",
 "DebugPrint",
+"Battlepass",
+"OnGameInProgressEvent",
 "DebugPrintTable",
 "CreateGameEvent",
 "Event",

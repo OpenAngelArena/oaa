@@ -578,9 +578,9 @@ interface CScriptBindingPR_Entities {
     GetAllEntities(): entityID[];
 
     /**
-     *
+     * Get the ID of the player owning the given entity.
      */
-    GetPlayerOwnerID(): number;
+    GetPlayerOwnerID(nEntityIndex: entityID): number;
 
     /**
      *
