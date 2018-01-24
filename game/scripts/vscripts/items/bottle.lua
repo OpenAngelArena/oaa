@@ -2,7 +2,7 @@ LinkLuaModifier("modifier_bottle_regeneration", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
-
+ 
 local special_bottles = {
   --comments with names indicate a person having access to that icon but another one being currently active
 
