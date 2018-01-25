@@ -151,6 +151,12 @@ local special_bottles = {
 
   -- twitch donators 50
 
+  [113802823] = 11, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
+  [75237487] = 12, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
+  [66682246] = 13, --steam: http://steamcommunity.com/profiles/76561198026947974 - twitch: GhostFromBE
+  [88736132] = 14, --steam: http://steamcommunity.com/profiles/76561198049001860 - twitch: JamesGoodfellow
+  [303990598] = 14, --steam: http://steamcommunity.com/profiles/76561198264256326 - twitch: JamesGoodfellow, bought for friend
+  [36162710] = 15, --steam: http://steamcommunity.com/profiles/76561197996428438 - twitch: Zedling
 }
 
 local bonusNames = {
@@ -163,7 +169,12 @@ local bonusNames = {
   'custom/bottles/bottle_timo',
   'custom/bottles/bottle_frej',
   'custom/bottles/bottle_melon',
-  'custom/bottles/bottle_yzanas' --10
+  'custom/bottles/bottle_yzanas', --10
+  'custom/bottles/bottle_athight',
+  'custom/bottles/bottle_calmstormred',
+  'custom/bottles/bottle_ghostfrombe',
+  'custom/bottles/bottle_jamesgoodfellow',
+  'custom/bottles/bottle_zedling', --15
 }
 
 --------------------------------------------------------------------------------
