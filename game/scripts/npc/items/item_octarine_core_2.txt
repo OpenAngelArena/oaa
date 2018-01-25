@@ -1,85 +1,93 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Octarine Core 2
-	//=================================================================================================================
-	"item_recipe_octarine_core_2"
-	{
-		"ID"							"3178"		// unique ID
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_octarine_core_2"
-		"ItemRequirements"
-		{
-			"01"						"item_octarine_core;item_upgrade_core"
-			"02"						"item_octarine_core;item_upgrade_core_2"
-			"03"						"item_octarine_core;item_upgrade_core_3"
-			"04"						"item_octarine_core;item_upgrade_core_4"
-		}
-	}
+    //======================================================================================================================
+    // Recipe: Octarine Core 2
+    //======================================================================================================================
+    "item_recipe_octarine_core_2"
+    {
+        "ID"                "3178"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_octarine_core_2"
+        "ItemRequirements"
+        {
+                "01"    "item_octarine_core;item_upgrade_core"
+                "02"    "item_octarine_core;item_upgrade_core_2"
+                "03"    "item_octarine_core;item_upgrade_core_3"
+                "04"    "item_octarine_core;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Octarine Core 2
+    //======================================================================================================================
+    "item_octarine_core_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3179"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-	//=================================================================================================================
-	// Octarine Core 2
-	//=================================================================================================================
-	"item_octarine_core_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3179"		// unique ID
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/refresher_core.lua"
-		"AbilityBehavior"				        "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/octarine_core_2"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9400"
-		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"mana;mb;octarine core"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "2"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1500"
+        "ItemShopTags"                  "move_speed;boost_mana;mana_pool"
+        "ItemAliases"                   "octarine core 2;octarine 2"
+        "ItemQuality"                   "rare"
 
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"2"
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intelligence"	"25 35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"425 550"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"425 550"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_cooldown"		"25 25"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_lifesteal"		"25 30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"creep_lifesteal"		"5 10"
-			}
-		}
-	}
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "425 550"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "425 550"
+            }
+        }
+        
+    }
 }

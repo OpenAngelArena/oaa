@@ -1,0 +1,93 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Heavens Halberd 4
+    //======================================================================================================================
+    "item_recipe_heavens_halberd_4"
+    {
+        "ID"                "3654"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "3500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_heavens_halberd_4"
+        "ItemRequirements"
+        {
+                "01"    "item_heavens_halberd_3;item_upgrade_core_3"
+                "02"    "item_heavens_halberd_3;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Heavens Halberd 4
+    //======================================================================================================================
+    "item_heavens_halberd_4"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3655"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+        "UpgradesItems"                 "item_heavens_halberd_4"
+        "UpgradeRecipe"                 "item_recipe_heavens_halberd"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "10100"
+        "ItemShopTags"                  "str;damage;evasion"
+        "ItemAliases"                   "heaven&#039;s halberd 4;halberd 4"
+        "ItemQuality"                   "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "25 40 60 90 135"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_evasion"                                         "25"
+            }
+        }
+        
+    }
+}

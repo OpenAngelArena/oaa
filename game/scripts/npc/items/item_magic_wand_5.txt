@@ -1,0 +1,102 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Magic Wand 5
+    //======================================================================================================================
+    "item_recipe_magic_wand_5"
+    {
+        "ID"                "3706"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_magic_wand_5"
+        "ItemRequirements"
+        {
+                "01"    "item_magic_wand_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Magic Wand 5
+    //======================================================================================================================
+    "item_magic_wand_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3707"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "33265"
+        "ItemShopTags"                  "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+        "ItemAliases"                   "magic wand 5;wand 5"
+        "ItemQuality"                   "common"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "1"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "1"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "charge_radius"                                         "1200"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "1.5 3 6 12 24"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "max_charges"                                           "17"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "restore_per_charge"                                    "15 30 60 120 240"
+            }
+        }
+        
+    }
+}

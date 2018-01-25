@@ -1,81 +1,95 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Monkey King Bar 2
-	//=================================================================================================================
-	"item_recipe_monkey_king_bar_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3626"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+    //======================================================================================================================
+    // Recipe: Monkey King Bar 2
+    //======================================================================================================================
+    "item_recipe_monkey_king_bar_2"
+    {
+        "ID"                "3626"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_monkey_king_bar_2"
+        "ItemRequirements"
+        {
+                "01"    "item_monkey_king_bar;item_upgrade_core"
+                "02"    "item_monkey_king_bar;item_upgrade_core_2"
+                "03"    "item_monkey_king_bar;item_upgrade_core_3"
+                "04"    "item_monkey_king_bar;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Monkey King Bar 2
+    //======================================================================================================================
+    "item_monkey_king_bar_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3630"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_monkey_king_bar_2"
-		"ItemRequirements"
-		{
-			"01"						"item_monkey_king_bar;item_upgrade_core"
-			"02"						"item_monkey_king_bar;item_upgrade_core_2"
-			"03"						"item_monkey_king_bar;item_upgrade_core_3"
-			"04"						"item_monkey_king_bar;item_upgrade_core_4"
-		}
-	}
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_monkey_king_bar_2"
+        "UpgradeRecipe"                 "item_recipe_monkey_king_bar"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "4500"
+        "ItemShopTags"                  "damage;attack_speed;hard_to_tag"
+        "ItemAliases"                   "mkb 2;monkey king bar 2"
+        "ItemQuality"                   "epic"
 
-	//=================================================================================================================
-	// Monkey King Bar 2
-	//=================================================================================================================
-	"item_monkey_king_bar_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3630"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_monkey_king_bar"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/Monkey_King_Bar_2"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8900"
-		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"mkb;monkey king bar 2"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"               "5"
-		"ItemBaseLevel"                 "2"
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-		"UpgradesItems"                 "item_monkey_king_bar;item_monkey_king_bar_2;item_monkey_king_bar_3;item_monkey_king_bar_4;item_monkey_king_bar_5"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"66 99 150 222 300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance"			"35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_damage"			"160 240 360 540 720"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_stun"				"0.01"
-			}
-		}
-	}
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "60 70 80 90 100"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_chance_damage"                                   "60 90 145 220 330"
+            }
+        }
+        
+    }
 }

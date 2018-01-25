@@ -1,77 +1,100 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Power Treads
-	//=================================================================================================================
-	"item_recipe_power_treads"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"62"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
+    //======================================================================================================================
+    // Recipe: Power Treads
+    //======================================================================================================================
+    "item_recipe_power_treads"
+    {
+        "ID"                "62"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "0"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_power_treads"
+        "ItemRequirements"
+        {
+                "01"    "item_belt_of_strength;item_boots;item_gloves"
+                "02"    "item_boots_of_elves;item_boots;item_gloves"
+                "03"    "item_boots;item_gloves;item_robe"
+        }
+    }
+    //======================================================================================================================
+    // Power Treads
+    //======================================================================================================================
+    "item_power_treads"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "63"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "attack_speed;move_speed;int;agi;str"
+        "ItemAliases"                   "power;treads"
+        "ItemQuality"                   "common"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_power_treads"
-		"ItemRequirements"
-		{
-			"01"						"item_boots;item_gloves;item_belt_of_strength"
-			"02"						"item_boots;item_gloves;item_robe"
-			"03"						"item_boots;item_gloves;item_boots_of_elves"
-		}
-	}
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-	//=================================================================================================================
-	// Power Treads
-	//=================================================================================================================
-	"item_power_treads"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"63"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_power_treads"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1650"
-		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"power treads"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
-		"MaxUpgradeLevel"               "1"
-    "ItemBaseLevel"                 "1"
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"  "45"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"0"
-			}
-		}
-	}
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "25"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_stat"                                            "10"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "0"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "45"
+            }
+        }
+        
+    }
 }

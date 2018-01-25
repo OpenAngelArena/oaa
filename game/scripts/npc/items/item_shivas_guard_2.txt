@@ -1,115 +1,95 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Shiva's Guard 2
-	//=================================================================================================================
-	"item_recipe_shivas_guard_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"4040"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+    //======================================================================================================================
+    // Recipe: Shivas Guard 2
+    //======================================================================================================================
+    "item_recipe_shivas_guard_2"
+    {
+        "ID"                "4040"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_shivas_guard_2"
+        "ItemRequirements"
+        {
+                "01"    "item_shivas_guard;item_upgrade_core"
+                "02"    "item_shivas_guard;item_upgrade_core_2"
+                "03"    "item_shivas_guard;item_upgrade_core_3"
+                "04"    "item_shivas_guard;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Shivas Guard 2
+    //======================================================================================================================
+    "item_shivas_guard_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "4042"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_shivas_guard_2"
+        "UpgradeRecipe"                 "item_recipe_shivas_guard"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2150"
+        "ItemShopTags"                  "int;armor;hard_to_tag"
+        "ItemAliases"                   "shiva&#039;s guard 2;shivas guard 2;shiva 2"
+        "ItemQuality"                   "epic"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shivas_guard_2"
-		"ItemRequirements"
-		{
-			"01"						"item_shivas_guard;item_upgrade_core"
-			"02"						"item_shivas_guard;item_upgrade_core_2"
-			"03"						"item_shivas_guard;item_upgrade_core_3"
-			"04"						"item_shivas_guard;item_upgrade_core_4"
-		}
-	}
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-	//=================================================================================================================
-	// Shiva's Guard 2
-	//=================================================================================================================
-	"item_shivas_guard_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"4042"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_shivas_guard"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/shivas_guard_2"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
-		"AbilitySharedCooldown"			"shivas"
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
-		"ItemCost"						"6800"
-		"ItemShopTags"					"int;armor;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"shiva's guard"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
 
-		"UpgradesItems"					"item_shivas_guard_2;item_shivas_guard_3"
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "15 20 25 30 40"
+            }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30 45 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15 20 25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-45 -65 -85"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"200 300 450"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-40 -45 -50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"900"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"350"
-			}
-		}
-	}
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+        }
+        
+    }
 }

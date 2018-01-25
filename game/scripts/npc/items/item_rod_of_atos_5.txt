@@ -1,0 +1,84 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Rod Of Atos 5
+    //======================================================================================================================
+    "item_recipe_rod_of_atos_5"
+    {
+        "ID"                "3677"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_rod_of_atos_5"
+        "ItemRequirements"
+        {
+                "01"    "item_rod_of_atos_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Rod Of Atos 5
+    //======================================================================================================================
+    "item_rod_of_atos_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3678"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "35000"
+        "ItemShopTags"                  "int;regen_health"
+        "ItemAliases"                   "rod of atos 5;atos 5"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "2.0 2.5 3.0 3.5 4.0"
+            }
+        }
+        
+    }
+}

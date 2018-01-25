@@ -1,0 +1,114 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Cyclone 5
+    //======================================================================================================================
+    "item_recipe_cyclone_5"
+    {
+        "ID"                "3898"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_cyclone_5"
+        "ItemRequirements"
+        {
+                "01"    "item_cyclone_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Cyclone 5
+    //======================================================================================================================
+    "item_cyclone_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3899"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "34250"
+        "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
+        "ItemAliases"                   "cyclone 5;euls 5;eul&#039;s scepter of divinity 5"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10 25 40 60 80"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_tooltip"                                    "575 675 775 875 975"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "cyclone_duration"                                      "2.5"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "2.25 3.25 4.50 6.50 8.75"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "40 50 60 70 80"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_drop_damage"                                   "50"
+            }
+        }
+        
+    }
+}

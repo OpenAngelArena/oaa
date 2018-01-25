@@ -1,0 +1,96 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Mekansm 5
+    //======================================================================================================================
+    "item_recipe_mekansm_5"
+    {
+        "ID"                "3728"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_mekansm_5"
+        "ItemRequirements"
+        {
+                "01"    "item_mekansm_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Mekansm 5
+    //======================================================================================================================
+    "item_mekansm_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3729"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "2"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "34400"
+        "ItemShopTags"                  "agi;int;str;armor;boost_health"
+        "ItemAliases"                   "mechanism 5;mekansm 5;meka 5"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "5 10 15 20 25"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_health_regen"                                     "3.5 7 14 21 28"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+        }
+        
+    }
+}

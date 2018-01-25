@@ -1,27 +1,52 @@
 "DOTAItems"
 {
-	"item_upgrade_core_3"
+    //======================================================================================================================
+    // Upgrade Core 3
+    //======================================================================================================================
+    "item_upgrade_core_3"
     {
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "3532"      // unique ID
-		"BaseClass"                     "item_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3532"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityTextureName"				"custom/angels_soul"
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemQuality"                   "common"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-        "ItemCost"              "3500"
-        "ItemPurchasable"       "0"
-        //"ItemSellable"          "0"
-        "ItemKillable"          "0"
-        "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-	}
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
+    }
 }

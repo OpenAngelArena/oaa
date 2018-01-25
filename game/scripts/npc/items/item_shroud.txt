@@ -1,116 +1,125 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Shroud of Shadows
-	//=================================================================================================================
-	"item_recipe_shroud"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3232"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+    //======================================================================================================================
+    // Recipe: Shroud
+    //======================================================================================================================
+    "item_recipe_shroud"
+    {
+        "ID"                "3232"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_shroud"
+        "ItemRequirements"
+        {
+                "01"    "item_ghost;item_glimmer_cape"
+                "02"    "item_ghost;item_glimmer_cape"
+                "03"    "item_ghost;item_glimmer_cape"
+                "04"    "item_ghost;item_glimmer_cape"
+        }
+    }
+    //======================================================================================================================
+    // Shroud
+    //======================================================================================================================
+    "item_shroud"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3234"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_shroud"
+        "UpgradeRecipe"                 "item_recipe_shroud"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "4300"
+        "ItemShopTags"                  "int;agi;str;hard_to_tag"
+        "ItemAliases"                   "shroud of Shadows;sos"
+        "ItemQuality"                   "component"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_shroud"
-		"ItemRequirements"
-		{
-			"01"						"item_ghost;item_glimmer_cape;item_upgrade_core"
-      "02"            "item_ghost;item_glimmer_cape;item_upgrade_core_2"
-      "03"            "item_ghost;item_glimmer_cape;item_upgrade_core_3"
-      "04"            "item_ghost;item_glimmer_cape;item_upgrade_core_4"
-		}
-	}
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
 
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "active_magical_armor"                                  "30 36 42 50"
+            }
 
-	//=================================================================================================================
-	// Shroud of Shadows (Based on Ghost Scepter)
-	//=================================================================================================================
-	"item_shroud"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3234"												// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_lua"
-		"ScriptFile"					"items/shroud"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"            "custom/item_shroud"
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "25 30 35 40"
+            }
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0"
-		"AbilityManaCost"				"75"
-		"AbilitySharedCooldown"			"ethereal"
-		"MaxUpgradeLevel"				"2"
-		"ItemBaseLevel"					"1"
-		"UpgradesItems"					"item_shroud"
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "8 14 21 35"
+            }
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"7500"
-		"ItemShopTags"					"int;agi;str;hard_to_tag"
-		"ItemQuality"					"component"
-		"ItemAliases"					"shroud of Shadows"
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_magical_armor"                                   "15 20 25 30"
+            }
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"8 10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25 28"
-			}
-      // Glimmer Cape Parameters
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_magical_armor" "15 20"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "4.0"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "extra_spell_damage_percent"  "0" // Zero Spell Amp from Ghost Scepter
-      }
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fade_delay"			"0.6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_magical_armor"	"30 35"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
-			}
-		}
-	}
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "5.0"
+            }
 
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "extra_spell_damage_percent"                            "0"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "fade_delay"                                            "0.6"
+            }
+        }
+        
+    }
 }

@@ -1,91 +1,111 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Lucience 2
-	//=================================================================================================================
-	"item_recipe_lucience_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3329"
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
+    //======================================================================================================================
+    // Recipe: Lucience 2
+    //======================================================================================================================
+    "item_recipe_lucience_2"
+    {
+        "ID"                "3329"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "8000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_lucience_2"
+        "ItemRequirements"
+        {
+                "01"    "item_lucience"
+                "02"    "item_lucience"
+        }
+    }
+    //======================================================================================================================
+    // Lucience 2
+    //======================================================================================================================
+    "item_lucience_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3332"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8000"
-		"ItemShopTags"					""
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "3"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_lucience_2"
+        "UpgradeRecipe"                 "item_recipe_lucience"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "11500"
+        "ItemShopTags"                  "damage"
+        "ItemAliases"                   "lucience 2;lucio 2"
+        "ItemQuality"                   "epic"
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_lucience_2"
-		"ItemRequirements"
-		{
-			"01"						"item_lucience;item_upgrade_core_3"
-			"02"						"item_lucience;item_upgrade_core_4"
-		}
-	}
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-	//=================================================================================================================
-	// Lucience 2
-	//=================================================================================================================
-	"item_lucience_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3332"
-		"BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/lucience.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityTextureName"            "custom/lucience_2"
-		"AbilityCooldown"               "1"
-        "AbilityManaCost"               "0"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"				"3"
-		"ItemBaseLevel"					"2"
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"15850"
-		"ItemShopTags"					"damage"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"lucience"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"UpgradesItems"					"item_lucience_2;"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
-			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
-		}
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"    "65"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "regen_bonus"     "75 150 300"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "speed_bonus"     "20 40 60"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"     "700"
-      }
-		}
-	}
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "700"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "65"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heals_per_sec"                                         "3"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "regen_bonus"                                           "65 130 260"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "speed_bonus"                                           "20 40 60"
+            }
+        }
+        
+    }
 }

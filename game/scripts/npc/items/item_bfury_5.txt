@@ -1,0 +1,156 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Bfury 5
+    //======================================================================================================================
+    "item_recipe_bfury_5"
+    {
+        "ID"                "3864"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_bfury_5"
+        "ItemRequirements"
+        {
+                "01"    "item_bfury_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Bfury 5
+    //======================================================================================================================
+    "item_bfury_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3865"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "34400"
+        "ItemShopTags"                  "damage;health_regen;mana_regen;hard_to_tag"
+        "ItemAliases"                   "bf 5;battle fury 5"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_tooltip"                                    "350"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_ward"                                       "450"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cleave_damage_percent"                                 "40 45 50 55 65"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cleave_distance"                                       "625 645 665 685 705"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cleave_ending_width"                                   "330 345 360 375 390"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cleave_starting_width"                                 "150"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "45 65 95 145 195"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "6 12 18 24 30"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "2.25 3.3 4.75 6.5 9"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "quelling_bonus"                                        "160"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "quelling_bonus_ranged"                                 "125"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_quelling_bonus"                                "60"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_quelling_bonus_ranged"                         "25"
+            }
+        }
+        
+    }
+}

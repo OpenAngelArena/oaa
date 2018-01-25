@@ -1,0 +1,94 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Hurricane Pike 3
+    //======================================================================================================================
+    "item_recipe_hurricane_pike_3"
+    {
+        "ID"                "3740"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "3500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_hurricane_pike_3"
+        "ItemRequirements"
+        {
+                "01"    "item_hurricane_pike_2;item_upgrade_core_2"
+                "02"    "item_hurricane_pike_2;item_upgrade_core_3"
+                "03"    "item_hurricane_pike_2;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Hurricane Pike 3
+    //======================================================================================================================
+    "item_hurricane_pike_3"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3741"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_hurricane_pike_3"
+        "UpgradeRecipe"                 "item_recipe_hurricane_pike"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "7000"
+        "ItemShopTags"                  "int;damage;attack_speed;hard_to_tag"
+        "ItemAliases"                   "hurricane pike 3;pike 3"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "100 110 130 160 200"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "5.5 7.5 10 15 30"
+            }
+        }
+        
+    }
+}

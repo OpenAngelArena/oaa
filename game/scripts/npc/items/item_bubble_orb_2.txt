@@ -1,0 +1,121 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Bubble Orb 2
+    //======================================================================================================================
+    "item_recipe_bubble_orb_2"
+    {
+        "ID"                "8446"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_bubble_orb_2"
+        "ItemRequirements"
+        {
+                "01"    "item_bubble_orb;item_upgrade_core_3"
+                "02"    "item_bubble_orb;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Bubble Orb 2
+    //======================================================================================================================
+    "item_bubble_orb_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "8458"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "2"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "33000"
+        "ItemShopTags"                  "defense;support;mobility;hard_to_tag"
+        "ItemAliases"                   "bubble;orb"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "32 40"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "aura_stickiness"                                       "0.1"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "10.0"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "15.0 30.0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "700 1000"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "5.0 7.5"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "radius"                                                "150"
+            }
+        }
+        
+    }
+}

@@ -1,61 +1,74 @@
 "DOTAItems"
 {
-  "item_bottle"
-  {
-    "ItemPurchasable"       "0"
-  }
-	//=================================================================================================================
-	// Bottle
-	//=================================================================================================================
-	"item_infinite_bottle"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                            "41"
-		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"item_bottle"
-		"ScriptFile"					"items/bottle"
+    //======================================================================================================================
+    // Infinite Bottle
+    //======================================================================================================================
+    "item_infinite_bottle"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "8041"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemQuality"                   "common"
 
-    "Model"                         "models/props_gameplay/bottle_blue.vmdl"
-    "ModelAlternate"                "models/props_gameplay/bottle_empty.vmdl"
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.5"
-		"AbilityCastPoint"				"0.0"
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "1"
+        "ItemInitialCharges"            "1"
+        "ItemDisplayCharges"            "0"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"650"
-		"ItemStackable"					"1"
-		"ItemSellable"					"1"
-		"ItemPermanent"					"1"
-		"ItemInitialCharges"			"3"
-		"IsTempestDoubleClonable"		"0"
-		"ItemRequiresCharges"			"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE_STACKING"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restore"		"90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"60"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"restore_time"			"2.5"
-			}
-		}
-	}
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "health_restore"                                        "80"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "mana_restore"                                          "40"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "restore_time"                                          "2.5"
+            }
+        }
+        
+    }
 }

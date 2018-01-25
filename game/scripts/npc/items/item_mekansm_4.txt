@@ -1,0 +1,99 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Mekansm 4
+    //======================================================================================================================
+    "item_recipe_mekansm_4"
+    {
+        "ID"                "3726"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "8000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_mekansm_4"
+        "ItemRequirements"
+        {
+                "01"    "item_mekansm_3;item_upgrade_core_3"
+                "02"    "item_mekansm_3;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Mekansm 4
+    //======================================================================================================================
+    "item_mekansm_4"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3727"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "2"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+        "UpgradesItems"                 "item_mekansm_4"
+        "UpgradeRecipe"                 "item_recipe_mekansm"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "14400"
+        "ItemShopTags"                  "agi;int;str;armor;boost_health"
+        "ItemAliases"                   "mechanism 4;mekansm 4;meka 4"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "5 10 15 20 25"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_health_regen"                                     "3.5 7 14 21 28"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+        }
+        
+    }
+}

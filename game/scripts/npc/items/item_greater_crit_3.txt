@@ -1,78 +1,88 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Daedalus 3
-	//=================================================================================================================
-	"item_recipe_greater_crit_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3059"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.mdl"
+    //======================================================================================================================
+    // Recipe: Greater Crit 3
+    //======================================================================================================================
+    "item_recipe_greater_crit_3"
+    {
+        "ID"                "3059"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "3500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_greater_crit_3"
+        "ItemRequirements"
+        {
+                "01"    "item_greater_crit_2;item_upgrade_core_2"
+                "02"    "item_greater_crit_2;item_upgrade_core_3"
+                "03"    "item_greater_crit_2;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Greater Crit 3
+    //======================================================================================================================
+    "item_greater_crit_3"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3063"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3500"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_greater_crit_3"
-		"AbilityTextureName"			"item_recipe"
-		"ItemRequirements"
-		{
-			"01"						"item_greater_crit_2;item_upgrade_core_2"
-			"02"						"item_greater_crit_2;item_upgrade_core_3"
-			"03"						"item_greater_crit_2;item_upgrade_core_4"
-		}
-	}
-
-	//=================================================================================================================
-	// Daedalus 3
-	//=================================================================================================================
-	"item_greater_crit_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3063"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_greater_crit"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"            "custom/daedalus_3"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"MaxUpgradeLevel"               "5"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
         "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_greater_crit_3"
+        "UpgradeRecipe"                 "item_recipe_greater_crit"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "6500"
+        "ItemShopTags"                  "damage;crit"
+        "ItemAliases"                   "daedalus 3;crit 3"
+        "ItemQuality"                   "epic"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"12520"
-		"ItemShopTags"					"damage;crit"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"daedalus"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-        "UpgradesItems"                 "item_greater_crit_3;item_greater_crit_4"
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"80 120 180 270 360"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_multiplier"		"235 260 285 310 335"
-			}
-		}
-	}
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "80 110 150 210 280"
+            }
+        }
+        
+    }
 }
