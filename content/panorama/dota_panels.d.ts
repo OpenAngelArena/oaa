@@ -182,6 +182,12 @@ interface ImagePanel extends Panel {
   SetScaling(scale: ScalingFunction): void;
 }
 
+interface HeroImage extends ImagePanel {
+  heroid: number;
+  heroname: string;
+  heroimagestyle: 'icon' | 'portrait' | 'landscape';
+}
+
 interface AbilityImage extends ImagePanel {
   abilityname: string;
   contextEntityIndex: number;
@@ -209,7 +215,7 @@ interface DollarStatic {
   CreatePanel(type: 'Image', root: Panel, name: string): ImagePanel;
   CreatePanel(type: 'DOTAAbilityImage', root: Panel, name: string): AbilityImage;
   CreatePanel(type: 'DOTAItemImage', root: Panel, name: string): ItemImage;
-  CreatePanel(type: 'Image', root: Panel, name: string): ImagePanel;
+  CreatePanel(type: 'DOTAHeroImage', root: Panel, name: string): HeroImage;
   CreatePanel(type: 'ContextMenuScript', root: Panel, name: String): ContextMenuScriptPanel;
   CreatePanel(type: 'DOTAScenePanel', root: Panel, name: String): ScenePanel;
 }

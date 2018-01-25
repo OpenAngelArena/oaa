@@ -291,8 +291,11 @@ function CaveHandler:CreepDeath (teamID, roomID)
         if not hasSeenNotification[unit:GetPlayerOwnerID()] then
           -- inform players
           Notifications:Top(unit:GetPlayerOwner(), {
-            text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
+            text = "#cave_room_cleared",
             duration = 5,
+            replacement_map = {
+              room_id = roomID,
+            },
           })
           hasSeenNotification[unit:GetPlayerOwnerID()] = true
         end
@@ -327,13 +330,18 @@ function CaveHandler:CreepDeath (teamID, roomID)
       end
       -- inform players
       Notifications:TopToTeam(teamID, {
-        text = "Your last Room got cleared. Every player on your Team got " .. bounty .. " gold",
+        text = "#cave_fully_cleared_reward",
         duration = 10,
-        continue = true
+        replacement_map = {
+          reward_amount = bounty,
+        },
       })
       Notifications:TopToTeam(teamID, {
-        text = "You have cleared the Cave " .. cave.timescleared .. " times. The Cave is resetting now.",
+        text = "#cave_fully_cleared_num_clears",
         duration = 10,
+        replacement_map = {
+          num_clears = cave.timescleared,
+        },
       })
     end
   end
