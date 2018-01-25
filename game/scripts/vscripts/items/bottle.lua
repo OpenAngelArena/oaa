@@ -129,7 +129,6 @@ local special_bottles = {
   [106881079] = 4, --steam: http://steamcommunity.com/profiles/76561198067146807 - twitch: Alsher7
   [113199503] = 4, --steam: http://steamcommunity.com/profiles/76561198073465231 - twitch: BananaCharge
   [82995898] = 4, --steam: http://steamcommunity.com/profiles/76561198043261626 - twitch: bobAKAbill
-  [75237487] = 4, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
   [102208419] = 4, --steam: http://steamcommunity.com/profiles/76561198062474147 - twitch: CreepySniper
   [98653735] = 4, --steam: http://steamcommunity.com/profiles/76561198058919463 - twitch: CynicalDemon
   [99112333] = 4, --steam: http://steamcommunity.com/profiles/76561198059378061 - twitch: DazRoger
