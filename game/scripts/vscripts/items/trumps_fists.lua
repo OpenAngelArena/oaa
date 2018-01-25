@@ -34,15 +34,15 @@ function modifier_item_trumps_fists_passive:OnCreated(kv)
     if unit.hero_projectile == nil then
       unit.hero_projectile = unit:GetRangedProjectileName()
     end
-
-    self.item_projectile = "particles/items/trumps_fists/trumps_fists_projectile.vpcf"
-    unit:SetRangedProjectileName(self.item_projectile)
+    
+    unit:SetRangedProjectileName("particles/items/trumps_fists/trumps_fists_projectile.vpcf")
   end
 end
 
 function modifier_item_trumps_fists_passive:OnDestroy()
   if IsServer() then
-    self:GetCaster():SetRangedProjectileName( self:GetCaster().hero_projectile )
+    local unit = self:GetCaster()
+    unit:SetRangedProjectileName( unit.hero_projectile )
   end
 end
 
