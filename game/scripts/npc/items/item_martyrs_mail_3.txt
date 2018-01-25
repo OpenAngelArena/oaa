@@ -1,0 +1,117 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Martyrs Mail 3
+    //======================================================================================================================
+    "item_recipe_martyrs_mail_3"
+    {
+        "ID"                "3368"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "8000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_martyrs_mail_3"
+        "ItemRequirements"
+        {
+                "01"    "item_martyrs_mail_2"
+                "02"    "item_martyrs_mail_2"
+        }
+    }
+    //======================================================================================================================
+    // Martyrs Mail 3
+    //======================================================================================================================
+    "item_martyrs_mail_3"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3369"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_martyrs_mail_3"
+        "UpgradeRecipe"                 "item_recipe_martyrs_mail"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "13000"
+        "ItemShopTags"                  "damage;armor;int;hard_to_tag"
+        "ItemAliases"                   "mm 3;martyrs mail 3;martyrsmail 3"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "14 22 30 40"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "15 22 32 45"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "35 50 75 120"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "martyr_duration"                                       "4.5"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "martyr_heal_aoe"                                       "700"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "martyr_heal_percent"                                   "50 60 75 100"
+            }
+        }
+        
+    }
+}

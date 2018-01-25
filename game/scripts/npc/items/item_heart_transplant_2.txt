@@ -1,0 +1,126 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Heart Transplant 2
+    //======================================================================================================================
+    "item_recipe_heart_transplant_2"
+    {
+        "ID"                "3259"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_heart_transplant_2"
+        "ItemRequirements"
+        {
+                "01"    "item_heart_transplant"
+        }
+    }
+    //======================================================================================================================
+    // Heart Transplant 2
+    //======================================================================================================================
+    "item_heart_transplant_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3261"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "2"
+        "ItemBaseLevel"                 "2"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "28300"
+        "ItemShopTags"                  "armor;regen_mana;hard_to_tag"
+        "ItemAliases"                   "transplant 2;heart transplant 2"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "80 85"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cooldown_melee"                                        "5"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cooldown_ranged_tooltip"                               "7"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "7"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "2300 3400"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "health_regen_rate"                                     "4.5"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "transplant_cooldown"                                   "7"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "transplant_range_tooltip"                              "700"
+            }
+        }
+        
+    }
+}

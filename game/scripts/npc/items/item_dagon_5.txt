@@ -1,110 +1,122 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Dagon 5
-  //=================================================================================================================
-  "item_recipe_dagon_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "200"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_dagon_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements" // OAA
+    //======================================================================================================================
+    // Recipe: Dagon 5
+    //======================================================================================================================
+    "item_recipe_dagon_5"
     {
-      "01"                                                "item_dagon_4;item_recipe_dagon"
+        "ID"                "200"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "0"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_dagon_5"
+        "ItemRequirements"
+        {
+                "01"    "item_dagon_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Dagon 5
-  //=================================================================================================================
-  "item_dagon_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "204"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/dagon.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/dagon_5"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 650 700 750 800 850 900 950 1000"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "35.0 30.0 25.0 20.0 15.0 15.0 15.0 13.0 10.0"
-    "AbilitySharedCooldown"                               "dagon"
-    "MaxUpgradeLevel"                                     "9"
-    "ItemBaseLevel"                                       "5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "7715"
-    "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "dagon 5"
-
-    "UpgradesItems"                                       "item_dagon_5;item_dagon_6;item_dagon_7;item_dagon_8;item_dagon_9"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Dagon 5
+    //======================================================================================================================
+    "item_dagon_5"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 18 21 24 27 35 50 70 90"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "400 500 600 700 800 900 1100 1300 1500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range_tooltip"                                   "600 650 700 750 800 850 900 950 1000"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_delay"                                    "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_cost_tooltip"                               "180"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "0 0 0 0 0 2 4 7 10"
-      }
-    }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "204"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "precache"
-    {
-      "particle"                                          "particles/items/dagon_oaa.vpcf"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "9"
+        "ItemBaseLevel"                 "5"
+        "UpgradesItems"                 "item_dagon_5"
+        "UpgradeRecipe"                 "item_recipe_dagon"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2720"
+        "ItemShopTags"                  "damage;int;str;agi;hard_to_tag"
+        "ItemAliases"                   "dagon;5"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "0"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "3"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "15 18 21 24 27 35 50 70 90"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage"                                                "400 500 600 700 800 900 1100 1300 1500"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "damage_delay"                                          "0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "mana_cost_tooltip"                                     "180"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "range_tooltip"                                         "600 650 700 750 800 850 900 950 1000"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "spell_amp"                                             "0 0 0 0 0 2 4 7 10"
+            }
+        }
+        
     }
-  }
 }

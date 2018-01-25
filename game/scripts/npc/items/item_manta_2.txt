@@ -1,169 +1,79 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Manta Style 2
-  //=================================================================================================================
-  "item_recipe_manta_2"
-  {
-    "ID"                                                  "3172"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_manta_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Manta 2
+    //======================================================================================================================
+    "item_recipe_manta_2"
     {
-      "01"                                                "item_manta_1;item_upgrade_core"
-      "02"                                                "item_manta_1;item_upgrade_core_2"
-      "03"                                                "item_manta_1;item_upgrade_core_3"
-      "04"                                                "item_manta_1;item_upgrade_core_4"
+        "ID"                "3172"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_manta_2"
+        "ItemRequirements"
+        {
+                "01"    "item_upgrade_core"
+                "02"    "item_upgrade_core_2"
+                "03"    "item_upgrade_core_3"
+                "04"    "item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Manta Style 2
-  //=================================================================================================================
-  "item_manta_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3175"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/manta.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/manta_style_2"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilitySharedCooldown"                               "manta"
-
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_manta_2;item_manta_3;item_manta_4;item_manta_5"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "6500"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "manta style 2;manta 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Manta 2
+    //======================================================================================================================
+    "item_manta_2"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 14 19 25 32"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 31 38 47 58"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 14 19 25 32"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15 20 25 30 35"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "10 12 15 18 22"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2 2 2 3 3"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_duration"                               "20"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_outgoing_melee_pct"                       "-67"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee_pct"               "33"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_incoming_melee_pct"                       "250"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_melee_total_pct"         "350"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_outgoing_ranged_pct"                      "-72"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged_pct"              "28"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_incoming_ranged_pct"                      "300"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_ranged_total_pct"        "400"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "30"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "45"
-      }
-      "18"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invuln_duration"                                 "0.1"
-      }
-      "19"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "1000"
-      }
-      "20"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "1.0"
-      }
-    }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3175"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "precache"
-    {
-      "particle"  "particles/items2_fx/manta_phase.vpcf"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_manta_2"
+        "UpgradeRecipe"                 "item_recipe_manta"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1500"
+        "ItemShopTags"                  "agi;str;int;attack_speed;move_speed;hard_to_tag"
+        "ItemAliases"                   "manta style 2;manta 2"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
     }
-  }
 }

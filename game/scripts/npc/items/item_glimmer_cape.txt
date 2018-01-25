@@ -1,99 +1,75 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Glimmer Cape
-  //=================================================================================================================
-  "item_recipe_glimmer_cape"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "253"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0" 
-    "ItemShopTags"          ""
-    
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_glimmer_cape"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Glimmer Cape
+    //======================================================================================================================
+    "item_glimmer_cape"
     {
-      "01"            "item_shadow_amulet;item_cloak"
-    }
-  }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "254"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"      ""
 
-  //=================================================================================================================
-  // Glimmer Cape
-  //=================================================================================================================
-  "item_glimmer_cape"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
-    "FightRecapLevel"             "1"
-    "AbilityTextureName"          "custom/glimmer_cape_1"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_glimmer_cape"
+        "UpgradeRecipe"                 ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1300"
+        "ItemAliases"                   "glimmer;cape;glimmer"
+        "ItemQuality"                   "rare"
 
-    // Stats    
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"            "800"
-    "AbilityCooldown"             "14.0"
-    "AbilitySharedCooldown"                               "glimmer"
-    "AbilityManaCost"             "90"
-    
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "1850"
-    "ItemShopTags"                ""
-    "ItemQuality"                 "rare"
-    "ItemAliases"                 "glimmer cape;glimmer"
-    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "MaxUpgradeLevel"             "5"
-    "ItemBaseLevel"               "1"
-    
-    // Special  
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {     
-      "01"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_attack_speed"      "20 25 30 35 40"
-      }
-      "02"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_magical_armor"     "15 16 17 18 20"
-      }
-      "03"
-      {
-        "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6"
-      }
-      "04"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "active_magical_armor"    "45 48 51 55 60"
-      }
-      "05"
-      {
-        "var_type"                "FIELD_FLOAT"
-        "duration"                "5"
-      }
-      "06"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "tooltip_range"            "800"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "building_duration_limit"     "180"
-      }
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "20 25 30 35 40"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "5"
+            }
+        }
+        
     }
-  }
 }
