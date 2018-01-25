@@ -165,7 +165,7 @@ function onPlayerStatChange (table, key, data) {
     FindDotaHudElement('RadiantReserve').text = data['reserveradiant'];
     FindDotaHudElement('DireReserve').text = data['reservedire'];
 
-    if (data['currentstage'] < data['totalstages']) {
+    if (data['currentstage'] < data['totalstages'] || (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero === 'empty')) {
       if (!data['order'][data['currentstage']]) {
         return;
       }
