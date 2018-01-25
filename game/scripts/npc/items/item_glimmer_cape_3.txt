@@ -1,105 +1,93 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Glimmer Cape 3
-  //=================================================================================================================
-  "item_recipe_glimmer_cape_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3732"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-    
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "3500" 
-    "ItemShopTags"          ""
-    
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_glimmer_cape_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Glimmer Cape 3
+    //======================================================================================================================
+    "item_recipe_glimmer_cape_3"
     {
-      "01"                                                "item_glimmer_cape_2;item_upgrade_core_2"
-      "02"                                                "item_glimmer_cape_2;item_upgrade_core_3"
-      "03"                                                "item_glimmer_cape_2;item_upgrade_core_4"
+        "ID"                "3732"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "3500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_glimmer_cape_3"
+        "ItemRequirements"
+        {
+                "01"    "item_glimmer_cape_2;item_upgrade_core_2"
+                "02"    "item_glimmer_cape_2;item_upgrade_core_3"
+                "03"    "item_glimmer_cape_2;item_upgrade_core_4"
+        }
     }
-  }
+    //======================================================================================================================
+    // Glimmer Cape 3
+    //======================================================================================================================
+    "item_glimmer_cape_3"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3733"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
 
-  //=================================================================================================================
-  // Glimmer Cape 3
-  //=================================================================================================================
-  "item_glimmer_cape_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "3733"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                   "item_glimmer_cape"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
-    "FightRecapLevel"             "1"
-    "AbilityTextureName"          "custom/glimmer_cape_3"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_glimmer_cape_3"
+        "UpgradeRecipe"                 "item_recipe_glimmer_cape"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "6300"
+        "ItemAliases"                   "glimmer cape 3;glimmer 3"
+        "ItemQuality"                   "rare"
 
-    // Stats    
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"            "800"
-    "AbilityCooldown"             "14.0"
-    "AbilitySharedCooldown"                               "glimmer"
-    "AbilityManaCost"             "90"
-    
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "6850"
-    "ItemShopTags"                ""
-    "ItemQuality"                 "rare"
-    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                 "glimmer cape 3;glimmer 3"
-    "MaxUpgradeLevel"             "5"
-    "ItemBaseLevel"               "3"
-    
-    // Special  
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {     
-      "01"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_attack_speed"      "20 25 30 35 40"
-      }
-      "02"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_magical_armor"     "15 16 17 18 20"
-      }
-      "03"
-      {
-        "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6"
-      }
-      "04"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "active_magical_armor"    "45 48 51 55 60"
-      }
-      "05"
-      {
-        "var_type"                "FIELD_FLOAT"
-        "duration"                "5"
-      }
-      "06"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "tooltip_range"           "800"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "building_duration_limit"     "180"
-      }
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "20 25 30 35 40"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "5"
+            }
+        }
+        
     }
-  }
 }

@@ -1,29 +1,64 @@
 "DOTAItems"
 {
-  "item_blades_of_attack"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "2"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "420"
-    "ItemShopTags"                                        "damage;tutorial"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "blades of attack"
-    "SideShop"                                            "0"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Blades of Attack
+    //======================================================================================================================
+    "item_blades_of_attack"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "9"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "2"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "damage;tutorial"
+        "ItemAliases"                   "blades;of;attack"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "1"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "9"
+            }
+        }
+        
     }
-  }
 }

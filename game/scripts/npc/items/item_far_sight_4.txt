@@ -1,0 +1,120 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Far Sight 4
+    //======================================================================================================================
+    "item_recipe_far_sight_4"
+    {
+        "ID"                "127007"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_far_sight_4"
+        "ItemRequirements"
+        {
+                "01"    "item_far_sight_3"
+        }
+    }
+    //======================================================================================================================
+    // Far Sight 4
+    //======================================================================================================================
+    "item_far_sight_4"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "127008"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "4"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "34440"
+        "ItemShopTags"                  "hard_to_tag"
+        "ItemAliases"                   "far;sight"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agi"                                             "10 20 30 40"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "10 20 30 40"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "10 20 30 40"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_int"                                             "10 20 30 40"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "reveal_duration"                                       "10.0"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "reveal_radius"                                         "750"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_str"                                             "10 20 30 40"
+            }
+        }
+        
+    }
+}

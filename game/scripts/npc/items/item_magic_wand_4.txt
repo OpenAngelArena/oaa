@@ -1,94 +1,105 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Magic Wand 4
-  //=================================================================================================================
-  "item_recipe_magic_wand_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3704"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_datadriven"
-    "Model"             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "8000"
-    "ItemShopTags"          ""
-    "ItemRecipe"                    "1"
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_magic_wand_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Magic Wand 4
+    //======================================================================================================================
+    "item_recipe_magic_wand_4"
     {
-      "01"            "item_magic_wand_3;item_upgrade_core_3"
-      "02"            "item_magic_wand_3;item_upgrade_core_4"
+        "ID"                "3704"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "8000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_magic_wand_4"
+        "ItemRequirements"
+        {
+                "01"    "item_magic_wand_3;item_upgrade_core_3"
+                "02"    "item_magic_wand_3;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Magic Wand 4
-  //=================================================================================================================
-  "item_magic_wand_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3705"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_magic_wand"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"            "custom/magic_wand_4"
-    "Model"             "models/props_gameplay/magic_wand.vmdl"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "13.0 10.0 7.0 4.0 1.0"
-    "AbilitySharedCooldown"     "magicwand"
-    "AbilityCastRange"        "1200"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "13400"
-    "ItemShopTags"          "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
-    "ItemQuality"         "common"
-    "ItemAliases"         "magic wand 4;wand 4"
-    "ItemRequiresCharges"     "1"
-    "ItemDisplayCharges"      "1"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "4"
-    "UpgradesItems"                 "item_magic_wand_4"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Magic Wand 4
+    //======================================================================================================================
+    "item_magic_wand_4"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "max_charges"     "17"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "charge_radius"     "1200"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "2 10 20 42 90"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "1.5 3 6 12 24"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "restore_per_charge"  "15 30 60 120 240"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3705"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "4"
+        "UpgradesItems"                 "item_magic_wand_4"
+        "UpgradeRecipe"                 "item_recipe_magic_wand"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "13265"
+        "ItemShopTags"                  "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+        "ItemAliases"                   "magic wand 4;wand 4"
+        "ItemQuality"                   "common"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "1"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "1"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "charge_radius"                                         "1200"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "1.5 3 6 12 24"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "max_charges"                                           "17"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "restore_per_charge"                                    "15 30 60 120 240"
+            }
+        }
+        
     }
-  }
 }

@@ -1,81 +1,101 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Trident 2
-  //=================================================================================================================
-  "item_recipe_kaya_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "5231"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_2"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "1500"
-    "ItemShopTags"                  ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_kaya_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Kaya 2
+    //======================================================================================================================
+    "item_recipe_kaya_2"
     {
-      "01"                                                "item_kaya;item_upgrade_core"
-      "02"                                                "item_kaya;item_upgrade_core_2"
-      "03"                                                "item_kaya;item_upgrade_core_3"
-      "04"                                                "item_kaya;item_upgrade_core_4"
+        "ID"                "5231"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_kaya_2"
+        "ItemRequirements"
+        {
+                "01"    "item_kaya;item_upgrade_core"
+                "02"    "item_kaya;item_upgrade_core_2"
+                "03"    "item_kaya;item_upgrade_core_3"
+                "04"    "item_kaya;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Kaya (was Trident) 2
-  //=================================================================================================================
-  "item_kaya_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                        "5037"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/trident_2"
-    "BaseClass"                     "item_kaya"
-
-
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-
-    // Item Info^
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3450"
-    "ItemShopTags"                  "int;mana"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "ky 2;kaya 2"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Kaya 2
+    //======================================================================================================================
+    "item_kaya_2"
     {
-      "01"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "16 32 48 64 80"
-      }
-      "02"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 15 20 25 30"
-      }
-      "03"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "10 15 20 25 30"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "5037"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_kaya_2"
+        "UpgradeRecipe"                 "item_recipe_kaya"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "3000"
+        "ItemShopTags"                  "int;mana"
+        "ItemAliases"                   "ky 2;kaya 2"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "16 32 48 64 80"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "manacost_reduction"                                    "10 15 20 25 30"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "spell_amp"                                             "10 15 20 25 30"
+            }
+        }
+        
     }
-  }
 }

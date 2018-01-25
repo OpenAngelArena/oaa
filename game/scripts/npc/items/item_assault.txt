@@ -1,91 +1,116 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Assault Cuirass
-  //=================================================================================================================
-  "item_recipe_assault"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "111"    // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1300"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_assault"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Assault Cuirass
+    //======================================================================================================================
+    "item_recipe_assault"
     {
-      "01"                                                "item_platemail;item_hyperstone;item_chainmail"
+        "ID"                "111"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "1300"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_assault"
+        "ItemRequirements"
+        {
+                "01"    "item_chainmail;item_hyperstone;item_platemail"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Assault Cuirass
-  //=================================================================================================================
-  "item_assault"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "112"    // unique ID
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityCastRange"                                    "900"
-    "AbilityTextureName"                                  "custom/assault_cuirass_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5250"
-    "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ac;assault cuirass"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    //Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_assault;item_assault_2"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Assault Cuirass
+    //======================================================================================================================
+    "item_assault"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 65 80"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 14 18 21 28"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "25 30 35 45 60"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 6 7 9 12"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-5 -6 -7 -9 -12"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "112"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_assault"
+        "UpgradeRecipe"                 "item_recipe_assault"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1300"
+        "ItemShopTags"                  "attack_speed;armor;hard_to_tag"
+        "ItemAliases"                   "ac;assault cuirass"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "10 14 18 21 28"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "30 40 50 65 80"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_attack_speed"                                     "25 30 35 45 60"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_negative_armor"                                   "-5 -6 -7 -9 -12"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_positive_armor"                                   "5 6 7 9 12"
+            }
+        }
+        
     }
-  }
 }

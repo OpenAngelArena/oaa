@@ -1,0 +1,68 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Iron Talon
+    //======================================================================================================================
+    "item_recipe_iron_talon"
+    {
+        "ID"                "238"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "125"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_iron_talon"
+        "ItemRequirements"
+        {
+                "01"    "item_quelling_blade;item_ring_of_protection"
+        }
+    }
+    //======================================================================================================================
+    // Iron Talon
+    //======================================================================================================================
+    "item_iron_talon"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "239"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "300"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
+    }
+}

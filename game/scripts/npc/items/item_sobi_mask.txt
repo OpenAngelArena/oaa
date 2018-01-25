@@ -1,31 +1,64 @@
 "DOTAItems"
 {
-  // Sage's Mask
-  "item_sobi_mask"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "28"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "325"
-    "ItemShopTags"                                        "regen_mana"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "sage's mask"
-    "SideShop"                                            "0"
-    "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Sage&#039;s Mask
+    //======================================================================================================================
+    "item_sobi_mask"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.5"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "28"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "0"
+        "ItemShopTags"                  "regen_mana"
+        "ItemAliases"                   "sage&#039;s;mask"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "1"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_PARTIALLY_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "0.5"
+            }
+        }
+        
     }
-  }
 }

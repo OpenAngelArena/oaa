@@ -1,78 +1,96 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Trident 5
-  //=================================================================================================================
-  "item_recipe_kaya_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "5212"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"            "custom/recipe/recipe_5"
-    "BaseClass"                     "item_datadriven"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "20000"
-    "ItemShopTags"                  ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_kaya_5"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Kaya 5
+    //======================================================================================================================
+    "item_recipe_kaya_5"
     {
-      "01"                                                "item_kaya_4;item_upgrade_core_4"
+        "ID"                "5212"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "20000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_kaya_5"
+        "ItemRequirements"
+        {
+                "01"    "item_kaya_4;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Kaya (was Trident) 5
-  //=================================================================================================================
-  "item_kaya_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                        "5211"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_kaya"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/trident_5"
-
-
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
-
-    // Item Info^
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "34950"
-    "ItemShopTags"                  "int;mana"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "ky 5;kaya 5"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Kaya 5
+    //======================================================================================================================
+    "item_kaya_5"
     {
-      "01"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "16 32 48 64 80"
-      }
-      "02"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 15 20 25 30"
-      }
-      "03"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "10 15 20 25 30"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "5211"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "34500"
+        "ItemShopTags"                  "int;mana"
+        "ItemAliases"                   "ky 5;kaya 5"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "16 32 48 64 80"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "manacost_reduction"                                    "10 15 20 25 30"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "spell_amp"                                             "10 15 20 25 30"
+            }
+        }
+        
     }
-  }
 }
