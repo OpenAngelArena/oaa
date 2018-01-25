@@ -117,6 +117,7 @@ local special_bottles = {
   [123018754] = 3, --steam: http://steamcommunity.com/profiles/76561198083284482 - twitch: the_funkalizer
   [162267134] = 3, --steam: http://steamcommunity.com/profiles/76561198122532862 - twitch: the_lightnin
   [196954061] = 3, --steam: http://steamcommunity.com/profiles/76561198157219789 - twitch: TheOnly1Matt
+  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -not in donation list, profile given by baumi
 
 
 
