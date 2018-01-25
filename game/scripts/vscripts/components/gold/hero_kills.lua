@@ -93,9 +93,9 @@ function HeroKillGold:HeroDeathHandler (keys)
   --   self:AddPoints(keys.killer:GetTeam())
   -- end
 
-  local killerHero = keys.killer
+  local killerEntity = keys.killer
   local killedHero = keys.killed
-  local killerTeam = killerHero:GetTeamNumber()
+  local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
   if killerTeam == killedTeam then
     return
@@ -107,9 +107,10 @@ function HeroKillGold:HeroDeathHandler (keys)
     return
   end
 
-  local killerPlayerID = killerHero:GetPlayerOwnerID()
+  local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
   local killedNetworth = killedHero:GetNetworth()
+  local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
