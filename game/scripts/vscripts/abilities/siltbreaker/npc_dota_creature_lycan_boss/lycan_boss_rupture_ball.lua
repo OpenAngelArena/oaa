@@ -53,6 +53,7 @@ function lycan_boss_rupture_ball:OnSpellStart()
 		vDirection = vDirection:Normalized()
 
 		self.attack_speed = self.attack_speed * ( self.attack_distance / ( self.attack_distance - self.attack_width_initial ) )
+    print("RuptureBall")
 
 		local info = {
 			EffectName = "particles/lycanboss_ruptureball_gale.vpcf",

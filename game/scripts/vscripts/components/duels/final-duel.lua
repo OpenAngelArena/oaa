@@ -31,7 +31,7 @@ function FinalDuel:Trigger (team)
   end
 
   Duels:StartDuel({
-    players = 5, -- TODO: 10v10 compatibility
+    players = 5,
     timeout = FINAL_DUEL_TIMEOUT
   })
 end
@@ -40,7 +40,7 @@ function FinalDuel:PreparingDuelHandler (keys)
   if self.needsFinalDuel then
     self.isCurrentlyFinalDuel = true
     self.needsFinalDuel = false
-    Notifications:TopToAll({text="#duel_final_duel_imminent", duration=4.0})
+    Notifications:TopToAll({text="Final Duel!", duration=4.0})
 
     local limit = PointsManager:GetLimit()
     local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
@@ -55,16 +55,15 @@ function FinalDuel:StartDuelHandler (keys)
     local extraMessage = ""
     if self.goodCanWin then
       if self.badCanWin then
-        extraMessage = "#duel_final_duel_both_can_win"
+        extraMessage = "The winner of this duel wins the game"
       else
-        extraMessage = "#duel_final_duel_good_can_win"
+        extraMessage = "The game will end if Radiant wins"
       end
     else
-      extraMessage = "#duel_final_duel_bad_can_win"
+      extraMessage = "The game will end if Dire wins"
     end
 
-    Notifications:TopToAll({text="#duel_final_duel_start", duration=10.0})
-    Notifications:TopToAll({text=extraMessage, duration=10.0})
+    Notifications:TopToAll({text="Final duel! " .. extraMessage, duration=10.0})
   end
 end
 
@@ -98,7 +97,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
     return
   end
   local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
-  Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=addToLimit}})
+  Notifications:TopToAll({text="The objective has been extended by " .. tostring(addToLimit), duration=5.0})
 
   PointsManager:SetLimit(PointsManager:GetLimit() + addToLimit)
 end

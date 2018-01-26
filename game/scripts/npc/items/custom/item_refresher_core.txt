@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "FightRecapLevel"                                     "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -28,6 +29,8 @@
       "03"                                                "item_refresher_2;item_octarine_core_2;item_upgrade_core_4"
     }
   }
+
+
 
   //=================================================================================================================
   // refresher_core (Based on Refresher)

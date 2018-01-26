@@ -9,7 +9,12 @@ end
 local ItemPowerLevel = 1.0
 
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
-local DROP_CHANCE = 0.25
+--local DROP_CHANCE = 0.25
+
+-- The C initial chance parameter for the pseudo-random distribution function
+-- Set for average chance of 25%. Functions for calculation and a bunch of pre-calculated values can be found here:
+-- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
+PRD_C = 0.084744091852316990275274806
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -87,7 +92,7 @@ function CreepItemDrop:RandomDropItemName(campLocationString)
   local CampPRDCounters = CreepCamps.CampPRDCounters
 
   --first we need to check against the drop percentage.
-  if RandomFloat(0, 1) > math.min(1, PrdCFinder:GetCForP(DROP_CHANCE) * CampPRDCounters[campLocationString]) then
+  if RandomFloat(0, 1) > math.min(1, PRD_C * CampPRDCounters[campLocationString]) then
     -- Increment PRD counter if nothing was dropped
     CampPRDCounters[campLocationString] = CampPRDCounters[campLocationString] + 1
     return ""

@@ -56,14 +56,14 @@ function SpiderBossThink()
 
   --Aggro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
-    DebugPrint("Spider Boss Deaggro")
+    print("Spider Boss Deaggro")
     thisEntity.bHasAgro = false
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
   elseif fHpPercent < 100 and #enemies > 0 then
     if not thisEntity.bHasAgro then
-      DebugPrint("Spider Boss Aggro")
+      print("Spider Boss Aggro")
       thisEntity.bHasAgro = true
       thisEntity:SetIdleAcquire(false)
       thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
@@ -98,7 +98,7 @@ end
 
 ----------------------------------------------------------------------------------------------
 function Attack( target)
-  DebugPrint("Attack")
+  print("Attack")
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
@@ -112,7 +112,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function RetreatHome()
-  DebugPrint("RetreatHome")
+  print("RetreatHome")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
@@ -124,7 +124,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function CastLarvalParasite()
-  DebugPrint("CastLarvalParasite")
+  print("CastLarvalParasite")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -138,7 +138,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function CastSummonEggs()
-  DebugPrint("CastSummonEggs")
+  print("CastSummonEggs")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -151,7 +151,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function CastRage()
-  DebugPrint("CastRage")
+  print("CastRage")
 	PlayHungerSpeech()
 
 	ExecuteOrderFromTable({

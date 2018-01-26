@@ -11,15 +11,10 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
     "ItemResult"          "item_spirit_vessel_3"
     "ItemRequirements"
     {

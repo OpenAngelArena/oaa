@@ -137,7 +137,6 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })
   phaseController:SetAbilities({
-    "boss_charger_charge",
-    "boss_charger_super_armor"
+    "boss_charger_charge"
   })
 end

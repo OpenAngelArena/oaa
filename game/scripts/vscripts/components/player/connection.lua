@@ -35,13 +35,6 @@ function PlayerConnection:Think()
     self.countdown = nil
   elseif not self.countdown then
     self.countdown = GAME_ABANDON_TIME
-    Notifications:TopToAll({
-      text="#abandon_detected",
-      duration=3,
-      style={
-        color="red"
-      }
-    })
     return 1
   end
 
@@ -49,19 +42,13 @@ function PlayerConnection:Think()
     -- TODO: Show Nice Message
     if otherTeam == DOTA_TEAM_GOODGUYS then
       Notifications:TopToAll({
-        text="#abandon_good_auto_win",
-        duration=1,
-        replacement_map={
-          seconds_remaining = self.countdown
-        }
+        text=self.countdown .. " seconds until Radiant will win",
+        duration=1
       })
     elseif otherTeam == DOTA_TEAM_BADGUYS then
       Notifications:TopToAll({
-        text="#abandon_bad_auto_win",
-        duration=1,
-        replacement_map={
-          seconds_remaining = self.countdown
-        }
+        text=self.countdown .. " seconds until Dire will win",
+        duration=1
       })
     end
     self.countdown = self.countdown - 1

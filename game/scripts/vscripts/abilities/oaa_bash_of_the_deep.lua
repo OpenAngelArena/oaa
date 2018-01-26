@@ -4,6 +4,28 @@ LinkLuaModifier( "modifier_slardar_bash_oaa", "abilities/oaa_bash_of_the_deep.lu
 
 --------------------------------------------------------------------------------
 
+-- this should probably be moved elsewhere somewhere down the line
+-- probably somewhere where anything prng can access it
+slardar_bash_oaa.prngTable = {}
+slardar_bash_oaa.prngTable[5] = 0.038
+slardar_bash_oaa.prngTable[10] = 0.01475
+slardar_bash_oaa.prngTable[15] = 0.03221
+slardar_bash_oaa.prngTable[20] = 0.0557
+slardar_bash_oaa.prngTable[25] = 0.08475
+slardar_bash_oaa.prngTable[30] = 0.11895
+slardar_bash_oaa.prngTable[35] = 0.14628
+slardar_bash_oaa.prngTable[40] = 0.18128
+slardar_bash_oaa.prngTable[45] = 0.21867
+slardar_bash_oaa.prngTable[50] = 0.25701
+slardar_bash_oaa.prngTable[55] = 0.29509
+slardar_bash_oaa.prngTable[60] = 0.33324
+slardar_bash_oaa.prngTable[65] = 0.38109
+slardar_bash_oaa.prngTable[70] = 0.42448
+slardar_bash_oaa.prngTable[75] = 0.46134
+slardar_bash_oaa.prngTable[80] = 0.50276
+
+--------------------------------------------------------------------------------
+
 function slardar_bash_oaa:GetIntrinsicModifierName()
   return "modifier_slardar_bash_oaa"
 end
@@ -81,14 +103,14 @@ if IsServer() then
       chanceTalent = talent:GetSpecialValueFor( "value" )
     end
 
-    local chance = (spell:GetSpecialValueFor( "chance" ) + chanceTalent) / 100
+    local chance = spell:GetSpecialValueFor( "chance" ) + chanceTalent
 
     -- we're using the modifier's stack to store the amount of prng failures
     -- this could be something else but since this modifier is hidden anyway ...
     local prngMult = self:GetStackCount() + 1
 
     -- compared prng to slightly less prng
-    if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult ) then
+    if RandomFloat( 0.0, 1.0 ) <= ( spell.prngTable[chance] * prngMult ) then
       -- reset failure count
       self:SetStackCount( 0 )
 

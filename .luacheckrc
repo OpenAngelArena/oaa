@@ -149,11 +149,6 @@ read_globals = { -- these globals can only be accessed.
 "MoveCameraToEntity",
 "IsPlayerTeam",
 
--- cfinder
-"PrdCFinder",
-
--- logging
-"D2CustomLogging",
 
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",

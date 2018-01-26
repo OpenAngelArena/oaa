@@ -49,7 +49,7 @@ function modifier_boss_phase_controller:OnIntervalThink ()
   end)
   self.abilities:each(function (ability)
     if ability:GetLevel() ~= desiredLevel then
-      DebugPrint('Phase desired level is ' .. desiredLevel)
+      print('Phase desired level is ' .. desiredLevel)
       ability:SetLevel(desiredLevel)
     end
   end)

@@ -13,7 +13,7 @@ function Event ()
 
   local function listen (fn)
     if api.debug then
-      DebugPrint('Adding listener')
+      print('Adding listener')
     end
     local handler = {
       fn = fn,
@@ -36,7 +36,7 @@ function Event ()
 
   local function broadcast ( ... )
     if api.debug then
-      DebugPrint('Triggering ' .. #state.listeners .. ' listener')
+      print('Triggering ' .. #state.listeners .. ' listener')
     end
     if #state.listeners == 0 then
       return
