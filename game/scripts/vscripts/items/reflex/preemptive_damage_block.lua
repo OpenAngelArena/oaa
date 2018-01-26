@@ -8,13 +8,13 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_reduction_orb_2 = class(ItemBaseClass)
+item_reduction_orb_1 = class(ItemBaseClass)
 
-function item_reduction_orb_2:GetIntrinsicModifierName()
+function item_reduction_orb_1:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end
 
-function item_reduction_orb_2:OnSpellStart()
+function item_reduction_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
   local damageToHealPercent = self:GetSpecialValueFor("damage_as_healing")
@@ -34,11 +34,11 @@ function item_reduction_orb_2:OnSpellStart()
   return true
 end
 
-function item_reduction_orb_2:ProcsMagicStick ()
+function item_reduction_orb_1:ProcsMagicStick ()
   return false
 end
 
-item_reduction_orb_3 = item_reduction_orb_2
+item_reduction_orb_3 = item_reduction_orb_2 = item_reduction_orb_1
 
 ------------------------------------------------------------------------
 
