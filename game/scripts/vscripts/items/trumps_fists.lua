@@ -29,20 +29,13 @@ function modifier_item_trumps_fists_passive:OnCreated(kv)
   self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
 
   if IsServer() then
-    local unit = self:GetCaster()
-
-    if unit.hero_projectile == nil then
-      unit.hero_projectile = unit:GetRangedProjectileName()
-    end
-    
-    unit:SetRangedProjectileName("particles/items/trumps_fists/trumps_fists_projectile.vpcf")
+    self:GetCaster():ChangeAttackProjectile()
   end
 end
 
 function modifier_item_trumps_fists_passive:OnDestroy()
   if IsServer() then
-    local unit = self:GetCaster()
-    unit:SetRangedProjectileName( unit.hero_projectile )
+    self:GetCaster():ChangeAttackProjectile()
   end
 end
 
