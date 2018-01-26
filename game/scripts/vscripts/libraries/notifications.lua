@@ -114,6 +114,9 @@ function Notifications:RemoveTop(player, count)
   if type(player) == "number" then
     player = PlayerResource:GetPlayer(player)
   end
+  if not player then
+    return
+  end
 
   CustomGameEventManager:Send_ServerToPlayer(player, "top_remove_notification", {count=count} )
 end
@@ -121,6 +124,9 @@ end
 function Notifications:RemoveBottom(player, count)
   if type(player) == "number" then
     player = PlayerResource:GetPlayer(player)
+  end
+  if not player then
+    return
   end
 
   CustomGameEventManager:Send_ServerToPlayer(player, "bottom_remove_notification", {count=count})
@@ -163,6 +169,9 @@ function Notifications:Top(player, table)
   if type(player) == "number" then
     player = PlayerResource:GetPlayer(player)
   end
+  if not player then
+    return
+  end
 
   self:Notify(partial(CustomGameEventManager.Send_ServerToPlayer, CustomGameEventManager, player, "top_notification"), table)
 end
@@ -179,6 +188,9 @@ end
 function Notifications:Bottom(player, table)
   if type(player) == "number" then
     player = PlayerResource:GetPlayer(player)
+  end
+  if not player then
+    return
   end
 
   self:Notify(partial(CustomGameEventManager.Send_ServerToPlayer, CustomGameEventManager, player, "bottom_notification"), table)
