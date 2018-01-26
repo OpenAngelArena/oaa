@@ -12,15 +12,15 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400 600 800 1000 1100 1200"
     "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
-
-    // Time
+    
+    // Time    
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "26 20 14 8 7 6"
 
@@ -36,7 +36,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
-      }
+      }  
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -51,12 +51,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fow_range"                                       "400"
-      }
+      }    
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "fow_duration"                                    "5.94"
-      }
+      }  
     }
   }
 }

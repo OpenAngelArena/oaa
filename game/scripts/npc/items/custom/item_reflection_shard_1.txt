@@ -5,20 +5,14 @@
   //=================================================================================================================
   "item_recipe_reflection_shard_1"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3556"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "item_recipe"
+    "FightRecapLevel"                                     "1"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_reflection_shard_1"
     "ItemRequirements"
@@ -28,7 +22,6 @@
       "03"						                                    "item_sphere_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Reactive Reflex
   //=================================================================================================================
@@ -38,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3557"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/reactive_invincibility.lua"
+    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/reflection_shard_1"
     // Stats

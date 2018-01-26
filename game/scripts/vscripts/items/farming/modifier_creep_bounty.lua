@@ -1,13 +1,20 @@
 LinkLuaModifier( "modifier_creep_bounty_effect", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_aura_origin_tracker", "modifiers/aura_baseclass.lua", LUA_MODIFIER_MOTION_NONE)
-modifier_creep_bounty = class(AuraProviderBaseClass)
+modifier_creep_bounty = class(ModifierBaseClass)
+
+function modifier_creep_bounty:IsPurgable()
+  return false
+end
 
 function modifier_creep_bounty:IsHidden()
   return true
 end
 
-function modifier_creep_bounty:GetAuraStackingType()
-  return AURA_TYPE_NON_STACKING
+function modifier_creep_bounty:IsAura()
+  return true
+end
+
+function modifier_creep_bounty:RemoveOnDeath()
+  return false
 end
 
 function modifier_creep_bounty:IsAuraActiveOnDeath()
@@ -16,10 +23,6 @@ end
 
 function modifier_creep_bounty:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_creep_bounty:GetAuraDuration()
-  return 10
 end
 
 function modifier_creep_bounty:GetModifierAura()
@@ -48,7 +51,7 @@ end
 
 --------------------------------------------------------------------------
 
-modifier_creep_bounty_effect = class(AuraEffectBaseClass)
+modifier_creep_bounty_effect = class(ModifierBaseClass)
 
 function modifier_creep_bounty_effect:IsPurgable()
   return false
@@ -62,9 +65,8 @@ function modifier_creep_bounty_effect:RemoveOnDeath()
   return false
 end
 
-function modifier_creep_bounty_effect:OnCreated(keys)
-  AuraEffectBaseClass.OnCreated(self, keys)
-  self.creepBountyPercent = self:GetAbility():GetSpecialValueFor("creep_bounty_percent")
+function modifier_creep_bounty_effect:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_creep_bounty_effect:DeclareFunctions()
@@ -74,8 +76,5 @@ function modifier_creep_bounty_effect:DeclareFunctions()
 end
 
 function modifier_creep_bounty_effect:GetModifierBountyCreepMultiplier()
-  return self:SafeCallWithAbility(
-    "creepBountyPercent",
-    CallMethod("GetSpecialValueFor", "creep_bounty_percent")
-  )
+  return self:GetAbility():GetSpecialValueFor("creep_bounty_percent")
 end

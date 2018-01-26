@@ -1,3 +1,4 @@
+-- defines item_reduction_orb_1
 -- defines item_reduction_orb_2
 -- defines item_reduction_orb_3
 -- defines modifier_item_preemptive_damage_reduction
@@ -8,13 +9,17 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
+item_reduction_orb_1 = class(ItemBaseClass)
+
 item_reduction_orb_2 = class(ItemBaseClass)
 
-function item_reduction_orb_2:GetIntrinsicModifierName()
+item_reduction_orb_3 = class(ItemBaseClass)
+
+function item_reduction_orb_1:GetIntrinsicModifierName()
   return 'modifier_generic_bonus'
 end
 
-function item_reduction_orb_2:OnSpellStart()
+function item_reduction_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
   local damageToHealPercent = self:GetSpecialValueFor("damage_as_healing")
@@ -34,7 +39,7 @@ function item_reduction_orb_2:OnSpellStart()
   return true
 end
 
-function item_reduction_orb_2:ProcsMagicStick ()
+function item_reduction_orb_1:ProcsMagicStick ()
   return false
 end
 

@@ -5,22 +5,16 @@
   //=================================================================================================================
   "item_recipe_vampire_2"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9456"       // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "9456"       // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "BaseClass"                                           "item_datadriven"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_vampire_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_vampire;item_upgrade_core_4"

@@ -117,7 +117,6 @@ local special_bottles = {
   [123018754] = 3, --steam: http://steamcommunity.com/profiles/76561198083284482 - twitch: the_funkalizer
   [162267134] = 3, --steam: http://steamcommunity.com/profiles/76561198122532862 - twitch: the_lightnin
   [196954061] = 3, --steam: http://steamcommunity.com/profiles/76561198157219789 - twitch: TheOnly1Matt
-  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -not in donation list, profile given by baumi
 
 
 
@@ -129,6 +128,7 @@ local special_bottles = {
   [106881079] = 4, --steam: http://steamcommunity.com/profiles/76561198067146807 - twitch: Alsher7
   [113199503] = 4, --steam: http://steamcommunity.com/profiles/76561198073465231 - twitch: BananaCharge
   [82995898] = 4, --steam: http://steamcommunity.com/profiles/76561198043261626 - twitch: bobAKAbill
+  [75237487] = 4, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
   [102208419] = 4, --steam: http://steamcommunity.com/profiles/76561198062474147 - twitch: CreepySniper
   [98653735] = 4, --steam: http://steamcommunity.com/profiles/76561198058919463 - twitch: CynicalDemon
   [99112333] = 4, --steam: http://steamcommunity.com/profiles/76561198059378061 - twitch: DazRoger
@@ -150,12 +150,6 @@ local special_bottles = {
 
   -- twitch donators 50
 
-  [113802823] = 11, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
-  [75237487] = 12, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
-  [66682246] = 13, --steam: http://steamcommunity.com/profiles/76561198026947974 - twitch: GhostFromBE
-  [88736132] = 14, --steam: http://steamcommunity.com/profiles/76561198049001860 - twitch: JamesGoodfellow
-  [303990598] = 14, --steam: http://steamcommunity.com/profiles/76561198264256326 - twitch: JamesGoodfellow, bought for friend
-  [36162710] = 15, --steam: http://steamcommunity.com/profiles/76561197996428438 - twitch: Zedling
 }
 
 local bonusNames = {
@@ -168,12 +162,7 @@ local bonusNames = {
   'custom/bottles/bottle_timo',
   'custom/bottles/bottle_frej',
   'custom/bottles/bottle_melon',
-  'custom/bottles/bottle_yzanas', --10
-  'custom/bottles/bottle_athight',
-  'custom/bottles/bottle_calmstormred',
-  'custom/bottles/bottle_ghostfrombe',
-  'custom/bottles/bottle_jamesgoodfellow',
-  'custom/bottles/bottle_zedling', --15
+  'custom/bottles/bottle_yzanas' --10
 }
 
 --------------------------------------------------------------------------------

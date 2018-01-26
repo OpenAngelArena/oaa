@@ -17,7 +17,7 @@ function Minimap:InitializeCampIcons()
   local camps = Entities:FindAllByName('creep_camp')
   for _,camp in pairs(camps) do
     for _,teamID in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
-      DebugPrint("creating Minimap spawn for team " .. teamID .. " at " .. camp:GetAbsOrigin().x .. "|" .. camp:GetAbsOrigin().y)
+      print("creating Minimap spawn for team " .. teamID .. " at " .. camp:GetAbsOrigin().x .. "|" .. camp:GetAbsOrigin().y)
       local dummy = CreateUnitByName(minimap_camps[camp:GetIntAttr('CreepType')], camp:GetAbsOrigin(), false, nil, nil, teamID)
       dummy:AddNewModifier(dummy, nil, "modifier_minimap", {})
       table.insert(self.Minimap_Camps, dummy)

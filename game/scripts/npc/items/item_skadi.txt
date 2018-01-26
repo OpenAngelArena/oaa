@@ -8,7 +8,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "159"    // unique ID
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,6 +18,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_skadi"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
       "01"                                                "item_ultimate_orb;item_ultimate_orb;item_point_booster"

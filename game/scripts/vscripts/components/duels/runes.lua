@@ -62,7 +62,7 @@ function DuelRunes:Init ()
         if not Duels.currentDuel then
           return
         end
-        Notifications:TopToAll({text="#duel_highground_active", duration=10.0, style={color="red", ["font-size"]="86px"}})
+        Notifications:TopToAll({text="Duel highground objective activated!", duration=10.0, style={color="red", ["font-size"]="86px"}})
         DuelRunes.active = true
       end
     })

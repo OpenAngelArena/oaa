@@ -249,7 +249,7 @@ function Duels:StartDuel (options)
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
 
-  Notifications:TopToAll({text="#duel_imminent_warning", duration=math.min(DUEL_START_WARN_TIME, 5.0), replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
+  Notifications:TopToAll({text="A duel will start in " .. DUEL_START_WARN_TIME .. " seconds!", duration=math.min(DUEL_START_WARN_TIME, 5.0)})
   for index = 0,(DUEL_START_COUNTDOWN - 1) do
     Timers:CreateTimer(DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN + index, function ()
       Notifications:TopToAll({text=(DUEL_START_COUNTDOWN - index), duration=1.0})
@@ -257,7 +257,7 @@ function Duels:StartDuel (options)
   end
 
   Timers:CreateTimer(DUEL_START_WARN_TIME, function ()
-    Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
     ZoneCleaner:CleanZone(Duels.zone1)
     ZoneCleaner:CleanZone(Duels.zone2)
     ZoneCleaner:CleanZone(Duels.zone3)
@@ -334,7 +334,7 @@ function Duels:ActuallyStartDuel (options)
 
   if maxPlayers < 1 then
     DebugPrint('There aren\'t enough players to start the duel')
-    Notifications:TopToAll({text="#duel_not_enough_players", duration=2.0})
+    Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
     self.currentDuel = nil
     Music:PlayBackground(1, 7)
     return
@@ -541,8 +541,8 @@ function Duels:EndDuel ()
   local nextDuelIn = DUEL_INTERVAL
   -- why dont these run?
   Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
-  Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
-    Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
+  Timers:CreateTimer(nextDuelIn - 50, function ()
+    Notifications:TopToAll({text="A duel will start in 1 minute!", duration=10.0})
   end)
 
   for playerId = 0,19 do

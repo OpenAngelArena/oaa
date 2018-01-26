@@ -5,22 +5,14 @@
   //=================================================================================================================
   "item_recipe_reduction_orb_1"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3801"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_reduction_orb_1"
+    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
       "01"                                                "item_crimson_guard_2;item_upgrade_core_2"
@@ -28,7 +20,6 @@
       "03"                                                "item_crimson_guard_2;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
   // Reduction Orb 1
   //=================================================================================================================
@@ -40,7 +31,7 @@
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/reduction_orb_1"
-    "ScriptFile"                                          "items/reflex/preemptive.lua"
+    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
     "FightRecapLevel"                                     "1"
 
     // Stats

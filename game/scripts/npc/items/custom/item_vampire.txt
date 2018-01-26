@@ -5,22 +5,16 @@
   //=================================================================================================================
   "item_recipe_vampire"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9454"       // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "9454"       // unique ID
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe"
+    "BaseClass"                                           "item_datadriven"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_vampire"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_satanic_3;item_upgrade_core_3"
@@ -103,8 +97,6 @@
     "precache"
     {
       "particle"                  "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf"
-      "particle"                  "particles/items/vampire/vampire.vpcf"
-      "particle"                  "particles/base_attacks/generic_projectile.vpcf"
     }
   }
 }

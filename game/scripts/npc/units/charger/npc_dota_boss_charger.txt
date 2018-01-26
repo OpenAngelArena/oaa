@@ -20,14 +20,13 @@
     //----------------------------------------------------------------
     "Ability1"                                            "boss_charger_summon_pillar"
     "Ability2"                                            "boss_charger_charge"
-    "Ability3"                                            "boss_charger_super_armor"
-    "Ability4"                                            "boss_resistance"
-    "Ability5"                                            "boss_cliffwalk"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"            // Physical protection.
-    "MagicalResistance"                                   "-25"                                 // Magical protection (percentage).
+    "ArmorPhysical"                                       "250"            // Physical protection.
+    "MagicalResistance"                                   "95"                                 // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -97,7 +96,6 @@
     {
       "soundfile"                                         "soundevents/bosses/charger.vsndevts"
       "particle"                                          "particles/charger/charger_charge_debuff.vpcf"
-      "particle"                                          "particles/charger/charger_super_armor_shield.vpcf"
     }
   }
 }
