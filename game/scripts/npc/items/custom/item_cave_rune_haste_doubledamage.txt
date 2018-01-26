@@ -1,0 +1,46 @@
+"DOTAItems"
+{
+//============================================================================================================
+//General
+//============================================================================================================
+"item_cave_rune_haste_doubledamage"
+{
+	//General
+	//----------------------------------------------------------------------------------------------------
+	"ID" 				"8460" 
+	"BaseClass" 			"item_lua"
+	"AbilityTextureName"		"custom/cave_rune_haste_doubledamage"
+	"ScriptFile" 	 		"items/cave_rune_hasted_doubledamage.lua"
+
+	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+	"Model"				"models/props_gameplay/bottle_rejuvenation.vmdl"
+
+	//Stats
+	//----------------------------------------------------------------------------------------------------
+	"AbilityCooldown"		"0.5"	
+	"AbilityCastPoint"		"0.0"
+
+	//Item Info
+	//----------------------------------------------------------------------------------------------------
+	"ItemCost" 			"0"
+	"ItemStackable" 		"0"
+	"ItemSellable" 			"0"
+	"ItemPermanent" 		"1"
+	"IsTempestDoubleClonable" 	"0"
+	"ItemInitialCharges"		"1"
+	"ItemRequiresCharges" 		"0"
+	"ItemShareability" 		"ITEM_FULLY_SHAREABLE"
+	"ItemPurchaseable" 		"0"
+
+	//Special
+	//-----------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+	"01"
+	 {
+	  "var_type"	"FIELD_FLOAT"
+	  "duration"	"30.0"
+	 }
+}
+}
