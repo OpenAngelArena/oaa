@@ -9,12 +9,12 @@
 	//----------------------------------------------------------------------------------------------------
 	"ID" 				"9999" PLEASE GIVE THIS A REAL NUMBER
 	"BaseClass" 			"item_lua"
-	"AbilityTextureName"		"custom/cave_rune_haste_doubledamage"
+	"AbilityTextureName"		"item_cave_rune_haste_doubledamage"
 	"ScriptFile" 	 		"items/cave_rune_hasted_doubledamage.lua"
 
 	"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-	"Model"				"models/props_gameplay/bottle_rejuvenation.vmdl"
+	"Model"				"models/props_gameplay/bottle_empty.vmdl"
 
 	//Stats
 	//----------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 
 	//Item Info
 	//----------------------------------------------------------------------------------------------------
-	"ItemCost" 			"0"
+	"ItemCost" 			"1300"
 	"ItemStackable" 		"1"
 	"ItemSellable" 			"0"
 	"ItemPermanent" 		"1"
@@ -36,11 +36,3 @@
 	//Special
 	//-----------------------------------------------------------------------------------------------------
 	"AbilitySpecial"
-	{
-	"01"
-	 {
-	  "var_type"	"FIELD_FLOAT"
-	  "duration"	"30.0"
-	 }
-}
-}
