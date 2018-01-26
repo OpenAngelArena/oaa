@@ -98,7 +98,7 @@ function modifier_offside:DrawParticles()
         -- Creates a new particle effect
         self.BloodOverlay = ParticleManager:CreateParticleForPlayer( "particles/misc/screen_blood_overlay.vpcf", PATTACH_WORLDORIGIN, self:GetParent(), self:GetParent():GetPlayerOwner() )
         ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
-        print("Create Blood Overlay Alpha =" ..alpha)
+        DebugPrint("Create Blood Overlay Alpha =" ..alpha)
       end
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
     elseif self.BloodOverlay ~= nil and not isInOffside then

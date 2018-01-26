@@ -14,12 +14,12 @@ end
 
 function boss_charger_charge:OnChannelFinish(interrupted) --You misspelled "Interrupted"
   local caster = self:GetCaster()
-  self:StartCooldown(self:GetSpecialValueFor('cooldown'))
   if interrupted then
-    self:StartCooldown(self:GetSpecialValueFor('cooldown') / 2)
+    self:StartCooldown(self:GetSpecialValueFor("cooldown") / 2)
     caster:StopSound("Boss_Charger.Charge.Begin")
     return
   end
+  self:StartCooldown(self:GetSpecialValueFor("cooldown"))
 
   caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {
     duration = self:GetSpecialValueFor( "charge_duration" )
@@ -33,6 +33,8 @@ end
 function boss_charger_charge:OnOwnerDied()
   self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
 end
+
+--------------------------------------------------------------------------------
 
 modifier_boss_charger_charge = class(ModifierBaseClass)
 
@@ -121,7 +123,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
         })
       end)
     else
-      caster:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_pillar_debuff", {
+      caster:AddNewModifier(caster, caster:FindAbilityByName("boss_charger_super_armor"), "modifier_boss_charger_pillar_debuff", {
         duration = self.debuff_duration
       })
     end
@@ -164,10 +166,10 @@ function modifier_boss_charger_charge:OnCreated(keys)
   self.debuff_duration = ability:GetSpecialValueFor( "debuff_duration" )
   self.hero_stun_duration = ability:GetSpecialValueFor( "hero_stun_duration" )
   self.hero_pillar_damage = ability:GetSpecialValueFor( "hero_pillar_damage" )
-  self.glacing_damage = ability:GetSpecialValueFor( "glacing_damage" )
-  self.glacing_slow = ability:GetSpecialValueFor( "glacing_slow" )
-  self.glacing_duration = ability:GetSpecialValueFor( "glacing_duration" )
-  self.glacing_knockback = ability:GetSpecialValueFor( "glacing_knockback" )
+  self.glancing_damage = ability:GetSpecialValueFor( "glancing_damage" )
+  self.glancing_slow = ability:GetSpecialValueFor( "glancing_slow" )
+  self.glancing_duration = ability:GetSpecialValueFor( "glancing_duration" )
+  self.glancing_knockback = ability:GetSpecialValueFor( "glancing_knockback" )
 
   self:StartIntervalThink(0.01)
 end

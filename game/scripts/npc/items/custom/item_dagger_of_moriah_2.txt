@@ -5,16 +5,22 @@
   //=================================================================================================================
   "item_recipe_dagger_of_moriah_2"
   {
-
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9445"       // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_dagger_of_moriah_2"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_dagger_of_moriah;item_upgrade_core_4"
@@ -41,7 +47,6 @@
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "8.0"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
-    "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_dagger_of_moriah_2"
@@ -52,9 +57,6 @@
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

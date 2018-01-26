@@ -1,21 +1,17 @@
 /* global $, GameEvents */
-
+'use strict';
 function TopNotification (msg) {
   AddNotification(msg, $('#TopNotifications'));
 }
-
 function BottomNotification (msg) {
   AddNotification(msg, $('#BottomNotifications'));
 }
-
 function TopRemoveNotification (msg) {
   RemoveNotification(msg, $('#TopNotifications'));
 }
-
 function BottomRemoveNotification (msg) {
   RemoveNotification(msg, $('#BottomNotifications'));
 }
-
 function RemoveNotification (msg, panel) {
   var count = msg.count;
   if (count > 0 && panel.GetChildCount() > 0) {
@@ -23,99 +19,88 @@ function RemoveNotification (msg, panel) {
     if (start < 0) {
       start = 0;
     }
-
     for (var i = start; i < panel.GetChildCount(); i++) {
       var lastPanel = panel.GetChild(i);
       // lastPanel.SetAttributeInt("deleted", 1)
-      lastPanel.deleted = true;
+      // lastPanel.deleted = true;
       lastPanel.DeleteAsync(0);
     }
   }
 }
-
 function AddNotification (msg, panel) {
-  var newNotification = true;
   var lastNotification = panel.GetChild(panel.GetChildCount() - 1);
   // $.Msg(msg)
-
-  msg.continue = msg.continue || false;
-  // msg.continue = true
-
-  if (lastNotification != null && msg.continue) {
-    newNotification = false;
-  }
-
-  if (newNotification) {
-    lastNotification = $.CreatePanel('Panel', panel, '');
-    lastNotification.AddClass('NotificationLine');
-    lastNotification.hittest = false;
-  }
-
-  var notification = null;
-
-  if (msg.hero != null) {
-    notification = $.CreatePanel('DOTAHeroImage', lastNotification, '');
-  } else if (msg.image != null) {
-    notification = $.CreatePanel('Image', lastNotification, '');
-  } else if (msg.ability != null) {
-    notification = $.CreatePanel('DOTAAbilityImage', lastNotification, '');
-  } else if (msg.item != null) {
-    notification = $.CreatePanel('DOTAItemImage', lastNotification, '');
-  } else {
-    notification = $.CreatePanel('Label', lastNotification, '');
-  }
-
+  var continueLast = msg['continue'] === 1;
   if (typeof (msg.duration) !== 'number') {
     // $.Msg("[Notifications] Notification Duration is not a number!")
     msg.duration = 3;
   }
-
+  var newNotification = !(lastNotification != null && continueLast);
   if (newNotification) {
-    $.Schedule(msg.duration, function () {
-      // $.Msg('callback')
-      if (lastNotification.deleted) {
-        return;
-      }
-
-      lastNotification.DeleteAsync(0);
-    });
+    lastNotification = $.CreatePanel('Panel', panel, '');
+    lastNotification.AddClass('NotificationLine');
+    lastNotification.hittest = false;
+    lastNotification.DeleteAsync(msg.duration);
   }
-
-  if (msg.hero != null) {
+  // Type guard functions
+  function isHeroImage (msg) {
+    return msg.hero !== undefined;
+  }
+  function isImage (msg) {
+    return msg.image !== undefined;
+  }
+  function isAbilityImage (msg) {
+    return msg.ability !== undefined;
+  }
+  function isItemImage (msg) {
+    return msg.item !== undefined;
+  }
+  // End of type guard functions
+  var notification;
+  if (isHeroImage(msg)) {
+    notification = $.CreatePanel('DOTAHeroImage', lastNotification, '');
     notification.heroimagestyle = msg.imagestyle || 'icon';
     notification.heroname = msg.hero;
     notification.hittest = false;
-  } else if (msg.image != null) {
+  } else if (isImage(msg)) {
+    notification = $.CreatePanel('Image', lastNotification, '');
     notification.SetImage(msg.image);
     notification.hittest = false;
-  } else if (msg.ability != null) {
+  } else if (isAbilityImage(msg)) {
+    notification = $.CreatePanel('DOTAAbilityImage', lastNotification, '');
     notification.abilityname = msg.ability;
     notification.hittest = false;
-  } else if (msg.item != null) {
+  } else if (isItemImage(msg)) {
+    notification = $.CreatePanel('DOTAItemImage', lastNotification, '');
     notification.itemname = msg.item;
     notification.hittest = false;
   } else {
+    notification = $.CreatePanel('Label', lastNotification, '');
     notification.html = true;
+    if (msg.replacement_map) {
+      for (var key in msg.replacement_map) {
+        notification.SetDialogVariable(key, msg.replacement_map[key]);
+      }
+    }
     var text = msg.text || 'No Text provided';
-    notification.text = $.Localize(text);
+    text = $.Localize(text, notification);
+    // text = ReplaceSpecialTokens($.Localize(text), msg.replacement_map);
+    notification.text = text;
     notification.hittest = false;
     notification.AddClass('TitleText');
   }
-
-  if (msg.class) {
-    notification.AddClass(msg.class);
+  if (msg['class']) {
+    notification.AddClass(msg['class']);
   } else {
     notification.AddClass('NotificationMessage');
   }
-
   if (msg.style) {
-    for (var key in msg.style) {
-      var value = msg.style[key];
-      notification.style[key] = value;
+    for (var styleKey in msg.style) {
+      var value = msg.style[styleKey];
+      notification.style[styleKey] = value;
     }
   }
 }
-
 (function () {
   GameEvents.Subscribe('top_notification', TopNotification);
   GameEvents.Subscribe('bottom_notification', BottomNotification);

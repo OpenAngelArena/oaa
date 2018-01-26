@@ -53,6 +53,8 @@ require('libraries/basenpc')
 require('libraries/basehero')
 -- extension functions to GameRules
 require('libraries/gamerules')
+-- Pseudo-random distribution C constant calculator
+require('libraries/cfinder')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -157,6 +159,7 @@ function GameMode:OnPreGame()
   InitModule(SellBlackList)
   InitModule(Glyph)
   InitModule(BubbleOrbFilter)
+  InitModule(BossProtectionFilter)
   InitModule(ReactiveFilter)
   InitModule(NGP)
   InitModule(Doors)
