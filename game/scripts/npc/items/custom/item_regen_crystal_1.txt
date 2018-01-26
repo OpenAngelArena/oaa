@@ -88,10 +88,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    // "precache"
-    // {
-    //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-    //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-    // }
+    "precache"
+    {
+      //"soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "particle"                                     "particles/items/regen_crystal/regen_ambient.vpcf"
+    }
   }
 }
