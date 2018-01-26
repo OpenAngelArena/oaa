@@ -2,6 +2,11 @@ LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua"
 
 item_enrage_crystal_1 = class(ItemBaseClass)
 
+item_enrage_crystal_2 = class(ItemBaseClass)
+
+item_enrage_crystal_3 = class(ItemBaseClass)
+
+
 function item_enrage_crystal_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
@@ -12,5 +17,3 @@ function item_enrage_crystal_1:OnSpellStart()
   -- void Purge(bool bRemovePositiveBuffs, bool bRemoveDebuffs, bool bFrameOnly, bool bRemoveStuns, bool bRemoveExceptions)
   caster:Purge(false, true, false, true, true)
 end
-
-item_enrage_crystal_3 = item_enrage_crystal_2 = item_enrage_crystal_1
