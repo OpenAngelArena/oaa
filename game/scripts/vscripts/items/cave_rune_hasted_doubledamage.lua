@@ -8,10 +8,10 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_rune_haste", {duration = 30.0})
 
+	end
 
+function item_cave_rune_hasted_doubledamage:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_rune_doubledamage", {duration = 30.0})
-
-	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 
 	caster:RemoveItem(self)
 	if self:GetCurrentCharges() - 1 <= 0 then
@@ -19,4 +19,6 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
   else
     self:SetCurrentCharges(self:GetCurrentCharges() - 1)
 
-end
+	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
+
+	end
