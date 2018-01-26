@@ -22,6 +22,8 @@ require('internal/eventwrapper')
 require('internal/util')
 require('gamemode')
 require('precache')
+
+require('libraries/keyvalues')
 -- DotaStats
 require("statcollection/init")
 

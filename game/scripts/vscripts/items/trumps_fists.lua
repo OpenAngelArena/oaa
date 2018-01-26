@@ -21,13 +21,22 @@ function modifier_item_trumps_fists_passive:IsPurgable()
   return false
 end
 
-function modifier_item_trumps_fists_passive:OnCreated()
+function modifier_item_trumps_fists_passive:OnCreated(kv)
   self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
   self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
   self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
   self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
-
   self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+
+  if IsServer() then
+    self:GetCaster():ChangeAttackProjectile()
+  end
+end
+
+function modifier_item_trumps_fists_passive:OnDestroy()
+  if IsServer() then
+    self:GetCaster():ChangeAttackProjectile()
+  end
 end
 
 function modifier_item_trumps_fists_passive:DeclareFunctions()
