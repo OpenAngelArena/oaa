@@ -1,6 +1,6 @@
 modifier_rune_haste_doubledamage = modifier_rune_haste_doubledamage or class({})
 
-function modifier_rune_haste_doubledamage
+function modifier_rune_haste_doubledamage:OnCreated
 	if not IsServer() then return end
 	self.parent = self:GetParent()
 	self.bonus_damage_pct = 100
