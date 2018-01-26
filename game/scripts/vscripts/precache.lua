@@ -7,7 +7,8 @@ g_ItemPrecache = {
   "item_greater_tranquil_boots",
   "item_dagon",
   "item_manta_1",
-  "item_vampire",
+  "item_trumps_fists",
+  "item_vampire"
 }
 
 g_UnitPrecache = {
