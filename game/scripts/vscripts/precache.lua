@@ -8,6 +8,7 @@ g_ItemPrecache = {
   "item_dagon",
   "item_manta_1",
   "item_trumps_fists",
+  "item_vampire"
 }
 
 g_UnitPrecache = {

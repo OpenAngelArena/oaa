@@ -1,0 +1,6 @@
+//=============================================================================
+// Cave information notifications
+//=============================================================================
+"cave_room_cleared"                         "Room {d:room_id} has been cleared. You can now advance to the next room."
+"cave_fully_cleared_reward"                 "The last Room in your Cave has been cleared. Every player on your team has been awarded {d:reward_amount} gold."
+"cave_fully_cleared_num_clears"             "Your Cave has been cleared {d:num_clears} times. The Cave is resetting now."

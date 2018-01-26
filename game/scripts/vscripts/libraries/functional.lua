@@ -26,28 +26,14 @@ print(addToFive(3)) -- prints 8
 ```
 
 ]]
-function partial (fn, ...)
-  local arg = {...}
-  local partialArguments = arg
-  local partialArgumentsLength = #arg
-
-  local function executeMethod (...)
-    local arg = {...}
-    local argLength = #arg
-    local totalLength = argLength + partialArgumentsLength
-    local fnArgs = {}
-
-    for i,v in ipairs(partialArguments) do
-      fnArgs[i] = v
+function partial(fn, arg1, ...)
+  if select("#", ...) == 0 then
+    return function (...)
+      return fn(arg1, ...)
     end
-    for i,v in ipairs(arg) do
-      fnArgs[partialArgumentsLength + i] = v
-    end
-
-    return fn(unpack(fnArgs))
+  else
+    return partial(partial(fn, arg1), ...)
   end
-
-  return executeMethod
 end
 
 --[[
