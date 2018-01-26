@@ -30,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3563"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/postactive_hard_dispell.lua"
+    "ScriptFile"                                          "items/reflex/postactive.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/enrage_crystal_1"
 

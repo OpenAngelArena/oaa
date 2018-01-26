@@ -2,15 +2,14 @@ LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflex/reactive_reflec
 LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reflection_shard_1 = class(ItemBaseClass)
 item_reflection_shard_2 = class(ItemBaseClass)
 item_reflection_shard_3 = class(ItemBaseClass)
 
-function item_reflection_shard_1:GetIntrinsicModifierName()
+function item_reflection_shard_2:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 
-function item_reflection_shard_1:OnSpellStart()
+function item_reflection_shard_2:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor( "duration" )
 
@@ -19,11 +18,11 @@ function item_reflection_shard_1:OnSpellStart()
   caster:AddNewModifier( caster, self, "modifier_item_lotus_orb_active", { duration = duration } )
 end
 
-function item_reflection_shard_1:GetIntrinsicModifierName()
+function item_reflection_shard_3:GetIntrinsicModifierName()
   return "modifier_charge_replenisher"
 end
 
-function item_reflection_shard_1:OnSpellStart()
+function item_reflection_shard_3:OnSpellStart()
   local charges = self:GetCurrentCharges()
   if charges <= 0 then
     return false
