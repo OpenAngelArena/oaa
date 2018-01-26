@@ -8,8 +8,6 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_rune_haste", {duration = 30.0})
 
-	end
-
 function item_cave_rune_hasted_doubledamage:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_rune_doubledamage", {duration = 30.0})
 
@@ -21,4 +19,4 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
 
 	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 
-	end
+end
