@@ -32,6 +32,11 @@
         "ModifierName"                                    "modifier_siltbreaker_boss_protection_trigger"
         "Target"                                          "CASTER"
       }
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_siltbreaker_boss_protection_bash_and_silence"
+        "Target"                                          "CASTER"
+      }
     }
 
     "OnSpellStart"
@@ -101,16 +106,6 @@
           }
         }
 
-        "OnStateChanged"
-        {
-          // If state changes, purge it
-          "RunScript"
-          {
-            "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
-            "Function"                                    "siltbreaker_protection_purge"
-          }
-        }
-
         "OnDestroy"
         {
           "ApplyModifier"
@@ -120,10 +115,28 @@
           }
         }
 
+        // The actual protection is done on stun_protection.lua filter
         "States"
         {
           "MODIFIER_STATE_SILENCED"  "MODIFIER_STATE_VALUE_DISABLED"
           "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_DISABLED"
+          "MODIFIER_STATE_HEXED"  "MODIFIER_STATE_VALUE_DISABLED"
+        }
+      }
+
+      "modifier_siltbreaker_boss_protection_bash_and_silence"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        // The actual protection is done on stun_protection.lua filter
+        "States"
+        {
+          "MODIFIER_STATE_SILENCED"  "MODIFIER_STATE_VALUE_DISABLED"
         }
       }
     }

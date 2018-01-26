@@ -112,7 +112,7 @@ end
 --------------------------------------------------------------------------------
 
 function Approach( hUnit )
-  print("Approach")
+  DebugPrint("Approach")
 	local vToUnit = hUnit:GetOrigin() - thisEntity:GetOrigin()
 	vToUnit = vToUnit:Normalized()
 
@@ -142,7 +142,7 @@ end
 --------------------------------------------------------------------------------
 
 function RetreatHome()
-  print("RetreatHome Ogre Seer")
+  DebugPrint("RetreatHome Ogre Seer")
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
