@@ -3,9 +3,6 @@ LinkLuaModifier("modifier_rune_doubledamage", LUA_MODIDIER_MOTION_NONE)
 
 item_cave_rune_hasted_doubledamage = class(ItemBaseClass)
 
-function item_satanic_core:GetIntrinsicModifierName()
-  return "modifier_rune_haste", "modifier_rune_doubledamage"
-
 function item_cave_rune_hasted_doubledamage:OnSpellStart()
 	local caster = self:Getcaster()
 
