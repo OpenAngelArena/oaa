@@ -8,5 +8,5 @@ function item_cave_rune_hasted_doubledamage:OnSpellStart()
 
 	caster:EmitSound( "sounds/items/rune_haste.vsnd" )
 
-	caster:RemoveItem(self)
+	caster:RemoveItem(self())
 end
