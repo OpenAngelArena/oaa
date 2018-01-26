@@ -530,25 +530,27 @@ function CaveHandler:TeleportAll(units, spawns)
       ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
 
       Timers:CreateTimer(3, function ()
-        if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
-          FindClearSpaceForUnit(
-            unit, -- unit
-          spawns[unit:GetTeam()], -- locatio
-            false -- ???
-          )
-          MoveCameraToPlayer(unit)
-          unit:Stop()
-        else
-          local unlisten = Duels.onEnd(function ()
+        if IsValidEntity(unit) then
+          if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+            FindClearSpaceForUnit(
+              unit, -- unit
+              spawns[unit:GetTeam()], -- location
+              false -- ???
+            )
+            MoveCameraToPlayer(unit)
+            unit:Stop()
+          else
+            local unlisten = Duels.onEnd(function ()
 
-          FindClearSpaceForUnit(
-            unit, -- unit
-            spawns[unit:GetTeamNumber()], -- location
-            false -- ???
-          )
-          MoveCameraToPlayer(unit)
-          unit:Stop()
-          end)
+            FindClearSpaceForUnit(
+              unit, -- unit
+              spawns[unit:GetTeamNumber()], -- location
+              false -- ???
+            )
+            MoveCameraToPlayer(unit)
+            unit:Stop()
+            end)
+          end
         end
         Timers:CreateTimer(0, function ()
           ParticleManager:DestroyParticle(origin, false)

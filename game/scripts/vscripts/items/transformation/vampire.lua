@@ -168,15 +168,17 @@ function lifesteal (event, spell, parent, amount)
       local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )
 
-      ProjectileManager:CreateTrackingProjectile( {
-        Target = parent,
-        Source = target,
-        EffectName = "particles/base_attacks/generic_projectile.vpcf",
-        iMoveSpeed = 600,
-        vSourceLoc = target:GetOrigin(),
-        bDodgeable = false,
-        bProvidesVision = false,
-      } )
+      if parent:HasModifier( "modifier_item_vampire_active" ) then
+        ProjectileManager:CreateTrackingProjectile( {
+          Target = parent,
+          Source = target,
+          EffectName = "particles/items/vampire/vampire_projectile.vpcf",
+          iMoveSpeed = 1200,
+          vSourceLoc = target:GetOrigin(),
+          bDodgeable = false,
+          bProvidesVision = false,
+        } )
+     end
 
     else
       DebugPrint('Not lifestealing from ' .. tostring(target:GetName()))

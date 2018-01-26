@@ -126,7 +126,12 @@ function AddNotification(msg: NotificationData, panel: Panel) {
     notification.html = true;
     if (msg.replacement_map) {
       for (const key in msg.replacement_map) {
-        notification.SetDialogVariable(key, msg.replacement_map[key]);
+        let val = msg.replacement_map[key]
+        if (typeof val === 'number') {
+          notification.SetDialogVariableInt(key, val);
+        } else {
+          notification.SetDialogVariable(key, val);
+        }
       }
     }
     let text = msg.text || 'No Text provided';

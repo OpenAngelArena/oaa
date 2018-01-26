@@ -79,7 +79,12 @@ function AddNotification (msg, panel) {
     notification.html = true;
     if (msg.replacement_map) {
       for (var key in msg.replacement_map) {
-        notification.SetDialogVariable(key, msg.replacement_map[key]);
+        var val = msg.replacement_map[key];
+        if (typeof val === 'number') {
+          notification.SetDialogVariableInt(key, val);
+        } else {
+          notification.SetDialogVariable(key, val);
+        }
       }
     }
     var text = msg.text || 'No Text provided';
