@@ -21,8 +21,10 @@ modifier_item_postactive_regen = class(ModifierBaseClass)
 if IsServer() then
 
   function modifier_item_postactive_regen:OnCreated( kv )
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+      ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+    end
   end
 
   function modifier_item_postactive_regen:OnDestroy(  )

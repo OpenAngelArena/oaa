@@ -11,6 +11,7 @@ g_ItemPrecache = {
   "item_trumps_fists",
   "item_vampire",
   "item_enrage_crystal_1",
+  "item_dispel_orb_1",
   "item_dagger_of_moriah"
 }
 
@@ -57,6 +58,12 @@ g_ParticlePrecache = {
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
   "particles/econ/items", -- Precache all hero cosmetics
+  "particles/items",
+  "particles/items/dagger_of_moriah",
+  "particles/items/dispel_orb",
+  "particles/items/enrage_crystal",
+  "particles/items/regen_crystal",
+  "particles/items/vampire",
 }
 
 g_SoundPrecache = {
