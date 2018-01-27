@@ -10,7 +10,8 @@ g_ItemPrecache = {
   "item_regen_crystal_1",
   "item_trumps_fists",
   "item_vampire",
-  "item_enrage_crystal_1"
+  "item_enrage_crystal_1",
+  "item_dagger_of_moriah"
 }
 
 g_UnitPrecache = {

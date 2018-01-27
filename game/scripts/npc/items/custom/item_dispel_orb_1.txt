@@ -99,5 +99,13 @@
         "duration"                                        "3.0 4.5 6.0"
       }
     }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                     "particles/items/regen_crystal/regen_ambient.vpcf"
+      "particle"                                     "particles/items/dispel_orb/steam_burst.vpcf"
+    }
   }
 }
