@@ -1,2 +1,0 @@
-
-require('components/battlepass/server')
