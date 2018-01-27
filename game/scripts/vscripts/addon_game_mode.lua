@@ -41,7 +41,7 @@ function Precache( context )
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
   for _,Item in pairs( g_ItemPrecache ) do
-    PrecacheItemByNameSync( Item, context )
+    PrecacheItemByNameAsync( Item, function( item ) end )
   end
 
    for _,Unit in pairs( g_UnitPrecache ) do
