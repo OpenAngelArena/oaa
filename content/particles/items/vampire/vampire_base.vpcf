@@ -6,26 +6,20 @@
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_Decay"
-		},
-		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndScale = 2.0
 			m_flStartScale = 0.5
-		},
-		{
-			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.2
-		},
-		{
-			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.2
 		},
 		{
 			_class = "C_OP_PositionLock"
 		},
 		{
 			_class = "C_OP_SpinUpdate"
+		},
+		{
+			_class = "C_OP_FadeAndKill"
+			m_flEndFadeInTime = 0.2
+			m_flStartFadeOutTime = 0.8
 		},
 	]
 	m_Renderers = 
@@ -45,11 +39,6 @@
 			_class = "C_INIT_RandomRadius"
 			m_flRadiusMin = 100.0
 			m_flRadiusMax = 100.0
-		},
-		{
-			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.5
-			m_fLifetimeMax = 0.5
 		},
 		{
 			_class = "C_INIT_RandomRotation"
@@ -109,4 +98,5 @@
 			]
 		},
 	]
+	m_flConstantLifespan = 2.0
 }
