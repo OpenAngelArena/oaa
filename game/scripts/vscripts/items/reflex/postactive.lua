@@ -38,7 +38,7 @@ function item_enrage_crystal_1:OnSpellStart()
 
   -- Audiovisual effects
   caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
-  local particleName1 = "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+  local particleName1 = "particles/items/enrage_crystal/enrage_crystal_explosion.vpcf"
   local particle1 = ParticleManager:CreateParticle(particleName1, PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:ReleaseParticleIndex(particle1)
 
