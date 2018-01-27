@@ -2,6 +2,7 @@
 --- Created by Zarnotox.
 --- DateTime: 03-Dec-17 21:32
 ---
+require('libraries/timers')
 
 item_dagger_of_moriah = class(TransformationBaseClass)
 
@@ -46,6 +47,20 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
 
   self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
+
+  if IsServer() and self.nPreviewFX == nil then
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+  end
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_item_dagger_of_moriah_sangromancy:OnDestroy(  )
+  if IsServer() and self.nPreviewFX ~= nil then
+    ParticleManager:DestroyParticle( self.nPreviewFX, false )
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -57,6 +72,11 @@ function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
 
   self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
+
+  if IsServer() and self.nPreviewFX == nil then
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -103,6 +123,19 @@ function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
     }
 
     ApplyDamage( damage )
+
+    if IsServer() then
+      local unit = self:GetParent()
+      if unit.flashFX == nil and unit:HasModifier( "modifier_item_dagger_of_moriah_sangromancy" ) then
+        unit.flashFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke_flash.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit )
+        ParticleManager:SetParticleControlEnt( unit.flashFX, 0, unit, PATTACH_ABSORIGIN_FOLLOW, nil, unit:GetOrigin(), true )
+        Timers:CreateTimer(0.3, function()
+          ParticleManager:DestroyParticle(unit.flashFX, false)
+          ParticleManager:ReleaseParticleIndex(unit.flashFX)
+          unit.flashFX = nil
+        end)
+      end
+    end
   end
 end
 
