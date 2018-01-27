@@ -180,7 +180,7 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   local targetHealth = creepProperties[HEALTH_ENUM]
 
   if currentHealthMissing > 0 then
-    targetHealth = creepProperties[HEALTH_ENUM] - currentHealthMissing
+    targetHealth = math.max(1, creepProperties[HEALTH_ENUM] - currentHealthMissing)
   end
 
   creepHandle:SetBaseMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))
