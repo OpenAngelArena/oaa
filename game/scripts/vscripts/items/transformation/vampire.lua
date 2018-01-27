@@ -62,7 +62,7 @@ if IsServer() then
     self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
     print(self:GetParent())
     self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+		-- ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
   end
 
   function modifier_item_vampire_active:OnDestroy(  )
