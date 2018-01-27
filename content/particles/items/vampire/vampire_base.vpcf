@@ -18,8 +18,9 @@
 		},
 		{
 			_class = "C_OP_FadeAndKill"
-			m_flEndFadeInTime = 0.2
-			m_flStartFadeOutTime = 0.8
+			m_flEndFadeInTime = 0.1
+			m_flStartFadeOutTime = 0.75
+			m_flStartAlpha = 0.0
 		},
 	]
 	m_Renderers = 
