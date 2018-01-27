@@ -47,7 +47,7 @@ function PointsManager:SetWinner(teamID)
   -- actually need to implement lose win logic for teams
   Music:FinishMatch(teamID)
   GAME_WINNER_TEAM = teamID
-  Battlepass:SendWinner(teamID)
+  Bottlepass:SendWinner(teamID)
 
   GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
   GameRules:SetGameWinner(teamID)

@@ -1,19 +1,24 @@
 
 Debug:EnableDebugging()
-DebugPrint('Battlepass script loaded')
+DebugPrint('Bottlepass script loaded')
 
-Battlepass = Battlepass or class({})
+Bottlepass = Bottlepass or class({})
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
 BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'
 
-function Battlepass:Init ()
-  Debug:EnableDebugging()
-  GameEvents:OnCustomGameSetup(partial(Battlepass.Ready, self))
-  GameEvents:OnGameInProgress(partial(Battlepass.SendTeams, self))
+if IsInToolsMode() then
+  -- test server
+  BATTLE_PASS_SERVER = 'http://chrisinajar.com:9969/'
 end
 
-function Battlepass:SendWinner (winner)
+function Bottlepass:Init ()
+  Debug:EnableDebugging()
+  GameEvents:OnCustomGameSetup(partial(Bottlepass.Ready, self))
+  GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
+end
+
+function Bottlepass:SendWinner (winner)
   if self.winner then
     -- only send winner once
     return
@@ -45,11 +50,12 @@ function Battlepass:SendWinner (winner)
     gameLength = gameLength,
     players = connectedPlayers
   }, function (err, data)
+    DebugPrint(data)
     DebugPrintTable(data)
   end)
 end
 
-function Battlepass:SendTeams ()
+function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
@@ -72,7 +78,7 @@ function Battlepass:SendTeams ()
   end)
 end
 
-function Battlepass:Ready ()
+function Bottlepass:Ready ()
   local userList = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
@@ -91,16 +97,15 @@ function Battlepass:Ready ()
       DebugPrint(err)
     end
     if data then
+      DebugPrint('Authed with dev server!')
       self.token = data.token
+      self.userData = data.userData
+      CustomNetTables:SetTableValue( 'bottlepass', 'user_data', data.userData )
     end
   end)
 end
 
-function Battlepass:Request(api, data, cb)
-  if IsInToolsMode () then
-    -- don't send stuff from tools
-    return
-  end
+function Bottlepass:Request(api, data, cb)
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
   local encoded = json.encode(data)
 
