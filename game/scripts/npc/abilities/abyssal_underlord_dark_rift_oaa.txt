@@ -48,14 +48,19 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "portal_duration"                                 "6.0 9.0 12.0 15.0 18.0"
+        "portal_duration"                                 "6.1 9.1 12.1 15.1 18.1"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "3.0"
+        "portal_duration_tooltip"                                 "6.0 9.0 12.0 15.0 18.0"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "3.0"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "minimum_range"                                   "900.0"
