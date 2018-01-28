@@ -1,6 +1,6 @@
 "DOTAUnits"
 {
-	"npc_dota_neutral_custom_cave_black_drake"	
+	"npc_dota_neutral_custom_cave_black_drake"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -14,9 +14,9 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"necronomicon_warrior_sight"		// Ability 1
-		"Ability2"					"boss_inner_beast"			// Ability 2
-		"Ability3"					""					// Ability 3
+		"Ability1"					"boss_inner_beast"		// Ability 1
+		"Ability2"					"doom_bringer_empty2"			// Ability 2
+		"Ability3"					"necronomicon_warrior_sight"					// Ability 3
 		"Ability4"					""					// Ability 4
 
 		// Armor
@@ -33,7 +33,7 @@
 		"AttackAcquisitionRange"		"300"		// Range within a target can be acquired.
 		"AttackRange"				"300"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/neutral_fx/black_drake_attack.vpcf" // Particle system model for projectile.
-		"ProjectileSpeed"			"900"		// Speed of projectile.		     
+		"ProjectileSpeed"			"900"		// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -49,7 +49,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"350"		// Speed.			
+		"MovementSpeed"				"350"		// Speed.
 
 		// Status
 		//----------------------------------------------------------------
@@ -57,7 +57,7 @@
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"1"			// Mana regeneration rate.
-		
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
