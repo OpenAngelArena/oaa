@@ -41,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "pit_duration"                                    "12.0"
+        "pit_duration"                                    "12.0 12.0 12.0 12.0 13.0 15.0"
       }
       "03"
       {
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ensnare_duration"                                "0.9 1.2 1.5 1.8 2.1 2.4"
+        "ensnare_duration"                                "0.9 1.2 1.5 1.8 1.8 1.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord"
       }
     }
