@@ -133,7 +133,7 @@ if IsServer() then
 
   function modifier_transformation_item_watcher:Stop()
     if self.mod then
-      if self.mod ~= nil or self.mod:IsNull() then
+      if self.mod ~= nil or not self.mod:IsNull() then
         self.mod:Destroy()
       end
       self.mod = nil
