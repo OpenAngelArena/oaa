@@ -21,7 +21,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    //"AbilityCastRange"                                    "1800 2400 3000 3600 4200"
+    "AbilityCastRange"                                    "1800 2400 3000 3600 4200"
     "AbilityCastPoint"                                    "0.6"
 
     // Time
@@ -35,11 +35,11 @@
 
     "AbilitySpecial"
     {
-      //"01"
-      //{
-      //  "var_type"                                        "FIELD_FLOAT"
-      //  "cast_range_tooltip"                              "1800 2400 3000 3600 4200"
-      //}
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range_tooltip"                              "1800 2400 3000 3600 4200"
+      }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
