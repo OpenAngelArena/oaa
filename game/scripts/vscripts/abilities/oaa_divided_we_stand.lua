@@ -172,11 +172,12 @@ function modifier_meepo_divided_we_stand_oaa:OnTakeDamage(keys)
         end
     end
 end
+
 function modifier_meepo_divided_we_stand_oaa:OnRespawn(keys)
     local parent = self:GetParent()
     local mainMeepo = self:GetCaster()
-    if meepo~=mainMeepo then
-      for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+    for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+      if meepo~=mainMeepo then
         meepo:RemoveModifierByName("modifier_meepo_divided_we_stand_oaa_death")
         meepo:RemoveNoDraw()
         FindClearSpaceForUnit(meepo,mainMeepo:GetAbsOrigin(),true)
@@ -229,7 +230,7 @@ function modifier_meepo_divided_we_stand_oaa_death:OnIntervalThink()
     self:StartIntervalThink(-1)
 end
 function modifier_meepo_divided_we_stand_oaa_death.CheckState(self)
-    return {[MODIFIER_STATE_STUNNED]=true,[MODIFIER_STATE_UNSELECTABLE]=true,[MODIFIER_STATE_INVULNERABLE]=true,[MODIFIER_STATE_UNTARGETABLE]=true,[MODIFIER_STATE_OUT_OF_GAME]=true,[MODIFIER_STATE_NO_HEALTH_BAR]=true,[MODIFIER_STATE_NOT_ON_MINIMAP]=true}
+    return {[MODIFIER_STATE_STUNNED]=true,[MODIFIER_STATE_UNSELECTABLE]=true,[MODIFIER_STATE_INVULNERABLE]=true,[MODIFIER_STATE_OUT_OF_GAME]=true,[MODIFIER_STATE_NO_HEALTH_BAR]=true,[MODIFIER_STATE_NOT_ON_MINIMAP]=true}
 end
 
 function LevelAbilitiesForAllMeepos(caster)
