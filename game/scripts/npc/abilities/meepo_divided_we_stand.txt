@@ -10,12 +10,16 @@
     "ID"                                                  "5433"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_divided_we_stand.lua"
+    "AbilityTextureName"                                  "meepo_divided_we_stand"
     "DisplayAdditionalHeroes"                             "1"
     "LevelsBetweenUpgrades"                               "7"
     "RequiredLevel"                                       "3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

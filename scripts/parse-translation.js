@@ -120,21 +120,21 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
         }
       }
     })
-    .reduce(function (memo, data) {
-      if (Array.isArray(data)) {
-        let [filePath, val] = data;
-        if (filePath.startsWith(basePath)) {
-          filePath = filePath.substr(basePath.length);
-        }
-        memo[filePath] = parseKV(val).values;
-      } else {
+      .reduce(function (memo, data) {
+        if (Array.isArray(data)) {
+          let [filePath, val] = data;
+          if (filePath.startsWith(basePath)) {
+            filePath = filePath.substr(basePath.length);
+          }
+          memo[filePath] = parseKV(val).values;
+        } else {
         // nested folder
-        Object.keys(data).forEach(function (key) {
-          memo[key] = data[key];
-        });
-      }
-      return memo;
-    }, {});
+          Object.keys(data).forEach(function (key) {
+            memo[key] = data[key];
+          });
+        }
+        return memo;
+      }, {});
 
     return fileData;
   }
