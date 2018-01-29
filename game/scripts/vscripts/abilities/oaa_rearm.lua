@@ -114,7 +114,11 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_sphere_2 = true,
     item_sphere_3 = true,
     item_sphere_4 = true,
-    item_sphere_5 = true
+    item_sphere_5 = true,
+    item_far_sight = true,
+    item_far_sight_2 = true,
+    item_far_sight_3 = true,
+    item_far_sight_4 = true
   }
 
   if not bInterrupted then
