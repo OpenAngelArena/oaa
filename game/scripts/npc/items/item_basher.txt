@@ -1,0 +1,114 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Skull Basher
+    //======================================================================================================================
+    "item_recipe_basher"
+    {
+        "ID"                "142"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "750"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_basher"
+        "ItemRequirements"
+        {
+                "01"    "item_belt_of_strength;item_javelin"
+        }
+    }
+    //======================================================================================================================
+    // Skull Basher
+    //======================================================================================================================
+    "item_basher"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "143"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2700"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bash_chance_melee"                                     "25"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bash_chance_ranged"                                    "10"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bash_cooldown"                                         "2.3"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_chance_damage"                                   "85"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bash_duration"                                         "1.4"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "10"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_str"                                             "10"
+            }
+        }
+        
+    }
+}

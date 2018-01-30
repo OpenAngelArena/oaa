@@ -1,120 +1,68 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Diffusal Blade
-  //=================================================================================================================
-  "item_recipe_diffusal_blade"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "173"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_diffusal_blade"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Diffusal Blade
+    //======================================================================================================================
+    "item_recipe_diffusal_blade"
     {
-      "01"                                                "item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
+        "ID"                "173"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "700"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_diffusal_blade"
+        "ItemRequirements"
+        {
+                "01"    "item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Diffusal Blade
-  //=================================================================================================================
-  "item_diffusal_blade"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "174"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/diffusal_blade"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "15.0"
-    "AbilitySharedCooldown"                               "diffusal"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "3150"
-    "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
-    "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "diffusal blade 1;diffusal 1"
-    "ItemBaseLevel"                                       "1"
-
-    "ItemPermanent"                                       "1"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Diffusal Blade 1
+    //======================================================================================================================
+    "item_diffusal_blade"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 30 45 70 105"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "50 60 80 100 120"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 24 33 50 75"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 12 16 20 30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "purge_rate"                                      "5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "purge_root_duration"                             "3.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "purge_slow_duration"                             "4.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_burn"                                 "0.8"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "600"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "174"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "3150"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
     }
-  }
 }

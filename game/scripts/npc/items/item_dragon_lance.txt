@@ -1,73 +1,60 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Dragon Lance
-  //=================================================================================================================
-  "item_recipe_dragon_lance"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "234"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_dragon_lance"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Dragon Lance
+    //======================================================================================================================
+    "item_dragon_lance"
     {
-      "01"                                                "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "236"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"      ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_dragon_lance"
+        "UpgradeRecipe"                 ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1900"
+        "ItemShopTags"                  "damage"
+        "ItemAliases"                   "dragon;lance"
+        "ItemQuality"                   "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
     }
-  }
-
-  //=================================================================================================================
-  // Dragon Lance
-  //=================================================================================================================
-  "item_dragon_lance"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "236"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/dragon_lance_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1900"
-    "ItemShopTags"                                        "damage"
-    "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "dragon lance"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_dragon_lance;item_dragon_lance_2;item_dragon_lance_3;item_dragon_lance_4"
-
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 15 18 25 40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 15 18 25 40"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "140 180 240 280 320"
-      }
-    }
-  }
 }
