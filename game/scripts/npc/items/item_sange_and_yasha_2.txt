@@ -1,119 +1,95 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Sange and Yasha 2
-  //=================================================================================================================
-  "item_recipe_sange_and_yasha_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4032"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sange_and_yasha_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Sange And Yasha 2
+    //======================================================================================================================
+    "item_recipe_sange_and_yasha_2"
     {
-      "01"                                                "item_sange_and_yasha;item_upgrade_core"
-      "02"                                                "item_sange_and_yasha;item_upgrade_core_2"
-      "03"                                                "item_sange_and_yasha;item_upgrade_core_3"
-      "04"                                                "item_sange_and_yasha;item_upgrade_core_4"
+        "ID"                "4032"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_sange_and_yasha_2"
+        "ItemRequirements"
+        {
+                "01"    "item_sange_and_yasha;item_upgrade_core"
+                "02"    "item_sange_and_yasha;item_upgrade_core_2"
+                "03"    "item_sange_and_yasha;item_upgrade_core_3"
+                "04"    "item_sange_and_yasha;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Sange and Yasha 2
-  //=================================================================================================================
-  "item_sange_and_yasha_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_sange_and_yasha"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/sange_and_yasha_2"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5400"
-    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
-    "ItemQuality"                                         "artifact"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "sny 2;s&y 2;sy 2;sange and yasha 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Sange And Yasha 2
+    //======================================================================================================================
+    "item_sange_and_yasha_2"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 48 72"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48 72"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "16"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_chance"                                     "40"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement"                              "-26 -30 -36 -45 -60"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack"                                "-26 -30 -36 -45 -60"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement_range"                        "-13"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack_range"                          "-13"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "maim_duration"                                   "5.0"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "4033"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_sange_and_yasha_2"
+        "UpgradeRecipe"                 "item_recipe_sange_and_yasha"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "5600"
+        "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
+        "ItemAliases"                   "sny 2;s&amp;y 2;sy 2;sange and yasha 2"
+        "ItemQuality"                   "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "16"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "16 24 32 48 72"
+            }
+        }
+        
     }
-  }
 }

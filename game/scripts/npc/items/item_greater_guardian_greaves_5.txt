@@ -1,0 +1,169 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Greater Guardian Greaves 5
+    //======================================================================================================================
+    "item_recipe_greater_guardian_greaves_5"
+    {
+        "ID"                "3034"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "0"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_greater_guardian_greaves_5"
+        "ItemRequirements"
+        {
+                "01"    "item_greater_guardian_greaves_4;item_upgrade_core_4"
+                "02"    "item_greater_arcane_boots_5;item_mekansm"
+        }
+    }
+    //======================================================================================================================
+    // Greater Guardian Greaves 5
+    //======================================================================================================================
+    "item_greater_guardian_greaves_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3039"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "5350"
+        "ItemShopTags"                  "int;armor;regen_health;hard_to_tag"
+        "ItemAliases"                   "greater guardian greaves 5;guardian greaves 5;ggg 5"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "5 7 10 12 15"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_armor"                                            "2 3 4 5 6"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_armor_bonus"                                      "15 17 20 23 26"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_bonus_threshold"                                  "20"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_health_regen"                                     "3.5 5 7.5 10 12.5"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_health_regen_bonus"                               "12 16 20 24 28"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "5 10 15 20 25"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_gold_per_minute"                                 "1200 2100 3600 6200 9600"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement"                                        "55 60 66 73 80"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "creep_bounty_percent"                                  "50"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "250 350 560 840 1260"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_health"                                      "250 300 475 750 1100"
+            }
+
+            "14"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_mana"                                        "160 200 300 475 700"
+            }
+
+            "15"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_radius"                                      "900"
+            }
+        }
+        
+    }
+}

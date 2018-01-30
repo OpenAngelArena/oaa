@@ -1,36 +1,64 @@
 "DOTAItems"
 {
-  "item_ring_of_health"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "56"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "850"
-    "ItemShopTags"                                        "regen_health"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "roh;ring of health"
-    "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
-    "SideShop"                                            "0"
-
-    // Sound
-    //-------------------------------------------------------------------------------------------------------------
-    "UIPickupSound"                                       "Item.PickUpRingShop"
-    "UIDropSound"                                         "Item.DropRingShop"
-    "WorldDropSound"                                      "Item.DropRingWorld"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Ring of Health
+    //======================================================================================================================
+    "item_ring_of_health"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "56"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "850"
+        "ItemShopTags"                  "regen_health"
+        "ItemAliases"                   "roh;ring;of;health"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "1"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_PARTIALLY_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "5"
+            }
+        }
+        
     }
-  }
 }

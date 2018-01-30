@@ -1,96 +1,82 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Solar Crest
-  //=================================================================================================================
-  "item_recipe_solar_crest"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "227"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_solar_crest"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Solar Crest
+    //======================================================================================================================
+    "item_solar_crest"
     {
-      "01"                                                "item_medallion_of_courage;item_talisman_of_evasion"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "229"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_solar_crest"
+        "UpgradeRecipe"                 ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2625"
+        "ItemShopTags"                  "armor;regen_mana;hard_to_tag"
+        "ItemAliases"                   "solar;crest"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "10 15 23 34 45"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "7"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_evasion"                                         "20"
+            }
+        }
+        
     }
-  }
-
-  //=================================================================================================================
-  // Solar Crest
-  //=================================================================================================================
-  "item_solar_crest"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "229"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/solar_crest_1"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
-    "AbilityCooldown"                                     "7.0"
-    "AbilitySharedCooldown"                               "medallion"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2625"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "solar crest"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4;item_solar_crest_5"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 23 34 45"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen_pct"                            "1.0 2.0 3.0 4.0 5.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "truestrike_chance"                               "40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "7"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "valor_cast_range_tooltip"                        "1000"
-      }
-    }
-  }
 }

@@ -1,80 +1,86 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Daedalus
-  //=================================================================================================================
-  "item_recipe_greater_crit"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "140"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_crit"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Daedalus
+    //======================================================================================================================
+    "item_recipe_greater_crit"
     {
-      "01"                                                "item_lesser_crit;item_demon_edge"
+        "ID"                "140"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_greater_crit"
+        "ItemRequirements"
+        {
+                "01"    "item_lesser_crit;item_demon_edge"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Daedalus
-  //=================================================================================================================
-
-  "item_greater_crit"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "141"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/daedalus_1"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5320"
-    "ItemShopTags"                                        "damage;crit"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "daedalus;crit"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_greater_crit;item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Daedalus
+    //======================================================================================================================
+    "item_greater_crit"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 110 150 210 280"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "235 245 255 265 290"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "135 145 160 180 205"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "141"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_greater_crit"
+        "UpgradeRecipe"                 "item_recipe_greater_crit"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "5350"
+        "ItemShopTags"                  "damage;crit"
+        "ItemAliases"                   "daedalus;crit"
+        "ItemQuality"                   "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "80 110 150 210 280"
+            }
+        }
+        
     }
-  }
 }

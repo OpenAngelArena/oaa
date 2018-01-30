@@ -1,88 +1,70 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Force Staff
-  //=================================================================================================================
-  "item_recipe_force_staff"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "101"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "400"
-    "ItemShopTags"          ""
-    "ItemRecipe"                    "1"
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_force_staff"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Force Staff
+    //======================================================================================================================
+    "item_force_staff"
     {
-      "01"            "item_staff_of_wizardry;item_ring_of_health"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "102"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "1"
+        "UpgradesItems"                 "item_force_staff"
+        "UpgradeRecipe"                 ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "2225"
+        "ItemShopTags"                  "int;damage;attack_speed;hard_to_tag"
+        "ItemAliases"                   "fs;force;staff;force"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "5 10 20 30 40"
+            }
+        }
+        
     }
-  }
-
-  //=================================================================================================================
-  // Force Staff
-  //=================================================================================================================
-  "item_force_staff"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "102"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityTextureName"            "custom/force_staff_1"
-    "FightRecapLevel"       "1"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "750"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
-    "AbilitySharedCooldown"     "force"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "25"
-    "ItemCost"            "2250"
-    "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
-    "ItemQuality"         "rare"
-    "ItemAliases"         "fs;force staff;force"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 23 34 50"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "5 10 20 30 40"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "push_length"     "600"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"   "800"
-      }
-    }
-  }
 }

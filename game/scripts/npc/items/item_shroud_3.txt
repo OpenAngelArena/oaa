@@ -1,0 +1,123 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Shroud 3
+    //======================================================================================================================
+    "item_recipe_shroud_3"
+    {
+        "ID"                "3937"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "8000"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_shroud_3"
+        "ItemRequirements"
+        {
+                "01"    "item_shroud_2"
+                "02"    "item_shroud_2"
+        }
+    }
+    //======================================================================================================================
+    // Shroud 3
+    //======================================================================================================================
+    "item_shroud_3"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3938"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_shroud_3"
+        "UpgradeRecipe"                 "item_recipe_shroud"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "16350"
+        "ItemShopTags"                  "int;agi;str;hard_to_tag"
+        "ItemAliases"                   "shroud of Shadows 3;sos 3"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "active_magical_armor"                                  "30 36 42 50"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "25 30 35 40"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "8 14 21 35"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_magical_armor"                                   "15 20 25 30"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "5.0"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "extra_spell_damage_percent"                            "0"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "fade_delay"                                            "0.6"
+            }
+        }
+        
+    }
+}

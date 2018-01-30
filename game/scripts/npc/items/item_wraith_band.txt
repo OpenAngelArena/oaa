@@ -1,0 +1,68 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Wraith Band
+    //======================================================================================================================
+    "item_recipe_wraith_band"
+    {
+        "ID"                "74"
+        "Model"             "models/props_gameplay/recipe.vmdl"
+        "ItemCost"          "170"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_wraith_band"
+        "ItemRequirements"
+        {
+                "01"    "item_circlet;item_slippers"
+        }
+    }
+    //======================================================================================================================
+    // Wraith Band
+    //======================================================================================================================
+    "item_wraith_band"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "75"
+        "ItemPermanent"         "1"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "485"
+        "ItemQuality"                   "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "0"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        
+    }
+}

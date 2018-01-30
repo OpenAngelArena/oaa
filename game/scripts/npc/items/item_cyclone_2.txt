@@ -1,105 +1,119 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Cyclone 2
-  //=================================================================================================================
-  "item_recipe_cyclone_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3892"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"            "custom/recipe/recipe_2"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "1500"
-    "ItemShopTags"                  ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_cyclone_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Cyclone 2
+    //======================================================================================================================
+    "item_recipe_cyclone_2"
     {
-      "01"                                                "item_cyclone;item_upgrade_core"
-      "02"                                                "item_cyclone;item_upgrade_core_2"
-      "03"                                                "item_cyclone;item_upgrade_core_3"
-      "04"                                                "item_cyclone;item_upgrade_core_4"
+        "ID"                "3892"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "1500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_cyclone_2"
+        "ItemRequirements"
+        {
+                "01"    "item_cyclone;item_upgrade_core"
+                "02"    "item_cyclone;item_upgrade_core_2"
+                "03"    "item_cyclone;item_upgrade_core_3"
+                "04"    "item_cyclone;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Cyclone 2
-  //=================================================================================================================
-  "item_cyclone_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "3893"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_cyclone"
-    "AbilityTextureName"            "custom/cyclone_2"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"               "1"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "575 675 775 875 975"
-    "AbilityCastPoint"              "0.0"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "23.0 20.0 17.0 14.0 11.0"
-    "AbilitySharedCooldown"                               "cyclone"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "175 200 250 300 350"
-    "ItemCost"                      "4250"
-    "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
-    "ItemQuality"                   "rare"
-    "ItemAliases"                   "cyclone 2;euls 2;eul's scepter of divinity 2"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Cyclone 2
+    //======================================================================================================================
+    "item_cyclone_2"
     {
-      "01"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "10 25 40 60 80"
-      }
-      "02"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "2.25 3.25 4.50 6.50 8.75"
-      }
-      "03"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "40 50 60 70 80"
-      }
-      "04"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "cyclone_duration"      "2.5"
-      }
-      "05"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "cast_range_tooltip"    "575 675 775 875 975"
-      }
-      "06"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "tooltip_drop_damage"   "50"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3893"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "1"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "2"
+        "UpgradesItems"                 "item_cyclone_2"
+        "UpgradeRecipe"                 "item_recipe_cyclone"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "3925"
+        "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
+        "ItemAliases"                   "cyclone 2;euls 2;eul&#039;s scepter of divinity 2"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10 25 40 60 80"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_tooltip"                                    "575 675 775 875 975"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "cyclone_duration"                                      "2.5"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "2.25 3.25 4.50 6.50 8.75"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "40 50 60 70 80"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_drop_damage"                                   "50"
+            }
+        }
+        
     }
-  }
 }

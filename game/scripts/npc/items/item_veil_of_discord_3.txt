@@ -1,114 +1,112 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Veil of Discord 3
-  //=================================================================================================================
-  "item_recipe_veil_of_discord_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3687"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_veil_of_discord_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Veil Of Discord 3
+    //======================================================================================================================
+    "item_recipe_veil_of_discord_3"
     {
-      "01"                                                "item_veil_of_discord_2;item_upgrade_core_2"
-      "02"                                                "item_veil_of_discord_2;item_upgrade_core_3"
-      "03"                                                "item_veil_of_discord_2;item_upgrade_core_4"
+        "ID"                "3687"
+        "Model"             "models/props_gameplay/recipe.mdl"
+        "ItemCost"          "3500"
+        "ItemShopTags"      ""
+        "ItemRecipe"        "1"
+        "ItemResult"        "item_veil_of_discord_3"
+        "ItemRequirements"
+        {
+                "01"    "item_upgrade_core_2;item_veil_of_discord_2"
+                "02"    "item_upgrade_core_3;item_veil_of_discord_2"
+                "03"    "item_upgrade_core_4;item_veil_of_discord_2"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Veil of Discord 3
-  //=================================================================================================================
-  "item_veil_of_discord_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3688"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_veil_of_discord"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-    "AbilityTextureName"                                  "custom/veil_of_discord_3"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "veil"
-    "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.0"
-
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "7330"
-    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "vod 3;veil of discord 3;veil 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_veil_of_discord;item_veil_of_discord_2;item_veil_of_discord_3;item_veil_of_discord_4;item_veil_of_discord_5"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Veil Of Discord 3
+    //======================================================================================================================
+    "item_veil_of_discord_3"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER" // 3 6 8 12, 3 6 7 11
-        "bonus_health_regen"                              "5 8 14 21 32"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6 9 14 21 28"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 9 14 22 32"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
-        "bonus_int"                                       "14 20 30 44 66"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30 -36 -42 -50"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "debuff_radius"                                   "600"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "resist_debuff_duration"                          "16.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1000"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                    "3688"
+        "ItemPermanent"         "0"
+        "ItemStackable"         "0"
+        "FightRecapLevel"       "0"
+        "ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"               "5"
+        "ItemBaseLevel"                 "3"
+        "UpgradesItems"                 "item_veil_of_discord_3"
+        "UpgradeRecipe"                 "item_recipe_veil_of_discord"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "7340"
+        "ItemShopTags"                  "int;armor;regen_health;hard_to_tag"
+        "ItemAliases"                   "vod 3;veil of discord 3;veil 3"
+        "ItemQuality"                   "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                      "0"
+        "SecretShop"                    "0"
+        "ItemStockMax"                  "0"
+        "ItemStockTime"                 "0"
+        "ItemStockInitial"              "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"           "0"
+        "ItemInitialCharges"            "0"
+        "ItemDisplayCharges"            "0"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"              "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                  "1"
+        "ItemSellable"                  "1"
+        "ItemPurchasable"               "1"
+        "ItemDroppable"                 "1"
+        "ItemAlertable"                 "1"
+        "PingOverrideText"              ""
+        "ItemCastOnPickup"              "0"
+        "AllowedInBackpack"             "1"
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agi"                                             "6 9 14 21 28"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "6 9 13 20 29"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "5 8 14 21 32"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_int"                                             "14 20 30 44 66"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_str"                                             "6 9 14 22 32"
+            }
+        }
+        
     }
-  }
 }
