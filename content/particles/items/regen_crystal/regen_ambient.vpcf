@@ -49,6 +49,9 @@
 			m_nOutControlPointNumber = 15
 			m_nFieldInput = 6
 		},
+		{
+			_class = "C_OP_PositionLock"
+		},
 	]
 	m_Renderers = 
 	[
@@ -89,7 +92,7 @@
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMin = 85
+			m_nAlphaMin = 48
 			m_nAlphaMax = 7
 		},
 		{

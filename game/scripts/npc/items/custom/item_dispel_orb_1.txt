@@ -66,6 +66,13 @@
     // Modifiers
     // Special
     //-------------------------------------------------------------------------------------------------------------
+    "Precache"
+    {
+      "particle"                                          "particles/items/dispel_orb/dispel_base.vpcf"
+      "particle"                                          "particles/items/dispel_orb/dispel_b.vpcf"
+      "particle"                                          "particles/items/dispel_orb/dispel_steam.vpcf"
+    }
+
     "AbilitySpecial"
     {
       "01"
@@ -100,12 +107,5 @@
       }
     }
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                     "particles/items/regen_crystal/regen_ambient.vpcf"
-      "particle"                                     "particles/items/dispel_orb/steam_burst.vpcf"
-    }
   }
 }

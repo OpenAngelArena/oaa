@@ -49,8 +49,8 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
 
   if IsServer() and self.nPreviewFX == nil then
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
   end
 end
 
@@ -60,6 +60,7 @@ function modifier_item_dagger_of_moriah_sangromancy:OnDestroy(  )
   if IsServer() and self.nPreviewFX ~= nil then
     ParticleManager:DestroyParticle( self.nPreviewFX, false )
     ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
   end
 end
 
@@ -72,11 +73,6 @@ function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
 
   self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
-
-  if IsServer() and self.nPreviewFX == nil then
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
-  end
 end
 
 --------------------------------------------------------------------------------

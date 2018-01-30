@@ -7,10 +7,10 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/items/dispel_orb/blue_flare_b.vpcf"
+			m_ChildRef = resource:"particles/items/dispel_orb/dispel_b.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/items/dispel_orb/steam_burst.vpcf"
+			m_ChildRef = resource:"particles/items/dispel_orb/dispel_steam.vpcf"
 			m_bDisableChild = true
 		},
 	]
