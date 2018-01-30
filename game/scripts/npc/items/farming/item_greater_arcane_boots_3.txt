@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,9 +23,8 @@
     "ItemResult"                                          "item_greater_arcane_boots_3"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_arcane_boots_2;item_upgrade_core_2"
-      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_arcane_boots_2;item_upgrade_core_4"
+      "01"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
+      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_4"
     }
   }
 
@@ -50,14 +49,14 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "6400"
+    "ItemCost"                                            "12900"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots 3;greater arcanes 3;arcanes 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAlertable"                                       "1"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
 
     // Special
@@ -67,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "50 55 61 68 75"
+        "bonus_movement"                                  "55 61 68 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 560 840 1260"
+        "bonus_mana"                                      "350 560 840 1260"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "135 170 250 400 600"
+        "replenish_amount"                                "170 250 400 600"
       }
       "04"
       {
@@ -87,7 +86,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "500 1350 3000 5250 8300"
+        "bonus_gold_per_minute"                           "1350 3000 5250 8300"
       }
       "06"
       {

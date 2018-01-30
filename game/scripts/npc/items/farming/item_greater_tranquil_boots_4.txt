@@ -13,7 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,8 +22,7 @@
     "ItemResult"                                          "item_greater_tranquil_boots_4"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_tranquil_boots_3;item_upgrade_core_3"
-      "02"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
+      "01"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
     }
   }
 
@@ -46,14 +45,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14050"
+    "ItemCost"                                            "32550"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 4;tranquil boots 4;tranquils 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
@@ -66,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "90 95 105 115 125"
+        "bonus_movement_speed"                            "95 105 115 125"
       }
       "02"
       {
@@ -76,7 +75,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 20 27 36 45"
+        "bonus_health_regen"                              "20 27 36 45"
       }
       "04"
       {
@@ -111,12 +110,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "65 70 75 80 85"
+        "broken_movement_speed"                           "70 75 80 85"
       }
       //"11"
       //{
       //  "var_type"                                      "FIELD_INTEGER"
-      //  "regen_from_creeps"                             "30 45 70 120 300"    // New Functionality
+      //  "regen_from_creeps"                             "45 70 120 300"    // New Functionality
       //}
       "12"
       {
@@ -136,7 +135,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "950 2600 5800 10500 16000"
+        "bonus_gold"                                      "2600 5800 10500 16000"
       }
       "16"
       {
