@@ -118,6 +118,7 @@ local special_bottles = {
   [162267134] = 3, --steam: http://steamcommunity.com/profiles/76561198122532862 - twitch: the_lightnin
   [196954061] = 3, --steam: http://steamcommunity.com/profiles/76561198157219789 - twitch: TheOnly1Matt
   [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -not in donation list, profile given by baumi
+  [186729309] = 3, --steam: http://steamcommunity.com/profiles/76561198146995037 - twitch: -no name given
 
 
 
@@ -178,7 +179,8 @@ local special_bottles = {
   [252879820] = 24, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
   [177718580] = 25, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
   [184428872] = 26, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
-  [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis}
+  [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
+}
 
 local bonusNames = {
   'custom/bottles/bottle_contributor',
