@@ -2,17 +2,32 @@
 {
   "npc_dota_creature_temple_guardian_spawner"
   {
-		// Script
-		"vscripts"					        "units/ai_temple_guardian_spawner.lua"
+    // Script
+    "vscripts"                  "units/ai_temple_guardian_spawner.lua"
 
-    "BaseClass"					        "npc_dota_creature"
-    "Model"						          "models/development/invisiblebox.vmdl"
-    "AttackCapabilities"		    "DOTA_UNIT_CAP_NO_ATTACK"
-    "VisionDaytimeRange"		    "0"
-    "VisionNighttimeRange"		  "0"
-    "UnitRelationshipClass"		  "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-    "MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_NONE"
+    "BaseClass"                 "npc_dota_creature"
+    "Model"                     "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"        "0"
+    "VisionNighttimeRange"      "0"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
 
-		"Ability1"					        "out_of_game"
+    "Ability1"                  "out_of_game"
+  }
+  "npc_dota_creature_temple_guardian_spawner_t5"
+  {
+    // Script
+    "vscripts"                  "units/ai_temple_guardian_spawner_t5.lua"
+
+    "BaseClass"                 "npc_dota_creature"
+    "Model"                     "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"        "0"
+    "VisionNighttimeRange"      "0"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+
+    "Ability1"                  "out_of_game"
   }
 }
