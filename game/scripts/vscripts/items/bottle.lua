@@ -178,19 +178,7 @@ local special_bottles = {
   [252879820] = 24, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
   [177718580] = 25, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
   [184428872] = 26, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
-  [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-  [] = , --steam:  - twitch:
-}
+  [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis}
 
 local bonusNames = {
   'custom/bottles/bottle_contributor',
