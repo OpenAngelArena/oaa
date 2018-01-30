@@ -68,7 +68,7 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_enrage_crystal_1 = true,
     item_enrage_crystal_2 = true,
     item_enrage_crystal_3 = true,
-    item_hand_of_midas = true,
+    item_hand_of_midas_1 = true,
     item_hand_of_midas_2 = true,
     item_hand_of_midas_3 = true,
     item_helm_of_the_dominator = true,
@@ -114,7 +114,11 @@ function oaa_rearm:OnChannelFinish(bInterrupted)
     item_sphere_2 = true,
     item_sphere_3 = true,
     item_sphere_4 = true,
-    item_sphere_5 = true
+    item_sphere_5 = true,
+    item_far_sight = true,
+    item_far_sight_2 = true,
+    item_far_sight_3 = true,
+    item_far_sight_4 = true
   }
 
   if not bInterrupted then

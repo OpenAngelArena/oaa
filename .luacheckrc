@@ -126,6 +126,10 @@ read_globals = { -- these globals can only be accessed.
 "operator",
 "op",
 
+-- functional
+"CallMethod",
+"compose",
+
 -- util
 "split",
 "regexsplit",
@@ -145,6 +149,11 @@ read_globals = { -- these globals can only be accessed.
 "MoveCameraToEntity",
 "IsPlayerTeam",
 
+-- cfinder
+"PrdCFinder",
+
+-- logging
+"D2CustomLogging",
 
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
@@ -2746,6 +2755,8 @@ read_globals = { -- these globals can only be accessed.
 "FindByNameWithin",
 "Timers",
 "DebugPrint",
+"Bottlepass",
+"OnGameInProgressEvent",
 "DebugPrintTable",
 "CreateGameEvent",
 "Event",

@@ -5,14 +5,22 @@
   //=================================================================================================================
   "item_recipe_dispel_orb_1"
   {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3803"   // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_dispel_orb_1"
-    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
       "01"                                                "item_lotus_orb_2;item_upgrade_core_2"
@@ -20,6 +28,7 @@
       "03"                                                "item_lotus_orb_2;item_upgrade_core_4"
     }
   }
+
   //=================================================================================================================
   // dispel_orb_1
   //=================================================================================================================
@@ -89,6 +98,14 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3.0 4.5 6.0"
       }
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                     "particles/items/regen_crystal/regen_ambient.vpcf"
+      "particle"                                     "particles/items/dispel_orb/steam_burst.vpcf"
     }
   }
 }

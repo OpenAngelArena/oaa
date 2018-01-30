@@ -21,6 +21,10 @@ function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
   return self:GetCaster():GetAttackRange()
 end
 
+function silencer_glaives_of_wisdom_oaa:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_glaives_of_wisdom = class(ModifierBaseClass)
@@ -89,8 +93,9 @@ function modifier_oaa_glaives_of_wisdom:OnAttackStart(keys)
 
   -- Add modifier to change attack sound
   parent:AddNewModifier( parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {} )
+
   -- Set projectile
-  parent:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")
+  parent:ChangeAttackProjectile()
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
@@ -130,7 +135,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
   local parent = self:GetParent()
   if keys.attacker == parent then
     parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
-    parent:SetRangedProjectileName(self.parentOriginalProjectile)
+    parent:ChangeAttackProjectile()
   end
 end
 

@@ -47,7 +47,7 @@ BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 
 -- Player
-GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
+GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
 
 --Gold
 _G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
@@ -63,7 +63,7 @@ CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
 -- TODO: Make this a module loader so the following can be handled:
     -- Multiple log instances for different logging levels
     -- Simple configuration for several setups, such as Loggly and a custom implementation
-LOGGLY_ACCOUNT_ID = ''                  -- The Loggly token to toss errors to
+LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly token to toss errors to
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -151,9 +151,9 @@ LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the norma
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
 DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?
-FORCE_PICKED_HERO = "npc_dota_hero_meepo" -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
+FORCE_PICKED_HERO = "npc_dota_hero_dummy_dummy" -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
 
-FIXED_RESPAWN_TIME = 5                 -- What time should we use for a fixed respawn timer?  Use -1 to keep the default dota behavior.
+FIXED_RESPAWN_TIME = 10                 -- What time should we use for a fixed respawn timer?  Use -1 to keep the default dota behavior.
 FOUNTAIN_CONSTANT_MANA_REGEN = -1       -- What should we use for the constant fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_MANA_REGEN = -1     -- What should we use for the percentage fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_HEALTH_REGEN = -1   -- What should we use for the percentage fountain health regen?  Use -1 to keep the default dota behavior.

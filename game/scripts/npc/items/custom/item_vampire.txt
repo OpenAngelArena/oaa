@@ -5,16 +5,22 @@
   //=================================================================================================================
   "item_recipe_vampire"
   {
-
+    // General
+    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9454"       // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_vampire"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_satanic_3;item_upgrade_core_3"
@@ -40,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "vampire"
     "AbilityTextureName"                                  "custom/bloodstone"
     "MaxUpgradeLevel"                                     "2"
@@ -86,7 +92,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "10"
+        "damage_per_second_pct"                           "15"
       }
       "07"
       {
@@ -97,6 +103,10 @@
     "precache"
     {
       "particle"                  "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf"
+      "particle"                  "particles/items/vampire/vampire_arc.vpcf"
+      "particle"                  "particles/items/vampire/vampire_base.vpcf"
+      "particle"                  "particles/items/vampire/vampire.vpcf"
+      "particle"                  "particles/items/vampire/vampire_projectile.vpcf"
     }
   }
 }

@@ -7,21 +7,31 @@ g_ItemPrecache = {
   "item_greater_tranquil_boots",
   "item_dagon",
   "item_manta_1",
+  "item_regen_crystal_1",
+  "item_trumps_fists",
+  "item_vampire",
+  "item_enrage_crystal_1",
+  "item_dispel_orb_1",
+  "item_dagger_of_moriah"
 }
 
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
   "dota_fountain",
-  "npc_dota_boss_shielder",
-  "npc_dota_boss_charger",
-  "npc_dota_boss_charger_pillar",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
   "npc_dota_boss_simple_3",
   "npc_dota_boss_simple_5",
   "npc_dota_boss_simple_6",
   "npc_dota_boss_simple_7",
+
+  "npc_dota_boss_twin",
+  "npc_dota_boss_twin_dumb",
+  "npc_dota_boss_shielder",
+  "npc_dota_boss_charger",
+  "npc_dota_boss_charger_pillar",
   "npc_dota_boss_stopfightingyourself",
+
   "npc_dota_creature_ogre_tank_boss",
   "npc_dota_creature_ogre_seer",
   "npc_dota_creature_lycan_boss",
@@ -29,6 +39,12 @@ g_UnitPrecache = {
   "npc_dota_creature_dire_hound_boss",
   "npc_dota_creature_werewolf",
   "npc_dota_hero_bloodseeker", -- For Lycan Boss Wolf transformation
+
+  "npc_dota_creature_temple_guardian",
+  "npc_dota_creature_temple_guardian_spawner",
+
+  "npc_dota_creature_small_lycosidae",
+  "npc_dota_creature_spider_boss",
 }
 
 g_ModelPrecache = {
@@ -42,6 +58,12 @@ g_ParticlePrecache = {
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
   "particles/econ/items", -- Precache all hero cosmetics
+  "particles/items",
+  "particles/items/dagger_of_moriah",
+  "particles/items/dispel_orb",
+  "particles/items/enrage_crystal",
+  "particles/items/regen_crystal",
+  "particles/items/vampire",
 }
 
 g_SoundPrecache = {

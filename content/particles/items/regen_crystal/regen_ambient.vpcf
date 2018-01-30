@@ -1,0 +1,158 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 20
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/customgames/capturepoints/cp_allied_flare_core.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/items/regen_crystal/regen_sparks.vpcf"
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 3
+			m_vecCP1Pos = [ 0.0, 0.0, 50.0 ]
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_bSetOnce = true
+			m_nCP = 3
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 0.95
+		},
+		{
+			_class = "C_OP_FadeAndKill"
+			m_flStartAlpha = 0.0
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = [ 0.0, 0.0, 10.0 ]
+		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_bUseWorldLocation = true
+			m_nCP1 = 11
+			m_vecCP1Pos = [ 10.0, 11.0, 0.0 ]
+		},
+		{
+			_class = "C_OP_RemapVectortoCP"
+			m_nOutControlPointNumber = 15
+			m_nFieldInput = 6
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = 3
+			m_flSelfIllumAmount = 1.0
+			m_hTexture = resource:"materials/particle/customgames/cp_elements/cp_icon_elements.vtex"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderDeferredLight"
+			m_flRadiusScale = 5.0
+			m_flAlphaScale = 5.0
+			m_ColorScale = [ 255, 255, 255 ]
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 100.0
+			m_flRadiusMax = 100.0
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 83, 165, 128, 255 ]
+			m_ColorMax = [ 83, 165, 128, 255 ]
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 1.0
+			m_fLifetimeMax = 0.5
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 85
+			m_nAlphaMax = 7
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMax = 0.0
+			m_flDegrees = 90.0
+			m_bRandomlyFlipDirection = false
+		},
+		{
+			_class = "C_INIT_RemapInitialDirectionToCPToVector"
+			m_nFieldOutput = 21
+			m_bNormalize = true
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+			m_flStartTime = 0.25
+		},
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flStartTime = 0.25
+			m_flEmitRate = 20.0
+		},
+	]
+	m_ConstantColor = [ 146, 46, 46, 255 ]
+	m_nInitialParticles = 1
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 11
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 10.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.30.0"
+GAME_VERSION = "2.33.0"
 
 -- Setup the main logger
 require('internal/logging')
@@ -22,6 +22,8 @@ require('internal/eventwrapper')
 require('internal/util')
 require('gamemode')
 require('precache')
+
+require('libraries/keyvalues')
 -- DotaStats
 require("statcollection/init")
 
@@ -39,7 +41,7 @@ function Precache( context )
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
   for _,Item in pairs( g_ItemPrecache ) do
-    PrecacheItemByNameSync( Item, context )
+    PrecacheItemByNameAsync( Item, function( item ) end )
   end
 
    for _,Unit in pairs( g_UnitPrecache ) do

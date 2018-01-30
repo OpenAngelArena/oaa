@@ -25,11 +25,8 @@
     {
       "01"                                                "item_skadi_3;item_upgrade_core_3"
       "02"                                                "item_skadi_3;item_upgrade_core_4"
-
     }
   }
-
-
 
   //=================================================================================================================
   // trumps_fists (Based on Desolator)
@@ -85,13 +82,18 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-50 -100"
+        "heal_prevent_percent"                            "-50 -75"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_duration"                           "2 3"
+        "heal_prevent_duration"                           "2 2"
       }
+    }
+
+    "precache"
+    {
+      "particle"            "particles/items/trumps_fists/trumps_fists_projectile.vpcf"
     }
   }
 }

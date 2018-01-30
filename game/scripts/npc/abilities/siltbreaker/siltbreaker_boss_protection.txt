@@ -32,6 +32,11 @@
         "ModifierName"                                    "modifier_siltbreaker_boss_protection_trigger"
         "Target"                                          "CASTER"
       }
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_siltbreaker_boss_protection_bash_and_silence"
+        "Target"                                          "CASTER"
+      }
     }
 
     "OnSpellStart"
@@ -81,35 +86,12 @@
         "Priority"                                        "MODIFIER_PRIORITY_SUPER_ULTRA"
 
         "Duration"                                        "%duration"
-        // If state changes, reapply the modifier
 
         "EffectName" "particles/items_fx/black_king_bar_overhead.vpcf"
         "EffectAttachType" "follow_overhead"
 
         "OnCreated"
         {
-          "AttachEffect"
-          {
-            "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
-            "Target"                                          "CASTER"
-            "EffectAttachType" "follow_origin"
-          }
-
-          "FireSound"
-          {
-            "EffectName"                                       "DOTA_Item.LinkensSphere.Activate"
-            "Target"                                          "CASTER"
-          }
-        }
-
-        "OnStateChanged"
-        {
-          "RunScript"
-          {
-            "ScriptFile"                                  "abilities/siltbreaker/siltbreaker_protection.lua"
-            "Function"                                    "siltbreaker_protection_purge"
-          }
-
           "AttachEffect"
           {
             "EffectName"                                      "particles/items_fx/immunity_sphere.vpcf"
@@ -133,10 +115,28 @@
           }
         }
 
+        // The actual protection is done on stun_protection.lua filter
         "States"
         {
           "MODIFIER_STATE_SILENCED"  "MODIFIER_STATE_VALUE_DISABLED"
           "MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_DISABLED"
+          "MODIFIER_STATE_HEXED"  "MODIFIER_STATE_VALUE_DISABLED"
+        }
+      }
+
+      "modifier_siltbreaker_boss_protection_bash_and_silence"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        // The actual protection is done on stun_protection.lua filter
+        "States"
+        {
+          "MODIFIER_STATE_SILENCED"  "MODIFIER_STATE_VALUE_DISABLED"
         }
       }
     }

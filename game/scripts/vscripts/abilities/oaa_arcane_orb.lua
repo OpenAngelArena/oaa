@@ -82,7 +82,7 @@ function modifier_oaa_arcane_orb:OnAttackStart(keys)
   -- Add modifier to change attack sound
   parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_sound", {})
   -- Set projectile
-  parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
+  parent:ChangeAttackProjectile()
 end
 
 function modifier_oaa_arcane_orb:OnAttack(keys)
@@ -120,7 +120,7 @@ function modifier_oaa_arcane_orb:OnAttackFinished(keys)
   local parent = self:GetParent()
   if keys.attacker == parent then
     parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
-    parent:SetRangedProjectileName(self.parentOriginalProjectile)
+    parent:ChangeAttackProjectile()
   end
 end
 

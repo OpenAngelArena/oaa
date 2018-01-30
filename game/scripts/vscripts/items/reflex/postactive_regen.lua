@@ -18,12 +18,29 @@ end
 
 modifier_item_postactive_regen = class(ModifierBaseClass)
 
-function modifier_item_postactive_regen:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
-  }
-end
+if IsServer() then
 
-function modifier_item_postactive_regen:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor( "active_health_regen" )
+  function modifier_item_postactive_regen:OnCreated( kv )
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+      ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+    end
+  end
+
+  function modifier_item_postactive_regen:OnDestroy(  )
+    if self.nPreviewFX ~= nil then
+      ParticleManager:DestroyParticle( self.nPreviewFX, true )
+      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    end
+  end
+
+  function modifier_item_postactive_regen:DeclareFunctions()
+    return {
+      MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+    }
+  end
+
+  function modifier_item_postactive_regen:GetModifierConstantHealthRegen()
+    return self:GetAbility():GetSpecialValueFor( "active_health_regen" )
+  end
 end

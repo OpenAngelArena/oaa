@@ -67,7 +67,7 @@ function HeroSelection:Init ()
       return
     end
     local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
-    if hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
+    if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
       DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
       PlayerResource:ReplaceHeroWith(keys.PlayerID, lockedHeroes[keys.PlayerID], STARTING_GOLD, 0)
     end
@@ -373,6 +373,7 @@ function HeroSelection:EndStrategyTime ()
 
   GameRules:SetTimeOfDay(0.25)
   GameMode:OnGameInProgress()
+  OnGameInProgressEvent()
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
 end
 

@@ -76,7 +76,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 45 90 150 200"
+        "bonus_health_regen"                              "13 20 27 36 45"
       }
       "04"
       {
@@ -115,8 +115,8 @@
       }
       //"11"
       //{
-      //  "var_type"                                        "FIELD_INTEGER"
-      //  "regen_from_creeps"                               "30 45 70 120 300"    // New Functionality
+      //  "var_type"                                      "FIELD_INTEGER"
+      //  "regen_from_creeps"                             "30 45 70 120 300"    // New Functionality
       //}
       "12"
       {
@@ -136,7 +136,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "2000 4000 8000 12000 18000"
+        "bonus_gold"                                      "950 2600 5800 10500 16000"
       }
       "16"
       {
@@ -147,6 +147,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges"                                     "100"
+      }
+      "18"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
 

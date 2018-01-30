@@ -25,6 +25,10 @@ function findMissingTooltips (cb) {
   request.get({
     url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
   }, function (err, dotaEnglish) {
+    var done = after(3, function (err) {
+      cb(err, result);
+    });
+
     if (err) {
       console.log(err);
       return done(err);
@@ -36,10 +40,6 @@ function findMissingTooltips (cb) {
       return name.toLowerCase();
     });
     var result = [];
-
-    var done = after(3, function (err) {
-      cb(err, result);
-    });
 
     luaEntitiesUtil.findAllUnits(function (err, data) {
       if (err) {
