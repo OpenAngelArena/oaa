@@ -13,7 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,10 +22,9 @@
     "ItemResult"                                          "item_greater_travel_boots_2"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_travel_boots;item_upgrade_core"
-      "02"                                                "item_greater_travel_boots;item_upgrade_core_2"
-      "03"                                                "item_greater_travel_boots;item_upgrade_core_3"
-      "04"                                                "item_greater_travel_boots;item_upgrade_core_4"
+      "01"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "02"                                                "item_greater_travel_boots;item_upgrade_core_3"
+      "03"                                                "item_greater_travel_boots;item_upgrade_core_4"
     }
   }
 
@@ -49,18 +48,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "3.0 2.75 2.5 2.25 2"
+    "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "3000"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 2;boots of travel 2;greater boots of travel 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
 
     //"UpgradesItems"                                     "item_greater_travel_boots_2;item_greater_travel_boots_3;item_greater_travel_boots_4"
@@ -73,17 +72,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "100 125 150 175 200"
+        "bonus_movement_speed"                            "125 150 175 200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "100 110 120 130 140"
+        "assist_percent"                                  "100 110 120 130"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1200 1300 1400 1500 1600"
+        "assist_radius"                                   "1300 1400 1500 1600"
       }
       "04"
       {
