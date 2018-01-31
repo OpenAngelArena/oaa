@@ -4,14 +4,15 @@ LinkLuaModifier( "modifier_temple_guardian_hammer_throw", "modifiers/modifier_te
 --------------------------------------------------------------------------------
 
 function temple_guardian_hammer_throw:OnAbilityPhaseStart()
-	if IsServer() then
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/test_particle/generic_attack_charge.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
-		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack2", self:GetCaster():GetOrigin(), true )
+  if IsServer() then
+    local caster = self:GetCaster()
+		self.nPreviewFX = ParticleManager:CreateParticle( "particles/test_particle/generic_attack_charge.vpcf", PATTACH_CUSTOMORIGIN, caster )
+		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetOrigin(), true )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 135, 192, 235 ) )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 16, Vector( 1, 0, 0 ) )
 		ParticleManager:ReleaseParticleIndex( self.nPreviewFX )
 
-		EmitSoundOn( "TempleGuardian.PreAttack", self:GetCaster() )
+		caster:EmitSound("TempleGuardian.PreAttack")
 	end
 
 	return true

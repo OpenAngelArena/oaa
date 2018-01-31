@@ -31,13 +31,14 @@ end
 --------------------------------------------------------------------------
 
 function modifier_spider_web:OnCreated( kv )
-	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
+  self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
+  local parent = self:GetParent()
 	if IsServer() then
-		EmitSoundOn( "SpiderRavine.WebLoop", self:GetParent() )
+		parent:EmitSound("SpiderRavine.WebLoop")
 	end
 
 	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_web.vpcf", PATTACH_CUSTOMORIGIN, nil )
-	ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetAbsOrigin() )
+	ParticleManager:SetParticleControl( nFXIndex, 0, parent:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 900, 0, 0 ) )
 	--ParticleManager:SetParticleControl( nFXIndex, 2, Vector( 5528, 5000, 256 ) ) --Bad Ancient
 	--ParticleManager:SetParticleControlEnt( nFXIndex, 3, GetOwnerEntity(), PATTACH_POINT_FOLLOW, "attach_hitloc", GetAbsOrigin() );
@@ -49,7 +50,7 @@ end
 
 function modifier_spider_web:OnDestroy()
 	if IsServer() then
-		StopSoundOn( "SpiderRavine.WebLoop", self:GetParent() )
+		self:GetParent():StopSound("SpiderRavine.WebLoop")
 	end
 
 end

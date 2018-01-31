@@ -36,7 +36,8 @@ end
 -----------------------------------------------------------------------------
 
 function temple_guardian_wrath:OnSpellStart()
-	if IsServer() then
+  if IsServer() then
+    local caster = self:GetCaster()
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
 
 		self.effect_radius = self:GetSpecialValueFor( "effect_radius" )
@@ -44,8 +45,8 @@ function temple_guardian_wrath:OnSpellStart()
 
 		self.flNextCast = 0.0
 
-		EmitSoundOn( "TempleGuardian.Wrath.Cast", self:GetCaster() )
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_omninight_guardian_angel", {} )
+		caster:EmitSound("TempleGuardian.Wrath.Cast")
+		caster:AddNewModifier( caster, self, "modifier_omninight_guardian_angel", {} )
 
 		--local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf", PATTACH_ABSORIGIN, self:GetCaster() )
 		--ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.effect_radius, self.channel_duration, 0.0 ) )

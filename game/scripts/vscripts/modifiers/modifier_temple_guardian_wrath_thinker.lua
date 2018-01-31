@@ -22,16 +22,17 @@ end
 -----------------------------------------------------------------------------
 
 function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
-	if IsServer() then
+  if IsServer() then
+    local parent = self:GetParent()
 		local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_generic_blast.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 0, parent:GetOrigin() )
 		ParticleManager:SetParticleControl( nFXIndex, 1, Vector ( self.radius, self.radius, self.radius ) )
 		ParticleManager:SetParticleControl( nFXIndex, 15, Vector( 175, 238, 238 ) )
 		ParticleManager:SetParticleControl( nFXIndex, 16, Vector( 1, 0, 0 ) )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-		EmitSoundOn( "TempleGuardian.Wrath.Explosion", self:GetParent() )
-		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+		parent:EmitSound("TempleGuardian.Wrath.Explosion")
+		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 		for _,enemy in pairs( enemies ) do
 			if enemy ~= nil and enemy:IsInvulnerable() == false then
 				local damageInfo =
@@ -46,7 +47,7 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
 			end
 		end
 
-		UTIL_Remove( self:GetParent() )
+		UTIL_Remove( parent )
 	end
 end
 

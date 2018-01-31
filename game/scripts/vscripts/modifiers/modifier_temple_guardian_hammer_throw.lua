@@ -21,7 +21,8 @@ end
 -------------------------------------------------------------------
 
 function modifier_temple_guardian_hammer_throw:OnCreated( kv )
-	if IsServer() then
+  if IsServer() then
+    local caster = self:GetCaster()
 		self.hammer_damage = self:GetAbility():GetSpecialValueFor( "hammer_damage" )
 		self.throw_duration = self:GetAbility():GetSpecialValueFor( "throw_duration" )
 		self.stun_duration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
@@ -36,9 +37,9 @@ function modifier_temple_guardian_hammer_throw:OnCreated( kv )
 		end
 
 		self.hHammer:AddEffects( EF_NODRAW )
-		self.hHammer:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_beastmaster_axe_invulnerable", kv )
+		self.hHammer:AddNewModifier( caster, self:GetAbility(), "modifier_beastmaster_axe_invulnerable", kv )
 
-		self.vSourceLoc = self:GetCaster():GetOrigin()
+		self.vSourceLoc = caster:GetOrigin()
 		self.vSourceLoc.z = self.vSourceLoc.z + 180
 		self.vTargetLoc = Vector( kv["x"], kv["y"], self.vSourceLoc.z )
 		self.vToTarget = self.vTargetLoc - self.vSourceLoc
@@ -51,7 +52,7 @@ function modifier_temple_guardian_hammer_throw:OnCreated( kv )
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/omniknight_wildaxe.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self.hHammer, PATTACH_ABSORIGIN_FOLLOW, nil, self.hHammer:GetOrigin(), true )
 
-		EmitSoundOn( "TempleGuardian.HammerThrow", self:GetCaster() )
+		caster:EmitSound("TempleGuardian.HammerThrow")
 
 		self:StartIntervalThink( 0.05 )
 	end
@@ -90,7 +91,7 @@ function modifier_temple_guardian_hammer_throw:OnIntervalThink()
 				}
 				ApplyDamage( damageInfo )
 				enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = self.stun_duration } )
-				EmitSoundOn( "TempleGuardian.HammerThrow.Damage", enemy )
+				enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
 
 				local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )
 				ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )

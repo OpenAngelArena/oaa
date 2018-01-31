@@ -8,7 +8,8 @@ function ranged_quill_attack:OnSpellStart()
 		self.attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
 		self.attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
 		self.attack_distance = self:GetSpecialValueFor( "attack_distance" )
-		self.attack_damage = self:GetSpecialValueFor( "attack_damage" )
+    self.attack_damage = self:GetSpecialValueFor( "attack_damage" )
+    local caster = self:GetCaster()
 
 		local vPos = nil
 		if self:GetCursorTarget() then
@@ -17,7 +18,7 @@ function ranged_quill_attack:OnSpellStart()
 			vPos = self:GetCursorPosition()
 		end
 
-		local vDirection = vPos - self:GetCaster():GetOrigin()
+		local vDirection = vPos - caster:GetOrigin()
 		vDirection.z = 0.0
 		vDirection = vDirection:Normalized()
 
@@ -26,18 +27,18 @@ function ranged_quill_attack:OnSpellStart()
 		local info = {
 			EffectName = "particles/test_particle/test_model_cluster_linear_projectile.vpcf",
 			Ability = self,
-			vSpawnOrigin = self:GetCaster():GetOrigin(),
+			vSpawnOrigin = caster:GetOrigin(),
 			fStartRadius = self.attack_width_initial,
 			fEndRadius = self.attack_width_end,
 			vVelocity = vDirection * self.attack_speed,
 			fDistance = self.attack_distance,
-			Source = self:GetCaster(),
+			Source = caster,
 			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
 		}
 
 		ProjectileManager:CreateLinearProjectile( info )
-		EmitSoundOn( "Hound.QuillAttack.Cast", self:GetCaster() )
+		caster:EmitSound("Hound.QuillAttack.Cast")
 	end
 end
 
@@ -56,13 +57,13 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
 
 			ApplyDamage( damage )
 
-			local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_bristleback/bristleback_quill_spray_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget );
-			ParticleManager:SetParticleControlEnt( nFXIndex, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true );
-			ParticleManager:SetParticleControlEnt( nFXIndex, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin(), true );
-			ParticleManager:SetParticleControlEnt( nFXIndex, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true  );
-			ParticleManager:ReleaseParticleIndex( nFXIndex );
+			local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_bristleback/bristleback_quill_spray_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget )
+			ParticleManager:SetParticleControlEnt( nFXIndex, 0, hTarget, PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true )
+			ParticleManager:SetParticleControlEnt( nFXIndex, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin(), true )
+			ParticleManager:SetParticleControlEnt( nFXIndex, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true  )
+			ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-			EmitSoundOn( "Hound.QuillAttack.Target", hTarget );
+			hTarget:EmitSound("Hound.QuillAttack.Target")
 		end
 
 		return true
