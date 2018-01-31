@@ -11,6 +11,8 @@ Documentation manages the Development Guide and communication in general.
 ## Topics
 
 1. [Documentation Style Guide][1]
+2. [Documentation Template][2]
 
 [0]: ../README.md
 [1]: docs-style-guide.md
+[2]: docs-template.md
