@@ -57,22 +57,29 @@ end
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-  function modifier_item_vampire_active:OnCreated()
-    self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
-    print(self:GetParent())
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-		-- ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
-  end
+function modifier_item_vampire_active:OnCreated()
+  self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
 
-  function modifier_item_vampire_active:OnDestroy(  )
-    if self.nPreviewFX ~= nil then
-      ParticleManager:DestroyParticle( self.nPreviewFX, true )
-      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+  if IsServer() then
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+      ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
     end
   end
+end
 
-  function modifier_item_vampire_active:OnIntervalThink()
+function modifier_item_vampire_active:OnDestroy(  )
+  if IsServer() then
+    if self.nPreviewFX ~= nil then
+      ParticleManager:DestroyParticle( self.nPreviewFX, false )
+      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+      self.nPreviewFX = nil
+    end
+  end
+end
+
+function modifier_item_vampire_active:OnIntervalThink()
+  if IsServer() then
     local parent = self:GetParent()
     local spell = self:GetAbility()
     if not spell then
@@ -96,6 +103,7 @@ if IsServer() then
     ApplyDamage( damageTable )
   end
 end
+
 
 function modifier_item_vampire_active:IsPurgable()
   return false
