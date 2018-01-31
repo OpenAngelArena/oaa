@@ -47,7 +47,7 @@
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
-    "ItemPermanent"                                       "1"
+    "ItemInitialCharges"                                  "1 2 3"
     "ItemInitialCharges"                                  "3"
     "ItemRequiresCharges"                                 "1"
     "ItemDisplayCharges"                                  "1"
@@ -58,7 +58,7 @@
     "ItemCost"                                            "38050"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflect shard"
+    "ItemAliases"                                         "reflect shard 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -89,12 +89,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
+        "max_charges"                                     "1 2 3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "20"
+        "charge_restore_time"                             "20 15 10"
       }
     }
 

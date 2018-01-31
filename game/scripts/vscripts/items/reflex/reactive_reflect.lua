@@ -1,28 +1,17 @@
 LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflex/reactive_reflect.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_reflection_shard_2 = class(ItemBaseClass)
-item_reflection_shard_3 = class(ItemBaseClass)
+item_reflection_shard_1 = class(ItemBaseClass)
+item_reflection_shard_2 = item_reflection_shard_1
+item_reflection_shard_3 = item_reflection_shard_1
 
-function item_reflection_shard_2:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+function item_reflection_shard_1:GetIntrinsicModifierName()
+    return "modifier_charge_replenisher"
 end
 
-function item_reflection_shard_2:OnSpellStart()
-  local caster = self:GetCaster()
-  local duration = self:GetSpecialValueFor( "duration" )
-
-  caster:AddNewModifier( caster, self, "modifier_item_reactive_reflect", { duration = duration } )
-  -- Let in-built Lotus Orb modifier handle spell reflecting cause reflecting spells is apparently pretty difficult
-  caster:AddNewModifier( caster, self, "modifier_item_lotus_orb_active", { duration = duration } )
-end
-
-function item_reflection_shard_3:GetIntrinsicModifierName()
-  return "modifier_charge_replenisher"
-end
-
-function item_reflection_shard_3:OnSpellStart()
+function item_reflection_shard_1:OnSpellStart()
   local charges = self:GetCurrentCharges()
   if charges <= 0 then
     return false

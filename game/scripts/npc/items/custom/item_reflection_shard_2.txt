@@ -42,11 +42,15 @@
     "AbilityTextureName"                                  "custom/reflection_shard_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "0.5"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
+
+    "ItemInitialCharges"                                  "1 2 3"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +58,7 @@
     "ItemCost"                                            "18050"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflect shard"
+    "ItemAliases"                                         "reflect shard 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -81,6 +85,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "0.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "1 2 3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "20 15 10"
       }
     }
 

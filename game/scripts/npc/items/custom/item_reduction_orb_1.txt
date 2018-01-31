@@ -40,7 +40,7 @@
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/reduction_orb_1"
-    "ScriptFile"                                          "items/reflex/preemptive.lua"
+    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
     "FightRecapLevel"                                     "1"
 
     // Stats
@@ -97,12 +97,12 @@
       "06"
       {
         "var_type"                                          "FIELD_FLOAT"
-        "duration"                                          "2.0 2.0 4.0"
+        "duration"                                          "2.0 3.0 4.0"
       }
       "07"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "damage_as_healing"                                 "0 0 50"
+        "damage_as_healing"                                 "0 25 50"
       }
     }
   }
