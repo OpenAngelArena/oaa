@@ -91,7 +91,9 @@ function Bottlepass:Ready ()
 
   self:Request('auth', {
     users = userList,
-    gametime = GameStartTime
+    gametime = GameStartTime,
+    toolsMode = IsInToolsMode(),
+    cheatsMode = GameRules:IsCheatMode()
   }, function (err, data)
     if err then
       DebugPrint(err)
@@ -106,6 +108,11 @@ function Bottlepass:Ready ()
 end
 
 function Bottlepass:Request(api, data, cb)
+  if GameRules:IsCheatMode() then
+    cb("No Bottlepass while in cheats mode")
+    return
+  end
+
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
   local encoded = json.encode(data)
 
