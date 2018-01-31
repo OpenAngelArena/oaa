@@ -168,22 +168,22 @@ end
 function PlayHungerSpeech()
 	local nSound = RandomInt( 1, 6 )
 	if nSound == 1 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_01", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_01")
 	end
 	if nSound == 2 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_02", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_02")
 	end
 	if nSound == 3 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_03", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_03")
 	end
 	if nSound == 4 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_04", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_04")
 	end
 	if nSound == 5 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_05", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_05")
 	end
 	if nSound == 6 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_06", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_06")
 	end
 end
 

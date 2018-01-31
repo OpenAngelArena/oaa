@@ -8,13 +8,14 @@ LinkLuaModifier( "modifier_werewolf_howl_aura_effect", "modifiers/modifier_werew
 ----------------------------------------
 
 function werewolf_howl:OnSpellStart()
-	EmitSoundOn( "LycanBoss.Howl", self:GetCaster() )
+  local caster = self:GetCaster()
+	caster:EmitSound("LycanBoss.Howl")
 
-	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-	ParticleManager:SetParticleControlEnt( nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_mouth", self:GetCaster():GetOrigin(), true )
+	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+	ParticleManager:SetParticleControlEnt( nFXIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_mouth", caster:GetOrigin(), true )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-	self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_werewolf_howl_aura", { duration = self:GetSpecialValueFor( "duration" ) } )
+	caster:AddNewModifier( caster, self, "modifier_werewolf_howl_aura", { duration = self:GetSpecialValueFor( "duration" ) } )
 end
 
 ----------------------------------------

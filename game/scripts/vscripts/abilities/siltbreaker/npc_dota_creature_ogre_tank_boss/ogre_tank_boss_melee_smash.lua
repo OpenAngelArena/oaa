@@ -23,13 +23,14 @@ end
 -----------------------------------------------------------------------------
 
 function ogre_tank_boss_melee_smash:OnSpellStart()
-	if IsServer() then
-		EmitSoundOn( "OgreTank.Grunt", self:GetCaster() )
+  if IsServer() then
+    local caster = self:GetCaster()
+		caster:EmitSound("OgreTank.Grunt")
 		local flSpeed = self:GetSpecialValueFor( "base_swing_speed" ) / self:GetPlaybackRateOverride()
-		local vToTarget = self:GetCursorPosition() - self:GetCaster():GetOrigin()
+		local vToTarget = self:GetCursorPosition() - caster:GetOrigin()
 		vToTarget = vToTarget:Normalized()
-		local vTarget = self:GetCaster():GetOrigin() + vToTarget * self:GetCastRange( self:GetCaster():GetOrigin(), nil )
-		local hThinker = CreateModifierThinker( self:GetCaster(), self, "modifier_ogre_tank_melee_smash_thinker", { duration = flSpeed }, vTarget, self:GetCaster():GetTeamNumber(), false )
+		local vTarget = caster:GetOrigin() + vToTarget * self:GetCastRange( caster:GetOrigin(), nil )
+		local hThinker = CreateModifierThinker( caster, self, "modifier_ogre_tank_melee_smash_thinker", { duration = flSpeed }, vTarget, caster:GetTeamNumber(), false )
 	end
 end
 

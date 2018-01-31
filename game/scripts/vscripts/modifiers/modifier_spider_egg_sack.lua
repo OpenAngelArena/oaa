@@ -76,42 +76,43 @@ end
 -------------------------------------------------------------------
 
 function modifier_spider_egg_sack:Burst( hHero )
-	if IsServer() then
+  if IsServer() then
 		if self.bBurst == true then
 			return
-		end
+    end
 
+    local parent = self:GetParent()
 		local hTarget = hHero
 		if hHero == nil then
-			hTarget = self:GetParent()
+			hTarget = parent
 		end
 
 		for i=0,RandomInt( self.spider_min, self.spider_max ) do
-			local hUnit = CreateUnitByName( "npc_dota_creature_spider_small", self:GetParent():GetOrigin(), true, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber() )
+			local hUnit = CreateUnitByName( "npc_dota_creature_spider_small", parent:GetOrigin(), true, parent, parent, parent:GetTeamNumber() )
       hUnit:AddNewModifier(self:GetCaster(), self, "modifier_kill", {duration = self.egg_spider_lifetime })
-			if hUnit ~= nil and self:GetParent().zone ~= nil then
-				self:GetParent().zone:AddEnemyToZone( hUnit )
+			if hUnit ~= nil and parent.zone ~= nil then
+				parent.zone:AddEnemyToZone( hUnit )
 			end
 		end
 		self.bBurst = true
 
 		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 0, parent:GetOrigin() )
 		ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.radius / 2, 0.4, self.radius ) )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), parent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 		for _,enemy in pairs ( enemies ) do
 			if enemy ~= nil and enemy:IsInvulnerable() == false and enemy:IsMagicImmune() == false then
 				--print( "Add modifier for " .. self.duration )
-				enemy:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_venomancer_poison_nova", { duration = self.duration } )
+				enemy:AddNewModifier( parent, self:GetAbility(), "modifier_venomancer_poison_nova", { duration = self.duration } )
 			end
 		end
 
-		EmitSoundOn( "Broodmother.LarvalParasite.Burst", self:GetParent() )
-		EmitSoundOn( "EggSack.Burst", self:GetParent() )
-		self:GetParent():AddEffects( EF_NODRAW )
-		self:GetParent():ForceKill( false )
+		parent:EmitSound("Broodmother.LarvalParasite.Burst")
+		parent:EmitSound("EggSack.Burst")
+		parent:AddEffects( EF_NODRAW )
+		parent:ForceKill( false )
 	end
 end
 

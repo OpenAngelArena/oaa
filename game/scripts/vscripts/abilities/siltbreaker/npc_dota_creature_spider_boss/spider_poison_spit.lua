@@ -3,7 +3,8 @@ spider_poison_spit = class( AbilityBaseClass )
 --------------------------------------------------------------------------------
 
 function spider_poison_spit:OnSpellStart()
-	if IsServer() then
+  if IsServer() then
+    local caster = self:GetCaster()
 		self.attack_speed = self:GetSpecialValueFor( "attack_speed" )
 		self.attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
 		self.attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
@@ -16,7 +17,7 @@ function spider_poison_spit:OnSpellStart()
 			vPos = self:GetCursorPosition()
 		end
 
-		local vDirection = vPos - self:GetCaster():GetOrigin()
+		local vDirection = vPos - caster:GetOrigin()
 		vDirection.z = 0.0
 		vDirection = vDirection:Normalized()
 
@@ -25,18 +26,18 @@ function spider_poison_spit:OnSpellStart()
 		local info = {
 			EffectName = "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf",
 			Ability = self,
-			vSpawnOrigin = self:GetCaster():GetOrigin(),
+			vSpawnOrigin = caster:GetOrigin(),
 			fStartRadius = self.attack_width_initial,
 			fEndRadius = self.attack_width_end,
 			vVelocity = vDirection * self.attack_speed,
 			fDistance = self.attack_distance,
-			Source = self:GetCaster(),
+			Source = caster,
 			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
 		}
 
 		ProjectileManager:CreateLinearProjectile( info )
-		EmitSoundOn( "Spider.PoisonSpit", self:GetCaster() )
+		caster:EmitSound("Spider.PoisonSpit")
 	end
 end
 
@@ -48,7 +49,7 @@ function spider_poison_spit:OnProjectileHit( hTarget, vLocation )
 			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_venomancer_venomous_gale", { duration = self:GetSpecialValueFor( "duration" ) } )
 
 			ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget ) )
-			EmitSoundOn( "Spider.PoisonSpit.Impact", hTarget );
+			hTarget:EmitSound("Spider.PoisonSpit.Impact");
 
 			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_disarmed", { duration = self:GetSpecialValueFor( "duration" ) } )
 		end

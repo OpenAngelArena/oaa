@@ -4,12 +4,13 @@ LinkLuaModifier( "modifier_lycan_boss_claw_lunge", "modifiers/modifier_lycan_bos
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnAbilityPhaseStart()
-	if IsServer() then
-		self:GetCaster():StartGesture( ACT_DOTA_CAST_ABILITY_2 )
-		EmitSoundOn( "LycanBoss.Howl", self:GetCaster() )
+  if IsServer() then
+    local caster = self:GetCaster()
+		caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
+		caster:EmitSound("LycanBoss.Howl")
 
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
 	end

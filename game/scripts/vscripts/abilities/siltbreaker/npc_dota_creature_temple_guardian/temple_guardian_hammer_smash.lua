@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_ogre_tank_melee_smash_thinker", "modifiers/modifier_o
 
 function temple_guardian_hammer_smash:OnAbilityPhaseStart()
 	if IsServer() then
-		EmitSoundOn( "TempleGuardian.PreAttack", self:GetCaster() )
+		self:GetCaster():EmitSound("TempleGuardian.PreAttack")
 	end
 	return true
 end

@@ -35,7 +35,8 @@ end
 --------------------------------------------------------------------------------
 
 function spider_boss_larval_parasite:OnSpellStart()
-	if IsServer() then
+  if IsServer() then
+    local caster = self:GetCaster()
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
 
 		self.projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
@@ -46,12 +47,12 @@ function spider_boss_larval_parasite:OnSpellStart()
 		self.projectile_distance = self:GetSpecialValueFor( "projectile_distance" )
 		self.spider_lifetime = self:GetSpecialValueFor( "spider_lifetime" )
 
-		local fCastRange = self:GetCastRange( self:GetCaster():GetOrigin(), nil )
-		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, fCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		local fCastRange = self:GetCastRange( caster:GetOrigin(), nil )
+		local hEnemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, fCastRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 
 		for _, hEnemy in pairs( hEnemies ) do
 			local vPos = hEnemy:GetOrigin()
-			local vDirection = vPos - self:GetCaster():GetOrigin()
+			local vDirection = vPos - caster:GetOrigin()
 			vDirection.z = 0.0
 			vDirection = vDirection:Normalized()
 
@@ -60,12 +61,12 @@ function spider_boss_larval_parasite:OnSpellStart()
 			local info = {
 				EffectName = "particles/test_particle/dungeon_broodmother_linear.vpcf",
 				Ability = self,
-				vSpawnOrigin = self:GetCaster():GetOrigin(),
+				vSpawnOrigin = caster:GetOrigin(),
 				fStartRadius = self.projectile_width_initial,
 				fEndRadius = self.projectile_width_end,
 				vVelocity = vDirection * self.projectile_speed,
 				fDistance = self.projectile_distance,
-				Source = self:GetCaster(),
+				Source = caster,
 				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 				iUnitTargetType = DOTA_UNIT_TARGET_HERO,
 			}
@@ -73,14 +74,14 @@ function spider_boss_larval_parasite:OnSpellStart()
 			ProjectileManager:CreateLinearProjectile( info )
 
 			local nFXIndex = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, nil )
-			ParticleManager:SetParticleControl( nFXIndex, 0, self:GetCaster():GetOrigin() )
+			ParticleManager:SetParticleControl( nFXIndex, 0, caster:GetOrigin() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, info.vVelocity )
 			ParticleManager:SetParticleControl( nFXIndex, 2, Vector( self.projectile_width_end, self.projectile_width_end, self.projectile_width_end ) )
       ParticleManager:DestroyParticle( nFXIndex , false)
       ParticleManager:ReleaseParticleIndex( nFXIndex )
 		end
 
-		EmitSoundOn( "Broodmother.LarvalParasite.Cast", self:GetCaster() )
+		caster:EmitSound("Broodmother.LarvalParasite.Cast")
 	end
 end
 
@@ -91,7 +92,7 @@ function spider_boss_larval_parasite:OnProjectileHit( hTarget, vLocation )
 		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
 			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_spider_boss_larval_parasite", { duration = self.buff_duration } )
 
-			EmitSoundOn( "Broodmother.LarvalParasite.Impact", hTarget );
+			hTarget:EmitSound("Broodmother.LarvalParasite.Impact")
 		end
 
 		return true
@@ -101,30 +102,31 @@ end
 --------------------------------------------------------------------------------
 
 function spider_boss_larval_parasite:PlayLarvalParasiteSpeech()
-	if IsServer() then
-		if self:GetCaster().nLastLarvalSound == nil then
-			self:GetCaster().nLastLarvalSound = -1
+  if IsServer() then
+    local caster = self:GetCaster()
+		if caster.nLastLarvalSound == nil then
+			caster.nLastLarvalSound = -1
 		end
 
 		local nSound = RandomInt( 1, 3 )
-		while nSound == self:GetCaster().nLastLarvalSound do
+		while nSound == caster.nLastLarvalSound do
 			nSound = RandomInt( 1, 3 )
 		end
 
 		if nSound == 1 then
-			EmitSoundOn( "broodmother_broo_attack_06", self:GetCaster() )
+			caster:EmitSound("broodmother_broo_attack_06")
 		end
 		if nSound == 2 then
-			EmitSoundOn( "broodmother_broo_attack_10", self:GetCaster() )
+			caster:EmitSound("broodmother_broo_attack_10")
 		end
 		if nSound == 3 then
-			EmitSoundOn( "broodmother_broo_attack_11", self:GetCaster() )
+			caster:EmitSound("broodmother_broo_attack_11")
 		end
 		if nSound == 4 then
-			EmitSoundOn( "broodmother_broo_attack_12", self:GetCaster() )
+			caster:EmitSound("broodmother_broo_attack_12")
 		end
 
-		self:GetCaster().nLastLarvalSound = nSound
+		caster.nLastLarvalSound = nSound
 	end
 end
 
