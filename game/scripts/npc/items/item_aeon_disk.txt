@@ -1,75 +1,127 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Aeon Disk
-  //=================================================================================================================
-  "item_recipe_aeon_disk"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "255"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1350"
-    "ItemShopTags"          ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_aeon_disk"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Aeon Disk
+    //======================================================================================================================
+    "item_recipe_aeon_disk"
     {
-      "01"            "item_vitality_booster;item_energy_booster"
+        "ID"                        "255"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "1350"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_aeon_disk"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_energy_booster;item_vitality_booster"
+        }
     }
-  }
-  //=================================================================================================================
-  // Combo Breaker
-  //=================================================================================================================
-  "item_aeon_disk"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "256"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "ItemAliases"         "ad;aeon disk"
-
-    "AbilityCooldown"       "100.0 80 60 40 20"
-    "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityTextureName"                                  "custom/combo_breaker"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Aeon Disk
+    //======================================================================================================================
+    "item_aeon_disk"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"      "250 1000 2000 3000 4000"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_mana"      "250 500 1000 1500 2000"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "health_threshold_pct"      "80"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "status_resistance"   "25"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "buff_duration"   "2.5"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "256"
+        "BaseClass"                                          "item_lua"
+        "ScriptFile"                                         "custom/combo_breaker"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_aeon_disk"
+        "UpgradeRecipe"                                      "item_recipe_aeon_disk"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "3350"
+        "ItemShopTags"                                       "str;regen_health;health_pool"
+        "ItemAliases"                                        "ad;aeon disk"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "250 1000 2000 3000 4000"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "250 500 1000 1500 2000"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "health_threshold_pct"                                  "80"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "status_resistance"                                     "25"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "buff_duration"                                         "2.5"
+            }
+        }
+        
     }
-  }
 }

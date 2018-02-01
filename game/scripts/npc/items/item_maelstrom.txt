@@ -1,0 +1,139 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Maelstrom
+    //======================================================================================================================
+    "item_recipe_maelstrom"
+    {
+        "ID"                        "165"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "700"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_maelstrom"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_gloves;item_mithril_hammer"
+        }
+    }
+    //======================================================================================================================
+    // Maelstrom
+    //======================================================================================================================
+    "item_maelstrom"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "166"
+        "BaseClass"                                          "item_maelstrom"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "2800"
+        "ItemShopTags"                                       "damage;attack_speed;unique"
+        "ItemAliases"                                        "maelstrom"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "24"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "25"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "chain_chance"                                          "25"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "chain_damage"                                          "120"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "chain_strikes"                                         "4"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "chain_radius"                                          "900"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "chain_delay"                                           "0.25"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "chain_cooldown"                                        "0.2"
+            }
+        }
+        
+    }
+}

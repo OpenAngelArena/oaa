@@ -1,89 +1,113 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Satanic
-  //=================================================================================================================
-  "item_recipe_satanic"
-  {
-
-    "ID"                                                  "155"    // unique ID
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_satanic"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Satanic
+    //======================================================================================================================
+    "item_satanic"
     {
-      "01"                                                "item_lifesteal;item_claymore;item_reaver"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "156"
+        "BaseClass"                                          "item_satanic"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "2"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_satanic"
+        "UpgradeRecipe"                                      ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "5700"
+        "ItemShopTags"                                       "damage;str;armor;unique;hard_to_tag"
+        "ItemAliases"                                        "satanic"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "0"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "50"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "25"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "lifesteal_percent"                                     "25"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "unholy_lifesteal_percent"                              "175"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "unholy_lifesteal_total_tooltip"                        "200"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "unholy_duration"                                       "4.5"
+            }
+        }
+        
     }
-  }
-
-  //=================================================================================================================
-  // Satanic
-  //=================================================================================================================
-  "item_satanic"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "156"    // unique ID
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
-    "AbilityTextureName"                                  "custom/satanic"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0"
-    "AbilitySharedCooldown"                               "satanic"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_satanic;item_satanic_2;item_satanic_3;item_satanic_4"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5500"
-    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
-    "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "satanic"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 38 55 75 100"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 150 225"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "25 30 35 40 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "175 170 165 160 155"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_total_tooltip"                  "200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "4.5"
-      }
-    }
-  }
 }

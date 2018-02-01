@@ -1,43 +1,89 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Enchanted Mango
-  //=================================================================================================================
-  "item_enchanted_mango"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "216"                            // unique
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
-    "ItemStackable"                                       "0"
-    "ItemHideCharges"                                     "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Enchanted Mango
+    //======================================================================================================================
+    "item_enchanted_mango"
     {
-      "01"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "hp_regen"    "1.0"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "replenish_amount"    "150"
-      }
-      "03"
-      {
-        "var_type"  "FIELD_INTEGER"
-        "range_tooltip"   "400"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "216"
+        "BaseClass"                                          "item_enchanted_mango"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "100"
+        "ItemShopTags"                                       "consumable"
+        "ItemAliases"                                        "enchanted;mango"
+        "ItemQuality"                                        "consumable"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_FULLY_SHAREABLE_STACKING"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "0"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "hp_regen"                                              "1.0"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_amount"                                      "150"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "range_tooltip"                                         "400"
+            }
+        }
+        
     }
-  }
 }

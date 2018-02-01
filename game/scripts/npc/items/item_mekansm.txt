@@ -1,105 +1,145 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Mekasmm
-  //=================================================================================================================
-  "item_recipe_mekansm"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "78"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "900"
-    "ItemShopTags"          ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_mekansm"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Mekansm
+    //======================================================================================================================
+    "item_recipe_mekansm"
     {
-      "01"            "item_headdress;item_buckler"
+        "ID"                        "78"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "900"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_mekansm"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_buckler;item_headdress"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Mekansm
-  //=================================================================================================================
-  "item_mekansm"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "79"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"            "custom/mekansm_1"
-    "FightRecapLevel"       "2"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "65.0 55.0 45.0 35.0 25.0"
-    "AbilitySharedCooldown"                               "restore"
-    "AbilityCastRange"        "900"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "225"
-    "ItemCost"            "2350"
-    "ItemShopTags"          "agi;int;str;armor;boost_health"
-    "ItemQuality"         "rare"
-    "ItemAliases"         "mechanism;mekansm;meka"
-    "ItemAlertable"         "1"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Mekansm
+    //======================================================================================================================
+    "item_mekansm"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "5 10 15 25 40"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 10 15 20 25"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"     "900"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "aura_health_regen"   "3.5 7 14 21 28"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "heal_amount"     "250 500 800 1200 1800"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "heal_bonus_armor"    "2 4 6 8 10"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "heal_armor_duration" "25"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "heal_radius"     "900"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "79"
+        "BaseClass"                                          "item_mekansm"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "2"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_mekansm"
+        "UpgradeRecipe"                                      "item_recipe_mekansm"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "2350"
+        "ItemShopTags"                                       "agi;int;str;armor;boost_health"
+        "ItemAliases"                                        "mechanism;mekansm"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "5"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_health_regen"                                     "3.5"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "5"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_amount"                                           "250"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_bonus_armor"                                      "2"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_armor_duration"                                   "25"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_radius"                                           "900"
+            }
+        }
+        
     }
-  }
 }

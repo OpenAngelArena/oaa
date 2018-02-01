@@ -1,91 +1,101 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Hand of Midas 2
-  //=================================================================================================================
-  "item_recipe_hand_of_midas_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3184"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3000"
-    "ItemShopTags"                                        ""
-    "ItemAliases"                                         "hom"
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_hand_of_midas_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Hand Of Midas 2
+    //======================================================================================================================
+    "item_hand_of_midas_2"
     {
-      "01"                                                "item_hand_of_midas_1"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3186"
+        "BaseClass"                                          "item_lua"
+        "ScriptFile"                                         "items/hand_of_midas.lua"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "3"
+        "ItemBaseLevel"                                      "2"
+        "UpgradesItems"                                      "item_hand_of_midas_2"
+        "UpgradeRecipe"                                      ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "0"
+        "ItemShopTags"                                       "attack_speed;hard_to_tag"
+        "ItemAliases"                                        "hand of midas 2;midas 2"
+        "ItemQuality"                                        "common"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "xp_multiplier"                                         "1.85"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_gold"                                            "200"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "transmute_cast_range_tooltip"                          "600"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "30"
+            }
+        }
+        
     }
-  }
-
-  //=================================================================================================================
-  // Hand of Midas 2
-  //=================================================================================================================
-  "item_hand_of_midas_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3186"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/hand_of_midas.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityTextureName"                                  "custom/midas_2"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "100.0"
-    "AbilitySharedCooldown"                               "hand_of_midas"
-
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "5150"
-    "ItemShopTags"                                        "attack_speed;hard_to_tag"
-    "ItemQuality"                                         "common"
-    "ItemAliases"                                         "hand of midas 2;midas 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "1.85 3 4.5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "200 385 760"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transmute_cast_range_tooltip"                    "600"
-      }
-    }
-  }
 }

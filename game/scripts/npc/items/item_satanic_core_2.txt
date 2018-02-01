@@ -1,0 +1,176 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Satanic Core 2
+    //======================================================================================================================
+    "item_recipe_satanic_core_2"
+    {
+        "ID"                        "3219"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_2"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_satanic_core_2"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_satanic_core"
+            "02"                    "item_satanic_core"
+        }
+    }
+    //======================================================================================================================
+    // Satanic Core 2
+    //======================================================================================================================
+    "item_satanic_core_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3222"
+        "BaseClass"                                          "item_lua"
+        "ScriptFile"                                         "custom/satanic_core_2"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "2"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "3"
+        "ItemBaseLevel"                                      "2"
+        "UpgradesItems"                                      "item_satanic_core_2"
+        "UpgradeRecipe"                                      "item_recipe_satanic_core"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "11500"
+        "ItemShopTags"                                       "damage;str;armor;unique;hard_to_tag"
+        "ItemAliases"                                        "satanic;core;2"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "28 45 65"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intelligence"                                    "28 45 65"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "500"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "500"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "lifesteal_percent"                                     "35"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "unholy_lifesteal_percent"                              "165"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "unholy_lifesteal_total_tooltip"                        "200"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "unholy_duration"                                       "4.5"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_cooldown"                                        "25"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "hero_lifesteal"                                        "35"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "creep_lifesteal"                                       "10 20 30"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "hero_spellsteal_unholy"                                "165"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "creep_spellsteal_unholy"                               "190 180 170"
+            }
+        }
+        
+    }
+}

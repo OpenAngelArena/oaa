@@ -1,109 +1,151 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Helm of the Dominator
-  //=================================================================================================================
-  "item_recipe_helm_of_the_dominator"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "163"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
-    "ItemShopTags"          ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_helm_of_the_dominator"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Helm of the Dominator
+    //======================================================================================================================
+    "item_recipe_helm_of_the_dominator"
     {
-      "01"            "item_gloves;item_headdress;item_ring_of_health"
+        "ID"                        "163"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "0"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_helm_of_the_dominator"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_gloves;item_headdress"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Helm of the Dominator
-  //=================================================================================================================
-  "item_helm_of_the_dominator"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "164"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityTextureName"            "custom/helm_of_the_dominator_1"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "700"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "60.0"
-    "AbilitySharedCooldown"         "dominate"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
-    "ItemCost"            "2000"
-    "ItemShopTags"          "damage;armor;unique;hard_to_tag"
-    "ItemQuality"         "artifact"
-    "ItemAliases"         "hotd;helm of the dominator;helm;dominator"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Helm of the Dominator
+    //======================================================================================================================
+    "item_helm_of_the_dominator"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_stats"     "2 15 30 50 70"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "attack_speed"      "5 10 15 35 45"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "attack_speed_aura"   "20 35 60 80 100"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "hp_regen_aura"     "8 10 12 14 16"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"     "900"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "health_min"      "1500 3000 6000 12000 24000"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "speed_base"      "425"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"   "700"
-      }
-      "09"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_bounty"   "125"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "164"
+        "BaseClass"                                          "item_helm_of_the_dominator"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_helm_of_the_dominator"
+        "UpgradeRecipe"                                      "item_recipe_helm_of_the_dominator"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "1150"
+        "ItemShopTags"                                       "damage;armor;unique;hard_to_tag"
+        "ItemAliases"                                        "hotd;helm of the dominator"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "700"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_stats"                                           "2"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "attack_speed"                                          "5"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "attack_speed_aura"                                     "20"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "hp_regen_aura"                                         "8"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "health_min"                                            "1500"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "speed_base"                                            "425"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_bounty"                                        "125"
+            }
+        }
+        
     }
-  }
 }

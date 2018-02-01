@@ -1,52 +1,95 @@
 "DOTAItems"
 {
-  "item_quelling_blade"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "11"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-
-    "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "4.0"
-    "Model"                                               "models/props_gameplay/quelling_blade.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "200"
-    "ItemShopTags"                                        "damage"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "qb;quelling blade"
-    "SideShop"                                            "0"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Quelling Blade
+    //======================================================================================================================
+    "item_quelling_blade"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "24"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus_ranged"                             "7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "quelling_range_tooltip"                          "350"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_ward"                                 "450"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "11"
+        "BaseClass"                                          "item_quelling_blade"
+        "ScriptFile"                                         ""
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "200"
+        "ItemShopTags"                                       "damage"
+        "ItemAliases"                                        "qb;quelling blade"
+        "ItemQuality"                                        "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "1"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_ward"                                       "450"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage_bonus"                                          "24"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage_bonus_ranged"                                   "7"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "quelling_range_tooltip"                                "350"
+            }
+        }
+        
     }
-  }
 }
