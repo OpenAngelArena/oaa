@@ -1,101 +1,145 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Vladimir 4
-  //=================================================================================================================
-  "item_recipe_vladmir_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3925"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_vladmir_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Vladmir 4
+    //======================================================================================================================
+    "item_recipe_vladmir_4"
     {
-      "01"                                                "item_vladmir_3;item_upgrade_core_3"
-      "02"                                                "item_vladmir_3;item_upgrade_core_4"
+        "ID"                        "3925"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_4"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_vladmir_4"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_upgrade_core_3;item_vladmir_3"
+            "02"                    "item_upgrade_core_4;item_vladmir_3"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Vladimir 4
-  //=================================================================================================================
-  "item_vladmir_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3926"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_vladmir"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/vladmir_4"
-    "AbilityCastRange"        "900"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_vladmir_2;item_vladmir_3;item_vladmir_4;item_vladmir_5"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "15250"
-    "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
-    "ItemQuality"         "rare"
-    "ItemAliases"         "vladmir's offering 4;vlads 4"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Vladmir 4
+    //======================================================================================================================
+    "item_vladmir_4"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "2 4 8 16 32"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "hp_regen"        "2.5 5 10 15 20"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura"   "0.65 1.6 3.2 4.8 6.5"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "armor_aura"      "4 8 12 16 20"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "damage_aura"     "15 22 30 39 50"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "vampiric_aura"     "15 18 21 25 30"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "vampiric_aura_ranged"  "10 12 14 17 20"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"         "900"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3926"
+        "BaseClass"                                          "item_vladmir_4"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "4"
+        "UpgradesItems"                                      "item_vladmir_4"
+        "UpgradeRecipe"                                      "item_recipe_vladmir"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "15250"
+        "ItemShopTags"                                       "lifesteal;damage;armor;regen_mana"
+        "ItemAliases"                                        "vladmir&#039;s offering 4;vlads 4"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "hp_regen"                                              "2.5"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "mana_regen_aura"                                       "0.65"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "armor_aura"                                            "4"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage_aura"                                           "15"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "vampiric_aura"                                         "15"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "vampiric_aura_ranged"                                  "10"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "aura_radius"                                           "900"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "2"
+            }
+        }
+        
     }
-  }
 }

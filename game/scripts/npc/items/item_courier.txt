@@ -1,0 +1,66 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Animal Courier
+    //======================================================================================================================
+    "item_courier"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "45"
+        "BaseClass"                                          "item_courier"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES"
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "200"
+        "ItemShopTags"                                       "consumable"
+        "ItemAliases"                                        "donkey;chicken;animal courier"
+        "ItemQuality"                                        "consumable"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "1"
+        "ItemStockTime"                                      "36000"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_FULLY_SHAREABLE"
+        "ItemKillable"                                       "0"
+        "ItemSellable"                                       "0"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        
+    }
+}

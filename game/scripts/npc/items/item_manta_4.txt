@@ -1,166 +1,217 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Manta Style 4
-  //=================================================================================================================
-  "item_recipe_manta_4"
-  {
-    "ID"                                                  "3174"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-    "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_manta_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Manta 4
+    //======================================================================================================================
+    "item_recipe_manta_4"
     {
-      "01"                                                "item_manta_3;item_upgrade_core_3"
-      "02"                                                "item_manta_3;item_upgrade_core_4"
+        "ID"                        "3174"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_4"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_manta_4"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_manta_3;item_upgrade_core_3"
+            "02"                    "item_manta_3;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Manta Style 4
-  //=================================================================================================================
-  "item_manta_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3177"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_manta"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityTextureName"                                  "custom/manta_style_4"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilitySharedCooldown"                               "manta"
-
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_manta_4;item_manta_5"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "18000"
-    "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "manta style 4;manta 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Manta 4
+    //======================================================================================================================
+    "item_manta_4"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 14 19 25 32"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 31 38 47 58"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 14 19 25 32"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "8 10 14 17 22"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_duration"                       "20"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-67"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "33"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_melee"                "250 225 200 175 150"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_melee_total_pct"         "350 325 300 275 250"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-72"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "28"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "images_take_damage_percent_ranged"               "300 275 250 225 200"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_ranged_total_pct"        "400 375 350 325 300"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "30"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "45"
-      }
-      "18"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invuln_duration"                                 "0.1"
-      }
-      "19"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "1000"
-      }
-      "20"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_ranged_cooldown_increase"                "15"
-      }
-    }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3177"
+        "BaseClass"                                          "item_manta_4"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "precache"
-    {
-      "particle"  "particles/items2_fx/manta_phase.vpcf"
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "4"
+        "UpgradesItems"                                      "item_manta_4"
+        "UpgradeRecipe"                                      "item_recipe_manta"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "13000"
+        "ItemShopTags"                                       "agi;str;int;attack_speed;move_speed;hard_to_tag"
+        "ItemAliases"                                        "manta style 4;manta 4"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agility"                                         "26"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "10"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "8"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "images_count"                                          "2"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_illusion_duration"                             "20"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "images_do_damage_percent_melee"                        "-67"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_damage_outgoing_melee"                         "33"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "images_take_damage_percent_melee"                      "250"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_damage_incoming_melee_total_pct"               "350"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "images_do_damage_percent_ranged"                       "-72"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_damage_outgoing_ranged"                        "28"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "images_take_damage_percent_ranged"                     "300"
+            }
+
+            "14"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_damage_incoming_ranged_total_pct"              "400"
+            }
+
+            "15"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cooldown_melee"                                        "30"
+            }
+
+            "16"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cooldown_ranged_tooltip"                               "45"
+            }
+
+            "17"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "invuln_duration"                                       "0.1"
+            }
+
+            "18"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "vision_radius"                                         "1000"
+            }
+
+            "19"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "tooltip_ranged_cooldown_increase"                      "15"
+            }
+
+            "20"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "10"
+            }
+        }
+        
     }
-  }
 }

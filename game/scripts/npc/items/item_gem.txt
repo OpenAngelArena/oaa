@@ -1,0 +1,76 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Gem of True Sight
+    //======================================================================================================================
+    "item_gem"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "30"
+        "BaseClass"                                          "item_gem"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "900"
+        "ItemShopTags"                                       "see_invis"
+        "ItemAliases"                                        "gem;of;true;sight"
+        "ItemQuality"                                        "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "1"
+        "ItemStockTime"                                      "600"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_FULLY_SHAREABLE"
+        "ItemKillable"                                       "0"
+        "ItemSellable"                                       "0"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "0"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "radius"                                                "900"
+            }
+        }
+        
+    }
+}

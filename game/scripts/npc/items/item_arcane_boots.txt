@@ -1,0 +1,94 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Arcane Boots
+    //======================================================================================================================
+    "item_arcane_boots"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "180"
+        "BaseClass"                                          "item_arcane_boots"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "1300"
+        "ItemShopTags"                                       "move_speed;boost_mana;mana_pool"
+        "ItemAliases"                                        "mana;mb;arcane boots"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "250"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement"                                        "50"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_amount"                                      "135"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_radius"                                      "900"
+            }
+        }
+        
+    }
+}

@@ -1,94 +1,140 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Guinsoos Scythe of Vyse 3
-  //=================================================================================================================
-  "item_recipe_sheepstick_3"
-  {
-    "ID"                                                  "3067"      // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sheepstick_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Sheepstick 3
+    //======================================================================================================================
+    "item_recipe_sheepstick_3"
     {
-      "01"                                                "item_sheepstick_2;item_upgrade_core_2"
-      "02"                                                "item_sheepstick_2;item_upgrade_core_3"
-      "03"                                                "item_sheepstick_2;item_upgrade_core_4"
+        "ID"                        "3067"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_3"
+
+        "ItemCost"                  "3500"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_sheepstick_3"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_sheepstick_2;item_upgrade_core_2"
+            "02"                    "item_sheepstick_2;item_upgrade_core_3"
+            "03"                    "item_sheepstick_2;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Guinsoos Scythe of Vyse 3
-  //=================================================================================================================
-  "item_sheepstick_3"
-  {
-    // General-----------------------------------------------------------------------------------------------------
-    "ID"                                                  "3071"    //Unique ID
-    "BaseClass"                                           "item_sheepstick"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "2"
-    "AbilityTextureName"                                  "custom/scythe_of_vyse_3"
-    // Stats-------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "22.0"
-    "AbilitySharedCooldown"                               "hex"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_sheepstick_3;item_sheepstick_4"
-
-    // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "10700"
-    "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "hex 3;sheepstick 3;scythe of vyse 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special-----------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Sheepstick 3
+    //======================================================================================================================
+    "item_sheepstick_3"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 30 40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 20 30 40"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 50 70 105 140"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "sheep_movement_speed"                            "140"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3071"
+        "BaseClass"                                          "item_sheepstick_3"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "2"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "3"
+        "UpgradesItems"                                      "item_sheepstick_3"
+        "UpgradeRecipe"                                      "item_recipe_sheepstick"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "10700"
+        "ItemShopTags"                                       "int;regen_mana;agi;hard_to_tag"
+        "ItemAliases"                                        "hex 3;sheepstick 3;scythe of vyse 3"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agility"                                         "10"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "35"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "2.25"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "sheep_duration"                                        "3.5"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "sheep_movement_speed"                                  "140"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "800"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "10"
+            }
+        }
+        
     }
-  }
 }

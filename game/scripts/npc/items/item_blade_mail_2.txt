@@ -1,90 +1,123 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Blade Mail 2
-  //=================================================================================================================
-  "item_recipe_blade_mail_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3088"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    "FightRecapLevel"                                     "1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_blade_mail_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Blade Mail 2
+    //======================================================================================================================
+    "item_recipe_blade_mail_2"
     {
-      "01"                                                "item_blade_mail;item_upgrade_core"
-      "02"                                                "item_blade_mail;item_upgrade_core_2"
-      "03"                                                "item_blade_mail;item_upgrade_core_3"
-      "04"                                                "item_blade_mail;item_upgrade_core_4"
+        "ID"                        "3088"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_2"
+
+        "ItemCost"                  "1500"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_blade_mail_2"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_blade_mail;item_upgrade_core"
+            "02"                    "item_blade_mail;item_upgrade_core_2"
+            "03"                    "item_blade_mail;item_upgrade_core_3"
+            "04"                    "item_blade_mail;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Blade Mail 2
-  //=================================================================================================================
-  "item_blade_mail_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3090"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_blade_mail"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/blade_mail_2"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
-    "AbilitySharedCooldown"                               "blademail"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3700"
-    "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm 2;blade mail 2;blademail 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Blade Mail 2
+    //======================================================================================================================
+    "item_blade_mail_2"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35 50 75 120"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 14 22 30 40"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 22 32 45"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.5"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3090"
+        "BaseClass"                                          "item_blade_mail_2"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "2"
+        "UpgradesItems"                                      "item_blade_mail_2"
+        "UpgradeRecipe"                                      "item_recipe_blade_mail"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "3700"
+        "ItemShopTags"                                       "damage;armor;int;hard_to_tag"
+        "ItemAliases"                                        "bm 2;blade mail 2;blademail 2"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "22 35 50 75 120"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "6 14 22 30 40"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10 15 22 32 45"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "4.5"
+            }
+        }
+        
     }
-  }
 }

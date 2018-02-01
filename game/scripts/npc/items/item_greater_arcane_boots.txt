@@ -1,0 +1,132 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Greater Arcane Boots
+    //======================================================================================================================
+    "item_recipe_greater_arcane_boots"
+    {
+        "ID"                        "3358"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "100"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_greater_arcane_boots"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_arcane_boots;item_farming_core"
+        }
+    }
+    //======================================================================================================================
+    // Greater Arcane Boots
+    //======================================================================================================================
+    "item_greater_arcane_boots"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3363"
+        "BaseClass"                                          "item_greater_arcane_boots"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "4"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_greater_arcane_boots"
+        "UpgradeRecipe"                                      "item_recipe_greater_arcane_boots"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "1400"
+        "ItemShopTags"                                       "move_speed;boost_mana;mana_pool"
+        "ItemAliases"                                        "greater arcane boots;greater arcanes;arcanes"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement"                                        "55 61 68 75"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "350 560 840 1260"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_amount"                                      "170 250 400 600"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "replenish_radius"                                      "900"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_gold_per_minute"                                 "1800 3200 5500 9000"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "creep_bounty_percent"                                  "30"
+            }
+        }
+        
+    }
+}

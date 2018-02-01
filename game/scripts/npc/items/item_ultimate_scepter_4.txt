@@ -1,86 +1,115 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Scepter 4
-  //=================================================================================================================
-  "item_recipe_ultimate_scepter_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3052"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ultimate_scepter_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Ultimate Scepter 4
+    //======================================================================================================================
+    "item_recipe_ultimate_scepter_4"
     {
-      "01"                                                "item_ultimate_scepter_3;item_upgrade_core_3"
-      "02"                                                "item_ultimate_scepter_3;item_upgrade_core_4"
+        "ID"                        "3052"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_4"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_ultimate_scepter_4"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_ultimate_scepter_3;item_upgrade_core_3"
+            "02"                    "item_ultimate_scepter_3;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Scepter 4
-  //=================================================================================================================
-  "item_ultimate_scepter_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "10556"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/aghanims.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityTextureName"                                  "custom/ultimate_scepter_4"
-    "AbilityCastRange"                                    "600"
-
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17200"
-    "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "ags 4;ultimate 4;aghanim's scepter 4;aghs 4"
-    //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_ultimate_scepter_4"
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Ultimate Scepter 4
+    //======================================================================================================================
+    "item_ultimate_scepter_4"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 20 30 40 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "175 250 400 600 800"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "175 250 400 600 800"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "talent_level_tooltip"                            "0 10 15 20 25"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "10556"
+        "BaseClass"                                          "item_ultimate_scepter_4"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "4"
+        "UpgradesItems"                                      "item_ultimate_scepter_4"
+        "UpgradeRecipe"                                      "item_recipe_ultimate_scepter"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "17200"
+        "ItemShopTags"                                       "int;str;agi;mana_pool;health_pool;hard_to_tag"
+        "ItemAliases"                                        "ags 4;ultimate 4;aghanim&#039;s scepter 4;aghs 4"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "10"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "175"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "175"
+            }
+        }
+        
     }
-  }
 }

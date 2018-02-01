@@ -1,70 +1,112 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Aether Lens 5
-  //=================================================================================================================
-  "item_recipe_aether_lens_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3852"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "20000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_aether_lens_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Aether Lens 5
+    //======================================================================================================================
+    "item_recipe_aether_lens_5"
     {
-      "01"                                                "item_aether_lens_4;item_upgrade_core_4;"
+        "ID"                        "3852"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_5"
+
+        "ItemCost"                  "20000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_aether_lens_5"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_aether_lens_4;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Aether Lens 5
-  //=================================================================================================================
-  "item_aether_lens_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3853"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_aether_lens"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/aether_lens_5"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35350"
-    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "aether lens 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Aether Lens 5
+    //======================================================================================================================
+    "item_aether_lens_5"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "450 1000 2200 3800 5600"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "1.25 3.75 6.25 8.75 11.25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "250 375 400 575 700"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3853"
+        "BaseClass"                                          "item_aether_lens_5"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "35350"
+        "ItemShopTags"                                       "int;regen_mana;move_speed;hard_to_tag"
+        "ItemAliases"                                        "aether;lens;5"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "450 1000 2200 3800 5600"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "1.25 3.75 6.25 8.75 11.25"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_bonus"                                      "250 375 400 575 700"
+            }
+        }
+        
     }
-  }
 }
