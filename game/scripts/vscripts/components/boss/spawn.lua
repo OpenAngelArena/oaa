@@ -17,7 +17,7 @@ if BossSpawner == nil then
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(5, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
