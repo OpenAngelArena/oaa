@@ -1,136 +1,188 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Necronomicon 5
-  //=================================================================================================================
-  "item_recipe_necronomicon_5"
-  {
-    "ID"                                                  "3167"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-    "ItemBaseLevel"                                       "5"
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_necronomicon_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Necronomicon 5
+    //======================================================================================================================
+    "item_recipe_necronomicon_5"
     {
-      "01"                                                "item_necronomicon_4;item_upgrade_core_2"
-      "02"                                                "item_necronomicon_4;item_upgrade_core_3"
-      "03"                                                "item_necronomicon_4;item_upgrade_core_4"
+        "ID"                        "3167"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_5"
+
+        "ItemCost"                  "3500"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_necronomicon_5"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_necronomicon_4;item_upgrade_core_2"
+            "02"                    "item_necronomicon_4;item_upgrade_core_3"
+            "03"                    "item_necronomicon_4;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Necronomicon 5
-  //=================================================================================================================
-  "item_necronomicon_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3170"    // unique ID
-    "BaseClass"                                           "item_necronomicon_3"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/necronomicon_5"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90.0"
-    "AbilitySharedCooldown"                               "necronomicon"
-    "FightRecapLevel"                                     "1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "10000"
-    "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "necronomicon 5;necro 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "7"
-    "ItemBaseLevel"                                       "5"
-
-    "UpgradesItems"                                       "item_necronomicon_5"
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Necronomicon 5
+    //======================================================================================================================
+    "item_necronomicon_5"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 36 54 70 86"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "1 1.25 1.5 2 2.75 3.75 5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_duration"                                 "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "warrior_health_tooltip"                          "700 800 900 1600 2800 4800 8200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "warrior_damage_tooltip"                          "75 100 125 180 250 380 550"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "warrior_mana_feedback"                           "30 40 50 65 85 110 140"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "warrior_mana_break_tooltip"                      "30 40 50 65 85 110 140"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion"                                       "550 675 800 1200 1800 2600 3600"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "warrior_truesight"                               "1000"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_health_tooltip"                           "700 800 900 1600 2800 4800 8200"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_damage_tooltip"                           "60 90 120 175 250 380 550"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_mana_burn"                                "125 175 225 350 500 750 1150"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_aura_radius_tooltip"                      "900"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_move_speed"                               "5 7 9 11 13 15 17"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 10 15 20 25 30 35"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3170"
+        "BaseClass"                                          "item_necronomicon"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "7"
+        "ItemBaseLevel"                                      "5"
+        "UpgradesItems"                                      "item_necronomicon_5"
+        "UpgradeRecipe"                                      "item_recipe_necronomicon"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "10350"
+        "ItemShopTags"                                       "int;str;hard_to_tag;see_invis"
+        "ItemAliases"                                        "necronomicon 5;necro 5"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "10 15 20"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bonus_mana_regen"                                      "1 1.25 1.5"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "summon_duration"                                       "50"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "warrior_health_tooltip"                                "700 800 900"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "warrior_damage_tooltip"                                "75 100 125"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "warrior_mana_feedback"                                 "30 40 50"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "warrior_mana_break_tooltip"                            "30 40 50"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "explosion"                                             "550 675 800"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "warrior_truesight"                                     "1000"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_health_tooltip"                                 "700 800 900"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_damage_tooltip"                                 "60 90 120"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_mana_burn"                                      "125 175 225"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_aura_radius_tooltip"                            "900"
+            }
+
+            "14"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_move_speed"                                     "5 7 9"
+            }
+
+            "15"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "archer_attack_speed"                                   "5 10 15"
+            }
+        }
+        
     }
-  }
 }

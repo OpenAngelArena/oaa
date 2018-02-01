@@ -1,97 +1,117 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Nullifier
-  //=================================================================================================================
-  "item_recipe_nullifier"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "224"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
-    "ItemShopTags"          ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_nullifier"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Nullifier
+    //======================================================================================================================
+    "item_nullifier"
     {
-      "01"            "item_relic;item_helm_of_iron_will"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "225"
+        "BaseClass"                                          "item_datadriven"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_nullifier"
+        "UpgradeRecipe"                                      ""
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "0"
+        "ItemAliases"                                        "nlf;nullifier"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "65"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "5"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_regen"                                           "5"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "mute_duration"                                         "5.0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "projectile_speed"                                      "1200"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "slow_pct"                                              "100"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "slow_interval_duration"                                "0.4"
+            }
+        }
+        
     }
-  }
-  //=================================================================================================================
-  // Nullifier
-  //=================================================================================================================
-  "item_nullifier"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"              "225"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "FightRecapLevel"       "1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "4700"
-    "ItemAliases"         "nlf;nullifier"
-
-    "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "13.0"
-    "AbilityCastRange"      "600"
-    "AbilityManaCost"       "75"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "65 95 140 210 285"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 8 12 16 20"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_regen"     "5 8 12 18 26"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "mute_duration"     "5.0"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "projectile_speed"    "1200"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "slow_pct"        "100"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "slow_interval_duration"  "0.4"
-      }
-    }
-  }
 }

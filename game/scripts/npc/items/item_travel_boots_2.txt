@@ -1,82 +1,112 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Boots of Travel 2
-  //=================================================================================================================
-  "item_recipe_travel_boots_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "219"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_travel_boots_2"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Boots of Travel
+    //======================================================================================================================
+    "item_recipe_travel_boots"
     {
-      "01"                                                "item_travel_boots;item_recipe_travel_boots"
+        "ID"                        "47"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_2"
+
+        "ItemCost"                  "2000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_travel_boots_2"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_boots"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Boots of Travel 2
-  //=================================================================================================================
-  "item_travel_boots_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "220"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_travel_boots_2"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "AbilityTextureName"                                  "item_travel_boots_2"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-    "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "3.0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1400" // OAA custom price
-    "ItemShopTags"                                        "teleport;move_speed"
-    "ItemQuality"                                         "common"
-    "ItemAliases"                                         "bot;boots of travel"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Boots of Travel
+    //======================================================================================================================
+    "item_travel_boots_2"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_movement_speed"  "50 100" // OAA -- you get these boots a lot earlier, so lvl 1 has move speed nerf
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "maximum_distance"    "575"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "vision_radius"     "200"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "220"
+        "BaseClass"                                          "item_travel_boots"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "2"
+        "ItemBaseLevel"                                      "2"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "2400"
+        "ItemShopTags"                                       "teleport;move_speed"
+        "ItemAliases"                                        "bot;boots of travel;tp"
+        "ItemQuality"                                        "common"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "100"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "maximum_distance"                                      "575"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "vision_radius"                                         "200"
+            }
+        }
+        
     }
-  }
 }

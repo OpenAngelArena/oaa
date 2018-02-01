@@ -1,128 +1,163 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Bloodthorn 4
-  //=================================================================================================================
-  "item_recipe_bloodthorn_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3102"    // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodthorn_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Bloodthorn 4
+    //======================================================================================================================
+    "item_recipe_bloodthorn_4"
     {
-      "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
-      "02"                                                "item_bloodthorn_3;item_upgrade_core_4"
+        "ID"                        "3102"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_4"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_bloodthorn_4"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_bloodthorn_3;item_upgrade_core_3"
+            "02"                    "item_bloodthorn_3;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Bloodthorn 4
-  //=================================================================================================================
-  "item_bloodthorn_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3106"    // unique ID
-    "BaseClass"                                           "item_bloodthorn"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "18.0"
-    "AbilitySharedCooldown"                               "orchid"
-    "AbilityTextureName"                                  "custom/bloodthorn_4"
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_bloodthorn_4"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "20195"
-    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bloodthorn 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Bloodthorn 4
+    //======================================================================================================================
+    "item_bloodthorn_4"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 45 55 65"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45 50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 135 200 270"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "20"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 195 215 235 255"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_damage_percent"                          "30"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "140 155 170 185 200"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "900"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_crit_chance"                             "100"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3106"
+        "BaseClass"                                          "item_bloodthorn"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "4"
+        "UpgradesItems"                                      "item_bloodthorn_4"
+        "UpgradeRecipe"                                      "item_recipe_bloodthorn"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "20195"
+        "ItemShopTags"                                       "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+        "ItemAliases"                                        "bloodthorn;4"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "25 35 45 55 65"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "30 35 40 45 50"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "60 90 135 200 270"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bonus_mana_regen"                                      "2.25 2.5 2.75 3.0 3.25"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "crit_chance"                                           "20"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "crit_multiplier"                                       "175 195 215 235 255"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "silence_damage_percent"                                "30"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "silence_duration"                                      "5"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "target_crit_multiplier"                                "140 155 170 185 200"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "900"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "tooltip_crit_chance"                                   "100"
+            }
+        }
+        
     }
-  }
 }

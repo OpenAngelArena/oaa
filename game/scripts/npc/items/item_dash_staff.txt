@@ -1,96 +1,121 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Dash Staff
-  //=================================================================================================================
-  "item_recipe_dash_staff"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3310"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_dash_staff"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Dash Staff
+    //======================================================================================================================
+    "item_recipe_dash_staff"
     {
-      "01"                                                "item_force_staff;item_upgrade_core_3"
-      "02"                                                "item_force_staff;item_upgrade_core_4"
+        "ID"                        "3310"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_dash_staff"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_force_staff;item_upgrade_core_3"
+            "02"                    "item_force_staff;item_upgrade_core_4"
+        }
     }
-  }
-
-
-  //=================================================================================================================
-  // Dash Staff
-  //=================================================================================================================
-  "item_dash_staff"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3312"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_force_staff"                       //item_datadriven
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "item_force_staff"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "20.0"
-    "AbilitySharedCooldown"                               "dash"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "10250"
-    "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "ds;dash staff"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Dash Staff
+    //======================================================================================================================
+    "item_dash_staff"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "600"
-      }
-      // Invincibility Frames
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invincibility_window"                            "0.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "invincibility_delay"                             "0.5"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3312"
+        "BaseClass"                                          "item_datadriven"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "10175"
+        "ItemShopTags"                                       "int;damage;attack_speed;hard_to_tag"
+        "ItemAliases"                                        "ds;dash staff"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "6"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "push_length"                                           "600"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "invincibility_window"                                  "0.5"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "invincibility_delay"                                   "0.5"
+            }
+        }
+        
     }
-  }
-
 }

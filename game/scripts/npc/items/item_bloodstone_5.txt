@@ -1,109 +1,148 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Bloodstone 5
-  //=================================================================================================================
-  "item_recipe_bloodstone_5"
-  {
-
-    "ID"                                                  "3127"      // unique ID
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "BaseClass"                                           "item_datadriven"
-    "ItemCost"                                            "20000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodstone_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Bloodstone 5
+    //======================================================================================================================
+    "item_recipe_bloodstone_5"
     {
-      "01"                                                "item_bloodstone_4;item_upgrade_core_4"
+        "ID"                        "3127"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_5"
+
+        "ItemCost"                  "20000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_bloodstone_5"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_bloodstone_4;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Bloodstone 5
-  //=================================================================================================================
-  "item_bloodstone_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3131"      // unique ID
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/bloodstone.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "FightRecapLevel"                                     "2"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "300.0"
-    "AbilityTextureName"                                  "custom/bloodstone_5"
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38800"
-    "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bs 5;bloodstone 5"
-    "ItemDisplayCharges"                                  "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "AllowedInBackpack"                                   "0"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Bloodstone 5
+    //======================================================================================================================
+    "item_bloodstone_5"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "475 1000 1800 2600 3200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 900 1600 2400 3000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 11 15 19 23"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.0 2.5 3.25 4.0 5.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_range"                                    "1600"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "respawn_time_reduction"                          "3"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "on_death_removal"                                "0.67" //33% gone
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_charges" "14"
-      }
-      "09"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "mana_per_charge" "0.4 0.5 0.6 0.7 0.8"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3131"
+        "BaseClass"                                          "item_bloodstone"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "2"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "33000"
+        "ItemShopTags"                                       "regen_health;regen_mana;mana_pool;health_pool"
+        "ItemAliases"                                        "bs 5;bloodstone 5"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 "1"
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "0"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "475"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "425"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "7"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bonus_mana_regen"                                      "2.0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "charge_range"                                          "1600"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "respawn_time_reduction"                                "3"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "on_death_removal"                                      "0.67"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_charges"                                       "14"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "mana_per_charge"                                       "0.35"
+            }
+        }
+        
     }
-  }
 }

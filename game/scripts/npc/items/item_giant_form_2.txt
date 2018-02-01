@@ -1,0 +1,160 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Giant Form 2
+    //======================================================================================================================
+    "item_recipe_giant_form_2"
+    {
+        "ID"                        "3347"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_2"
+
+        "ItemCost"                  "20000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_giant_form_2"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_giant_form"
+        }
+    }
+    //======================================================================================================================
+    // Giant Form 2
+    //======================================================================================================================
+    "item_giant_form_2"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3349"
+        "BaseClass"                                          "item_datadriven"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "2"
+        "ItemBaseLevel"                                      "2"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "31800"
+        "ItemShopTags"                                       "damage"
+        "ItemAliases"                                        "siege mode 2;siege 2;giant form;giant"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agility"                                         "25 30"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "20 25"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "base_attack_range"                                     "240"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "giant_attack_range"                                    "600"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "giant_damage_bonus"                                    "300 450"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "giant_attack_rate"                                     "1.2"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "giant_cast_range"                                      "0"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "giant_aoe"                                             "300"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "giant_splash"                                          "100"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "melee_move_speed"                                      "100"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "giant_scale"                                           "50 60"
+            }
+        }
+        
+    }
+}

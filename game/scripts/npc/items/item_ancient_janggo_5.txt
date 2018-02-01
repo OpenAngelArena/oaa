@@ -1,0 +1,148 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Ancient Janggo 5
+    //======================================================================================================================
+    "item_recipe_ancient_janggo_5"
+    {
+        "ID"                        "3858"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_5"
+
+        "ItemCost"                  "20000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_ancient_janggo_5"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_ancient_janggo_4;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Ancient Janggo 5
+    //======================================================================================================================
+    "item_ancient_janggo_5"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3859"
+        "BaseClass"                                          "item_ancient_janggo"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "5"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "34740"
+        "ItemShopTags"                                       "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
+        "ItemAliases"                                        "drum of endurance 5;drums 5"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 "-1"
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_int"                                             "6 15 30 45 60"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_str"                                             "7 16 32 48 64"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agi"                                             "3 10 15 30 40"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bonus_mana_regen"                                      "0.75 1.5 3.0 4.5 6.25"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_aura_movement_speed"                             "20 25 30 35 40"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed_pct"                                "35 50 65 80 95"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed_pct"                              "13 16 19 22 25"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "6"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "radius"                                                "900"
+            }
+        }
+        
+    }
+}

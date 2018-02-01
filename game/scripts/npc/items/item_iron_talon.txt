@@ -1,0 +1,138 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Iron Talon
+    //======================================================================================================================
+    "item_recipe_iron_talon"
+    {
+        "ID"                        "238"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "0"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_iron_talon"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_quelling_blade;item_ring_of_protection"
+        }
+    }
+    //======================================================================================================================
+    // Iron Talon
+    //======================================================================================================================
+    "item_iron_talon"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "239"
+        "BaseClass"                                          "item_iron_talon"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "375"
+        "ItemShopTags"                                       "damage"
+        "ItemAliases"                                        "quelling;blade"
+        "ItemQuality"                                        "common"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "2"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "350"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_ward"                                       "450"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage_bonus"                                          "24"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "damage_bonus_ranged"                                   "7"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "quelling_range_tooltip"                                "350"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "creep_damage_pct"                                      "40"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "alternative_cooldown"                                  "4"
+            }
+        }
+        
+    }
+}

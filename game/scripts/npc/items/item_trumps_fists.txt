@@ -1,0 +1,133 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Trumps Fists
+    //======================================================================================================================
+    "item_recipe_trumps_fists"
+    {
+        "ID"                        "3262"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_trumps_fists"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_upgrade_core_3;item_upgrade_core_4"
+            "02"                    "item_upgrade_core_3;item_upgrade_core_4"
+        }
+    }
+    //======================================================================================================================
+    // Trumps Fists
+    //======================================================================================================================
+    "item_trumps_fists"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3264"
+        "BaseClass"                                          "item_datadriven"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "2"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_trumps_fists"
+        "UpgradeRecipe"                                      "item_recipe_trumps_fists"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "8000"
+        "ItemShopTags"                                       "damage;unique"
+        "ItemAliases"                                        "trumps fists;covfefe"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "100 200"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "45 55"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health"                                          "750 1250"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana"                                            "800 1000"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_prevent_percent"                                  "-50 -75"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_prevent_duration"                                 "2 2"
+            }
+        }
+        
+    }
+}

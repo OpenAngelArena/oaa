@@ -1,46 +1,93 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Tango Single Instance
-  //=================================================================================================================
-  "item_tango_single"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "241"                            // unique
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemStackable"                                       "1"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Tango (Shared)
+    //======================================================================================================================
+    "item_tango_single"
     {
-      "01"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "health_regen"      "7.0"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "cast_range_ward"     "450"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "buff_duration"     "16.0"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"     "165"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "241"
+        "BaseClass"                                          "item_tango_single"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "30"
+        "ItemShopTags"                                       "consumable"
+        "ItemQuality"                                        "consumable"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                "1"
+        "ItemInitialCharges"                                 "1"
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_FULLY_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "0"
+        "ItemPurchasable"                                    "0"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "165"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_ward"                                       "450"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "buff_duration"                                         "16.0"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "health_regen"                                          "7.0"
+            }
+        }
+        
     }
-  }
 }

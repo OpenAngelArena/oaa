@@ -1,97 +1,128 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Rod of Atos 3
-  //=================================================================================================================
-  "item_recipe_rod_of_atos_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3635"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_rod_of_atos_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Rod Of Atos 3
+    //======================================================================================================================
+    "item_recipe_rod_of_atos_3"
     {
-      "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
-      "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
-      "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
+        "ID"                        "3635"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_3"
+
+        "ItemCost"                  "3500"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_rod_of_atos_3"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_rod_of_atos_2;item_upgrade_core_2"
+            "02"                    "item_rod_of_atos_2;item_upgrade_core_3"
+            "03"                    "item_rod_of_atos_2;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Rod of Atos 3
-  //=================================================================================================================
-  "item_rod_of_atos_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3637"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_rod_of_atos"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16"
-    "AbilitySharedCooldown"                               "atos"
-    "AbilityCastRange"                                    "1150"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityTextureName"                                  "custom/rod_of_atos_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "8030"
-    "ItemShopTags"                                        "int;regen_health"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "rod of atos 3;atos 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_rod_of_atos;item_rod_of_atos_2;item_rod_of_atos_3;item_rod_of_atos_4;item_rod_of_atos_5"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Rod Of Atos 3
+    //======================================================================================================================
+    "item_rod_of_atos_3"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 30 45 70 105"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 25 35 45 55"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 9 14 20 30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 2.5 3.0 3.5 4.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1150"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3637"
+        "BaseClass"                                          "item_rod_of_atos"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "3"
+        "UpgradesItems"                                      "item_rod_of_atos_3"
+        "UpgradeRecipe"                                      "item_recipe_rod_of_atos"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "8100"
+        "ItemShopTags"                                       "int;regen_health"
+        "ItemAliases"                                        "rod of atos 3;atos 3"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "20"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "15"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_agility"                                         "6"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "duration"                                              "2.0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "tooltip_range"                                         "1150"
+            }
+        }
+        
     }
-  }
 }

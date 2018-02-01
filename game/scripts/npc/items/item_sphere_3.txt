@@ -1,95 +1,128 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Linkens Sphere 3
-  //=================================================================================================================
-  "item_recipe_sphere_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3681"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sphere_3"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Sphere 3
+    //======================================================================================================================
+    "item_recipe_sphere_3"
     {
-      "01"                                                "item_sphere_2;item_upgrade_core_2"
-      "02"                                                "item_sphere_2;item_upgrade_core_3"
-      "03"                                                "item_sphere_2;item_upgrade_core_4"
+        "ID"                        "3681"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_3"
+
+        "ItemCost"                  "3500"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_sphere_3"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_sphere_2;item_upgrade_core_2"
+            "02"                    "item_sphere_2;item_upgrade_core_3"
+            "03"                    "item_sphere_2;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Linkens Sphere 3
-  //=================================================================================================================
-  "item_sphere_3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3682"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_sphere"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/linkens_sphere_3"
-
-    "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "13.0 11.0 9.0 8.0 7.0"
-    "AbilitySharedCooldown"                               "linkens"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10050"
-    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ActiveDescriptionLine"                               "2"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
-
-    "UpgradesItems"                                       "item_sphere;item_sphere_2;item_sphere_3;item_sphere_4;item_sphere_5"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Sphere 3
+    //======================================================================================================================
+    "item_sphere_3"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "15 25 35 45 55"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "5.5 9 12 15 18"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3.25 4.50 6 8"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3682"
+        "BaseClass"                                          "item_sphere"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "3"
+        "UpgradesItems"                                      "item_sphere_3"
+        "UpgradeRecipe"                                      "item_recipe_sphere"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "10050"
+        "ItemShopTags"                                       "regen_health;regen_mana;str;agi;int;hard_to_tag"
+        "ItemAliases"                                        "ls 3;linken&#039;s sphere 3;linkens 3"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_all_stats"                                       "15"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "5.5"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "bonus_mana_regen"                                      "2.25"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "block_cooldown"                                        "13.0"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "cast_range_tooltip"                                    "700"
+            }
+        }
+        
     }
-  }
 }
