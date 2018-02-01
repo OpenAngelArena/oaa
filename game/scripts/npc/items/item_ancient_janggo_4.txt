@@ -29,8 +29,7 @@
         // General
         //------------------------------------------------------------------------------------------------------------------
         "ID"                                                 "3857"
-        "BaseClass"                                          "item_lua"
-        "ScriptFile"                                         "custom/drums_4"
+        "BaseClass"                                          "item_ancient_janggo"
         "ItemPermanent"                                      "1"
         "ItemStackable"                                      "0"
         "FightRecapLevel"                                    "1"
@@ -66,7 +65,7 @@
         // Charges
         //------------------------------------------------------------------------------------------------------------------
         "ItemRequiresCharges"                                ""
-        "ItemInitialCharges"                                 ""
+        "ItemInitialCharges"                                 "-1"
         "ItemDisplayCharges"                                 ""
 
         // Misc

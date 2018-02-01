@@ -8,8 +8,7 @@
         // General
         //------------------------------------------------------------------------------------------------------------------
         "ID"                                                 "8041"
-        "BaseClass"                                          "item_lua"
-        "ScriptFile"                                         "item_bottle"
+        "BaseClass"                                          "item_infinite_bottle"
         "ItemPermanent"                                      "1"
         "ItemStackable"                                      "0"
         "FightRecapLevel"                                    "0"
@@ -37,7 +36,7 @@
         // Charges
         //------------------------------------------------------------------------------------------------------------------
         "ItemRequiresCharges"                                "1"
-        "ItemInitialCharges"                                 ""
+        "ItemInitialCharges"                                 "3"
         "ItemDisplayCharges"                                 ""
 
         // Misc

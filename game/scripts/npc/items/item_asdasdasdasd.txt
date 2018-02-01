@@ -1,14 +1,14 @@
 "DOTAItems"
 {
     //======================================================================================================================
-    // Staff of Wizardry
+    // asdasdasdasd
     //======================================================================================================================
-    "item_staff_of_wizardry"
+    "item_asdasdasdasd"
     {
         // General
         //------------------------------------------------------------------------------------------------------------------
-        "ID"                                                 "23"
-        "BaseClass"                                          "item_staff_of_wizardry"
+        "ID"                                                 "9998"
+        "BaseClass"                                          "item_asdasdasdasd"
         "ItemPermanent"                                      "1"
         "ItemStackable"                                      "0"
         "FightRecapLevel"                                    "0"
@@ -19,10 +19,8 @@
         
         // Item Info
         //------------------------------------------------------------------------------------------------------------------
-        "ItemCost"                                           "1000"
-        "ItemShopTags"                                       "int"
-        "ItemAliases"                                        "staff;of;wizardry"
-        "ItemQuality"                                        "component"
+        "ItemCost"                                           "0"
+        "ItemQuality"                                        "consumable"
 
         // Shop things
         //------------------------------------------------------------------------------------------------------------------
@@ -38,14 +36,14 @@
         // Charges
         //------------------------------------------------------------------------------------------------------------------
         "ItemRequiresCharges"                                ""
-        "ItemInitialCharges"                                 ""
+        "ItemInitialCharges"                                 "1 2 3"
         "ItemDisplayCharges"                                 ""
 
         // Misc
         //------------------------------------------------------------------------------------------------------------------
         "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
-        "ItemKillable"                                       "1"
-        "ItemSellable"                                       "1"
+        "ItemKillable"                                       "0"
+        "ItemSellable"                                       "0"
         "ItemPurchasable"                                    "1"
         "ItemDroppable"                                      "1"
         "ItemAlertable"                                      "0"
@@ -61,16 +59,6 @@
         "UIDropSound"                                        ""
         "WorldDropSound"                                     ""
 
-        // Stats
-        //------------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                                              "FIELD_INTEGER"
-                "bonus_intellect"                                       "10"
-            }
-        }
         
     }
 }

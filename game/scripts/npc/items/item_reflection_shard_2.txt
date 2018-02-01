@@ -29,8 +29,7 @@
         // General
         //------------------------------------------------------------------------------------------------------------------
         "ID"                                                 "3816"
-        "BaseClass"                                          "item_lua"
-        "ScriptFile"                                         "custom/reflection_shard_2"
+        "BaseClass"                                          "item_reflection_shard"
         "ItemPermanent"                                      "0"
         "ItemStackable"                                      "0"
         "FightRecapLevel"                                    "0"
@@ -66,7 +65,7 @@
         // Charges
         //------------------------------------------------------------------------------------------------------------------
         "ItemRequiresCharges"                                "1"
-        "ItemInitialCharges"                                 ""
+        "ItemInitialCharges"                                 "1 2 3"
         "ItemDisplayCharges"                                 "1"
 
         // Misc

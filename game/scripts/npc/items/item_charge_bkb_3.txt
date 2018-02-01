@@ -30,8 +30,7 @@
         // General
         //------------------------------------------------------------------------------------------------------------------
         "ID"                                                 "3907"
-        "BaseClass"                                          "item_lua"
-        "ScriptFile"                                         "custom/charge_bkb_3"
+        "BaseClass"                                          "item_charge_bkb"
         "ItemPermanent"                                      "1"
         "ItemStackable"                                      "0"
         "FightRecapLevel"                                    "0"
@@ -67,7 +66,7 @@
         // Charges
         //------------------------------------------------------------------------------------------------------------------
         "ItemRequiresCharges"                                "1"
-        "ItemInitialCharges"                                 ""
+        "ItemInitialCharges"                                 "0"
         "ItemDisplayCharges"                                 "1"
 
         // Misc
