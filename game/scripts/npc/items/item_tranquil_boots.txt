@@ -1,112 +1,130 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Tranquil Boots
-  //=================================================================================================================
-  "item_recipe_tranquil_boots"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "213"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_tranquil_boots"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Tranquil Boots
+    //======================================================================================================================
+    "item_tranquil_boots"
     {
-      "01"                                                "item_boots;item_wind_lace;item_ring_of_regen"
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "214"
+        "BaseClass"                                          "item_tranquil_boots"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "875"
+        "ItemShopTags"                                       "move_speed;regen_health;armor"
+        "ItemAliases"                                        "tranquil;boots"
+        "ItemQuality"                                        "rare"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "13"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "0"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_movement_speed"                                  "90"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "heal_amount"                                           "250"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "heal_duration"                                         "20.0"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "heal_interval"                                         "0.334"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "break_time"                                            "13"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "break_count"                                           "1"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "break_threshold"                                       "20"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "broken_movement_speed"                                 "65"
+            }
+        }
+        
     }
-  }
-
-  //=================================================================================================================
-  // Tranquil Boots
-  //=================================================================================================================
-  "item_tranquil_boots"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "214"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "item_tranquil_boots"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13.0"
-    "AbilityManaCost"                                     "0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "950"
-    "ItemShopTags"                                        "move_speed;regen_health;armor"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "tranquil boots"
-    "ItemHideCharges"                                     "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "MaxUpgradeLevel"                                     "1"
-    "ItemBaseLevel"                                       "1"
-    // TO BE REMOVED    "UpgradesItems"                       "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "90"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_duration"                                   "20.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "250"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_interval"                                   "0.334"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_time"                                      "13"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_count"                                     "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_threshold"                                 "20"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "65"
-      }
-    }
-  }
 }

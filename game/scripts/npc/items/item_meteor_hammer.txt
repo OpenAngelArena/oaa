@@ -1,155 +1,179 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Meteor Hammer 1
-  //=================================================================================================================
-  "item_recipe_meteor_hammer" "REMOVED"
-  "item_recipe_meteor_hammer_1"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "10049"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_1"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "0"
-    "ItemShopTags"                  ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_meteor_hammer_1"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Meteor Hammer
+    //======================================================================================================================
+    "item_recipe_meteor_hammer"
     {
-      "01"                        "item_ogre_axe;item_staff_of_wizardry;item_ring_of_regen;item_sobi_mask"
+        "ID"                        "10049"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "0"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_meteor_hammer"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_ogre_axe;item_ring_of_regen;item_sobi_mask;item_staff_of_wizardry"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Meteor Hammer 1
-  //=================================================================================================================
-  "item_meteor_hammer" "REMOVED"
-  "item_meteor_hammer_1"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "10050"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/meteor_hammer.lua"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"            "custom/meteor_hammer_1"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
-
-    // Spicy Paramaters
-    //-------------------------------------------------------------------------------------------------------------
-
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"            "2.5"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "600"
-    "AbilitySharedCooldown"         "meteor"
-    "AbilityCooldown"               "40"
-    "AbilityManaCost"               "125"
-
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "2625"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "mh;meteor hammer"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Meteor Hammer
+    //======================================================================================================================
+    "item_meteor_hammer"
     {
-      "01"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "12 24 36 48 60"
-      }
-      "02"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "12 24 36 48 60"
-      }
-      "03"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_health_regen"    "4.0 8.0 12.0 16.0 20.0"
-      }
-      "04"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "1.5 3.0 4.5 6.0 7.5"
-      }
-      "05"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"         "90 180 270 360 450"
-      }
-      "06"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "burn_dps"              "90 180 270 360 450"
-      }
-      "07"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "burn_duration"         "6"
-      }
-      "08"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "stun_duration"         "2.0"
-      }
-      "09"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "burn_interval"         "1.0"
-      }
-      "10"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "land_time"             ".5"
-      }
-      "11"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "impact_radius"         "300"
-      }
-      "12"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "max_duration"          "2.5"
-      }
-      "13"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "impact_damage_boss"    "150 300 450 600 750"
-      }
-      "14"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "impact_damage"         "150 300 450 600 750"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "10050"
+        "BaseClass"                                          "item_meteor_hammer"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_meteor_hammer"
+        "UpgradeRecipe"                                      "item_recipe_meteor_hammer"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "2625"
+        "ItemAliases"                                        "mh;meteor hammer"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "4.0 8.0 12.0 16.0 20.0"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "stun_duration"                                         "2.0"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "1.5 3.0 4.5 6.0 7.5"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "12 24 36 48 60"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "12 24 36 48 60"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "burn_dps_boss"                                         "90 180 270 360 450"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "burn_dps"                                              "90 180 270 360 450"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "burn_duration"                                         "6"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "burn_interval"                                         "1.0"
+            }
+
+            "10"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "land_time"                                             ".5"
+            }
+
+            "11"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "impact_radius"                                         "300"
+            }
+
+            "12"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "max_duration"                                          "2.5"
+            }
+
+            "13"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "impact_damage_boss"                                    "150 300 450 600 750"
+            }
+
+            "14"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "impact_damage"                                         "150 300 450 600 750"
+            }
+        }
+        
     }
-    "precache"
-    {
-    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
-    }
-  }
 }

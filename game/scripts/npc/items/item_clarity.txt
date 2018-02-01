@@ -1,40 +1,88 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Clarity
-  //=================================================================================================================
-  "item_clarity"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "38"                            // unique 
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
-
-    // Special  
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Clarity
+    //======================================================================================================================
+    "item_clarity"
     {
-      "01"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "mana_regen"      "3.2"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "buff_duration"     "50"
-      }     
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "range_tooltip"     "250"
-      }    
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "38"
+        "BaseClass"                                          "item_clarity"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "50"
+        "ItemShopTags"                                       "consumable"
+        "ItemAliases"                                        "clarity"
+        "ItemQuality"                                        "consumable"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 "1"
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_FULLY_SHAREABLE_STACKING"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "mana_regen"                                            "3.2"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "buff_duration"                                         "50"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "range_tooltip"                                         "250"
+            }
+        }
+        
     }
-  }
 }

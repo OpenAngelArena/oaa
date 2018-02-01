@@ -1,44 +1,94 @@
 "DOTAItems"
 {
-  "item_orb_of_venom"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "181"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "275"
-    "ItemShopTags"                                        "hard_to_tag"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "oov;orb of venom"
-    "SideShop"                                            "0"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Orb of Venom
+    //======================================================================================================================
+    "item_orb_of_venom"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "poison_damage"                                   "5.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "poison_movement_speed_melee"                     "-12"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "poison_movement_speed_range"                     "-4"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "poison_duration"                                 "3.0"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "181"
+        "BaseClass"                                          "item_orb_of_venom"
+        "ItemPermanent"                                      "1"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   ""
+
+        
+        
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "275"
+        "ItemShopTags"                                       "hard_to_tag"
+        "ItemAliases"                                        "oov;orb of venom"
+        "ItemQuality"                                        "component"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "1"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "0"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "poison_damage"                                         "5.0"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "poison_movement_speed_melee"                           "-12"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "poison_movement_speed_range"                           "-4"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "poison_duration"                                       "3.0"
+            }
+        }
+        
     }
-  }
 }

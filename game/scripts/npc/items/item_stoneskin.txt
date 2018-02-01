@@ -1,0 +1,145 @@
+"DOTAItems"
+{
+    //======================================================================================================================
+    // Recipe: Stoneskin
+    //======================================================================================================================
+    "item_recipe_stoneskin"
+    {
+        "ID"                        "3244"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_1"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_stoneskin"
+
+        "ItemRequirements"
+        {
+            "01"                    ""
+            "02"                    ""
+        }
+    }
+    //======================================================================================================================
+    // Stoneskin
+    //======================================================================================================================
+    "item_stoneskin"
+    {
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3246"
+        "BaseClass"                                          "item_stoneskin"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "0"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "2"
+        "ItemBaseLevel"                                      "1"
+        "UpgradesItems"                                      "item_stoneskin"
+        "UpgradeRecipe"                                      "item_recipe_stoneskin"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "8000"
+        "ItemShopTags"                                       "damage;attack_speed;armor;regen_health;hard_to_tag"
+        "ItemAliases"                                        "stoneskin of mordiggian;stoneskin"
+        "ItemQuality"                                        "epic"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "30 35"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "20 25"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_armor"                                           "20 25"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_health_regen"                                    "10 15"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_int"                                             "75 80"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "stone_move_speed"                                      "100"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "stone_armor"                                           "80 130"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "stone_resist"                                          "10 15"
+            }
+        }
+        
+    }
+}

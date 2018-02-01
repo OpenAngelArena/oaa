@@ -1,112 +1,151 @@
 "DOTAItems"
 {
-  //=================================================================================================================
-  // Recipe: Echo Sabre 4
-  //=================================================================================================================
-  "item_recipe_echo_sabre_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3622"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_echo_sabre_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-    "ItemRequirements"
+    //======================================================================================================================
+    // Recipe: Echo Sabre 4
+    //======================================================================================================================
+    "item_recipe_echo_sabre_4"
     {
-      "01"                                                "item_echo_sabre_3;item_upgrade_core_3"
-      "02"                                                "item_echo_sabre_3;item_upgrade_core_4"
+        "ID"                        "3622"
+        "BaseClass"                 "item_datadriven"
+        "Model"                     "models/props_gameplay/recipe.mdl"
+        "AbilityTextureName"        "custom/recipe/recipe_4"
+
+        "ItemCost"                  "8000"
+        "ItemShopTags"              ""
+        "ItemRecipe"                "1"
+        "ItemResult"                "item_echo_sabre_4"
+
+        "ItemRequirements"
+        {
+            "01"                    "item_echo_sabre_3;item_upgrade_core_3"
+            "02"                    "item_echo_sabre_3;item_upgrade_core_4"
+        }
     }
-  }
-
-  //=================================================================================================================
-  // Echo Sabre 4
-  //=================================================================================================================
-  "item_echo_sabre_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3625"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_echo_sabre"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/echo_sabre_4"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
-    "AbilitySharedCooldown"                               "echo"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "15650"
-    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-    "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "echo sabre 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_echo_sabre_4"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //======================================================================================================================
+    // Echo Sabre 4
+    //======================================================================================================================
+    "item_echo_sabre_4"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "proc_damage"                                     "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "100"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.7"
-      }
+        // General
+        //------------------------------------------------------------------------------------------------------------------
+        "ID"                                                 "3625"
+        "BaseClass"                                          "item_echo_sabre_4"
+        "ItemPermanent"                                      "0"
+        "ItemStackable"                                      "0"
+        "FightRecapLevel"                                    "1"
+        "ItemDisassembleRule"                                "DOTA_ITEM_DISASSEMBLE_NEVER"
+        "ItemDeclarations"                                   "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        // Upgrades
+        //------------------------------------------------------------------------------------------------------------------
+        "MaxUpgradeLevel"                                    "5"
+        "ItemBaseLevel"                                      "4"
+        "UpgradesItems"                                      "item_echo_sabre_4"
+        "UpgradeRecipe"                                      "item_recipe_echo_sabre"
+                
+        // Item Info
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemCost"                                           "15650"
+        "ItemShopTags"                                       "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+        "ItemAliases"                                        "echo;sabre;4"
+        "ItemQuality"                                        "artifact"
+
+        // Shop things
+        //------------------------------------------------------------------------------------------------------------------
+        "SideShop"                                           "0"
+        "SecretShop"                                         "0"
+        "ItemStockMax"                                       "0"
+        "ItemStockTime"                                      "0"
+        "ItemStockInitial"                                   "0"
+        "ShouldBeSuggested"                                  "0"
+        "ShouldBeInitiallySuggested"                         "0"
+        "ItemSupport"                                        "0"
+
+        // Charges
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemRequiresCharges"                                ""
+        "ItemInitialCharges"                                 ""
+        "ItemDisplayCharges"                                 ""
+
+        // Misc
+        //------------------------------------------------------------------------------------------------------------------
+        "ItemShareability"                                   "ITEM_NOT_SHAREABLE"
+        "ItemKillable"                                       "1"
+        "ItemSellable"                                       "1"
+        "ItemPurchasable"                                    "1"
+        "ItemDroppable"                                      "1"
+        "ItemAlertable"                                      "1"
+        "PingOverrideText"                                   ""
+        "ItemCastOnPickup"                                   "0"
+        "AllowedInBackpack"                                  "1"
+        "IsTempestDoubleClonable"                            "1"
+        "ItemContributesToNetWorthWhenDropped"               "1"
+
+        // Sounds
+        //------------------------------------------------------------------------------------------------------------------
+        "UIPickupSound"                                      ""
+        "UIDropSound"                                        ""
+        "WorldDropSound"                                     ""
+
+        // Stats
+        //------------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_intellect"                                       "10 15 25 35 50"
+            }
+
+            "02"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_strength"                                        "10 15 25 35 50"
+            }
+
+            "03"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_attack_speed"                                    "10 15 20 25 30"
+            }
+
+            "04"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_damage"                                          "15 25 35 50 75"
+            }
+
+            "05"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "bonus_mana_regen"                                      "0.75 1.25 1.75 2.50 3.50"
+            }
+
+            "06"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "proc_damage"                                           "0"
+            }
+
+            "07"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "movement_slow"                                         "100"
+            }
+
+            "08"
+            {
+                "var_type"                                              "FIELD_INTEGER"
+                "attack_speed_slow"                                     "0"
+            }
+
+            "09"
+            {
+                "var_type"                                              "FIELD_FLOAT"
+                "slow_duration"                                         "0.7"
+            }
+        }
+        
     }
-  }
 }
