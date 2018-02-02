@@ -1,5 +1,5 @@
 var request = require('request');
-  var fs = require('fs');
+var fs = require('fs');
 var parseKV = require('parse-kv');
 var parseTranslation = require('./parse-translation');
 
