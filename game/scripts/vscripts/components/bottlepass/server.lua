@@ -48,7 +48,8 @@ function Bottlepass:SendWinner (winner)
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
-    players = connectedPlayers
+    players = connectedPlayers,
+    authKey = GetDedicatedServerKey(1) or 'toolsmode'
   }, function (err, data)
     DebugPrint(data)
     DebugPrintTable(data)
