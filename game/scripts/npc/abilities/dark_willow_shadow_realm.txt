@@ -1,10 +1,10 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Dark Willow: Shadow Realm
-//=================================================================================================================
-"dark_willow_shadow_realm"
-{
+  //=================================================================================================================
+  // Dark Willow: Shadow Realm
+  //=================================================================================================================
+  "dark_willow_shadow_realm"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6341"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -26,27 +26,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"                      "FIELD_FLOAT"
-            "duration"                      "5"
-        }
-        "02"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "damage"                        "120 200 280 360 720 1180"
-            "LinkedSpecialBonus"            "special_bonus_unique_dark_willow_1"
-        }
-        "03"
-        {
-            "var_type"                      "FIELD_INTEGER"
-            "attack_range_bonus"            "600"
-        }
-        "04"
-        {
-            "var_type"                      "FIELD_FLOAT"
-            "max_damage_duration"           "3"
-        }
+      "01"
+      {
+        "var_type"                      "FIELD_FLOAT"
+        "duration"                      "5"
+      }
+      "02"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "damage"                        "120 200 280 360 720 1180"
+        "LinkedSpecialBonus"            "special_bonus_unique_dark_willow_1"
+      }
+      "03"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "attack_range_bonus"            "600"
+      }
+      "04"
+      {
+        "var_type"                      "FIELD_FLOAT"
+        "max_damage_duration"           "3"
+        "CalculateSpellDamageTooltip"   "0"
+      }
     }
-}
+  }
 }
