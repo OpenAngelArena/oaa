@@ -1,4 +1,3 @@
-
 Debug:EnableDebugging()
 DebugPrint('Bottlepass script loaded')
 
@@ -6,6 +5,7 @@ Bottlepass = Bottlepass or class({})
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
 BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'
+AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
@@ -48,8 +48,7 @@ function Bottlepass:SendWinner (winner)
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
-    players = connectedPlayers,
-    authKey = GetDedicatedServerKey(1) or 'toolsmode'
+    players = connectedPlayers
   }, function (err, data)
     DebugPrint(data)
     DebugPrintTable(data)
@@ -109,7 +108,7 @@ function Bottlepass:Ready ()
 end
 
 function Bottlepass:Request(api, data, cb)
-  if GameRules:IsCheatMode() then
+  if GameRules:IsCheatMode() and not IsInToolsMode() then
     cb("No Bottlepass while in cheats mode")
     return
   end
@@ -117,8 +116,9 @@ function Bottlepass:Request(api, data, cb)
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
   local encoded = json.encode(data)
 
-  DebugPrint(encoded)
+  local authToken = sha256(encoded .. AUTH_KEY)
 
+  req:SetHTTPRequestHeaderValue("Auth-Checksum", authToken)
   req:SetHTTPRequestHeaderValue("Accept", "application/json")
   if self.token then
     req:SetHTTPRequestHeaderValue('X-Auth-Token', self.token)

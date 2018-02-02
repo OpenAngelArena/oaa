@@ -2768,7 +2768,8 @@ read_globals = { -- these globals can only be accessed.
 "MODIFIER_PROPERTY_STATUS_RESISTANCE",
 "FORCE_PICKED_HERO",
 "DotProduct",
-"GetDedicatedServerKey"
+"GetDedicatedServerKey",
+"sha256",
 }
 
 ignore = {
