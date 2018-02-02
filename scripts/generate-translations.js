@@ -190,6 +190,13 @@ function generateTranslations (lang) {
       throw err;
     }
 
+    if (data.workshop_description) {
+      fs.writeFileSync(path.join(__dirname, '../workshop/', lang + '.txt'), data.workshop_description, {
+        encoding: 'utf8'
+      });
+      delete data.workshop_description;
+    }
+
     // translations
     generateFileForTranslations(lang, data, function (lines) {
       fs.writeFileSync(path.join(__dirname, '../game/resource/addon_' + lang + '.txt'), '\ufeff' + lines.join('\n'), {
