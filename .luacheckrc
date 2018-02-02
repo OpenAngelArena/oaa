@@ -2767,7 +2767,8 @@ read_globals = { -- these globals can only be accessed.
 "Notifications",
 "MODIFIER_PROPERTY_STATUS_RESISTANCE",
 "FORCE_PICKED_HERO",
-"DotProduct"
+"DotProduct",
+"GetDedicatedServerKey"
 }
 
 ignore = {
