@@ -31,6 +31,7 @@ end)
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
+  self.isCM = GetMapName() == "oaa_captains_mode"
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
@@ -316,9 +317,13 @@ function HeroSelection:SelectHero (playerId, hero)
     if player == nil then -- disconnected! don't give em a hero yet...
       return
     end
+    self:GiveStartingHero
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
-    PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
   end)
+end
+
+function HeroSelection:GiveStartingHero (playerId, hero)
+  PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
 end
 
 function HeroSelection:IsHeroDisabled (hero)
@@ -372,7 +377,13 @@ function HeroSelection:EndStrategyTime ()
   HeroSelection:CheckPause()
 
   GameRules:SetTimeOfDay(0.25)
+
+  if self.isCM then
+    PauseGame(true)
+  end
+
   GameMode:OnGameInProgress()
+  -- ASDFASDF
   OnGameInProgressEvent()
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
 end
