@@ -76,29 +76,18 @@ function modifier_item_preemptive_purge:OnIntervalThink()
   if IsServer() then
     local parent = self:GetParent()
 
-    -- Tests if given modifier is a debuff and purgable with a basic dispel
-    --Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
-    --then checks if the modifier was purged (All because IsDebuff and IsPurgable don't exist in the Lua API
-    --for built-in modifiers)
-    local function IsPurgableDebuff(modifier)
-      local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, parent, parent:GetOwner(), parent:GetTeamNumber())
-      testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
-      testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
-      testUnit:Purge(false, true, true, false, false)
-      local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
-      testUnit:RemoveSelf()
-      return modifierIsPurgableDebuff
-    end
-
     local modifiers = parent:FindAllModifiers()
-    local purgableDebuffs = filter(IsPurgableDebuff, iter(modifiers))
+    local modifierCount = #modifiers
 
+    parent:Purge(false, true, false, false, false)
 
-    if not is_null(purgableDebuffs) then
+    modifiers = parent:FindAllModifiers()
+    local modifierCountAfter = #modifiers
+
+    if modifierCountAfter < modifierCount then
       local burstEffect = ParticleManager:CreateParticle( "particles/items/dispel_orb/dispel_steam.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
       ParticleManager:SetParticleControlEnt( burstEffect, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true )
       ParticleManager:ReleaseParticleIndex( burstEffect )
-      parent:Purge(false, true, false, false, false)
     end
   end
 end
