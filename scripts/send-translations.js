@@ -1,5 +1,5 @@
 var request = require('request');
-// var fs = require('fs');
+  var fs = require('fs');
 var parseKV = require('parse-kv');
 var parseTranslation = require('./parse-translation');
 
@@ -39,6 +39,10 @@ request.get({
       console.log(key, 'is unchanged from', transByValue[englishStrings[key]]);
       delete englishStrings[key];
     }
+  });
+
+  englishStrings.workshop_description = fs.readFileSync('./workshop/english.txt', {
+    encoding: 'utf8'
   });
 
   // fs.writeFileSync('./i18n.json', JSON.stringify(englishStrings, null, 2));
