@@ -21,6 +21,7 @@ globals = { -- these globals can be set and accessed.
 "DUEL_END_COUNTDOWN",
 "DUEL_RUNE_TIMER",
 "BOSS_RESPAWN_TIMER",
+"BOSS_RESPAWN_START",
 "BOSS_LEASH_SIZE",
 "BOSS_AGRO_FACTOR",
 "CREEP_SPAWN_INTERVAL",
