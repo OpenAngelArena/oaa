@@ -1,15 +1,15 @@
 "AddonInfo"
 {
-  "CheckAFKPlayers" "1"
-	"TeamCount" 	"3"
-	"maps"	"oaa oaa_captains_mode"
-	"IsPlayable"	"1"
+	"TeamCount" 	      "3"
+	"maps"	            "oaa oaa_captains_mode"
+	"IsPlayable"	      "1"
+  "PenaltiesEnabled"  "1"
   "oaa"
   {
-    "MaxPlayers"  "10"
+    "MaxPlayers"      "10"
   }
   "oaa_captains_mode"
   {
-    "MaxPlayers"  "10"
+    "MaxPlayers"      "10"
   }
 }
