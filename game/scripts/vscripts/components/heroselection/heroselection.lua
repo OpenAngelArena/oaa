@@ -330,7 +330,7 @@ function HeroSelection:GiveStartingHero (playerId, hero)
   end
   PlayerResource:ReplaceHeroWith(playerId, hero, startingGold, 0)
 
-  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  hero = PlayerResource:GetSelectedHeroEntity(playerId)
   table.insert(self.spawnedHeroes, hero)
 end
 
