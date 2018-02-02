@@ -58,9 +58,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_vampire_active:OnCreated()
-  self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
-
   if IsServer() then
+    self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
+    self:GetParent():EmitSound("Vampire.Activate.Begin")
     if self.nPreviewFX == nil then
       self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
       ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
