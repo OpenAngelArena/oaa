@@ -32,6 +32,7 @@ end)
 function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "oaa_captains_mode"
+  self.spawnedHeroes = {}
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
@@ -70,7 +71,7 @@ function HeroSelection:Init ()
     local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
     if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
       DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
-      PlayerResource:ReplaceHeroWith(keys.PlayerID, lockedHeroes[keys.PlayerID], STARTING_GOLD, 0)
+      HeroSelection:GiveStartingHero(keys.PlayerID, lockedHeroes[keys.PlayerID])
     end
   end)
 end
@@ -317,13 +318,20 @@ function HeroSelection:SelectHero (playerId, hero)
     if player == nil then -- disconnected! don't give em a hero yet...
       return
     end
-    self:GiveStartingHero
+    self:GiveStartingHero(playerId, hero)
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
   end)
 end
 
 function HeroSelection:GiveStartingHero (playerId, hero)
-  PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
+  local startingGold = 0
+  if self.hasGivenStartingGold then
+    startingGold = STARTING_GOLD
+  end
+  PlayerResource:ReplaceHeroWith(playerId, hero, startingGold, 0)
+
+  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  table.insert(self.spawnedHeroes, hero)
 end
 
 function HeroSelection:IsHeroDisabled (hero)
@@ -383,8 +391,13 @@ function HeroSelection:EndStrategyTime ()
   end
 
   GameMode:OnGameInProgress()
-  -- ASDFASDF
   OnGameInProgressEvent()
+
+  self.hasGivenStartingGold = true
+  for _,hero in ipairs(self.spawnedHeroes) do
+    Gold:SetGold(hero, STARTING_GOLD)
+  end
+
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
 end
 
