@@ -83,7 +83,6 @@ function modifier_item_vampire_active:OnCreated()
     self:GetParent():EmitSound("Vampire.Activate.Begin")
     if self.nPreviewFX == nil then
       self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-      ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
     end
   end
 end
