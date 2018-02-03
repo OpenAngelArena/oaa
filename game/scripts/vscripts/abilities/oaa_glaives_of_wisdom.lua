@@ -57,7 +57,6 @@ function modifier_oaa_glaives_of_wisdom:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_START,
     MODIFIER_EVENT_ON_ATTACK,
-    MODIFIER_EVENT_ON_ATTACK_FINISHED,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_ATTACK_FAIL
   }
@@ -101,7 +100,8 @@ end
 function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
   local parent = self:GetParent()
 
-  if keys.attacker ~= parent then
+  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
+  if keys.attacker ~= parent or keys.process_procs then
     return
   end
 
@@ -125,18 +125,13 @@ function modifier_oaa_glaives_of_wisdom:OnAttack(keys)
     return
   end
 
+  parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
+  parent:ChangeAttackProjectile()
+
   -- Enable proc for this attack record number
   self.procRecords[keys.record] = true
   -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
   ability:UseResources(true, true, true)
-end
-
-function modifier_oaa_glaives_of_wisdom:OnAttackFinished(keys)
-  local parent = self:GetParent()
-  if keys.attacker == parent then
-    parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
-    parent:ChangeAttackProjectile()
-  end
 end
 
 function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
@@ -144,7 +139,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(keys)
   local ability = self:GetAbility()
   local target = keys.target
 
-  if keys.attacker == parent and self.procRecords[keys.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
+  if keys.attacker == parent and self.procRecords[keys.record] and keys.process_procs and ability:CastFilterResultTarget(target) == UF_SUCCESS then
 
     local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
     local player = parent:GetPlayerOwner()

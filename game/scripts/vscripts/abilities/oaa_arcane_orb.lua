@@ -47,7 +47,6 @@ function modifier_oaa_arcane_orb:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_START,
     MODIFIER_EVENT_ON_ATTACK,
-    MODIFIER_EVENT_ON_ATTACK_FINISHED,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_ATTACK_FAIL
   }
@@ -88,7 +87,8 @@ end
 function modifier_oaa_arcane_orb:OnAttack(keys)
   local parent = self:GetParent()
 
-  if keys.attacker ~= parent then
+  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
+  if keys.attacker ~= parent or keys.process_procs then
     return
   end
 
@@ -111,17 +111,12 @@ function modifier_oaa_arcane_orb:OnAttack(keys)
     return
   end
 
+  parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
+  parent:ChangeAttackProjectile()
+
   ability:CastAbility()
   -- Enable proc for this attack record number
   self.procRecords[keys.record] = true
-end
-
-function modifier_oaa_arcane_orb:OnAttackFinished(keys)
-  local parent = self:GetParent()
-  if keys.attacker == parent then
-    parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
-    parent:ChangeAttackProjectile()
-  end
 end
 
 function modifier_oaa_arcane_orb:OnAttackLanded(keys)
@@ -130,7 +125,7 @@ function modifier_oaa_arcane_orb:OnAttackLanded(keys)
   local target = keys.target
   local ability = self:GetAbility()
 
-  if keys.attacker ~= parent or not self.procRecords[attackRecord] then
+  if keys.attacker ~= parent or not self.procRecords[attackRecord] or not keys.process_procs then
     return
   end
 

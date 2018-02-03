@@ -73,8 +73,11 @@ modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greate
 
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
-  if keys.attacker == parent and not self.doReduction then
+  if keys.attacker == parent and keys.process_procs and not self.doReduction then
     local ability = self:GetAbility()
+
+    Debug:EnableDebugging()
+    DebugPrintTable(keys)
 
     local units = FindUnitsInRadius(
       parent:GetTeamNumber(),
