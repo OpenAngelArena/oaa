@@ -225,5 +225,3 @@ function vampire:lifesteal(event, spell, parent, amount)
     end
   end
 end
-
-Debug:EnableDebugging()
