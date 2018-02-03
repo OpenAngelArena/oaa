@@ -30,48 +30,6 @@ local function make_bitop(t)
     local op2 = memoize(function(a) return memoize(function(b) return op1(a, b) end) end)
     return make_bitop_uncached(op2, 2 ^ (t.n or 1))
 end
-local bxor1 = make_bitop({[0] = {[0] = 0,[1] = 1}, [1] = {[0] = 1, [1] = 0}, n = 4})
-local function bxor(a, b, c, ...)
-    local z = nil
-    if b then
-        a = a % MOD
-        b = b % MOD
-        z = bxor1(a, b)
-        if c then z = bxor(z, c, ...) end
-        return z
-    elseif a then return a % MOD
-    else return 0 end
-end
-local function band(a, b, c, ...)
-    local z
-    if b then
-        a = a % MOD
-        b = b % MOD
-        z = ((a + b) - bxor1(a,b)) / 2
-        if c then z = bit32_band(z, c, ...) end
-        return z
-    elseif a then return a % MOD
-    else return MODM end
-end
-local function bnot(x) return (-1 - x) % MOD end
-local function rshift1(a, disp)
-    if disp < 0 then return lshift(a,-disp) end
-    return math.floor(a % 2 ^ 32 / 2 ^ disp)
-end
-local function rshift(x, disp)
-    if disp > 31 or disp < -31 then return 0 end
-    return rshift1(x % MOD, disp)
-end
-local function lshift(a, disp)
-    if disp < 0 then return rshift(a,-disp) end
-    return (a * 2 ^ disp) % 2 ^ 32
-end
-local function rrotate(x, disp)
-    x = x % MOD
-    disp = disp % 32
-    local low = band(x, 2 ^ disp - 1)
-    return rshift(x, disp) + lshift(low, 32 - disp)
-end
 local k = {
     0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
@@ -130,28 +88,28 @@ local function digestblock(msg, i, H)
     for j = 1, 16 do w[j] = s232num(msg, i + (j - 1)*4) end
     for j = 17, 64 do
         local v = w[j - 15]
-        local s0 = bxor(rrotate(v, 7), rrotate(v, 18), rshift(v, 3))
+        local s0 = bit32.bxor(bit32.rrotate(v, 7), bit32.rrotate(v, 18), bit32.rshift(v, 3))
         v = w[j - 2]
-        w[j] = w[j - 16] + s0 + w[j - 7] + bxor(rrotate(v, 17), rrotate(v, 19), rshift(v, 10))
+        w[j] = w[j - 16] + s0 + w[j - 7] + bit32.bxor(bit32.rrotate(v, 17), bit32.rrotate(v, 19), bit32.rshift(v, 10))
     end
     local a, b, c, d, e, f, g, h = H[1], H[2], H[3], H[4], H[5], H[6], H[7], H[8]
     for i = 1, 64 do
-        local s0 = bxor(rrotate(a, 2), rrotate(a, 13), rrotate(a, 22))
-        local maj = bxor(band(a, b), band(a, c), band(b, c))
+        local s0 = bit32.bxor(bit32.rrotate(a, 2), bit32.rrotate(a, 13), bit32.rrotate(a, 22))
+        local maj = bit32.bxor(bit32.band(a, b), bit32.band(a, c), bit32.band(b, c))
         local t2 = s0 + maj
-        local s1 = bxor(rrotate(e, 6), rrotate(e, 11), rrotate(e, 25))
-        local ch = bxor (band(e, f), band(bnot(e), g))
+        local s1 = bit32.bxor(bit32.rrotate(e, 6), bit32.rrotate(e, 11), bit32.rrotate(e, 25))
+        local ch = bit32.bxor (bit32.band(e, f), bit32.band(bit32.bnot(e), g))
         local t1 = h + s1 + ch + k[i] + w[i]
         h, g, f, e, d, c, b, a = g, f, e, d + t1, c, b, a, t1 + t2
     end
-    H[1] = band(H[1] + a)
-    H[2] = band(H[2] + b)
-    H[3] = band(H[3] + c)
-    H[4] = band(H[4] + d)
-    H[5] = band(H[5] + e)
-    H[6] = band(H[6] + f)
-    H[7] = band(H[7] + g)
-    H[8] = band(H[8] + h)
+    H[1] = bit32.band(H[1] + a)
+    H[2] = bit32.band(H[2] + b)
+    H[3] = bit32.band(H[3] + c)
+    H[4] = bit32.band(H[4] + d)
+    H[5] = bit32.band(H[5] + e)
+    H[6] = bit32.band(H[6] + f)
+    H[7] = bit32.band(H[7] + g)
+    H[8] = bit32.band(H[8] + h)
 end
 function sha256(msg)
     msg = preproc(msg, #msg)
