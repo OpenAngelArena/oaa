@@ -213,7 +213,7 @@ function vampire:lifesteal(event, spell, parent, amount)
           Target = parent,
           Source = target,
           EffectName = "particles/items/vampire/vampire_projectile.vpcf",
-          iMoveSpeed = 1200,
+          iMoveSpeed = 600,
           vSourceLoc = target:GetOrigin(),
           bDodgeable = false,
           bProvidesVision = false,
