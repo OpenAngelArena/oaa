@@ -173,7 +173,7 @@ function lifesteal (event, spell, parent, amount)
     if ufResult == UF_SUCCESS then
       parent:Heal( damage * ( amount * 0.01 ), parent )
 
-      local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf", PATTACH_ABSORIGIN, parent )
+      local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )
 
       if parent:HasModifier( "modifier_item_vampire_active" ) then
