@@ -9,6 +9,12 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
+#ChatPlaceholder {
+  width: 600px;
+  height: 400px;
+  vertical-align: bottom;
+  margin-bottom: 50px;
+}
 
 Label {
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;

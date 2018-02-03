@@ -393,6 +393,8 @@ function HeroSelection:EndStrategyTime ()
   GameMode:OnGameInProgress()
   OnGameInProgressEvent()
 
+  CustomGameEventManager:Send_ServerToAllClients( 'oaa_pick_finished', nil)
+
   self.hasGivenStartingGold = true
   for _,hero in ipairs(self.spawnedHeroes) do
     Gold:SetGold(hero, STARTING_GOLD)

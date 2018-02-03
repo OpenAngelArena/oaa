@@ -150,6 +150,7 @@
           </Panel>
         </Panel>
         <Panel id="PreviewPanel">
+          <Panel id="ChatPlaceholder" />
           <Panel id="HeroSelector">
             <Panel id="HeroPreviewContainer">
               <Label id="SectionTitle" text=""/>
