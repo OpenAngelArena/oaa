@@ -255,25 +255,22 @@ function onPlayerStatChange (table, key, data) {
   }
 }
 
-function MoveChatWindow()
-{
+function MoveChatWindow () {
   var chatPanel = FindDotaHudElement('HudChat');
   var vanilaParent = chatPanel.GetParent();
-  chatPanel.SetHasClass("ChatExpanded", true);
-  chatPanel.SetHasClass("Active", true);
-  chatPanel.style.y = "0px";
+  chatPanel.SetHasClass('ChatExpanded', true);
+  chatPanel.SetHasClass('Active', true);
+  chatPanel.style.y = '0px';
   chatPanel.hittest = true;
 
   chatPanel.SetParent(FindDotaHudElement('ChatPlaceholder'));
 
   var eventHandler = GameEvents.Subscribe('oaa_pick_finished', function (args) {
-    $.Msg("RETURN WINDOW")
-    $.Msg(args.newState)
     chatPanel.SetParent(vanilaParent);
-    chatPanel.style.y = "-240px";
+    chatPanel.style.y = '-240px';
     chatPanel.hittest = false;
-    chatPanel.SetHasClass("ChatExpanded", false);
-    chatPanel.SetHasClass("Active", false);
+    chatPanel.SetHasClass('ChatExpanded', false);
+    chatPanel.SetHasClass('Active', false);
     GameEvents.Unsubscribe(eventHandler);
   });
 }
