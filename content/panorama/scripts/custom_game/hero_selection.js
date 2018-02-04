@@ -31,13 +31,30 @@ var hilariousLoadingPhrases = [
   'Precaching all heroes',
   'Filling bottles',
   'Spawning extra Ogres',
-  'Procastinating',
+  'Procrastinating',
   'Loading a bunch of other stuff too',
   'Mining bitcoins',
   'Charging into towers',
   'Breaking boss agro leashes',
   'Hacking the gibson',
-  'Adding more pointless loading screen quotes'
+  'Adding more pointless loading screen quotes',
+  'Attempting to index a nil value',
+  'Changing Workshop entries',
+  'Forking to make balance changes',
+  'Constructing additional pylons',
+  'Sedating Azazel',
+  'Filling lava pools',
+  'Rehearsing "Ocean Man"',
+  'Painting the happy little trees',
+  'Grinding Moon Shards into moon dust',
+  'Dusting off the farming cave',
+  'Priming tesla coils',
+  'Rigging uphill attack misses',
+  'Eating Jaffa cakes',
+  'Nerfing your hero',
+  'Buffing opponents',
+  'Loading Warcraft 3',
+  'Unboxing map'
 ];
 
 MoveChatWindow();
