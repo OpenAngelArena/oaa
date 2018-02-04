@@ -51,7 +51,7 @@ $.Schedule(4, changeHilariousLoadingText);
 
 function changeHilariousLoadingText () {
   var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
-  $("#ARDMLoading").style.opacity = 1;
+  $('#ARDMLoading').style.opacity = 1;
 
   noDots();
   $.Schedule(1, oneDots);
@@ -65,16 +65,16 @@ function changeHilariousLoadingText () {
   $.Schedule(11, changeHilariousLoadingText);
 
   function noDots () {
-    $("#ARDMLoading").text = incredibleWit;
+    $('#ARDMLoading').text = incredibleWit;
   }
   function oneDots () {
-    $("#ARDMLoading").text = incredibleWit + '.';
+    $('#ARDMLoading').text = incredibleWit + '.';
   }
   function twoDots () {
-    $("#ARDMLoading").text = incredibleWit + '..';
+    $('#ARDMLoading').text = incredibleWit + '..';
   }
   function threeDots () {
-    $("#ARDMLoading").text = incredibleWit + '...';
+    $('#ARDMLoading').text = incredibleWit + '...';
   }
 }
 
