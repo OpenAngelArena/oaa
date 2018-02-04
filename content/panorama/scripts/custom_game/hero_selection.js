@@ -13,6 +13,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // for testing
 var neverHideStrategy = false;
 
+var hasGoneToStrategy = false;
 var selectedhero = 'empty';
 var disabledheroes = [];
 var herolocked = false;
@@ -31,7 +32,7 @@ var hilariousLoadingPhrases = [
   'Filling bottles',
   'Spawning extra Ogres',
   'Procastinating',
-  'Loading',
+  'Loading a bunch of other stuff too',
   'Mining bitcoins',
   'Charging into towers',
   'Breaking boss agro leashes',
@@ -48,22 +49,23 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-$.Schedule(4, changeHilariousLoadingText);
+changeHilariousLoadingText();
+
+$('#ARDMLoading').style.opacity = 0;
 
 function changeHilariousLoadingText () {
   var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
-  $('#ARDMLoading').style.opacity = 1;
 
   noDots();
   $.Schedule(1, oneDots);
   $.Schedule(2, twoDots);
   $.Schedule(3, threeDots);
-  $.Schedule(5, noDots);
-  $.Schedule(6, oneDots);
-  $.Schedule(7, twoDots);
-  $.Schedule(8, threeDots);
+  $.Schedule(6, noDots);
+  $.Schedule(7, oneDots);
+  $.Schedule(8, twoDots);
+  $.Schedule(9, threeDots);
 
-  $.Schedule(11, changeHilariousLoadingText);
+  $.Schedule(12, changeHilariousLoadingText);
 
   function noDots () {
     $('#ARDMLoading').text = incredibleWit;
@@ -551,6 +553,13 @@ function GoToStrategy () {
   FindDotaHudElement('StrategyContent').style.opacity = '1';
   // FindDotaHudElement('PregameBG').style.opacity = '0.15';
   FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
+
+  if (!hasGoneToStrategy) {
+    hasGoneToStrategy = true;
+    $.Schedule(6, function () {
+      $('#ARDMLoading').style.opacity = 1;
+    });
+  }
 }
 
 function RandomHero () {
