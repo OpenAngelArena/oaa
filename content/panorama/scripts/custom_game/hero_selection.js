@@ -243,9 +243,9 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
     if (data.mode === 'STRATEGY') {
-      if(!iscm){
-        $.Msg("FinishPickings");
-        ReturnChatWindow ();
+      if (!iscm) {
+        $.Msg('FinishPickings');
+        ReturnChatWindow();
       }
 
       FindDotaHudElement('TimeLeft').text = 'VS';
@@ -262,11 +262,10 @@ function onPlayerStatChange (table, key, data) {
 
 function MoveChatWindow () {
   var vanillaChat = FindDotaHudElement('HudChat');
-  if (vanillaChat == null)
-  {
+  if (vanillaChat == null) {
     $.Schedule(0.5, function () {
-      $.Msg("Chat Window Not Found!, retrying...")
-      MoveChatWindow ();
+      $.Msg('Chat Window Not Found!, retrying...');
+      MoveChatWindow();
     });
   }
 
@@ -281,7 +280,7 @@ function ReturnChatWindow () {
   var vanillaChat = FindDotaHudElement('HudChat');
   var vanillaChatParent = FindDotaHudElement('HUDElements');
 
-  if( vanillaChat.GetParent() !== vanillaChatParent){
+  if (vanillaChat.GetParent() !== vanillaChatParent) {
     vanillaChat.SetParent(vanillaChatParent);
     vanillaChat.style.y = '-240px';
     vanillaChat.hittest = false;
@@ -347,7 +346,7 @@ function ReloadCMStatus (data) {
 
     // the "select your hero at the end" thing
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
-      ReturnChatWindow ()
+      ReturnChatWindow();
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
