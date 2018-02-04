@@ -76,9 +76,6 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   if keys.attacker == parent and keys.process_procs and not self.doReduction then
     local ability = self:GetAbility()
 
-    Debug:EnableDebugging()
-    DebugPrintTable(keys)
-
     local units = FindUnitsInRadius(
       parent:GetTeamNumber(),
       keys.target:GetAbsOrigin(),
