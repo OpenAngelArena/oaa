@@ -77,18 +77,8 @@ end
 
 function ARDMMode:OnPlayerLevelUp (keys)
   local player = EntIndexToHScript(keys.player)
-  local level = keys.level
-  local hero
-  if keys.selectedEntity then
-    hero = EntIndexToHScript(keys.selectedEntity)
-  else
-    hero = player:GetAssignedHero()
-  end
-  if not level then
-    level = hero:GetLevel()
-  end
 
-  self.estimatedExperience[player:GetPlayerID()] = XP_PER_LEVEL_TABLE[level]
+  self.estimatedExperience[player:GetPlayerID()] = 0
 end
 
 function ARDMMode:ReloadHeroPool (teamId)
