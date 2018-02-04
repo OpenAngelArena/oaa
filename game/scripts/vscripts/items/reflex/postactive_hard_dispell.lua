@@ -11,6 +11,9 @@ end
 function item_enrage_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- void Purge(bool bRemovePositiveBuffs, bool bRemoveDebuffs, bool bFrameOnly, bool bRemoveStuns, bool bRemoveExceptions)
   caster:Purge(false, true, false, true, true)
+  caster:EmitSound("Hero_Abaddon.AphoticShield.Cast")
+
+  local nIndex = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:ReleaseParticleIndex( nIndex )
 end
