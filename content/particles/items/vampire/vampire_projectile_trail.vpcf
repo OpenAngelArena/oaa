@@ -2,7 +2,7 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 32
+	m_nMaxParticles = 128
 	m_Renderers = 
 	[
 		{
@@ -42,8 +42,8 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.5
-			m_fLifetimeMax = 1.1
+			m_fLifetimeMin = 1.0
+			m_fLifetimeMax = 2.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
@@ -57,8 +57,8 @@
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
-			m_vecOutputMax = [ 34.0, 34.0, 34.0 ]
-			m_vecOutputMin = [ -34.0, -34.0, -34.0 ]
+			m_vecOutputMax = [ 10.0, 10.0, 10.0 ]
+			m_vecOutputMin = [ -10.0, -10.0, -10.0 ]
 			m_flNoiseScaleLoc = 4.0
 			m_flNoiseScale = 3.0
 		},

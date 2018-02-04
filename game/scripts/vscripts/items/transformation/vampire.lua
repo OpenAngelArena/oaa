@@ -1,5 +1,6 @@
 
 item_vampire = class(TransformationBaseClass)
+local vampire = {}
 
 LinkLuaModifier( "modifier_item_vampire", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_vampire_active", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
@@ -26,12 +27,19 @@ function modifier_item_vampire:IsHidden()
   return true
 end
 
+function modifier_item_vampire:OnCreated(keys)
+  if not self.procRecords then
+    self.procRecords = {}
+  end
+end
+
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
     -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_EVENT_ON_TAKEDAMAGE
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED
   }
   return funcs
 end
@@ -44,13 +52,22 @@ function modifier_item_vampire:GetModifierBonusStats_Strength()
   return self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
+-- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
+function modifier_item_vampire:OnAttackLanded(event)
+  local parent = self:GetParent()
+  if event.attacker ~= parent or not event.process_procs then
+    return
+  end
+  self.procRecords[event.record] = true
+end
+
 function modifier_item_vampire:OnTakeDamage( event )
   if IsServer() then
     local parent = self:GetParent()
     local spell = self:GetAbility()
 
-    if not self.mod then
-      lifesteal(event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
+    if not spell.mod then
+      vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
     end
   end
 end
@@ -59,11 +76,13 @@ end
 
 function modifier_item_vampire_active:OnCreated()
   if IsServer() then
+    if not self.procRecords then
+      self.procRecords = {}
+    end
     self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
     self:GetParent():EmitSound("Vampire.Activate.Begin")
     if self.nPreviewFX == nil then
       self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-      ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
     end
   end
 end
@@ -113,7 +132,8 @@ function modifier_item_vampire_active:DeclareFunctions()
   local funcs = {
     -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_DISABLE_HEALING,
-    MODIFIER_EVENT_ON_TAKEDAMAGE
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED
   }
   return funcs
 end
@@ -128,26 +148,37 @@ function modifier_item_vampire_active:GetDisableHealing( kv )
   end
 end
 
+-- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
+function modifier_item_vampire_active:OnAttackLanded(event)
+  local parent = self:GetParent()
+  if event.attacker ~= parent or not event.process_procs then
+    return
+  end
+  self.procRecords[event.record] = true
+end
+
 function modifier_item_vampire_active:OnTakeDamage( event )
   if IsServer() then
     local parent = self:GetParent()
     local spell = self:GetAbility()
 
     self.isVampHeal = true
-    lifesteal(event, spell, parent, spell:GetSpecialValueFor('active_lifesteal_percent'))
+    vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('active_lifesteal_percent'))
     self.isVampHeal = false
   end
 end
 
-function lifesteal (event, spell, parent, amount)
+function vampire:lifesteal(event, spell, parent, amount)
   if IsServer() then
     -- if parent:PassivesDisabled() then
     --   return
     -- end
 
-    if event.attacker ~= parent then
+    if event.attacker ~= parent or not self.procRecords[event.record] then
       return
     end
+
+    self.procRecords[event.record] = nil
 
     local damage = event.damage
 
@@ -173,7 +204,7 @@ function lifesteal (event, spell, parent, amount)
     if ufResult == UF_SUCCESS then
       parent:Heal( damage * ( amount * 0.01 ), parent )
 
-      local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_lanecreeps.vpcf", PATTACH_ABSORIGIN, parent )
+      local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )
 
       if parent:HasModifier( "modifier_item_vampire_active" ) then
@@ -181,7 +212,7 @@ function lifesteal (event, spell, parent, amount)
           Target = parent,
           Source = target,
           EffectName = "particles/items/vampire/vampire_projectile.vpcf",
-          iMoveSpeed = 1200,
+          iMoveSpeed = 600,
           vSourceLoc = target:GetOrigin(),
           bDodgeable = false,
           bProvidesVision = false,
@@ -193,5 +224,3 @@ function lifesteal (event, spell, parent, amount)
     end
   end
 end
-
-Debug:EnableDebugging()
