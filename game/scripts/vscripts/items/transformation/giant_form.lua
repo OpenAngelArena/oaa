@@ -158,7 +158,7 @@ if IsServer() then
 
     -- i can just use code from greater power treads here!
     -- yaaaaay
-    if event.attacker == parent then
+    if event.attacker == parent and event.process_procs then
       local target = event.target
 
       -- make sure the initial target is an appropriate unit to split off of
