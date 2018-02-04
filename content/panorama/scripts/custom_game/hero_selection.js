@@ -39,7 +39,18 @@ var hilariousLoadingPhrases = [
   'Hacking the gibson',
   'Adding more pointless loading screen quotes',
   'Attempting to index a nil value',
-  'Changing Workshop entries'
+  'Changing Workshop entries',
+  'Forking to make balance changes',
+  'Constructing additional pylons',
+  'Sedating Azazel',
+  'Filling lava pools',
+  'Rehearsing "Ocean Man"',
+  'Painting the happy little trees',
+  'Grinding Moon Shards into moon dust',
+  'Dusting off the farming cave',
+  'Priming tesla coils',
+  'Rigging uphill attack misses',
+  'Eating Jaffa cakes',
 ];
 
 MoveChatWindow();
