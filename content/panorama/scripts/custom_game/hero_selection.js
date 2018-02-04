@@ -10,6 +10,9 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
+// for testing
+var neverHideStrategy = false;
+
 var selectedhero = 'empty';
 var disabledheroes = [];
 var herolocked = false;
@@ -23,6 +26,18 @@ var stepsCompleted = {
   3: 0
 };
 var lastPickIndex = 0;
+var hilariousLoadingPhrases = [
+  'Precaching all heroes',
+  'Filling bottles',
+  'Spawning extra Ogres',
+  'Procastinating',
+  'Loading',
+  'Mining bitcoins',
+  'Charging into towers',
+  'Breaking boss agro leashes',
+  'Hacking the gibson',
+  'Adding more pointless loading screen quotes'
+];
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
@@ -32,6 +47,36 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+$.Schedule(4, changeHilariousLoadingText);
+
+function changeHilariousLoadingText () {
+  var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
+  $("#ARDMLoading").style.opacity = 1;
+
+  noDots();
+  $.Schedule(1, oneDots);
+  $.Schedule(2, twoDots);
+  $.Schedule(3, threeDots);
+  $.Schedule(5, noDots);
+  $.Schedule(6, oneDots);
+  $.Schedule(7, twoDots);
+  $.Schedule(8, threeDots);
+
+  $.Schedule(11, changeHilariousLoadingText);
+
+  function noDots () {
+    $("#ARDMLoading").text = incredibleWit;
+  }
+  function oneDots () {
+    $("#ARDMLoading").text = incredibleWit + '.';
+  }
+  function twoDots () {
+    $("#ARDMLoading").text = incredibleWit + '..';
+  }
+  function threeDots () {
+    $("#ARDMLoading").text = incredibleWit + '...';
+  }
+}
 
 function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
@@ -455,6 +500,9 @@ function HideStrategy () {
   //   FindDotaHudElement(element).style.transform = 'translateY(0)';
   //   FindDotaHudElement(element).style.opacity = '1';
   // });
+  if (neverHideStrategy) {
+    return;
+  }
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';

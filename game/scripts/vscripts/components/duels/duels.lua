@@ -7,7 +7,6 @@ DUEL_IS_STARTING = 21
 if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
-  Debug.EnabledModules['duels:duels'] = true
 end
 
 --[[
@@ -83,6 +82,7 @@ function Duels:Init ()
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
           hero:RespawnHero(false, false)
+          hero = PlayerResource:GetSelectedHeroEntity(playerID)
         end
       end
 
@@ -567,6 +567,8 @@ function Duels:EndDuel ()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
         hero:RespawnHero(false,false)
+        -- hero is changed on respawn sometimes
+        hero = player:GetAssignedHero()
       else
         hero:RemoveModifierByName("modifier_out_of_duel")
       end
@@ -610,6 +612,7 @@ function Duels:PurgeAfterDuel (hero)
 end
 
 function Duels:ResetPlayerState (hero)
+  local playerId = hero:GetPlayerID()
   if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
     hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
   end
@@ -622,6 +625,7 @@ function Duels:ResetPlayerState (hero)
 
   if not hero:IsAlive() then
     hero:RespawnHero(false,false)
+    hero = PlayerResource:GetSelectedHeroEntity(playerId)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
