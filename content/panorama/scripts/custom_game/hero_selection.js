@@ -24,6 +24,7 @@ var stepsCompleted = {
 };
 var lastPickIndex = 0;
 
+MoveChatWindow();
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
@@ -32,7 +33,6 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-MoveChatWindow();
 
 function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
@@ -243,6 +243,11 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
     if (data.mode === 'STRATEGY') {
+      if(!iscm){
+        $.Msg("FinishPickings");
+        ReturnChatWindow ();
+      }
+
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
       GoToStrategy();
@@ -256,24 +261,32 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function MoveChatWindow () {
-  if(!iscm){
-    var chatPanel = FindDotaHudElement('HudChat');
-    var vanilaParent = chatPanel.GetParent();
-    chatPanel.SetHasClass('ChatExpanded', true);
-    chatPanel.SetHasClass('Active', true);
-    chatPanel.style.y = '0px';
-    chatPanel.hittest = true;
-
-    chatPanel.SetParent(FindDotaHudElement('ChatPlaceholder'));
-
-    var eventHandler = GameEvents.Subscribe('oaa_pick_finished', function (args) {
-      chatPanel.SetParent(vanilaParent);
-      chatPanel.style.y = '-240px';
-      chatPanel.hittest = false;
-      chatPanel.SetHasClass('ChatExpanded', false);
-      chatPanel.SetHasClass('Active', false);
-      GameEvents.Unsubscribe(eventHandler);
+  var vanillaChat = FindDotaHudElement('HudChat');
+  if (vanillaChat == null)
+  {
+    $.Schedule(0.5, function () {
+      $.Msg("Chat Window Not Found!, retrying...")
+      MoveChatWindow ();
     });
+  }
+
+  vanillaChat.SetHasClass('ChatExpanded', true);
+  vanillaChat.SetHasClass('Active', true);
+  vanillaChat.style.y = '0px';
+  vanillaChat.hittest = true;
+  vanillaChat.SetParent(FindDotaHudElement('ChatPlaceholder'));
+}
+
+function ReturnChatWindow () {
+  var vanillaChat = FindDotaHudElement('HudChat');
+  var vanillaChatParent = FindDotaHudElement('HUDElements');
+
+  if( vanillaChat.GetParent() !== vanillaChatParent){
+    vanillaChat.SetParent(vanillaChatParent);
+    vanillaChat.style.y = '-240px';
+    vanillaChat.hittest = false;
+    vanillaChat.SetHasClass('ChatExpanded', false);
+    vanillaChat.SetHasClass('Active', false);
   }
 }
 
@@ -334,6 +347,7 @@ function ReloadCMStatus (data) {
 
     // the "select your hero at the end" thing
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
+      ReturnChatWindow ()
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
