@@ -489,7 +489,7 @@ function CaveHandler:KickPlayers (teamID)
     teamID, -- team
     Vector(0,0,0), -- location
     nil, -- cache
-    10000, -- radius
+    20000, -- radius
     DOTA_UNIT_TARGET_TEAM_BOTH, -- team filter
     DOTA_UNIT_TARGET_ALL, -- type filter
     DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
