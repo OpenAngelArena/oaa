@@ -31,7 +31,7 @@ var hilariousLoadingPhrases = [
   'Precaching all heroes',
   'Filling bottles',
   'Spawning extra Ogres',
-  'Procastinating',
+  'Procrastinating',
   'Loading a bunch of other stuff too',
   'Mining bitcoins',
   'Charging into towers',
