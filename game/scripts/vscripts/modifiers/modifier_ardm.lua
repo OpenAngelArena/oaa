@@ -38,7 +38,8 @@ function modifier_ardm:ReplaceHero ()
     HeroProgression:ProcessAbilityPointGain(newHero, level)
   end
 
-  newHero:AddExperience(XP_PER_LEVEL_TABLE[heroLevel] - heroXp, DOTA_ModifyXP_Unspecified, false, true)
+  newHero:AddExperience(XP_PER_LEVEL_TABLE[heroLevel] + heroXp, DOTA_ModifyXP_Unspecified, false, true)
+  ARDMMode.estimatedExperience[playerId] = heroXp
 
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = newHero:GetItemInSlot(i)
