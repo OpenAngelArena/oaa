@@ -9,6 +9,23 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
+/*
+ARDM Loading screen
+*/
+#ARDMLoading {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  padding: 30px 50px;
+
+  background-color: #aaaaaa55;
+  width: 600px;
+  horizontal-align: center;
+  vertical-align: center;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 26px;
+}
 
 Label {
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;

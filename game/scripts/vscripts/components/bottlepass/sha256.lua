@@ -48,12 +48,14 @@ local function band(a, b, c, ...)
         a = a % MOD
         b = b % MOD
         z = ((a + b) - bxor1(a,b)) / 2
-        if c then z = bit32_band(z, c, ...) end
+        if c then z = bit.band(z, c, ...) end
         return z
     elseif a then return a % MOD
     else return MODM end
 end
 local function bnot(x) return (-1 - x) % MOD end
+
+local lshift = nil
 local function rshift1(a, disp)
     if disp < 0 then return lshift(a,-disp) end
     return math.floor(a % 2 ^ 32 / 2 ^ disp)
@@ -62,7 +64,7 @@ local function rshift(x, disp)
     if disp > 31 or disp < -31 then return 0 end
     return rshift1(x % MOD, disp)
 end
-local function lshift(a, disp)
+lshift = function (a, disp)
     if disp < 0 then return rshift(a,-disp) end
     return (a * 2 ^ disp) % 2 ^ 32
 end
@@ -104,7 +106,7 @@ local function num2s(l, n)
 end
 local function s232num(s, i)
     local n = 0
-    for i = i, i + 3 do n = n*256 + string.byte(s, i) end
+    for j = i, i + 3 do n = n*256 + string.byte(s, j) end
     return n
 end
 local function preproc(msg, len)
@@ -135,13 +137,13 @@ local function digestblock(msg, i, H)
         w[j] = w[j - 16] + s0 + w[j - 7] + bxor(rrotate(v, 17), rrotate(v, 19), rshift(v, 10))
     end
     local a, b, c, d, e, f, g, h = H[1], H[2], H[3], H[4], H[5], H[6], H[7], H[8]
-    for i = 1, 64 do
+    for j = 1, 64 do
         local s0 = bxor(rrotate(a, 2), rrotate(a, 13), rrotate(a, 22))
         local maj = bxor(band(a, b), band(a, c), band(b, c))
         local t2 = s0 + maj
         local s1 = bxor(rrotate(e, 6), rrotate(e, 11), rrotate(e, 25))
         local ch = bxor (band(e, f), band(bnot(e), g))
-        local t1 = h + s1 + ch + k[i] + w[i]
+        local t1 = h + s1 + ch + k[j] + w[j]
         h, g, f, e, d, c, b, a = g, f, e, d + t1, c, b, a, t1 + t2
     end
     H[1] = band(H[1] + a)
