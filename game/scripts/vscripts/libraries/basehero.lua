@@ -7,6 +7,18 @@ function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)
   return Gold:ModifyGold(playerID, goldAmmt, reliable, nReason)
 end
 
+CDOTA_BaseNPC_Hero.UnfilteredAddExperience = CDOTA_BaseNPC_Hero.UnfilteredAddExperience or CDOTA_BaseNPC_Hero.AddExperience
+function CDOTA_BaseNPC_Hero:AddExperience(flXP, nReason, bApplyBotDifficultyScaling, bIncrementTotal)
+  local eventData = {
+    experience = flXP,
+    player_id_const = self:GetPlayerOwnerID(),
+    reason_const = nReason
+  }
+  if FilterManager:RunFilterForType(eventData, FilterManager.ModifyExperience) then
+    self:UnfilteredAddExperience(flXP, nReason, bApplyBotDifficultyScaling, bIncrementTotal)
+  end
+end
+
 function CDOTA_BaseNPC_Hero:GetBaseRangedProjectileName()
   if not IsServer() then
     return ""
