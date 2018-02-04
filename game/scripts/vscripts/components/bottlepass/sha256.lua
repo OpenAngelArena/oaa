@@ -64,7 +64,7 @@ local function rshift(x, disp)
     if disp > 31 or disp < -31 then return 0 end
     return rshift1(x % MOD, disp)
 end
-local lshift = function (a, disp)
+lshift = function (a, disp)
     if disp < 0 then return rshift(a,-disp) end
     return (a * 2 ^ disp) % 2 ^ 32
 end

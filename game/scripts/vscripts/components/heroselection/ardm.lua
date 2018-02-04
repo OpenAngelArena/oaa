@@ -11,7 +11,7 @@ function ARDMMode:Init (allHeroes)
 
   Debug:EnableDebugging()
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(self, 'ModifyExperienceFilter'))
- GameEvents:OnPlayerLevelUp(partial(self.OnPlayerLevelUp, self))
+  GameEvents:OnPlayerLevelUp(partial(self.OnPlayerLevelUp, self))
 
   self:PrecacheAllHeroes(allHeroes, function ()
     DebugPrint('Done precaching')

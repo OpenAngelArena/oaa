@@ -130,6 +130,7 @@ read_globals = { -- these globals can only be accessed.
 -- functional
 "CallMethod",
 "compose",
+"after",
 
 -- util
 "split",

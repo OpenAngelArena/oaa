@@ -16,10 +16,8 @@ function modifier_ardm:ReplaceHero ()
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = parent:GetItemInSlot(i)
     items[i] = item
-    if item then
-      -- parent:RemoveItem(item)
-    end
   end
+
   Debug:EnableDebugging()
   local heroXp = ARDMMode.estimatedExperience[playerId]
   local heroLevel = parent:GetLevel()
