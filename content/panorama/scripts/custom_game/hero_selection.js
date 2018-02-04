@@ -51,6 +51,10 @@ var hilariousLoadingPhrases = [
   'Priming tesla coils',
   'Rigging uphill attack misses',
   'Eating Jaffa cakes',
+  'Nerfing your hero',
+  'Buffing opponents',
+  'Loading Warcraft 3',
+  'Unboxing map'
 ];
 
 MoveChatWindow();
