@@ -9,6 +9,14 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
+#ChatPlaceholder {
+  width: 600px;
+  height: 700px;
+  vertical-align: bottom;
+  horizontal-align: left;
+  margin-bottom: 20px;
+}
+
 /*
 ARDM Loading screen
 */
@@ -79,7 +87,8 @@ Label {
 }
 
 .TeamStatus {
-  width: 100%;
+  horizontal-align: center;
+  width: 85%;
   height: 10%;
   flow-children: right;
 }
@@ -91,13 +100,13 @@ Label {
 
 #TeamRadiant {
   flow-children: right;
-  width: 35%;
+  width: 42%;
   height: 65%;
   background-color: #171A2590;
 }
 
 #Clock {
-  width: 15%;
+  width: 16%;
   height: 80%;
   background-color: #171A2590;
 }
@@ -119,7 +128,7 @@ Label {
 
 #TeamDire {
   flow-children: left;
-  width: 35%;
+  width: 42%;
   height: 65%;
   background-color: #171A2590;
 }
@@ -166,7 +175,7 @@ Label {
 #MainContent {
   width: 100%;
   height: 90%;
-  margin-top: 10%;
+  margin-top: 9%;
   flow-children: right;
   transition-property: transform, opacity;
   transition-duration: 0.75s;
@@ -229,6 +238,7 @@ DOTAMinimap {
 }
 
 #HeroPanel {
+  margin-left: 15px;
   width: 100%;
   flow-children: right;
 }
@@ -237,7 +247,7 @@ DOTAMinimap {
   visibility: collapse;
   width: 90%;
   min-height: 150px;
-  margin: 40px 0;
+  margin: 15px 0;
   horizontal-align: center;
 }
 #ReserveTimePanel {
