@@ -37,7 +37,9 @@ var hilariousLoadingPhrases = [
   'Charging into towers',
   'Breaking boss agro leashes',
   'Hacking the gibson',
-  'Adding more pointless loading screen quotes'
+  'Adding more pointless loading screen quotes',
+  'Attempting to index a nil value',
+  'Changing Workshop entries'
 ];
 
 MoveChatWindow();
