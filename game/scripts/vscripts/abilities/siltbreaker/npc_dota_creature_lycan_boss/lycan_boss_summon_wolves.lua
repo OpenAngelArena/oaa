@@ -33,12 +33,13 @@ function lycan_boss_summon_wolves:OnSpellStart()
 			nHoundSpawns = 6
 			nHoundBossSpawns = 2
 			nWerewolves = 2
-		end
+    end
 
 		for i = 0, nHoundSpawns do
 			if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
 				local hHound = CreateUnitByName( "npc_dota_creature_dire_hound", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber() )
-				if hHound ~= nil then
+        if hHound ~= nil then
+          hHound:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
 					hHound:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
 					table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHound )
 					if caster.zone ~= nil then
@@ -61,6 +62,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
 			if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
 				local hHoundBoss = CreateUnitByName( "npc_dota_creature_dire_hound_boss", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber() )
 				if hHoundBoss ~= nil then
+          hHoundBoss:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
 					hHoundBoss:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
 					table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHoundBoss )
 					if caster.zone ~= nil then
@@ -83,6 +85,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
 			if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
 				local hWerewolf = CreateUnitByName( "npc_dota_creature_werewolf", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber() )
 				if hWerewolf ~= nil then
+          hWerewolf:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
 					hWerewolf:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
 					table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hWerewolf )
 					if caster.zone ~= nil then

@@ -88,6 +88,7 @@ end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = bossTier
 
   DebugPrint(pit:GetAbsOrigin().x)
   DebugPrint(pit:GetAbsOrigin().y)

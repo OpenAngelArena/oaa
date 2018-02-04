@@ -44,7 +44,8 @@ function TempleGuardianThink()
 	end
 
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
-  local fHpPercent = thisEntity:GetHealthPercent()
+
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Agro
@@ -54,7 +55,7 @@ function TempleGuardianThink()
     thisEntity:SetAngles(0, 90, 0);
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
     return 5
-  elseif (fHpPercent < 100 and #enemies > 0) or FrendlyHasAgro() then
+  elseif (hasDamageThreshold and #enemies > 0) or FrendlyHasAgro() then
     if not thisEntity.bHasAgro then
       thisEntity.bHasAgro = true
       thisEntity:RemoveModifierByName( "modifier_temple_guardian_statue" )
@@ -69,7 +70,7 @@ function TempleGuardianThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 1500 then
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end

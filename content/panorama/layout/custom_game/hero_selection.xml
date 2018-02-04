@@ -8,6 +8,8 @@
   </scripts>
   <Panel class="HeroSelection" onactivate=";">
     <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
+    <Label id="ARDMLoading" text="...">
+    </Label>
     <Panel class="FillWidth">
         <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
     </Panel>
