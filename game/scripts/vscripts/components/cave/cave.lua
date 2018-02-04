@@ -19,9 +19,9 @@ function CaveHandler:Init ()
     local caveName = 'cave_' .. GetShortTeamName(teamID)
     local doorDistance = 0
     if teamID == DOTA_TEAM_GOODGUYS then
-      doorDistance = 260
+      doorDistance = 400
     elseif teamID == DOTA_TEAM_BADGUYS then
-      doorDistance = 330
+      doorDistance = 400
     end
 
     self.caves[teamID] = {
