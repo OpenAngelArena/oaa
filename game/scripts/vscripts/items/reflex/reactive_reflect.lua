@@ -28,8 +28,6 @@ function item_reflection_shard_1:OnSpellStart()
   local chargeReplenishIn = self:GetCooldownTime()
 
   caster:AddNewModifier( caster, self, "modifier_item_reactive_reflect", { duration = duration } )
-  -- Let in-built Lotus Orb modifier handle spell reflecting cause reflecting spells is apparently pretty difficult
-  caster:AddNewModifier( caster, self, "modifier_item_lotus_orb_active", { duration = duration } )
 end
 
 modifier_item_reactive_reflect = class(ModifierBaseClass)
@@ -38,12 +36,29 @@ function modifier_item_reactive_reflect:IsHidden()
   return false
 end
 
+function modifier_item_reactive_reflect:OnCreated( event )
+  if IsServer() and self.nPreviewFX == nil then
+    self:GetParent():EmitSound( "Item.LotusOrb.Target" )
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+  end
+end
+
+function modifier_item_reactive_reflect:OnDestroy(  )
+  if IsServer() and self.nPreviewFX ~= nil then
+    self:GetParent():EmitSound( "Item.LotusOrb.Destroy" )
+    ParticleManager:DestroyParticle( self.nPreviewFX, false )
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
+  end
+end
+
 function modifier_item_reactive_reflect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
-    MODIFIER_PROPERTY_ABSORB_SPELL
+    MODIFIER_PROPERTY_ABSORB_SPELL,
+    MODIFIER_PROPERTY_REFLECT_SPELL,
   }
 end
 
@@ -60,5 +75,30 @@ function modifier_item_reactive_reflect:GetAbsoluteNoDamagePure()
 end
 
 function modifier_item_reactive_reflect:GetAbsorbSpell()
+  return 1
+end
+
+function modifier_item_reactive_reflect:GetReflectSpell(kv)
+  if self.stored ~= nil then
+      self.stored:RemoveSelf() --we make sure to remove previous spell.
+  end
+  local hCaster = self:GetParent()
+  hCaster:EmitSound( "Item.LotusOrb.Activate" )
+
+  if IsServer() then
+    local burst = ParticleManager:CreateParticle( "particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+    Timers:CreateTimer(1.5, function()
+      ParticleManager:DestroyParticle( burst, false )
+      ParticleManager:ReleaseParticleIndex(burst)
+    end)
+  end
+
+  local hAbility = hCaster:AddAbility(kv.ability:GetAbilityName())
+  hAbility:SetStolen(true) --just to be safe with some interactions.
+  hAbility:SetHidden(true) --hide the ability.
+  hAbility:SetLevel(kv.ability:GetLevel()) --same level of ability as the origin.
+  hCaster:SetCursorCastTarget(kv.ability:GetCaster()) --lets send this spell back.
+  hAbility:OnSpellStart() --cast the spell.
+  self.stored = hAbility --store the spell reference for future use.
   return 1
 end
