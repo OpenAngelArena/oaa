@@ -48,6 +48,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000 1200 1400 1600"
     "AbilityCooldown"                                     "20.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "ethereal"
@@ -101,6 +102,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "active_magical_armor"                            "30 36 42 50"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range_tooltip"                                   "1000 1200 1400 1600"
       }
     }
   }
