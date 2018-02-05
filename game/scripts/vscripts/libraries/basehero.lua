@@ -12,7 +12,8 @@ function CDOTA_BaseNPC_Hero:AddExperience(flXP, nReason, bApplyBotDifficultyScal
   local eventData = {
     experience = flXP,
     player_id_const = self:GetPlayerOwnerID(),
-    reason_const = nReason
+    reason_const = nReason,
+    is_from_method_call = true,
   }
   if FilterManager:RunFilterForType(eventData, FilterManager.ModifyExperience) then
     self:UnfilteredAddExperience(flXP, nReason, bApplyBotDifficultyScaling, bIncrementTotal)
