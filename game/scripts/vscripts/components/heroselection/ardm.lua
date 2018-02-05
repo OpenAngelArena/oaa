@@ -50,19 +50,6 @@ function ARDMMode:Init (allHeroes)
   self:ReloadHeroPool(DOTA_TEAM_BADGUYS)
 end
 
-function ARDMMode:AddExperienceFilter (npc)
-  local oldAddExperience = npc.AddExperience
-
-  return function (unit, amount, ...)
-    self:ModifyExperienceFilter({
-      experience = amount,
-      player_id_const = npc:GetPlayerID()
-    })
-
-    return oldAddExperience(unit, amount, ...)
-  end
-end
-
 function ARDMMode:ReloadHeroPool (teamId)
   for hero,primaryAttr in pairs(self.allHeroes) do
     self.heroPool[teamId][hero] = true
