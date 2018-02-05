@@ -117,10 +117,11 @@ local special_bottles = {
   [123018754] = 3, --steam: http://steamcommunity.com/profiles/76561198083284482 - twitch: the_funkalizer
   [162267134] = 3, --steam: http://steamcommunity.com/profiles/76561198122532862 - twitch: the_lightnin
   [196954061] = 3, --steam: http://steamcommunity.com/profiles/76561198157219789 - twitch: TheOnly1Matt
-  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -not in donation list, profile given by baumi
-  [186729309] = 3, --steam: http://steamcommunity.com/profiles/76561198146995037 - twitch: -no name given
+  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -no name given, steam name toxic panda
+  [186729309] = 3, --steam: http://steamcommunity.com/profiles/76561198146995037 - twitch: -no name given, steam name renton
   [332989639] = 3, --steam: http://steamcommunity.com/profiles/76561198293255367 - twitch: ReAlUnKnOwNgUy
   [268013660] = 3, --steam: http://steamcommunity.com/profiles/76561198228279388 - twitch: Johnathan963
+  [293127420] = 3, --steam: http://steamcommunity.com/profiles/76561198253393148 - twitch: -no name given, current steam name crazyrock
 
 
 
