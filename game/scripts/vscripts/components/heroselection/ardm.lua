@@ -10,8 +10,6 @@ function ARDMMode:Init (allHeroes)
   self.estimatedExperience = {}
 
   Debug:EnableDebugging()
-  FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(self, 'ModifyExperienceFilter'))
-  GameEvents:OnPlayerLevelUp(partial(self.OnPlayerLevelUp, self))
 
   self:PrecacheAllHeroes(allHeroes, function ()
     DebugPrint('Done precaching')
@@ -31,7 +29,6 @@ function ARDMMode:Init (allHeroes)
     end
 
     npc:AddNewModifier(npc, nil, "modifier_ardm", {})
-    npc.AddExperience = self:AddExperienceFilter(npc)
   end)
 
   GameEvents:OnHeroKilled(function (keys)
@@ -51,34 +48,6 @@ function ARDMMode:Init (allHeroes)
 
   self:ReloadHeroPool(DOTA_TEAM_GOODGUYS)
   self:ReloadHeroPool(DOTA_TEAM_BADGUYS)
-end
-
-function ARDMMode:AddExperienceFilter (npc)
-  local oldAddExperience = npc.AddExperience
-
-  return function (unit, amount, ...)
-    self:ModifyExperienceFilter({
-      experience = amount,
-      player_id_const = npc:GetPlayerID()
-    })
-
-    return oldAddExperience(unit, amount, ...)
-  end
-end
-
-function ARDMMode:ModifyExperienceFilter (keys)
-  if self.estimatedExperience[keys.player_id_const] then
-    self.estimatedExperience[keys.player_id_const] = self.estimatedExperience[keys.player_id_const] + keys.experience
-  else
-    self.estimatedExperience[keys.player_id_const] = keys.experience
-  end
-  return true
-end
-
-function ARDMMode:OnPlayerLevelUp (keys)
-  local player = EntIndexToHScript(keys.player)
-
-  self.estimatedExperience[player:GetPlayerID()] = 0
 end
 
 function ARDMMode:ReloadHeroPool (teamId)
