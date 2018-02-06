@@ -69,12 +69,12 @@ end
 
 function HeroProgression:ReduceStatGain(hero, level)
   if level > 25 then
-    local div = (level - 25 + 12) / 12
+    local reductionFactor = 12 / (level - 25 + 12)
 
     local statGains = map(partial(self.GetStatGain, hero), self.statNames)
 
-    local newStats = map(operator.div, zip(statGains, duplicate(div)))
-    local statModifications = map(operator.sub, zip(newStats, statGains))
+    local reducedStatGains = map(operator.mul, zip(statGains, duplicate(reductionFactor)))
+    local statModifications = map(operator.sub, zip(reducedStatGains, statGains))
 
     foreach(partial(self.ModifyStat, hero), zip(self.statNames, statModifications))
   end
