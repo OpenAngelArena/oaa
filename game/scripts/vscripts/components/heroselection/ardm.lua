@@ -11,10 +11,12 @@ function ARDMMode:Init (allHeroes)
 
   Debug:EnableDebugging()
 
-  self:PrecacheAllHeroes(allHeroes, function ()
-    DebugPrint('Done precaching')
-    self.hasPrecached = true
-    PrecacheHeroEvent.broadcast(#allHeroes)
+  GameEvents:OnHeroSelection(function ()
+    self:PrecacheAllHeroes(allHeroes, function ()
+      DebugPrint('Done precaching')
+      self.hasPrecached = true
+      PrecacheHeroEvent.broadcast(#allHeroes)
+    end)
   end)
 
   self.heroPool = {
@@ -91,15 +93,16 @@ function noop ()
 end
 
 function ARDMMode:GetRandomHero (teamId)
-  if #self.heroPool[teamId] < 1 then
-    self:ReloadHeroPool(teamId)
-  end
-
   local n = 0
   local heroPool = {}
   for hero,v in pairs(self.heroPool[teamId]) do
     n = n + 1
     heroPool[n] = hero
+  end
+
+  if #heroPool < 1 then
+    self:ReloadHeroPool(teamId)
+    return self:GetRandomHero()
   end
 
   local hero = heroPool[RandomInt(1, #heroPool)]
