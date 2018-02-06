@@ -1,6 +1,6 @@
 Bosses = {
   -----------------------------
-  ---- TYPE 1 *SAFE* BOSS PIT
+  ---- TIER 1 SAFE BOSS PIT
   -----------------------------
   {
     "npc_dota_boss_tier_1",
@@ -11,7 +11,7 @@ Bosses = {
     "npc_dota_boss_tier_6"
   },
   -----------------------------
-  ---- TYPE 2 BOSS PIT
+  ---- TIER 1
   -----------------------------
   {
     {
@@ -36,7 +36,7 @@ Bosses = {
     "npc_dota_boss_stopfightingyourself"
   },
   -----------------------------
-  ---- TYPE 3 BOSS PIT
+  ---- TIER 1
   -----------------------------
   {
     {
@@ -61,7 +61,7 @@ Bosses = {
     "npc_dota_boss_stopfightingyourself"
   },
   -----------------------------
-  ---- TYPE 4 BOSS PIT
+  ---- TIER 2
   -----------------------------
   {
     {
@@ -81,7 +81,7 @@ Bosses = {
     "npc_dota_boss_stopfightingyourself"
   },
   -----------------------------
-  ---- TYPE 5 BOSS PIT
+  ---- TIER 3
   -----------------------------
   {
     {
@@ -96,15 +96,33 @@ Bosses = {
     "npc_dota_boss_stopfightingyourself"
   },
   -----------------------------
-  ---- TYPE 6 BOSS PIT
+  ---- TIER 3 10v10 ONLY
   -----------------------------
   {
+    {
+      "npc_dota_creature_ogre_tank_boss",
+      "npc_dota_boss_charger",
+    },
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
+    "npc_dota_creature_temple_guardian_spawner",
     "npc_dota_boss_stopfightingyourself"
   },
   -----------------------------
-  ---- TYPE 7 BOSS PIT
+  ---- TIER 3 10v10 ONLY
   -----------------------------
   {
+    {
+      "npc_dota_creature_ogre_tank_boss",
+      "npc_dota_boss_charger",
+    },
+    {
+      "npc_dota_boss_tier_4",
+      "npc_dota_creature_spider_boss"
+    },
+    "npc_dota_creature_temple_guardian_spawner",
     "npc_dota_boss_stopfightingyourself"
-  }
+  },
 }
