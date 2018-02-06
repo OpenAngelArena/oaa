@@ -66,7 +66,7 @@ end
 function modifier_ardm:OnRespawn()
   if self.hero then
     -- run next frame
-    Timer:CreateTimer(partial(self.ReplaceHero, self))
+    Timers:CreateTimer(partial(self.ReplaceHero, self))
   end
 end
 
