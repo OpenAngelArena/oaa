@@ -5,13 +5,14 @@ g_ItemPrecache = {
   "item_greater_power_treads",
   "item_greater_tranquil_boots",
   "item_dagon",
-  "item_manta_1",
   "item_vampire",
   "item_regen_crystal_1",
   "item_trumps_fists",
   "item_enrage_crystal_1",
   "item_dagger_of_moriah",
   "item_dispel_orb_1",
+  "item_reflection_shard_1",
+  "item_manta_1",
 }
 
 g_UnitPrecache = {
@@ -63,6 +64,7 @@ g_ParticleFolderPrecache = {
   "particles/items/enrage_crystal",
   "particles/items/regen_crystal",
   "particles/items/vampire",
+  "particles/items/reflection_shard",
 }
 
 g_SoundPrecache = {
