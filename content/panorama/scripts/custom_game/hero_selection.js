@@ -344,6 +344,8 @@ function ReturnChatWindow () {
   var vanillaChatParent = FindDotaHudElement('HUDElements');
 
   if (vanillaChat.GetParent() !== vanillaChatParent) {
+    //Remove focus before change parent
+    vanillaChatParent.SetFocus()
     vanillaChat.SetParent(vanillaChatParent);
     vanillaChat.style.y = '-240px';
     vanillaChat.hittest = false;
