@@ -103,8 +103,7 @@ function onPlayerStatChange (table, key, data) {
   var newimage = null;
   if (key === 'herolist' && data != null) {
     currentMap = data.gametype;
-    if(currentMap !== 'ardm')
-    {
+    if (currentMap !== 'ardm') {
       MoveChatWindow();
     }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
@@ -321,8 +320,7 @@ function onPlayerStatChange (table, key, data) {
     } else {
       // CM Hides the chat on last pick before selecting plyer hero
       // ARDM don't have pick screen
-      if(currentMap === 'oaa')
-      {
+      if (currentMap === 'oaa') {
         ReturnChatWindow();
       }
       HideStrategy();
@@ -344,8 +342,8 @@ function ReturnChatWindow () {
   var vanillaChatParent = FindDotaHudElement('HUDElements');
 
   if (vanillaChat.GetParent() !== vanillaChatParent) {
-    //Remove focus before change parent
-    vanillaChatParent.SetFocus()
+    // Remove focus before change parent
+    vanillaChatParent.SetFocus();
     vanillaChat.SetParent(vanillaChatParent);
     vanillaChat.style.y = '-240px';
     vanillaChat.hittest = false;
