@@ -13,6 +13,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // for testing
 var neverHideStrategy = false;
 
+var currentMap = null;
 var hasGoneToStrategy = false;
 var selectedhero = 'empty';
 var disabledheroes = [];
@@ -57,7 +58,6 @@ var hilariousLoadingPhrases = [
   'Unboxing map'
 ];
 
-MoveChatWindow();
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
@@ -102,6 +102,11 @@ function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
   if (key === 'herolist' && data != null) {
+    currentMap = data.gametype;
+    if(currentMap !== 'ardm')
+    {
+      MoveChatWindow();
+    }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
@@ -307,11 +312,6 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
     if (data.mode === 'STRATEGY') {
-      if (!iscm) {
-        $.Msg('FinishPickings');
-        ReturnChatWindow();
-      }
-
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
       GoToStrategy();
@@ -319,6 +319,12 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('TimeLeft').text = data['time'];
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
     } else {
+      // CM Hides the chat on last pick before selecting plyer hero
+      // ARDM don't have pick screen
+      if(currentMap === 'oaa')
+      {
+        ReturnChatWindow();
+      }
       HideStrategy();
     }
   }
@@ -326,13 +332,6 @@ function onPlayerStatChange (table, key, data) {
 
 function MoveChatWindow () {
   var vanillaChat = FindDotaHudElement('HudChat');
-  if (vanillaChat == null) {
-    $.Schedule(0.5, function () {
-      $.Msg('Chat Window Not Found!, retrying...');
-      MoveChatWindow();
-    });
-  }
-
   vanillaChat.SetHasClass('ChatExpanded', true);
   vanillaChat.SetHasClass('Active', true);
   vanillaChat.style.y = '0px';
