@@ -117,8 +117,12 @@ local special_bottles = {
   [123018754] = 3, --steam: http://steamcommunity.com/profiles/76561198083284482 - twitch: the_funkalizer
   [162267134] = 3, --steam: http://steamcommunity.com/profiles/76561198122532862 - twitch: the_lightnin
   [196954061] = 3, --steam: http://steamcommunity.com/profiles/76561198157219789 - twitch: TheOnly1Matt
-  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -not in donation list, profile given by baumi
-  [186729309] = 3, --steam: http://steamcommunity.com/profiles/76561198146995037 - twitch: -no name given
+  [148245960] = 3, --steam: http://steamcommunity.com/profiles/76561198108511688 - twitch: -no name given, steam name toxic panda
+  [186729309] = 3, --steam: http://steamcommunity.com/profiles/76561198146995037 - twitch: -no name given, steam name renton
+  [332989639] = 3, --steam: http://steamcommunity.com/profiles/76561198293255367 - twitch: ReAlUnKnOwNgUy
+  [268013660] = 3, --steam: http://steamcommunity.com/profiles/76561198228279388 - twitch: Johnathan963
+  [293127420] = 3, --steam: http://steamcommunity.com/profiles/76561198253393148 - twitch: -no name given, current steam name crazyrock
+  [156899250] = 3, --steam: http://steamcommunity.com/profiles/76561198117164978 - twitch: -no name given, current steam name bonde
 
 
 
@@ -179,6 +183,8 @@ local special_bottles = {
   [177718580] = 25, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
   [184428872] = 26, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
   [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
+  [119820692] = 28, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
+  [59735209] = 29, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
 }
 
 local bonusNames = {
@@ -209,6 +215,9 @@ local bonusNames = {
   'custom/bottles/bottle_fabianotten', --25
   'custom/bottles/bottle_devilsunrise',
   'custom/bottles/bottle_mrpootis',
+  'custom/bottles/bottle_tokengoat',
+  'custom/bottles/bottle_sms77',
+
 }
 
 --------------------------------------------------------------------------------
