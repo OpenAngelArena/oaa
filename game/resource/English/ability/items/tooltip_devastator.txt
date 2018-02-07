@@ -3,12 +3,32 @@
 //==================================================================+
 "DOTA_Tooltip_ability_item_devastator_Note0"                                 ""
 
-"DOTA_Tooltip_Ability_item_devastator"                                     "Devastator"
-"DOTA_Tooltip_Ability_item_recipe_devastator"                              "Devastator Recipe"
-"DOTA_Tooltip_Ability_item_devastator_Description"                         "Devastator description"
-"DOTA_Tooltip_Ability_item_devastator_Lore"                                "Devsatator Lore"
-//"DOTA_Tooltip_Ability_item_devastator_corruption_armor"                  "ARMOR REDUCTION:"
-"DOTA_Tooltip_Ability_item_devastator_bonus_damage"                        "Devastator bonus_damage"
+
 "Dota_Tooltip_Modifier_item_devastator_corruption_armor"                   "Corruption Armor"
 "Dota_Tooltip_Modifier_item_devastator_reduce_armor"                       "Reduce Armor"
 "Dota_Tooltip_Modifier_item_devastator_slow_movespeed"                     "Slow Move Speed"
+
+"DOTA_Tooltip_Ability_item_devastator_3"                                     "Devastator"
+"DOTA_Tooltip_Ability_item_recipe_devastator_3"                              "Devastator Recipe"
+"DOTA_Tooltip_Ability_item_devastator_3_Description"                         "Devastator description"
+"DOTA_Tooltip_Ability_item_devastator_3_Lore"                                "Devsatator Lore"
+//"DOTA_Tooltip_Ability_item_devastator_3_corruption_armor"                  "ARMOR REDUCTION:"
+"DOTA_Tooltip_Ability_item_devastator_3_bonus_damage"                        "Devastator bonus_damage"
+
+
+
+"DOTA_Tooltip_Ability_item_devastator_4"                                     "#{DOTA_Tooltip_Ability_item_devastator_3}"
+"DOTA_Tooltip_Ability_item_recipe_devastator_4"                              "#{DOTA_Tooltip_Ability_item_recipe_devastator_3}"
+"DOTA_Tooltip_Ability_item_devastator_4_Description"                         "#{DOTA_Tooltip_Ability_item_devastator_3_Description}"
+"DOTA_Tooltip_Ability_item_devastator_4_Lore"                                "#{DOTA_Tooltip_Ability_item_devastator_3_Lore}"
+//"DOTA_Tooltip_Ability_item_devastator_4_corruption_armor"                  "#{DOTA_Tooltip_Ability_item_devastator_3_corruption_armor}"
+"DOTA_Tooltip_Ability_item_devastator_4_bonus_damage"                        "#{DOTA_Tooltip_Ability_item_devastator_3_bonus_damage}"
+
+
+"DOTA_Tooltip_Ability_item_devastator_5"                                     "#{DOTA_Tooltip_Ability_item_devastator_3}"
+"DOTA_Tooltip_Ability_item_recipe_devastator_5"                              "#{DOTA_Tooltip_Ability_item_recipe_devastator_3}"
+"DOTA_Tooltip_Ability_item_devastator_5_Description"                         "#{DOTA_Tooltip_Ability_item_devastator_3_Description}"
+"DOTA_Tooltip_Ability_item_devastator_5_Lore"                                "#{DOTA_Tooltip_Ability_item_devastator_3_Lore}"
+//"DOTA_Tooltip_Ability_item_devastator_5_corruption_armor"                  "#{DOTA_Tooltip_Ability_item_devastator_3_corruption_armor}"
+"DOTA_Tooltip_Ability_item_devastator_5_bonus_damage"                        "#{DOTA_Tooltip_Ability_item_devastator_3_bonus_damage}"
+
