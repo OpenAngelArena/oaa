@@ -16,6 +16,6 @@ function modifier_item_devastator_reduce_armor:GetTexture()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
-    return baseIconName 
+    return baseIconName
   end
 end

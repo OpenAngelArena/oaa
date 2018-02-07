@@ -13,10 +13,10 @@ function item_devastator:OnSpellStart()
 	self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
 	self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
 	self.devastator_distance = self:GetSpecialValueFor( "devastator_distance" )
-	self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" ) 
-	self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" ) 
-	self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" ) 
-	self.devastator_corruption_duration = self:GetSpecialValueFor( "corruption_duration" ) 
+	self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
+	self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
+	self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
+	self.devastator_corruption_duration = self:GetSpecialValueFor( "corruption_duration" )
 
 	-- Re enable if the item should have any sound
 	-- EmitSoundOn( "Hero_Lina.DragonSlave.Cast", self:GetCaster() )
@@ -38,7 +38,7 @@ function item_devastator:OnSpellStart()
 		-- replace with the correct particles
 		EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
 		Ability = self,
-		vSpawnOrigin = self:GetCaster():GetOrigin(), 
+		vSpawnOrigin = self:GetCaster():GetOrigin(),
 		fStartRadius = self.devastator_width_initial,
 		fEndRadius = self.devastator_width_end,
 		vVelocity = vDirection * self.devastator_speed,
@@ -75,12 +75,12 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
     ParticleManager:ReleaseParticleIndex( nFXIndex )
 
 		hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
-		
-		-- check the current devastator_armor_reduction and the corruption_armor check the higher 
+
+		-- check the current devastator_armor_reduction and the corruption_armor check the higher
 		local armor_reduction = self:GetSpecialValueFor( "devastator_armor_reduction" )
 		local corruption_armor = self:GetSpecialValueFor( "corruption_armor" )
 
-		
+
 		-- if already has applied corruption
 		if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
 			-- if corruption is higher than armor reduction just exit
@@ -89,11 +89,11 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
 			end
 			-- so in this case should remove corruption and applied
 			hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor");
-			
+
 		end
 		-- if there is no other just applied it
 		hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = self.devastator_armor_reduction_duration } )
-		
+
 	end
 
 	return false
