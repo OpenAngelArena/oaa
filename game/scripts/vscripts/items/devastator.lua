@@ -5,7 +5,9 @@ LinkLuaModifier("modifier_item_devastator_desolator", "modifiers/modifier_item_d
 LinkLuaModifier("modifier_item_devastator_corruption_armor", "modifiers/modifier_item_devastator_corruption_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_devastator = class(ItemBaseClass)
-item_devastator_2 = item_devastator
+item_devastator_3 = item_devastator
+item_devastator_4 = item_devastator
+item_devastator_5 = item_devastator
 
 
 function item_devastator:OnSpellStart()

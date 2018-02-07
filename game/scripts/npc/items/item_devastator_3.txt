@@ -3,14 +3,14 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator"
+  "item_recipe_devastator_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8700"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8460"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator"
+    "ItemResult"                                          "item_devastator_3"
 
     "ItemRequirements"
     {
@@ -33,11 +33,11 @@
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator"
+  "item_devastator_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8704"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8463"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
@@ -48,7 +48,7 @@
 
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityTextureName"                                  "custom/devastator"
+    "AbilityTextureName"                                  "custom/devastator_3"
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.25"
@@ -66,7 +66,7 @@
     "ItemCost"                                            "8500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "devastator;deva"
+    "ItemAliases"                                         "devastator;deva;devastator 3; deva 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 
