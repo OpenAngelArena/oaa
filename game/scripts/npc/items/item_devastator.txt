@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_devastator"
-    
+
     "ItemRequirements"
     {
       "01"                                                "item_desolator_2;item_upgrade_core_2"
@@ -38,7 +38,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8704"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    
+
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -49,13 +49,13 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityTextureName"                                  "custom/devastator"
-    
+
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.25"
     "AbilityCooldown"                                     "10 9 8 7 6"
     "AbilityManaCost"                                     "50 100 200 300 500"
     "AbilityDamage"                                       "50 70 100 140 200"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -68,7 +68,7 @@
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator;deva"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
