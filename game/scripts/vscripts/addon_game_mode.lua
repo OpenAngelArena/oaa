@@ -40,17 +40,6 @@ function Precache( context )
 
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
-  if GetMapName() == "ardm" then
-
-    local herolistFile = 'scripts/npc/herolist_ardm.txt'
-
-    for key,value in pairs(LoadKeyValues(herolistFile)) do
-      if value == 1 then
-        PrecacheUnitByNameSync(key, context)
-      end
-    end
-  end
-
   for _,Item in pairs( g_ItemPrecache ) do
     PrecacheItemByNameAsync( Item, function( item ) end )
   end

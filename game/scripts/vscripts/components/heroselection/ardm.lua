@@ -59,29 +59,24 @@ function ARDMMode:ReloadHeroPool (teamId)
 end
 
 function ARDMMode:PrecacheAllHeroes (heroList, cb)
-  Timers:CreateTimer(0, function()
-    cb()
-  end)
-  return
+  local heroCount = 0
+  for hero,primaryAttr in pairs(heroList) do
+    heroCount = heroCount + 1
+  end
+  local done = after(heroCount, cb)
 
-  -- local heroCount = 0
-  -- for hero,primaryAttr in pairs(heroList) do
-  --   heroCount = heroCount + 1
-  -- end
-  -- local done = after(heroCount, cb)
+  DebugPrint('Starting precache process...')
 
-  -- DebugPrint('Starting precache process...')
+  local function precacheUnit (hero)
+    PrecacheUnitByNameAsync(hero, function ()
+      DebugPrint('precached this hero! ' .. hero)
+      done()
+    end)
+  end
 
-  -- local function precacheUnit (hero)
-  --   PrecacheUnitByNameAsync(hero, function ()
-  --     DebugPrint('precached this hero! ' .. hero)
-  --     done()
-  --   end)
-  -- end
-
-  -- for hero,primaryAttr in pairs(heroList) do
-  --   precacheUnit(hero)
-  -- end
+  for hero,primaryAttr in pairs(heroList) do
+    precacheUnit(hero)
+  end
 end
 
 function ARDMMode:OnPrecache (cb)
