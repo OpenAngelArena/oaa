@@ -28,6 +28,10 @@ function modifier_duel_rune_hill:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
+function modifier_duel_rune_hill:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+end
+
 function modifier_duel_rune_hill:GetAuraRadius()
   return 350
 end
