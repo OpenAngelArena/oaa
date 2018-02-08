@@ -81,8 +81,10 @@ function DuelRunes:StartTouch(event)
 [   VScript  ]:     triggerHandler: function: 0x002d1300
 [   VScript  ]: outputid: 0
 ]]
-  event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  local modifier = event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  modifier.zone = event.caller
 end
+
 function DuelRunes:EndTouch(event)
   event.activator:RemoveModifierByName("modifier_duel_rune_hill")
 end

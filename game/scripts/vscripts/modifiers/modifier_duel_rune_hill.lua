@@ -29,11 +29,11 @@ function modifier_duel_rune_hill:GetAuraSearchTeam()
 end
 
 function modifier_duel_rune_hill:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 end
 
 function modifier_duel_rune_hill:GetAuraRadius()
-  return 350
+  return 2000
 end
 
 function modifier_duel_rune_hill:GetModifierAura()
@@ -41,8 +41,11 @@ function modifier_duel_rune_hill:GetModifierAura()
 end
 
 function modifier_duel_rune_hill:GetAuraEntityReject(entity)
-  self:SetStackCount(0)
-  return false
+  if not self.zone then
+    return true
+  else
+    return not self.zone:IsTouching(entity)
+  end
 end
 
 --------------------------------------------------------------------------
