@@ -26,7 +26,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spirit_damage"                                   "22 32 42 52 62 72 82 92 102 120 138 170 190 220 250"
+        "spirit_damage"                                   "22 32 42 52 62 72 82 92 102 120 140 180 240 300 350"
         "levelkey"                                        "exortlevel"
       }
       "02"
@@ -38,7 +38,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_armor"                                    "0 1 2 3 4 5 6 7 8 9 10 11 12 15 20"
+        "spirit_armor"                                    "0 1 2 3 4 5 6 7 8 9 11 13 16 20 25"
         "levelkey"                                        "exortlevel"
       }
       "04"
@@ -50,7 +50,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_hp"                                       "300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1600 1800 2000"
+        "spirit_hp"                                       "300 400 500 600 700 800 900 1000 1200 1400 1600 1800 2000 2400 3000"
         "levelkey"                                        "quaslevel"
       }
       "06"
