@@ -1,4 +1,4 @@
-/* global CustomNetTables */
+/* global CustomNetTables $ */
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('timer', UpdateClock);

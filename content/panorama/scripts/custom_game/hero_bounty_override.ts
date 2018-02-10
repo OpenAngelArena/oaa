@@ -1,4 +1,4 @@
-/* global Game, FindDotaHudElement, LuaTableToArray, ColorToHexCode, ColoredText */
+/* global Game, GameEvents, FindDotaHudElement, LuaTableToArray, ColorToHexCode, ColoredText, Players, $ */
 'use strict';
 
 (function() {
