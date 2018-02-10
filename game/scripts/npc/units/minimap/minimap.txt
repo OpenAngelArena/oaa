@@ -120,5 +120,36 @@
     "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
     "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
   }
+
+
+  "minimap_cave_radiant"
+  {
+    "MinimapIcon"                    "minimap_cave_radiant"
+    "MinimapIconSize"              "500"
+    "MinimapDisableTint"        "1"
+
+    "BaseClass"                        "npc_dota_creature"
+    "Model"                              "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"        "0"
+    "VisionNighttimeRange"    "0"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
+  "minimap_cave_dire"
+  {
+    "MinimapIcon"                    "minimap_cave_dire"
+    "MinimapIconSize"              "500"
+    "MinimapDisableTint"        "1"
+
+    "BaseClass"                        "npc_dota_creature"
+    "Model"                              "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"        "0"
+    "VisionNighttimeRange"    "0"
+    "UnitRelationshipClass"    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+  }
 }
 
