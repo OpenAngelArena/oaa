@@ -46,6 +46,7 @@ function Minimap:SpawnBossIcon(hPit, iTier)
 end
 
 function Minimap:SpawnCaveIcon(location, roomID, teamID)
+  local minimapUnits = {'minimap_cave_radiant', 'minimap_cave_dire'}
   if not self.Minimap_Caves then
     self.Minimap_Caves = {}
   end
@@ -55,7 +56,7 @@ function Minimap:SpawnCaveIcon(location, roomID, teamID)
   if self.Minimap_Caves[roomID][teamID] == nil then
     self.Minimap_Caves[roomID][teamID] = {}
     for _,teamIDFake in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
-      local dummy = CreateUnitByName('minimap_cave_radiant', location, false, nil, nil, teamIDFake)
+      local dummy = CreateUnitByName(minimapUnits[teamID-1], location, false, nil, nil, teamIDFake)
       dummy:AddNewModifier(dummy, nil, "modifier_minimap", {})
       self.Minimap_Caves[roomID][teamID][teamIDFake] = dummy
     end
