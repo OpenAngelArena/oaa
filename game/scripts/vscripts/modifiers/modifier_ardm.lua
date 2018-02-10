@@ -19,43 +19,44 @@ function modifier_ardm:ReplaceHero ()
   end
 
   Debug:EnableDebugging()
-  local heroXp = ARDMMode.estimatedExperience[playerId]
+  local heroXp = parent:GetCurrentXP()
   local heroLevel = parent:GetLevel()
   DebugPrint('Hero was level ' .. heroLevel .. ' with xp ' .. heroXp)
 
-  PlayerResource:ReplaceHeroWith(playerId, self.hero, currentDotaGold, 0)
-  local newHero = PlayerResource:GetSelectedHeroEntity(playerId)
+  Timers:CreateTimer(0, function()
+    PlayerResource:ReplaceHeroWith(playerId, self.hero, currentDotaGold, 0)
+    local newHero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-  while newHero:GetLevel() < heroLevel do
-    newHero:HeroLevelUp(false)
-    local level = newHero:GetLevel()
-    AbilityLevels:CheckAbilityLevels({
-      level = level,
-      player = PlayerResource:GetPlayer(playerId):entindex(),
-      selectedEntity = parent:entindex()
-    })
-    HeroProgression:ReduceStatGain(newHero, level)
-    HeroProgression:ProcessAbilityPointGain(newHero, level)
-  end
-
-  newHero:AddExperience(XP_PER_LEVEL_TABLE[heroLevel] + heroXp, DOTA_ModifyXP_Unspecified, false, true)
-  ARDMMode.estimatedExperience[playerId] = heroXp
-
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-    local item = newHero:GetItemInSlot(i)
-    if item then
-      newHero:RemoveItem(item)
+    while newHero:GetLevel() < heroLevel do
+      newHero:HeroLevelUp(false)
+      local level = newHero:GetLevel()
+      AbilityLevels:CheckAbilityLevels({
+        level = level,
+        player = PlayerResource:GetPlayer(playerId):entindex(),
+        selectedEntity = newHero:entindex()
+      })
+      HeroProgression:ReduceStatGain(newHero, level)
+      HeroProgression:ProcessAbilityPointGain(newHero, level)
     end
-  end
 
-  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-    local item = items[i]
-    if item then
-      newHero:AddItem(item)
+    newHero:AddExperience(heroXp, DOTA_ModifyXP_Unspecified, false, true)
+
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+      local item = newHero:GetItemInSlot(i)
+      if item then
+        newHero:RemoveItem(item)
+      end
     end
-  end
 
-  UTIL_Remove(parent)
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+      local item = items[i]
+      if item then
+        newHero:AddItem(item)
+      end
+    end
+
+    UTIL_Remove(parent)
+  end)
 end
 
 function modifier_ardm:DeclareFunctions ()
@@ -66,6 +67,7 @@ end
 
 function modifier_ardm:OnRespawn()
   if self.hero then
+    -- run next frame
     self:ReplaceHero()
   end
 end

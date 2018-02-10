@@ -64,6 +64,24 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "Precache"
+    {
+      "particle"                                          "particles/items/reflection_shard/reflection_shield.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_highlight1.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_plasma.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_rings.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_end.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_endcap.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_b.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_lincoln_b.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -96,16 +114,9 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "20 15 10"
+        "charge_restore_time"                             "14 14 14"
       }
     }
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-      "particle"                                          "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-    }
   }
 }

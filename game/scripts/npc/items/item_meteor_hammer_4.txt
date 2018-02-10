@@ -37,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "8420"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/meteor_hammer.lua"     
+    "ScriptFile"                    "items/meteor_hammer.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"            "custom/meteor_hammer_4"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -94,7 +94,7 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"         "90 180 270 360 450"
+        "burn_dps_boss"         "180 360 540 720 900"
       }
       "06"
       {
@@ -145,9 +145,9 @@
     "precache"
     {
     "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf" 
+    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
     "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"      
+    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

@@ -109,11 +109,11 @@ end
 
 function Bottlepass:Request(api, data, cb)
   if HeroSelection.isARDM then
-    cb("No bottlepass in ARDM")
+    cb("No bottlepass in ARDM", {})
     return
   end
   if GameRules:IsCheatMode() and not IsInToolsMode() then
-    cb("No Bottlepass while in cheats mode")
+    cb("No Bottlepass while in cheats mode", {})
     return
   end
 
