@@ -26,13 +26,13 @@ function lycan_boss_summon_wolves:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 		caster:EmitSound("LycanBoss.SummonWolves")
-		local nHoundSpawns = 3
-		local nHoundBossSpawns = 1
-		local nWerewolves = 1
+		local nHoundSpawns = self:GetSpecialValueFor("num_hound_spawn")
+		local nHoundBossSpawns = self:GetSpecialValueFor("num_hound_boss_spawn")
+		local nWerewolves = self:GetSpecialValueFor("num_werewolf_spawn")
 		if caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil then
-			nHoundSpawns = 6
-			nHoundBossSpawns = 2
-			nWerewolves = 2
+			nHoundSpawns = self:GetSpecialValueFor("num_ss_hound_spawn")
+			nHoundBossSpawns = self:GetSpecialValueFor("num_ss_hound_boss_spawn")
+			nWerewolves = self:GetSpecialValueFor("num_ss_werewolf_spawn")
     end
 
 		for i = 0, nHoundSpawns do
