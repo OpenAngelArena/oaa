@@ -53,6 +53,8 @@ globals = { -- these globals can be set and accessed.
 "CAVE_RELEVANCE_FACTOR",
 "CAVE_MAX_MULTIPLIER",
 "XP_PER_LEVEL_TABLE",
+"RESPAWN_NEUTRAL_DEATH_PENALTY",
+"RESPAWN_TIME_TABLE",
 }
 
 read_globals = { -- these globals can only be accessed.
