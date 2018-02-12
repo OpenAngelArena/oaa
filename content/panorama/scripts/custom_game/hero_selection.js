@@ -113,7 +113,7 @@ function onPlayerStatChange (table, key, data) {
   var newimage = null;
   if (key === 'herolist' && data != null) {
     currentMap = data.gametype;
-    if (currentMap !== 'ardm') {
+    if (currentMap !== 'ardm' && currentMap !== 'oaa_10v10') {
       MoveChatWindow();
     }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
