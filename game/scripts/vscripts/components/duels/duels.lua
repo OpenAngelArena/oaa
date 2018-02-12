@@ -135,7 +135,7 @@ function Duels:Init ()
 
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     Duels:StartDuel({
-      players = 5,
+      players = 0,
       firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
     })
