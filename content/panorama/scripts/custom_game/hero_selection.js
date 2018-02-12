@@ -55,7 +55,16 @@ var hilariousLoadingPhrases = [
   'Nerfing your hero',
   'Buffing opponents',
   'Loading Warcraft 3',
-  'Unboxing map'
+  'Unboxing map',
+  'Searching for a worthy opponent',
+  'Pay no attention to the man behind the curtain',
+  'Reticulating Splines',
+  'Bugfixing waveshines and fun-canceling',
+  'Daydreaming about standalone',
+  'Donating $1 to tournament prize pool',
+  'Selling arcanas to afford custom bottle',
+  'Finding a 5-stack on Discord',
+  'Rigging the tournament'
 ];
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
