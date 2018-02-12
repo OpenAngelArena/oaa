@@ -5,7 +5,7 @@ modifier_item_devastator_desolator = class({})
 function modifier_item_devastator_desolator:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
 	}
 
 	return funcs
@@ -15,7 +15,7 @@ function modifier_item_devastator_desolator:IsHidden()
 	return true
 end
 
-function modifier_item_devastator_desolator:GetModifierBaseAttack_BonusDamage()
+function modifier_item_devastator_desolator:GetModifierPreAttack_BonusDamage()
   return self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
