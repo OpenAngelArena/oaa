@@ -10,15 +10,16 @@ function RespawnManager:OnHeroKilled(keys)
   local killerTeam = killer:GetTeam()
   local respawnTime = RESPAWN_TIME_TABLE[killed:GetLevel()]
 
-  if not Duels.currentDuel and killed:GetRespawnsDisabled() then
-    killed:SetRespawnsDisabled(false)
-  end
 
   if not killed:IsReincarnating() then
-    if killerTeam ~= DOTA_TEAM_NEUTRALS then
-      killed:SetTimeUntilRespawn(respawnTime)
-    else
-      killed:SetTimeUntilRespawn(respawnTime + RESPAWN_NEUTRAL_DEATH_PENALTY)
+    killed:SetRespawnsDisabled(Duels:IsActive())
+
+    if not Duels:IsActive() then
+      if killerTeam ~= DOTA_TEAM_NEUTRALS then
+        killed:SetTimeUntilRespawn(respawnTime)
+      else
+        killed:SetTimeUntilRespawn(respawnTime + RESPAWN_NEUTRAL_DEATH_PENALTY)
+      end
     end
   end
 end

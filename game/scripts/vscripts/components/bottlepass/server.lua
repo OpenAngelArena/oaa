@@ -50,8 +50,9 @@ function Bottlepass:SendWinner (winner)
     gameLength = gameLength,
     players = connectedPlayers
   }, function (err, data)
-    DebugPrint(data)
-    DebugPrintTable(data)
+    if data then
+      DebugPrintTable(data)
+    end
   end)
 end
 
