@@ -106,7 +106,6 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local heart = CreateItem("item_heart", bossHandle, bossHandle)
 
   bossHandle:AddItem(heart)
-
   
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
   if resistance then
