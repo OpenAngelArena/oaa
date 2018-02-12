@@ -1,42 +1,42 @@
-LinkLuaModifier("modifier_oaa_heartpiercer", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_oaa_heartpiercer_delay", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_oaa_heartpiercer_debuff", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pangolier_heartpiercer_oaa", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pangolier_heartpiercer_oaa_delay", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pangolier_heartpiercer_oaa_debuff", "abilities/oaa_heartpiercer.lua", LUA_MODIFIER_MOTION_NONE)
 
-oaa_heartpiercer = class(AbilityBaseClass)
+pangolier_heartpiercer_oaa = class(AbilityBaseClass)
 
-function oaa_heartpiercer:GetIntrinsicModifierName()
-  return "modifier_oaa_heartpiercer"
+function pangolier_heartpiercer_oaa:GetIntrinsicModifierName()
+  return "modifier_pangolier_heartpiercer_oaa"
 end
 
 --------------------------------------------------------------------------------
 
-local debuffModName = "modifier_oaa_heartpiercer_debuff"
-local delayModName = "modifier_oaa_heartpiercer_delay"
-modifier_oaa_heartpiercer = class(ModifierBaseClass)
+local debuffModName = "modifier_pangolier_heartpiercer_oaa_debuff"
+local delayModName = "modifier_pangolier_heartpiercer_oaa_delay"
+modifier_pangolier_heartpiercer_oaa = class(ModifierBaseClass)
 
-function modifier_oaa_heartpiercer:IsHidden()
+function modifier_pangolier_heartpiercer_oaa:IsHidden()
   return true
 end
 
-function modifier_oaa_heartpiercer:IsPurgable()
+function modifier_pangolier_heartpiercer_oaa:IsPurgable()
   return false
 end
 
-function modifier_oaa_heartpiercer:RemoveOnDeath()
+function modifier_pangolier_heartpiercer_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_oaa_heartpiercer:OnCreated()
+function modifier_pangolier_heartpiercer_oaa:OnCreated()
   self:SetStackCount(1)
 end
 
-function modifier_oaa_heartpiercer:DeclareFunctions()
+function modifier_pangolier_heartpiercer_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
 end
 
-function modifier_oaa_heartpiercer:OnAttackLanded(keys)
+function modifier_pangolier_heartpiercer_oaa:OnAttackLanded(keys)
   local parent = self:GetParent()
   if keys.attacker ~= parent or not keys.process_procs or parent:PassivesDisabled() then
     return
@@ -79,14 +79,14 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_oaa_heartpiercer_delay = class(ModifierBaseClass)
+modifier_pangolier_heartpiercer_oaa_delay = class(ModifierBaseClass)
 
-function modifier_oaa_heartpiercer_delay:IsDebuff()
+function modifier_pangolier_heartpiercer_oaa_delay:IsDebuff()
   return true
 end
 
 if IsServer() then
-  function modifier_oaa_heartpiercer_delay:OnDestroy()
+  function modifier_pangolier_heartpiercer_oaa_delay:OnDestroy()
     -- Only apply on expiration and not when purged or removed early
     if self:GetRemainingTime() <= 0 then
       local ability = self:GetAbility()
@@ -97,32 +97,32 @@ if IsServer() then
   end
 end
 
-function modifier_oaa_heartpiercer_delay:GetEffectAttachType()
+function modifier_pangolier_heartpiercer_oaa_delay:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_oaa_heartpiercer_delay:GetEffectName()
+function modifier_pangolier_heartpiercer_oaa_delay:GetEffectName()
   return "particles/units/heroes/hero_pangolier/pangolier_heartpiercer_delay.vpcf"
 end
 
 --------------------------------------------------------------------------------
 
-modifier_oaa_heartpiercer_debuff = class(ModifierBaseClass)
+modifier_pangolier_heartpiercer_oaa_debuff = class(ModifierBaseClass)
 
-function modifier_oaa_heartpiercer_debuff:IsDebuff()
+function modifier_pangolier_heartpiercer_oaa_debuff:IsDebuff()
   return true
 end
 
-function modifier_oaa_heartpiercer_debuff:GetEffectAttachType()
+function modifier_pangolier_heartpiercer_oaa_debuff:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_oaa_heartpiercer_debuff:GetEffectName()
+function modifier_pangolier_heartpiercer_oaa_debuff:GetEffectName()
   return "particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
 end
 
 if IsServer() then
-  function modifier_oaa_heartpiercer_debuff:OnCreated(keys)
+  function modifier_pangolier_heartpiercer_oaa_debuff:OnCreated(keys)
     local parent = self:GetParent()
     if parent:IsHero() then
       parent:EmitSound("Hero_Pangolier.HeartPiercer.Proc")
@@ -132,17 +132,17 @@ if IsServer() then
   end
 end
 
-function modifier_oaa_heartpiercer_debuff:DeclareFunctions()
+function modifier_pangolier_heartpiercer_oaa_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
 end
 
-function modifier_oaa_heartpiercer_debuff:GetModifierMoveSpeedBonus_Percentage()
+function modifier_pangolier_heartpiercer_oaa_debuff:GetModifierMoveSpeedBonus_Percentage()
   return self:GetAbility():GetSpecialValueFor("slow_pct")
 end
 
-function modifier_oaa_heartpiercer_debuff:GetModifierPhysicalArmorBonus()
+function modifier_pangolier_heartpiercer_oaa_debuff:GetModifierPhysicalArmorBonus()
   return -self:GetParent():GetPhysicalArmorBaseValue()
 end
