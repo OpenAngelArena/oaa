@@ -166,6 +166,7 @@ function GameMode:OnPreGame()
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
+  InitModule(RespawnManager)
 
   CheckCheatMode()
 end

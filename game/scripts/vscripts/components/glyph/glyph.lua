@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibil
 
 LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scan_true_sight", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
 if Glyph == nil then
   -- Debug:EnableDebugging()
@@ -125,7 +125,7 @@ function Glyph:CastScan(playerID, keys)
   local position = Vector(keys.position_x, keys.position_y, keys.position_z)
 
   CreateModifierThinker( hero, nil, "modifier_scan_true_sight_thinker", {duration = SCAN_REVEAL_DURATION}, position, hero:GetTeamNumber(), false )
-  CreateModifierThinker( hero, nil, "modifier_radar_thinker", {duration = SCAN_DURATION}, position, hero:GetTeamNumber(), false )
+  CreateModifierThinker( hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION}, position, hero:GetTeamNumber(), false )
 
   self:ResetScanCooldown(playerID)
 

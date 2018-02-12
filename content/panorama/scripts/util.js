@@ -1,4 +1,4 @@
-/* global $, GameUI */
+/* global $ */
 'use strict';
 /*
   Author:

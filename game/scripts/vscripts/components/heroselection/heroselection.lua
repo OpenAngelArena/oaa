@@ -34,6 +34,7 @@ function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "oaa_captains_mode"
   self.isARDM = GetMapName() == "ardm"
+  self.is10v10 = GetMapName() == "oaa_10v10"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -45,6 +46,9 @@ function HeroSelection:Init ()
   end
   if self.isARDM then
     herolistFile = 'scripts/npc/herolist_ardm.txt'
+  end
+  if self.is10v10 then
+    herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')

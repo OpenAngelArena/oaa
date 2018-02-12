@@ -811,6 +811,9 @@ function Duels:SafeTeleport(unit, location, maxDistance)
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   Timers:CreateTimer(0.1, function()
+    if not unit or unit:IsNull() then
+      return
+    end
     local distance = (location - unit:GetAbsOrigin()):Length2D()
     if distance > maxDistance then
       self:SafeTeleport(unit, location, maxDistance + 100)

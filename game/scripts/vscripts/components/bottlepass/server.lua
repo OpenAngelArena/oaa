@@ -50,8 +50,9 @@ function Bottlepass:SendWinner (winner)
     gameLength = gameLength,
     players = connectedPlayers
   }, function (err, data)
-    DebugPrint(data)
-    DebugPrintTable(data)
+    if data then
+      DebugPrintTable(data)
+    end
   end)
 end
 
@@ -110,6 +111,10 @@ end
 function Bottlepass:Request(api, data, cb)
   if HeroSelection.isARDM then
     cb("No bottlepass in ARDM", {})
+    return
+  end
+  if HeroSelection.is10v10 then
+    cb("No bottlepass in 10v10", {})
     return
   end
   if GameRules:IsCheatMode() and not IsInToolsMode() then

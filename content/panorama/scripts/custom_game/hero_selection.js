@@ -55,7 +55,16 @@ var hilariousLoadingPhrases = [
   'Nerfing your hero',
   'Buffing opponents',
   'Loading Warcraft 3',
-  'Unboxing map'
+  'Unboxing map',
+  'Searching for a worthy opponent',
+  'Pay no attention to the man behind the curtain',
+  'Reticulating Splines',
+  'Bugfixing waveshines and fun-canceling',
+  'Daydreaming about standalone',
+  'Donating $1 to tournament prize pool',
+  'Selling arcanas to afford custom bottle',
+  'Finding a 5-stack on Discord',
+  'Rigging the tournament'
 ];
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
@@ -67,6 +76,7 @@ onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_se
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 changeHilariousLoadingText();
+$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
 
 $('#ARDMLoading').style.opacity = 0;
 
@@ -103,7 +113,7 @@ function onPlayerStatChange (table, key, data) {
   var newimage = null;
   if (key === 'herolist' && data != null) {
     currentMap = data.gametype;
-    if (currentMap !== 'ardm') {
+    if (currentMap !== 'ardm' && currentMap !== 'oaa_10v10') {
       MoveChatWindow();
     }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
@@ -311,6 +321,11 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
     if (data.mode === 'STRATEGY') {
+      if (!iscm) {
+        $.Msg('FinishPickings');
+        ReturnChatWindow();
+        SetupTopBar();
+      }
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
       GoToStrategy();
@@ -325,6 +340,55 @@ function onPlayerStatChange (table, key, data) {
       }
       HideStrategy();
     }
+  }
+}
+
+function SetupTopBar () {
+  if (Game.GetMapInfo().map_display_name !== 'oaa_10v10') {
+    return;
+  }
+
+  var topbar = FindDotaHudElement('topbar');
+  topbar.style.width = '1550px';
+
+  // Top Bar Radiant
+  var TopBarRadiantTeam = FindDotaHudElement('TopBarRadiantTeam');
+  TopBarRadiantTeam.style.width = '690px';
+
+  var topbarRadiantPlayers = FindDotaHudElement('TopBarRadiantPlayers');
+  topbarRadiantPlayers.style.width = '690px';
+
+  var topbarRadiantPlayersContainer = FindDotaHudElement('TopBarRadiantPlayersContainer');
+  topbarRadiantPlayersContainer.style.width = '630px';
+  FillTopBarPlayer(topbarRadiantPlayersContainer);
+
+  var RadiantTeamContainer = FindDotaHudElement('RadiantTeamContainer');
+  RadiantTeamContainer.style.height = '737px';
+
+  // Top Bar Dire
+  var TopBarDireTeam = FindDotaHudElement('TopBarDireTeam');
+  TopBarDireTeam.style.width = '690px';
+
+  var topbarDirePlayers = FindDotaHudElement('TopBarDirePlayers');
+  topbarDirePlayers.style.width = '690px';
+
+  var topbarDirePlayersContainer = FindDotaHudElement('TopBarDirePlayersContainer');
+  topbarDirePlayersContainer.style.width = '630px';
+  FillTopBarPlayer(topbarDirePlayersContainer);
+
+  var DireTeamContainer = FindDotaHudElement('DireTeamContainer');
+  DireTeamContainer.style.height = '737px';
+}
+
+function FillTopBarPlayer (TeamContainer) {
+  // Fill players top bar in case on partial lobbies
+  var playerCount = TeamContainer.GetChildCount();
+  for (var i = playerCount + 1; i <= 10; i++) {
+    var newPlayer = $.CreatePanel('DOTATopBarPlayer', TeamContainer, 'RadiantPlayer-1');
+    if (newPlayer) {
+      newPlayer.FindChildTraverse('PlayerColor').style.backgroundColor = '#FFFFFFFF';
+    }
+    newPlayer.SetHasClass('EnemyTeam', true);
   }
 }
 
