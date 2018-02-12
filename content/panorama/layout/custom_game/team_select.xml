@@ -19,7 +19,7 @@
     <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">`
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
-        <Panel id="GameLengthPicker">
+        <!-- <Panel id="GameLengthPicker">
           <RadioButton class="GameLengthOption" group="GameLength" id="ShortGame" onactivate="SetPlayerVote('short')">
             <Label class="title" text="#oaa_game_length_short_title" />
             <Label class="description" text="#oaa_game_length_short" />
@@ -32,26 +32,40 @@
             <Label class="title" text="#oaa_game_length_long_title" />
             <Label class="description" text="#oaa_game_length_long" />
           </RadioButton>
-        </Panel>
+        </Panel> -->
       </Panel>
 
 
     </Panel>
 
     <Panel id="TeamsList" >
-      <Panel id="TeamsListGroup" >
-        <Panel id="TeamListHeader">
-          <Label id="TeamListHeaderLabel" text="#custom_game_team_select" />
-          <Image id="TeamListLockedIcon" src="file://{images}/control_icons/lock_small.png" />
+      <Panel id="TeamsBG" >
+
+        <!-- Header -->
+        <Panel id="Header">
+          <Panel id="TeamListHeader">
+            <Label id="TeamListHeaderLabel" text="#custom_game_team_select" />
+            <Image id="TeamListLockedIcon" src="file://{images}/control_icons/lock_small.png" />
+          </Panel>
         </Panel>
-        <Panel id="TeamsListRoot" />
 
+        <!-- Mid -->
+        <Panel id="Mid">
+          <Panel id="MidImages">
+            <Panel id="Radiant"/>
+            <Panel id="Vs"/>
+            <Panel id="Dire"/>
+          </Panel>
+          <Panel id="TeamsListRoot" />
+        </Panel>
 
+        <!-- Footer -->
+        <Panel id="Footer">
+          <Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
+            <Label text="#custom_game_team_select_shuffle" />
+          </Button>
+        </Panel>
 
-        <Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
-          <Label text="#custom_game_team_select_shuffle" />
-
-        </Button>
       </Panel>
     </Panel>
 

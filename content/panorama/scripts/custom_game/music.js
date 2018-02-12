@@ -1,10 +1,12 @@
-/* global $, CustomNetTables */
+/* global Players $ GameEvents CustomNetTables Game */
 
 var musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
 CustomNetTables.SubscribeNetTableListener('music', SetMusic);
 SetMusic(null, 'info', CustomNetTables.GetTableValue('music', 'info'));
 SetMute(CustomNetTables.GetTableValue('music', 'mute'));
+
+$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
 
 function ToggleMusic () {
   if (musicPlaying) {
