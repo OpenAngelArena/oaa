@@ -1,10 +1,10 @@
 # Chat commands
 
-Updated 2017-12-05
+Updated 2018-02-14
 
 [< Dota 2 Tools][0]
 
-Commands to be used for debugging and testing purposes, currently requires the game to either be in tools mode or have sv_cheats 1 enabled. To use these types them into the chat prompt like you would messaging allies. <b>As for now, there is a bug that prevents the chat listener from working on workshop mode, and thus none of these commands will work in upload versions, only in tools mode.</b>
+Commands to be used for debugging and testing purposes, currently requires the game to either be in tools mode or have sv_cheats 1 enabled. To use these, type them into the chat prompt like you would when messaging allies or using normal Dota cheats.
 <br>
 <br>
 -list/-help - Displays a list of all available chat commands.
@@ -52,5 +52,7 @@ Commands to be used for debugging and testing purposes, currently requires the g
 -lazer - Gives the user the HP/Mana drain laser ability that the Fountain uses.
 <br>
 -spawncamps - Forces neutral creep camps to spawn
+<br>
+-getpos - Prints the position coordinates of the user's hero in chat.
 
 [0]: README.md
