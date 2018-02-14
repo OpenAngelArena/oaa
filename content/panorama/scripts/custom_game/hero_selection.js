@@ -13,7 +13,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // for testing
 var neverHideStrategy = false;
 
-var currentMap = null;
+var currentMap = Game.GetMapInfo().map_display_name;
 var hasGoneToStrategy = false;
 var selectedhero = 'empty';
 var disabledheroes = [];
@@ -67,7 +67,6 @@ var hilariousLoadingPhrases = [
   'Rigging the tournament'
 ];
 
-currentMap = Game.GetMapInfo().map_display_name;
 SetupTopBar();
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
@@ -114,7 +113,6 @@ function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
   if (key === 'herolist' && data != null) {
-    currentMap = data.gametype;
     // do not move chat for ardm
     if (currentMap !== 'ardm') {
       MoveChatWindow();
@@ -342,7 +340,7 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function SetupTopBar () {
-  if (Game.GetMapInfo().map_display_name !== 'oaa_10v10') {
+  if (currentMap !== 'oaa_10v10') {
     return;
   }
 
