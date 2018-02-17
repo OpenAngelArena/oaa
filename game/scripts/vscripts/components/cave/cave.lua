@@ -19,9 +19,9 @@ function CaveHandler:Init ()
     local caveName = 'cave_' .. GetShortTeamName(teamID)
     local doorDistance = 0
     if teamID == DOTA_TEAM_GOODGUYS then
-      doorDistance = 260
+      doorDistance = 400
     elseif teamID == DOTA_TEAM_BADGUYS then
-      doorDistance = 330
+      doorDistance = 400
     end
 
     self.caves[teamID] = {
@@ -489,7 +489,7 @@ function CaveHandler:KickPlayers (teamID)
     teamID, -- team
     Vector(0,0,0), -- location
     nil, -- cache
-    10000, -- radius
+    20000, -- radius
     DOTA_UNIT_TARGET_TEAM_BOTH, -- team filter
     DOTA_UNIT_TARGET_ALL, -- type filter
     DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter

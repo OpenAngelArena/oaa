@@ -83,7 +83,7 @@ function modifier_boss_capture_point:OnIntervalThink()
     self.radius,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE),
     FIND_ANY_ORDER,
     false
   )
@@ -94,7 +94,7 @@ function modifier_boss_capture_point:OnIntervalThink()
     self.radius,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE),
     FIND_ANY_ORDER,
     false
   )

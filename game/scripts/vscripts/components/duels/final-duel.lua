@@ -31,7 +31,7 @@ function FinalDuel:Trigger (team)
   end
 
   Duels:StartDuel({
-    players = 5, -- TODO: 10v10 compatibility
+    players = 0,
     timeout = FINAL_DUEL_TIMEOUT
   })
 end

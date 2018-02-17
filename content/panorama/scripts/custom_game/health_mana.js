@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, GameEvents, $, Players, CustomNetTables */
+/* global FindDotaHudElement, GameEvents, Players, CustomNetTables */
 'use strict';
 
 (function () {
