@@ -6,10 +6,10 @@
   "item_recipe_bloodstone"                                "REMOVED"
   "item_recipe_bloodstone_1"
   {
+    "ID"                                                  "3400"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
-    "ID"                                                  "3400"       // unique ID
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
