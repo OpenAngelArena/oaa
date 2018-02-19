@@ -13,7 +13,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // for testing
 var neverHideStrategy = false;
 
-var currentMap = null;
+var currentMap = Game.GetMapInfo().map_display_name;
 var hasGoneToStrategy = false;
 var selectedhero = 'empty';
 var disabledheroes = [];
@@ -67,6 +67,8 @@ var hilariousLoadingPhrases = [
   'Rigging the tournament'
 ];
 
+SetupTopBar();
+
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
@@ -76,7 +78,6 @@ onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_se
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 changeHilariousLoadingText();
-$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
 
 $('#ARDMLoading').style.opacity = 0;
 
@@ -112,8 +113,8 @@ function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
   if (key === 'herolist' && data != null) {
-    currentMap = data.gametype;
-    if (currentMap !== 'ardm' && currentMap !== 'oaa_10v10') {
+    // do not move chat for ardm
+    if (currentMap !== 'ardm') {
       MoveChatWindow();
     }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
@@ -321,11 +322,6 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
     if (data.mode === 'STRATEGY') {
-      if (!iscm) {
-        $.Msg('FinishPickings');
-        ReturnChatWindow();
-        SetupTopBar();
-      }
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
       GoToStrategy();
@@ -333,9 +329,9 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('TimeLeft').text = data['time'];
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
     } else {
-      // CM Hides the chat on last pick before selecting plyer hero
-      // ARDM don't have pick screen
-      if (currentMap === 'oaa') {
+      // CM Hides the chat on last pick, before selecting plyer hero
+      // ARDM don't have pick screen chat
+      if (currentMap === 'oaa' || currentMap === 'oaa_10v10') {
         ReturnChatWindow();
       }
       HideStrategy();
@@ -344,10 +340,11 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function SetupTopBar () {
-  if (Game.GetMapInfo().map_display_name !== 'oaa_10v10') {
+  if (currentMap !== 'oaa_10v10') {
     return;
   }
 
+  $.GetContextPanel().SetHasClass('TenVTen', true);
   var topbar = FindDotaHudElement('topbar');
   topbar.style.width = '1550px';
 
