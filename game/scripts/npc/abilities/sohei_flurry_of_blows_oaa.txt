@@ -16,6 +16,7 @@
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityTextureName"      "custom/ronin_flurry_of_blows"
     "ScriptFile"          "abilities/hero_ronin.lua"
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -44,25 +45,25 @@
     "AbilitySpecial"
     {
       "01"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "flurry_radius"       "400"
-      }
-      "02"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "max_attacks"       "5 10 15"
-      }
-      "03"
-      {
-        "var_type"          "FIELD_FLOAT"
-        "max_duration"        "4.0 5.0 6.0"
-      }
-      "04"
-      {
-        "var_type"          "FIELD_FLOAT"
-        "attack_interval"     "0.4"
-      }
+			{
+				"var_type"					"FIELD_INTEGER"
+				"flurry_radius"				"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_attacks"				"5 10 15 20 25"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_duration"				"5.0 6.0 7.0 8.0 9.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attack_interval"			"0.4"
+			}
     }
   }
 }
