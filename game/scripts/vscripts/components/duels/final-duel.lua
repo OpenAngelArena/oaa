@@ -23,6 +23,12 @@ function FinalDuel:Init ()
 end
 
 function FinalDuel:Trigger (team)
+  local limit = PointsManager:GetLimit()
+  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if goodPoints < limit and badPoints < limit then
+    return
+  end
   self.needsFinalDuel = true
 
   if Duels.currentDuel then

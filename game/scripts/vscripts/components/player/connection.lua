@@ -5,6 +5,9 @@ if PlayerConnection == nil then
 end
 
 function PlayerConnection:Init()
+  GameEvents:OnPlayerDisconnect(function(keys)
+    PauseGame(true)
+  end)
   Timers:CreateTimer(function()
     return self:Think()
   end)
