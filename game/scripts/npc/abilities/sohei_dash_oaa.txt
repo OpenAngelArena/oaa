@@ -12,7 +12,8 @@
     "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
     "AbilityTextureName"      "custom/ronin_dash"
     "ScriptFile"          "abilities/hero_ronin.lua"
-
+    "MaxLevel"                                            "6"
+    
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
