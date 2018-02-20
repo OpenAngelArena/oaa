@@ -49,7 +49,7 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "dash_speed"        "900"
+        "dash_speed"        "2100"
       }
       "03"
       {
@@ -60,6 +60,11 @@
       {
         "var_type"          "FIELD_INTEGER"
         "tree_radius"       "175"
+      }
+      "05"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "charge_restore_time" "8"
       }
     }
   }

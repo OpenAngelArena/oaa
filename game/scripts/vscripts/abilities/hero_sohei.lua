@@ -76,12 +76,16 @@ function sohei_dash:OnSpellStart(ignore_dash)
 				if modifier_charges:GetRemainingTime() <= 0 then
 
 					-- Reduce the charge recovery time if the appropriate talent is learned
-					--if caster:FindAbilityByName("special_bonus_sohei_4"):GetLevel() > 0 then
-					--	local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_4"):GetSpecialValueFor("value")
-					--	caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {duration = math.max(self:GetCooldown(self:GetLevel()) - cooldown_reduction, 1)})
-					--else
-						caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {duration = self:GetCooldown(self:GetLevel())})
-					--end
+					if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
+						local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
+						caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
+              duration = math.max(self:GetSpecialValueFor("charge_restore_time") - cooldown_reduction, 1)
+            })
+					else
+						caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
+              duration = self:GetSpecialValueFor("charge_restore_time")
+            })
+					end
 				end
 
 				-- If this was not the last charge, put the ability on a short cooldown
@@ -160,7 +164,6 @@ function modifier_sohei_dash_charges:OnDestroy()
 		end
 	end
 end
-
 
 -- Dash movement modifier
 modifier_sohei_dash_movement = class({})
