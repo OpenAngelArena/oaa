@@ -3,11 +3,12 @@
   //=================================================================================================================
   // Ronin: Flurry of Blows
   //=================================================================================================================
-  "ronin_flurry_of_blows"
+  "sohei_flurry_of_blows"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "ability_lua"
+    "ID"                  "9501"
     "AbilityType"         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
@@ -15,7 +16,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityTextureName"      "custom/ronin_flurry_of_blows"
-    "ScriptFile"          "abilities/hero_ronin.lua"
+    "ScriptFile"          "abilities/hero_sohei.lua"
     "MaxLevel"                                            "5"
 
     // Casting

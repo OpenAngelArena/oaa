@@ -3,17 +3,18 @@
   //=================================================================================================================
   // Ronin: Dash
   //=================================================================================================================
-  "ronin_dash"
+  "sohei_dash"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "ability_lua"
+    "ID"                  "9500"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
     "AbilityTextureName"      "custom/ronin_dash"
-    "ScriptFile"          "abilities/hero_ronin.lua"
+    "ScriptFile"          "abilities/hero_sohei.lua"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"

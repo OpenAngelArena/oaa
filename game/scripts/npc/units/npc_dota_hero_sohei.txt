@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
 	//=================================================================================================================
-	// HERO: Ronin (Should be copied into npc_heroes_custom.txt without abilities!)
+	// HERO: Sohei (Should be copied into npc_heroes_custom.txt without abilities!)
 	//=================================================================================================================
 	"npc_dota_hero_sohei"
 	{
@@ -29,21 +29,21 @@
 		"AttributeBaseIntelligence" "17"
 		"AttributeIntelligenceGain" "1.5"
 
-		"Ability1"                  "ronin_dash"
-		"Ability2"                  "ronin_guard"
-		"Ability3"                  "ronin_momentum"
+		"Ability1"                  "sohei_dash"
+		"Ability2"                  "sohei_guard"
+		"Ability3"                  "sohei_momentum"
 		"Ability4"                  "generic_hidden"
 		"Ability5"                  "generic_hidden"
-		"Ability6"                  "ronin_flurry_of_blows"
+		"Ability6"                  "sohei_flurry_of_blows"
 
-		"Ability10"                 "special_bonus_ronin_1"             // Momentum inflicts a brief stun if the target collides with an obstacle
+		"Ability10"                 "special_bonus_sohei_stun"             // Momentum inflicts a brief stun if the target collides with an obstacle
 		"Ability11"                 "special_bonus_cleave_15"
 		"Ability12"                 "special_bonus_strength_20"
-		"Ability13"                 "special_bonus_ronin_2"             // Guard also knockbacks enemies until they are 300 units away
-		"Ability14"                 "special_bonus_ronin_3"             // Momentum hits reduce the cooldown on Guard
+		"Ability13"                 "special_bonus_sohei_guard_knockback"             // Guard also knockbacks enemies until they are 300 units away
+		"Ability14"                 "special_bonus_sohei_momentum_guard_cooldown"             // Momentum hits reduce the cooldown on Guard
 		"Ability15"                 "special_bonus_movement_speed_100"
-		"Ability16"                 "special_bonus_ronin_4"             // Dash charges cool down all at once
-		"Ability17"                 "special_bonus_ronin_5"             // Increases Flurry of Blows' AOE radius
+		"Ability16"                 "special_bonus_sohei_dash_recharge"             // Dash charges cool down all at once
+		"Ability17"                 "special_bonus_sohei_fob_radius"             // Increases Flurry of Blows' AOE radius
 
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"

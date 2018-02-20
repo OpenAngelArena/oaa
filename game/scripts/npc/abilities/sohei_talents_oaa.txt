@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin talent 1: Momentum inflicts a brief stun if the target collides with an obstacle
+  // sohei talent 1: Momentum inflicts a brief stun if the target collides with an obstacle
   //=================================================================================================================
-  "special_bonus_ronin_1"
+  "special_bonus_sohei_stun"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9503"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,15 +25,16 @@
   }
 
   //=================================================================================================================
-  // Ronin talent 2: Guard also knockbacks enemies until they are 300 units away
+  // sohei talent 2: Guard also knockbacks enemies until they are 300 units away
   //=================================================================================================================
-  "special_bonus_ronin_2"
+  "special_bonus_sohei_guard_knockback"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9504"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,15 +49,16 @@
   }
 
   //=================================================================================================================
-  // Ronin talent 3: Momentum hits reduce the cooldown on Guard
+  // sohei talent 3: Momentum hits reduce the cooldown on Guard
   //=================================================================================================================
-  "special_bonus_ronin_3"
+  "special_bonus_sohei_momentum_guard_cooldown"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9505"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -70,15 +73,16 @@
   }
 
   //=================================================================================================================
-  // Ronin talent 4: Dash charges cooldown reduced
+  // sohei talent 4: Dash charges cooldown reduced
   //=================================================================================================================
-  "special_bonus_ronin_4"
+  "special_bonus_sohei_dash_recharge"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9506"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -93,15 +97,16 @@
   }
 
   //=================================================================================================================
-  // Ronin talent 5: Increases Flurry of Blows' AOE radius
+  // sohei talent 5: Increases Flurry of Blows' AOE radius
   //=================================================================================================================
-  "special_bonus_ronin_5"
+  "special_bonus_sohei_fob_radius"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9507"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -52,20 +52,24 @@ function HeroSelection:Init ()
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-  local customheroes = LoadKeyValues('scripts/npc/npc_heroes_custom.txt')
   for key,value in pairs(LoadKeyValues(herolistFile)) do
-    print("Heroes:", key)
+    DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
-      print(key, "is not in vanilla file!")
-      allheroes = customheroes
+      DebugPrint(key .. " is not in vanilla file!")
+      local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
+      if data and data[key] then
+        allheroes[key] = data[key]
+        DebugPrintTable(allheroes[key])
+      end
     end
     if value == 1 then
-      print("Value = 1:", allheroes[key])
+      DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
     end
   end
+
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
 
   -- lock down the "pick" hero so that they can't do anything
