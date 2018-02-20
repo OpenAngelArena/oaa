@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ronin: Dash
+  //=================================================================================================================
+  "ronin_dash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_lua"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
+    "AbilityTextureName"      "custom/ronin_dash"
+    "ScriptFile"          "abilities/hero_ronin.lua"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastRange"        "300"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "8"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "50"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"          "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+      "soundfile"         "soundevents/ronin_soundevents.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "dash_distance"       "300"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "dash_speed"        "900"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "max_charges"       "2 3 4 5"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "tree_radius"       "175"
+      }
+    }
+  }
+}

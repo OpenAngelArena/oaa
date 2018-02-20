@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ronin: Flurry of Blows
+  //=================================================================================================================
+  "ronin_flurry_of_blows"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_lua"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"      "custom/ronin_flurry_of_blows"
+    "ScriptFile"          "abilities/hero_ronin.lua"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "1.0"
+    "AbilityCastRange"        "400"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "100"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "150"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"          "particles/hero/ronin/flurry_of_blows_ground.vpcf"
+      "particle"          "particles/status_fx/status_effect_omnislash.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "flurry_radius"       "400"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "max_attacks"       "5 10 15"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "max_duration"        "4.0 5.0 6.0"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "attack_interval"     "0.4"
+      }
+    }
+  }
+}

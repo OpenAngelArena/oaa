@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ronin talent 1: Momentum inflicts a brief stun if the target collides with an obstacle
+  //=================================================================================================================
+  "special_bonus_ronin_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "0.2"     // Stun duration
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ronin talent 2: Guard also knockbacks enemies until they are 300 units away
+  //=================================================================================================================
+  "special_bonus_ronin_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"         "300"     // Knockback max distance
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ronin talent 3: Momentum hits reduce the cooldown on Guard
+  //=================================================================================================================
+  "special_bonus_ronin_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "1.0"     // Cooldown reduction in seconds
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ronin talent 4: Dash charges cooldown reduced
+  //=================================================================================================================
+  "special_bonus_ronin_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "4.0"     // Cooldown reduction in seconds
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ronin talent 5: Increases Flurry of Blows' AOE radius
+  //=================================================================================================================
+  "special_bonus_ronin_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"         "300"     // Radius increase
+      }
+    }
+  }
+}

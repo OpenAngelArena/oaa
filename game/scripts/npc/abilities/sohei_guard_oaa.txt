@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ronin: Guard
+  //=================================================================================================================
+  "ronin_guard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_lua"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
+    "AbilityTextureName"      "custom/ronin_guard"
+    "ScriptFile"          "abilities/hero_ronin.lua"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"        "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "25 20 15 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "80"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"          "particles/hero/ronin/guard.vpcf"
+      "soundfile"         "soundevents/ronin_soundevents.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "charges_required"      "2"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "guard_duration"      "2.0"
+      }
+    }
+  }
+}

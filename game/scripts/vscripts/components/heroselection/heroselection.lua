@@ -52,8 +52,15 @@ function HeroSelection:Init ()
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  local customheroes = LoadKeyValues('scripts/npc/npc_heroes_custom.txt')
   for key,value in pairs(LoadKeyValues(herolistFile)) do
+    print("Heroes:", key)
+    if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
+      print(key, "is not in vanilla file!")
+      allheroes = customheroes
+    end
     if value == 1 then
+      print("Value = 1:", allheroes[key])
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
