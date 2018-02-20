@@ -6,7 +6,9 @@ end
 
 function PlayerConnection:Init()
   GameEvents:OnPlayerDisconnect(function(keys)
-    PauseGame(true)
+    if HeroSelection.isCM then
+      PauseGame(true)
+    end
   end)
   Timers:CreateTimer(function()
     return self:Think()

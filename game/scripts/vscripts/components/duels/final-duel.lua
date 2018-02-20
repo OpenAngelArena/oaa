@@ -12,7 +12,7 @@ end
 local limitIncreaseAmounts = {
   short = 7,
   normal = 10,
-  long = 13,
+  long = 13
 }
 
 function FinalDuel:Init ()
@@ -87,6 +87,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
   end
   DebugPrint('Final Duel has ended')
   self.isCurrentlyFinalDuel = false
+  self.needsFinalDuel = false
 
   -- currentDuel.duelEnd1
   -- currentDuel.duelEnd2
@@ -103,6 +104,9 @@ function FinalDuel:EndDuelHandler (currentDuel)
     PointsManager:SetWinner(DOTA_TEAM_BADGUYS)
     return
   end
+  self.goodCanWin = false
+  self.badCanWin = false
+
   local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
   Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=addToLimit}})
 
