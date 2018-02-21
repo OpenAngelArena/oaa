@@ -89,13 +89,15 @@ function modifier_item_far_sight_true_sight:IsAura()
   return true
 end
 
-function modifier_item_far_sight_true_sight:OnCreated()
-  self.revealRadius = self:GetAbility():GetSpecialValueFor("reveal_radius")
+if IsServer() then
+  function modifier_item_far_sight_true_sight:OnCreated()
+    self.revealRadius = self:GetAbility():GetSpecialValueFor("reveal_radius")
 
-  if IsServer() then
-    self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-    ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
+    if IsServer() then
+      self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+      ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+      ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
+    end
   end
 end
 

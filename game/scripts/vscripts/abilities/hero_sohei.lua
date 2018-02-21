@@ -61,8 +61,8 @@ end
 
 function sohei_dash:OnSpellStart(ignore_dash)
   if IsServer() then
-
     local caster = self:GetCaster()
+
     if caster:FindModifierByName("modifier_sohei_dash_charges") then
       local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
 
@@ -71,23 +71,8 @@ function sohei_dash:OnSpellStart(ignore_dash)
         if not ignore_dash then
           sohei_functions:Dash(caster, self:GetSpecialValueFor("dash_distance"), self:GetSpecialValueFor("dash_speed"), self:GetSpecialValueFor("tree_radius"))
         end
-        modifier_charges:SetStackCount(modifier_charges:GetStackCount() - 1)
-
-        -- Show the modifier "rolling" to imply charge cooldown, if appropriate
-        if modifier_charges:GetRemainingTime() <= 0 then
-
-          -- Reduce the charge recovery time if the appropriate talent is learned
-          if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
-            local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
-            caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
-              duration = math.max(self:GetSpecialValueFor("charge_restore_time") - cooldown_reduction, 1)
-            })
-          else
-            caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
-              duration = self:GetSpecialValueFor("charge_restore_time")
-            })
-          end
-        end
+        modifier_charges:SetStackCount(modifier_charges:GetStackCount() - 2)
+        modifier_charges:OnExpire()
 
         -- If this was not the last charge, put the ability on a short cooldown
         if modifier_charges:GetStackCount() > 0 then
@@ -110,6 +95,18 @@ function sohei_dash:OnSpellStart(ignore_dash)
         Timers:CreateTimer(0.03, function()
           self:EndCooldown()
         end)
+      end
+    else
+      -- Reduce the charge recovery time if the appropriate talent is learned
+      if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
+        local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
+        caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
+          duration = math.max(self:GetSpecialValueFor("charge_restore_time") - cooldown_reduction, 1)
+        })
+      else
+        caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
+          duration = self:GetSpecialValueFor("charge_restore_time")
+        })
       end
     end
   end
@@ -151,19 +148,50 @@ function modifier_sohei_dash_charges:IsDebuff() return false end
 function modifier_sohei_dash_charges:IsHidden() return false end
 function modifier_sohei_dash_charges:IsPurgable() return false end
 function modifier_sohei_dash_charges:RemoveOnDeath() return false end
+function modifier_sohei_dash_charges:DestroyOnExpire() return false end
 function modifier_sohei_dash_charges:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT end
 
-function modifier_sohei_dash_charges:OnDestroy()
+function modifier_sohei_dash_charges:OnCreated()
   if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+function modifier_sohei_dash_charges:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_sohei_dash_charges:OnIntervalThink()
+  if IsServer() then
+    if self:GetRemainingTime() <= 0 then
+      self:OnExpire()
+    end
+  end
+end
+
+function modifier_sohei_dash_charges:OnExpire()
+  if IsServer() then
+    local caster = self:GetCaster()
 
     -- If the maximum charges are reached, stop the modifier's timer
     local max_charges = self:GetAbility():GetSpecialValueFor("max_charges")
     if self:GetStackCount() >= (max_charges - 1) then
-      local new_modifier = self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_sohei_dash_charges", {})
-      new_modifier:SetStackCount(max_charges)
+      self:SetStackCount(max_charges)
+      self:SetDuration(-1, true)
+      self:StartIntervalThink(-1)
     else
-      local new_modifier = self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_sohei_dash_charges", {duration = self:GetDuration()})
-      new_modifier:SetStackCount(self:GetStackCount() + 1)
+      -- Reduce the charge recovery time if the appropriate talent is learned
+      local duration = self:GetAbility():GetSpecialValueFor("charge_restore_time")
+      if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
+        local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
+        caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
+          duration = math.max(duration - cooldown_reduction, 1)
+        })
+      end
+      self:SetStackCount(self:GetStackCount() + 1)
+      self:SetDuration(duration, true)
+      self:StartIntervalThink(0.1)
     end
   end
 end
@@ -619,7 +647,8 @@ function modifier_sohei_momentum_knockback:OnIntervalThink()
   if IsServer() then
     local unit = self:GetParent()
     local caster = self:GetCaster()
-    local position = unit:GetAbsOrigin() + self.movement_tick
+    local originalPosition = unit:GetAbsOrigin()
+    local position = originalPosition + self.movement_tick
     local ability = self:GetAbility()
     local collision_radius = ability:GetSpecialValueFor('collision_radius')
 
@@ -636,12 +665,17 @@ function modifier_sohei_momentum_knockback:OnIntervalThink()
       FIND_CLOSEST,
       false)
 
-    if targets[1] then
+    local nonHeroTarget = targets[1]
+    if nonHeroTarget == unit then
+      nonHeroTarget = targets[2]
+    end
+
+    if nonHeroTarget then
       self:SlowAndStun(unit, caster, ability)
-      self:SlowAndStun(targets[1], caster, ability)
+      self:SlowAndStun(nonHeroTarget, caster, ability)
       self:Destroy()
 
-    elseif not GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
+    elseif GetGroundPosition(originalPosition).z ~= GetGroundPosition(position).z or GridNav:IsNearbyTree(position, collision_radius, false) then
       self:SlowAndStun(unit, caster, ability)
       GridNav:DestroyTreesAroundPoint(position, collision_radius, false)
       self:Destroy()
