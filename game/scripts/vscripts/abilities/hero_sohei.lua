@@ -11,6 +11,8 @@
 -- TODO: remove comments on talent-related lines
 -- TODO: momentum collision detection
 
+Debug:EnableDebugging()
+
 --------------------------------------
 --  Common usage functions
 --------------------------------------
@@ -21,6 +23,7 @@ sohei_functions = class({})
 function sohei_functions:Dash(caster, distance, speed, tree_radius)
   caster:RemoveModifierByName("modifier_sohei_dash_movement")
   local duration = distance / speed
+  caster:EmitSound("DOTA_Item.ForceStaff.Activate")
   caster:EmitSound("sohei.Dash")
   caster:StartGesture(ACT_DOTA_RUN)
   caster:AddNewModifier(nil, nil, "modifier_sohei_dash_movement", {duration = duration, distance = distance, tree_radius = tree_radius})
@@ -36,13 +39,12 @@ function sohei_functions:TriggerMomentum(caster)
   end
 end
 
-
-
 --------------------------------------
 --  DASH
 --------------------------------------
 
 sohei_dash = class({})
+
 LinkLuaModifier("modifier_sohei_dash_free_turning", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_dash_movement", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_dash_charges", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
@@ -169,7 +171,7 @@ end
 modifier_sohei_dash_movement = class({})
 
 function modifier_sohei_dash_movement:IsDebuff() return false end
-function modifier_sohei_dash_movement:IsHidden() return false end
+function modifier_sohei_dash_movement:IsHidden() return true end
 function modifier_sohei_dash_movement:IsPurgable() return false end
 function modifier_sohei_dash_movement:IsStunDebuff() return false end
 function modifier_sohei_dash_movement:IsMotionController() return true end
@@ -178,10 +180,10 @@ function modifier_sohei_dash_movement:GetMotionControllerPriority() return DOTA_
 function modifier_sohei_dash_movement:CheckState()
   local state = {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_ROOTED] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_ROOTED] = true
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true
   }
   return state
 end
@@ -220,70 +222,110 @@ function modifier_sohei_dash_movement:OnIntervalThink()
   end
 end
 
-
-
 --------------------------------------
 --  GUARD
 --------------------------------------
 
 sohei_guard = class({})
 LinkLuaModifier("modifier_sohei_guard_reflect", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_guard_knockback", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 
 function sohei_guard:OnToggle()
   if IsServer() then
     if self:GetToggleState() then
       self:ToggleAbility()
-      local caster = self:GetCaster()
+    else
+      return
+    end
 
-      -- Check if there are enough charges to cast the ability, if the caster is stunned
-      if caster:IsStunned() then
-        if caster:FindModifierByName("modifier_sohei_dash_charges") then
-          local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
-          if modifier_charges:GetStackCount() < 2 then
-            self:RefundManaCost()
-            Timers:CreateTimer(0.03, function()
-              self:EndCooldown()
-            end)
-            return nil
-          else
-            modifier_charges:SetStackCount(modifier_charges:GetStackCount() - 1)
-            caster:FindAbilityByName("sohei_dash"):OnSpellStart(true)
-          end
-        else
+    local caster = self:GetCaster()
+
+    -- Check if there are enough charges to cast the ability, if the caster is stunned
+    if caster:IsStunned() then
+      if caster:FindModifierByName("modifier_sohei_dash_charges") then
+        local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
+        if modifier_charges:GetStackCount() < 2 then
           self:RefundManaCost()
           Timers:CreateTimer(0.03, function()
             self:EndCooldown()
           end)
           return nil
+        else
+          modifier_charges:SetStackCount(modifier_charges:GetStackCount() - 1)
+          caster:FindAbilityByName("sohei_dash"):OnSpellStart(true)
         end
+      else
+        self:RefundManaCost()
+        Timers:CreateTimer(0.03, function()
+          self:EndCooldown()
+        end)
+        return nil
       end
+    end
 
-      -- Hard Dispel
-      caster:Purge(false, true, false, true, true)
+    -- Hard Dispel
+    caster:Purge(false, true, false, true, true)
 
-      -- Start spinning animation
-      caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
+    -- Start spinning animation
+    caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
 
-      -- Play guard sound
-      caster:EmitSound("sohei.Guard")
+    -- Play guard sound
+    caster:EmitSound("sohei.Guard")
 
-      --Apply Linken's + Lotus Orb + Attack reflect modifier for 2 seconds
-      local duration = self:GetSpecialValueFor("guard_duration")
-      caster:AddNewModifier(caster, self, "modifier_item_sphere_target", {duration = duration})
-      caster:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", {duration = duration})
-      caster:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", {duration = duration})
+    --Apply Linken's + Lotus Orb + Attack reflect modifier for 2 seconds
+    local duration = self:GetSpecialValueFor("guard_duration")
+    caster:AddNewModifier(caster, self, "modifier_item_sphere_target", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", {duration = duration})
 
-      -- Stop the animation after one spin
-      Timers:CreateTimer(0.21, function()
-        caster:FadeGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
-      end)
+    -- Stop the animation after one spin
+    Timers:CreateTimer(0.21, function()
+      caster:FadeGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
+    end)
+
+    -- Reduce the charge recovery time if the appropriate talent is learned
+    if caster:FindAbilityByName("special_bonus_sohei_guard_knockback"):GetLevel() > 0 then
+      -- If there is at least one target to attack, hit it
+      local radius = caster:FindAbilityByName("special_bonus_sohei_guard_knockback"):GetSpecialValueFor("value")
+      local targets = FindUnitsInRadius(caster:GetTeamNumber(),
+        caster:GetAbsOrigin(),
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+        FIND_ANY_ORDER,
+        false)
+
+      for _,target in ipairs(targets) do
+        self:PushAwayEnemy(target)
+      end
     end
   end
 end
 
+function sohei_guard:PushAwayEnemy (target)
+  local caster = self:GetCaster()
+  local casterposition = caster:GetAbsOrigin()
+  local targetposition = target:GetAbsOrigin()
+  local radius = caster:FindAbilityByName("special_bonus_sohei_guard_knockback"):GetSpecialValueFor("value")
+
+  local vVelocity = casterposition - targetposition
+  vVelocity.z = 0.0
+
+  local distance = radius - vVelocity:Length2D()
+  local duration = distance / self:GetSpecialValueFor("knockback_speed")
+
+  target:AddNewModifier(caster, self, "modifier_sohei_guard_knockback", {
+    duration = duration,
+    distance = distance,
+
+    tree_radius = target:GetPaddedCollisionRadius()
+  })
+end
 
 function sohei_guard:OnProjectileHit_ExtraData(target, location, extra_data)
-  if IsServer() then
+  if IsServer() and target then
     target:EmitSound("sohei.GuardHit")
     ApplyDamage({victim = target, attacker = self:GetCaster(), damage = extra_data.damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = self})
   end
@@ -346,6 +388,60 @@ function modifier_sohei_guard_reflect:OnAttackLanded(keys)
   end
 end
 
+-- Dash movement modifier
+modifier_sohei_guard_knockback = class({})
+
+function modifier_sohei_guard_knockback:IsDebuff() return false end
+function modifier_sohei_guard_knockback:IsHidden() return true end
+function modifier_sohei_guard_knockback:IsPurgable() return false end
+function modifier_sohei_guard_knockback:IsStunDebuff() return false end
+function modifier_sohei_guard_knockback:IsMotionController() return true end
+function modifier_sohei_guard_knockback:GetMotionControllerPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST end
+
+function modifier_sohei_guard_knockback:CheckState()
+  local state = {
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_ROOTED] = true
+  }
+  return state
+end
+
+function modifier_sohei_guard_knockback:OnCreated(keys)
+  if IsServer() then
+    local unit = self:GetParent()
+    local caster = self:GetCaster()
+
+    local difference = unit:GetAbsOrigin() - caster:GetAbsOrigin()
+
+    -- Movement parameters
+    self:StartIntervalThink(0.03)
+    self.direction = difference:Normalized()
+    self.distance = keys.distance
+    self.movement_tick = self.direction * self.distance / ( self:GetDuration() / 0.03 )
+    self.tree_radius = keys.tree_radius
+
+    -- Trail particle
+    -- local trail_pfx = ParticleManager:CreateParticle("particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    -- ParticleManager:SetParticleControl(trail_pfx, 0, unit:GetAbsOrigin())
+    -- ParticleManager:SetParticleControl(trail_pfx, 1, unit:GetAbsOrigin() + unit:GetForwardVector() * 300)
+    -- ParticleManager:ReleaseParticleIndex(trail_pfx)
+  end
+end
+
+function modifier_sohei_guard_knockback:OnDestroy()
+  if IsServer() then
+    ResolveNPCPositions(self:GetParent():GetAbsOrigin(), 128)
+  end
+end
+
+function modifier_sohei_guard_knockback:OnIntervalThink()
+  if IsServer() then
+    local unit = self:GetParent()
+    local position = unit:GetAbsOrigin()
+    unit:SetAbsOrigin(GetGroundPosition(position + self.movement_tick, unit))
+    GridNav:DestroyTreesAroundPoint(position, unit:GetPaddedCollisionRadius(), false)
+  end
+end
 
 
 --------------------------------------
@@ -441,6 +537,17 @@ function modifier_sohei_momentum_buff:OnAttackLanded(keys)
       local momentum_pfx = ParticleManager:CreateParticle("particles/hero/sohei/momentum.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
       ParticleManager:SetParticleControl(momentum_pfx, 0, target:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(momentum_pfx)
+
+      -- Reduce guard cd if they skilled the talent
+      local guard = attacker:FindAbilityByName("sohei_guard")
+      if attacker:FindAbilityByName("special_bonus_sohei_momentum_guard_cooldown"):GetLevel() > 0 then
+        local cooldown_reduction = attacker:FindAbilityByName("special_bonus_sohei_momentum_guard_cooldown"):GetSpecialValueFor("value")
+        if not guard:IsCooldownReady() then
+          local newCooldown = guard:GetCooldownTimeRemaining() - cooldown_reduction
+          guard:EndCooldown()
+          guard:StartCooldown(newCooldown)
+        end
+      end
     end
   end
 end

@@ -46,11 +46,16 @@
 				"var_type"					"FIELD_INTEGER"
 				"charges_required"			"2"
 			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"guard_duration"			"2.0"
-			}
+      "02"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "guard_duration"      "2.0"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "knockback_speed"   "1200"
+      }
     }
   }
 }
