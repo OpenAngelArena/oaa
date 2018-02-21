@@ -43,7 +43,7 @@ end
 --  DASH
 --------------------------------------
 
-sohei_dash = class({})
+sohei_dash = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_sohei_dash_free_turning", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_dash_movement", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
@@ -125,7 +125,7 @@ end
 
 
 -- Dash free turning modifier
-modifier_sohei_dash_free_turning = class({})
+modifier_sohei_dash_free_turning = class(ModifierBaseClass)
 
 function modifier_sohei_dash_free_turning:IsDebuff() return false end
 function modifier_sohei_dash_free_turning:IsHidden() return true end
@@ -145,7 +145,7 @@ end
 
 
 -- Dash charges modifier
-modifier_sohei_dash_charges = class({})
+modifier_sohei_dash_charges = class(ModifierBaseClass)
 
 function modifier_sohei_dash_charges:IsDebuff() return false end
 function modifier_sohei_dash_charges:IsHidden() return false end
@@ -168,7 +168,7 @@ function modifier_sohei_dash_charges:OnDestroy()
 end
 
 -- Dash movement modifier
-modifier_sohei_dash_movement = class({})
+modifier_sohei_dash_movement = class(ModifierBaseClass)
 
 function modifier_sohei_dash_movement:IsDebuff() return false end
 function modifier_sohei_dash_movement:IsHidden() return true end
@@ -226,7 +226,7 @@ end
 --  GUARD
 --------------------------------------
 
-sohei_guard = class({})
+sohei_guard = class(AbilityBaseClass)
 LinkLuaModifier("modifier_sohei_guard_reflect", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_guard_knockback", "abilities/hero_sohei", LUA_MODIFIER_MOTION_NONE)
 
@@ -333,7 +333,7 @@ end
 
 
 -- Guard projectile reflect modifier
-modifier_sohei_guard_reflect = class({})
+modifier_sohei_guard_reflect = class(ModifierBaseClass)
 
 function modifier_sohei_guard_reflect:IsDebuff() return false end
 function modifier_sohei_guard_reflect:IsHidden() return false end
@@ -389,7 +389,7 @@ function modifier_sohei_guard_reflect:OnAttackLanded(keys)
 end
 
 -- Dash movement modifier
-modifier_sohei_guard_knockback = class({})
+modifier_sohei_guard_knockback = class(ModifierBaseClass)
 
 function modifier_sohei_guard_knockback:IsDebuff() return false end
 function modifier_sohei_guard_knockback:IsHidden() return true end
@@ -448,7 +448,7 @@ end
 --  MOMENTUM
 --------------------------------------
 
-sohei_momentum = class({})
+sohei_momentum = class(AbilityBaseClass)
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_buff", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
@@ -459,7 +459,7 @@ end
 
 
 -- Momentum's passive modifier
-modifier_sohei_momentum_passive = class({})
+modifier_sohei_momentum_passive = class(AbilityBaseClaModifierBaseClaModifierBaseClaModifierBaseClaModifierBaseClass)
 
 function modifier_sohei_momentum_passive:IsHidden() return true end
 function modifier_sohei_momentum_passive:IsPurgable() return false end
@@ -499,7 +499,7 @@ end
 
 
 -- Momentum's attack buff
-modifier_sohei_momentum_buff = class({})
+modifier_sohei_momentum_buff = class(AbilityBaseClaModifierBaseClaModifierBaseClaModifierBaseClass)
 
 function modifier_sohei_momentum_buff:IsHidden() return false end
 function modifier_sohei_momentum_buff:IsPurgable() return false end
@@ -560,7 +560,7 @@ end
 
 
 -- Momentum's knockback modifier
-modifier_sohei_momentum_knockback = class({})
+modifier_sohei_momentum_knockback = class(AbilityBaseClaModifierBaseClaModifierBaseClass)
 
 function modifier_sohei_momentum_knockback:IsDebuff() return true end
 function modifier_sohei_momentum_knockback:IsHidden() return false end
@@ -624,7 +624,7 @@ end
 --  FLURRY OF BLOWS
 --------------------------------------
 
-sohei_flurry_of_blows = class({})
+sohei_flurry_of_blows = class(AbilityBaseClaModifierBaseClass)
 LinkLuaModifier("modifier_sohei_flurry_self", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Cast animation + playback rate
@@ -687,7 +687,7 @@ function sohei_flurry_of_blows:GetAOERadius()
 end
 
 -- Flurry of Blows' self buff
-modifier_sohei_flurry_self = class({})
+modifier_sohei_flurry_self = class(ModifierBaseClass)
 
 function modifier_sohei_flurry_self:IsDebuff() return false end
 function modifier_sohei_flurry_self:IsHidden() return true end
