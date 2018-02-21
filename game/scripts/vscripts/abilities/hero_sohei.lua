@@ -4,10 +4,9 @@
 
 -- This version is mostly for playtesting. There are still some things missing.
 
--- TODO: tooltips
 -- TODO: implement cooldown reduction detection for Dash charges (didn't do it so you guys can use the OAA method)
 -- TODO: fix Dash charges' interaction with Refresher Orb/Shard when the ability is on cooldown
--- TODO: implement custom talents
+-- TODO: implement momentum stuns talent
 -- TODO: remove comments on talent-related lines
 -- TODO: momentum collision detection
 
