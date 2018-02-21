@@ -637,12 +637,15 @@ function modifier_sohei_momentum_knockback:OnIntervalThink()
       false)
 
     if targets[1] then
+      print('Hit a hero!')
       self:SlowAndStun(unit, caster, ability)
       self:SlowAndStun(targets[1], caster, ability)
+      self:Destroy()
 
-    elseif GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
+    elseif not GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
       self:SlowAndStun(unit, caster, ability)
       GridNav:DestroyTreesAroundPoint(position, collision_radius, false)
+      self:Destroy()
     end
   end
 end
