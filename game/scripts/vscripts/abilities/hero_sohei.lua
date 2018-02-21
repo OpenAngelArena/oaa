@@ -314,7 +314,7 @@ function sohei_guard:PushAwayEnemy (target)
   local vVelocity = casterposition - targetposition
   vVelocity.z = 0.0
 
-  local distance = radius - vVelocity:Length2D()
+  local distance = radius - vVelocity:Length2D() + caster:GetPaddedCollisionRadius()
   local duration = distance / self:GetSpecialValueFor("knockback_speed")
 
   target:AddNewModifier(caster, self, "modifier_sohei_guard_knockback", {
@@ -625,26 +625,44 @@ function modifier_sohei_momentum_knockback:OnIntervalThink()
 
     unit:SetAbsOrigin(GetGroundPosition(position, unit))
 
-    if GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
-      unit:RemoveModifierByName("modifier_sohei_momentum_slow")
-      unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_slow", {
-        duration = ability:GetSpecialValueFor("slow_duration"),
-        movement_slow = ability:GetSpecialValueFor("movement_slow")
-      })
+    -- If there is at least one target to attack, hit it
+    local targets = FindUnitsInRadius(caster:GetTeamNumber(),
+      position,
+      nil,
+      collision_radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+      FIND_CLOSEST,
+      false)
 
-      if caster:FindAbilityByName("special_bonus_sohei_stun"):GetLevel() > 0 then
-        local stunDuration = caster:FindAbilityByName("special_bonus_sohei_stun"):GetSpecialValueFor("value")
+    if targets[1] then
+      self:SlowAndStun(unit, caster, ability)
+      self:SlowAndStun(targets[1], caster, ability)
 
-        unit:Stop()
-        unit:RemoveModifierByName("modifier_sohei_momentum_stun")
-        unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_stun", {
-          duration = stunDuration
-        })
-      end
-
+    elseif GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
+      self:SlowAndStun(unit, caster, ability)
       GridNav:DestroyTreesAroundPoint(position, collision_radius, false)
     end
   end
+end
+function modifier_sohei_momentum_knockback:SlowAndStun(unit, caster, ability)
+  unit:RemoveModifierByName("modifier_sohei_momentum_slow")
+  unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_slow", {
+    duration = ability:GetSpecialValueFor("slow_duration"),
+    movement_slow = ability:GetSpecialValueFor("movement_slow")
+  })
+
+  if caster:FindAbilityByName("special_bonus_sohei_stun"):GetLevel() > 0 then
+    local stunDuration = caster:FindAbilityByName("special_bonus_sohei_stun"):GetSpecialValueFor("value")
+
+    unit:Stop()
+    unit:RemoveModifierByName("modifier_sohei_momentum_stun")
+    unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_stun", {
+      duration = stunDuration
+    })
+  end
+
 end
 
 -- Momentum's knockback modifier
