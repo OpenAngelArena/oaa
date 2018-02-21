@@ -147,8 +147,10 @@ end
 modifier_sohei_dash_charges = class(ModifierBaseClass)
 
 function modifier_sohei_dash_charges:IsDebuff() return false end
+function modifier_sohei_dash_charges:IsDebuff() return false end
 function modifier_sohei_dash_charges:IsHidden() return false end
 function modifier_sohei_dash_charges:IsPurgable() return false end
+function modifier_sohei_dash_charges:RemoveOnDeath() return false end
 function modifier_sohei_dash_charges:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT end
 
 function modifier_sohei_dash_charges:OnDestroy()
@@ -436,8 +438,8 @@ end
 function modifier_sohei_guard_knockback:OnIntervalThink()
   if IsServer() then
     local unit = self:GetParent()
-    local position = unit:GetAbsOrigin()
-    unit:SetAbsOrigin(GetGroundPosition(position + self.movement_tick, unit))
+    local position = unit:GetAbsOrigin() + self.movement_tick
+    unit:SetAbsOrigin(GetGroundPosition(position, unit))
     GridNav:DestroyTreesAroundPoint(position, unit:GetPaddedCollisionRadius(), false)
   end
 end
@@ -450,11 +452,12 @@ sohei_momentum = class(AbilityBaseClass)
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_buff", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_momentum_stun", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_momentum_slow", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 
 function sohei_momentum:GetIntrinsicModifierName()
   return "modifier_sohei_momentum_passive"
 end
-
 
 -- Momentum's passive modifier
 modifier_sohei_momentum_passive = class(ModifierBaseClass)
@@ -526,7 +529,11 @@ function modifier_sohei_momentum_buff:OnAttackLanded(keys)
       local duration = distance / ability:GetSpecialValueFor("knockback_speed")
       local collision_radius = ability:GetSpecialValueFor("collision_radius")
       target:RemoveModifierByName("modifier_sohei_momentum_knockback")
-      target:AddNewModifier(attacker, ability, "modifier_sohei_momentum_knockback", {duration = duration, distance = distance, collision_radius = collision_radius})
+      target:AddNewModifier(attacker, ability, "modifier_sohei_momentum_knockback", {
+        duration = duration,
+        distance = distance,
+        collision_radius = collision_radius
+      })
 
       -- Play the impact sound
       target:EmitSound("sohei.Momentum")
@@ -611,12 +618,83 @@ end
 function modifier_sohei_momentum_knockback:OnIntervalThink()
   if IsServer() then
     local unit = self:GetParent()
-    local position = unit:GetAbsOrigin()
-    unit:SetAbsOrigin(GetGroundPosition(position + self.movement_tick, unit))
+    local caster = self:GetCaster()
+    local position = unit:GetAbsOrigin() + self.movement_tick
+    local ability = self:GetAbility()
+    local collision_radius = ability:GetSpecialValueFor('collision_radius')
+
+    unit:SetAbsOrigin(GetGroundPosition(position, unit))
+
+    if GridNav:IsTraversable(position) or GridNav:IsNearbyTree(position, collision_radius, false) then
+      unit:RemoveModifierByName("modifier_sohei_momentum_slow")
+      unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_slow", {
+        duration = ability:GetSpecialValueFor("slow_duration"),
+        movement_slow = ability:GetSpecialValueFor("movement_slow")
+      })
+
+      if caster:FindAbilityByName("special_bonus_sohei_stun"):GetLevel() > 0 then
+        local stunDuration = caster:FindAbilityByName("special_bonus_sohei_stun"):GetSpecialValueFor("value")
+
+        unit:Stop()
+        unit:RemoveModifierByName("modifier_sohei_momentum_stun")
+        unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_stun", {
+          duration = stunDuration
+        })
+      end
+
+      GridNav:DestroyTreesAroundPoint(position, collision_radius, false)
+    end
   end
 end
 
+-- Momentum's knockback modifier
+modifier_sohei_momentum_slow = class(ModifierBaseClass)
 
+function modifier_sohei_momentum_slow:IsDebuff() return true end
+function modifier_sohei_momentum_slow:IsHidden() return false end
+function modifier_sohei_momentum_slow:IsPurgable() return false end
+function modifier_sohei_momentum_slow:IsStunDebuff() return false end
+
+if IsServer() then
+  function modifier_sohei_momentum_slow:DeclareFunctions()
+    return {
+      MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+    }
+  end
+
+  function modifier_sohei_momentum_slow:GetModifierMoveSpeedBonus_Percentage()
+    local ability = self:GetAbility()
+    return ability:GetSpecialValueFor("movement_slow")
+  end
+end
+
+-- Momentum's knockback modifier
+modifier_sohei_momentum_stun = class(ModifierBaseClass)
+
+function modifier_sohei_momentum_stun:IsDebuff() return true end
+function modifier_sohei_momentum_stun:IsHidden() return false end
+function modifier_sohei_momentum_stun:IsPurgable() return false end
+function modifier_sohei_momentum_stun:IsStunDebuff() return true end
+
+function modifier_sohei_momentum_stun:CheckState()
+  return {
+    [MODIFIER_STATE_STUNNED] = true
+  }
+end
+function modifier_sohei_momentum_stun:GetEffectName()
+  return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+function modifier_sohei_momentum_stun:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+function modifier_sohei_momentum_stun:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
+end
+function modifier_sohei_momentum_stun:GetOverrideAnimation( params )
+  return ACT_DOTA_DISABLED
+end
 
 --------------------------------------
 --  FLURRY OF BLOWS
