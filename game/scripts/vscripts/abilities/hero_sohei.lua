@@ -443,7 +443,6 @@ function modifier_sohei_guard_knockback:OnIntervalThink()
   end
 end
 
-
 --------------------------------------
 --  MOMENTUM
 --------------------------------------

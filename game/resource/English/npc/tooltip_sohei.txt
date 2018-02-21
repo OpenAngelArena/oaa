@@ -35,12 +35,12 @@
 
 // talents
 "DOTA_Tooltip_Ability_special_bonus_sohei_stun"                                 "Momentum Collision Stun"
-"DOTA_Tooltip_Ability_special_bonus_sohei_stun_description"                     ""
+"DOTA_Tooltip_Ability_special_bonus_sohei_stun_description"                     "Doesn't work yet and I'm not sure how it's supposed to"
 "DOTA_Tooltip_Ability_special_bonus_sohei_guard_knockback"                      "Guard Pushes Away Enemies"
-"DOTA_Tooltip_Ability_special_bonus_sohei_guard_knockback_description"          ""
+"DOTA_Tooltip_Ability_special_bonus_sohei_guard_knockback_description"          "Whenever Guard is activated, push all nearby enemies until they are %value% units away."
 "DOTA_Tooltip_Ability_special_bonus_sohei_momentum_guard_cooldown"              "Momentum Reduces Guard Cooldown"
-"DOTA_Tooltip_Ability_special_bonus_sohei_momentum_guard_cooldown_description"  ""
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_recharge"                        "-4s Dash Charge Recovery"
+"DOTA_Tooltip_Ability_special_bonus_sohei_momentum_guard_cooldown_description"  "Each time momentum is used, guard's current cooldown is reduced by %value%"
+"DOTA_Tooltip_Ability_special_bonus_sohei_dash_recharge"                        "-%value%s Dash Charge Recovery"
 "DOTA_Tooltip_Ability_special_bonus_sohei_dash_recharge_description"            ""
-"DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+300 Flurry of Blows AOE"
+"DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+%value% Flurry of Blows AOE"
 "DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius_description"               ""
