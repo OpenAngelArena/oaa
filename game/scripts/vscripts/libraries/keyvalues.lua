@@ -57,6 +57,22 @@ KEYVALUES_VERSION = "1.00"
 	- Don't identify your custom units/heroes with the same name or it will only grab one of them.
 ]]
 
+-- Cookies: Needed in case of duplicated Key Values, wich is the case for all custom heroes!
+function table.deepmerge(t1, t2)
+	for k,v in pairs(t2) do
+		if type(v) == "table" then
+			if type(t1[k] or false) == "table" then
+				tableMerge(t1[k] or {}, t2[k] or {})
+			else
+				t1[k] = v
+			end
+		else
+			t1[k] = v
+		end
+	end
+	return t1
+end
+
 if not KeyValues then
 	KeyValues = {}
 end

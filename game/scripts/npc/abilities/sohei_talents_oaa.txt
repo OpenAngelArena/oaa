@@ -1,0 +1,122 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // sohei talent 1: Momentum inflicts a brief stun if the target collides with an obstacle
+  //=================================================================================================================
+  "special_bonus_sohei_stun"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9504"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "0.2"     // Stun duration
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // sohei talent 2: Guard also knockbacks enemies until they are 300 units away
+  //=================================================================================================================
+  "special_bonus_sohei_guard_knockback"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9505"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"         "300"     // Knockback max distance
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // sohei talent 3: Momentum hits reduce the cooldown on Guard
+  //=================================================================================================================
+  "special_bonus_sohei_momentum_guard_cooldown"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9506"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "1.0"     // Cooldown reduction in seconds
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // sohei talent 4: Dash charges cooldown reduced
+  //=================================================================================================================
+  "special_bonus_sohei_dash_recharge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9507"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "4.0"     // Cooldown reduction in seconds
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // sohei talent 5: Increases Flurry of Blows' AOE radius
+  //=================================================================================================================
+  "special_bonus_sohei_fob_radius"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9508"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"         "300"     // Radius increase
+      }
+    }
+  }
+}

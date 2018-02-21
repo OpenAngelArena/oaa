@@ -17,6 +17,7 @@ g_ItemPrecache = {
 
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
+  "npc_dota_hero_sohei",
   "dota_fountain",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
