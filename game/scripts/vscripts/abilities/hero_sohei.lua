@@ -459,7 +459,7 @@ end
 
 
 -- Momentum's passive modifier
-modifier_sohei_momentum_passive = class(AbilityBaseClaModifierBaseClaModifierBaseClaModifierBaseClaModifierBaseClass)
+modifier_sohei_momentum_passive = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_passive:IsHidden() return true end
 function modifier_sohei_momentum_passive:IsPurgable() return false end
@@ -499,7 +499,7 @@ end
 
 
 -- Momentum's attack buff
-modifier_sohei_momentum_buff = class(AbilityBaseClaModifierBaseClaModifierBaseClaModifierBaseClass)
+modifier_sohei_momentum_buff = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_buff:IsHidden() return false end
 function modifier_sohei_momentum_buff:IsPurgable() return false end
@@ -560,10 +560,10 @@ end
 
 
 -- Momentum's knockback modifier
-modifier_sohei_momentum_knockback = class(AbilityBaseClaModifierBaseClaModifierBaseClass)
+modifier_sohei_momentum_knockback = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_knockback:IsDebuff() return true end
-function modifier_sohei_momentum_knockback:IsHidden() return false end
+function modifier_sohei_momentum_knockback:IsHidden() return true end
 function modifier_sohei_momentum_knockback:IsPurgable() return false end
 function modifier_sohei_momentum_knockback:IsStunDebuff() return false end
 function modifier_sohei_momentum_knockback:IsMotionController() return true end
@@ -624,7 +624,7 @@ end
 --  FLURRY OF BLOWS
 --------------------------------------
 
-sohei_flurry_of_blows = class(AbilityBaseClaModifierBaseClass)
+sohei_flurry_of_blows = class(AbilityBaseClass)
 LinkLuaModifier("modifier_sohei_flurry_self", "abilities/hero_sohei.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Cast animation + playback rate
