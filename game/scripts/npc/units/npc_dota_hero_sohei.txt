@@ -50,5 +50,8 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 		"HasInventory"				"1" // This KV must be added in units file only
+
+    "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
+    "VisionNighttimeRange"      "800"                             // Range of vision at night time.
 	}
 }
