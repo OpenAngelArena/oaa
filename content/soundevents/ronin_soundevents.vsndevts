@@ -1,4 +1,4 @@
-"Ronin.Dash"
+"Sohei.Dash"
 {
 	"operator_stacks"
 	{
@@ -33,7 +33,7 @@
 	}
 }
 
-"Ronin.Guard"
+"Sohei.Guard"
 {
 	"operator_stacks"
 	{
@@ -65,130 +65,164 @@
 	}
 }
 
-"Ronin.GuardProc"
+"Sohei.GuardProc"
 {
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"				"sos_reference_stack"
-				"reference_stack"		"dota_update_default"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							"value0"	"sounds/weapons/hero/axe/counterhelix.vsnd"
-						}
-					}
-					"volume"			{   "value"     "0.700000"  }
-					"pitch_rand_min"	{   "value"     "0.000000"  }
-					"pitch_rand_max"	{   "value"     "0.030000"  }
-					"pitch"				{   "value"     "1.300000"  }
-					"soundlevel"		{   "value"     "100.00000" }
-					"distance_max"		{   "value"     "1600.000"  }
-					"event_type"		{   "value"     "1.000000"  }
-			}
-		}
-	}
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"        "sos_reference_stack"
+        "reference_stack"   "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"  "sounds/weapons/hero/axe/counterhelix.vsnd"
+            }
+          }
+          "volume"      {   "value"     "0.700000"  }
+          "pitch_rand_min"  {   "value"     "0.000000"  }
+          "pitch_rand_max"  {   "value"     "0.030000"  }
+          "pitch"       {   "value"     "1.300000"  }
+          "soundlevel"    {   "value"     "100.00000" }
+          "distance_max"    {   "value"     "1600.000"  }
+          "event_type"    {   "value"     "1.000000"  }
+        }
+      }
+    }
+  }
 }
 
-"Ronin.GuardHit"
+"Sohei.GuardHit"
 {
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"				"sos_reference_stack"
-				"reference_stack"		"dota_update_default"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							"value0"	"sounds/weapons/hero/drow_ranger/arrow_impact_1.vsnd"
-							"value1"	"sounds/weapons/hero/drow_ranger/arrow_impact_2.vsnd"
-							"value2"	"sounds/weapons/hero/drow_ranger/arrow_impact_3.vsnd"
-						}
-					}
-					"volume"			{   "value"     "1.200000"  }
-					"pitch_rand_min"	{   "value"     "0.000000"  }
-					"pitch_rand_max"	{   "value"     "0.030000"  }
-					"pitch"				{   "value"     "0.800000"  }
-					"soundlevel"		{   "value"     "100.00000" }
-					"distance_max"		{   "value"     "1600.000"  }
-					"event_type"		{   "value"     "1.000000"  }
-			}
-		}
-	}
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"        "sos_reference_stack"
+        "reference_stack"   "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"  "sounds/weapons/hero/drow_ranger/arrow_impact_1.vsnd"
+              "value1"  "sounds/weapons/hero/drow_ranger/arrow_impact_2.vsnd"
+              "value2"  "sounds/weapons/hero/drow_ranger/arrow_impact_3.vsnd"
+            }
+          }
+          "volume"      {   "value"     "1.200000"  }
+          "pitch_rand_min"  {   "value"     "0.000000"  }
+          "pitch_rand_max"  {   "value"     "0.030000"  }
+          "pitch"       {   "value"     "0.800000"  }
+          "soundlevel"    {   "value"     "100.00000" }
+          "distance_max"    {   "value"     "1600.000"  }
+          "event_type"    {   "value"     "1.000000"  }
+        }
+      }
+    }
+  }
 }
 
-"Ronin.Momentum"
+"Sohei.Momentum"
 {
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"				"sos_reference_stack"
-				"reference_stack"		"dota_update_default"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							"value0"	"sounds/weapons/hero/slardar/bash_stun.vsnd"
-						}
-					}
-					"volume"			{   "value"     "0.700000"  }
-					"pitch_rand_min"	{   "value"     "0.000000"  }
-					"pitch_rand_max"	{   "value"     "0.030000"  }
-					"pitch"				{   "value"     "1.500000"  }
-					"soundlevel"		{   "value"     "100.00000" }
-					"distance_max"		{   "value"     "1600.000"  }
-					"event_type"		{   "value"     "1.000000"  }
-				}
-			}
-		}
-	}
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"        "sos_reference_stack"
+        "reference_stack"   "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"  "sounds/weapons/hero/slardar/bash_stun.vsnd"
+            }
+          }
+          "volume"      {   "value"     "0.700000"  }
+          "pitch_rand_min"  {   "value"     "0.000000"  }
+          "pitch_rand_max"  {   "value"     "0.030000"  }
+          "pitch"       {   "value"     "1.500000"  }
+          "soundlevel"    {   "value"     "100.00000" }
+          "distance_max"    {   "value"     "1600.000"  }
+          "event_type"    {   "value"     "1.000000"  }
+        }
+      }
+    }
+  }
 }
 
-"Ronin.FlurryCast"
+"Sohei.Momentum.Collision"
 {
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"				"sos_reference_stack"
-				"reference_stack"		"dota_update_default"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							"value0"	"sounds/weapons/hero/ember_spirit/fire_remnant_stop.vsnd"
-						}
-					}
-					"volume"			{   "value"     "1.000000"  }
-					"pitch_rand_min"	{   "value"     "0.000000"  }
-					"pitch_rand_max"	{   "value"     "0.030000"  }
-					"pitch"				{   "value"     "0.800000"  }
-					"soundlevel"		{   "value"     "100.00000" }
-					"distance_max"		{   "value"     "1600.000"  }
-					"event_type"		{   "value"     "1.000000"  }
-				}
-			}
-		}
-	}
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"        "sos_reference_stack"
+        "reference_stack"   "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"  "sounds/weapons/hero/earth_spirit/boulder_smash_target.vsnd"
+            }
+          }
+          "volume"      {   "value"     "0.450000"  }
+          "pitch_rand_min"  {   "value"     "-0.050000"  }
+          "pitch_rand_max"  {   "value"     "0.050000"  }
+          "pitch"       {   "value"     "1.000000"  }
+          "soundlevel"    {   "value"     "81.00000" }
+          "distance_max"    {   "value"     "1600.000"  }
+          "event_type"    {   "value"     "1.000000"  }
+        }
+      }
+    }
+  }
+}
+
+"Sohei.FlurryCast"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator"        "sos_reference_stack"
+        "reference_stack"   "dota_update_default"
+        "operator_variables"
+        {
+          "vsnd_files"
+          {
+            "value"
+            {
+              "value0"  "sounds/weapons/hero/ember_spirit/fire_remnant_stop.vsnd"
+            }
+          }
+          "volume"      {   "value"     "1.000000"  }
+          "pitch_rand_min"  {   "value"     "0.000000"  }
+          "pitch_rand_max"  {   "value"     "0.030000"  }
+          "pitch"       {   "value"     "0.800000"  }
+          "soundlevel"    {   "value"     "100.00000" }
+          "distance_max"    {   "value"     "1600.000"  }
+          "event_type"    {   "value"     "1.000000"  }
+        }
+      }
+    }
+  }
 }

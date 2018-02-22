@@ -22,8 +22,8 @@ sohei_functions = class({})
 function sohei_functions:Dash(caster, distance, speed, tree_radius)
   caster:RemoveModifierByName("modifier_sohei_dash_movement")
   local duration = distance / speed
-  caster:EmitSound("DOTA_Item.ForceStaff.Activate")
-  caster:EmitSound("sohei.Dash")
+  -- caster:EmitSound("DOTA_Item.ForceStaff.Activate")
+  caster:EmitSound("Sohei.Dash")
   caster:StartGesture(ACT_DOTA_RUN)
   caster:AddNewModifier(nil, nil, "modifier_sohei_dash_movement", {duration = duration, distance = distance, tree_radius = tree_radius})
   self:TriggerMomentum(caster)
@@ -185,9 +185,7 @@ function modifier_sohei_dash_charges:OnExpire()
       local duration = self:GetAbility():GetSpecialValueFor("charge_restore_time")
       if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
         local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
-        caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
-          duration = math.max(duration - cooldown_reduction, 1)
-        })
+        duration = math.max(duration - cooldown_reduction, 1)
       end
       self:SetStackCount(self:GetStackCount() + 1)
       self:SetDuration(duration, true)
@@ -299,7 +297,7 @@ function sohei_guard:OnToggle()
     caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
 
     -- Play guard sound
-    caster:EmitSound("sohei.Guard")
+    caster:EmitSound("Sohei.Guard")
 
     --Apply Linken's + Lotus Orb + Attack reflect modifier for 2 seconds
     local duration = self:GetSpecialValueFor("guard_duration")
@@ -355,7 +353,7 @@ end
 
 function sohei_guard:OnProjectileHit_ExtraData(target, location, extra_data)
   if IsServer() and target then
-    target:EmitSound("sohei.GuardHit")
+    target:EmitSound("Sohei.GuardHit")
     ApplyDamage({victim = target, attacker = self:GetCaster(), damage = extra_data.damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = self})
   end
 end
@@ -411,7 +409,7 @@ function modifier_sohei_guard_reflect:OnAttackLanded(keys)
           ExtraData     = {damage = keys.damage}
         }
         ProjectileManager:CreateTrackingProjectile(attack_projectile)
-        parent:EmitSound("sohei.GuardProc")
+        parent:EmitSound("Sohei.GuardProc")
       end
     end
   end
@@ -564,7 +562,7 @@ function modifier_sohei_momentum_buff:OnAttackLanded(keys)
       })
 
       -- Play the impact sound
-      target:EmitSound("sohei.Momentum")
+      target:EmitSound("Sohei.Momentum")
 
       -- Play the impact particle
       local momentum_pfx = ParticleManager:CreateParticle("particles/hero/sohei/momentum.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
@@ -669,13 +667,15 @@ function modifier_sohei_momentum_knockback:OnIntervalThink()
     if nonHeroTarget == unit then
       nonHeroTarget = targets[2]
     end
+    local groundDiff = GetGroundPosition(originalPosition, unit).z - GetGroundPosition(position, unit).z
+    groundDiff = math.abs(groundDiff)
 
     if nonHeroTarget then
       self:SlowAndStun(unit, caster, ability)
       self:SlowAndStun(nonHeroTarget, caster, ability)
       self:Destroy()
 
-    elseif GetGroundPosition(originalPosition).z ~= GetGroundPosition(position).z or GridNav:IsNearbyTree(position, collision_radius, false) then
+    elseif groundDiff > 100 or GridNav:IsNearbyTree(position, collision_radius, false) then
       self:SlowAndStun(unit, caster, ability)
       GridNav:DestroyTreesAroundPoint(position, collision_radius, false)
       self:Destroy()
@@ -688,6 +688,8 @@ function modifier_sohei_momentum_knockback:SlowAndStun(unit, caster, ability)
     duration = ability:GetSpecialValueFor("slow_duration"),
     movement_slow = ability:GetSpecialValueFor("movement_slow")
   })
+
+  unit:EmitSound("Sohei.Momentum.Collision")
 
   if caster:FindAbilityByName("special_bonus_sohei_stun"):GetLevel() > 0 then
     local stunDuration = caster:FindAbilityByName("special_bonus_sohei_stun"):GetSpecialValueFor("value")
