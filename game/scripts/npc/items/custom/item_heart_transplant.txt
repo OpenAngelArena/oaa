@@ -64,6 +64,14 @@
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_heart_transplant"
 
+    "Precache"
+    {
+      "particle"                                          "particles/items/heart_transplant/heart_transplant.vpcf"
+      "particle"                                          "particles/items/heart_transplant/heart_transplant_d.vpcf"
+      "particle"                                          "particles/items/heart_transplant/heart_transplant_end.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
