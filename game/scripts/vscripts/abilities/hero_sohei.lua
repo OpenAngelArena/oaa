@@ -185,9 +185,7 @@ function modifier_sohei_dash_charges:OnExpire()
       local duration = self:GetAbility():GetSpecialValueFor("charge_restore_time")
       if caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetLevel() > 0 then
         local cooldown_reduction = caster:FindAbilityByName("special_bonus_sohei_dash_recharge"):GetSpecialValueFor("value")
-        caster:AddNewModifier(caster, self, "modifier_sohei_dash_charges", {
-          duration = math.max(duration - cooldown_reduction, 1)
-        })
+        duration = math.max(duration - cooldown_reduction, 1)
       end
       self:SetStackCount(self:GetStackCount() + 1)
       self:SetDuration(duration, true)
