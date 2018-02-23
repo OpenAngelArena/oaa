@@ -9,10 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "ability_lua"
     "ID"                  "9502"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
     "AbilityTextureName"      "custom/ronin_guard"
-    "ScriptFile"          "abilities/hero_sohei.lua"
+    "ScriptFile"          "abilities/sohei/sohei_guard.lua"
     "MaxLevel"                                            "6"
 
     // Casting

@@ -10,14 +10,15 @@
     "BaseClass"           "ability_lua"
     "ID"                  "9501"
     "AbilityType"         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityTextureName"      "custom/ronin_flurry_of_blows"
-    "ScriptFile"          "abilities/hero_sohei.lua"
+    "ScriptFile"          "abilities/sohei/sohei_flurry_of_blows.lua"
     "MaxLevel"                                            "5"
+
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +60,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"max_duration"			"4.0 6.0 8.0 10.0 12"
+				"max_duration"			"4.0 6.0 8.0 10.0 12.0"
 			}
 			"04"
 			{

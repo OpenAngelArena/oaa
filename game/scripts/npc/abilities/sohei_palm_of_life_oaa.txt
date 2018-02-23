@@ -1,29 +1,32 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: Dash
+  // Ronin: Palm of Life
   //=================================================================================================================
-  "sohei_dash"
+  "sohei_palm_of_life"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "ability_lua"
-    "ID"                  "9500"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
-    "AbilityTextureName"      "custom/ronin_dash"
-    "ScriptFile"          "abilities/sohei/sohei_dash.lua"
-    "MaxLevel"                                            "6"
+    "BaseClass"             "ability_lua"
+    "ID"                    "9510"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityTextureName"    "omniknight_purification"
+    "ScriptFile"            "abilities/sohei/sohei_palm_of_life.lua"
+    "MaxLevel"              "1"
+    "IsGrantedByScepter"    "1"
+    "HasScepterUpgrade"     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
     "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastRange"        "300"
+    "AbilityCastRange"        "600"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "8"
+    "AbilityCooldown"       "5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,8 +36,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+      "particle"          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
       "soundfile"         "soundevents/ronin_soundevents.vsndevts"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
     }
 
     // Special
@@ -44,7 +48,7 @@
       "01"
       {
         "var_type"          "FIELD_INTEGER"
-        "dash_distance"       "300"
+        "hp_as_heal"        "10"
       }
       "02"
       {
@@ -54,7 +58,7 @@
       "03"
       {
         "var_type"          "FIELD_INTEGER"
-        "max_charges"       "2 3 4 5 6 7"
+        "end_distance"      "70"
       }
       "04"
       {
@@ -63,15 +67,8 @@
       }
       "05"
       {
-        "var_type"            "FIELD_INTEGER"
-        "charge_restore_time" "8"
-        "LinkedSpecialBonus"      "special_bonus_sohei_dash_recharge"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
-      }
-      "06"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "momentum_cd_refund"  "100"
+        "var_type"          "FIELD_FLOAT"
+        "max_duration"      "1.5"
       }
     }
   }
