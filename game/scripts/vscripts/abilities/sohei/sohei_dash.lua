@@ -123,7 +123,9 @@ if IsServer() then
 	function sohei_dash:RefreshCharges()
 		local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
 
-		modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
+    if modifier_charges and not modifier_charges:IsNull() then
+		  modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
+    end
 	end
 end
 
@@ -371,7 +373,7 @@ if IsServer() then
 	end
 
 --------------------------------------------------------------------------------
-	
+
 	function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
 		self:Destroy()
 	end
