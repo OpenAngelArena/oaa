@@ -119,4 +119,28 @@
       }
     }
   }
+
+  //=================================================================================================================
+  // sohei talent 6: Guard can be cast on allies, this isn't ready don't use this
+  //=================================================================================================================
+  "special_bonus_sohei_guard_allycast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9509"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "1"     // nothing
+      }
+    }
+  }
 }

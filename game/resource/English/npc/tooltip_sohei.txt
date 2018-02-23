@@ -18,10 +18,15 @@
 "DOTA_Tooltip_Ability_sohei_momentum_knockback_speed"     "KNOCKBACK SPEED:"
 
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows"              "Flurry of Blows"
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"  "Sohei becomes invulnerable, randomly attacking all targets in the AOE, one at a time with the intention of pushing them back into the AOE. Each hit triggers Momentum. Ends after either the duration or the maximum amount of attacks have run out. Can be reactivated to cancel."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"  "CHANNELED - Sohei becomes invulnerable, randomly attacking all targets in the AOE, one at a time with the intention of pushing them back into the AOE. Each hit triggers Momentum. Ends after either the duration or the maximum amount of attacks have run out."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"             "ATTACKS:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"         "ATTACK INTERVAL:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"            "MAX DURATION:"
+
+"DOTA_Tooltip_Ability_sohei_palm_of_life"                 "Palm of Life"
+"DOTA_Tooltip_Ability_sohei_palm_of_life_description"     "Consumes a Dash charge to dash to an ally. If cast while Momentum is ready, it is discharged upon reaching the ally to heal them for a porition of Sohei's current health."
+"DOTA_Tooltip_Ability_sohei_palm_of_life_hp_as_heal"                 "%CURRENT HEALTH AS HEAL:"
+"DOTA_Tooltip_Ability_sohei_palm_of_life_dash_speed"                 "DASH SPEED:"
 
 // modifiers
 "modifier_sohei_dash_charges"               "Dash Charges"
@@ -29,8 +34,8 @@
 "modifier_sohei_guard_reflect"              "Guard"
 "modifier_sohei_guard_reflect_description"  "Reflect incoming projectiles"
 
-"modifier_sohei_momentum_buff"              "Momentum"
-"modifier_sohei_momentum_buff_description"  "The next attack will deal bonus damage and knockback"
+"modifier_sohei_momentum_passive"              "Momentum"
+"modifier_sohei_momentum_passive_description"  "The next attack will deal bonus damage and knockback"
 
 
 // talents
@@ -44,3 +49,5 @@
 "DOTA_Tooltip_Ability_special_bonus_sohei_dash_recharge_description"            ""
 "DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+%value% Flurry of Blows AOE"
 "DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius_description"               ""
+"DOTA_Tooltip_Ability_special_bonus_sohei_guard_allycast"                       "Guard Can Be Cast On Allies"
+"DOTA_Tooltip_Ability_special_bonus_sohei_guard_allycast_description"           "Allows casting on allies.
