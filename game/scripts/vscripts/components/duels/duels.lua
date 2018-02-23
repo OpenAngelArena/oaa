@@ -172,6 +172,7 @@ function Duels:IsActive ()
   end
   return true
 end
+
 function Duels:CheckDuelStatus (hero)
   if not self:IsActive() then
     return
