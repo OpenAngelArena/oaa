@@ -29,6 +29,27 @@ local function SafeTeleport(unit, location, maxDistance)
     unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
     unit:RemoveModifierByName("modifier_riki_tricks_of_the_trade") -- TODO: Check name
   end
+  if unit:FindModifierByName("modifier_life_stealer_assimilate_effect") then
+    DebugPrint("Found Lifestealer with assimilated unit")
+    local ability = unit:FindAbilityByName("life_stealer_assimilate_eject")
+    if ability and ability:IsActivated() then
+      ExecuteOrderFromTable({
+        UnitIndex = unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    else
+      print("Error: Could not find Eject ability on an Assimilating unit")
+      D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND EJECT ABILITY", {
+        ErrorMessage = "Tried to teleport an Assimilating unit, but could not find Eject ability on that unit, or ability was not castable",
+        ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
+        GameVersion = GAME_VERSION,
+        DedicatedServers = (IsDedicatedServer() and 1) or 0,
+        MatchID = tostring(GameRules:GetMatchID())
+      })
+    end
+  end
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   Timers:CreateTimer(0.1, function()
