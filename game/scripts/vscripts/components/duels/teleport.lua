@@ -9,12 +9,12 @@ local function SafeTeleport(unit, location, maxDistance)
     DebugPrint("Found Lifestealer infesting")
     local ability = unit:FindAbilityByName("life_stealer_consume")
     if ability and ability:IsActivated() then
-    ExecuteOrderFromTable({
-      UnitIndex = unit:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
+      ExecuteOrderFromTable({
+        UnitIndex = unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
     else
       print("Error: Could not find Consume ability on an Infesting unit")
       D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND CONSUME ABILITY", {
@@ -24,10 +24,7 @@ local function SafeTeleport(unit, location, maxDistance)
         DedicatedServers = (IsDedicatedServer() and 1) or 0,
         MatchID = tostring(GameRules:GetMatchID())
       })
-  end
-  if unit:IsOutOfGame() then
-    unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
-    unit:RemoveModifierByName("modifier_riki_tricks_of_the_trade") -- TODO: Check name
+    end
   end
   if unit:FindModifierByName("modifier_life_stealer_assimilate_effect") then
     DebugPrint("Found Lifestealer with assimilated unit")
@@ -50,6 +47,21 @@ local function SafeTeleport(unit, location, maxDistance)
       })
     end
   end
+  local exileModifiers = {
+    "modifier_obsidian_destroyer_astral_imprisonment_prison",
+    --"modifier_riki_tricks_of_the_trade_phase", -- Should be removed by stop order
+    -- "modifier_sohei_flurry_self", -- Bugs out hard if it occurs during casting. TODO: Update after PR #2025
+    --"modifier_puck_phase_shift", -- Should be removed by stop order
+    "modifier_phoenix_supernova_hiding",
+    "modifier_shadow_demon_disruption",
+    -- Removing Snowball movement modifiers just seems to cause glitches instead of helping
+    -- "modifier_tusk_snowball_movement",
+    -- "modifier_tusk_snowball_movement_friendly",
+    "modifier_tusk_snowball_visible", -- Gets applied to snowball targets; grants vision of target
+    "modifier_tusk_snowball_target", -- Gets applied to snowball targets; places indicator above target(?)
+  }
+  iter(exileModifiers):foreach(partial(unit.RemoveModifierByName, unit))
+
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   Timers:CreateTimer(0.1, function()
