@@ -52,7 +52,6 @@ if IsServer() then
 		local duration = distance / speed
 
 		caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
-		caster:EmitSound( "DOTA_Item.ForceStaff.Activate" )
 		caster:EmitSound( "Sohei.Dash" )
 		caster:StartGesture( ACT_DOTA_RUN )
 		caster:AddNewModifier( nil, nil, "modifier_sohei_dash_movement", {

@@ -82,7 +82,6 @@ if IsServer() then
 
 		caster:RemoveModifierByName( "modifier_sohei_palm_of_life_movement" )
 		caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
-		caster:EmitSound( "DOTA_Item.ForceStaff.Activate" )
 		caster:EmitSound( "Sohei.Dash" )
 		caster:StartGesture( ACT_DOTA_RUN )
 		caster:AddNewModifier( caster, self, "modifier_sohei_palm_of_life_movement", {
@@ -197,7 +196,7 @@ if IsServer() then
 
 				self.target:Heal( healAmount, parent )
 
-				self.target:EmitSound( "Hero_Omniknight.Purification" )
+				self.target:EmitSound( "Sohei.PalmOfLife.Heal" )
 
 				local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.target )
 				ParticleManager:SetParticleControl( part, 1, Vector( self.target:GetModelRadius(), 1, 1 ) )
