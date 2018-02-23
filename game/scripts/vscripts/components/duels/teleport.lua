@@ -4,6 +4,7 @@
 local export = {}
 
 local function SafeTeleport(unit, location, maxDistance)
+  unit:Stop()
   if unit:FindModifierByName("modifier_life_stealer_infest") then
     DebugPrint("Found LS infesting.")
     local ability = assert(unit:FindAbilityByName("life_stealer_consume"), 'Missing Ability "life_stealer_consume"')
