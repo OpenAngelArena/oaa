@@ -6,15 +6,24 @@ local export = {}
 local function SafeTeleport(unit, location, maxDistance)
   unit:Stop()
   if unit:FindModifierByName("modifier_life_stealer_infest") then
-    DebugPrint("Found LS infesting.")
-    local ability = assert(unit:FindAbilityByName("life_stealer_consume"), 'Missing Ability "life_stealer_consume"')
-    assert(ability:IsActivated(), 'Ability is not activated')
+    DebugPrint("Found Lifestealer infesting")
+    local ability = unit:FindAbilityByName("life_stealer_consume")
+    if ability and ability:IsActivated() then
     ExecuteOrderFromTable({
       UnitIndex = unit:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
       Queue = 0 --Optional.  Used for queueing up abilities
     })
+    else
+      print("Error: Could not find Consume ability on an Infesting unit")
+      D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND CONSUME ABILITY", {
+        ErrorMessage = "Tried to teleport an Infesting unit, but could not find Consume ability on that unit, or ability was not castable",
+        ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
+        GameVersion = GAME_VERSION,
+        DedicatedServers = (IsDedicatedServer() and 1) or 0,
+        MatchID = tostring(GameRules:GetMatchID())
+      })
   end
   if unit:IsOutOfGame() then
     unit:RemoveModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison")
