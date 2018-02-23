@@ -120,10 +120,10 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-	function sohei_dash:OnRefresh()
+	function sohei_dash:RefreshCharges()
 		local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
 
-		modifier_charges:SetStackCount( math.min( modifier_charges:GetStackCount() + 1, self:GetSpecialValueFor( "max_charges" ) ) )
+		modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
 	end
 end
 
@@ -225,47 +225,44 @@ if IsServer() then
 --------------------------------------------------------------------------------
 
 	function modifier_sohei_dash_charges:OnExpire()
-		local caster = self:GetCaster()
 		local spell = self:GetAbility()
 
-		-- If the maximum charges are reached, stop the modifier's timer
-		local max_charges = spell:GetSpecialValueFor( "max_charges" )
-		if self:GetStackCount() >= ( max_charges - 1 ) then
-			self:SetStackCount( max_charges )
-			self:SetDuration( -1, true )
-			self:StartIntervalThink( -1 )
-		else
-			-- Reduce the charge recovery time if the appropriate talent is learned
-			local duration = spell:GetChargeRefreshTime()
-
-			self:SetStackCount( self:GetStackCount() + 1 )
-			self:SetDuration( duration, true )
-			self:StartIntervalThink( 0.1 )
-		end
+		-- used to handle all charge-gaining logic here
+		-- but that doesn't work with RefreshCharges also adding
+		-- charges, so sayonara old chap
+		self:SetDuration( -1, true )
+		self:SetStackCount( self:GetStackCount() + 1 )
 	end
 
 --------------------------------------------------------------------------------
 
 	function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
-		-- don't bother to run any of this if we're not subtracting stacks
-		-- ( adding stacks handles itself )
+		local spell = self:GetAbility()
 		local newCount = self:GetStackCount()
+		local maxCount = spell:GetSpecialValueFor( "max_charges" )
 
-		if newCount < oldCount then
+		if newCount >= maxCount then
+			-- we want to make sure that the thinking stops at max
+			-- charges, and not just in OnExpire as charges can be added
+			-- through Refresher items and such
+			self:SetDuration( -1, true )
+			self:StartIntervalThink( -1 )
+		else
 			-- we're just starting the thinking again
 			-- so we don't bother doing anything if that's already happening
 			-- ( otherwise, we'll end up restarting the recharge time )
-			if self:GetDuration() <= 0 then
+			if self:GetDuration() <= 0 and newCount < maxCount then
 				local duration = self:GetAbility():GetChargeRefreshTime()
 
 				self:SetDuration( duration, true )
 				self:StartIntervalThink( 0.1 )
+				-- we can probably now tell StartIntervalThink to only think every duration
+				-- seconds now, but I'd rather not go about extensively testing that for now
 			end
 
 			-- also do cooldown if the count is dead
 			-- rip dracula
 			if newCount <= 0 then
-				local spell = self:GetAbility()
 				local remainingTime = self:GetRemainingTime()
 
 				if remainingTime > spell:GetCooldownTimeRemaining() then
