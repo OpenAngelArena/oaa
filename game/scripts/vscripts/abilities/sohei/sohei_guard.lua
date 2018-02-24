@@ -82,7 +82,7 @@ if IsServer() then
 		target:Purge( false, true, false, true, true )
 
 		-- Start spinning animation
-		caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+		caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 1)
 
 		-- Play guard sound
 		target:EmitSound( "Sohei.Guard" )
@@ -93,8 +93,8 @@ if IsServer() then
 		target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", { duration = duration })
 
 		-- Stop the animation after one spin
-		Timers:CreateTimer( 0.21, function()
-			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+		Timers:CreateTimer( duration, function()
+			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 		end ) --egh
 
 		-- If there is at least one target to attack, hit it
@@ -363,7 +363,7 @@ if IsServer() then
 	end
 
 --------------------------------------------------------------------------------
-	
+
 	function modifier_sohei_guard_knockback:OnHorizontalMotionInterrupted()
 		self:Destroy()
 	end
