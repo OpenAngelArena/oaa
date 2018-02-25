@@ -1111,8 +1111,20 @@
 		m_vMaterialRemapList = 
 		[
 			{
-				m_sSearchMaterial = "*"
+				m_sSearchMaterial = "so_head.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_head.vmat"
+			},
+			{
+				m_sSearchMaterial = "robe.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_robe.vmat"
+			},
+			{
+				m_sSearchMaterial = "blinn6.vmat"
 				m_sReplaceMaterial = "materials/models/heroes/sohei/so_body.vmat"
+			},
+			{
+				m_sSearchMaterial = "material.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_hat_color.vmat"
 			},
 		]
 	}
