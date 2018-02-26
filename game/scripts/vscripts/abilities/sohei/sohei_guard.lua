@@ -102,7 +102,7 @@ if IsServer() then
 
 		if talent and talent:GetLevel() > 0 then
 			local radius = talent:GetSpecialValueFor( "value" )
-			local targets = FindUnitsInRadius(
+			local pushTargets = FindUnitsInRadius(
 				caster:GetTeamNumber(),
 				target:GetAbsOrigin(),
 				nil,
@@ -114,8 +114,8 @@ if IsServer() then
 				false
 			)
 
-			for _,target in pairs( targets ) do
-				self:PushAwayEnemy( target )
+			for _, pushTarget in pairs(pushTargets) do
+				self:PushAwayEnemy(pushTarget)
 			end
 		end
 	end
