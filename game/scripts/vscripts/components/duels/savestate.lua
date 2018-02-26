@@ -16,12 +16,7 @@ local function PurgeDuelHighgroundBuffs(hero)
     "modifier_rune_invis",
     "modifier_rune_hill_tripledamage",
   }
-  for _,modifierName in ipairs(modifierList) do
-    local modifier = hero:FindModifierByName(modifierName)
-    if modifier then
-      modifier:Destroy()
-    end
-  end
+  iter(modifierList):each(partial(hero.RemoveModifierByName, hero))
 end
 
 local function ResetState(hero)
