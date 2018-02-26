@@ -28,15 +28,17 @@ Updated 2018-02-26
 
 1. Open the fbx file at 100x scale.
 
-2. Import the Bind animation.
+2. Orient the model and remove the un-usable armature.
 
-3. Edit/create/rig/weight paint/wrap/texture to your heart's delight.
+3. Import the Bind animation.
 
-4. **Save Blend file frequently. Keep this file backed up safely.**
+4. Edit/create/rig/weight paint/wrap/texture to your heart's delight.
 
-5. When exporting the new fbx file export to scale 0.01x
+5. **Save Blend file frequently. Keep this file backed up safely.**
 
-6. Put your images into the dota 2 materials folder for later.
+6. When exporting the new fbx file export to scale 0.01x
+
+7. Put your images into the dota 2 materials folder for later.
 
 ### Import to Tools
 
@@ -54,4 +56,11 @@ Updated 2018-02-26
 
 7. Compile the map and test in game.
 
+### Tutorials:
+
+1. [Really good modelling/rigging tutorial playlist (YouTube)][1]
+2. [Fixing skeletons and importing (YouTube)][2]
+
 [0]: README.md
+[1]: https://youtu.be/aAO4C_8y0w8
+[2]: https://youtu.be/x5u8CmXUrYQ
