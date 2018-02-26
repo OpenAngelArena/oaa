@@ -12,9 +12,11 @@ Models are what most physical objects and entities in game space are built from.
 
 1. [Importing from Blender][1]
 
+2. [Custom Model Worlflow][2]
+
 [0]: ../README.md
 [1]: importing_from_blender.md
-[2]: filename.md
+[2]: custom_model_workflow.md
 [3]: filename.md
 [4]: filename.md
 [5]: filename.md
