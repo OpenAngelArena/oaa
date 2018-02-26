@@ -63,7 +63,11 @@ if IsServer() then
 
 	function sohei_guard:OnSpellStart()
 		local caster = self:GetCaster()
-		local target = self:GetCursorTarget() or caster
+		local target = self:GetCursorTarget()
+
+		if not target then
+			target = caster
+		end
 
 		-- Check if there are enough charges to cast the ability, if the caster is stunned
 
