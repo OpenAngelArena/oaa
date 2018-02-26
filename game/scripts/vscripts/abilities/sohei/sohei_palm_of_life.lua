@@ -225,7 +225,7 @@ if IsServer() then
 	end
 
 --------------------------------------------------------------------------------
-	
+
 	function modifier_sohei_palm_of_life_movement:OnHorizontalMotionInterrupted()
 		self:Destroy()
 	end
