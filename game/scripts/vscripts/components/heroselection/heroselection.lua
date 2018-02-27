@@ -400,6 +400,11 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
       self:GiveStartingHero(playerId, heroName)
     end)
   end
+
+  if hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
+    HeroCosmetics:Sohei (hero)
+  end
+
 end
 
 function HeroSelection:IsHeroDisabled (hero)

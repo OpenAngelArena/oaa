@@ -226,3 +226,61 @@
     }
   }
 }
+
+"Sohei.Footsteps"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/physics/footsteps/hero/shared/general01.vsnd"
+							"value1"	"sounds/physics/footsteps/hero/shared/general02.vsnd"
+							"value2"	"sounds/physics/footsteps/hero/shared/general03.vsnd"
+							"value3"	"sounds/physics/footsteps/hero/shared/general04.vsnd"
+						}
+					}
+					"volume"			{   "value"     "0.700000"  }
+				}
+			}
+		}
+	}
+}
+
+
+"Sohei.Attacks"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"				"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"	"sounds/weapons/hero/earth_spirit/attack01.vsnd"
+							"value1"	"sounds/weapons/hero/earth_spirit/attack02.vsnd"
+							"value2"	"sounds/weapons/hero/earth_spirit/attack03.vsnd"
+						}
+					}
+					"volume"			{   "value"     "0.800000"  }
+				}
+			}
+		}
+	}
+}

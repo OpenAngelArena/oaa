@@ -81,8 +81,8 @@ if IsServer() then
 		-- Hard Dispel
 		target:Purge( false, true, false, true, true )
 
-		-- Start spinning animation
-		caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+		-- Start an animation
+    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_1 , 1)
 
 		-- Play guard sound
 		target:EmitSound( "Sohei.Guard" )
@@ -92,17 +92,17 @@ if IsServer() then
 		target:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", { duration = duration })
 		target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", { duration = duration })
 
-		-- Stop the animation after one spin
-		Timers:CreateTimer( 0.21, function()
+		-- Stop the animation when it's done
+		Timers:CreateTimer(duration, function()
 			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
-		end ) --egh
+		end)
 
 		-- If there is at least one target to attack, hit it
 		local talent = caster:FindAbilityByName("special_bonus_sohei_guard_knockback")
 
 		if talent and talent:GetLevel() > 0 then
 			local radius = talent:GetSpecialValueFor( "value" )
-			local targets = FindUnitsInRadius(
+			local pushTargets = FindUnitsInRadius(
 				caster:GetTeamNumber(),
 				target:GetAbsOrigin(),
 				nil,
@@ -114,8 +114,8 @@ if IsServer() then
 				false
 			)
 
-			for _,target in pairs( targets ) do
-				self:PushAwayEnemy( target )
+			for _, pushTarget in pairs(pushTargets) do
+				self:PushAwayEnemy(pushTarget)
 			end
 		end
 	end
@@ -363,7 +363,7 @@ if IsServer() then
 	end
 
 --------------------------------------------------------------------------------
-	
+
 	function modifier_sohei_guard_knockback:OnHorizontalMotionInterrupted()
 		self:Destroy()
 	end
