@@ -81,8 +81,8 @@ if IsServer() then
 		-- Hard Dispel
 		target:Purge( false, true, false, true, true )
 
-		-- Start spinning animation
-		caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 1)
+		-- Start an animation
+    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_1 , 1)
 
 		-- Play guard sound
 		target:EmitSound( "Sohei.Guard" )
@@ -92,10 +92,10 @@ if IsServer() then
 		target:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", { duration = duration })
 		target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", { duration = duration })
 
-		-- Stop the animation after one spin
-		Timers:CreateTimer( duration, function()
-			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
-		end ) --egh
+		-- Stop the animation when it's done
+		Timers:CreateTimer(duration, function()
+			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+		end)
 
 		-- If there is at least one target to attack, hit it
 		local talent = caster:FindAbilityByName("special_bonus_sohei_guard_knockback")
