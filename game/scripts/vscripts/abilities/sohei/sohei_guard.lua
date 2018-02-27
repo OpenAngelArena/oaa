@@ -212,8 +212,13 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-	function modifier_sohei_guard_reflect:GetAbsorbSpell( event )
-		return 1
+  function modifier_sohei_guard_reflect:GetAbsorbSpell( event )
+    local caster = event.ability:GetCaster()
+    local casterIsAlly = caster:GetTeamNumber() == self:GetParent():GetTeamNumber()
+    if casterIsAlly then
+      return 0
+    end
+    return 1
 	end
 
 --------------------------------------------------------------------------------
