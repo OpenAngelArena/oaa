@@ -163,11 +163,12 @@ function modifier_sohei_flurry_self:OnDestroy()
     ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
     ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
     caster.flurry_ground_pfx = nil
-  end
-  caster:RemoveNoDraw(  )
-  caster:FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
 
-  caster:Interrupt()
+    caster:FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+
+    caster:Interrupt()
+    caster:RemoveNoDraw(  )
+  end
 end
 
 --------------------------------------------------------------------------------
