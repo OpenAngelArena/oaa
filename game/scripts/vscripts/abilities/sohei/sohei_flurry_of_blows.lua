@@ -1,6 +1,7 @@
 sohei_flurry_of_blows = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_sohei_fob_radius_300", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -93,19 +94,50 @@ end
 
 --------------------------------------------------------------------------------
 
+-- We cannot read serve function on GetAOERadius, that is why valve craetes unique specials for each bonus value
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
   local additionalRadius = 0
 
-  if IsServer() then
-    local talent = caster:FindAbilityByName( "special_bonus_sohei_fob_radius" )
-
-    if talent and talent:GetLevel() > 0 then
-      additionalRadius = talent:GetSpecialValueFor( "value" )
-    end
+  if caster:HasModifier( 'modifier_special_bonus_sohei_fob_radius_300' ) then
+    return self:GetSpecialValueFor( "flurry_radius" ) + 300
   end
 
-  return self:GetSpecialValueFor( "flurry_radius" ) + additionalRadius
+  return self:GetSpecialValueFor( "flurry_radius" )
+end
+
+
+function sohei_flurry_of_blows:OnHeroCalculateStatBonus(table)
+  local caster = self:GetCaster()
+  local talent = caster:FindAbilityByName( "special_bonus_sohei_fob_radius" )
+
+  if talent and talent:GetLevel() > 0 then
+    caster:AddNewModifier( caster, talent, 'modifier_special_bonus_sohei_fob_radius_300', nil )
+  end
+end
+
+--------------------------------------------------------------------------------
+
+modifier_special_bonus_sohei_fob_radius_300 = class( ModifierBaseClass )
+
+function modifier_special_bonus_sohei_fob_radius_300:IsDebuff()
+  return false
+end
+
+function modifier_special_bonus_sohei_fob_radius_300:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_sohei_fob_radius_300:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_sohei_fob_radius_300:IsStunDebuff()
+  return false
+end
+
+function modifier_special_bonus_sohei_fob_radius_300:GetAttributes()
+  return MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 --------------------------------------------------------------------------------
