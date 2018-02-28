@@ -82,7 +82,7 @@ if IsServer() then
 		target:Purge( false, true, false, true, true )
 
 		-- Start an animation
-    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_1 , 1)
+    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 1)
 
 		-- Play guard sound
 		target:EmitSound( "Sohei.Guard" )
@@ -94,7 +94,7 @@ if IsServer() then
 
 		-- Stop the animation when it's done
 		Timers:CreateTimer(duration, function()
-			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 		end)
 
 		-- If there is at least one target to attack, hit it

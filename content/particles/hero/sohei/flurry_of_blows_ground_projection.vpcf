@@ -50,6 +50,14 @@
 			m_fLifetimeMax = 6.0
 		},
 		{
+			_class = "C_INIT_RemapCPtoScalar"
+			m_nCPInput = 10
+			m_flInputMin = 200.0
+			m_flInputMax = 2000.0
+			m_flOutputMin = 200.0
+			m_flOutputMax = 2000.0
+		},
+		{
 			_class = "C_INIT_CreateWithinSphere"
 		},
 		{

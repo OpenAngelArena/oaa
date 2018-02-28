@@ -6,11 +6,11 @@ LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_
 
 -- Cast animation + playback rate
 function sohei_flurry_of_blows:GetCastAnimation()
-  return ACT_DOTA_CAST_ABILITY_2
+  return ACT_DOTA_CAST_ABILITY_4
 end
 
 function sohei_flurry_of_blows:GetPlaybackRateOverride()
-  return 0.35
+  return 2
 end
 
 --------------------------------------------------------------------------------
@@ -70,6 +70,7 @@ if IsServer() then
     end
     caster.flurry_ground_pfx = ParticleManager:CreateParticle( "particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil )
     ParticleManager:SetParticleControl( caster.flurry_ground_pfx, 0, target_loc )
+    ParticleManager:SetParticleControl( caster.flurry_ground_pfx, 10, Vector(flurry_radius,0,0))
 
     -- Start the spell
     caster:SetAbsOrigin( target_loc + Vector(0, 0, 200) )
@@ -157,17 +158,16 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_flurry_self:OnDestroy()
+  local caster = self:GetCaster()
   if IsServer() then
-    local caster = self:GetCaster()
-
     ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
     ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
     caster.flurry_ground_pfx = nil
-
-    caster:FadeGesture(ACT_DOTA_OVERRIDE_ABILITY_2)
-
-    caster:Interrupt()
   end
+  caster:RemoveNoDraw(  )
+  caster:FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+
+  caster:Interrupt()
 end
 
 --------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ if IsServer() then
 
     self:StartIntervalThink( self.attack_interval )
 
-    self:GetCaster():StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 1.4)
+    self:GetCaster():StartGestureWithPlaybackRate( ACT_DOTA_CHANNEL_ABILITY_4 , 5.2 / self:GetAbility():GetSpecialValueFor( "max_duration"))
 
 
     if self:PerformFlurryBlow() then
@@ -250,15 +250,15 @@ if IsServer() then
       if abilityDash and abilityDash:GetLevel() > 0 then
         abilityDash:PerformDash()
       end
-
+      parent:AddNoDraw(  )
       parent:PerformAttack( targets[1], true, true, true, false, false, false, false )
 
       return true
 
     -- Else, return false and keep meditating
     else
+      parent:RemoveNoDraw(  )
       parent:SetAbsOrigin( self.position )
-      parent:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 0.5)
 
       return false
     end
