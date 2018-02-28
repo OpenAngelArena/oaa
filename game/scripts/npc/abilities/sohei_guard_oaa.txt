@@ -34,7 +34,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/ronin/guard.vpcf"
+      "particle"          "particles/hero/sohei/guard.vpcf"
+      "particle"          "particles/hero/sohei/reflect_sakura_leaves.vpcf"
+      "particle"          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
       "soundfile"         "soundevents/ronin_soundevents.vsndevts"
     }
 
