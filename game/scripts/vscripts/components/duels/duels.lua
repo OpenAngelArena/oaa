@@ -722,6 +722,7 @@ function Duels:SavePlayerState (hero)
 end
 
 function Duels:RestorePlayerState (hero, state)
+  hero:Interrupt(  )
   self:SafeTeleportAll(hero, state.location, 150)
 
   if state.hp > 0 then
