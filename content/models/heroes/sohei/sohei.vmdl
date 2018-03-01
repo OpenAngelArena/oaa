@@ -18,6 +18,20 @@
 				m_bGetSkinningFromLod0 = false
 				m_pMorphInfo = null
 			},
+			{
+				m_meshName = "so_weapon"
+				m_meshFile = "models/heroes/sohei/so_weapon.fbx"
+				m_materialSearchPath = ""
+				m_bSkinParentedObjects = true
+				m_bLegacySkinParentedTransforms = false
+				m_bExpensiveTangents = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
+				m_bIgnoreCloth = false
+				m_bGetSkinningFromLod0 = false
+				m_pMorphInfo = null
+			},
 		]
 	}
 	m_clothProxyMeshList = 
@@ -1806,6 +1820,10 @@
 			{
 				m_sSearchMaterial = "rice_hat.vmat"
 				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_hat_color.vmat"
+			},
+			{
+				m_sSearchMaterial = "tetsubo.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_tetsubo.vmat"
 			},
 			{
 				m_sSearchMaterial = "*"
