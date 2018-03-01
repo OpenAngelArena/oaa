@@ -109,7 +109,7 @@ end
 
 function sohei_flurry_of_blows:OnHeroCalculateStatBonus(table)
   local caster = self:GetCaster()
-  local talent = caster:FindAbilityByName( "special_bonus_sohei_fob_radius" )
+  local talent = caster:FindAbilityByName( "special_bonus_sohei_fob_radius_300" )
 
   if talent and talent:GetLevel() > 0 then
     caster:AddNewModifier( caster, talent, 'modifier_special_bonus_sohei_fob_radius_300', nil )
