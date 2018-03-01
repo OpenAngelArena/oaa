@@ -677,6 +677,19 @@
 							},
 						]
 					},
+					{
+						m_name = "attach_origin"
+						m_influences = 
+						[
+							{
+								m_influenceName = "root"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
 				]
 			}
 		},
@@ -775,14 +788,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -845,14 +851,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -915,14 +914,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 7
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -1371,14 +1363,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{

@@ -133,7 +133,7 @@
 		event_type = "4.000000"
 	}
 
-  Sohei.Attacks = {
+  Sohei.Attack = {
     type = "dota_update_default"
     vsnd_files =
     [
@@ -173,4 +173,5 @@
 		mixgroup = "BaseAttacks"
 		spread_radius = "150.000000"
   }
+
 }
