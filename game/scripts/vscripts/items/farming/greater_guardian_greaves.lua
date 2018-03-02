@@ -146,6 +146,11 @@ function modifier_item_greater_guardian_greaves:OnCreated()
 
     foreach(RemoveGuardianAuraEffect, units)
   end
+  local ability = self:GetAbility()
+  self.bonus_all_stats= ability:GetSpecialValueFor("bonus_all_stats")
+  self.bonus_movement= ability:GetSpecialValueFor("bonus_movement")
+  self.bonus_mana= ability:GetSpecialValueFor("bonus_mana")
+  self.bonus_armor= ability:GetSpecialValueFor("bonus_armor")
 end
 
 modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardian_greaves.OnCreated
@@ -162,22 +167,22 @@ function modifier_item_greater_guardian_greaves:DeclareFunctions()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_all_stats
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_all_stats
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_all_stats
 end
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
-  return self:GetAbility():GetSpecialValueFor("bonus_movement")
+  return self.bonus_movement
 end
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana")
+  return self.bonus_mana
 end
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+  return self.bonus_armor
 end
 
 --------------------------------------------------------------------------
