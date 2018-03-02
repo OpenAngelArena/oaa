@@ -21,6 +21,10 @@ setmetatable(RESPAWN_TIME_TABLE, {
   end
 })
 
+-- kill limits
+NORMAL_KILL_LIMIT = 100
+TEN_V_TEN_KILL_LIMIT = 150
+
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
