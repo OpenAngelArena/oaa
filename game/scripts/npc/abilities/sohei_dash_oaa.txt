@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "ability_lua"
     "ID"                  "9500"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
     "AbilityTextureName"      "custom/ronin_dash"
     "ScriptFile"          "abilities/sohei/sohei_dash.lua"

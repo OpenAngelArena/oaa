@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"             "ability_lua"
     "ID"                    "9510"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityTextureName"    "omniknight_purification"
