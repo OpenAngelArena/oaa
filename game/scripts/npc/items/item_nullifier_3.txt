@@ -37,6 +37,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "FightRecapLevel"       "1"
+    "AbilityTextureName"    "custom/nullifier_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -44,10 +45,10 @@
     "ItemAliases"         "nlf 3;nullifier 3"
 
     "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "14.0"
+    "AbilityCooldown"       "13.0"
     "AbilityCastRange"      "600"
-    "AbilityManaCost"       "100"
-    
+    "AbilityManaCost"       "75"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"

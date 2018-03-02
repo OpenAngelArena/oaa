@@ -64,3 +64,5 @@ function listenToGameEvent (event, handler) {
     handler.apply(this, arguments);
   }
 }
+
+$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');

@@ -1,6 +1,30 @@
 "DOTAItems"
 {
   //=================================================================================================================
+  // Recipe: Nullifier
+  //=================================================================================================================
+  "item_recipe_nullifier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "224"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "0"
+    "ItemShopTags"          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_nullifier"
+    "ItemRequirements"
+    {
+      "01"            "item_relic;item_helm_of_iron_will"
+    }
+  }
+  //=================================================================================================================
   // Nullifier
   //=================================================================================================================
   "item_nullifier"
@@ -13,17 +37,18 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "FightRecapLevel"       "1"
-    
+    "AbilityTextureName"    "custom/nullifier_1"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "4700"
     "ItemAliases"         "nlf;nullifier"
 
     "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "14.0"
+    "AbilityCooldown"       "13.0"
     "AbilityCastRange"      "600"
-    "AbilityManaCost"       "100"
-    
+    "AbilityManaCost"       "75"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"

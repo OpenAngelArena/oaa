@@ -1,0 +1,115 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: stoneskin (Based on Armlet)
+  //=================================================================================================================
+  "item_recipe_stoneskin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3244"       // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_stoneskin"
+    "ItemRequirements"
+    {
+      "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
+      "02"                                                "item_shivas_guard_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // stoneskin
+  //=================================================================================================================
+  "item_stoneskin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3246"       // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/transformation/stoneskin.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/stoneskin"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "stoneskin"
+    "AbilityCooldown"                                     "8.0"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_stoneskin"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "17750"
+    "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "stoneskin of mordiggian;stoneskin"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+      "particle"                                          "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30 35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20 25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "10 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "75 80"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_move_speed"                                "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_armor"                                     "80 130"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_resist"                                    "10 15"
+      }
+    }
+  }
+}

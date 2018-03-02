@@ -7,7 +7,6 @@ DUEL_IS_STARTING = 21
 if Duels == nil then
   DebugPrint ( 'Creating new Duels object.' )
   Duels = class({})
-  Debug.EnabledModules['duels:duels'] = true
 end
 
 --[[
@@ -46,6 +45,22 @@ function Duels:Init ()
     }
   })
 
+  Duels.zone3 = ZoneControl:CreateZone('duel_3', {
+    mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 500,
+    padding = 200,
+    players = {
+    }
+  })
+
+  Duels.zone4 = ZoneControl:CreateZone('duel_4', {
+    mode = ZONE_CONTROL_INCLUSIVE,
+    margin = 500,
+    padding = 200,
+    players = {
+    }
+  })
+
   GameEvents:OnHeroDied(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
@@ -67,6 +82,7 @@ function Duels:Init ()
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
           hero:RespawnHero(false, false)
+          hero = PlayerResource:GetSelectedHeroEntity(playerID)
         end
       end
 
@@ -79,10 +95,11 @@ function Duels:Init ()
         -- player is not in a duel, they can just chill tf out
         return
       end
-      player.disconnected = false
       if player.killed or not player.disconnected then
         return
       end
+      player.disconnected = false
+      hero:RemoveModifierByName("modifier_out_of_duel")
 
       Duels:UnCountPlayerDeath(player)
     end
@@ -119,7 +136,7 @@ function Duels:Init ()
 
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     Duels:StartDuel({
-      players = 5,
+      players = 0,
       firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
     })
@@ -128,6 +145,7 @@ function Duels:Init ()
   ChatCommand:LinkCommand("-duel", Dynamic_Wrap(Duels, "StartDuel"), Duels)
   ChatCommand:LinkCommand("-end_duel", Dynamic_Wrap(Duels, "EndDuel"), Duels)
   ChatCommand:LinkCommand("-tptest", Dynamic_Wrap(Duels, "TestSafeTeleport"), Duels)
+  ChatCommand:LinkCommand("-tpstate", Dynamic_Wrap(Duels, "TestSaveAndLoadState"), Duels)
 end
 
 function Duels:CountPlayerDeath (player)
@@ -137,6 +155,26 @@ function Duels:CountPlayerDeath (player)
   if Duels.currentDuel[scoreIndex] <= 0 then
     Duels.currentDuel['duelEnd' .. player.duelNumber] = player.team
     DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
+    local winningTeam = "bad"
+    if player.team == "bad" then
+      winningTeam = "good"
+    end
+
+    Duels:AllPlayers(Duels.currentDuel, function (otherPlayer)
+      if player.duelNumber ~= otherPlayer.duelNumber then
+        return
+      end
+      Notifications:Top(otherPlayer.id, {
+        text = "#DOTA_Winner_" .. winningTeam .. "Guys",
+        duration = 5.0,
+        style = {
+          color = "red",
+          ["font-size"] = "110px"
+        }
+      })
+    end)
+
+
   end
 
   if Duels.currentDuel.duelEnd1 and Duels.currentDuel.duelEnd2 then
@@ -204,6 +242,11 @@ function Duels:StartDuel (options)
     DebugPrint ('There is already a duel running')
     return
   end
+  if self.startDuelTimer then
+    Timers:RemoveTimer(self.startDuelTimer)
+    self.startDuelTimer = nil
+  end
+
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
@@ -212,7 +255,7 @@ function Duels:StartDuel (options)
   Duels.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
 
-  Notifications:TopToAll({text="A duel will start in " .. DUEL_START_WARN_TIME .. " seconds!", duration=math.min(DUEL_START_WARN_TIME, 5.0)})
+  Notifications:TopToAll({text="#duel_imminent_warning", duration=math.min(DUEL_START_WARN_TIME, 5.0), replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
   for index = 0,(DUEL_START_COUNTDOWN - 1) do
     Timers:CreateTimer(DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN + index, function ()
       Notifications:TopToAll({text=(DUEL_START_COUNTDOWN - index), duration=1.0})
@@ -220,9 +263,11 @@ function Duels:StartDuel (options)
   end
 
   Timers:CreateTimer(DUEL_START_WARN_TIME, function ()
-    Notifications:TopToAll({text="DUEL!", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="110px"}})
     ZoneCleaner:CleanZone(Duels.zone1)
     ZoneCleaner:CleanZone(Duels.zone2)
+    ZoneCleaner:CleanZone(Duels.zone3)
+    ZoneCleaner:CleanZone(Duels.zone4)
     Duels:ActuallyStartDuel(options)
   end)
 end
@@ -295,7 +340,7 @@ function Duels:ActuallyStartDuel (options)
 
   if maxPlayers < 1 then
     DebugPrint('There aren\'t enough players to start the duel')
-    Notifications:TopToAll({text="There aren\'t enough players to start the duel", duration=2.0})
+    Notifications:TopToAll({text="#duel_not_enough_players", duration=2.0})
     self.currentDuel = nil
     Music:PlayBackground(1, 7)
     return
@@ -309,8 +354,14 @@ function Duels:ActuallyStartDuel (options)
   end
   -- local playerSplitOffset = maxPlayers
   local spawnLocations = RandomInt(0, 1) == 1
-  local spawn1 = Entities:FindByName(nil, 'duel_1_spawn_1'):GetAbsOrigin()
-  local spawn2 = Entities:FindByName(nil, 'duel_1_spawn_2'):GetAbsOrigin()
+  local arenaChoice = RandomInt(0, 1) == 1
+  local duel_1 = 'duel_1'
+  local duel_2 = 'duel_2'
+  if arenaChoice then
+    duel_1 = 'duel_3'
+  end
+  local spawn1 = Entities:FindByName(nil, duel_1 .. '_spawn_1'):GetAbsOrigin()
+  local spawn2 = Entities:FindByName(nil, duel_1 .. '_spawn_2'):GetAbsOrigin()
 
   if spawnLocations then
     local tmp = spawn1
@@ -333,8 +384,13 @@ function Duels:ActuallyStartDuel (options)
     self:SafeTeleportAll(goodHero, spawn1, 150)
     self:SafeTeleportAll(badHero, spawn2, 150)
 
-    self.zone1.addPlayer(goodGuy.id)
-    self.zone1.addPlayer(badGuy.id)
+    if arenaChoice then
+      self.zone3.addPlayer(goodGuy.id)
+      self.zone3.addPlayer(badGuy.id)
+    else
+      self.zone1.addPlayer(goodGuy.id)
+      self.zone1.addPlayer(badGuy.id)
+    end
 
     MoveCameraToPlayer(goodHero)
     MoveCameraToPlayer(badHero)
@@ -348,8 +404,14 @@ function Duels:ActuallyStartDuel (options)
     badHero:SetRespawnsDisabled(true)
   end
 
-  spawn1 = Entities:FindByName(nil, 'duel_2_spawn_1'):GetAbsOrigin()
-  spawn2 = Entities:FindByName(nil, 'duel_2_spawn_2'):GetAbsOrigin()
+  spawnLocations = RandomInt(0, 1) == 1
+  arenaChoice = RandomInt(0, 1) == 1
+  if arenaChoice then
+    duel_2 = 'duel_4'
+  end
+
+  spawn1 = Entities:FindByName(nil, duel_2 .. '_spawn_1'):GetAbsOrigin()
+  spawn2 = Entities:FindByName(nil, duel_2 .. '_spawn_2'):GetAbsOrigin()
 
   if spawnLocations then
     local tmp = spawn1
@@ -372,8 +434,13 @@ function Duels:ActuallyStartDuel (options)
     self:SafeTeleportAll(goodHero, spawn1, 150)
     self:SafeTeleportAll(badHero, spawn2, 150)
 
-    self.zone2.addPlayer(goodGuy.id)
-    self.zone2.addPlayer(badGuy.id)
+    if arenaChoice then
+      self.zone4.addPlayer(goodGuy.id)
+      self.zone4.addPlayer(badGuy.id)
+    else
+      self.zone2.addPlayer(goodGuy.id)
+      self.zone2.addPlayer(badGuy.id)
+    end
 
     MoveCameraToPlayer(goodHero)
     MoveCameraToPlayer(badHero)
@@ -451,6 +518,9 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
+      if self.currentDuel == nil then
+        return
+      end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
     end)
   end
@@ -475,15 +545,23 @@ function Duels:EndDuel ()
   Music:PlayBackground(1, 7)
 
   local nextDuelIn = DUEL_INTERVAL
-  -- why dont these run?
-  Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
-  Timers:CreateTimer(nextDuelIn - 50, function ()
-    Notifications:TopToAll({text="A duel will start in 1 minute!", duration=10.0})
+
+  if self.startDuelTimer then
+    Timers:RemoveTimer(self.startDuelTimer)
+    self.startDuelTimer = nil
+  end
+
+  self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
+    Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
+
+    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, Dynamic_Wrap(Duels, 'StartDuel'))
   end)
 
   for playerId = 0,19 do
     self.zone1.removePlayer(playerId, false)
     self.zone2.removePlayer(playerId, false)
+    self.zone3.removePlayer(playerId, false)
+    self.zone4.removePlayer(playerId, false)
   end
 
   local currentDuel = self.currentDuel
@@ -501,6 +579,8 @@ function Duels:EndDuel ()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
         hero:RespawnHero(false,false)
+        -- hero is changed on respawn sometimes
+        hero = player:GetAssignedHero()
       else
         hero:RemoveModifierByName("modifier_out_of_duel")
       end
@@ -544,6 +624,7 @@ function Duels:PurgeAfterDuel (hero)
 end
 
 function Duels:ResetPlayerState (hero)
+  local playerId = hero:GetPlayerID()
   if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
     hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
   end
@@ -556,6 +637,7 @@ function Duels:ResetPlayerState (hero)
 
   if not hero:IsAlive() then
     hero:RespawnHero(false,false)
+    hero = PlayerResource:GetSelectedHeroEntity(playerId)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
@@ -616,19 +698,31 @@ function Duels:SavePlayerState (hero)
     end
   end
 
+  local function last()
+    return true
+  end
+  local restoreItems = last
+
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item ~= nil then
-      state.items[itemIndex] = {
-        cooldown = item:GetCooldownTimeRemaining()
-      }
+      local itemCooldown = item:GetCooldownTimeRemaining()
+      local lastRestore = restoreItems
+      restoreItems = function()
+        if not item:IsNull() then
+          item:EndCooldown()
+          item:StartCooldown(itemCooldown)
+        end
+        return lastRestore()
+      end
     end
   end
+  state.items = restoreItems
   return state
 end
 
 function Duels:RestorePlayerState (hero, state)
-  self:SafeTeleport(hero, state.location, 150)
+  self:SafeTeleportAll(hero, state.location, 150)
 
   if state.hp > 0 then
     hero:SetHealth(state.hp)
@@ -648,13 +742,7 @@ function Duels:RestorePlayerState (hero, state)
     end
   end
 
-  for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local item = hero:GetItemInSlot(itemIndex)
-    if item ~= nil and state.items[itemIndex] then
-      item:EndCooldown()
-      item:StartCooldown(state.items[itemIndex].cooldown)
-    end
-  end
+  state.items()
 
   if state.offsidesStacks > 0 then
     local modifier = hero:AddNewModifier(hero, nil, "modifier_offside", {})
@@ -735,6 +823,9 @@ function Duels:SafeTeleport(unit, location, maxDistance)
   location = GetGroundPosition(location, unit)
   FindClearSpaceForUnit(unit, location, true)
   Timers:CreateTimer(0.1, function()
+    if not unit or unit:IsNull() then
+      return
+    end
     local distance = (location - unit:GetAbsOrigin()):Length2D()
     if distance > maxDistance then
       self:SafeTeleport(unit, location, maxDistance + 100)
@@ -746,4 +837,11 @@ end
 function Duels:TestSafeTeleport(keys)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
   self:SafeTeleportAll(hero, Vector(0, 0, 0), 150)
+end
+
+function Duels:TestSaveAndLoadState(keys)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local state = self:SavePlayerState(hero)
+  state.location = Vector(0, 0, 0)
+  self:RestorePlayerState(hero,state)
 end

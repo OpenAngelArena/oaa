@@ -7,10 +7,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"                                            "6"
-    
+
     "AbilityCooldown"                                     "7.0 6.0 5.0 3.0 2.5 2"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -19,6 +19,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "delay"                                           "0.25"
       }
-    }    
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "tooltip_attack"      "1"
+        "LinkedSpecialBonus"  "special_bonus_unique_weaver_5"
+      }
+    }
   }
 }

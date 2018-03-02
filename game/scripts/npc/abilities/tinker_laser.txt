@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14.0"
+    "AbilityCooldown"                                     "20 18 16 14 14 14"
 
 
     // Cost
@@ -61,7 +61,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "laser_damage"                                    "80 160 240 320 720 1120"
+        "laser_damage"                                    "80 160 240 320 610 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_tinker"
       }
       "05"

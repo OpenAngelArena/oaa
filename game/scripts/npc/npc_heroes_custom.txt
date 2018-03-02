@@ -22,13 +22,17 @@
 #base "heroes/legion_commander.txt"
 #base "heroes/lich.txt"
 #base "heroes/lion.txt"
+#base "heroes/nevermore.txt"
 #base "heroes/nyx_assassin.txt"
+#base "heroes/obsidian_destroyer.txt"
 #base "heroes/ogre_magi.txt"
 #base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
+#base "heroes/pangolier.txt"
 #base "heroes/phoenix.txt"
 #base "heroes/puck.txt"
 #base "heroes/pudge.txt"
+#base "heroes/queenofpain.txt"
 #base "heroes/shadow_demon.txt"
 #base "heroes/shadow_shaman.txt"
 #base "heroes/silencer.txt"
@@ -41,7 +45,9 @@
 #base "heroes/tiny.txt"
 #base "heroes/treant_protector.txt"
 #base "heroes/tusk.txt"
+#base "heroes/undying.txt"
 #base "heroes/venomancer.txt"
+#base "heroes/viper.txt"
 #base "heroes/visage.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
@@ -49,6 +55,41 @@
 #base "heroes/witch_doctor.txt"
 #base "heroes/zeus.txt"
 
+#base "heroes/dummy_dummy.txt"
+
 "DOTAHeroes"
 {
+	//=================================================================================================================
+	// HERO: Ronin
+	//=================================================================================================================
+	"npc_dota_hero_sohei"
+	{
+		"BaseClass"					"npc_dota_hero_juggernaut"
+		"HeroID"					"128"
+		"Model"						"models/heroes/juggernaut/juggernaut.vmdl"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementTurnRate"			"1.5"
+		"MovementSpeed"				"325"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"31"
+		"AttackDamageMax"			"33"
+		"AttackRate"				"1.7"
+
+		"ArmorPhysical"				"5"
+		"StatusHealthRegen"			"3.25"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"23"
+		"AttributeStrengthGain"		"4.0"
+		"AttributeBaseAgility"		"18"
+		"AttributeAgilityGain"		"1.5"
+		"AttributeBaseIntelligence"	"17"
+		"AttributeIntelligenceGain"	"1.5"
+
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+	}
 }

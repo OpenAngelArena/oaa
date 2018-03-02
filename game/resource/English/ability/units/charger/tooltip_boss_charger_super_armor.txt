@@ -1,0 +1,11 @@
+//=============================================================================
+// Charger Super Armor (Unholy Shielding)
+//=============================================================================
+"DOTA_Tooltip_Ability_boss_charger_super_armor"                        "Unholy Shielding"
+"DOTA_Tooltip_Ability_boss_charger_super_armor_description"            "Charger maintains a protective field around himself, greatly reducing incoming damage.\n\nWhen Charger is stunned by charging into a pillar, he loses focus, causing #{DOTA_Tooltip_Ability_boss_charger_super_armor} to be disabled for the duration he is stunned."
+"DOTA_Tooltip_Ability_boss_charger_super_armor_Note0"                  "Boss Resistance does not stack with #{DOTA_Tooltip_Ability_boss_charger_super_armor}."
+"DOTA_Tooltip_Ability_boss_charger_super_armor_Note1"                  "Boss Resistance still applies when #{DOTA_Tooltip_Ability_boss_charger_super_armor} is disabled."
+"DOTA_Tooltip_Ability_boss_charger_super_armor_percent_damage_reduce"  "%DAMAGE REDUCTION:"
+
+"DOTA_Tooltip_modifier_boss_charger_super_armor"                       "#{DOTA_Tooltip_Ability_boss_charger_super_armor}"
+"DOTA_Tooltip_modifier_boss_charger_super_armor_description"           "Taking greatly reduced damage"

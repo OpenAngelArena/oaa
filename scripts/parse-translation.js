@@ -1,11 +1,93 @@
-var parseKV = require('parse-kv');
-var fs = require('fs');
-var path = require('path');
+const parseKV = require('parse-kv');
+const fs = require('fs');
+const path = require('path');
 
-var basePath = path.join(__dirname, '../');
+const basePath = path.join(__dirname, '../');
+let SPACE_PADDING = '                                                         ';
+var filenameByKey = {};
 
-module.exports = function (shouldParse) {
-  var fileData = readdir(path.join(basePath, 'game/resource/English/'));
+function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
+  key = key.toLowerCase();
+  recursionCheck = recursionCheck || {};
+  if (recursionCheck[key]) {
+    console.error(recursionCheck);
+    throw new Error('Foun d recursive key: ' + key);
+  }
+  recursionCheck[key] = recursionCheck[key] || 0;
+
+  let value = allTooltips[key];
+  let tokens = value.match(/#{[_\- A-Za-z0-9]+}/g); // alphanumeric, _- and space
+  if (!tokens) {
+    return value;
+  }
+  recursionCheck[key]++;
+
+  tokens.forEach(function (token) {
+    let tokenKey = token.substr(2, token.length - 3).toLowerCase();
+    if (!allTooltips[tokenKey]) {
+      throw new Error([
+        'References invalid token name, ',
+        tokenKey,
+        ', in ',
+        source || '',
+        ':',
+        key
+      ].join(''));
+    }
+    value = value.replace(token, checkReplaceTokens(allTooltips, tokenKey, recursionCheck));
+  });
+  recursionCheck[key]--;
+
+  return value;
+}
+
+function generateTooltips (fileData, allTooltips) {
+  return Object.keys(fileData).map(function (fileName) {
+    let tooltipData = fileData[fileName];
+    return [
+      '//---------------------------------------------------------------------------',
+      '//      Generated from ' + fileName,
+      '//---------------------------------------------------------------------------',
+      Object.keys(tooltipData)
+        .map(function (key) {
+          key = key.toLowerCase();
+          while (key.length + 5 > SPACE_PADDING.length) {
+            SPACE_PADDING += '             ';
+          }
+          return ('"' + key + '"' + SPACE_PADDING).substring(0, SPACE_PADDING.length) + JSON.stringify(allTooltips[key]);
+        }).join('\n')
+    ].join('\n');
+  }).join('\n');
+}
+
+module.exports = function (shouldParse, languageFolder, dotaLanguage) {
+  languageFolder = languageFolder || path.join(basePath, 'game/resource/English/');
+  let fileData = readdir(languageFolder);
+
+  let allTooltips = {};
+
+  if (dotaLanguage) {
+    Object.keys(dotaLanguage.lang.Tokens.values).forEach(function (key) {
+      allTooltips[key.toLowerCase()] = dotaLanguage.lang.Tokens.values[key];
+    });
+  }
+
+  // read EVERYTHING first so that order doesn't matter...
+  Object.keys(fileData).forEach(function (fileName) {
+    let tooltipData = fileData[fileName];
+    Object.keys(tooltipData).forEach(function (key) {
+      allTooltips[key.toLowerCase()] = tooltipData[key];
+      filenameByKey[key.toLowerCase()] = fileName;
+    });
+  });
+  // then populate tokens
+  Object.keys(fileData).forEach(function (fileName) {
+    let tooltipData = fileData[fileName];
+    Object.keys(tooltipData).forEach(function (key) {
+      key = key.toLowerCase();
+      allTooltips[key] = checkReplaceTokens(allTooltips, key);
+    });
+  });
 
   fileData = [
     '"lang"',
@@ -13,7 +95,7 @@ module.exports = function (shouldParse) {
     '"Language"      "English"',
     '"Tokens"',
     '{',
-    fileData[1],
+    generateTooltips(fileData, allTooltips),
     '}',
     '}'
   ].join('\n');
@@ -21,11 +103,11 @@ module.exports = function (shouldParse) {
   return shouldParse === false ? fileData : parseKV(fileData);
 
   function readdir (dir) {
-    var fileList = fs.readdirSync(dir);
-    var fileData = fileList.map(function (file) {
+    let fileList = fs.readdirSync(dir);
+    let fileData = fileList.map(function (file) {
       try {
-        var filePath = path.join(dir, file);
-        var fileData = fs.readFileSync(filePath);
+        let filePath = path.join(dir, file);
+        let fileData = fs.readFileSync(filePath);
         if (fileData.toString().match(new RegExp('[^\x00-\x7F]'))) { // eslint-disable-line no-control-regex
           throw new Error(filePath.substr(basePath.length) + ' contains invalid text or bad formatting');
         }
@@ -38,18 +120,23 @@ module.exports = function (shouldParse) {
         }
       }
     })
-    .reduce(function (memo, data) {
-      var [filePath, val] = data;
-      return [
-        memo,
-        '//---------------------------------------------------------------------------',
-        '//      Generated from ' + filePath.substr(basePath.length),
-        '//---------------------------------------------------------------------------',
-        val
-      ].join('\n');
-    }, '');
+      .reduce(function (memo, data) {
+        if (Array.isArray(data)) {
+          let [filePath, val] = data;
+          if (filePath.startsWith(basePath)) {
+            filePath = filePath.substr(basePath.length);
+          }
+          memo[filePath] = parseKV(val).values;
+        } else {
+        // nested folder
+          Object.keys(data).forEach(function (key) {
+            memo[key] = data[key];
+          });
+        }
+        return memo;
+      }, {});
 
-    return [dir, fileData];
+    return fileData;
   }
 };
 

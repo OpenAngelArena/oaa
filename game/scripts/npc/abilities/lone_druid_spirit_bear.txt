@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_hp"                                         "1400 1800 2300 2700 5600 7200"
+        "bear_hp"                                         "1500 2000 2500 3000 6000 9000"
       }
       "02"
       {
@@ -42,12 +42,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bear_bat"                                        "1.75 1.65 1.55 1.45 1.40 1.35"
+        "bear_bat"                                        "1.75 1.65 1.55 1.45 1.35 1.25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bear_armor"                                      "3 4 5 6 24 32"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_2"
       }
       "05"
       {

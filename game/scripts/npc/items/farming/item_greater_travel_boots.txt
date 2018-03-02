@@ -45,7 +45,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "3.0 2.75 2.5 2.25 2"
+    "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
 
     //"UpgradesItems"                                     "item_greater_travel_boots;item_greater_travel_boots_2;item_greater_travel_boots_3;item_greater_travel_boots_4"
@@ -69,23 +69,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "100 125 150 175 200"
+        "bonus_movement_speed"                            "125 150 175 200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "50 70 95 125 160"
+        "assist_percent"                                  "100 110 120 130"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1200 1300 1400 1500 1600"
+        "assist_radius"                                   "1300 1400 1500 1600"
       }
       "04"
       {
         // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
         "var_type"                                        "FIELD_FLOAT"
         "assist_stickiness"                               "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
   }

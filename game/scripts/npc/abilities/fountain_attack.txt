@@ -12,7 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityCastPoint"                                    "0"
@@ -29,8 +29,10 @@
 
     "precache"
     {
-      "particle"                                          "particles/fountain_lazor.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+      "particle"                                          "particles/abilities/tesla_coil_radiant.vpcf"
+      "particle"                                          "particles/abilities/tesla_coil_dire.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_wraithking_ghosts.vpcf"
+      "soundfile"                                         "soundevents/abilities/fountain_attack.vsndevts"
     }
   }
 }

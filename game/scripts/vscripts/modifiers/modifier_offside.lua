@@ -72,8 +72,53 @@ function modifier_offside:IsDebuff()
   return true
 end
 
+function modifier_offside:ReleaseParticles()
+  if self.stackParticle ~= nil then
+    ParticleManager:DestroyParticle(self.stackParticle, false)
+    ParticleManager:ReleaseParticleIndex( self.stackParticle )
+  end
+
+  if self.BloodOverlay ~= nil then
+    ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
+    ParticleManager:DestroyParticle(self.BloodOverlay, false)
+    ParticleManager:ReleaseParticleIndex( self.BloodOverlay )
+  end
+end
+
+function modifier_offside:DrawParticles()
+  -- avoid firing new particle every tick
+  if self.stackOffset == 0 then
+    local stackCount = self:GetStackCount()
+    local isInOffside = self:GetParent():HasModifier("modifier_is_in_offside")
+
+    local alpha = (stackCount -10) * 255/15
+
+    if alpha >= 0 and isInOffside then
+      if self.BloodOverlay == nil then
+        -- Creates a new particle effect
+        self.BloodOverlay = ParticleManager:CreateParticleForPlayer( "particles/misc/screen_blood_overlay.vpcf", PATTACH_WORLDORIGIN, self:GetParent(), self:GetParent():GetPlayerOwner() )
+        ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
+        DebugPrint("Create Blood Overlay Alpha =" ..alpha)
+      end
+      ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
+    elseif self.BloodOverlay ~= nil and not isInOffside then
+      ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
+    end
+
+    if self.stackParticle ~= nil then
+      ParticleManager:DestroyParticle(self.stackParticle, false)
+    end
+    self.stackParticle = ParticleManager:CreateParticleForPlayer( "particles/dungeon_overhead_timer_colored.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner() )
+    ParticleManager:SetParticleControl( self.stackParticle, 1, Vector( 0, stackCount, 0 ) )
+    ParticleManager:SetParticleControl( self.stackParticle, 2, Vector( 2, 0, 0 ) )
+    ParticleManager:SetParticleControl( self.stackParticle, 3, Vector( 255, 50, 0 ) )
+    ParticleManager:ReleaseParticleIndex( self.stackParticle )
+  end
+end
+
 function modifier_offside:OnIntervalThink()
   if not ProtectionAura then
+    self:ReleaseParticles()
     self:Destroy()
     return
   end
@@ -100,8 +145,11 @@ function modifier_offside:OnIntervalThink()
   local h = self:GetParent():GetMaxHealth()
   local stackCount = self:GetStackCount()
 
+  self:DrawParticles()
+
   if not isInOffside then
     if stackCount <= 0 then
+      self:ReleaseParticles()
       self:Destroy()
     end
     return
@@ -139,38 +187,9 @@ function modifier_offside:OnIntervalThink()
     damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
     ability = nil
   }
-  --[[
-
-  local damageTable = {
-    victim = parent,
-    attacker = caster,
-    damage = self.damagePerTick,
-    damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = DOTA_DAMAGE_FLAG_NONE,
-    ability = ability
-  }
-
-  ]]
 
   if stackCount >= 10 then
     return ApplyDamage(damageTable)
   end
---
-  local particleTable = {
-      [1]  = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [10] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [13] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [16] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [19] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [22] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [25] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-      [28] = "particles/blood_impact/blood_advisor_pierce_spray.vpcf",
-    }
-
-    if particleTable[stackCount] ~= nil and self:GetCaster() then
-      local part = ParticleManager:CreateParticle(particleTable[stackCount], PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
-      ParticleManager:SetParticleControlEnt(part, 1, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, "attach_origin", self:GetCaster():GetAbsOrigin(), true)
-      ParticleManager:ReleaseParticleIndex(part)
-    end
 end
 

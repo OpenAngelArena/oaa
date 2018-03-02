@@ -44,6 +44,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "silence_duration"                                "0.75 1.5 2.25 3.0 3.5 4.25"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 160 220 280"
+        "LinkedSpecialBonus"                              "special_bonus_unique_puck_4"
+      }
     }
   }
 }

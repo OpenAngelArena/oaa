@@ -41,9 +41,9 @@ function Courier.SpawnCourier (hero)
     if courier then
         hero:CastAbilityImmediately(courier, hero:GetPlayerID())
     end
-    local flying = hero:AddItemByName('item_flying_courier')
-    if flying then
-        hero:CastAbilityImmediately(flying, hero:GetPlayerID())
+    local courierUnit = PlayerResource:GetNthCourierForTeam(0, hero:GetTeamNumber())
+    if courierUnit then
+      courierUnit:UpgradeToFlyingCourier()
     end
 
     if slot1Item then

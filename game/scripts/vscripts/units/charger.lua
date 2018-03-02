@@ -64,7 +64,7 @@ local function ChargeHero ()
     1000,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_CLOSEST,
     false
   )
@@ -87,10 +87,7 @@ local function ChargeHero ()
 end
 
 local function ChargerThink (state, target)
-  if not thisEntity:IsAlive() then
-    GetAllPillars():each(function (pillar)
-      pillar:Kill(thisEntity, ABILITY_charge)
-    end)
+  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
     return 0
   end
   if not GLOBAL_origin then
@@ -140,6 +137,7 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })
   phaseController:SetAbilities({
-    "boss_charger_charge"
+    "boss_charger_charge",
+    "boss_charger_super_armor"
   })
 end

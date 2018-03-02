@@ -1,0 +1,98 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Postactive Reflex 3c
+  //=================================================================================================================
+  "item_recipe_regen_crystal_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3835"        // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_regen_crystal_1"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heart_2;item_upgrade_core_2"
+      "02"                                                "item_heart_2;item_upgrade_core_3"
+      "03"                                                "item_heart_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Postactive Reflex 3c
+  //=================================================================================================================
+  "item_regen_crystal_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3836"                                                      // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/reflex/postactive_regen.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"                                  "custom/regen_crystal_1"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "regen_crystal"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200"
+    "ItemCost"                                            "10200"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "regen crystal"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "600 1000 1400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "105 145 185"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_health_regen"                              "200 225 250"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "5"
+      }
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      //"soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "particle"                                     "particles/items/regen_crystal/regen_ambient.vpcf"
+    }
+  }
+}

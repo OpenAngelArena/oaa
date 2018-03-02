@@ -230,9 +230,9 @@ function getLuaPathsFromKV (data) {
     }
     return [];
   })
-  .reduce(function (memo, val) {
-    return memo.concat(val);
-  }, []);
+    .reduce(function (memo, val) {
+      return memo.concat(val);
+    }, []);
 }
 
 var hiddenModifiers = {};

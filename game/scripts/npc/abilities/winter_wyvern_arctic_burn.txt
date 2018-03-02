@@ -6,17 +6,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5651"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"    
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
 
     "HasScepterUpgrade"                                   "1"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "50.0 40.0 30.0 20.0 20.0 20.0"
 
@@ -37,11 +37,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_range_bonus"                              "275 375 475 575 575 575"
-      }      
+      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "percent_damage"                                  "9 9 9 9 11 13"
+        "percent_damage"                                  "6 7 8 9 11 13"
       }
       "04"
       {

@@ -7,14 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability2"                                            "silencer_glaives_of_wisdom_oaa"
-    "Ability10"   "special_bonus_armor_5"
-    "Ability11"   "special_bonus_attack_speed_25"
-    "Ability12"   "special_bonus_spell_amplify_5" //OAA
-    "Ability13"   "special_bonus_unique_silencer_2" //+2 Intelligence Steal
-    "Ability14"   "special_bonus_attack_range_125"
-    "Ability15"   "special_bonus_unique_silencer" //+30 Curse Damage
-    "Ability16"   "special_bonus_unique_silencer_3" //+20% Glaives of Wisdom
-    "Ability17"   "special_bonus_unique_silencer_4" //+2s Global Silence
+    "Ability2"    "silencer_glaives_of_wisdom_oaa" // replaces silencer_glaives_of_wisdom
+    "Ability12"   "special_bonus_spell_amplify_5" // replaces special_bonus_gold_income_15
   }
 }
