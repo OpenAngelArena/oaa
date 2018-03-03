@@ -267,6 +267,8 @@ if IsServer() then
       local abilityDash = parent:FindAbilityByName( "sohei_dash" )
       local distance = 50
 
+      parent:RemoveNoDraw(  )
+
       if abilityDash then
         distance = abilityDash:GetSpecialValueFor( "dash_distance" ) + 50
       end
@@ -283,14 +285,13 @@ if IsServer() then
       if abilityDash and abilityDash:GetLevel() > 0 then
         abilityDash:PerformDash()
       end
-      parent:AddNoDraw(  )
       parent:PerformAttack( targets[1], true, true, true, false, false, false, false )
 
       return true
 
     -- Else, return false and keep meditating
     else
-      parent:RemoveNoDraw(  )
+      parent:AddNoDraw(  )
       parent:SetAbsOrigin( self.position )
 
       return false

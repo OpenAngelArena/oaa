@@ -128,59 +128,7 @@
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ground_scorch.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_light.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_dark_swirl.vpcf"
-			m_bDisableChild = true
-		},
-		{
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_star_perimeter.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ember.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_warp_ripple.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_warp.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_swirl_orange.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_galaxy.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_core_rays.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_core_glow.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_model.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_outer_debris.vpcf"
-			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ember_streak.vpcf"
@@ -189,33 +137,13 @@
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_streak_start.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_flash.vpcf"
-			m_bDisableChild = true
-		},
-		{
 			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_ground_ring.vpcf"
-		},
-		{
-			m_flDelay = 0.5
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare.vpcf"
-			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_ground_shake.vpcf"
 		},
 		{
-			m_flDelay = 0.5
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare_b.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_xray.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_flDelay = 1.0
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare_c.vpcf"
-			m_bDisableChild = true
+			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_dance.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 
