@@ -196,8 +196,6 @@ function modifier_sohei_flurry_self:OnDestroy()
     ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
     caster.flurry_ground_pfx = nil
 
-    caster:FadeGesture(ACT_DOTA_CHANNEL_ABILITY_4)
-
     caster:Interrupt()
     caster:RemoveNoDraw(  )
   end
@@ -214,9 +212,6 @@ if IsServer() then
     self.positionGround = self.position - Vector( 0, 0, 200 )
 
     self:StartIntervalThink( self.attack_interval )
-
-    self:GetCaster():StartGestureWithPlaybackRate( ACT_DOTA_CHANNEL_ABILITY_4 , 5.2 / self:GetAbility():GetSpecialValueFor( "max_duration"))
-
 
     if self:PerformFlurryBlow() then
       self.remaining_attacks = self.remaining_attacks - 1
