@@ -9,12 +9,7 @@ local function SafeTeleport(unit, location, maxDistance)
     DebugPrint("Found Lifestealer infesting")
     local ability = unit:FindAbilityByName("life_stealer_consume")
     if ability and ability:IsActivated() then
-      ExecuteOrderFromTable({
-        UnitIndex = unit:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
+      unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
     else
       print("Error: Could not find Consume ability on an Infesting unit")
       D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND CONSUME ABILITY", {
@@ -30,12 +25,7 @@ local function SafeTeleport(unit, location, maxDistance)
     DebugPrint("Found Lifestealer with assimilated unit")
     local ability = unit:FindAbilityByName("life_stealer_assimilate_eject")
     if ability and ability:IsActivated() then
-      ExecuteOrderFromTable({
-        UnitIndex = unit:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
+      unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
     else
       print("Error: Could not find Eject ability on an Assimilating unit")
       D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND EJECT ABILITY", {
