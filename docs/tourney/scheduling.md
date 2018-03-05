@@ -18,7 +18,7 @@ A single deadline by which all players have to join the Discord.
 The tournament will take place at a regularly scheduled time over one or more days.
 
 
-Links:
+## Links:
 
 1. Official Schedule - a link to a Google doc
 2. Countdown Timers - a link to a Countdown generator
