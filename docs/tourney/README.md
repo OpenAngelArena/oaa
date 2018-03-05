@@ -11,19 +11,15 @@ Let's organize a tournament!
 ## Topics
 
 1. [Tournament Job Descriptions][1]
-2. [Fundraising]
-3. [Discord Setup]
-4. [Recruitment]
-5. [Rules]
-6. [Schedule]
-7. [Bracket/Seeding]
+2. [Discord Setup]
+3. [Scheduling]
+4. [Rules]
+5. [Glossary]
 
 
 [0]: ../README.md
 [1]: job_descriptions.md
-[2]: fundraising.md
-[3]: discord_setup.md
-[4]: recruitment.md
-[5]: rules.md
-[6]: schedule.md
-[7]: bracket.md
+[2]: discord_setup.md
+[3]: scheduling.md
+[4]: rules.md
+[5]: glossary.md

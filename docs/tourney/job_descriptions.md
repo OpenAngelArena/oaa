@@ -8,7 +8,7 @@ Updated 2018-3-05
 
 ### Requirements 
 
-Needs to have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament.
+OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
 
 ### Duties
 
@@ -20,17 +20,28 @@ Needs to have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tou
 
 - Coordinate & enforce schedules with Admins/Mods
 
+- Fill-in as Admin/Mod when necessary
+
+- Creating policy and procedure documents in cooperation with tournament staff and OAA devs.
+
+- Working with the Players and Staff to create a Bracket/Seeding Order for the tournament.
 
 #### Planning Duties
 
+- Seeing that the only people on the discord are those who are supposed to be, and that they are organized.
+
+- Ensuring team setup deadlines are kept.
+
+- Training Admins and Mods on procedures for enacting and enforcing policies related to planning.
+
+- Communicating with Execution Coordinator to ensure readiness prior to the start of the tournament.
 
 
-
-## Execution Coordinator - 
+## Execution Coordinator
 
 ### Requirements
 
-Needs to have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament.
+OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
 
 ### Duties
 
@@ -38,10 +49,23 @@ Needs to have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tou
 
 - Co-Manager along with Planning Coordinator
 
+- Enforce Policy when necessary
+
+- Coordinate & enforce schedules with Admins/Mods
+
+- Fill-in as Admin/Mod when necessary
+
+- Creating policy and procedure documents in cooperation with tournament staff and OAA devs.
+
+- Working with the Players and Staff to create a Bracket/Seeding Order for the tournament.
 
 #### Execution Duties
 
+- Communicating with Planning Coordinator to ensure readiness prior to the start of the tournament.
 
+- Ensuring tournament day deadlines are kept.
+
+- Training Admins and Mods on procedures for enacting and enforcing policies related to tournament day execution.
 
 
 
@@ -49,24 +73,24 @@ Needs to have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tou
 
 ### Requirements
 
-Needs to be an OAA dev or have previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament.
+OAA dev or previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
 
 ### Duties
 
-- Creating channels, roles, 
+- Creating and modifying channels, roles, permissions
+
+- Inviting, kicking, and banning
 
 
 ## Moderator
 
+### Requirements
 
+OAA dev or previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
 
-# Players
+### Duties
 
-Official Teams
-
-Pickup Teams
-
-Pickup Players
-
+- Communicating with players and tournament staff.
 
 [0]: README.md
+
