@@ -13,7 +13,7 @@ Let's organize a tournament!
 1. [Tournament Job Descriptions][1]
 2. [Discord Setup]
 3. [Scheduling]
-4. [Rules]
+4. [Rules][4]
 5. [Glossary][5]
 
 
