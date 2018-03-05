@@ -73,7 +73,7 @@ OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourn
 
 
 
-## Administrator
+## Administrators
 
 ### Requirements
 
@@ -89,7 +89,7 @@ OAA dev or previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourna
 
 
 
-## Moderator
+## Moderators
 
 ### Requirements
 
