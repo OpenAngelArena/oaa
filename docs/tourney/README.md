@@ -14,7 +14,7 @@ Let's organize a tournament!
 2. [Discord Setup]
 3. [Scheduling]
 4. [Rules]
-5. [Glossary]
+5. [Glossary][5]
 
 
 [0]: ../README.md

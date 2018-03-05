@@ -16,6 +16,8 @@ OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourn
 
 - Co-Manager along with Execution Coordinator
 
+- Deciding on Discord organization prior to the start of recruitment.
+
 - Enforce Policy when necessary
 
 - Coordinate & enforce schedules with Admins/Mods
@@ -48,6 +50,8 @@ OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourn
 #### General Duties
 
 - Co-Manager along with Planning Coordinator
+
+- Deciding on Discord organization prior to the start of recruitment.
 
 - Enforce Policy when necessary
 
