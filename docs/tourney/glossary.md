@@ -6,9 +6,7 @@ Updated 2018-3-05
 [< Table of Contents][0]
 
 
-Bracket - 
-
-Execution Period - 
+Bracket - A tree diagram for the rounds of a tournament with teams paired using the Seeding Order.
 
 Official Teams - There should be a number of official teams equal to a power of 2: 4, 8, 16, 32, 64, or 128 by the deadline. 
 
@@ -16,11 +14,9 @@ Pickup Teams - Any teams who join after the total number of official teams has b
 
 Planning Period - 
 
-Roster Lock - 
+Seeding Order - A sorted list of teams used to generate a Bracket.
 
-Seeding Order - 
-
-Team - Consist of atleast 5 players and 2 backups.
+Team - Will consist of 5-7 players.
 
 
 [0]: README.md

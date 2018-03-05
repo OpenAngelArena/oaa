@@ -8,13 +8,13 @@ Updated 2018-3-05
 
 ### Requirements 
 
-OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
+OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament.
 
 ### Duties
 
 #### General Duties
 
-- Co-Manager along with Execution Coordinator
+- Co-Manager/Supervisor along with Execution Coordinator
 
 - Deciding on Discord organization prior to the start of recruitment.
 
@@ -43,13 +43,13 @@ OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourn
 
 ### Requirements
 
-OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament. Multi-lingual experience is a plus.
+OAA dev and previous experience as Coordinator/Admin/Mod for a DOTA or OAA tournament.
 
 ### Duties
 
 #### General Duties
 
-- Co-Manager along with Planning Coordinator
+- Co-Manager/Supervisor along with Planning Coordinator
 
 - Deciding on Discord organization prior to the start of recruitment.
 
@@ -85,6 +85,9 @@ OAA dev or previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourna
 
 - Inviting, kicking, and banning
 
+- Investigating complaints and reporting results to a Coordinator.
+
+
 
 ## Moderator
 
@@ -95,6 +98,10 @@ OAA dev or previous experience as Coordinator/Admin/Mod for a DOTA or OAA tourna
 ### Duties
 
 - Communicating with players and tournament staff.
+
+- Assigning roles
+
+- Investigating complaints and reporting results to a Coordinator.
 
 [0]: README.md
 

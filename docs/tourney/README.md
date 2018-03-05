@@ -11,8 +11,8 @@ Let's organize a tournament!
 ## Topics
 
 1. [Tournament Job Descriptions][1]
-2. [Discord Setup]
-3. [Scheduling]
+2. [Discord Setup][2]
+3. [Scheduling][3]
 4. [Rules][4]
 5. [Glossary][5]
 
