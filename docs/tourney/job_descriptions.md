@@ -69,4 +69,4 @@ Pickup Teams
 Pickup Players
 
 
-[0]: ../README.md
+[0]: README.md
