@@ -50,7 +50,69 @@
 	m_pAttachmentLists = [  ]
 	m_pAnimGroup = 
 	{
-		m_pObject = null
+		m_pObject = 
+		{
+			m_Name = ""
+			m_pReferenceSkeleton = 
+			{
+				m_pObject = null
+			}
+			m_pBoneFlagList = 
+			{
+				m_pObject = null
+			}
+			m_pSeqGroup = 
+			{
+				m_pObject = null
+			}
+			m_pAnimGroups = [  ]
+			m_Vanim = 
+			[
+				{
+					m_Animationname = "bottle_statue"
+					m_Filepath = "models/props/bottle_statue.fbx"
+					m_nStartframe = 0
+					m_nEndframe = 500
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = [  ]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+			]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
+			m_sCompileScripts = [  ]
+		}
 	}
 	m_pMaterialGroupList = 
 	{
@@ -85,11 +147,11 @@
 		[
 			{
 				m_sSearchMaterial = "bottle_blue.vmat"
-				m_sReplaceMaterial = "models/props/bottle2_statue.vmat"
+				m_sReplaceMaterial = "materials/models/props/bottle2_statue.vmat"
 			},
 			{
 				m_sSearchMaterial = "base.vmat"
-				m_sReplaceMaterial = "models/props/bottle2_base.vmat"
+				m_sReplaceMaterial = "materials/models/props/bottle2_base.vmat"
 			},
 		]
 	}
