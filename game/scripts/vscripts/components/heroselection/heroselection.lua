@@ -34,6 +34,7 @@ function HeroSelection:Init ()
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "oaa_captains_mode"
   self.isARDM = GetMapName() == "ardm"
+  self.is10v10 = GetMapName() == "oaa_10v10"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -46,15 +47,29 @@ function HeroSelection:Init ()
   if self.isARDM then
     herolistFile = 'scripts/npc/herolist_ardm.txt'
   end
+  if self.is10v10 then
+    herolistFile = 'scripts/npc/herolist_10v10.txt'
+  end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   for key,value in pairs(LoadKeyValues(herolistFile)) do
+    DebugPrint("Heroes: ".. key)
+    if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
+      DebugPrint(key .. " is not in vanilla file!")
+      local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
+      if data and data[key] then
+        allheroes[key] = data[key]
+        DebugPrintTable(allheroes[key])
+      end
+    end
     if value == 1 then
+      DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
     end
   end
+
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
 
   -- lock down the "pick" hero so that they can't do anything
@@ -385,6 +400,11 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
       self:GiveStartingHero(playerId, heroName)
     end)
   end
+
+  if hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
+    HeroCosmetics:Sohei (hero)
+  end
+
 end
 
 function HeroSelection:IsHeroDisabled (hero)

@@ -1044,4 +1044,3 @@ declare enum AbilityLearnResult_t {
   ABILITY_CANNOT_BE_UPGRADED_REQUIRES_LEVEL = 3,
   ABILITY_NOT_LEARNABLE = 4
 }
-

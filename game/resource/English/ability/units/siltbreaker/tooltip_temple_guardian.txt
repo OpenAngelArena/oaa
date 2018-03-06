@@ -3,24 +3,39 @@
 //=============================================================================
 
 "dota_tooltip_ability_temple_guardian_hammer_smash"                         "Hammer Smash"
-"dota_tooltip_ability_temple_guardian_hammer_smash_description"             "The Guardian smashes his hammer into the ground, dealing %damage% damage and stuns enemies for %stun_duration% seconds in a %impact_radius% units AOE."
-
+"dota_tooltip_ability_temple_guardian_hammer_smash_description"             "The Guardian smashes his hammer into the ground, dealing damage and stuns enemies in an area infront of the guardian."
+"dota_tooltip_ability_temple_guardian_hammer_smash_damage"                  "DAMAGE:"
+"dota_tooltip_ability_temple_guardian_hammer_smash_stun_duration"           "STUN DURATION:"
+"dota_tooltip_ability_temple_guardian_hammer_smash_impact_radius"           "RADIUS:"
 
 "dota_tooltip_ability_temple_guardian_rage_hammer_smash"                    "Enrage Hammer Smash"
-"dota_tooltip_ability_temple_guardian_rage_hammer_smash_description"        "The enraged Guardian smashes his hammer into the ground dealing %damage% damage and stunning enemies for %stun_duration% in a %impact_radius% units AOE."
+"dota_tooltip_ability_temple_guardian_rage_hammer_smash_description"        "The enraged Guardian smashes his hammer into the ground dealing damage and stunning enemies in an area infront of the guardian."
+"dota_tooltip_ability_temple_guardian_rage_hammer_smash_damage"             "DAMAGE:"
+"dota_tooltip_ability_temple_guardian_rage_hammer_smash_stun_duration"      "STUN DURATION:"
+"dota_tooltip_ability_temple_guardian_rage_hammer_smash_impact_radius"      "RADIUS:"
 
 
 "dota_tooltip_ability_temple_guardian_hammer_throw"                         "Hammer Throw"
-"dota_tooltip_ability_temple_guardian_hammer_throw_description"             "The Guardian throws his hammer dealing %hammer_damage% damage and stunning enemies for %stun_duration% seconds."
-
+"dota_tooltip_ability_temple_guardian_hammer_throw_description"             "The Guardian throws his hammer dealing damage and stunning enemies."
+"dota_tooltip_ability_temple_guardian_hammer_throw_hammer_damage"           "DAMAGE:"
+"dota_tooltip_ability_temple_guardian_hammer_throw_stun_duration"           "STUN DURATION:"
 
 "dota_tooltip_ability_temple_guardian_passive"                              "Guarding Steps"
-"dota_tooltip_ability_temple_guardian_passive_description"                  "Provides the Temple Guardian %movement_speed% movement speed and prevents the Guardian to get slowed."
-
+"dota_tooltip_ability_temple_guardian_passive_description"                  "Provides the Temple Guardian with movement speed and prevents the Guardian to get slowed."
+"dota_tooltip_ability_temple_guardian_passive_movement_speed"               "MOVEMENT SPEED:"
 
 "dota_tooltip_ability_temple_guardian_purification"                         "Purification"
-"dota_tooltip_ability_temple_guardian_purification_description"             "The Guardian conjures a holy beam that heals the target for %heal% health while damaging nearby enemies for %heal% damage in a %radius% radius AOE."
+"dota_tooltip_ability_temple_guardian_purification_description"             "The Guardian conjures a holy beam that heals the target while damaging nearby enemiesin an area around the target."
+"dota_tooltip_ability_temple_guardian_purification_heal"                    "HEAL/DAMAGE:"
+"dota_tooltip_ability_temple_guardian_purification_radius"                  "RADIUS:"
 
 "dota_tooltip_ability_temple_guardian_wrath"                                "Guardian Wrath"
-"dota_tooltip_ability_temple_guardian_wrath_description"                    "The Temple Guardian channel their wrath upon all units in a %effect_radius% units radius around them for %channel_duration% seconds. Casting %radius% aoe blasts in a %interval% second interval. Each blast deals %blast_damage% damage and comes out after a %delay% seconds delay."
+"dota_tooltip_ability_temple_guardian_wrath_description"                    "The Temple Guardian channel their wrath upon all units in an area around them, casting short interval blasts. Each blast deals damage and comes out after a short delay."
+"dota_tooltip_ability_temple_guardian_wrath_effect_radius"                  "EFFECT RADIUS:"
+"dota_tooltip_ability_temple_guardian_wrath_channel_duration"               "CHANNEL DURATION:"
+"dota_tooltip_ability_temple_guardian_wrath_radius"                         "EXPLOSION RADIUS:"
+"dota_tooltip_ability_temple_guardian_wrath_interval"                       "EXPLOSION INTERVAL:"
+"dota_tooltip_ability_temple_guardian_wrath_blast_damage"                   "EXPLOSION DAMAGE:"
+"dota_tooltip_ability_temple_guardian_wrath_delay"                          "EXPLOSION DELAY:"
 "dota_tooltip_ability_temple_guardian_wrath_note"                           "The Temple Guardian are invulnerable while channeling Guardian Wrath."
+

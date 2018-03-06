@@ -75,7 +75,7 @@ function findMissingTooltips (cb) {
           // console.log(translations.lang.Tokens.values[title]);
         }
         if (translations.indexOf(description) === -1) {
-          console.log(name, 'is missing a description', Array(39 - name.length).join(' '), '- Add the key: "' + description + '"');
+          console.warn(name, 'is missing a desc', Array(46 - name.length).join(' '), '- Add the key: "' + description + '"');
           result.push([name, description]);
         }
       });

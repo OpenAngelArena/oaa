@@ -119,6 +119,10 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       elseif rightLevel == 0 then
         parent['talentChoice' .. level] = 'left'
       end
+    elseif claim then
+      -- both abilities are upgraded
+      -- print(" both abilities are upgraded already")
+      return
     end
     -- make sure our talent selection has been made
     assert(
@@ -147,6 +151,17 @@ function modifier_item_aghanims_talents:SetTalents(tree)
         end
       end
     end
+
+    local player = PlayerResource:GetPlayer(parent:GetPlayerID());
+
+    if (parent['talentChoice' .. level] == 'left' or parent['talentChoice' .. level] == 'right') then
+      CustomGameEventManager:Send_ServerToPlayer(player, "oaa_scepter_upgrade",
+      {
+        IsRightSide = parent['talentChoice' .. level] == 'left',
+        IsUpgrade = claim,
+        Level = level
+      })
+    end
   end
 
   local abilityTable = {}
@@ -157,6 +172,7 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       abilityTable[#abilityTable + 1] = ability
     end
   end
+
 
   setTalentLevel("10", abilityTable[2], abilityTable[1], tree[10])
   setTalentLevel("15", abilityTable[4], abilityTable[3], tree[15])

@@ -111,6 +111,7 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   ParticleManager:ReleaseParticleIndex(self.teleportToEffect)
   -- End sounds
   hCaster:StopSound("Portal.Loop_Disappear")
+  hCaster:StopSound("Hero_Tinker.MechaBoots.Loop")
   self.targetEntity:StopSound("Portal.Loop_Appear")
 
   if wasInterupted then

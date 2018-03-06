@@ -60,7 +60,7 @@ request.get({
     encoding: 'ucs2'
   });
 
-  if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
+  if (process.argv[2] || !process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
     console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
     process.exit(0);
   } else {

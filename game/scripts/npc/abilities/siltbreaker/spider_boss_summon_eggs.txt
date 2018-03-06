@@ -38,7 +38,17 @@
       "02"
       {
         "var_type"                  "FIELD_INTEGER"
-        "egg_spider_lifetime"           "45"
+        "egg_spider_lifetime"       "45"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "num_egg_spawn"             "8"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "num_poison_spider_spawn"   "4"
       }
     }
   }

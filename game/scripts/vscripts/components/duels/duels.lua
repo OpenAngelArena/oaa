@@ -95,10 +95,11 @@ function Duels:Init ()
         -- player is not in a duel, they can just chill tf out
         return
       end
-      player.disconnected = false
       if player.killed or not player.disconnected then
         return
       end
+      player.disconnected = false
+      hero:RemoveModifierByName("modifier_out_of_duel")
 
       Duels:UnCountPlayerDeath(player)
     end
@@ -135,7 +136,7 @@ function Duels:Init ()
 
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     Duels:StartDuel({
-      players = 5,
+      players = 0,
       firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
     })
@@ -241,6 +242,11 @@ function Duels:StartDuel (options)
     DebugPrint ('There is already a duel running')
     return
   end
+  if self.startDuelTimer then
+    Timers:RemoveTimer(self.startDuelTimer)
+    self.startDuelTimer = nil
+  end
+
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
@@ -539,10 +545,16 @@ function Duels:EndDuel ()
   Music:PlayBackground(1, 7)
 
   local nextDuelIn = DUEL_INTERVAL
-  -- why dont these run?
-  Timers:CreateTimer(nextDuelIn, Dynamic_Wrap(Duels, 'StartDuel'))
-  Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
+
+  if self.startDuelTimer then
+    Timers:RemoveTimer(self.startDuelTimer)
+    self.startDuelTimer = nil
+  end
+
+  self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
     Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
+
+    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, Dynamic_Wrap(Duels, 'StartDuel'))
   end)
 
   for playerId = 0,19 do

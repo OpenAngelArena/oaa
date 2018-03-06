@@ -12,11 +12,13 @@ g_ItemPrecache = {
   "item_dagger_of_moriah",
   "item_dispel_orb_1",
   "item_reflection_shard_1",
+  "item_heart_transplant",
   "item_manta_1",
 }
 
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
+  "npc_dota_hero_sohei",
   "dota_fountain",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
@@ -65,6 +67,7 @@ g_ParticleFolderPrecache = {
   "particles/items/regen_crystal",
   "particles/items/vampire",
   "particles/items/reflection_shard",
+  "particles/items/heart_transplant",
 }
 
 g_SoundPrecache = {

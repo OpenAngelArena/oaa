@@ -9,6 +9,7 @@
     <include src="file://{resources}/scripts/custom_game/huderrors.js" />
     <include src="file://{resources}/scripts/custom_game/health_mana.js" />
     <include src="file://{resources}/scripts/custom_game/hero_bounty_override.js" />
+    <include src="file://{resources}/scripts/custom_game/scepter_talents_overlay.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
@@ -93,6 +94,7 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/timer.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
 
     <!-- From Overthrow.
 

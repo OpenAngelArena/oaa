@@ -19,9 +19,9 @@ function CaveHandler:Init ()
     local caveName = 'cave_' .. GetShortTeamName(teamID)
     local doorDistance = 0
     if teamID == DOTA_TEAM_GOODGUYS then
-      doorDistance = 260
+      doorDistance = 400
     elseif teamID == DOTA_TEAM_BADGUYS then
-      doorDistance = 330
+      doorDistance = 400
     end
 
     self.caves[teamID] = {
@@ -33,7 +33,7 @@ function CaveHandler:Init ()
       zones = {
         ZoneControl:CreateZone(caveName .. "_zone_0", {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+          players = {}
         })
       },
       radius = 1600
@@ -54,7 +54,7 @@ function CaveHandler:Init ()
         if Entities:FindByName(nil, caveName .. "_zone_" .. roomID .. '_' .. zoneID) then
           self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
             mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-            players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+            players = {}
           })
         end
       end
@@ -71,12 +71,19 @@ function CaveHandler:Init ()
     end
   end
 
-  self:InitCave(DOTA_TEAM_GOODGUYS)
-  self:InitCave(DOTA_TEAM_BADGUYS)
+  if not SKIP_TEAM_SETUP then
+    Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'Start'), self)
+  else
+    Timers:CreateTimer(Dynamic_Wrap(self, 'Start'), self)
+  end
 
   CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = {} })
 end
 
+function CaveHandler:Start ()
+  self:InitCave(DOTA_TEAM_GOODGUYS)
+  self:InitCave(DOTA_TEAM_BADGUYS)
+end
 
 function CaveHandler:InitCave (teamID)
   self:ResetCave(teamID)
@@ -489,7 +496,7 @@ function CaveHandler:KickPlayers (teamID)
     teamID, -- team
     Vector(0,0,0), -- location
     nil, -- cache
-    10000, -- radius
+    20000, -- radius
     DOTA_UNIT_TARGET_TEAM_BOTH, -- team filter
     DOTA_UNIT_TARGET_ALL, -- type filter
     DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
