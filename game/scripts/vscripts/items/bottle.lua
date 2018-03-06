@@ -123,7 +123,7 @@ local special_bottles = {
   [268013660] = 3, --steam: http://steamcommunity.com/profiles/76561198228279388 - twitch: Johnathan963
   [293127420] = 3, --steam: http://steamcommunity.com/profiles/76561198253393148 - twitch: -no name given, current steam name crazyrock
   [156899250] = 3, --steam: http://steamcommunity.com/profiles/76561198117164978 - twitch: -no name given, current steam name bonde
-
+  [226594311] = 3, --steam: http://steamcommunity.com/profiles/76561198186860039 - twitch: Oaksworth
 
 
   -- twitch donators 20
