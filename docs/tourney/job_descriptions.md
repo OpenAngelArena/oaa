@@ -4,6 +4,14 @@ Updated 2018-3-05
 
 [< Table of Contents][0]
 
+## Introduction
+
+It is common practice in event planning to split the directorial duties between two head coordinators. This two person team are equally responsible for every aspect of the tournament, they simply split their duties between two equally important, equally difficult parts. The Planning Coordinator would be in charge of planning and setting up everything prior to event day. They are responsible for ensuring that teams get invited and sorted and any related issues as the event day approaches. Then the Execution Coordinator takes over. The Execution Coordinator prepares and oversees the actual event. Splitting up the workload in this way keeps one person from getting overloaded and also makes sure that if one Coordinator is unavailable then the other takes over for him/her temporarily. Both Coordinators are directly responsible for training, communication, and documentation.
+
+Several Administrators and Moderators will work to achieve the goals under the direction of the Coordinators. Their job involves primarily dealing with individual player issues and ensuring player deadlines are met.
+
+
+
 ## Planning Coordinator
 
 ### Requirements 
