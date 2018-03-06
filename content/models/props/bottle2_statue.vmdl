@@ -109,11 +109,11 @@
 					m_Animationname = "bottle_statue"
 					m_Filepath = "models/props/bottle_statue.fbx"
 					m_nStartframe = 0
-					m_nEndframe = 500
-					m_flFps = 24.0
+					m_nEndframe = 1000
+					m_flFps = 30.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
