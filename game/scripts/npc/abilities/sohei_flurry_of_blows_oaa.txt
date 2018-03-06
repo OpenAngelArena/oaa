@@ -51,7 +51,7 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"flurry_radius"				"400"
-        "LinkedSpecialBonus"      "special_bonus_sohei_fob_radius_300"
+        "LinkedSpecialBonus"      "special_bonus_sohei_fob_radius"
 			}
 			"02"
 			{
@@ -67,6 +67,12 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"attack_interval"			"0.6"
+			}
+      // the bonus must be set on sohei_talents_oaa.txt to update its tooltips
+      "05"
+			{
+				"var_type"					      "FIELD_FLOAT"
+				"talent_bonus_radius"			"200"
 			}
     }
   }
