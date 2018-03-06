@@ -13,15 +13,17 @@ if Gold == nil then
 end
 
 local GOLD_CAP = 50000
+local GPM_TICK_INTERVAL = 5
 
 function Gold:Init()
   -- a table for every player
-  PlayerTables:CreateTable("gold", {
+  PlayerTables:CreateTable('gold', {
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
 
     -- start think timer
-  Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
+  Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
+  Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)
@@ -143,4 +145,17 @@ function Gold:GetGold(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   --return math.floor(PLAYER_GOLD[playerID].SavedGold or 0)
   return math.floor(currentGold or 0)
+end
+
+-- exponential gpm increase
+function Gold:PassiveGPM()
+  local time = HudTimer:GetGameTime()
+  if time and time > 0 then
+    local goldTick =  math.floor(time/GPM_TICK_INTERVAL);
+    GameRules:SetGoldPerTick((goldTick*goldTick - 31*goldTick + 8624)*15/19200)
+  else
+    GameRules:SetGoldPerTick(0)
+  end
+
+  return GPM_TICK_INTERVAL
 end
