@@ -43,6 +43,10 @@ function CreepCamps:SetPowerLevel (powerLevel)
   CreepPowerLevel = powerLevel
 end
 
+function CreepCamps:GetPowerLevel()
+  return CreepPowerLevel
+end
+
 function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')

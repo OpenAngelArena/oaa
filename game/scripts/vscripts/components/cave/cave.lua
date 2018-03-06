@@ -143,7 +143,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   local randPosition = room:GetAbsOrigin() + RandomVector(RandomFloat(10, 300))
 
   --EXP BOUNTY
-  local minutes = math.floor(GameRules:GetGameTime() / 60)
+  local minutes = math.floor(HudTimer:GetGameTime() / 60)
   if minutes > 60 then
     properties.exp = properties.exp * 1.5^(minutes - 60)
   end
@@ -567,5 +567,19 @@ function CaveHandler:TeleportAll(units, spawns)
         end)
       end)
     end
+  end
+end
+
+function CaveHandler:GetCaveClears()
+  local caveClears = {}
+  for teamID = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+    caveClears[teamID] = self.caves[teamID].timescleared
+  end
+  return caveClears
+end
+
+function CaveHandler:SetCaveClears(caveClears)
+  for teamID = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+    self.caves[teamID] = caveClears[teamID]
   end
 end
