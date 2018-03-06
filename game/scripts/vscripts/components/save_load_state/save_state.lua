@@ -18,8 +18,10 @@ function GameStateSave:EnableSaveState()
     end
 
     GameStateSave:SaveState()
-    HudTimer:SetGameTime(60)
+    HudTimer:SetGameTime(6000)
+    CreepCamps:SetPowerLevel(100)
   end
+
 end
 
 function GameStateSave:InitKillList()
@@ -64,6 +66,7 @@ function GameStateSave:SaveState()
   local newState = {}
   self:SaveCreeps(newState)
   self:SaveHerosPicks(newState)
+  self:SaveBossPitLvls(newState)
   DevPrintTable(newState)
 end
 
@@ -77,7 +80,7 @@ function GameStateSave:SaveHerosPicks(newState)
       heroTable.SteamId = steamid
       local hHero = player:GetAssignedHero()
       self:SaveHero(heroTable, hHero)
-      table.insert(newState.Heroes, heroTable)
+      newState.Heroes[heroTable.HeroName] = heroTable
     end
   end
 end
@@ -107,7 +110,7 @@ function GameStateSave:SaveHeroAbilities(heroTable, hHero)
       ability.Index = index
       ability.Name = hAbility:GetAbilityName( )
       ability.Lvl = hAbility:GetLevel( )
-      table.insert(heroTable.abilities, ability)
+      heroTable.abilities[index] = ability
     end
   end
 end
@@ -136,4 +139,13 @@ end
 
 function GameStateSave:SaveBossPitLvls(newState)
   print('SaveBossPitLvls============')
+  newState.BossPits = {}
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    -- 1 index because lua is that person from the internet who doesn't look like their pictures
+    local boss = bossPit:GetAbsOrigin()
+    local vectorStr = "[ " .. boss.x .. " , " .. boss.y .. " , " .. boss.z .. " ]"
+    newState.BossPits[vectorStr] = bossPit.killCount
+  end
 end
