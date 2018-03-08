@@ -50,8 +50,6 @@ function CreepCamps:CreepSpawnTimer ()
     self:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
-  self:UpgradeCreeps()
-
   Minimap:Respawn()
 
   if self.firstSpawn then

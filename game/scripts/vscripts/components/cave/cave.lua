@@ -580,6 +580,6 @@ end
 
 function CaveHandler:SetCaveClears(caveClears)
   for teamID = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
-    self.caves[teamID] = caveClears[teamID]
+    self.caves[teamID].timescleared = caveClears[teamID]
   end
 end
