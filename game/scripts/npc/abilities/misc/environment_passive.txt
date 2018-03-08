@@ -45,4 +45,44 @@
       }
     }
   }
+
+  "environment_selectable"
+  {
+    "ID"                                                  "99450"
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "mirana_invis"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "OnUpgrade"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_environment_passive"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_environment_passive"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        "States"
+        {
+          "MODIFIER_STATE_NO_HEALTH_BAR"                "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_UNTARGETABLE"                 "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
 }

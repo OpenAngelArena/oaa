@@ -10,10 +10,9 @@
     "VisionNighttimeRange"        "0"
 
     "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"               "300"
+    "MovementSpeed"               "0"
     "ModelScale"                  "1"
-    "BoundsHullName"              "DOTA_HULL_SIZE_HUGE"
-    "RingRadius"                  "240"
-    "Ability1"                    "environment_passive"
+    "BoundsHullName"              "DOTA_HULL_SIZE_SMALL"
+    "Ability1"                    "bottle_selection"
   }
 }
