@@ -18,8 +18,6 @@ function GameStateSave:EnableSaveState()
     end
 
     GameStateSave:SaveState()
-    HudTimer:SetGameTime(6000)
-    CreepCamps:SetPowerLevel(100)
   end
 
 end
@@ -64,9 +62,10 @@ end
 
 function GameStateSave:SaveState()
   local newState = {}
-  self:SaveCreeps(newState)
+  self:SaveCave(newState)
   self:SaveHerosPicks(newState)
   self:SaveBossPitLvls(newState)
+  self:SaveScore(newState)
   DevPrintTable(newState)
 end
 
@@ -88,6 +87,7 @@ end
 function GameStateSave:SaveHero(heroTable, hHero)
   heroTable.HeroName = hHero:GetUnitName()
   heroTable.XP = hHero:GetCurrentXP()
+  heroTable.Gold = hHero:GetGold()
   self:SaveHeroKDA(heroTable, hHero)
   self:SaveHeroAbilities(heroTable, hHero)
   self:SaveHeroItems(heroTable, hHero)
@@ -101,7 +101,6 @@ function GameStateSave:SaveHeroKDA(heroTable, hHero)
 end
 
 function GameStateSave:SaveHeroAbilities(heroTable, hHero)
-  print('SaveHeroAbilities============')
   heroTable.abilities = {}
   for index = 0, hHero:GetAbilityCount()-1, 1 do
     local hAbility = hHero:GetAbilityByIndex( index )
@@ -125,27 +124,27 @@ function GameStateSave:SaveHeroItems(heroTable, hHero)
   end
 end
 
-
-function GameStateSave:SaveCreeps(newState)
-  print('SaveCreeps============')
-  newState.CreepPower = CreepCamps:GetPowerLevel()
+function GameStateSave:SaveCave(newState)
   newState.Caves = CaveHandler:GetCaveClears()
 end
 
 function GameStateSave:SaveGameTime(newState)
-  print('SaveGameTime============')
   newState.GameTime = HudTimer:GetGameTime()
 end
 
 function GameStateSave:SaveBossPitLvls(newState)
-  print('SaveBossPitLvls============')
   newState.BossPits = {}
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    -- 1 index because lua is that person from the internet who doesn't look like their pictures
     local boss = bossPit:GetAbsOrigin()
     local vectorStr = "[ " .. boss.x .. " , " .. boss.y .. " , " .. boss.z .. " ]"
     newState.BossPits[vectorStr] = bossPit.killCount
   end
+end
+
+function GameStateSave:SaveScore(newState)
+  newState.Score = {}
+  newState.Score[DOTA_TEAM_GOODGUYS]= PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  newState.Score[DOTA_TEAM_BADGUYS]= PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 end
