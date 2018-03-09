@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 200 250 500 750"
+        "health_drain"                                    "150 225 300 500 750"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
@@ -59,21 +59,15 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_drain_scepter"                            "180 240 300 600 900"
-        "CalculateSpellDamageTooltip"                     "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "0.0 0.0 0.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0 0.0 0.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "0.25 0.25 0.25"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "drain_buffer"                                    "200"

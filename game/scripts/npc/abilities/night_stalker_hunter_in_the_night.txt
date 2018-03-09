@@ -13,7 +13,7 @@
 
     "AbilityCooldown"                                     "30 26 22 18 18 18"
     "AbilityManaCost"                                     "80"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -26,7 +26,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed_night"                        "45 60 75 90 115 150"
+        "bonus_attack_speed_night"                        "30 50 70 90 115 150"
         "LinkedSpecialBonus"    "special_bonus_unique_night_stalker_2"
       }
       "03"

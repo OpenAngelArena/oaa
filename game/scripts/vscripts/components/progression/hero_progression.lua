@@ -1,6 +1,6 @@
 if HeroProgression == nil then
     HeroProgression = class({})
-    Debug.EnabledModules['progression:*'] = true
+    Debug.EnabledModules['progression:*'] = false
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
@@ -38,6 +38,7 @@ function HeroProgression:Init()
     "Agility",
     "Intellect"
   }
+  self.statStorage = {} -- Cache for calculated reduced stats
   self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   GameEvents:OnPlayerReconnect(function(keys)
     local playerID = keys.PlayerID
@@ -69,12 +70,12 @@ end
 
 function HeroProgression:ReduceStatGain(hero, level)
   if level > 25 then
-    local div = (level - 25 + 12) / 12
+    local reductionFactor = 12 / (level - 25 + 12)
 
     local statGains = map(partial(self.GetStatGain, hero), self.statNames)
 
-    local newStats = map(operator.div, zip(statGains, duplicate(div)))
-    local statModifications = map(operator.sub, zip(newStats, statGains))
+    local reducedStatGains = map(operator.mul, zip(statGains, duplicate(reductionFactor)))
+    local statModifications = map(operator.sub, zip(reducedStatGains, statGains))
 
     foreach(partial(self.ModifyStat, hero), zip(self.statNames, statModifications))
   end
@@ -87,7 +88,13 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
   end
 
   local function CalculateReducedStat(unitLevel, statAt25, statGain)
-    return statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1)) + statAt25
+    self.statStorage[statGain] = self.statStorage[statGain] or {}
+    local post25Stat = self.statStorage[statGain][unitLevel]
+    if not post25Stat then
+      post25Stat = statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1))
+      self.statStorage[statGain][unitLevel] = post25Stat
+    end
+    return statAt25 + post25Stat
   end
 
   local GetBaseStat = partial(self.GetBaseStat, illusionEnt)

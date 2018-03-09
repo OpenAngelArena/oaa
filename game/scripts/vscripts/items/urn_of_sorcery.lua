@@ -67,10 +67,12 @@ function modifier_item_urn_of_sorcery:IsPurgable()
   return false
 end
 
+function modifier_item_urn_of_sorcery:RemoveOnDeath()
+  return false
+end
+
 function modifier_item_urn_of_sorcery:GetAttributes()
-  return {
-    MODIFIER_ATTRIBUTE_MULTIPLE
-  }
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_urn_of_sorcery:OnCreated()

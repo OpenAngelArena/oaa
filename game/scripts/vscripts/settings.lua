@@ -1,25 +1,53 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
-
 -----------------------------------------------------------------------------------
 -- OAA specific settings
+
+-- Respawn time settings
+RESPAWN_NEUTRAL_DEATH_PENALTY = 5 -- Extra respawn time for dying to neutrals
+RESPAWN_TIME_TABLE = {} -- Lookup table mapping level to respawn time. Can be used to override respawn time for specific levels
+-- Set function to calculate respawn time based on level
+setmetatable(RESPAWN_TIME_TABLE, {
+  __index = function (table, key)
+    local minLevel = 1
+    local maxLevel = 49
+    local minTime = 5
+    local maxTime = 20
+    local clampedLevel = math.min(maxLevel, key)
+    -- Store result instead of recalculating for lookups for the same level
+    -- Linear interpolation between min and max level/time pairs
+    table[key] = math.floor(minTime + (clampedLevel - minLevel) * (maxTime - minTime) / (maxLevel - minLevel))
+    return table[key]
+  end
+})
+
+-- kill limits
+NORMAL_KILL_LIMIT = 100
+TEN_V_TEN_KILL_LIMIT = 150
 
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
 POOP_WARD_RADIUS = 200
 
+-- scan reveal
+SCAN_REVEAL_COOLDOWN = 60
+SCAN_REVEAL_RADIUS = 900
+SCAN_REVEAL_DURATION = 14
+SCAN_DURATION = 14
+
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
-CAPTAINS_MODE_HERO_PICK_TIME = 20         -- time to choose which hero you're going to play
+CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
+CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
 
 -- Game timings
 PREGAME_TIME = 10
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 1                  -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -31,6 +59,7 @@ DUEL_INTERVAL = 300                     -- time from duel ending until dnext due
 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
+BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
 
@@ -38,9 +67,26 @@ BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage befo
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
 INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
+CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 
 -- Player
-GAME_ABANDON_TIME = 150                 -- Time until game ends if a team has left
+GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
+
+--Gold
+_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+
+--Cave
+_G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
+_G.CAVE_DIFFICULTY = 3                  -- Multiplies cave difficulty growth compared to normal creeps
+_G.CAVE_BOUNTY = 1                      -- Accelerates cave bounty increase compared to the rest of the game
+CAVE_RELEVANCE_FACTOR = 10              -- magic haga value, originally "k"
+CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
+
+-- Logging
+-- TODO: Make this a module loader so the following can be handled:
+    -- Multiple log instances for different logging levels
+    -- Simple configuration for several setups, such as Loggly and a custom implementation
+LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly token to toss errors to
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -128,9 +174,9 @@ LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the norma
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
 DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?
-FORCE_PICKED_HERO = nil -- "npc_dota_hero_wisp"  -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
+FORCE_PICKED_HERO = "npc_dota_hero_dummy_dummy" -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
 
-FIXED_RESPAWN_TIME = 5                 -- What time should we use for a fixed respawn timer?  Use -1 to keep the default dota behavior.
+FIXED_RESPAWN_TIME = -1                 -- What time should we use for a fixed respawn timer?  Use -1 to keep the default dota behavior.
 FOUNTAIN_CONSTANT_MANA_REGEN = -1       -- What should we use for the constant fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_MANA_REGEN = -1     -- What should we use for the percentage fountain mana regen?  Use -1 to keep the default dota behavior.
 FOUNTAIN_PERCENTAGE_HEALTH_REGEN = -1   -- What should we use for the percentage fountain health regen?  Use -1 to keep the default dota behavior.
@@ -177,11 +223,18 @@ TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }  --    Olive
 TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }  --    Purple
 
 
-USE_AUTOMATIC_PLAYERS_PER_TEAM = true   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
+USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
 
 CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting the number of players per team, use this table
-CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
-CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 5
+
+if GetMapName() == "oaa_10v10" then
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
+else
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 5
+end
+
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_1] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_2] = 1
 -- CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_CUSTOM_3] = 1

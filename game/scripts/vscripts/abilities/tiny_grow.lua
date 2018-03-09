@@ -7,6 +7,7 @@ Darklord is a god of the modding community; even though he doesn't contribute di
 his existence alone is an extreme asset to our team. Thanks homie.
 
 Refactored heavily by chrisinajar
+Updated to 7.07 by chrisinajar
 
 ]]
 if tiny_grow_oaa == nil then tiny_grow_oaa = class(AbilityBaseClass) end
@@ -103,7 +104,7 @@ end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATUS_RESISTANCE
@@ -112,9 +113,9 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
   return funcs
 end
 
-function modifier_tiny_grow_oaa:GetModifierMoveSpeedBonus_Constant (params)
+function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus (params)
   local hAbility = self:GetAbility ()
-  return hAbility:GetSpecialValueFor ("movement_speed")
+  return hAbility:GetSpecialValueFor ("bonus_armor")
 end
 
 function modifier_tiny_grow_oaa:GetModifierPreAttack_BonusDamage (params)

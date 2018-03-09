@@ -13,7 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,9 +22,8 @@
     "ItemResult"                                          "item_greater_tranquil_boots_3"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_tranquil_boots_2;item_upgrade_core_2"
-      "02"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_tranquil_boots_2;item_upgrade_core_4"
+      "01"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "02"                                                "item_greater_tranquil_boots_2;item_upgrade_core_4"
     }
   }
 
@@ -47,16 +46,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6050"
+    "ItemCost"                                            "12650"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 3;tranquil boots 3;tranquils 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_greater_tranquil_boots_3;item_greater_tranquil_boots_4;item_greater_tranquil_boots_5"
+    "UpgradesItems"                                       "item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
 
     "ItemDisplayCharges"      "1"
@@ -67,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "90 95 105 115 125"
+        "bonus_movement_speed"                            "95 105 115 125"
       }
       "02"
       {
@@ -77,7 +76,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 45 90 150 200"
+        "bonus_health_regen"                              "20 27 36 45"
       }
       "04"
       {
@@ -112,12 +111,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "65 70 75 80 85"
+        "broken_movement_speed"                           "70 75 80 85"
       }
       //"11"
       //{
-      //  "var_type"                                        "FIELD_INTEGER"
-      //  "regen_from_creeps"                               "30 45 70 120 300"    // New Functionality
+      //  "var_type"                                      "FIELD_INTEGER"
+      //  "regen_from_creeps"                             "45 70 120 300"    // New Functionality
       //}
       "12"
       {
@@ -137,7 +136,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "2000 4000 8000 12000 18000"
+        "bonus_gold"                                      "3500 6300 10500 17500"
       }
       "16"
       {
@@ -148,6 +147,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges"                                     "100"
+      }
+      "18"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
 

@@ -21,13 +21,22 @@ function modifier_item_trumps_fists_passive:IsPurgable()
   return false
 end
 
-function modifier_item_trumps_fists_passive:OnCreated()
+function modifier_item_trumps_fists_passive:OnCreated(kv)
   self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
   self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
   self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
   self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
-
   self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+
+  if IsServer() then
+    self:GetCaster():ChangeAttackProjectile()
+  end
+end
+
+function modifier_item_trumps_fists_passive:OnDestroy()
+  if IsServer() then
+    self:GetCaster():ChangeAttackProjectile()
+  end
 end
 
 function modifier_item_trumps_fists_passive:DeclareFunctions()
@@ -69,8 +78,10 @@ end
 
 function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
-    if kv.attacker == self:GetParent() and not kv.attacker:IsIllusion() then
-      kv.target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+    local attacker = kv.attacker
+    local target = kv.target
+    if attacker == self:GetParent() and kv.process_procs and not attacker:IsIllusion() and not target:IsMagicImmune() then
+      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
     end
   end
 end
@@ -82,6 +93,7 @@ modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
     self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
+    self.totalDuration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
     self.health_fraction = 0
   end
 end
@@ -101,7 +113,8 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     if kv.unit == self:GetParent() and kv.gain > 0 then
-      local desiredHP = kv.unit:GetHealth() + kv.gain * self.heal_prevent_percent / 100 + self.health_fraction
+      local healPercent = self.heal_prevent_percent / 100 * (self:GetRemainingTime() / self.totalDuration)
+      local desiredHP = kv.unit:GetHealth() + kv.gain * healPercent + self.health_fraction
       desiredHP = math.max(desiredHP, 1)
       -- Keep record of fractions of health since Dota doesn't (mainly to make passive health regen sort of work)
       self.health_fraction = desiredHP % 1

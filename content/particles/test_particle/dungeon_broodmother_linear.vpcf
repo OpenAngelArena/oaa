@@ -1,0 +1,180 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 16
+	m_nConstantSequenceNumber = 6
+	m_bShouldSort = false
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_flOffset = 150.000000
+			m_flMaxTraceLength = 512.000000
+			m_CollisionGroupName = "DEBRIS"
+			m_bIncludeWater = true
+		},
+		{
+			_class = "C_OP_RemapVelocityToVector"
+			m_nFieldOutput = 21
+			m_bNormalize = true
+		},
+		{
+			_class = "C_OP_SetChildControlPoints"
+			m_nFirstControlPoint = 3
+			m_bSetOrientation = true
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_bUseWorldLocation = true
+			m_vecRotation = 
+			[
+				-90.000000,
+				0.000000,
+				0.000000,
+			]
+			m_nCP = 0
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = 
+			[
+				60,
+				255,
+				0,
+				255,
+			]
+			m_ColorMax = 
+			[
+				198,
+				255,
+				0,
+				255,
+			]
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 48.000000
+			m_flRadiusMin = 48.000000
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 1.000000
+			m_fLifetimeMin = 1.000000
+		},
+		{
+			_class = "C_INIT_VelocityFromCP"
+			m_nControlPoint = 1
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/test_particle/dungeon_broodmother_linear_trail.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/test_particle/dungeon_broodmother_linear_ball.vpcf"
+			m_flDelay = 0.050000
+		},
+		{
+			m_ChildRef = resource:"particles/test_particle/dungeon_broodmother_linear_sphere.vpcf"
+		},
+	]
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_angOffset = 
+					[
+						null,
+						null,
+						null,
+					]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					]
+					m_angOffset = 
+					[
+						null,
+						null,
+						null,
+					]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						1.000000,
+						0.000000,
+						0.000000,
+					]
+					m_angOffset = 
+					[
+						null,
+						null,
+						null,
+					]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_angOffset = 
+					[
+						null,
+						null,
+						null,
+					]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

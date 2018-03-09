@@ -160,6 +160,25 @@ function modifier_item_heart_transplant_buff:DeclareFunctions()
   }
 end
 
+function modifier_item_heart_transplant_buff:OnCreated( table )
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  if IsServer() then
+    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+  end
+end
+
+function modifier_item_heart_transplant_buff:OnDestroy(  )
+  if IsServer() then
+    ParticleManager:DestroyParticle( self.nPreviewFX, true )
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
+  end
+end
+
 function modifier_item_heart_transplant_buff:GetModifierBonusStats_Strength()
   return self:GetAbility():GetSpecialValueFor("bonus_strength")
 end

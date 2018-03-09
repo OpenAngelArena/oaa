@@ -53,6 +53,8 @@ require('libraries/basenpc')
 require('libraries/basehero')
 -- extension functions to GameRules
 require('libraries/gamerules')
+-- Pseudo-random distribution C constant calculator
+require('libraries/cfinder')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -148,7 +150,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
-  InitModule(PointsManager)
+  InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
   InitModule(ZoneControl)
@@ -157,13 +159,14 @@ function GameMode:OnPreGame()
   InitModule(SellBlackList)
   InitModule(Glyph)
   InitModule(BubbleOrbFilter)
+  InitModule(BossProtectionFilter)
   InitModule(ReactiveFilter)
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
-  InitModule(Music)
+  InitModule(RespawnManager)
 
   CheckCheatMode()
 end
@@ -177,6 +180,8 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
+  InitModule(HudTimer)
+  InitModule(PointsManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
@@ -188,6 +193,9 @@ function GameMode:OnGameInProgress()
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
 
+  -- xpm stuff
+  LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
+  CreateModifierThinker( nil, nil, "modifier_xpm_thinker", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
 end
 
 function InitModule(myModule)
@@ -211,6 +219,7 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(FilterManager)
+  InitModule(Bottlepass)
   InitModule(GameLengthVotes)
   InitModule(Courier)
   InitModule(HeroSelection)

@@ -7,13 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_movement_speed_25" //OAA
-    "Ability11"   "special_bonus_cast_range_125"
-    "Ability12"   "special_bonus_armor_7"
-    "Ability13"   "special_bonus_unique_chen_3" //-10 Test of Faith Cooldown
-    "Ability14"   "special_bonus_hp_350" //OAA
-    "Ability15"   "special_bonus_unique_chen_4" //+1000 Creep Min Health
-    "Ability16"   "special_bonus_unique_chen_1" //+4 Holy Persuasion Max Coun
-    "Ability17"   "special_bonus_unique_chen_2" //+400 Hand of God Heal
+    "Ability10"   "special_bonus_movement_speed_25" // replaces special_bonus_exp_boost_35
+    "Ability14"   "special_bonus_hp_350" // replaces special_bonus_gold_income_30
   }
 }

@@ -19,7 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_diffusal_blade"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
@@ -59,7 +59,6 @@
 
     "ItemPermanent"                                       "1"
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -17,10 +17,10 @@
     "SelectionGroup"                                      "Eidolons"
     "UnitLabel"                                           "eidolons"
     "wearable"                                            "8638"
-    
+
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            ""      // Ability 1.
     "Ability2"                                            ""      // Ability 2.
     "Ability3"                                            ""      // Ability 3.
@@ -38,8 +38,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "55"    // Damage range min.
-    "AttackDamageMax"                                     "55"    // Damage range max.
+    "AttackDamageMin"                                     "94"    // Damage range min.
+    "AttackDamageMax"                                     "94"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.5"      // Speed of attack.
     "AttackAnimationPoint"                                "0.4"    // Normalized time in animation cycle to attack.
@@ -67,7 +67,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "350"    // Base health.
+    "StatusHealth"                                        "1240"    // Base health.
     "StatusHealthRegen"                                   "0.25"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -78,11 +78,11 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
     "VisionNighttimeRange"                                "800"    // Range of vision at night time.
   }
-  
+
 }

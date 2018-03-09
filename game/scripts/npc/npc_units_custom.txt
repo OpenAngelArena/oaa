@@ -6,6 +6,21 @@
 
 #base "units/stopfightingyourself/stopfightingyourself.txt"
 
+#base "units/siltbreaker/npc_dota_creature_ogre_tank_boss.txt"
+#base "units/siltbreaker/npc_dota_creature_ogre_seer.txt"
+
+#base "units/siltbreaker/npc_dota_creature_lycan_boss.txt"
+#base "units/siltbreaker/npc_dota_creature_dire_hound.txt"
+#base "units/siltbreaker/npc_dota_creature_dire_hound_boss.txt"
+#base "units/siltbreaker/npc_dota_creature_werewolf.txt"
+
+#base "units/siltbreaker/npc_dota_creature_spider_boss.txt"
+#base "units/siltbreaker/npc_dota_creature_spider_minions.txt"
+#base "units/siltbreaker/npc_dota_creature_spider_web_sack.txt"
+
+#base "units/siltbreaker/npc_dota_creature_temple_guardian.txt"
+#base "units/siltbreaker/npc_dota_creature_temple_guardian_spawner.txt"
+
 #base "units/boss/npc_dota_boss_tier_1.txt"
 #base "units/boss/npc_dota_boss_tier_2.txt"
 #base "units/boss/npc_dota_boss_tier_3.txt"
@@ -19,6 +34,8 @@
 #base "units/boss/npc_dota_boss_simple_5.txt"
 #base "units/boss/npc_dota_boss_simple_6.txt"
 #base "units/boss/npc_dota_boss_simple_7.txt"
+
+#base "units/misc/npc_dota_creature_pedestal.txt"
 
 #base "units/npc_dota_beastmaster_boar_5.txt"
 #base "units/npc_dota_beastmaster_boar_6.txt"
@@ -38,6 +55,7 @@
 #base "units/npc_dota_furion_giant_treant_2.txt"
 #base "units/npc_dota_giant_eidolon.txt"
 #base "units/npc_dota_healing_mine.txt"
+#base "units/npc_dota_hero_sohei.txt"
 #base "units/npc_dota_lone_druid_bear5.txt"
 #base "units/npc_dota_lone_druid_bear6.txt"
 #base "units/npc_dota_lycan_wolf5.txt"
@@ -84,6 +102,8 @@
 #base "units/npc_dota_mini_roshan.txt"
 
 #base "units/npc_dota_punching_bag.txt"
+
+#base "units/minimap/minimap.txt"
 
 "DOTAUnits"
 {

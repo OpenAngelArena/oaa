@@ -1,0 +1,18 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+
+{
+  Abilities.Fountain_Attack.Cast = {
+    type = "dota_src1_3d"
+    vsnd_files =
+    [
+      "sounds/abilities/fountain_attack.vsnd"
+    ]
+    volume = "8.000000"
+		pitch_rand_min = "0.000000"
+		pitch_rand_max = "0.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+    distance_max = "1600.000"
+    mixgroup = "Weapons"
+  }
+}

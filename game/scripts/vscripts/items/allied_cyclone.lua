@@ -15,6 +15,9 @@ function allied_cyclone_Purge(keys)
 	if keys.caster:GetTeam() == keys.target:GetTeam() then
 		keys.target:Purge(false,true,false,false,false)
   else
+    if keys.target:TriggerSpellAbsorb(keys.ability) then
+      return
+    end
     keys.target:Purge(true, false, false, false, false)
 	end
 end

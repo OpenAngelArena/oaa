@@ -1,8 +1,12 @@
 LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_scan_true_sight", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
+
 if Glyph == nil then
-  Debug.EnabledModules['filters:glyph'] = false
+  -- Debug:EnableDebugging()
   DebugPrint('Creating new Glyph Filter Object')
   Glyph = class({})
 end
@@ -13,6 +17,8 @@ function Glyph:Init()
 
 
   self.ward.cooldown = POOP_WARD_COOLDOWN
+  self.scan.cooldown = SCAN_REVEAL_COOLDOWN
+
   self.ward.cooldowns = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   self.scan.cooldowns = {
     [DOTA_TEAM_GOODGUYS] = 0,
@@ -30,6 +36,7 @@ function Glyph:Filter(keys)
   local issuerID = keys.issuer_player_id_const
   local target = EntIndexToHScript(keys.entindex_target)
 
+
   if order == DOTA_UNIT_ORDER_GLYPH then
     -- Handle Glyph aka Ward Button
     DebugPrintTable(keys)
@@ -38,7 +45,7 @@ function Glyph:Filter(keys)
   elseif order == DOTA_UNIT_ORDER_RADAR then
     -- Handle Scan
     DebugPrintTable(keys)
-    self:CastScan(issuerID)
+    self:CastScan(issuerID, keys)
     return false
   end
 
@@ -89,6 +96,63 @@ function Glyph:GetWardCooldown(playerID)
   end
 end
 
-function Glyph:CastScan(playerID)
-  return nil
+
+--[[
+{
+  ["entindex_ability"] = 0,
+  ["sequence_number_const"] = 34,
+  ["queue"] = 0,
+  ["units"] = {
+    ["0"] = 364,
+   } ,
+  ["entindex_target"] = 0,
+  ["position_z"] = 228.81585693359,
+  ["position_x"] = -3273.6315917969,
+  ["order_type"] = 31,
+  ["position_y"] = -197.20104980469,
+  ["issuer_player_id_const"] = 0,
+}
+]]--
+
+function Glyph:CastScan(playerID, keys)
+
+  if self:GetScanCooldown(playerID) > 0 then
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
+    return
+  end
+
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  local position = Vector(keys.position_x, keys.position_y, keys.position_z)
+
+  CreateModifierThinker( hero, nil, "modifier_scan_true_sight_thinker", {duration = SCAN_REVEAL_DURATION}, position, hero:GetTeamNumber(), false )
+  CreateModifierThinker( hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION}, position, hero:GetTeamNumber(), false )
+
+  self:ResetScanCooldown(playerID)
+
+end
+
+function Glyph:ResetScanCooldown(playerID)
+  self:SetScanCooldown(playerID, self:GetScanCooldown())
+end
+
+function Glyph:SetScanCooldown(playerID, time)
+  local player = PlayerResource:GetPlayer(playerID)
+  local team = player:GetTeam()
+  time = time or 0
+
+  self.scan.cooldowns[team] = time
+  CustomGameEventManager:Send_ServerToTeam( team, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() } )
+  Timers:CreateTimer(time, function ()
+    self.scan.cooldowns[team] = 0
+  end)
+end
+
+function Glyph:GetScanCooldown(playerID)
+  if playerID then
+    local player = PlayerResource:GetPlayer(playerID)
+    local team = player:GetTeam()
+    return self.scan.cooldowns[team]
+  else
+    return self.scan.cooldown
+  end
 end

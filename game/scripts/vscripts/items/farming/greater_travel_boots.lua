@@ -4,6 +4,7 @@ modifier_item_greater_travel_boots = class(ModifierBaseClass)
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
@@ -12,7 +13,8 @@ end
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
-    "modifier_creep_assist_gold"
+    "modifier_creep_assist_gold",
+    "modifier_creep_bounty"
   }
 end
 
@@ -109,6 +111,7 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   ParticleManager:ReleaseParticleIndex(self.teleportToEffect)
   -- End sounds
   hCaster:StopSound("Portal.Loop_Disappear")
+  hCaster:StopSound("Hero_Tinker.MechaBoots.Loop")
   self.targetEntity:StopSound("Portal.Loop_Appear")
 
   if wasInterupted then

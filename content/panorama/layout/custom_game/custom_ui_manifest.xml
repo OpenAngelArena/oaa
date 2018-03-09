@@ -8,11 +8,13 @@
     <include src="file://{resources}/scripts/custom_game/leveldots.js" />
     <include src="file://{resources}/scripts/custom_game/huderrors.js" />
     <include src="file://{resources}/scripts/custom_game/health_mana.js" />
+    <include src="file://{resources}/scripts/custom_game/hero_bounty_override.js" />
+    <include src="file://{resources}/scripts/custom_game/scepter_talents_overlay.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
 
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false );      //Time of day (clock).
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false );      //Time of day (clock).
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );     //Heroes and team score at the top of the HUD.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );      //Lefthand flyout scoreboard.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );     //Hero actions UI.
@@ -85,11 +87,14 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/statcollection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/music.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/custom_glyph_radar.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/stat_display.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
-    <!-- <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> -->
-
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/timer.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
 
     <!-- From Overthrow.
 

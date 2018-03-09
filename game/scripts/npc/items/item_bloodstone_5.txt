@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38800"
+    "ItemCost"                                            "37900"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs 5;bloodstone 5"
@@ -72,7 +72,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 21 35 49 63"
+        "bonus_health_regen"                              "7 11 15 19 23"
       }
       "04"
       {

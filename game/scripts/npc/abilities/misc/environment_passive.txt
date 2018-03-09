@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+  "environment_passive"
+  {
+    "ID"                                                  "99450"
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "mirana_invis"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "OnUpgrade"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_environment_passive"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_environment_passive"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        "States"
+        {
+          "MODIFIER_STATE_NO_UNIT_COLLISION"            "MODIFIER_STATE_VALUE_DISABLED"
+          "MODIFIER_STATE_COMMAND_RESTRICTED"           "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_INVULNERABLE"                 "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_UNSELECTABLE"                 "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NO_HEALTH_BAR"                "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_OUT_OF_GAME"                  "MODIFIER_STATE_VALUE_DISABLED"
+          "MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"   "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NOT_ON_MINIMAP"               "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

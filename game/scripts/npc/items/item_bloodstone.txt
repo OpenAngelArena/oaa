@@ -6,16 +6,14 @@
   "item_recipe_bloodstone"                                "REMOVED"
   "item_recipe_bloodstone_1"
   {
-
     "ID"                                                  "3400"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
     "BaseClass"                                           "item_datadriven"
-    "ItemCost"                                            "900"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodstone_1"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_pers;item_soul_booster"
@@ -51,11 +49,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5800"
+    "ItemCost"                                            "4900"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs;bloodstone"
-    "ItemInitialCharges"                                  "12"
+    "ItemInitialCharges"                                  "14"
     "ItemDisplayCharges"                                  "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "AllowedInBackpack"                                   "0"
@@ -77,7 +75,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 21 35 49 63"
+        "bonus_health_regen"                              "7 11 15 19 23"
       }
       "04"
       {

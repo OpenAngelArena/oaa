@@ -1,10 +1,23 @@
 "AddonInfo"
 {
-	"TeamCount" 	"2"
-	"maps"	"oaa"
-	"IsPlayable"	"1"
-	"oaa"
-	{
-		"MaxPlayers"	"10"
-	}
+	"TeamCount" 	      "3"
+	"maps"	            "oaa ardm oaa_10v10 oaa_captains_mode"
+	"IsPlayable"	      "1"
+  "PenaltiesEnabled"  "0"
+  "oaa"
+  {
+    "MaxPlayers"      "10"
+  }
+  "ardm"
+  {
+    "MaxPlayers"      "10"
+  }
+  "oaa_captains_mode"
+  {
+    "MaxPlayers"      "10"
+  }
+  "oaa_10v10"
+  {
+    "MaxPlayers"      "20"
+  }
 }

@@ -7,10 +7,6 @@ if DuelRunes == nil then
   Debug.EnabledModules['duels:runes'] = true
 end
 
---[[
- TODO: Refactor this file into a few modules so that there's less of a wall of code here
-]]
-
 function DuelRunes:Init ()
   DuelRunes.zone1 = ZoneControl:CreateZone('duel_1_rune_hill', {
     mode = ZONE_CONTROL_EXCLUSIVE_OUT,
@@ -27,11 +23,30 @@ function DuelRunes:Init ()
     players = {
     }
   })
+  DuelRunes.zone3 = ZoneControl:CreateZone('duel_3_rune_hill', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 0,
+    padding = 0,
+    players = {
+    }
+  })
+
+  DuelRunes.zone4 = ZoneControl:CreateZone('duel_4_rune_hill', {
+    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+    margin = 0,
+    padding = 0,
+    players = {
+    }
+  })
 
   DuelRunes.zone1.onStartTouch(DuelRunes.StartTouch)
   DuelRunes.zone1.onEndTouch(DuelRunes.EndTouch)
   DuelRunes.zone2.onStartTouch(DuelRunes.StartTouch)
   DuelRunes.zone2.onEndTouch(DuelRunes.EndTouch)
+  DuelRunes.zone3.onStartTouch(DuelRunes.StartTouch)
+  DuelRunes.zone3.onEndTouch(DuelRunes.EndTouch)
+  DuelRunes.zone4.onStartTouch(DuelRunes.StartTouch)
+  DuelRunes.zone4.onEndTouch(DuelRunes.EndTouch)
 
   Duels.onEnd(function()
     Timers:RemoveTimer('DuelRunes')
@@ -47,7 +62,7 @@ function DuelRunes:Init ()
         if not Duels.currentDuel then
           return
         end
-        Notifications:TopToAll({text="Duel highground objective activated!", duration=10.0, style={color="red", ["font-size"]="86px"}})
+        Notifications:TopToAll({text="#duel_highground_active", duration=10.0, style={color="red", ["font-size"]="86px"}})
         DuelRunes.active = true
       end
     })
@@ -66,8 +81,10 @@ function DuelRunes:StartTouch(event)
 [   VScript  ]:     triggerHandler: function: 0x002d1300
 [   VScript  ]: outputid: 0
 ]]
-  event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  local modifier = event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  modifier.zone = event.caller
 end
+
 function DuelRunes:EndTouch(event)
   event.activator:RemoveModifierByName("modifier_duel_rune_hill")
 end

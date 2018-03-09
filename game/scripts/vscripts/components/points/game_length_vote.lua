@@ -37,6 +37,7 @@ function GameLengthVotes:SetGameLength ()
 
   local length
   local scoreLimit
+  --[[
   if votes.long > votes.normal then
     if votes.long > votes.short then
       length = 'long'
@@ -57,5 +58,13 @@ function GameLengthVotes:SetGameLength ()
     CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   end
   DebugPrint ( 'votes ' .. votes.short .. ', ' .. votes.normal .. ', ' .. votes.long .. ' result: ' .. length)
+  --]]
+
+  length = 'normal'
+  scoreLimit = NORMAL_KILL_LIMIT
+  if HeroSelection.is10v10 then
+    scoreLimit = TEN_V_TEN_KILL_LIMIT
+  end
+  CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = length } )
   GameRules.GameLength = length
 end

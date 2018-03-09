@@ -7,54 +7,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "107"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "ID"              "107"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-    "ItemShopTags"                                        ""
+    "ItemCost"            "0"
+    "ItemShopTags"          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ultimate_scepter"
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_ultimate_scepter"
     "ItemRequirements"
     {
-      "01"                                                "item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
+      "01"            "item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
     }
   }
-
   //=================================================================================================================
   // Scepter
   //=================================================================================================================
   "item_ultimate_scepter"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "108"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_ultimate_scepter"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "ID"                                                  "108"
     "AbilityTextureName"                                  "custom/ultimate_scepter"
-    "AbilityCastRange"                                    "600"
 
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4200"
-    "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
-    "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "ags;ultimate;aghanim's scepter;aghs"
-    //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDroppable"                                       "0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ultimate_scepter;item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"
+    "UpgradesItems"                                       "item_ultimate_scepter_2;item_ultimate_scepter_3;item_ultimate_scepter_4"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -73,6 +52,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "175 250 400 600 800"
+      }
+      "04" // OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "talent_level_tooltip"                            "0 10 15 20 25"
       }
     }
   }

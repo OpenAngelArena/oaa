@@ -14,7 +14,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -39,6 +39,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_slow_tooltip"                             "8 12 16 20 24 30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_3"
       }
       "05"
       {

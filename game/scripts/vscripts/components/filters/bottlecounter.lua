@@ -1,8 +1,9 @@
 
 LinkLuaModifier('modifier_bottle_counter', 'modifiers/modifier_bottle_counter.lua', LUA_MODIFIER_MOTION_NONE)
 
+
 if BottleCounter == nil then
-  Debug.EnabledModules['filters:bottlecounter'] = true
+  -- Debug:EnableDebugging()
   DebugPrint('Creating new BottleCounter object')
   BottleCounter = class({})
 end

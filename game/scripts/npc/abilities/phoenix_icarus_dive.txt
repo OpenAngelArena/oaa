@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5623"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -18,16 +18,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "36 36 36 36 33 30"
-    "AbilityDuration"                                     "2.0"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {

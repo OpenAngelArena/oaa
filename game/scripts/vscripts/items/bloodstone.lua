@@ -77,24 +77,24 @@ function modifier_item_bloodstone_oaa:Setup(created)
         ability.addedCharges = true
       else
         if not caster.surplusCharges then
-          caster.surplusCharges = 12
+          caster.surplusCharges = 14
         end
-        print('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
-        self.charges = 12
-        caster.surplusCharges = math.min(12, caster.surplusCharges)
+        DebugPrint('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
+        self.charges = 14
+        caster.surplusCharges = math.min(14, caster.surplusCharges)
         needsSetCharges = true
       end
     end
 
     if created and ability.addedCharges then
       if self.charges > caster.surplusCharges then
-        print('It looks like charges got duplicated, truncating ' .. self.charges .. ' to ' .. caster.surplusCharges)
+        DebugPrint('It looks like charges got duplicated, truncating ' .. self.charges .. ' to ' .. caster.surplusCharges)
         self.charges = caster.surplusCharges
         needsSetCharges = true
       end
       caster.surplusCharges = caster.surplusCharges - self.charges
       if caster.surplusCharges > 0 then
-        print('I think theres a bloodstone in a stash somewhere ' .. caster.surplusCharges)
+        DebugPrint('I think theres a bloodstone in a stash somewhere ' .. caster.surplusCharges)
       end
     else -- has to run created before it can run without created
       ability.addedCharges = true
@@ -116,7 +116,7 @@ function modifier_item_bloodstone_oaa:OnDestroy()
     local ability = self:GetAbility()
     -- store our point values for later
     if ability:GetCurrentCharges() > self.charges then
-      print('gained ' .. (ability:GetCurrentCharges() - self.charges) .. ' charges')
+      DebugPrint('gained ' .. (ability:GetCurrentCharges() - self.charges) .. ' charges')
       self.charges = ability:GetCurrentCharges()
     end
     self:GetCaster().surplusCharges = (self:GetCaster().surplusCharges or 0) + self.charges
