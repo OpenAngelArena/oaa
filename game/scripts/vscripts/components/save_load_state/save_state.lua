@@ -239,27 +239,35 @@ function GameStateLoadSave:LoadBossPitLvls(state)
       DOTA_TEAM_NEUTRALS,
       pos,
       nil,
-      1600,
-      DOTA_UNIT_TARGET_TEAM_BOTH,
+      2000,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
       DOTA_UNIT_TARGET_ALL,
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-      0,
+      DOTA_UNIT_TARGET_FLAG_NONE ,
+      FIND_ANY_ORDER,
       false )
     for _,friendly in pairs ( bosses ) do
-      if friendly ~= nil and friendly:FindAbilityByName("boss_resistance") ~= nil then
+      if  friendly ~= nil and not friendly:IsNull() and friendly:FindAbilityByName("boss_resistance") ~= nil  then
+        print(friendly:GetUnitName())
         friendly.Suicide = true
+        if friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" then
+          for _,summon in pairs ( friendly.OgreSummonSeers ) do
+            summon:ForceKill(false)
+          end
+        end
         friendly:ForceKill( false )
       end
     end
 
-    -- Spawn at the pit
-    for _,pit in ipairs(Entities:FindAllByName('boss_pit')) do
-      local pitPos = pit:GetAbsOrigin()
-      if pitPos == pos  then
-        pit.killCount = 3
-        BossSpawner:SpawnBossAtPit(pit)
+    Timers:CreateTimer(1, function()
+      -- Spawn at the pit
+      for _,pit in ipairs(Entities:FindAllByName('boss_pit')) do
+        local pitPos = pit:GetAbsOrigin()
+        if pitPos == pos  then
+          pit.killCount = 3
+          BossSpawner:SpawnBossAtPit(pit)
+        end
       end
-    end
+    end)
 
   end
 end
