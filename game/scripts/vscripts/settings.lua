@@ -73,7 +73,7 @@ CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get s
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
 
 --Gold
-_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+_G.BOOT_GOLD_FACTOR = 1.0               -- Multiplier to account for the presence of bonus gold boots
 
 --Cave
 _G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
