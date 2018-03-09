@@ -72,7 +72,6 @@ function GameStateLoadSave:SaveState()
   self:SaveHerosPicks(newState)
   self:SaveBossPitLvls(newState)
   self:SaveScore(newState)
-  DevPrintTable(newState)
   return newState
 end
 
@@ -87,9 +86,9 @@ function GameStateLoadSave:LoadState()
     self:LoadScore(state)
     self:LoadGameTime(state)
 
-    print("@@@@@@@@@@@@@@@")
-    print(json.encode(state))
-    DevPrintTable( json.decode(json.encode(state)))
+    -- print("@@@@@@@@@@@@@@@")
+    -- print(json.encode(state))
+    -- DevPrintTable( json.decode(json.encode(state)))
   end
 end
 
@@ -137,7 +136,6 @@ function GameStateLoadSave:SaveHero(heroTable, hHero)
   heroTable.XP = hHero:GetCurrentXP()
   heroTable.Gold = hHero:GetGold()
   heroTable.AbilityPoits = hHero:GetAbilityPoints()
-  self:SaveHeroKDA(heroTable, hHero)
   self:SaveHeroAbilities(heroTable, hHero)
   self:SaveHeroItems(heroTable, hHero)
 end
@@ -145,37 +143,18 @@ end
 function GameStateLoadSave:LoadHero(state, heroTable, hHero)
   self:LoadHeroXP(heroTable, hHero)
 
+  -- loading the abilities in the same frame is causing
+  -- the modifiers to fail when applied
   Timers:CreateTimer(0.2, function()
     self:LoadHeroAbilities(heroTable, hHero)
   end)
 
   hHero:SetGold(heroTable.Gold, true)
   self:LoadHeroItems(heroTable, hHero)
-  --self:LoadHeroKDA(state, heroTable, hHero)
-  -- self:SaveHeroItems(heroTable, hHero)
 end
 
 function GameStateLoadSave:LoadHeroXP(heroTable, hHero)
-
   hHero:AddExperience( heroTable.XP, DOTA_ModifyXP_Unspecified, false, false )
-end
-
-function GameStateLoadSave:SaveHeroKDA(heroTable, hHero)
-  heroTable.KDA = {}
-  heroTable.KDA.Kills = self.KillList[heroTable.SteamId]
-  heroTable.KDA.Deaths = hHero:GetDeaths()
-  heroTable.KDA.Assists = hHero:GetAssists()
-end
-
-function GameStateLoadSave:LoadHeroKDA(state, heroTable, hHero)
-  -- for _,victimSteamId in pairs(heroTable.KDA.Kills) do
-  --   local victimPlayerId = state.Heroes[victimSteamId].CurrentPlayerId
-  --   PlayerResource:IncrementKills( heroTable.CurrentPlayerId, victimPlayerId )
-  --   PlayerResource:IncrementDeaths( victimPlayerId, heroTable.CurrentPlayerId )
-  -- end
-  -- for lvl = 1, heroTable.KDA.Assists, 1 do
-  --   hHero:IncrementAssists( heroTable.CurrentPlayerId )
-  -- end
 end
 
 function GameStateLoadSave:SaveHeroAbilities(heroTable, hHero)
@@ -228,17 +207,16 @@ function GameStateLoadSave:SaveCave(newState)
   newState.Caves = CaveHandler:GetCaveClears()
 end
 
-function GameStateLoadSave:LoadCave(newState)
-  -- TODO: clear current creeps and respawn
-  CaveHandler:SetCaveClears(newState.Caves)
+function GameStateLoadSave:LoadCave(state)
+  CaveHandler:SetCaveClears(state.Caves)
 end
 
 function GameStateLoadSave:SaveGameTime(newState)
   newState.GameTime = HudTimer:GetGameTime()
 end
 
-function GameStateLoadSave:LoadGameTime(newState)
-  HudTimer:SetGameTime(newState.GameTime)
+function GameStateLoadSave:LoadGameTime(state)
+  HudTimer:SetGameTime(state.GameTime)
 end
 
 function GameStateLoadSave:SaveBossPitLvls(newState)
@@ -248,12 +226,42 @@ function GameStateLoadSave:SaveBossPitLvls(newState)
   for _,bossPit in ipairs(bossPits) do
     local boss = bossPit:GetAbsOrigin()
     local vectorStr = "[ " .. boss.x .. " , " .. boss.y .. " , " .. boss.z .. " ]"
-    newState.BossPits[vectorStr] = bossPit.killCount
+    table.insert(newState.BossPits, {X = boss.x, Y = boss.y, Z = boss.z, KillCount = bossPit.killCount})
   end
 end
 
-function GameStateLoadSave:LoadBossPitLvls(newState)
-  -- TODO: clear current Bosses and respawn
+function GameStateLoadSave:LoadBossPitLvls(state)
+
+  for _,bossPit in ipairs(state.BossPits) do
+    local pos = Vector(bossPit.X, bossPit.Y, bossPit.Z)
+    -- Clear the bosses at the pit location
+    local bosses = FindUnitsInRadius(
+      DOTA_TEAM_NEUTRALS,
+      pos,
+      nil,
+      1600,
+      DOTA_UNIT_TARGET_TEAM_BOTH,
+      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      0,
+      false )
+    for _,friendly in pairs ( bosses ) do
+      if friendly ~= nil and friendly:FindAbilityByName("boss_resistance") ~= nil then
+        friendly.Suicide = true
+        friendly:ForceKill( false )
+      end
+    end
+
+    -- Spawn at the pit
+    for _,pit in ipairs(Entities:FindAllByName('boss_pit')) do
+      local pitPos = pit:GetAbsOrigin()
+      if pitPos == pos  then
+        pit.killCount = 3
+        BossSpawner:SpawnBossAtPit(pit)
+      end
+    end
+
+  end
 end
 
 function GameStateLoadSave:SaveScore(newState)
@@ -262,7 +270,7 @@ function GameStateLoadSave:SaveScore(newState)
   newState.Score[DOTA_TEAM_BADGUYS]= PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 end
 
-function GameStateLoadSave:LoadScore(newState)
-  PointsManager:SetPoints(DOTA_TEAM_GOODGUYS, newState.Score[DOTA_TEAM_GOODGUYS])
-  PointsManager:SetPoints(DOTA_TEAM_BADGUYS, newState.Score[DOTA_TEAM_BADGUYS])
+function GameStateLoadSave:LoadScore(state)
+  PointsManager:SetPoints(DOTA_TEAM_GOODGUYS, state.Score[DOTA_TEAM_GOODGUYS])
+  PointsManager:SetPoints(DOTA_TEAM_BADGUYS, state.Score[DOTA_TEAM_BADGUYS])
 end

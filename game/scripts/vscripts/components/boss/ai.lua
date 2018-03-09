@@ -142,6 +142,10 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
 end
 
 function BossAI:DeathHandler (state, keys)
+  if EntIndexToHScript(keys.entindex_killed).Suicide then
+    return
+  end
+
   DebugPrint('Handling death of boss ' .. state.tier)
   state.state = BossAI.DEAD
 
