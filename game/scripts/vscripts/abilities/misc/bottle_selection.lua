@@ -26,7 +26,13 @@ end
 -----------------------------------------------------------------------
 
 function modifier_bottle_selection:GetEffectName(  )
-  return 'particles/misc/aegis_oaa_t2.vpcf'
+  local parent= self:GetParent()
+  local teamID = parent:GetTeamNumber()
+  if teamID == DOTA_TEAM_GOODGUYS then
+    return  "particles/misc/aqua_oaa_rays.vpcf"
+  elseif teamID == DOTA_TEAM_BADGUYS then
+    return   "particles/misc/ruby_oaa_rays.vpcf"
+  end
 end
 
 -----------------------------------------------------------------------
