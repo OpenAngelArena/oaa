@@ -113,6 +113,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
+  local killedHeroLevelFactor = 25 * killedHeroLevel + 94
   local numAttackers = killedHero:GetNumAttackers()
   local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
   local rewardHeroes = iter({killerHero})
@@ -251,7 +252,7 @@ function HeroKillGold:HeroDeathHandler (keys)
       nwRankingFactor = { 1 }
     ]]
     -- 5 Heroes: [20 Gold + (1 × dying hero's level) + (0.0225 × dying hero's NW × NW factor) + (25 Gold × team NW disadvantage / 4000)]
-    local assistGold = (parameters.base + (math.max(1, 6 - #heroes) * killedHeroLevel) + (parameters.nwMult * killedNetworth * nwFactor) + (parameters.advantageMult * teamNWDisadvantage))
+    local assistGold = (parameters.base + (math.max(1, 6 - #heroes) * killedHeroLevelFactor) + (parameters.nwMult * killedNetworth * nwFactor) + (parameters.advantageMult * teamNWDisadvantage))
     DebugPrint('(' .. parameters.base .. ' + (' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevel .. ') + (' .. parameters.nwMult .. ' * ' .. killedNetworth .. ' * ' .. nwFactor .. ') + (' .. parameters.advantageMult .. ' * ' .. teamNWDisadvantage .. '))) = ' .. assistGold)
     -- × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × [NW ranking factor]
     DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)] .. ' = ...')
