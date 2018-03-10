@@ -335,11 +335,7 @@ function CaveHandler:ResetCaveAndNotify(teamID, bounty)
   for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
     local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
-    if statTable[tostring(playerID)] then
-      statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
-    else
-      statTable[tostring(playerID)] = 1
-    end
+    statTable[tostring(playerID)] = cave.timescleared
 
     CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
   end

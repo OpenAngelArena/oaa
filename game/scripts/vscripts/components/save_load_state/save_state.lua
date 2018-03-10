@@ -214,12 +214,11 @@ end
 
 function GameStateLoadSave:LoadHeroAbilities(heroTable, hHero)
   for index,tableAbility in pairs(heroTable.Abilities) do
-    local hAbility = hHero:GetAbilityByIndex(index)
+    local hAbility = hHero:GetAbilityByIndex(tonumber(index))
     if hAbility:GetAbilityName( ) == tableAbility.Name then
-      if hAbility:IsAttributeBonus() then
+      if hAbility:IsAttributeBonus() and tableAbility.Lvl>0 then
         -- Refunding the Ability Points for talents because setting talent level does not update properly
-        print("REFUND!!!!!!!!!!!!!!!!!!")
-        hHero:SetAbilityPoints(hHero:GetAbilityPoints() + 1)
+        heroTable.AbilityPoits = heroTable.AbilityPoits + 1
       else
         hAbility:SetLevel( tableAbility.Lvl )
       end
