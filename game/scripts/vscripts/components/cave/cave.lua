@@ -319,39 +319,45 @@ function CaveHandler:CreepDeath (teamID, roomID)
       self:KickPlayers(teamID)
 
       -- reset cave
-      Timers:CreateTimer(4, function ()
-        self:ResetCave(teamID)
-      end)
-
       cave.timescleared = cave.timescleared + 1
-      for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
-        local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
-        if statTable[tostring(playerID)] then
-          statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
-        else
-          statTable[tostring(playerID)] = 1
-        end
-
-        CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
-      end
-      -- inform players
-      Notifications:TopToTeam(teamID, {
-        text = "#cave_fully_cleared_reward",
-        duration = 10,
-        replacement_map = {
-          reward_amount = bounty,
-        },
-      })
-      Notifications:TopToTeam(teamID, {
-        text = "#cave_fully_cleared_num_clears",
-        duration = 10,
-        replacement_map = {
-          num_clears = cave.timescleared,
-        },
-      })
+      self:ResetCaveAndNotify(teamID, bounty)
     end
   end
+end
+
+function CaveHandler:ResetCaveAndNotify(teamID, bounty)
+  local cave = self.caves[teamID]
+  Timers:CreateTimer(4, function ()
+    self:ResetCave(teamID)
+  end)
+
+  for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
+    local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
+
+    if statTable[tostring(playerID)] then
+      statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
+    else
+      statTable[tostring(playerID)] = 1
+    end
+
+    CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
+  end
+  -- inform players
+  Notifications:TopToTeam(teamID, {
+    text = "#cave_fully_cleared_reward",
+    duration = 10,
+    replacement_map = {
+      reward_amount = bounty,
+    },
+  })
+  Notifications:TopToTeam(teamID, {
+    text = "#cave_fully_cleared_num_clears",
+    duration = 10,
+    replacement_map = {
+      num_clears = cave.timescleared,
+    },
+  })
 end
 
 function CaveHandler:CloseCaveDoors(teamID)
