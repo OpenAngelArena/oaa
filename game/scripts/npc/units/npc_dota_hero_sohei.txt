@@ -38,11 +38,11 @@
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
     "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.0"
+    "AttributeStrengthGain"     "3.5"
     "AttributeBaseAgility"      "18"
     "AttributeAgilityGain"      "1.5"
     "AttributeBaseIntelligence" "17"
-    "AttributeIntelligenceGain" "1.5"
+    "AttributeIntelligenceGain" "1.2"
 
     "Ability1"                  "sohei_dash"
     "Ability2"                  "sohei_guard"
@@ -66,6 +66,6 @@
     "HasInventory"        "1" // This KV must be added in units file only
 
     "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
-    "VisionNighttimeRange"      "800"                             // Range of vision at night time.
+    "VisionNighttimeRange"      "1200"                             // Range of vision at night time.
   }
 }
