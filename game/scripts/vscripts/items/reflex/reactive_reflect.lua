@@ -82,23 +82,30 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
   if self.stored ~= nil then
       self.stored:RemoveSelf() --we make sure to remove previous spell.
   end
-  local hCaster = self:GetParent()
-  hCaster:EmitSound( "Item.LotusOrb.Activate" )
 
   if IsServer() then
+    local hCaster = self:GetParent()
+    hCaster:EmitSound( "Item.LotusOrb.Activate" )
+
     local burst = ParticleManager:CreateParticle( "particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
     Timers:CreateTimer(1.5, function()
       ParticleManager:DestroyParticle( burst, false )
       ParticleManager:ReleaseParticleIndex(burst)
     end)
+
+    local hAbility = hCaster:AddAbility(kv.ability:GetAbilityName())
+
+    if hAbility ~= nil then
+      hAbility:SetStolen(true) --just to be safe with some interactions.
+      hAbility:SetHidden(true) --hide the ability.
+      hAbility:SetLevel(kv.ability:GetLevel()) --same level of ability as the origin.
+      hCaster:SetCursorCastTarget(kv.ability:GetCaster()) --lets send this spell back.
+      hAbility:OnSpellStart() --cast the spell.
+      print("abilityCount")
+      print(hCaster:GetAbilityCount(  ))
+      --
+      self.stored = hAbility --store the spell reference for future use.
+    end
   end
 
-  local hAbility = hCaster:AddAbility(kv.ability:GetAbilityName())
-  hAbility:SetStolen(true) --just to be safe with some interactions.
-  hAbility:SetHidden(true) --hide the ability.
-  hAbility:SetLevel(kv.ability:GetLevel()) --same level of ability as the origin.
-  hCaster:SetCursorCastTarget(kv.ability:GetCaster()) --lets send this spell back.
-  hAbility:OnSpellStart() --cast the spell.
-  self.stored = hAbility --store the spell reference for future use.
-  return 1
 end

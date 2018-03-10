@@ -109,7 +109,6 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
-  local killedNetworth = killedHero:GetNetworth()
   local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
@@ -189,9 +188,12 @@ function HeroKillGold:HeroDeathHandler (keys)
     return hero:GetNetworth()
   end
 
+  local killedPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killedTeam)
   -- NW factor is defined as (enemy team net worth / allied team net worth) - 1 and has a minimum of zero and a maximum of 1.
-  local entireKilledTeamNW = map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killedTeam))
+  local entireKilledTeamNW = map(getHeroNetworth, killedPlayerIDs)
   entireKilledTeamNW = entireKilledTeamNW:totable()
+  -- Get the killed hero's networth from entireKilledTeamNW
+  local killedNetworth = entireKilledTeamNW[index(killedPlayerID, killedPlayerIDs)]
   -- Sort entireKilledTeamNW in descending order
   table.sort(entireKilledTeamNW, op.gt)
 

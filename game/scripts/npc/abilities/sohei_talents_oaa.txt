@@ -91,7 +91,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "value"         "4.0"     // Cooldown reduction in seconds
+        "value"         "3.0"     // Cooldown reduction in seconds
       }
     }
   }
@@ -112,10 +112,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
+      // The bonus must be set in the ability key value as well this is only used for tooltips
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "value"         "300"     // Radius increase
+        "value"         "200"     // Radius increase
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // sohei talent 6: Guard can be cast on allies, this isn't ready don't use this
+  //=================================================================================================================
+  "special_bonus_sohei_guard_allycast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9509"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "1"     // nothing
       }
     }
   }

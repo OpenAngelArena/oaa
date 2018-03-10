@@ -9,16 +9,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "ability_lua"
     "ID"                  "9502"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
     "AbilityTextureName"      "custom/ronin_guard"
-    "ScriptFile"          "abilities/hero_sohei.lua"
+    "ScriptFile"          "abilities/sohei/sohei_guard.lua"
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.0"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCastRange"        "0"
 
     // Time
@@ -33,8 +34,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/ronin/guard.vpcf"
-      "soundfile"         "soundevents/ronin_soundevents.vsndevts"
+      "particle"          "particles/hero/sohei/guard.vpcf"
+      "particle"          "particles/hero/sohei/reflect_sakura_leaves.vpcf"
+      "particle"          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
+      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
     // Special
