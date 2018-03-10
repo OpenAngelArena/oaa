@@ -1,9 +1,10 @@
 .Announcement
 {
-  horizontal-align: center;
+  horizontal-align: right;
   vertical-align: center;
   margin-top: -100px;
-  width: 800px;
+  margin-right: 5px;
+  width: 600px;
   height: fit-children;
 }
 
@@ -21,7 +22,7 @@
   height: 30px;
   horizontal-align: right;
   margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 15px;
   background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
 }
 
