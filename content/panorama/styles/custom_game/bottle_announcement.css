@@ -29,3 +29,9 @@
 {
   opacity: 1;
 }
+
+#AnnouncementImage
+{
+  background-image: url("file://{images}/custom_game/hud/tournament2_winners.png");
+  background-size: 100% 100%;
+}
