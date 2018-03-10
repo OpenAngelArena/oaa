@@ -8,6 +8,8 @@
     "BaseClass"                 "npc_dota_hero_juggernaut"
     "HeroID"                    "128"
     "Model"                     "models/heroes/sohei/sohei.vmdl"
+    "SoundSet"                  "Sohei"
+    "GameSoundsFile"            "soundevents/units/game_sounds_sohei.vsndevts"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementTurnRate"          "1.5"
