@@ -97,29 +97,23 @@ function GameStateLoadSave:SetRemoteState(newState, callback)
   local req = CreateHTTPRequestScriptVM('POST', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
   local encoded = self.RemoteState
 
-  print("SENDING!!!!!!!!!!!!!!!!")
-  print(encoded)
   -- Add the data
   req:SetHTTPRequestRawPostBody('application/json', encoded)
 
   -- Send the request
   req:Send(function(res)
       if res.StatusCode ~= 200 then
-          print("Error!!!!!")
-          print("Status Code", res.StatusCode or "nil")
-          print("Body", res.Body or "nil")
-          return
+        print("Error!!!!!")
+        print("Status Code", res.StatusCode or "nil")
+        print("Body", res.Body or "nil")
+        return
       end
   end)
 end
 
 function GameStateLoadSave:GetRemoteState(callback)
   if DEBUG then
-
     local encoded = json.decode(self.RemoteState, 1, nil)
-
-    print("LOADING!!!" .. self.RemoteState)
-    DevPrintTable(encoded)
     callback(encoded)
     return
   end
@@ -128,23 +122,22 @@ function GameStateLoadSave:GetRemoteState(callback)
   -- Send the request
   req:Send(function(res)
       if res.StatusCode ~= 200 then
-          print("Error!!!!!")
-          print("Status Code", res.StatusCode or "nil")
-          print("Body", res.Body or "nil")
-          return
+        print("Error!!!!!")
+        print("Status Code", res.StatusCode or "nil")
+        print("Body", res.Body or "nil")
+        return
       end
 
       if not res.Body then
         print("Error!!!!!")
-          print("Status Code", res.StatusCode or "nil")
-          return
+        print("Status Code", res.StatusCode or "nil")
+        return
       end
 
       -- Remove backslash scape received
       res.Body = res.Body:gsub("\\", "")
       -- remove first and last " character received
       res.Body = string.sub( res.Body, 2, #res.Body-1 )
-      print(res.Body)
 
       -- Try to decode the result
       local obj, pos, err = json.decode(res.Body, 1, nil)
