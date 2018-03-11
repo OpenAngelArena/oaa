@@ -39,11 +39,6 @@ function CreepPower:GetBasePowerForMinute (minute, multFactor)
   }
 end
 
-function CreepPower:GetBaseCavePowerForMinute (minute, multFactor)
-  if minute == 0 then
-    return {   0,        1.0,      1.0,      1.0,      1.0,      1.0 * self.BootGoldFactor,      1.0 * self.numPlayersXPFactor}
-  end
-
 function CreepPower:Init ()
   local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
   self.numPlayersXPFactor = 1 -- PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
