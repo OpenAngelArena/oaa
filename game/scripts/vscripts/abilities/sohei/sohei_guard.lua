@@ -225,9 +225,6 @@ if IsServer() then
 
 	-- why does this do nothing. It does work, but you have to reflect yourself! it was done on reactive_reflect before
 	function modifier_sohei_guard_reflect:GetReflectSpell( kv )
-		if self.stored ~= nil then
-      self.stored:RemoveSelf() --we make sure to remove previous spell.
-    end
 
     if IsServer() then
       local hCaster = self:GetParent()
@@ -250,10 +247,10 @@ if IsServer() then
         hAbility:SetLevel(kv.ability:GetLevel()) --same level of ability as the origin.
         hCaster:SetCursorCastTarget(kv.ability:GetCaster()) --lets send this spell back.
         hAbility:OnSpellStart() --cast the spell.
-        print("abilityCount")
-        print(hCaster:GetAbilityCount(  ))
-        --
-        self.stored = hAbility --store the spell reference for future use.
+
+        Timers:CreateTimer(10, function()
+          hCaster:RemoveAbility( hAbility:GetAbilityName() )
+        end)
       end
     end
 
