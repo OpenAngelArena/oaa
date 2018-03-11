@@ -66,5 +66,21 @@
           "width"		"16"
           "height"		"16"
         }
+        "minimap_cave_radiant"
+        {
+          "file"    "materials/vgui/hud/minimap_cave_radiant.vmat"
+          "x"   "0"
+          "y"   "0"
+          "width"   "32"
+          "height"    "32"
+        }
+        "minimap_cave_dire"
+        {
+          "file"    "materials/vgui/hud/minimap_cave_dire.vmat"
+          "x"   "0"
+          "y"   "0"
+          "width"   "32"
+          "height"    "32"
+        }
     }
 }

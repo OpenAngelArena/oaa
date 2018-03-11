@@ -109,6 +109,8 @@ function CaveHandler:SpawnRoom (teamID, roomID)
   local room = cave.rooms[roomID]
   local creepList = CaveTypes[roomID][RandomInt(1, #CaveTypes[roomID])]
 
+  Minimap:SpawnCaveIcon(room.handle:GetAbsOrigin(), roomID, teamID)
+
   for _,creep in ipairs(creepList.units) do -- spawn all creeps in list
     -- get properties for the creep
     local creepProperties = self:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
