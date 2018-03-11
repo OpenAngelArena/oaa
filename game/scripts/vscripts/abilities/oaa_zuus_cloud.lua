@@ -60,7 +60,7 @@ function modifier_zuus_cloud_oaa:OnIntervalThink()
       self.Radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
-      bit.bor( DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES ),
+      DOTA_UNIT_TARGET_FLAG_NONE,
       FIND_CLOSEST,
       false
     )
@@ -72,7 +72,7 @@ function modifier_zuus_cloud_oaa:OnIntervalThink()
         self.Radius,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_CREEP,
-        bit.bor( DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES ),
+        DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_CLOSEST,
         false
       )
