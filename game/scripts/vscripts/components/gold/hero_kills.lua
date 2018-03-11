@@ -113,7 +113,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
-  local killedHeroLevelFactor = (25 * killedHeroLevel + 94)
+  local killedHeroLevelFactor = 2*(25 * killedHeroLevel + 94)/7
   local numAttackers = killedHero:GetNumAttackers()
   local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
   local rewardHeroes = iter({killerHero})
