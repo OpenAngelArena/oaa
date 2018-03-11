@@ -8,6 +8,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_zuus_cloud.lua"
+    "AbilityTextureName"                                  "zuus_cloud"
     "MaxLevel"                                            "1"
     "FightRecapLevel"                                     "1"
     "IsGrantedByScepter"                                  "1"
@@ -52,4 +55,3 @@
       }
     }
   }
-}
