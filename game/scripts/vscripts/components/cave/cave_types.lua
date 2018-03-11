@@ -10,7 +10,7 @@ CAVE_TYPE_STATS_RESITS = 8
 
 function MakeKFunctionForIndexPowerOffset (index, speed, offset, power)
   return function (k)
-    return 1 + power*(CreepPower:GetBaseCavePowerForMinute(k * speed + offset, 1)[index] - 1)
+    return 1 + power*(CreepPower:GetBasePowerForMinute(k * speed + offset, 1)[index] - 1)
   end
 end
 

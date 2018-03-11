@@ -34,7 +34,7 @@ function CreepPower:GetBasePowerForMinute (minute, multFactor)
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- mana
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 60 * ((minute/100) ^ 2) + 6 * (minute/100)) + 1,     -- damage
     (0 * (minute / 26) ^ 2 + minute / 6) + 1,       -- armor
-    ((0 * minute ^ 2 + 4*2 * minute + 10*15)/(7*15)) * self.BootGoldFactor,                      -- gold
+    ((0 * minute ^ 2 + 2 * minute + 15)/(15)) * self.BootGoldFactor,                      -- gold
     ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor * multFactor -- xp
   }
 end
@@ -43,17 +43,6 @@ function CreepPower:GetBaseCavePowerForMinute (minute, multFactor)
   if minute == 0 then
     return {   0,        1.0,      1.0,      1.0,      1.0,      1.0 * self.BootGoldFactor,      1.0 * self.numPlayersXPFactor}
   end
-
-  return {
-    minute,                                   -- minute
-    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- hp
-    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- mana
-    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 60 * ((minute/100) ^ 2) + 6 * (minute/100)) + 1,     -- damage
-    (0 * (minute / 26) ^ 2 + minute / 6) + 1,       -- armor
-    ((0 * minute ^ 2 + 02 * minute + 15)/15) * self.BootGoldFactor,                      -- gold
-    ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor * multFactor -- xp
-  }
-end
 
 function CreepPower:Init ()
   local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
