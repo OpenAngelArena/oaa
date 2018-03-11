@@ -107,7 +107,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
     -- Renders the particle on the sigil
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud_strike.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
 
-    ParticleManager:SetParticleControlEnt(self.cloud_particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
     EmitSoundOn("Hero_Zuus.LightningBolt.Cloud", target)
   end
