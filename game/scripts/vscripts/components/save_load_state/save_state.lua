@@ -1,10 +1,14 @@
 
 SAVE_INTERVAL = 60
 
+GAME_STATE_ENDPOINT = 'http://localhost:59757/api/GameState/'
+
+DEBUG = false
+
 if GameStateLoadSave == nil then
   GameStateLoadSave = class({})
   ChatCommand:LinkCommand("-save", Dynamic_Wrap(GameStateLoadSave, "EnableSaveState"), GameStateLoadSave)
-  ChatCommand:LinkCommand("-load", Dynamic_Wrap(GameStateLoadSave, "LoadState"), GameStateLoadSave)
+  ChatCommand:LinkCommand("-load", Dynamic_Wrap(GameStateLoadSave, "LoadStateEvent"), GameStateLoadSave)
 end
 
 function GameStateLoadSave:Init()
@@ -65,7 +69,7 @@ function GameStateLoadSave:HeroDeathHandler(keys)
   end
 end
 
-function GameStateLoadSave:SaveState()
+function GameStateLoadSave:SaveState(callback)
   if not self.KillList then
     self:InitKillList()
   end
@@ -75,22 +79,108 @@ function GameStateLoadSave:SaveState()
   self:SaveHerosPicks(newState)
   self:SaveBossPitLvls(newState)
   self:SaveScore(newState)
+
+  self:SetRemoteState(newState, callback)
+
+  if callback then
+    callback()
+  end
+
   return newState
 end
+function GameStateLoadSave:SetRemoteState(newState, callback)
+  if DEBUG then
+    self.RemoteState = json.encode(newState)
+    return
+  end
+  self.Game_Key = 'TESTE'
+  local req = CreateHTTPRequestScriptVM('POST', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
+  local encoded = self.RemoteState
 
-function GameStateLoadSave:LoadState()
+  print("SENDING!!!!!!!!!!!!!!!!")
+  print(encoded)
+  -- Add the data
+  req:SetHTTPRequestRawPostBody('application/json', encoded)
+
+  -- Send the request
+  req:Send(function(res)
+      if res.StatusCode ~= 200 then
+          print("Error!!!!!")
+          print("Status Code", res.StatusCode or "nil")
+          print("Body", res.Body or "nil")
+          return
+      end
+  end)
+end
+
+function GameStateLoadSave:GetRemoteState(callback)
+  if DEBUG then
+
+    local encoded = json.decode(self.RemoteState, 1, nil)
+
+    print("LOADING!!!" .. self.RemoteState)
+    DevPrintTable(encoded)
+    callback(encoded)
+    return
+  end
+
+  local req = CreateHTTPRequestScriptVM('Get', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
+  -- Send the request
+  req:Send(function(res)
+      if res.StatusCode ~= 200 then
+          print("Error!!!!!")
+          print("Status Code", res.StatusCode or "nil")
+          print("Body", res.Body or "nil")
+          return
+      end
+
+      if not res.Body then
+        print("Error!!!!!")
+          print("Status Code", res.StatusCode or "nil")
+          return
+      end
+
+      -- Remove backslash scape received
+      res.Body = res.Body:gsub("\\", "")
+      -- remove first and last " character received
+      res.Body = string.sub( res.Body, 2, #res.Body-1 )
+      print(res.Body)
+
+      -- Try to decode the result
+      local obj, pos, err = json.decode(res.Body, 1, nil)
+      if obj ~= nil then
+        -- Feed the result into our callback
+        callback(obj)
+      end
+
+  end)
+
+end
+
+function GameStateLoadSave:LoadStateEvent()
   if IsServer() then
-
-    local state = GameStateLoadSave:SaveState()
-    local loadState = json.decode(json.encode(state), 1, nil)
-
-    self:LoadCave(loadState)
-    self:LoadHerosPicks(loadState)
-    self:LoadBossPitLvls(loadState)
-    self:LoadScore(loadState)
-    self:LoadGameTime(loadState)
+    if DEBUG then
+      -- saves and reload
+      self:SaveState(function()
+        self:GetRemoteState(function(loadState)
+          self:LoadState(loadState)
+        end)
+      end)
+    else
+      self:GetRemoteState(function(loadState)
+        self:LoadState(loadState)
+      end)
+    end
 
   end
+end
+
+function GameStateLoadSave:LoadState(loadState)
+  self:LoadCave(loadState)
+  self:LoadHerosPicks(loadState)
+  self:LoadBossPitLvls(loadState)
+  self:LoadScore(loadState)
+  self:LoadGameTime(loadState)
 end
 
 function GameStateLoadSave:SaveHerosPicks(newState)
@@ -136,7 +226,6 @@ function GameStateLoadSave:LoadHeroKDA(state, heroTable, hHero)
     end
   end
 end
-
 
 function GameStateLoadSave:LoadHerosPicks(state)
   HeroSelection:Init()
