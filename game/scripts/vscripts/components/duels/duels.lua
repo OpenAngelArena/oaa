@@ -31,7 +31,6 @@ function Duels:Init ()
     self:CheckDuelStatus(keys)
   end)
 
-  GameEvents:OnPlayerReconnect(function (keys)
 -- [VScript] [components\duels\duels:64] PlayerID: 1
 -- [VScript] [components\duels\duels:64] name: Minnakht
 -- [VScript] [components\duels\duels:64] networkid: [U:1:53917791]
@@ -39,6 +38,7 @@ function Duels:Init ()
 -- [VScript] [components\duels\duels:64] splitscreenplayer: -1
 -- [VScript] [components\duels\duels:64] userid: 3
 -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
+  GameEvents:OnPlayerReconnect(function (keys)
     local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -71,9 +71,9 @@ function Duels:Init ()
     end
   end)
 
-  GameEvents:OnPlayerDisconnect(function(keys)
 -- [VScript] [components\duels\duels:48] PlayerID: 1
 -- [VScript] [components\duels\duels:48] splitscreenplayer: -1
+  GameEvents:OnPlayerDisconnect(function(keys)
     local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -524,9 +524,15 @@ function Duels:EndDuel ()
     self.startDuelTimer = nil
   end
 
-  self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
+  -- Schedule a 1 min dual warning
+  Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
     Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
-    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, Dynamic_Wrap(Duels, 'StartDuel'))
+    -- when the warn shows, schedule the dual to start in 1 min minus the warning time
+    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, function ()
+      self:StartDuel({
+        firstDuel = false
+      })
+    end)
   end)
 
   for playerId = 0,19 do
