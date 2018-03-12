@@ -40,6 +40,11 @@ local special_bottles = {
   [57898114] = 2, --KGBurger
   [89367798] = 2, --Naeil
 
+  [168785654] = 2, --german player, bent but not broken
+  [32128719] = 2, -- jmn, Hot Guy (very)
+  [78937420] = 2, -- PerTzo, road to rank daun
+  [91854805] = 2, -- Scabo, Scabo
+  [90810663] = 2, -- hwa, hwa
 
 
   -- special people

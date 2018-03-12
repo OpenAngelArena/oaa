@@ -526,7 +526,7 @@ function Duels:EndDuel ()
 
   self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
     Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
-    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, Dynamic_Wrap(Duels, 'StartDuel'))
+    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(self.StartDuel, self))
   end)
 
   for playerId = 0,19 do
