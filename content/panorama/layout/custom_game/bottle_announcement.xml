@@ -1,0 +1,19 @@
+<root>
+  <styles>
+    <include src='file://{resources}/styles/custom_game/bottle_announcement.css' />
+  </styles>
+  <script>
+  function Close() {
+    $('#AnnouncementPanel').SetHasClass('Show', false);
+  }
+  GameEvents.Subscribe('show_announcement', function(keys) {
+    $('#AnnouncementPanel').SetHasClass('Show', true);
+  });
+  </script>
+  <Panel class='Announcement'>
+    <Panel id='AnnouncementPanel' class=''>
+      <Image id='AnnouncementImage' src='file://{images}/custom_game/hud/tournament2_winners.png' scaling='stretch-to-fit-x-preserve-aspect' />
+      <Button id='CloseBtn' hittest='true' onactivate='Close()' oncontextmenu='Close()'/>
+    </Panel>
+  </Panel>
+</root>
