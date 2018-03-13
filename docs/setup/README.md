@@ -21,7 +21,7 @@ Here's some answers to commonly asked questions:
 3. [OAA Suggestions Github][3]
 4. [OAA Bug-reports Github][4]
 5. [OAA Main Github][5]
-
+6. [OAA Dev Discord][6]
 
 
 
@@ -31,3 +31,4 @@ Here's some answers to commonly asked questions:
 [3]: http://github.com/openangelarena/suggestions/issues
 [4]: http://github.com/openangelarena/bug-reports/issues
 [5]: http://github.com/openangelarena/oaa/issues
+[6]: https://discord.gg/EZpjGgd

@@ -10,8 +10,6 @@ For ease of navigation, the installation is broken up into sections and can be j
 2. [Installing OAA](#installing-oaa)
 3. [Manual installation of OAA (For CLI users or people who cannot get d2am working correctly)](#manual-installation-of-oaa)
 
-Also you'll want to stop by the [Dev Discord](https://discord.gg/EZpjGgd) and chat about projects with the dev crew.
-
 ## Required Software
 
 #### 1. **[Steam](http://steampowered.com)**
