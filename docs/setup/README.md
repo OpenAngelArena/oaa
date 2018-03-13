@@ -12,7 +12,7 @@ Here's some answers to commonly asked questions:
 
 "Where/how do i post my bug reports?" Same deal as with the suggestions, you are welcome to post in #help, but again, we'd much rather keep them in the [OAA Bug-reports Github][4] (please no double posting. Check first)!
 
-"How do I get started working?" You'll need to [Setup your client][1]. Then if you're a coder make sure you have [What you need][2]. Finally, head over to your channel in the Discord and get started! Tickets can be found in the [OAA Main Github][5]. Good luck!
+"How do I get started working?" You'll need to [Setup your client][1]. Then if you're a coder make sure you have [What you need][2]. Finally, head over to your channel in the [Discord][6] and get started! Tickets can be found in the [OAA Main Github][5]. Good luck!
 
 ## Topics
 
