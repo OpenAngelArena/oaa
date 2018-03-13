@@ -1,6 +1,6 @@
 # Installing Open Angel Arena
 
-Updated 2017-12-16
+Updated 2018-03-12
 
 [\[< Setup\]](./)[0]
 
@@ -9,6 +9,8 @@ For ease of navigation, the installation is broken up into sections and can be j
 1. [Required Software](#required-software)
 2. [Installing OAA](#installing-oaa)
 3. [Manual installation of OAA (For CLI users or people who cannot get d2am working correctly)](#manual-installation-of-oaa)
+
+Also you'll want to stop by the [Dev Discord](https://discord.gg/EZpjGgd) and chat about projects with the dev crew.
 
 ## Required Software
 

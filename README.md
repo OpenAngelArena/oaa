@@ -3,10 +3,10 @@ A really great Dota 2 game mode built by [really great people](#contributors).
 
 Useful Links: https://warpdragon.github.io
 
-# Installation
+# Getting Started
 This addon uses the [Dota 2 Addon Manager](https://github.com/chrisinajar/dota2-addon-manager).
 
-For detailed instructions, check [here](docs/setup/install.md)
+Check out all the [documentation](docs/README.md) or just skip to the install [instructions](docs/setup/install.md)
 
 # Contributing
 Check out the Discord!
