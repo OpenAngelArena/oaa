@@ -2,7 +2,7 @@
 
 Updated 2018-03-12
 
-[\[< Setup\]](./)[0]
+[< Setup][0]
 
 For ease of navigation, the installation is broken up into sections and can be jumped to by clicking any of the links below.
 
