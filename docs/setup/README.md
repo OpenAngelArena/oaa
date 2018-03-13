@@ -6,7 +6,7 @@ Updated 2017-12-05
 
 ## Intro
 
-Ready to get started working as an OAA dev? You'll need to [Setup your client][1]. Then if you're a coder make sure you have [What you need][2]. Finally, head over to your channel in the [Discord][6] and get started! Tickets can be found in the [OAA Main Github][5]. Good luck!
+Ready to get started working as an OAA dev? You'll need to [Setup your client][1]. Then if you're a coder make sure you have [What you need][2]. Finally, head over to your channel in the [Discord][4] and get started! Tickets can be found in the [OAA Main Github][3]. Good luck!
 
 ## Topics
 
