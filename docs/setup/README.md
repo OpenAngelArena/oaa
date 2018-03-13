@@ -12,8 +12,8 @@ Ready to get started working as an OAA dev? You'll need to [Setup your client][1
 
 1. [Installation][1]
 2. [What you need][2]
-3. [OAA Main Github][5]
-4. [OAA Dev Discord][6]
+3. [OAA Main Github][3]
+4. [OAA Dev Discord][4]
 
 [0]: ../README.md
 [1]: install.md
