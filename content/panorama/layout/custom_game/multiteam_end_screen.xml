@@ -1,0 +1,69 @@
+<root>
+	<styles>
+		<include
+			src="file://{resources}/styles/custom_game/multiteam_end_screen.css" />
+	</styles>
+
+	<scripts>
+		<include
+			src="file://{resources}/scripts/custom_game/multiteam_end_screen.js" />
+	</scripts>
+
+	<Panel class="es-root">
+		<Panel id="es-victory-info">
+			<Label id="es-victory-info-text" text="" />
+		</Panel>
+		<Panel id="es-teams">
+			<Panel class="es-teams-columns">
+				<Panel class="es-team" id="es-radiant">
+					<Panel class="es-team-title">
+						<Label class="es-team-name" text="Radiant" />
+						<Label id="es-team-score-radiant" class="es-team-score"
+							text="N/A" />
+					</Panel>
+					<Panel class="es-legend">
+						<Label class="es-legend-kdalevel" text="LVL" />
+						<Label class="es-legend-kdalevel" text="K" />
+						<Label class="es-legend-kdalevel" text="D" />
+						<Label class="es-legend-kdalevel" text="A" />
+						<Label class="es-legend-gold" text="Gold" />
+						<Label class="es-legend-imr" text="MMR" />
+						<Label class="es-legend-xp" text="Bottlepass XP" />
+					</Panel>
+					<Panel id="es-radiant-players" class="es-players" />
+				</Panel>
+
+				<Panel class="es-team" id="es-dire">
+					<Panel class="es-team-title">
+						<Label class="es-team-name" text="Dire" />
+						<Label id="es-team-score-dire" class="es-team-score" text="N/A" />
+					</Panel>
+					<Panel class="es-legend">
+						<Label class="es-legend-kdalevel" text="LVL" />
+						<Label class="es-legend-kdalevel" text="K" />
+						<Label class="es-legend-kdalevel" text="D" />
+						<Label class="es-legend-kdalevel" text="A" />
+						<Label class="es-legend-gold" text="Gold" />
+						<Label class="es-legend-imr" text="MMR" />
+						<Label class="es-legend-xp" text="Bottlepass XP" />
+					</Panel>
+					<Panel id="es-dire-players" class="es-players" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="es-buttons">
+<!--		<Button id="es-buttons-stats">
+				<Label text="See detailed statistics about this Game" />
+			</Button>
+			<Button id="es-buttons-survey" onactivate="DOTADisplayURL('https://goo.gl/2Z4DBv');">
+				<Label text="Participate in our survey and get an XP Bounty!" />
+			</Button> -->
+			<Button id="es-buttons-website" onactivate="DOTADisplayURL('https://oaa.gg');">
+				<Label text="Go to our Official Website" />
+			</Button>
+			<Button id="es-buttons-close" onactivate="Game.FinishGame();">
+				<Label text="#CustomEndScreenClose" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>
