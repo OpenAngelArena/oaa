@@ -1,8 +1,8 @@
 # Installing Open Angel Arena
 
-Updated 2017-12-16
+Updated 2018-03-12
 
-[\[< Setup\]](./)[0]
+[< Setup][0]
 
 For ease of navigation, the installation is broken up into sections and can be jumped to by clicking any of the links below.
 
@@ -103,4 +103,4 @@ This part assumes you ALREADY have the command prompt to your DOTA 2 addons dire
 - `mklink /J "{PATH_TO_OAA_REPO}/content" "{PATH_TO_DOTA_ADDONS}/oaa/content"` Where `PATH_TO_OAA_REPO` the the full SYSTEM path to the OAA repository directory.  Where `PATH_TO_DOTA_ADDONS` is the `content/dota_addons` directory in your DOTA 2 installation folder
 - `mklink /J "{PATH_TO_OAA_REPO}/game" "{PATH_TO_DOTA_ADDONS}/oaa/game"` (See above for references)
 
-[[0]: README.md](./README.md)
+[0]: README.md
