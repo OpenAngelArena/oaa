@@ -19,6 +19,7 @@ end
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
 local OnPreGameEvent = CreateGameEvent('OnPreGame')
+local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
   OnGameRulesStateChangeEvent(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -33,50 +34,7 @@ function GameMode:OnGameRulesStateChange(keys)
     OnPreGameEvent(keys)
     GameMode:OnPreGame()
   elseif newState == DOTA_GAMERULES_STATE_POST_GAME then
-    -- calculate levels
-    local xpInfo = {}
-
-    -- temporary test table, should contains the bottlepass xp of the player
-    local players = {}
-    for i = 0, PlayerResource:GetPlayerCount() -1 do
-      players[i] = PlayerResource:GetPlayer(i)
-    end
-
-    for k, v in pairs(players) do
---      local level = Bottlepass:GetXPLevelByXp(v.xp)
---      local title = Bottlepass:GetTitleIXP(level)
---      local color = Bottlepass:GetTitleColorIXP(title, true)
---      local progress = Bottlepass:GetXpProgressToNextLevel(v.xp)
-
-      -- PLACEHOLDERS: testing purpose, remove once the above are added
-      local level = 7
-      local title = "Warrior"
-      local color = "#4C8BCA"
-      -- diff between current xp and max xp of current level between 0 and 1, for the progress bar
-      local progress = 0.7
-      -- END OF PLACEHOLDERS
-
-      if level and title and color and progress then
-        xpInfo[k] = {
-          level = level,
-          title = title,
-          color = color,
-          progress = progress
-        }
-      end
-    end
-
-    Timers:CreateTimer(0.5, function()
-      CustomGameEventManager:Send_ServerToAllClients("end_game_scoreboard", {
-        players = players,
-        xp_info = xpInfo,
-        info = {
-          winner = GAME_WINNER_TEAM,
-          radiant_score = GetTeamHeroKills(2),
-          dire_score = GetTeamHeroKills(3),
-        }
-      })
-    end)
+    OnEndGameEvent(keys)
   end
 end
 

@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-	GameEvents.Subscribe("end_game_scoreboard", EndScoreboard);
+	CustomNetTables.SubscribeNetTableListener('end_game_scoreboard', EndScoreboard);
 
 	// PLACEHOLDERS: testing purpose only
 	var args = {
@@ -108,7 +108,6 @@ function EndScoreboard(args) {
 
 	// sort a player by merging results from server and using getplayerinfo  
 	var loadPlayer = function (id) {
-
 		var playerInfo = Game.GetPlayerInfo(id);
 		var resultInfo = null;
 		var xp = null;
@@ -151,9 +150,9 @@ function EndScoreboard(args) {
 
 		var xp_bar = pp.FindChildrenWithClassTraverse("es-player-xp")
 
-		$.Msg("Player:");
-		$.Msg(player);
-		
+//		$.Msg("Player:");
+//		$.Msg(player);
+
 		var values = {
 			name: pp.FindChildInLayoutFile("es-player-name"),
 			avatar: pp.FindChildInLayoutFile("es-player-avatar"),
@@ -172,6 +171,14 @@ function EndScoreboard(args) {
 				rank: pp.FindChildInLayoutFile("es-player-xp-rank"),
 				earned: pp.FindChildInLayoutFile("es-player-xp-earned")
 			}
+		};
+
+		var rp = $("#es-player-reward-container")
+
+		var rewards = {
+			name: rp.FindChildInLayoutFile("es-player-reward-name"),
+			rarity: rp.FindChildInLayoutFile("es-player-reward-rarity"),
+			image: rp.FindChildInLayoutFile("es-player-reward-image"),
 		};
 
 		// Avatar + Hero Image
@@ -251,36 +258,56 @@ function EndScoreboard(args) {
 
 			player.xp.progress = (player.xp.progress + xp_diff) * 100
 			values.xp.level.text = "Level: " + player.xp.level;
+			values.xp.rank.text = player.result.max_xp + "/" + player.result.max_xp;
 
-			// if not leveling up
-			$.Msg(player.xp.progress)
-			if (player.xp.progress < 100) {
-				$.Msg("Everything normal");
-				values.xp.progress.style.width = player.xp.progress + "%";
-				values.xp.rank.text = player.result.xp + player.result.xp_diff + "/" + player.result.max_xp;
-			// else if leveling up
-			} else {
-				values.xp.rank.text = player.result.max_xp + "/" + player.result.max_xp;
-				values.xp.progress.style.width = "100%";
-
-				$.Schedule(2.0, function () { // if you want to modify this timer, modify also the width transition time in css
-					$.Msg("Level up!");
-
-					if (values.xp.bar[0].BHasClass("level-up")) {
-						values.xp.bar[0].RemoveClass("level-up")
-					}
-					values.xp.bar[0].AddClass("level-up")
-					player.xp.level = player.xp.level + 1
-					values.xp.level.text = "Level up!";
-					values.xp.rank.text = "";
-					player.xp.progress = player.xp.progress -100;
+			$.Schedule(0.6, function () { // END_SCREEN_DELAY in css
+				// if not leveling up
+				if (player.xp.progress < 100) {
+					$.Msg("Everything normal");
 					values.xp.progress.style.width = player.xp.progress + "%";
-					$.Schedule(2.0, function () {
-						values.xp.level.text = "Level: " + player.xp.level;
-						values.xp.rank.text = player.result.xp + player.result.xp_diff - player.result.max_xp + "/" + player.result.max_xp;
+					values.xp.rank.text = player.result.xp + player.result.xp_diff + "/" + player.result.max_xp;
+				// else if leveling up
+				} else {
+					values.xp.rank.text = player.result.max_xp + "/" + player.result.max_xp;
+					values.xp.progress.style.width = "100%";
+
+					$.Schedule(2.0, function () { // XP_BAR_ANIM_TIME in css
+						$.Msg("Level up!");
+
+						// PLACEHOLDERS
+						// item earned info
+						var item = {
+							name: "Dash Staff",
+							rarity: "Arcana",
+							image: "dash_staff"
+						};
+						// PLACEHOLDERS END
+
+						rp.style.visibility = "visible";
+						rewards.name.text = item.name
+						rewards.rarity.text = item.rarity
+						rewards.rarity.AddClass(item.rarity)
+						rewards.image.style.backgroundImage = 'url("file://{resources}/images/items/custom/' + item.image + '.png")';
+						rewards.image.style.backgroundSize = 'cover';
+
+						rp.AddClass("level-up")
+
+						if (values.xp.bar[0].BHasClass("level-up")) {
+							values.xp.bar[0].RemoveClass("level-up")
+						}
+						values.xp.bar[0].AddClass("level-up")
+						player.xp.level = player.xp.level + 1
+						values.xp.level.text = "Level up!";
+						values.xp.rank.text = "";
+						player.xp.progress = player.xp.progress -100;
+						values.xp.progress.style.width = player.xp.progress + "%";
+						$.Schedule(2.0, function () {
+							values.xp.level.text = "Level: " + player.xp.level;
+							values.xp.rank.text = player.result.xp + player.result.xp_diff - player.result.max_xp + "/" + player.result.max_xp;
+						});
 					});
-				});
-			}
+				}
+			});
 		} else {
 			values.xp.earned.text = "N/A";
 		}
@@ -303,4 +330,8 @@ function EndScoreboard(args) {
 //	$("#es-buttons-stats").SetPanelEvent("onactivate", function () {
 //		$.DispatchEvent("DOTADisplayURL", "http://www.dota2imba.org/stats/game/" + serverInfo.gameid);
 //	});
+}
+
+function CloseBottlepassReward() {
+	$("#es-player-reward-container").style.visibility = "collapse";
 }
