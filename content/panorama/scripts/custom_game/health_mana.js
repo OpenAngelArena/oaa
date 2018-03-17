@@ -3,7 +3,7 @@
 
 var HealthRegenLabel = null
 var ManaRegenLabel = null
-
+$.Msg("[health_mana.js] loaded")
 // subscribe only after the game start (fix loading problems)
 var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
   if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {

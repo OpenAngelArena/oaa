@@ -9,7 +9,7 @@ if (typeof module !== 'undefined' && module.exports) {
     PreviewHeroCM: PreviewHeroCM
   };
 }
-
+$.Msg("[hero_selection.js] loaded")
 // for testing
 var neverHideStrategy = false;
 
