@@ -129,6 +129,7 @@ local special_bottles = {
   [293127420] = 3, --steam: http://steamcommunity.com/profiles/76561198253393148 - twitch: -no name given, current steam name crazyrock
   [156899250] = 3, --steam: http://steamcommunity.com/profiles/76561198117164978 - twitch: -no name given, current steam name bonde
   [226594311] = 3, --steam: http://steamcommunity.com/profiles/76561198186860039 - twitch: Oaksworth
+  [92726647] = 3, --steam: http://steamcommunity.com/profiles/76561198052992375 - twitch: -no name given, current steam name Pomfritten
 
 
   -- twitch donators 20
@@ -165,6 +166,11 @@ local special_bottles = {
   [90567040] = 5, --steam: http://steamcommunity.com/profiles/76561198050832768 - twitch: Teloba
   [123352359] = 5, --steam: http://steamcommunity.com/profiles/76561198083618087 - twitch: tobymhj
   [70763083] = 5, --steam: http://steamcommunity.com/profiles/76561198031028811 - twitch: vatsalyagoel
+  [144060401] = 5, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
+  [53067223] = 5, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
+  [196939910] = 5, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
+  [107719587] = 5, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
+  [80434451] = 5, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
 
 
 
@@ -190,6 +196,11 @@ local special_bottles = {
   [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
   [119820692] = 28, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
   [59735209] = 29, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
+  [101238957] = 30, --steam: http://steamcommunity.com/profiles/76561198061504685 - twitch: AssassinsFurr
+  [209872243] = 31, --steam: http://steamcommunity.com/profiles/76561198170137971 - twitch: HL_Vortex
+  [148999070] = 32, --steam: http://steamcommunity.com/profiles/76561198109264798 - twitch: Pavlav_
+  [159775101] = 33, --steam: http://steamcommunity.com/profiles/76561198120040829 - twitch: TheManWithNoLogic
+  [185444775] = 34, --steam: http://steamcommunity.com/profiles/76561198145710503 - twitch: -no name given, current steam name original
 }
 
 local bonusNames = {
@@ -222,6 +233,11 @@ local bonusNames = {
   'custom/bottles/bottle_mrpootis',
   'custom/bottles/bottle_tokengoat',
   'custom/bottles/bottle_sms77',
+  'custom/bottles/bottle_assassinsfurr', --30
+  'custom/bottles/bottle_hl_vortex',
+  'custom/bottles/bottle_pavlav',
+  'custom/bottles/bottle_nologic',
+  'custom/bottles/bottle_original',
 
 }
 
