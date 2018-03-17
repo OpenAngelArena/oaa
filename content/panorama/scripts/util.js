@@ -12,6 +12,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.ColoredText = ColoredText;
   module.exports.LuaTableToArray = LuaTableToArray;
 }
+$.Msg("[util.js] loaded")
 var HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
     this.message = message;

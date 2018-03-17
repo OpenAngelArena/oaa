@@ -7,7 +7,7 @@
     Angel Arena Blackstar
 */
 'use strict';
-
+$.Msg("[gold.js] loaded")
 // settings
 var useFormatting = 'half';
 

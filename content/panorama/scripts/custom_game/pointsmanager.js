@@ -1,7 +1,7 @@
 /* global $, FindDotaHudElement, CustomNetTables */
 
 'use strict';
-
+$.Msg("[pointsmanager.js] loaded")
 (function () {
   CustomNetTables.SubscribeNetTableListener('team_scores', onScoreChange);
 }());
