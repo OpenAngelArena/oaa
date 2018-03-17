@@ -1,7 +1,7 @@
 
 SAVE_INTERVAL = 60
 
-GAME_STATE_ENDPOINT = 'http://localhost:59757/api/GameState/'
+GAME_STATE_ENDPOINT = 'http://oaastateserver.azurewebsites.net/api/GameState/' -- "http://localhost:59757/api/GameState/" --
 
 DEBUG = false
 
@@ -16,19 +16,17 @@ function GameStateLoadSave:Init()
 end
 
 function GameStateLoadSave:EnableSaveState()
-  if IsServer() then
-    if not self.IsSaveSchedule then
-      GameStateLoadSave:InitKillList()
-      Timers:CreateTimer(SAVE_INTERVAL, function ()
-        GameStateLoadSave:SaveState()
-        return SAVE_INTERVAL
-      end)
+  if not self.IsSaveSchedule then
+    GameStateLoadSave:InitKillList()
+    Timers:CreateTimer(SAVE_INTERVAL, function ()
+      GameStateLoadSave:SaveState()
+      return SAVE_INTERVAL
+    end)
 
-      self.IsSaveSchedule = true
-    end
-
-    GameStateLoadSave:SaveState()
+    self.IsSaveSchedule = true
   end
+
+  GameStateLoadSave:SaveState()
 end
 
 function GameStateLoadSave:InitKillList()
@@ -44,42 +42,46 @@ function GameStateLoadSave:InitKillList()
 end
 
 function GameStateLoadSave:HeroDeathHandler(keys)
-  if IsServer() then
-    local killerEntity = keys.killer
-    local killedHero = keys.killed
-    local killerTeam = killerEntity:GetTeamNumber()
-    local killedTeam = killedHero:GetTeamNumber()
-    if killerTeam == killedTeam then
-      return
-    end
-    if killedHero:IsReincarnating() then
-      return
-    end
-    if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
-      return
-    end
-
-    local killerSteamID = PlayerResource:GetSteamAccountID(killerEntity:GetPlayerOwnerID())
-    local killedSteamID = PlayerResource:GetSteamAccountID(killedHero:GetPlayerOwnerID())
-
-    if self.KillList[killerSteamID] == nil then
-      self.KillList[killerSteamID] = {}
-    end
-    table.insert(self.KillList[killerSteamID], killedSteamID)
+  local killerEntity = keys.killer
+  local killedHero = keys.killed
+  local killerTeam = killerEntity:GetTeamNumber()
+  local killedTeam = killedHero:GetTeamNumber()
+  if killerTeam == killedTeam then
+    return
   end
+  if killedHero:IsReincarnating() then
+    return
+  end
+  if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
+    return
+  end
+
+  local killerSteamID = PlayerResource:GetSteamAccountID(killerEntity:GetPlayerOwnerID())
+  local killedSteamID = PlayerResource:GetSteamAccountID(killedHero:GetPlayerOwnerID())
+
+  if self.KillList[killerSteamID] == nil then
+    self.KillList[killerSteamID] = {}
+  end
+  table.insert(self.KillList[killerSteamID], killedSteamID)
 end
 
 function GameStateLoadSave:SaveState(callback)
   if not self.KillList then
+    print("InitKillList")
     self:InitKillList()
   end
   local newState = {}
+  print("SaveGameTime")
   self:SaveGameTime(newState)
+  print("SaveCave")
   self:SaveCave(newState)
+  print("SaveHerosPicks")
   self:SaveHerosPicks(newState)
+  print("SaveBossPitLvls")
   self:SaveBossPitLvls(newState)
+  print("SaveScore")
   self:SaveScore(newState)
-
+  print("SetRemoteState")
   self:SetRemoteState(newState, callback)
 
   if callback then
@@ -89,19 +91,26 @@ function GameStateLoadSave:SaveState(callback)
   return newState
 end
 function GameStateLoadSave:SetRemoteState(newState, callback)
+  self.RemoteState = json.encode(newState)
   if DEBUG then
     self.RemoteState = json.encode(newState)
     return
   end
+  newState.Caves[0]=-1
+  newState.Score[0]=-1
   self.Game_Key = 'TESTE'
+
   local req = CreateHTTPRequestScriptVM('POST', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
   local encoded = self.RemoteState
 
+  DevPrintTable(newState)
+  print(encoded)
   -- Add the data
   req:SetHTTPRequestRawPostBody('application/json', encoded)
 
   -- Send the request
   req:Send(function(res)
+    print("HTTP RETURN!!!!")
       if res.StatusCode ~= 200 then
         print("Error!!!!!")
         print("Status Code", res.StatusCode or "nil")
@@ -117,10 +126,11 @@ function GameStateLoadSave:GetRemoteState(callback)
     callback(encoded)
     return
   end
-
+  self.Game_Key = 'TESTE'
   local req = CreateHTTPRequestScriptVM('Get', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
   -- Send the request
   req:Send(function(res)
+      print("HTTP RETURN!!!!")
       if res.StatusCode ~= 200 then
         print("Error!!!!!")
         print("Status Code", res.StatusCode or "nil")
@@ -151,29 +161,34 @@ function GameStateLoadSave:GetRemoteState(callback)
 end
 
 function GameStateLoadSave:LoadStateEvent()
-  if IsServer() then
-    if DEBUG then
-      -- saves and reload
-      self:SaveState(function()
-        self:GetRemoteState(function(loadState)
-          self:LoadState(loadState)
-        end)
-      end)
-    else
+  if DEBUG then
+    -- saves and reload
+    self:SaveState(function()
       self:GetRemoteState(function(loadState)
         self:LoadState(loadState)
       end)
-    end
-
+    end)
+  else
+    self:GetRemoteState(function(loadState)
+      print("CALLBACK")
+      self:LoadState(loadState)
+    end)
   end
 end
 
 function GameStateLoadSave:LoadState(loadState)
+  DevPrintTable(loadState)
+  print("LoadCave")
   self:LoadCave(loadState)
+  print("LoadHerosPicks")
   self:LoadHerosPicks(loadState)
+  print("LoadBossPitLvls")
   self:LoadBossPitLvls(loadState)
+  print("LoadScore")
   self:LoadScore(loadState)
+  print("LoadGameTime")
   self:LoadGameTime(loadState)
+  print("FINISH")
 end
 
 function GameStateLoadSave:SaveHerosPicks(newState)
@@ -238,8 +253,12 @@ function GameStateLoadSave:LoadHerosPicks(state)
         -- Precache the new hero
         PrecacheUnitByNameAsync(state.Heroes[tostring(steamid)].HeroName, function() end)
         HeroSelection:GiveStartingHero(playerID, "npc_dota_hero_dummy_dummy")
-        HeroSelection:GiveStartingHero(playerID, state.Heroes[tostring(steamid)].HeroName)
-        self:LoadHero(state,state.Heroes[tostring(steamid)], PlayerResource:GetSelectedHeroEntity(playerID))
+        Timers:CreateTimer(1, function()
+          HeroSelection:GiveStartingHero(playerID, state.Heroes[tostring(steamid)].HeroName)
+          Timers:CreateTimer(1, function()
+            self:LoadHero(state,state.Heroes[tostring(steamid)], PlayerResource:GetSelectedHeroEntity(playerID))
+          end)
+        end)
       end
     end
   end
@@ -261,7 +280,7 @@ function GameStateLoadSave:LoadHero(state, heroTable, hHero)
 
   -- loading the abilities in the same frame is causing
   -- the modifiers to fail when applied
-  Timers:CreateTimer(0.2, function()
+  Timers:CreateTimer(1, function()
     self:LoadHeroAbilities(heroTable, hHero)
   end)
 
@@ -270,7 +289,7 @@ function GameStateLoadSave:LoadHero(state, heroTable, hHero)
   self:LoadHeroKDA(state, heroTable, hHero)
 
   -- Delay the modifiers setup for a second
-  Timers:CreateTimer(1, function()
+  Timers:CreateTimer(2, function()
     self:LoadHeroAbilitiesModifiers(heroTable, hHero)
   end)
 end
