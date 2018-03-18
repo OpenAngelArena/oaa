@@ -1,6 +1,8 @@
 /* global $ */
 'use strict';
 
+$.Msg('Loading Utils!!!!!!!!!!')
+
 /*
   Author:
     Angel Arena Blackstar
@@ -14,6 +16,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.ColoredText = ColoredText;
   module.exports.LuaTableToArray = LuaTableToArray;
 }
+
 
 class HudNotFoundException {
   constructor(readonly message: string) {
@@ -63,3 +66,6 @@ function ColoredText(colorCode: string, text: string): string {
   return `<font color="${colorCode}">${text}</font>`
 }
 // SNIPPET END
+
+
+$.Msg('Finish Loading Utils!!!!!!!!!!')
