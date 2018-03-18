@@ -1,5 +1,26 @@
-/* global FindDotaHudElement, $, GameEvents */
+/* global $, GameEvents, DOMException */
 'use strict';
+class ScepterUtils {
+  constructor() {
+  }
+
+  static FindDotaHudElement(id: string): Panel {
+    return ScepterUtils.GetDotaHud().FindChildTraverse(id);
+  }
+
+  static GetDotaHud() {
+    var p: Panel | null = $.GetContextPanel();
+    while (p !== null && p.id !== 'Hud') {
+      p = p.GetParent();
+    }
+    if (p === null) {
+      throw new DOMException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
+    } else {
+      return p;
+    }
+  }
+}
+
 
 interface ScepterUpgradeEvtArgs
 {
@@ -48,7 +69,7 @@ function UpdateTalentBranchOption(talentSideRoot: Panel, isRightSide: boolean, i
 
 function UpdateTalentTreeBranch(level: number, isRightSide: boolean, isUpgrade: boolean)
 {
-  let root = FindDotaHudElement('StatPipContainer');
+  let root = ScepterUtils.FindDotaHudElement('StatPipContainer');
   let talentTreeRowIds= ['undefined', 'StatRow10', 'StatRow15', 'StatRow20', 'StatRow25'];
   if( (root.BHasClass('RightBranchSelected') && isRightSide) ||
     (root.BHasClass('LeftBranchSelected') && !isRightSide) || level < 1 || level > 4){
@@ -64,7 +85,7 @@ function UpdateTalentTreeBranch(level: number, isRightSide: boolean, isUpgrade: 
 function FindTalentSideRootPanel(level : number, isRightSide : boolean) : Panel
 {
   $.Msg('UpgradeOption' + level.toString());
-  let upgradeTalentRoot = FindDotaHudElement('StatBranchColumn').FindChildTraverse('UpgradeOption' + level.toString());
+  let upgradeTalentRoot = ScepterUtils.FindDotaHudElement('StatBranchColumn').FindChildTraverse('UpgradeOption' + level.toString());
   let upgradeNumber = isRightSide? (level -1)*2 + 1 : (level -1)*2 + 2;
   $.Msg('Upgrade' + upgradeNumber.toString());
   return upgradeTalentRoot.FindChildTraverse('Upgrade' + upgradeNumber.toString());
