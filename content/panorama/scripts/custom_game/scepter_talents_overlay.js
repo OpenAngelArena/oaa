@@ -1,5 +1,24 @@
-/* global FindDotaHudElement, $, GameEvents */
+/* global $, GameEvents, DOMException */
 'use strict';
+var ScepterUtils = /** @class */ (function () {
+  function ScepterUtils () {
+  }
+  ScepterUtils.FindDotaHudElement = function (id) {
+    return ScepterUtils.GetDotaHud().FindChildTraverse(id);
+  };
+  ScepterUtils.GetDotaHud = function () {
+    var p = $.GetContextPanel();
+    while (p !== null && p.id !== 'Hud') {
+      p = p.GetParent();
+    }
+    if (p === null) {
+      throw new DOMException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
+    } else {
+      return p;
+    }
+  };
+  return ScepterUtils;
+}());
 function UpdateTalentBranchOption (talentSideRoot, isRightSide, isUpgrade) {
   if (talentSideRoot == null) {
     $.Msg('ScepterUpgrade - Root not found');
@@ -31,7 +50,7 @@ function UpdateTalentBranchOption (talentSideRoot, isRightSide, isUpgrade) {
   scepterImage.style.opacity = isUpgrade ? '0.2' : '0';
 }
 function UpdateTalentTreeBranch (level, isRightSide, isUpgrade) {
-  var root = FindDotaHudElement('StatPipContainer');
+  var root = ScepterUtils.FindDotaHudElement('StatPipContainer');
   var talentTreeRowIds = ['undefined', 'StatRow10', 'StatRow15', 'StatRow20', 'StatRow25'];
   if ((root.BHasClass('RightBranchSelected') && isRightSide) ||
         (root.BHasClass('LeftBranchSelected') && !isRightSide) || level < 1 || level > 4) {
@@ -44,7 +63,7 @@ function UpdateTalentTreeBranch (level, isRightSide, isUpgrade) {
 }
 function FindTalentSideRootPanel (level, isRightSide) {
   $.Msg('UpgradeOption' + level.toString());
-  var upgradeTalentRoot = FindDotaHudElement('StatBranchColumn').FindChildTraverse('UpgradeOption' + level.toString());
+  var upgradeTalentRoot = ScepterUtils.FindDotaHudElement('StatBranchColumn').FindChildTraverse('UpgradeOption' + level.toString());
   var upgradeNumber = isRightSide ? (level - 1) * 2 + 1 : (level - 1) * 2 + 2;
   $.Msg('Upgrade' + upgradeNumber.toString());
   return upgradeTalentRoot.FindChildTraverse('Upgrade' + upgradeNumber.toString());

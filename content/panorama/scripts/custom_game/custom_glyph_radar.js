@@ -1,10 +1,29 @@
-/* global FindDotaHudElement, GameEvents, $, DOTA_GameState, Game */
+/* global GameEvents, $, DOTA_GameState, Game, DOMException */
 'use strict';
+var GlyphRadarUtils = /** @class */ (function () {
+  function GlyphRadarUtils () {
+  }
+  GlyphRadarUtils.FindDotaHudElement = function (id) {
+    return GlyphRadarUtils.GetDotaHud().FindChildTraverse(id);
+  };
+  GlyphRadarUtils.GetDotaHud = function () {
+    var p = $.GetContextPanel();
+    while (p !== null && p.id !== 'Hud') {
+      p = p.GetParent();
+    }
+    if (p === null) {
+      throw new DOMException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
+    } else {
+      return p;
+    }
+  };
+  return GlyphRadarUtils;
+}());
 var GlyphScanContainer = /** @class */ (function () {
   // constructor
   function GlyphScanContainer () {
     var _this = this;
-    this.root = FindDotaHudElement('GlyphScanContainer');
+    this.root = GlyphRadarUtils.FindDotaHudElement('GlyphScanContainer');
     $.GetContextPanel().RemoveAndDeleteChildren();
     var panel = $.CreatePanel('Panel', $.GetContextPanel(), '');
     panel.BLoadLayoutSnippet('CustomGlyphRadarContainerSnippet');

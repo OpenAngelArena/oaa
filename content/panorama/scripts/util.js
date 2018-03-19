@@ -1,5 +1,6 @@
 /* global $ */
 'use strict';
+$.Msg('Loading Utils!!!!!!!!!!');
 /*
   Author:
     Angel Arena Blackstar
@@ -56,3 +57,5 @@ function ColorToHexCode (color) {
 function ColoredText (colorCode, text) {
   return '<font color="' + colorCode + '">' + text + '</font>';
 }
+// SNIPPET END
+$.Msg('Finish Loading Utils!!!!!!!!!!');

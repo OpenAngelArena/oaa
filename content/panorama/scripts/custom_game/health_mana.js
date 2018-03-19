@@ -1,11 +1,32 @@
-/* global FindDotaHudElement, GameEvents, Players, CustomNetTables */
+/* global $, GameEvents, Players, CustomNetTables, DOTA_GameState */
 'use strict';
 
-var HealthRegenLabel = null
-var ManaRegenLabel = null
+var HudNotFoundException = /** @class */ (function () {
+  function HudNotFoundException (message) {
+    this.message = message;
+  }
+  return HudNotFoundException;
+}());
+function FindDotaHudElement (id) {
+  return GetDotaHud().FindChildTraverse(id);
+}
+function GetDotaHud () {
+  var p = $.GetContextPanel();
+  while (p !== null && p.id !== 'Hud') {
+    p = p.GetParent();
+  }
+  if (p === null) {
+    throw new HudNotFoundException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
+  } else {
+    return p;
+  }
+}
+
+var HealthRegenLabel = null;
+var ManaRegenLabel = null;
 
 // subscribe only after the game start (fix loading problems)
-var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
+GameEvents.Subscribe('oaa_state_change', function (args) {
   if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
     var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 
@@ -41,11 +62,11 @@ function onEntityStatChange (arg, updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
-  if(HealthRegenLabel !== null){
+  if (HealthRegenLabel !== null) {
     HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
   }
 
-  if(ManaRegenLabel !== null){
+  if (ManaRegenLabel !== null) {
     ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
   }
 }
