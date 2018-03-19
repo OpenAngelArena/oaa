@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities */
+/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
 /*
   Author:
     Chronophylos
@@ -20,7 +20,6 @@ var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
     GameEvents.Unsubscribe(eventHandler);
   }
 });
-
 
 function onQueryChange () {
   onGoldChange('gold', PlayerTables.GetAllTableValues('gold'));
