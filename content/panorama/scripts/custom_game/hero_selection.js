@@ -1,26 +1,4 @@
-/* global Players, $, GameEvents, CustomNetTables , Game */
-
-$.Msg('Loading HeroSelection !!!!!!!!!!');
-var HudNotFoundException = /** @class */ (function () {
-  function HudNotFoundException (message) {
-    this.message = message;
-  }
-  return HudNotFoundException;
-}());
-function FindDotaHudElement (id) {
-  return GetDotaHud().FindChildTraverse(id);
-}
-function GetDotaHud () {
-  var p = $.GetContextPanel();
-  while (p !== null && p.id !== 'Hud') {
-    p = p.GetParent();
-  }
-  if (p === null) {
-    throw new HudNotFoundException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
-  } else {
-    return p;
-  }
-}
+/* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -689,5 +667,3 @@ function CreateHeroPanel (parent, hero) {
 
   return scene;
 }
-
-$.Msg('Finish Loading Hero Selection!!!!!!!!!!');

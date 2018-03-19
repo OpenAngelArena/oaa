@@ -1,29 +1,10 @@
-/* global Game, GameEvents, LuaTableToArray, ColorToHexCode, ColoredText, Players, DOMException, $ */
+/* global Game, GameEvents, FindDotaHudElement, LuaTableToArray, ColorToHexCode, ColoredText, Players, $ */
 'use strict';
-var HeroBountyUtils = /** @class */ (function () {
-  function HeroBountyUtils () {
-  }
-  HeroBountyUtils.FindDotaHudElement = function (id) {
-    return HeroBountyUtils.GetDotaHud().FindChildTraverse(id);
-  };
-  HeroBountyUtils.GetDotaHud = function () {
-    var p = $.GetContextPanel();
-    while (p !== null && p.id !== 'Hud') {
-      p = p.GetParent();
-    }
-    if (p === null) {
-      throw new DOMException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
-    } else {
-      return p;
-    }
-  };
-  return HeroBountyUtils;
-}());
 (function () {
   GameEvents.Subscribe('override_hero_bounty_toast', OverrideHeroBountyToast);
 }());
 function OverrideHeroBountyToast (data) {
-  var toasts = HeroBountyUtils.FindDotaHudElement('ToastManager').Children();
+  var toasts = FindDotaHudElement('ToastManager').Children();
   var killMessageToast;
   do {
     killMessageToast = toasts.pop();

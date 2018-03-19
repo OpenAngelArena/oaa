@@ -1,4 +1,4 @@
-/* global $, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
+/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities */
 /*
   Author:
     Chronophylos
@@ -7,27 +7,6 @@
     Angel Arena Blackstar
 */
 'use strict';
-
-var HudNotFoundException = /** @class */ (function () {
-  function HudNotFoundException (message) {
-    this.message = message;
-  }
-  return HudNotFoundException;
-}());
-function FindDotaHudElement (id) {
-  return GetDotaHud().FindChildTraverse(id);
-}
-function GetDotaHud () {
-  var p = $.GetContextPanel();
-  while (p !== null && p.id !== 'Hud') {
-    p = p.GetParent();
-  }
-  if (p === null) {
-    throw new HudNotFoundException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
-  } else {
-    return p;
-  }
-}
 
 // settings
 var useFormatting = 'half';
@@ -41,6 +20,7 @@ var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
     GameEvents.Unsubscribe(eventHandler);
   }
 });
+
 
 function onQueryChange () {
   onGoldChange('gold', PlayerTables.GetAllTableValues('gold'));

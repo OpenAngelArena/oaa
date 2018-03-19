@@ -1,26 +1,5 @@
-/* global GameEvents, $, DOTA_GameState, Game, DOMException */
+/* global FindDotaHudElement, GameEvents, $, DOTA_GameState, Game */
 'use strict';
-
-class GlyphRadarUtils {
-  constructor() {
-  }
-
-  static FindDotaHudElement(id: string): Panel {
-    return GlyphRadarUtils.GetDotaHud().FindChildTraverse(id);
-  }
-
-  static GetDotaHud() {
-    var p: Panel | null = $.GetContextPanel();
-    while (p !== null && p.id !== 'Hud') {
-      p = p.GetParent();
-    }
-    if (p === null) {
-      throw new DOMException('Could not find Hud root as parent of panel with id: ' + $.GetContextPanel().id);
-    } else {
-      return p;
-    }
-  }
-}
 
 interface StateChangeEvtArgs
 {
@@ -48,7 +27,7 @@ class GlyphScanContainer {
 
   // constructor
   constructor() {
-    this.root = GlyphRadarUtils.FindDotaHudElement('GlyphScanContainer');
+    this.root = FindDotaHudElement('GlyphScanContainer');
 
     $.GetContextPanel().RemoveAndDeleteChildren();
     let panel = $.CreatePanel('Panel', $.GetContextPanel(), '');
