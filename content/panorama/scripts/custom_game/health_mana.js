@@ -1,11 +1,11 @@
-/* global FindDotaHudElement, GameEvents, Players, CustomNetTables */
+/* global FindDotaHudElement, GameEvents, Players, CustomNetTables, DOTA_GameState */
 'use strict';
 
-var HealthRegenLabel = null
-var ManaRegenLabel = null
+var HealthRegenLabel = null;
+var ManaRegenLabel = null;
 
 // subscribe only after the game start (fix loading problems)
-var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
+GameEvents.Subscribe('oaa_state_change', function (args) {
   if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
     var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 
@@ -41,11 +41,11 @@ function onEntityStatChange (arg, updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
-  if(HealthRegenLabel !== null){
+  if (HealthRegenLabel !== null) {
     HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
   }
 
-  if(ManaRegenLabel !== null){
+  if (ManaRegenLabel !== null) {
     ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
   }
 }
