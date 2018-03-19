@@ -1,6 +1,6 @@
 <root>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/playertables/playertables_base.js" />
     <include src="file://{resources}/scripts/custom_game/gold.js" />
     <include src="file://{resources}/scripts/custom_game/pointsmanager.js" />

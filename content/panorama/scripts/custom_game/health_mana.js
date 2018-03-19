@@ -1,24 +1,33 @@
-/* global FindDotaHudElement, GameEvents, Players, CustomNetTables */
+/* global FindDotaHudElement, GameEvents, Players, CustomNetTables, DOTA_GameState */
 'use strict';
 
-(function () {
-  GameEvents.Subscribe('player_stats_updated', HandleStatChange);
-  GameEvents.Subscribe('dota_portrait_unit_stats_changed', HandleStatChange);
-  GameEvents.Subscribe('dota_portrait_unit_modifiers_changed', HandleStatChange);
-  GameEvents.Subscribe('dota_inventory_changed', HandleStatChange);
-  GameEvents.Subscribe('dota_inventory_item_changed', HandleStatChange);
-  GameEvents.Subscribe('dota_inventory_changed_query_unit', HandleStatChange);
-  GameEvents.Subscribe('dota_player_update_hero_selection', HandleStatChange);
-  GameEvents.Subscribe('dota_player_update_selected_unit', HandleStatChange);
-  GameEvents.Subscribe('dota_player_update_query_unit', HandleStatChange);
-  GameEvents.Subscribe('dota_ability_changed', HandleStatChange);
+var HealthRegenLabel = null;
+var ManaRegenLabel = null;
 
-  CustomNetTables.SubscribeNetTableListener('entity_stats', onEntityStatChange);
-}());
+// subscribe only after the game start (fix loading problems)
+GameEvents.Subscribe('oaa_state_change', function (args) {
+  if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+    var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 
-var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
-var HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel');
-var ManaRegenLabel = HealthManaContainer.FindChildTraverse('ManaRegenLabel');
+    // Populate global elements
+    HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel');
+    ManaRegenLabel = HealthManaContainer.FindChildTraverse('ManaRegenLabel');
+
+    // Subscribe
+    GameEvents.Subscribe('player_stats_updated', HandleStatChange);
+    GameEvents.Subscribe('dota_portrait_unit_stats_changed', HandleStatChange);
+    GameEvents.Subscribe('dota_portrait_unit_modifiers_changed', HandleStatChange);
+    GameEvents.Subscribe('dota_inventory_changed', HandleStatChange);
+    GameEvents.Subscribe('dota_inventory_item_changed', HandleStatChange);
+    GameEvents.Subscribe('dota_inventory_changed_query_unit', HandleStatChange);
+    GameEvents.Subscribe('dota_player_update_hero_selection', HandleStatChange);
+    GameEvents.Subscribe('dota_player_update_selected_unit', HandleStatChange);
+    GameEvents.Subscribe('dota_player_update_query_unit', HandleStatChange);
+    GameEvents.Subscribe('dota_ability_changed', HandleStatChange);
+
+    CustomNetTables.SubscribeNetTableListener('entity_stats', onEntityStatChange);
+  }
+});
 
 function HandleStatChange () {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
@@ -32,8 +41,13 @@ function onEntityStatChange (arg, updatedEntity, data) {
   var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
-  HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
-  ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
+  if (HealthRegenLabel !== null) {
+    HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
+  }
+
+  if (ManaRegenLabel !== null) {
+    ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
+  }
 }
 
 function FormatRegen (number) {
