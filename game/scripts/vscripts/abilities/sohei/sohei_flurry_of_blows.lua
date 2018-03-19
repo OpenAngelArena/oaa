@@ -33,6 +33,12 @@ end
 
 --------------------------------------------------------------------------------
 
+function sohei_flurry_of_blows:GetAssociatedSecondaryAbilities()
+  return "sohei_momentum"
+end
+
+--------------------------------------------------------------------------------
+
 function sohei_flurry_of_blows:GetChannelTime()
   --[[
   if self:GetCaster():HasScepter() then
