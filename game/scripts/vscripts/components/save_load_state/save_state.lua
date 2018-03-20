@@ -7,15 +7,27 @@ DEBUG = false
 
 if GameStateLoadSave == nil then
   GameStateLoadSave = class({})
-  ChatCommand:LinkCommand("-save", Dynamic_Wrap(GameStateLoadSave, "EnableSaveState"), GameStateLoadSave)
-  ChatCommand:LinkCommand("-load", Dynamic_Wrap(GameStateLoadSave, "LoadStateEvent"), GameStateLoadSave)
 end
 
 function GameStateLoadSave:Init()
   GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
+  ChatCommand:LinkCommand("-save", Dynamic_Wrap(GameStateLoadSave, "EnableSaveState"), self)
+  ChatCommand:LinkCommand("-load", Dynamic_Wrap(GameStateLoadSave, "LoadStateEvent"), self)
 end
 
-function GameStateLoadSave:EnableSaveState()
+function GameStateLoadSave:EnableSaveState(keys)
+  if keys then
+    local text = string.lower(keys.text)
+    local splitted = split(text, " ")
+    if splitted[2] ~= nil then
+      self.Game_Key = splitted[2]
+    end
+    if splitted[3] ~= nil then
+      self.Game_Pass = splitted[3]
+    end
+  end
+
+  print("Saving Game State")
   if not self.IsSaveSchedule then
     GameStateLoadSave:InitKillList()
     Timers:CreateTimer(SAVE_INTERVAL, function ()
@@ -82,15 +94,16 @@ function GameStateLoadSave:SaveState(callback)
   print("SaveScore")
   self:SaveScore(newState)
   print("SetRemoteState")
-  self:SetRemoteState(newState, callback)
+  self:SetRemoteState(newState)
 
   if callback then
+    print("Finish Saving State, calling Callback")
     callback()
   end
 
   return newState
 end
-function GameStateLoadSave:SetRemoteState(newState, callback)
+function GameStateLoadSave:SetRemoteState(newState)
   self.RemoteState = json.encode(newState)
   if DEBUG then
     self.RemoteState = json.encode(newState)
@@ -98,7 +111,10 @@ function GameStateLoadSave:SetRemoteState(newState, callback)
   end
   newState.Caves[0]=-1
   newState.Score[0]=-1
-  self.Game_Key = 'TESTE'
+
+  if self.Game_Key == nil then
+    self.Game_Key = 'TEST'
+  end
 
   local req = CreateHTTPRequestScriptVM('POST', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
   local encoded = self.RemoteState
@@ -126,7 +142,11 @@ function GameStateLoadSave:GetRemoteState(callback)
     callback(encoded)
     return
   end
-  self.Game_Key = 'TESTE'
+
+  if self.Game_Key == nil then
+    self.Game_Key = 'TEST'
+  end
+
   local req = CreateHTTPRequestScriptVM('Get', GAME_STATE_ENDPOINT .. self.Game_Key .. '/')
   -- Send the request
   req:Send(function(res)
@@ -160,7 +180,18 @@ function GameStateLoadSave:GetRemoteState(callback)
 
 end
 
-function GameStateLoadSave:LoadStateEvent()
+function GameStateLoadSave:LoadStateEvent(keys)
+  if keys then
+    local text = string.lower(keys.text)
+    local splitted = split(text, " ")
+    if splitted[2] ~= nil then
+      self.Game_Key = splitted[2]
+    end
+    if splitted[3] ~= nil then
+      self.Game_Pass = splitted[3]
+    end
+  end
+
   if DEBUG then
     -- saves and reload
     self:SaveState(function()
