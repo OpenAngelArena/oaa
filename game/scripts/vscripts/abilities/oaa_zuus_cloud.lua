@@ -1,7 +1,7 @@
-zuus_cloud = class( AbilityBaseClass )
+zuus_cloud_oaa = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
 
-function zuus_cloud:OnSpellStart()
+function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), true, caster, caster, caster:GetTeamNumber() )
   hCloud:SetOwner( self:GetCaster() )
@@ -9,6 +9,19 @@ function zuus_cloud:OnSpellStart()
   hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", nil )
   hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
   FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
+end
+
+function zuus_cloud_oaa:OnHeroCalculateStatBonus()
+	local caster = self:GetCaster()
+
+	if caster:HasScepter() then
+		self:SetHidden( false )
+		if self:GetLevel() <= 0 then
+			self:SetLevel( 1 )
+		end
+	else
+		self:SetHidden( true )
+	end
 end
 
 modifier_zuus_cloud_oaa = class( ModifierBaseClass )
@@ -50,8 +63,29 @@ function modifier_zuus_cloud_oaa:OnDestroy()
   end
 end
 
+function modifier_zuus_cloud_oaa:DeclareFunctions()
+	local funcs =
+	{
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+	}
+	return funcs
+end
+
+function modifier_zuus_cloud_oaa:GetModifierIncomingDamage_Percentage( params )
+  local attacker = params.attacker;
+  -- percentage base applied to the income damage
+  -- -100 = 100% block
+  -- -100 + K/damage = K damage
+  if attacker:IsHero() and attacker:IsRangedAttacker() then
+    return -100 + math.ceil(1000*2/params.damage)/10
+  elseif attacker:IsHero() and not attacker:IsRangedAttacker() then
+    return -100 + math.ceil(1000*4/params.damage)/10
+  else
+    return -100 + math.ceil(1000/params.damage)/10
+  end
+end
+
 function modifier_zuus_cloud_oaa:OnIntervalThink()
-  print(self.Interval)
   if self.LastStrike == nil or GameRules:GetDOTATime(false, false) - self.LastStrike > self.Interval then
     local caster = self:GetCaster()
     local targets = FindUnitsInRadius(
