@@ -33,49 +33,54 @@ The following parameters are use in this way:
 
 local AssistGoldTable = {
     [1] = {
-      base = 140,
-      nwMult = 0.0375,
+      base = 126,
+      comebackbase = 70,
+      nwMult = 0.026,
       advantageMult = 100,
       advantageFactor = 4000,
       nwMultBase = 1.2,
-      nwMultMult = 0.1,
+      nwMultMult = 0.15,
       nwRankingFactor = { 1 }
     },
     [2] = {
-      base = 70,
-      nwMult = 0.0375,
+      base = 63,
+      comebackbase = 70,
+      nwMult = 0.026,
       advantageMult = 75,
       advantageFactor = 4000,
       nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 1.25 }
+      nwMultMult = 0.15,
+      nwRankingFactor = { 0.7, 1.3 }
     },
     [3] = {
-      base = 35,
-      nwMult = 0.0375,
+      base = 31.5,
+      comebackbase = 70,
+      nwMult = 0.026,
       advantageMult = 50,
       advantageFactor = 4000,
       nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 1, 1.25 }
+      nwMultMult = 0.15,
+      nwRankingFactor = { 0.7, 1, 1.3 }
     },
     [4] = {
-      base = 25,
-      nwMult = 0.03,
+      base = 22.5,
+      comebackbase = 70,
+      nwMult = 0.026,
       advantageMult = 35,
       advantageFactor = 4000,
       nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 0.75, 1.25, 1.25 }
+      nwMultMult = 0.15,
+      nwRankingFactor = { 0.7, 0.9, 1.1, 1.3 }
     },
     [5] = {
-      base = 20,
-      nwMult = 0.0225,
+      base = 18,
+      comebackbase = 70,
+      nwMult = 0.026,
       advantageMult = 35,
       advantageFactor = 4000,
       nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 0.75, 1, 1.25, 1.25 }
+      nwMultMult = 0.15,
+      nwRankingFactor = { 0.7, 0.85, 1, 1.15, 1.3 }
     },
     max = 5
   }
@@ -252,11 +257,10 @@ function HeroKillGold:HeroDeathHandler (keys)
       nwRankingFactor = { 1 }
     ]]
     -- 5 Heroes: [20 Gold + (1 × dying hero's level) + (0.0225 × dying hero's NW × NW factor) + (25 Gold × team NW disadvantage / 4000)]
-    local assistGold = (parameters.base + (math.max(1, 6 - #heroes) * killedHeroLevelFactor) + (parameters.nwMult * killedNetworth * nwFactor) + (parameters.advantageMult * teamNWDisadvantage))
+    local assistGold = (parameters.base + 0.9*(math.max(1, 6 - #heroes) * killedHeroLevelFactor) + parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)]*(parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1))*(parameters.nwMult * killedNetworth + parameters.comebackbase)/#heroes)
     DebugPrint('(' .. parameters.base .. ' + (' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevel .. ') + (' .. parameters.nwMult .. ' * ' .. killedNetworth .. ' * ' .. nwFactor .. ') + (' .. parameters.advantageMult .. ' * ' .. teamNWDisadvantage .. '))) = ' .. assistGold)
     -- × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × [NW ranking factor]
     DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)] .. ' = ...')
-    assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)]
     assistGold = math.floor(assistGold)
     DebugPrint(assistGold)
 
