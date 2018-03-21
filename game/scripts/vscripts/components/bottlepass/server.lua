@@ -9,7 +9,7 @@ AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://chrisinajar.com:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.10.110:9969/'
 end
 
 function Bottlepass:Init ()
@@ -81,19 +81,27 @@ end
 
 function Bottlepass:Ready ()
   local userList = {}
+  local hostId = 0
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     if steamid ~= 0 then
       table.insert(userList, steamid)
+
+      local player = PlayerResource:GetPlayer(playerID)
+      if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+        hostId = steamid
+      end
     end
   end
 
   DebugPrint('Sending auth request ' .. GameStartTime)
+  DebugPrint(BATTLE_PASS_SERVER .. 'auth')
 
   self:Request('auth', {
     users = userList,
     gametime = GameStartTime,
     toolsMode = IsInToolsMode(),
+    hostId = hostId,
     cheatsMode = GameRules:IsCheatMode()
   }, function (err, data)
     if err then
