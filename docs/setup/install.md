@@ -47,7 +47,7 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
 
 ### Open Up Command Prompt (PowerShell will also work and is preferred if you can use PowerShell)
 
-- NOTE: If your DOTA 2 client is NOT installed on your default drive (Usually `C:\`), then start by running the following command `cd G:\` Where `G` is replaced by the drive letter you need to change to.
+- NOTE: If your DOTA 2 client is NOT installed on your default drive (Usually `C:\`), then start by running the following command `G:` Where `G` is replaced by the drive letter you need to change to.
 - Run the following in your command prompt (Or PowerShell).
   - `cd "SOME_PATH"` Where `SOME_PATH` is replaced by the location where Open Angel Arena was cloned to
   
@@ -65,7 +65,7 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
 
 ### Check tools mode
 
-- Go into `community` -> `library` -> `games` -> `DOTA 2` (This is the same menu you have used for getting to the properties to install the tools client)
+- Go into `Steam` -> `library` -> `games` -> `DOTA 2` (This is the same menu you have used for getting to the properties to install the tools client)
 - In that right click menu NEAR THE TOP, is `Launch DOTA 2 - Tools`.  Click this option
 - If all of the above installation has worked, you should see the Open Angel Arena directory name without a lock next to it in the custom games selection
 
