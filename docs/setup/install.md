@@ -63,6 +63,20 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
   
   ![CLI Pt.2](../.images/Installation_CLI_2.png)
 
+### Add required DLL
+
+Two methods of getting the proper DLL
+
+- A. Compiling
+  - Download the source code for [mpg123](https://sourceforge.net/projects/mpg123/files/mpg123/1.23.8/)
+  - Unpack the tar.bz2 file, open that directory and run `makedll.sh`
+  - When this completes, open the `build` directory and find the `libdll123-0.dll` file.
+
+- B. Download from us
+  - If you're lazy and want to get fast, download the file from [this repo](TBD)
+
+- After you have the DLL, Go back to your `dota 2 beta` directory, and place this DLL file into ... TBD
+
 ### Check tools mode
 
 - Go into `Steam` -> `library` -> `games` -> `DOTA 2` (This is the same menu you have used for getting to the properties to install the tools client)
