@@ -202,7 +202,7 @@ end
 
 function modifier_electrician_cleansing_shock_ally:DeclareFunctions()
 	local func = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 	}
 
 	return func
@@ -210,7 +210,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_electrician_cleansing_shock_ally:GetModifierMoveSpeedBonus_Constant( event )
+function modifier_electrician_cleansing_shock_ally:GetModifierMoveSpeedBonus_Percentage( event )
 	return self.moveSpeed
 end
 
@@ -264,7 +264,7 @@ end
 
 function modifier_electrician_cleansing_shock_enemy:DeclareFunctions()
 	local func = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 	}
 
 	return func
@@ -272,6 +272,6 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_electrician_cleansing_shock_enemy:GetModifierMoveSpeedBonus_Constant( event )
+function modifier_electrician_cleansing_shock_enemy:GetModifierMoveSpeedBonus_Percentage( event )
 	return -self.moveSpeed
 end
