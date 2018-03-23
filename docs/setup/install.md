@@ -73,7 +73,7 @@ Two methods of getting the proper DLL
   - When this completes, open the `build` directory and find the `libdll123-0.dll` file.
 
 - B. Download from us
-  - If you're lazy and want to get going fast, download the file from [this repo](https://github.com/OpenAngelArena/oaa/libs/libmpg123-0.dll)
+  - If you're lazy and want to get going fast, download the file from [this repo](https://github.com/OpenAngelArena/oaa/blob/master/libs/libmpg123-0.dll)
 
 - After you have the DLL, Go back to your `dota 2 beta` directory, and place this DLL file into `game/bin/win64`.
 
