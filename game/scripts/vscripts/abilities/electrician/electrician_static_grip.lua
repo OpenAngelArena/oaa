@@ -26,6 +26,7 @@ function electrician_static_grip:OnSpellStart()
 		-- create the movement modifier on caster
 		caster:AddNewModifier( caster, self, "modifier_electrician_static_grip_movement", {
 			target = target:entindex(),
+			duration = durationMax,
 		} )
 	else
 		-- without this the caster will continue channeling with no effect
