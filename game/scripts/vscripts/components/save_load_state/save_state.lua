@@ -10,7 +10,6 @@ if GameStateLoadSave == nil then
 end
 
 function GameStateLoadSave:Init()
-  GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
   ChatCommand:LinkCommand("-save", Dynamic_Wrap(GameStateLoadSave, "EnableSaveState"), self)
   ChatCommand:LinkCommand("-load", Dynamic_Wrap(GameStateLoadSave, "LoadStateEvent"), self)
 end
@@ -53,29 +52,29 @@ function GameStateLoadSave:InitKillList()
   end
 end
 
-function GameStateLoadSave:HeroDeathHandler(keys)
-  local killerEntity = keys.killer
-  local killedHero = keys.killed
-  local killerTeam = killerEntity:GetTeamNumber()
-  local killedTeam = killedHero:GetTeamNumber()
-  if killerTeam == killedTeam then
-    return
-  end
-  if killedHero:IsReincarnating() then
-    return
-  end
-  if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
-    return
-  end
+-- function GameStateLoadSave:HeroDeathHandler(keys)
+--   local killerEntity = keys.killer
+--   local killedHero = keys.killed
+--   local killerTeam = killerEntity:GetTeamNumber()
+--   local killedTeam = killedHero:GetTeamNumber()
+--   if killerTeam == killedTeam then
+--     return
+--   end
+--   if killedHero:IsReincarnating() then
+--     return
+--   end
+--   if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
+--     return
+--   end
 
-  local killerSteamID = PlayerResource:GetSteamAccountID(killerEntity:GetPlayerOwnerID())
-  local killedSteamID = PlayerResource:GetSteamAccountID(killedHero:GetPlayerOwnerID())
+--   local killerSteamID = PlayerResource:GetSteamAccountID(killerEntity:GetPlayerOwnerID())
+--   local killedSteamID = PlayerResource:GetSteamAccountID(killedHero:GetPlayerOwnerID())
 
-  if self.KillList[killerSteamID] == nil then
-    self.KillList[killerSteamID] = {}
-  end
-  table.insert(self.KillList[killerSteamID], killedSteamID)
-end
+--   if self.KillList[killerSteamID] == nil then
+--     self.KillList[killerSteamID] = {}
+--   end
+--   table.insert(self.KillList[killerSteamID], killedSteamID)
+-- end
 
 function GameStateLoadSave:SaveState(callback)
   if not self.KillList then
@@ -103,6 +102,7 @@ function GameStateLoadSave:SaveState(callback)
 
   return newState
 end
+
 function GameStateLoadSave:SetRemoteState(newState)
   self.RemoteState = json.encode(newState)
   if DEBUG then
@@ -223,11 +223,15 @@ function GameStateLoadSave:LoadState(loadState)
 end
 
 function GameStateLoadSave:SaveHerosPicks(newState)
+  print("SaveHerosPicks! ")
   newState.Heroes = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     local player = PlayerResource:GetPlayer(playerID)
+    print("SaveHerosPicks! 2 - " .. steamid)
+    print("SaveHerosPicks! 2.1 - " .. playerID)
     if player then
+      print("SaveHerosPicks! 3 - " .. playerID)
       local heroTable = {}
       heroTable.SteamId = steamid
       local hHero = player:GetAssignedHero()
@@ -239,7 +243,7 @@ end
 
 function GameStateLoadSave:SaveHeroKDA(heroTable, hHero)
   heroTable.KDA = {}
-  heroTable.KDA.KillList = self.KillList[heroTable.SteamId]
+  --heroTable.KDA.KillList = self.KillList[heroTable.SteamId]
   heroTable.KDA.Kills = hHero:GetKills()
   heroTable.KDA.Deaths = hHero:GetDeaths()
   heroTable.KDA.Assists = hHero:GetAssists()
@@ -296,11 +300,13 @@ function GameStateLoadSave:LoadHerosPicks(state)
 end
 
 function GameStateLoadSave:SaveHero(heroTable, hHero)
+  print("SaveHero! ")
   heroTable.HeroName = hHero:GetUnitName()
   heroTable.XP = hHero:GetCurrentXP()
   heroTable.Gold = hHero:GetGold()
   heroTable.AbilityPoits = hHero:GetAbilityPoints()
 
+  DevPrintTable(heroTable)
   self:SaveHeroAbilities(heroTable, hHero)
   self:SaveHeroItems(heroTable, hHero)
   self:SaveHeroKDA(heroTable, hHero)
