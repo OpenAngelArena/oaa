@@ -1,6 +1,6 @@
 # Dota 2 Addon Manager (d2am)
 
-Updated 2017-12-05
+Updated 2018-03-22
 
 [< Table of Contents][0]
 
