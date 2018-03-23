@@ -116,14 +116,11 @@ if IsServer() then
 		self:SetStackCount( event.shieldHP )
 
 		-- grab ability specials
+		local damageInterval = spell:GetSpecialValueFor( "aura_interval" )
 		self.shieldRate = spell:GetSpecialValueFor( "shield_damage_block" ) * 0.01
 		self.damageRadius =  spell:GetSpecialValueFor( "aura_radius" )
-		self.damagePerSecond = spell:GetSpecialValueFor( "aura_damage" )
+		self.damagePerInterval = spell:GetSpecialValueFor( "aura_damage" ) * damageInterval
 		self.damageType = spell:GetAbilityDamageType()
-
-		-- disable the spell and remove its cooldown
-		spell:SetActivated( false )
-		spell:EndCooldown()
 
 		-- create the shield particles
 		self.partShield = ParticleManager:CreateParticle( "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
@@ -133,18 +130,23 @@ if IsServer() then
 		parent:EmitSound( "Ability.static.start" )
 
 		-- start thinking
-		self:StartIntervalThink( 1.0 )
+		self:StartIntervalThink( damageInterval )
+	end
+
+--------------------------------------------------------------------------------
+
+	function modifier_electrician_electric_shield:OnRefresh( event )
+		-- destroy the shield particles
+		ParticleManager:DestroyParticle( self.partShield, false )
+		ParticleManager:ReleaseParticleIndex( self.partShield )
+
+		self:OnCreated( event )
 	end
 
 --------------------------------------------------------------------------------
 
 	function modifier_electrician_electric_shield:OnDestroy()
-		local spell = self:GetAbility()
-		-- enable the spell and start its cooldown
-		spell:SetActivated( true )
-		spell:UseResources( false, false, true )
-
-		-- create the shield particles
+		-- destroy the shield particles
 		ParticleManager:DestroyParticle( self.partShield, false )
 		ParticleManager:ReleaseParticleIndex( self.partShield )
 
@@ -176,7 +178,7 @@ if IsServer() then
 			ApplyDamage( {
 				victim = target,
 				attacker = caster,
-				damage = self.damagePerSecond,
+				damage = self.damagePerInterval,
 				damage_type = self.damageType,
 				damage_flags = DOTA_DAMAGE_FLAG_NONE,
 				ability = spell,
