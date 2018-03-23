@@ -70,7 +70,7 @@ end
 
 -- necessary to override MODIFIER_STATE_INVISIBLE reliably
 function modifier_electrician_static_grip:GetPriority()
-	return MODIFIER_PRIORITY_ULTRA 
+	return MODIFIER_PRIORITY_ULTRA
 end
 
 --------------------------------------------------------------------------------
