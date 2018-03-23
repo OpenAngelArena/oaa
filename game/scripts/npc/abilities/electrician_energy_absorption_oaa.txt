@@ -44,22 +44,22 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"85 150 215 280"
+				"damage"				"85 150 215 280 680 1080"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_break"			"8 10 12 14"
+				"mana_break"			"8 10 12 14 16 20"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"creep_mana_restore"	"12 16 20 24"
+				"creep_mana_restore"	"12 16 20 24 34 44"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hero_mana_restore"		"36 48 60 72"
+				"hero_mana_restore"		"36 48 60 72 102 132"
 				"LinkedSpecialBonus"	"special_bonus_electrician_absorption_hero_mana_restore"
 				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
 			}
