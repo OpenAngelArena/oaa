@@ -90,7 +90,6 @@ end
 function modifier_zuus_cloud_oaa:OnAttacked(params)
   local parent = self:GetParent()
 
-  DevPrintTable(keys)
   local attacker = params.attacker;
 
   if attacker:IsHero() and params.ranged_attack then
