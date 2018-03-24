@@ -6,7 +6,7 @@ function zuus_cloud_oaa:OnSpellStart()
   local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), true, caster, caster, caster:GetTeamNumber() )
   hCloud:SetOwner( self:GetCaster() )
   hCloud:SetControllableByPlayer( self:GetCaster():GetPlayerOwnerID(), false )
-  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", nil )
+  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud", nil )
   hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
   FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
 end
@@ -133,11 +133,13 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
   local sight_duration = lightning_bolt_ability:GetSpecialValueFor("sight_duration")
 
   if lightning_bolt_ability:GetLevel() > 0 then
+
+    CreateModifierThinker( caster, nil, "modifier_scan_true_sight_thinker", {duration = sight_duration}, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
     AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
 
     local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
 
-    local ministun_duration = 0.1
+    local ministun_duration = 0.2
 
     if talent ~= nil and talent:GetLevel() > 0 then
       ministun_duration = ministun_duration + talent:GetSpecialValueFor("value")
