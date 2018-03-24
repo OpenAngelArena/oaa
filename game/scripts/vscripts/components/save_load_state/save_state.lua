@@ -494,7 +494,6 @@ function GameStateLoadSave:LoadBossPitLvls(state)
       for _,pit in ipairs(Entities:FindAllByName('boss_pit')) do
         local pitPos = pit:GetAbsOrigin()
         if pitPos == pos  then
-          pit.killCount = 3
           BossSpawner:SpawnBossAtPit(pit)
         end
       end
