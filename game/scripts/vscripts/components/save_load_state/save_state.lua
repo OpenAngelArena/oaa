@@ -1,5 +1,5 @@
 
-SAVE_INTERVAL = 60
+SAVE_INTERVAL = 20
 
 GAME_STATE_ENDPOINT = 'http://oaastateserver.azurewebsites.net/api/GameState/' --"http://localhost:59757/api/GameState/" --'http://oaastateserver.azurewebsites.net/api/GameState/'
 
