@@ -1,7 +1,7 @@
 
 SAVE_INTERVAL = 60
 
-GAME_STATE_ENDPOINT = 'http://oaastateserver.azurewebsites.net/api/GameState/' -- "http://localhost:59757/api/GameState/" --
+GAME_STATE_ENDPOINT = 'http://oaastateserver.azurewebsites.net/api/GameState/' --"http://localhost:59757/api/GameState/" --'http://oaastateserver.azurewebsites.net/api/GameState/'
 
 DEBUG = false
 
@@ -233,6 +233,9 @@ function GameStateLoadSave:SaveHerosPicks(newState)
     if player then
       print("SaveHerosPicks! 3 - " .. playerID)
       local heroTable = {}
+      if not steamid or steamid == 0 then
+        steamid = playerID
+      end
       heroTable.SteamId = steamid
       local hHero = player:GetAssignedHero()
       self:SaveHero(heroTable, hHero)
@@ -274,6 +277,9 @@ function GameStateLoadSave:LoadHerosPicks(state)
   HeroSelection:Init()
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
+    if not steamid or steamid == 0 then
+      steamid = playerID
+    end
     local player = PlayerResource:GetPlayer(playerID)
     if player then
       state.Heroes[tostring(steamid)].CurrentPlayerId = playerID
