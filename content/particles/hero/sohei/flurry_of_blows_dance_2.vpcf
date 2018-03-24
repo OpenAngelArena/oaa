@@ -1,0 +1,311 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_FadeInSimple"
+			m_nOpEndCapState = 0
+			m_flFadeInTime = 0.5
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_nOpEndCapState = 0
+			m_flStartScale = 0.95
+			m_bEaseInAndOut = true
+			m_flBias = 0.25
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = 1
+			m_nField = 7
+			m_Rate = -4.0
+			m_flEndTime = 9999.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RadiusDecay"
+			m_flMinRadius = 0.25
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = 1
+			m_Rate = -10.0
+			m_flEndTime = 999999.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = 1
+			m_nField = 4
+			m_Rate = -2.0
+			m_flEndTime = 999999.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_ClampScalar"
+			m_flOutputMax = 0.7
+			m_nFieldOutput = 4
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nField = 13
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = 1
+			m_nField = 13
+			m_Rate = -600.0
+			m_flEndTime = 99999.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_ClampScalar"
+			m_flOutputMax = 10.0
+			m_flOutputMin = 0.1
+			m_nFieldOutput = 13
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_LerpEndCapVector"
+			m_vecOutput = [ 1.0, 0.8, 0.7 ]
+			m_nFieldOutput = 22
+			m_flLerpTime = 0.05
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_LerpEndCapVector"
+			m_flLerpTime = 0.2
+			m_nFieldOutput = 6
+			m_vecOutput = [ 1.0, 1.0, 1.0 ]
+			m_bDisableOperator = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nFieldOutput = 17
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_flMax = 3.0
+			m_flMin = 3.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 9
+			m_flMax = 3.0
+			m_flMin = 3.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 7
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nComponent = 1
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 4
+			m_flMax = 0.25
+			m_flMin = 0.25
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 5
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 10
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 12
+			m_flMax = 0.25
+			m_flMin = 0.25
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_nFieldOutput = 22
+			m_ColorMax = [ 143, 55, 21, 0 ]
+			m_ColorMin = [ 143, 55, 21, 0 ]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 13
+			m_flMax = 9.0
+			m_flMin = 9.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 16
+			m_flMax = 1.0
+			m_flMin = 1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nComponent = 2
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = 100.0
+			m_flMax = 100.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nFieldOutput = 2
+			m_flMax = 12.0
+			m_flMin = 12.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = 1.0
+			m_flMax = 1.0
+			m_nComponent = 1
+			m_nFieldOutput = 2
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = 1.0
+			m_flMax = 1.0
+			m_nComponent = 2
+			m_nFieldOutput = 2
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = [ 172, 16, 0, 0 ]
+			m_ColorMin = [ 172, 16, 0, 0 ]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nFieldOutput = 15
+			m_flMax = 1.0
+			m_flMin = 1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = -1.0
+			m_flMax = -1.0
+			m_nComponent = 1
+			m_nFieldOutput = 15
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = 0.25
+			m_flMax = 0.25
+			m_nComponent = 2
+			m_nFieldOutput = 15
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = -1.0
+			m_flMax = -1.0
+			m_nComponent = 1
+			m_nFieldOutput = 17
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = 10.0
+			m_flMax = 10.0
+			m_nComponent = 2
+			m_nFieldOutput = 17
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_nFieldOutput = 21
+			m_nComponent = 1
+			m_flMax = -1.0
+			m_flMin = -1.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = -1.0
+			m_flMax = -1.0
+			m_nFieldOutput = 21
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomVectorComponent"
+			m_flMin = -1.0
+			m_flMax = -1.0
+			m_nComponent = 2
+			m_nFieldOutput = 21
+			m_bDisableOperator = true
+		},
+	]
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/heroes/sohei/sohei.vmdl"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_MaintainEmitter"
+			m_nParticlesToMaintain = 1
+		},
+	]
+}

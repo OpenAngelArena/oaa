@@ -2773,6 +2773,8 @@ read_globals = { -- these globals can only be accessed.
 "DotProduct",
 "GetDedicatedServerKey",
 "sha256",
+"TEN_V_TEN_KILL_LIMIT",
+"NORMAL_KILL_LIMIT"
 }
 
 ignore = {

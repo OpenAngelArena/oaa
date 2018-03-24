@@ -1,6 +1,6 @@
 <root>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/playertables/playertables_base.js" />
     <include src="file://{resources}/scripts/custom_game/gold.js" />
     <include src="file://{resources}/scripts/custom_game/pointsmanager.js" />
@@ -95,6 +95,7 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/bottle_announcement.xml" />
 
     <!-- From Overthrow.
 

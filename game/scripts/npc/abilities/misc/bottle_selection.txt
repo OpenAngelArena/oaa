@@ -1,0 +1,13 @@
+"DOTAAbilities"
+{
+  "bottle_selection"
+  {
+    "ID"                            "99850"
+    "BaseClass"                     "ability_lua"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityTextureName"            "mirana_invis"
+    "ScriptFile"                    "abilities/misc/bottle_selection.lua"
+
+    "MaxLevel"                      "1"
+  }
+}

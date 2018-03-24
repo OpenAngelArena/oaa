@@ -1,8 +1,8 @@
 # Installing Open Angel Arena
 
-Updated 2017-12-16
+Updated 2018-03-22
 
-[\[< Setup\]](./)[0]
+[< Setup][0]
 
 For ease of navigation, the installation is broken up into sections and can be jumped to by clicking any of the links below.
 
@@ -47,7 +47,7 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
 
 ### Open Up Command Prompt (PowerShell will also work and is preferred if you can use PowerShell)
 
-- NOTE: If your DOTA 2 client is NOT installed on your default drive (Usually `C:\`), then start by running the following command `cd G:\` Where `G` is replaced by the drive letter you need to change to.
+- NOTE: If your DOTA 2 client is NOT installed on your default drive (Usually `C:\`), then start by running the following command `G:` Where `G` is replaced by the drive letter you need to change to.
 - Run the following in your command prompt (Or PowerShell).
   - `cd "SOME_PATH"` Where `SOME_PATH` is replaced by the location where Open Angel Arena was cloned to
   
@@ -63,9 +63,23 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
   
   ![CLI Pt.2](../.images/Installation_CLI_2.png)
 
+### Add required DLL
+
+Two methods of getting the proper DLL
+
+- A. Compiling
+  - Download the source code for [mpg123](https://sourceforge.net/projects/mpg123/files/mpg123/1.23.8/)
+  - Unpack the tar.bz2 file, open that directory and run `makedll.sh`
+  - When this completes, open the `build` directory and find the `libdll123-0.dll` file.
+
+- B. Download from us
+  - If you're lazy and want to get going fast, download the file from [this repo](https://github.com/OpenAngelArena/oaa/blob/master/libs/libmpg123-0.dll)
+
+- After you have the DLL, Go back to your `dota 2 beta` directory, and place this DLL file into `game/bin/win64`.
+
 ### Check tools mode
 
-- Go into `community` -> `library` -> `games` -> `DOTA 2` (This is the same menu you have used for getting to the properties to install the tools client)
+- Go into `Steam` -> `library` -> `games` -> `DOTA 2` (This is the same menu you have used for getting to the properties to install the tools client)
 - In that right click menu NEAR THE TOP, is `Launch DOTA 2 - Tools`.  Click this option
 - If all of the above installation has worked, you should see the Open Angel Arena directory name without a lock next to it in the custom games selection
 
@@ -103,4 +117,4 @@ This part assumes you ALREADY have the command prompt to your DOTA 2 addons dire
 - `mklink /J "{PATH_TO_OAA_REPO}/content" "{PATH_TO_DOTA_ADDONS}/oaa/content"` Where `PATH_TO_OAA_REPO` the the full SYSTEM path to the OAA repository directory.  Where `PATH_TO_DOTA_ADDONS` is the `content/dota_addons` directory in your DOTA 2 installation folder
 - `mklink /J "{PATH_TO_OAA_REPO}/game" "{PATH_TO_DOTA_ADDONS}/oaa/game"` (See above for references)
 
-[[0]: README.md](./README.md)
+[0]: README.md

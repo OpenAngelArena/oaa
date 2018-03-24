@@ -1,0 +1,38 @@
+.Announcement
+{
+  horizontal-align: right;
+  vertical-align: center;
+  margin-top: -100px;
+  margin-right: 5px;
+  width: 600px;
+  height: fit-children;
+}
+
+#AnnouncementPanel
+{
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.35s ;
+  transition-timing-function: ease-in-out;
+}
+
+#CloseBtn
+{
+  width: 30px;
+  height: 30px;
+  horizontal-align: right;
+  margin-top: 5px;
+  margin-right: 15px;
+  background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
+}
+
+#AnnouncementPanel.Show
+{
+  opacity: 1;
+}
+
+#AnnouncementImage
+{
+  background-image: url("file://{images}/custom_game/hud/tournament2_winners.png");
+  background-size: 100% 100%;
+}

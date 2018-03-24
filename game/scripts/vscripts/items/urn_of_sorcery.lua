@@ -55,6 +55,10 @@ function item_urn_of_sorcery:OnSpellStart()
   self:SetCurrentCharges(0)
 end
 
+item_urn_of_sorcery_2 = item_urn_of_sorcery
+item_urn_of_sorcery_3 = item_urn_of_sorcery
+item_urn_of_sorcery_4 = item_urn_of_sorcery
+
 --------------------------------------------------------------------------
 
 modifier_item_urn_of_sorcery = class(ModifierBaseClass)

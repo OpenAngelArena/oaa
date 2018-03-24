@@ -64,7 +64,18 @@ var hilariousLoadingPhrases = [
   'Donating $1 to tournament prize pool',
   'Selling arcanas to afford custom bottle',
   'Finding a 5-stack on Discord',
-  'Rigging the tournament'
+  'Rigging the tournament',
+  'Arbitrarily resetting everyone\'s MMR',
+  'Adding another overpowered custom hero',
+  'Actually doing nothing',
+  'Prolonging loading screen for dramatic effect',
+  'Begging for Oracle sets',
+  'Crashing tournament finals',
+  'Banning spectators on a hunch',
+  'Nerfing Tinker more',
+  'Replacing all heroes with Oracle',
+  'Losing self in the music the moment I owned it',
+  'Practicing invincible ledgedash'
 ];
 
 SetupTopBar();
