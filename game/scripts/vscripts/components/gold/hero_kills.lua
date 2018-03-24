@@ -233,11 +233,11 @@ function HeroKillGold:HeroDeathHandler (keys)
   for nwRank, hero in ipairs(heroes) do
     -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
     local assistGold = parameters.base + 0.9*(math.max(1, 6 - #heroes) * killedHeroLevelFactor) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
-    DebugPrint("Base assist gold: " .. '(' .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
+    DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
     local assistComebackGold = 0
     if killedTeamNW > killerTeamNW then
       assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/#heroes
-      DebugPrint("Comeback assist gold: " .. " (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. #heroes .. ' = ' .. assistComebackGold)
+      DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. #heroes .. ' = ' .. assistComebackGold)
     end
     assistGold = assistGold + assistComebackGold
     assistGold = math.floor(assistGold)
