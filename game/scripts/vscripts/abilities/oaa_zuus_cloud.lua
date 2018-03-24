@@ -1,6 +1,5 @@
 zuus_cloud_oaa = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_true_sight_oaa_thinker", "modifiers/modifier_true_sight_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 
 function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -150,8 +149,8 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
   if lightning_bolt_ability:GetLevel() > 0 then
 
-    CreateModifierThinker( caster, nil, "modifier_true_sight_oaa_thinker", {duration = sight_duration, radius = sight_radius }, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
     AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
+    target:AddNewModifier(caster, lightning_bolt_ability, "modifier_truesight", {duration = sight_duration})
 
     local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
 
@@ -161,7 +160,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       ministun_duration = ministun_duration + talent:GetSpecialValueFor("value")
     end
 
-    target:AddNewModifier(caster, lightning_bolt_ability, "modifier_stunned", {Duration = ministun_duration})
+    target:AddNewModifier(caster, lightning_bolt_ability, "modifier_stunned", {duration = ministun_duration})
     ApplyDamage({victim = target, attacker = parent, damage = lightning_bolt_ability:GetAbilityDamage(), damage_type = lightning_bolt_ability:GetAbilityDamageType()})
     -- Renders the particle on the sigil
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud_strike.vpcf", PATTACH_POINT_FOLLOW, self:GetParent())
