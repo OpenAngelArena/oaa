@@ -253,12 +253,12 @@ function GameStateLoadSave:SaveHeroKDA(heroTable, hHero)
 end
 
 function GameStateLoadSave:LoadHeroKDA(state, heroTable, hHero)
-  for _,victimSteamId in pairs(heroTable.KDA.KillList) do
-    if hHero:GetKills() < heroTable.KDA.Kills then
-      local victimPlayerId = state.Heroes[victimSteamId].CurrentPlayerId
-      PlayerResource:IncrementKills( heroTable.CurrentPlayerId, victimPlayerId )
-    end
-  end
+  -- for _,victimSteamId in pairs(heroTable.KDA.KillList) do
+  --   if hHero:GetKills() < heroTable.KDA.Kills then
+  --     local victimPlayerId = state.Heroes[victimSteamId].CurrentPlayerId
+  --     PlayerResource:IncrementKills( heroTable.CurrentPlayerId, victimPlayerId )
+  --   end
+  -- end
 
   for lvl = 1, heroTable.KDA.Assists, 1 do
     if hHero:GetAssists() < heroTable.KDA.Assists then
@@ -494,6 +494,8 @@ function GameStateLoadSave:LoadBossPitLvls(state)
       for _,pit in ipairs(Entities:FindAllByName('boss_pit')) do
         local pitPos = pit:GetAbsOrigin()
         if pitPos == pos  then
+          print("BOSS KILL : " .. bossPit.KillCount)
+          pit.killCount = bossPit.KillCount
           BossSpawner:SpawnBossAtPit(pit)
         end
       end
