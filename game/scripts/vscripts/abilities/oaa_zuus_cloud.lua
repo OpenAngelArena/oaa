@@ -1,12 +1,13 @@
 zuus_cloud_oaa = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_true_sight_oaa_thinker", "modifiers/modifier_true_sight_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 
 function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), true, caster, caster, caster:GetTeamNumber() )
   hCloud:SetOwner( self:GetCaster() )
   hCloud:SetControllableByPlayer( self:GetCaster():GetPlayerOwnerID(), false )
-  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud", nil )
+  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", nil )
   hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
   FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
 end
@@ -66,22 +67,38 @@ end
 function modifier_zuus_cloud_oaa:DeclareFunctions()
 	local funcs =
 	{
-		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_EVENT_ON_ATTACKED
 	}
 	return funcs
 end
 
-function modifier_zuus_cloud_oaa:GetModifierIncomingDamage_Percentage( params )
+function modifier_zuus_cloud_oaa:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_zuus_cloud_oaa:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_zuus_cloud_oaa:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_zuus_cloud_oaa:OnAttacked(params)
+  local parent = self:GetParent()
+
+  DevPrintTable(keys)
   local attacker = params.attacker;
-  -- percentage base applied to the income damage
-  -- -100 = 100% block
-  -- -100 + K/damage = K damage
-  if attacker:IsHero() and attacker:IsRangedAttacker() then
-    return -100 + math.ceil(1000*2/params.damage)/10
-  elseif attacker:IsHero() and not attacker:IsRangedAttacker() then
-    return -100 + math.ceil(1000*4/params.damage)/10
+
+  if attacker:IsHero() and params.ranged_attack then
+    return parent:SetHealth(parent:GetHealth() - 2)
+  elseif attacker:IsHero() and not params.ranged_attack then
+    return parent:SetHealth(parent:GetHealth() - 4)
   else
-    return -100 + math.ceil(1000/params.damage)/10
+    return parent:SetHealth(parent:GetHealth() - 1)
   end
 end
 
@@ -134,7 +151,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
   if lightning_bolt_ability:GetLevel() > 0 then
 
-    CreateModifierThinker( caster, nil, "modifier_scan_true_sight_thinker", {duration = sight_duration}, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
+    CreateModifierThinker( caster, nil, "modifier_true_sight_oaa_thinker", {duration = sight_duration, radius = sight_radius }, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
     AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
 
     local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
