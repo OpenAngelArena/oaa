@@ -1,44 +1,49 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Octarine Core
+  // Recipe: Octarine Core 3
   //=================================================================================================================
-  "item_recipe_octarine_core"
+  "item_recipe_octarine_core_3"
   {
-    "ID"                                                  "228"    // unique ID
-    "ItemCost"                                            "0"
+    "ID"                                                  "8460"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_octarine_core"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "ItemResult"                                          "item_octarine_core_3"
     "ItemRequirements"
     {
-      "01"                                                "item_mystic_staff;item_soul_booster"
+      "01"                                                "item_octarine_core_2;item_upgrade_core_2"
+      "02"                                                "item_octarine_core_2;item_upgrade_core_3"
+      "03"                                                "item_octarine_core_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Octarine Core
+  // Octarine Core 3
   //=================================================================================================================
-  "item_octarine_core"
+  "item_octarine_core_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "235"    // unique ID
+    "ID"                                                  "8461"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/octarine_core_1"
+    "AbilityTextureName"                                  "custom/octarine_core_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5900"
+    "ItemCost"                                            "10900"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "mana;mb;octarine core"
+    "ItemAliases"                                         "octarine core 3;octarine 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_octarine_core"
+    "ItemBaseLevel"                                       "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
