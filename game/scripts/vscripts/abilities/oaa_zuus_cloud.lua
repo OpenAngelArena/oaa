@@ -150,7 +150,21 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
   if lightning_bolt_ability:GetLevel() > 0 then
 
     AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
-    target:AddNewModifier(caster, lightning_bolt_ability, "modifier_truesight", {duration = sight_duration})
+
+    local true_sight_targets = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        target:GetAbsOrigin(),
+        nil,
+        sight_radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
+        bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE),
+        FIND_ANY_ORDER,
+        false
+      )
+    for _, true_sight_target in pairs(true_sight_targets) do
+      true_sight_target:AddNewModifier(caster, lightning_bolt_ability, "modifier_truesight", {duration = sight_duration})
+    end
 
     local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
 
