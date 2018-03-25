@@ -90,6 +90,9 @@ function modifier_zuus_cloud_oaa:OnAttacked(params)
   local parent = self:GetParent()
 
   local attacker = params.attacker;
+  if parent ~= params.target then
+    return
+  end
 
   if attacker:IsHero() and params.ranged_attack then
     return parent:SetHealth(parent:GetHealth() - 2)
