@@ -4,6 +4,9 @@ LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic
 LinkLuaModifier( "modifier_item_refresher_core", "items/refresher_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_octarine_core_2 = class(ItemBaseClass)
+item_octarine_core_3 = class(ItemBaseClass)
+item_octarine_core_4 = class(ItemBaseClass)
+item_octarine_core_5 = class(ItemBaseClass)
 
 function item_octarine_core_2:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
