@@ -23,9 +23,9 @@
     "ItemResult"                                          "item_satanic_core"
     "ItemRequirements"
     {
-      "01"                                                "item_satanic_2;item_octarine_core_2;item_upgrade_core_2"
-      "02"                                                "item_satanic_2;item_octarine_core_2;item_upgrade_core_3"
-      "03"                                                "item_satanic_2;item_octarine_core_2;item_upgrade_core_4"
+      "01"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_2"
+      "02"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_3"
+      "03"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_4"
     }
   }
 
@@ -56,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17900"
+    "ItemCost"                                            "16400"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core"
