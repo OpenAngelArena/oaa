@@ -22,7 +22,7 @@ function CreepPower:GetBasePowerForMinute (minute)
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- mana
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 60 * ((minute/100) ^ 2) + 6 * (minute/100)) + 1,     -- damage
     (0 * (minute / 26) ^ 2 + minute / 6) + 1,       -- armor
-    ((0 * minute ^ 2 + 6*2 * minute + 7*15)/(6*15)) * self.BootGoldFactor,                      -- gold
+    ((0 * minute ^ 2 + 6*4 * minute + 7*15)/(6*15)) * self.BootGoldFactor,                      -- gold
     ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor                      -- xp
   }
 end

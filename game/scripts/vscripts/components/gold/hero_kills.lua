@@ -35,35 +35,35 @@ The following parameters are use in this way:
 
 local AssistGoldTable = {
     [1] = {
-      base = 126,
+      base = 80,
       comebackBase = 70,
       killedNwFactor = 0.026,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 1 }
     },
     [2] = {
-      base = 63,
+      base = 40,
       comebackBase = 70,
       killedNwFactor = 0.026,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 1.3 }
     },
     [3] = {
-      base = 31.5,
+      base = 20,
       comebackBase = 70,
       killedNwFactor = 0.026,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 1, 1.3 }
     },
     [4] = {
-      base = 22.5,
+      base = 14.5,
       comebackBase = 70,
       killedNwFactor = 0.026,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
       killerNwRankingFactor = { 0.7, 0.9, 1.1, 1.3 }
     },
     [5] = {
-      base = 18,
+      base = 11.5,
       comebackBase = 70,
       killedNwFactor = 0.026,
       killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
@@ -105,7 +105,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
-  local killedHeroLevelFactor = (10*500 * killedHeroLevel + 1875)/140
+  local killedHeroLevelFactor = (100 * killedHeroLevel)/14
   local numAttackers = killedHero:GetNumAttackers()
   local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
   local rewardHeroes = iter({killerHero})
@@ -129,7 +129,7 @@ function HeroKillGold:HeroDeathHandler (keys)
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
   end
 
-  local baseGold = math.floor((110 + streakValue + (killedHeroLevel * 8)) / distributeCount)
+  local baseGold = math.floor((40 + streakValue + (killedHeroLevel * 8)) / distributeCount)
 
   -- Grant the base last hit bounty
   for _, hero in rewardHeroes:unwrap() do
