@@ -1,23 +1,15 @@
 # Dota 2 Addon Manager (d2am)
 
-Updated 2017-12-05
+Updated 2018-03-22
 
 [< Table of Contents][0]
 
 ## Introduction
 
-Text
+Dota2 Addon Manager (`d2am`) is a node package that manages multiple git hosted dota2 addons with less pain.
 
-## Topics
+You can install via `npm i -g dota2-addon-manager` or find out more by visiting the following repository: [https://github.com/chrisinajar/dota2-addon-manager](https://github.com/chrisinajar/dota2-addon-manager).
 
-1. [Insert Links here]
+See [Install](../setup/install.md#open-up-command-prompt-powershell-will-also-work-and-is-preferred-if-you-can-use-powershell) for further instructions on using `d2am`.
 
 [0]: ../README.md
-[1]: filename.md
-[2]: filename.md
-[3]: filename.md
-[4]: filename.md
-[5]: filename.md
-[6]: filename.md
-[7]: filename.md
-[8]: filename.md
