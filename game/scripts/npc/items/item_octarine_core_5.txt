@@ -1,44 +1,47 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Octarine Core
+  // Recipe: Octarine Core 5
   //=================================================================================================================
-  "item_recipe_octarine_core"
+  "item_recipe_octarine_core_5"
   {
-    "ID"                                                  "228"    // unique ID
-    "ItemCost"                                            "0"
+    "ID"                                                  "8464"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_octarine_core"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "ItemResult"                                          "item_octarine_core_5"
     "ItemRequirements"
     {
-      "01"                                                "item_mystic_staff;item_soul_booster"
+      "01"                                                "item_octarine_core_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Octarine Core
+  // Octarine Core 5
   //=================================================================================================================
-  "item_octarine_core"
+  "item_octarine_core_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "235"    // unique ID
+    "ID"                                                  "8465"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/octarine_core_1"
+    "AbilityTextureName"                                  "custom/octarine_core_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5900"
+    "ItemCost"                                            "38900"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "mana;mb;octarine core"
+    "ItemAliases"                                         "octarine core 5;octarine 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_octarine_core"
+    "ItemBaseLevel"                                       "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
