@@ -5,41 +5,6 @@
 (function () {
   CustomNetTables.SubscribeNetTableListener('end_game_scoreboard', EndScoreboard);
   EndScoreboard(null, 'game_info', CustomNetTables.GetTableValue('end_game_scoreboard', 'game_info'));
-
-  // PLACEHOLDERS: testing purpose only
-  var args = {
-    xp_info: {
-      0: {
-        progress: 0.7,
-        level: 12,
-        rank: 'Legend',
-        earned: 17
-      },
-
-      info: {
-        radiant_score: 100,
-        dire_score: 99
-      },
-
-      players: {
-        0: {
-          // GetPlayer lua thing
-        }
-      }
-    },
-
-    info: {
-      map: {
-        map_name: 'maps/oaa.vpk',
-        map_display_name: 'oaa'
-      },
-
-      ids1: [0],
-      ids2: []
-    }
-  };
-  // END OF PLACEHOLDERS
-
 })();
 
 function EndScoreboard (table, key, args) {
@@ -59,12 +24,6 @@ function EndScoreboard (table, key, args) {
   var mapInfo = Game.GetMapInfo();
   var radiantPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
   var direPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS);
-
-  // PLACEHOLDERS: testing purpose only, remove it
-  serverInfo.winner = 2;
-  serverInfo.radiant_score = 101;
-  serverInfo.dire_score = 99;
-  // END OF PLACEHOLDERS
 
   $.Msg(serverInfo);
 

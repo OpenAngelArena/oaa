@@ -9,7 +9,7 @@ AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://10.0.10.110:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.10.169:9969/'
 end
 
 function Bottlepass:Init ()
