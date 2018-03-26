@@ -1,0 +1,1 @@
+boss_slime_jump = class(AbilityBaseClass)

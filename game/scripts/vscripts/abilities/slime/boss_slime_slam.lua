@@ -1,0 +1,1 @@
+boss_slime_slam = class(AbilityBaseClass)
