@@ -175,8 +175,7 @@ function Bottlepass:GetPlayerInfoIXP() -- careful, loops can be reduced, format 
 --  GetTopPlayersIMR()
 end
 
-GameEvents:OnPreGame(function (keys)
-  -- calculate levels
+function Bottlepass:SendEndGameStats()
   local xpInfo = {}
 
   local players = {}
@@ -209,7 +208,7 @@ GameEvents:OnPreGame(function (keys)
   end
 
   CustomNetTables:SetTableValue("end_game_scoreboard", "game_info", {
-    players = players,
+    players = Bottlepass.mmrDiffs,
     xp_info = xpInfo,
     info = {
       winner = GAME_WINNER_TEAM,
@@ -217,4 +216,4 @@ GameEvents:OnPreGame(function (keys)
       dire_score = PointsManager:GetPoints(DOTA_TEAM_BADGUYS),
     }
   })
-end)
+end

@@ -282,6 +282,9 @@
 	vertical-align: center;
 	text-align: center;
 }
+.hideXP #es-player-xp-earned, .hideXP .es-player-xp {
+  visibility: collapse;
+}
 
 #es-buttons {
 	flow-children: right;
