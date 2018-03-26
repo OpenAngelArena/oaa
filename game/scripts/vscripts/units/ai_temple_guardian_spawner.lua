@@ -115,7 +115,13 @@ end
 function OnBossKill(kv)
   if (not IsValidEntity(thisEntity.bossHandle1) or not thisEntity.bossHandle1:IsAlive()) and
      (not IsValidEntity(thisEntity.bossHandle2) or not thisEntity.bossHandle2:IsAlive()) then
-
+      if( thisEntity.bossHandle1.Suicide or thisEntity.bossHandle2.Suicide) then
+        thisEntity.Pedestal1:ForceKill(false)
+        thisEntity.Pedestal2:ForceKill(false)
+        thisEntity.Suicide = true
+        thisEntity:ForceKill( false )
+        return
+      end
       RemovePedestals()
 
       -- Calling Kill or ForceKill from this handler does not work

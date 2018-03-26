@@ -7,9 +7,6 @@ end
 
 LinkLuaModifier("modifier_creep_loot", "modifiers/modifier_creep_loot.lua", LUA_MODIFIER_MOTION_NONE)
 
---creep power level is from CREEP_POWER_LEVEL_MIN to CREEP_POWER_LEVEL_MAX
-local CreepPowerLevel = 0.0
-
 --creep properties enumerations
 local NAME_ENUM = 1
 local HEALTH_ENUM = 2
@@ -39,8 +36,9 @@ function CreepCamps:Init ()
   ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
-function CreepCamps:SetPowerLevel (powerLevel)
-  CreepPowerLevel = powerLevel
+
+function CreepCamps:GetPowerLevel()
+  return 1 +  math.floor(HudTimer:GetGameTime()/CREEP_SPAWN_INTERVAL)
 end
 
 function CreepCamps:CreepSpawnTimer ()
@@ -52,8 +50,6 @@ function CreepCamps:CreepSpawnTimer ()
     self:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
-  self:UpgradeCreeps()
-
   Minimap:Respawn()
 
   if self.firstSpawn then
@@ -61,11 +57,6 @@ function CreepCamps:CreepSpawnTimer ()
     return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
   return CREEP_SPAWN_INTERVAL
-end
-
-function CreepCamps:UpgradeCreeps ()
-  -- upgrade creeps power level every time it triggers
-  self:SetPowerLevel(CreepPowerLevel + 1)
 end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
@@ -92,7 +83,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     FIND_ANY_ORDER,
     false)
 
-  creepProperties = self:AdjustCreepPropertiesByPowerLevel( creepProperties, CreepPowerLevel )
+  creepProperties = self:AdjustCreepPropertiesByPowerLevel( creepProperties, self:GetPowerLevel() )
 
   if (maximumUnits and maximumUnits <= #units) then
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')

@@ -32,15 +32,25 @@ function ChatCommand:OnPlayerChat(keys)
 
   local splitted = split(text, " ")
 
-  if (IsInToolsMode() or GameRules:IsCheatMode()) and self.commands[splitted[1]] ~= nil then
-    local location = self.commands[splitted[1]]
+  local location = self.commands[splitted[1]]
+
+  if location ~= nil and (IsInToolsMode() or GameRules:IsCheatMode() or self:IsGameStateCommand(splitted[1]))  then
     local func = location[1]
     local context = location[2]
-
     if context == nil then
       func(keys)
     else
       func(context, keys)
     end
   end
+end
+
+function ChatCommand:IsGameStateCommand(command)
+  local gameStateCommands = { '-save', '-load' }
+  for _, value in ipairs(gameStateCommands) do
+    if command == value then
+        return true
+    end
+  end
+  return false
 end

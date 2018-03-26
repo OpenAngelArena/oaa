@@ -45,15 +45,6 @@ function GameMode:_InitGameMode()
     GameRules:EnableCustomGameSetupAutoLaunch( ENABLE_AUTO_LAUNCH )
   end
 
-  -- exponential gpm increase
-  local goldTickCount = 0
-  Timers:CreateTimer(5, function ()
-    goldTickCount = goldTickCount + 1
-    GameRules:SetGoldPerTick((goldTickCount*goldTickCount - 31*goldTickCount + 8624)*15/19200)
-    return 5
-  end)
-
-
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
     local num = math.floor(10 / MAX_NUMBER_OF_TEAMS)

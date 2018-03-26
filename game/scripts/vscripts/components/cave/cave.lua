@@ -143,7 +143,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   local randPosition = room:GetAbsOrigin() + RandomVector(RandomFloat(10, 300))
 
   --EXP BOUNTY
-  local minutes = math.floor(GameRules:GetGameTime() / 60)
+  local minutes = math.floor(HudTimer:GetGameTime() / 60)
   if minutes > 60 then
     properties.exp = properties.exp * 1.5^(minutes - 60)
   end
@@ -319,39 +319,41 @@ function CaveHandler:CreepDeath (teamID, roomID)
       self:KickPlayers(teamID)
 
       -- reset cave
-      Timers:CreateTimer(4, function ()
-        self:ResetCave(teamID)
-      end)
-
       cave.timescleared = cave.timescleared + 1
-      for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
-        local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
 
-        if statTable[tostring(playerID)] then
-          statTable[tostring(playerID)] = statTable[tostring(playerID)] + 1
-        else
-          statTable[tostring(playerID)] = 1
-        end
-
-        CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
-      end
-      -- inform players
-      Notifications:TopToTeam(teamID, {
-        text = "#cave_fully_cleared_reward",
-        duration = 10,
-        replacement_map = {
-          reward_amount = bounty,
-        },
-      })
-      Notifications:TopToTeam(teamID, {
-        text = "#cave_fully_cleared_num_clears",
-        duration = 10,
-        replacement_map = {
-          num_clears = cave.timescleared,
-        },
-      })
+      self:ResetCaveAndNotify(teamID, bounty)
     end
   end
+end
+
+function CaveHandler:ResetCaveAndNotify(teamID, bounty)
+  local cave = self.caves[teamID]
+  Timers:CreateTimer(4, function ()
+    self:ResetCave(teamID)
+  end)
+
+  for playerID in PlayerResource:GetPlayerIDsForTeam(teamID) do
+    local statTable = CustomNetTables:GetTableValue('stat_display_player', 'CC').value
+
+    statTable[tostring(playerID)] = cave.timescleared
+
+    CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = statTable })
+  end
+  -- inform players
+  Notifications:TopToTeam(teamID, {
+    text = "#cave_fully_cleared_reward",
+    duration = 10,
+    replacement_map = {
+      reward_amount = bounty,
+    },
+  })
+  Notifications:TopToTeam(teamID, {
+    text = "#cave_fully_cleared_num_clears",
+    duration = 10,
+    replacement_map = {
+      num_clears = cave.timescleared,
+    },
+  })
 end
 
 function CaveHandler:CloseCaveDoors(teamID)
@@ -567,5 +569,19 @@ function CaveHandler:TeleportAll(units, spawns)
         end)
       end)
     end
+  end
+end
+
+function CaveHandler:GetCaveClears()
+  local caveClears = {}
+  for teamID = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+    caveClears[teamID] = self.caves[teamID].timescleared
+  end
+  return caveClears
+end
+
+function CaveHandler:SetCaveClears(caveClears)
+  for teamID = DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS do
+    self.caves[teamID].timescleared = caveClears[teamID]
   end
 end
