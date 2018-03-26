@@ -180,7 +180,7 @@ GameEvents:OnPreGame(function (keys)
   local xpInfo = {}
 
   local players = {}
-  for i = 0, PlayerResource:GetPlayerCount() -1 do
+  for i = 0, PlayerResource:GetPlayerCount() - 1 do
     players[i] = PlayerResource:GetPlayer(i)
   end
 
@@ -213,8 +213,8 @@ GameEvents:OnPreGame(function (keys)
     xp_info = xpInfo,
     info = {
       winner = GAME_WINNER_TEAM,
-      radiant_score = GetTeamHeroKills(2),
-      dire_score = GetTeamHeroKills(3),
+      radiant_score = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS),
+      dire_score = PointsManager:GetPoints(DOTA_TEAM_BADGUYS),
     }
   })
 end)

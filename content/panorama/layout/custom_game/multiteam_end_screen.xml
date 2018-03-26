@@ -10,7 +10,7 @@
 	</scripts>
 
 	<Panel class="es-root">
-		<Panel id="es-end-screen">
+		<Panel id="es-end-screen" class="hideXP">
 			<Panel id="es-end-screen-players">
 				<Panel id="es-victory-info">
 					<Label id="es-victory-info-text" text="" />

@@ -63,13 +63,13 @@
 .es-text-green { color: #72a144; }
 .es-text-white { color: #ffffff; }
 
-#es-victory-info { 
+#es-victory-info {
 	margin-top: 14%;
 	margin-bottom: 20px;
 	flow-children: down;
 	horizontal-align: center;
 	text-align: center;
-} 
+}
 
 #es-victory-info-text {
 	font-size: 40px;
@@ -77,6 +77,10 @@
 	horizontal-align: center;
 	text-transform: uppercase;
 	text-shadow: 0 0 4px 2.0 #777;
+}
+
+.hideXP #es-teams {
+  width: 1200px;
 }
 
 #es-teams {
@@ -130,7 +134,7 @@
 .es-team-name {
 	font-size: 30px;
 	color: #fff;
-	text-transform: uppercase; 
+	text-transform: uppercase;
 	horizontal-align: center;
 }
 
@@ -158,6 +162,10 @@
 .es-legend-gold { width: 70px; }
 
 .es-legend-xp { width: 190px; }
+
+.hideXP .es-legend-xp {
+  visibility: collapse;
+}
 
 .es-player-root {
 	flow-children: right;
@@ -196,7 +204,7 @@
 	height: 30px;
 	width: 30px;
 	margin-right: 5px;
-} 
+}
 
 #es-player-hero {
 	border: 1px solid #999;
@@ -223,7 +231,7 @@
 }
 
 .es-legend-imr {
-	width: 85px; 
+	width: 85px;
 }
 
 #es-player-imr {
@@ -249,7 +257,7 @@
 	animation-iteration-count: 1;
 }
 
-#es-player-xp-progress { 
+#es-player-xp-progress {
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #326114 ), color-stop( 0.3, #54BA07 ), color-stop( .5, #54BA07 ), to( #326114 ) );
 	width: 0%;
 	height: 20px;

@@ -4,6 +4,7 @@
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('end_game_scoreboard', EndScoreboard);
+  EndScoreboard(null, 'game_info', CustomNetTables.GetTableValue('end_game_scoreboard', 'game_info'));
 
   // PLACEHOLDERS: testing purpose only
   var args = {
@@ -39,10 +40,9 @@
   };
   // END OF PLACEHOLDERS
 
-  EndScoreboard(args);
 })();
 
-function EndScoreboard (args) {
+function EndScoreboard (table, key, args) {
   // Hide all other UI
   var MainPanel = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent();
   MainPanel.FindChildTraverse('topbar').style.visibility = 'collapse';
@@ -107,15 +107,16 @@ function EndScoreboard (args) {
     var playerInfo = Game.GetPlayerInfo(id);
     var resultInfo = null;
     var xp = null;
+    var steamid = null;
 
-    for (let steamid in playerResults) {
+    for (steamid in playerResults) {
       if (playerInfo.player_steamid === steamid) {
         $.Msg(playerResults[steamid]);
       }
       resultInfo = playerResults[steamid];
     }
 
-    for (let steamid in xpInfo) {
+    for (steamid in xpInfo) {
 //      $.Msg("XP Level: " + xpInfo[steamid].level)
 //      $.Msg("XP Progress: " + xpInfo[steamid].progress)
 //      $.Msg("XP Rank: " + xpInfo[steamid].rank)
