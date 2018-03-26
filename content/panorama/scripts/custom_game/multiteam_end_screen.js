@@ -2,6 +2,12 @@
 
 'use strict';
 
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    CloseBottlepassReward: CloseBottlepassReward
+  };
+}
+
 (function () {
   CustomNetTables.SubscribeNetTableListener('end_game_scoreboard', EndScoreboard);
   EndScoreboard(null, 'game_info', CustomNetTables.GetTableValue('end_game_scoreboard', 'game_info'));
