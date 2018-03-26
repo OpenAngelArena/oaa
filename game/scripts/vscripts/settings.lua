@@ -44,7 +44,7 @@ CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used t
 
 -- Game timings
 PREGAME_TIME = 10
-AP_GAME_TIME = 90
+AP_GAME_TIME = 10
 
 -- Duels
 INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
