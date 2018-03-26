@@ -9,15 +9,15 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick_2"
     "ItemRequirements"
     {
-      "01"                                                "item_sheepstick;item_upgrade_core"
-      "02"                                                "item_sheepstick;item_upgrade_core_2"
-      "03"                                                "item_sheepstick;item_upgrade_core_3"
+      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "02"                                                "item_meteor_hammer_3;item_upgrade_core_4"
+      "03"                                                "item_cyclone_2;item_upgrade_core_4"
       "04"                                                "item_sheepstick;item_upgrade_core_4"
     }
   }
@@ -34,19 +34,19 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "2"
-    "AbilityTextureName"                                  "custom/scythe_of_vyse_2"
+    "AbilityTextureName"                                  "custom/scythe_of_vyse_5"
     // Stats-------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "hex"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_sheepstick_2;item_sheepstick_3;item_sheepstick_4"
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "7200"
+    "ItemCost"                                            "38700"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 2;sheepstick 2;scythe of vyse 2"
@@ -58,27 +58,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 30 40"
+        "bonus_strength"                                  "30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 20 30 40"
+        "bonus_agility"                                   "30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 50 70 105 140"
+        "bonus_intellect"                                 "105 140"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
+        "bonus_mana_regen"                                "6.75 9"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
+        "sheep_duration"                                  "3.8 4.0"
       }
       "06"
       {

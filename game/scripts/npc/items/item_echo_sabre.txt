@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_ogre_axe;item_oblivion_staff"
+      "01"                                                "item_skadi_4;item_upgrade_core_4"
     }
   }
 
@@ -36,24 +36,24 @@
     "ID"                                                  "252"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/echo_sabre_1"
+    "AbilityTextureName"                                  "custom/echo_sabre_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
+    "AbilityCooldown"                                     "1.6"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "2650"
+    "ItemCost"                                            "35650"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "1"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_echo_sabre;item_echo_sabre_2;item_echo_sabre_3;item_echo_sabre_4"
+    "UpgradesItems"                                       "item_echo_sabre"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,27 +62,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
+        "bonus_strength"                                  "50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "30"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
+        "bonus_damage"                                    "75"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
+        "bonus_mana_regen"                                "3.50"
       }
       "06"
       {

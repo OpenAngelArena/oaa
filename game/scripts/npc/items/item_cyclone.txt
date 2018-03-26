@@ -7,22 +7,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "99"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"            "custom/recipe/recipe_1"
+    "ID"                               "99"                                                        // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                        "item_datadriven"
+    "Model"                            "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"               "custom/recipe/recipe_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "650"
-    "ItemShopTags"                  ""
+    "ItemCost"                         "3500"
+    "ItemShopTags"                     ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_cyclone"
+    "ItemRecipe"                       "1"
+    "ItemResult"                       "item_cyclone"
     "ItemRequirements"
     {
-      "01"                        "item_staff_of_wizardry;item_void_stone;item_wind_lace"
+      "01"                             "item_rod_of_atos_2;item_upgrade_core_2"
+      "02"                             "item_rod_of_atos_2;item_upgrade_core_3"
+      "03"                             "item_rod_of_atos_2;item_upgrade_core_4"
+      "04"                             "item_meteor_hammer_1;item_upgrade_core_2"
+      "05"                             "item_meteor_hammer_1;item_upgrade_core_3"
+      "06"                             "item_meteor_hammer_1;item_upgrade_core_4"
     }
   }
 
@@ -33,33 +38,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "100"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityTextureName"            "custom/cyclone"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"               "1"
+    "ID"                               "100"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityTextureName"               "custom/cyclone_3"
+    "AbilityBehavior"                  "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_CUSTOM"
+    "FightRecapLevel"                  "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "575 675 775 875 975"
-    "AbilityCastPoint"              "0.0"
+    "AbilityCastRange"                 "775 875 975"
+    "AbilityCastPoint"                 "0.0"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "23.0 20.0 17.0 14.0 11.0"
-    "AbilitySharedCooldown"                               "cyclone"
+    "AbilityCooldown"                  "17.0 14.0 11.0"
+    "AbilitySharedCooldown"            "cyclone"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "175 200 250 300 350"
-    "ItemCost"                      "2750"
-    "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
-    "ItemQuality"                   "rare"
-    "ItemAliases"                   "cyclone;euls;eul's scepter of divinity"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
+    "AbilityManaCost"                  "250 300 350"
+    "ItemCost"                         "7750"
+    "ItemShopTags"                     "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                      "rare"
+    "ItemAliases"                      "cyclone;euls;eul's scepter of divinity"
+    "ItemDeclarations"                 "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "MaxUpgradeLevel"                  "3"
+    "ItemBaseLevel"                    "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,33 +72,33 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "10 25 40 60 80"
+        "var_type"                     "FIELD_INTEGER"
+        "bonus_intellect"              "40 60 80"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "2.25 3.25 4.50 6.50 8.75"
+        "var_type"                     "FIELD_FLOAT"
+        "bonus_mana_regen"             "4.50 6.50 8.75"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "40 50 60 70 80"
+        "var_type"                     "FIELD_INTEGER"
+        "bonus_movement_speed"         "60 70 80"
       }
       "04"
       {
-        "var_type"              "FIELD_FLOAT"
-        "cyclone_duration"      "2.5"
+        "var_type"                     "FIELD_FLOAT"
+        "cyclone_duration"             "2.5"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "cast_range_tooltip"    "575 675 775 875 975"
+        "var_type"                     "FIELD_INTEGER"
+        "cast_range_tooltip"           "775 875 975"
       }
       "06"
       {
-        "var_type"              "FIELD_INTEGER"
-        "tooltip_drop_damage"   "50"
+        "var_type"                     "FIELD_INTEGER"
+        "tooltip_drop_damage"          "50"
       }
     }
   }

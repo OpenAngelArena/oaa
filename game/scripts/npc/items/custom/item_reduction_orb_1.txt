@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,9 +23,7 @@
     "ItemResult"                                          "item_reduction_orb_1"
     "ItemRequirements"
     {
-      "01"                                                "item_crimson_guard_2;item_upgrade_core_2"
-      "02"                                                "item_crimson_guard_2;item_upgrade_core_3"
-      "03"                                                "item_crimson_guard_2;item_upgrade_core_4"
+      "01"                                                "item_crimson_guard;item_upgrade_core_4"
     }
   }
 
@@ -39,7 +37,7 @@
     "ID"                                                  "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/reduction_orb_1"
+    "AbilityTextureName"                                  "custom/reduction_orb_3"
     "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
     "FightRecapLevel"                                     "1"
 
@@ -52,12 +50,12 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                  "3"
+    "MaxUpgradeLevel"                                  "1"
     "ItemBaseLevel"                                    "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8550"
+    "ItemCost"                                            "36550"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "half damage reduction orb"
@@ -72,37 +70,37 @@
       "01"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_health"                                      "750 1000 1500"
+        "bonus_health"                                      "1500"
       }
       "02"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_health_regen"                                "14 19 27"
+        "bonus_health_regen"                                "27"
       }
       "03"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_all_stats"                                   "5 7 10"
+        "bonus_all_stats"                                   "10"
       }
       "04"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_armor"                                       "9 11 13"
+        "bonus_armor"                                       "13"
       }
       "05"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "damage_reduction"                                  "50 100 100"
+        "damage_reduction"                                  "100"
       }
       "06"
       {
         "var_type"                                          "FIELD_FLOAT"
-        "duration"                                          "2.0 3.0 4.0"
+        "duration"                                          "4.0"
       }
       "07"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "damage_as_healing"                                 "0 25 50"
+        "damage_as_healing"                                 "50"
       }
     }
   }
