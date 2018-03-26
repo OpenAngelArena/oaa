@@ -1,0 +1,67 @@
+
+"DOTAAbilities" {
+  "boss_carapace_headbutt" {
+    "ID"                                                  "9911"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/carapace/boss_carapace_headbutt.lua"
+    "AbilityTextureName"                                  "earthshaker_aftershock"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+	
+    "AbilityCastPoint"                                    "1.0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "distance"                                        "500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "150"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "end_radius"                                      "300"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "80"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_stun_duration"                              "2.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "target_max_range"                                "500"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "target_min_range"                                "200"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slam_damage"                                     "1500"
+      }
+    }
+  }
+}

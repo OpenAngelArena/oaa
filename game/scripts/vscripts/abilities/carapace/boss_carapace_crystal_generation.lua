@@ -1,0 +1,1 @@
+boss_carapace_crystal_generation = class(AbilityBaseClass)
