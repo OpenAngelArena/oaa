@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                               "255"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                        "item_datadriven"
     "Model"                            "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"               "custom/recipe/recipe_1"
 
@@ -22,8 +23,8 @@
     "ItemResult"                       "item_aeon_disk"
     "ItemRequirements"
     {
-      "01"                             "item_bloodstone_3; item_upgrade_core_3"
-      "02"                             "item_bloodstone_3; item_upgrade_core_4"
+      "01"                             "item_bloodstone_3;item_upgrade_core_3"
+      "02"                             "item_bloodstone_3;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
@@ -34,6 +35,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                               "256"
+    "BaseClass"                        "item_aeon_disk"
+    "AbilityBehavior"                  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxUpgradeLevel"                  "2"
     "ItemBaseLevel"                    "1"
     "ItemCost"                         "16350"

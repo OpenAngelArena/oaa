@@ -71,17 +71,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 45 55"
+        "bonus_intellect"                                 "80"  //"25 35 45 55"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "3.25 4.50 6.50 8.75"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "8.75"  //"3.25 4.50 6.50 8.75"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "55 60 65 70"
+        "bonus_movement_speed"                            "80"  //"55 60 65 70"
       }
       "04"
       {
@@ -91,7 +91,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "575"
+        "cast_range_tooltip"                              "975"  //"575"
       }
     }
     "OnSpellStart"

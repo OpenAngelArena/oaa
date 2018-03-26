@@ -6,6 +6,7 @@
   "item_recipe_sheepstick"
   {
     "ID"                                                  "95"    // unique ID
+    "BaseClasse"                                          "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemCost"                                            "8000"
@@ -30,6 +31,7 @@
   {
     // General-----------------------------------------------------------------------------------------------------
     "ID"                                                  "96"    //Unique ID
+    "BaseClass"                                           "item_sheepstick"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

@@ -73,32 +73,32 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "12 24 36 48 60"
+        "bonus_strength"        "24 36 48 60"  //"12 24 36 48 60"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "12 24 36 48 60"
+        "bonus_intellect"       "24 36 48 60"  //"12 24 36 48 60"
       }
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_health_regen"    "4.0 8.0 12.0 16.0 20.0"
+        "bonus_health_regen"    "8.0 12.0 16.0 20.0"  //"4.0 8.0 12.0 16.0 20.0"
       }
       "04"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "1.5 3.0 4.5 6.0 7.5"
+        "bonus_mana_regen"      "3.0 4.5 6.0 7.5"  //"1.5 3.0 4.5 6.0 7.5"
       }
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"         "180 360 540 720 900"
+        "burn_dps_boss"         "360 540 720 900"  //"180 360 540 720 900"
       }
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps"              "90 180 270 360 450"
+        "burn_dps"              "180 270 360 450"  //"90 180 270 360 450"
       }
       "07"
       {
@@ -133,12 +133,12 @@
       "13"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_boss"    "150 300 450 600 750"
+        "impact_damage_boss"    "300 450 600 750"  //"150 300 450 600 750"
       }
       "14"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage"         "150 300 450 600 750"
+        "impact_damage"         "300 450 600 750"  //"150 300 450 600 750"
       }
     }
     "precache"

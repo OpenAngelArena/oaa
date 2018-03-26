@@ -68,37 +68,37 @@
       "01"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_health"                                      "750 1000 1500"
+        "bonus_health"                                      "1500"  //"750 1000 1500"
       }
       "02"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_health_regen"                                "14 19 27"
+        "bonus_health_regen"                                "27"  //"14 19 27"
       }
       "03"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_all_stats"                                   "5 7 10"
+        "bonus_all_stats"                                   "10"  //"5 7 10"
       }
       "04"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_armor"                                       "9 11 13"
+        "bonus_armor"                                       "13"  //"9 11 13"
       }
       "05"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "damage_reduction"                                  "50 100 100"
+        "damage_reduction"                                  "100"  //"50 100 100"
       }
       "06"
       {
         "var_type"                                          "FIELD_FLOAT"
-        "duration"                                          "2.0 3.0 4.0"
+        "duration"                                          "4.0"  //"2.0 3.0 4.0"
       }
       "07"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "damage_as_healing"                                 "0 25 50"
+        "damage_as_healing"                                 "50"  //"0 25 50"
       }
     }
   }
