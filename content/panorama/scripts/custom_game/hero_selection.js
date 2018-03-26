@@ -342,7 +342,7 @@ function onPlayerStatChange (table, key, data) {
     } else {
       // CM Hides the chat on last pick, before selecting plyer hero
       // ARDM don't have pick screen chat
-      if (currentMap === 'oaa' || currentMap === 'oaa_10v10') {
+      if (currentMap === 'oaa' || currentMap === 'oaa_10v10' || currentMap === 'oaa_test') {
         ReturnChatWindow();
       }
       HideStrategy();
