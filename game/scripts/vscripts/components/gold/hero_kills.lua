@@ -28,54 +28,46 @@ local StreakTable = {
 
 --[[
 The following parameters are use in this way:
-[base + (1 × dying hero's level) + (0.0225 × dying hero's NW × newMult) + (advantageMult × team NW disadvantage / advantageFactor)] × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × nwRankingFactor[heroNWRank]
+  assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
+  comeback bonus = (killedNwFactor * killed hero's networth + comebackBase) / number of assisting heroes
+  With the comeback bonus only being added if the killing team is behind in networth
 ]]
 
 local AssistGoldTable = {
     [1] = {
-      base = 140,
-      nwMult = 0.0375,
-      advantageMult = 100,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 1 }
+      base = 80,
+      comebackBase = 70,
+      killedNwFactor = 0.026,
+      killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
+      killerNwRankingFactor = { 1 }
     },
     [2] = {
-      base = 70,
-      nwMult = 0.0375,
-      advantageMult = 75,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 1.25 }
+      base = 40,
+      comebackBase = 70,
+      killedNwFactor = 0.026,
+      killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
+      killerNwRankingFactor = { 0.7, 1.3 }
     },
     [3] = {
-      base = 35,
-      nwMult = 0.0375,
-      advantageMult = 50,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 1, 1.25 }
+      base = 20,
+      comebackBase = 70,
+      killedNwFactor = 0.026,
+      killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
+      killerNwRankingFactor = { 0.7, 1, 1.3 }
     },
     [4] = {
-      base = 25,
-      nwMult = 0.03,
-      advantageMult = 35,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 0.75, 1.25, 1.25 }
+      base = 14.5,
+      comebackBase = 70,
+      killedNwFactor = 0.026,
+      killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
+      killerNwRankingFactor = { 0.7, 0.9, 1.1, 1.3 }
     },
     [5] = {
-      base = 20,
-      nwMult = 0.0225,
-      advantageMult = 35,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 0.75, 0.75, 1, 1.25, 1.25 }
+      base = 11.5,
+      comebackBase = 70,
+      killedNwFactor = 0.026,
+      killedNwRankingFactor = { 1.2, 1.05, 0.9, 0.75, 0.6 },
+      killerNwRankingFactor = { 0.7, 0.85, 1, 1.15, 1.3 }
     },
     max = 5
   }
@@ -113,6 +105,7 @@ function HeroKillGold:HeroDeathHandler (keys)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
+  local killedHeroLevelFactor = (100 * killedHeroLevel)/14
   local numAttackers = killedHero:GetNumAttackers()
   local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
   local rewardHeroes = iter({killerHero})
@@ -136,7 +129,7 @@ function HeroKillGold:HeroDeathHandler (keys)
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
   end
 
-  local baseGold = math.floor((110 + streakValue + (killedHeroLevel * 8)) / distributeCount)
+  local baseGold = math.floor((40 + streakValue + (killedHeroLevel * 8)) / distributeCount)
 
   -- Grant the base last hit bounty
   for _, hero in rewardHeroes:unwrap() do
@@ -199,9 +192,6 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killerTeamNW = sum(map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killerTeam)))
   local killedTeamNW = sum(entireKilledTeamNW)
-  local nwFactor = math.min(1, math.max(0, (killedTeamNW / killerTeamNW) - 1))
-  -- (Team NW disadvantage / 4000) has a maximum of 1
-  local teamNWDisadvantage = math.min(math.max(0, killedTeamNW - killerTeamNW) / 4000, 1)
 
   local killedNWRanking = index(killedNetworth, entireKilledTeamNW)
 
@@ -241,23 +231,17 @@ function HeroKillGold:HeroDeathHandler (keys)
   end
 
   for nwRank, hero in ipairs(heroes) do
-    --[[
-      base = 140,
-      nwMult = 0.0375,
-      advantageMult = 100,
-      advantageFactor = 4000,
-      nwMultBase = 1.2,
-      nwMultMult = 0.1,
-      nwRankingFactor = { 1 }
-    ]]
-    -- 5 Heroes: [20 Gold + (1 × dying hero's level) + (0.0225 × dying hero's NW × NW factor) + (25 Gold × team NW disadvantage / 4000)]
-    local assistGold = (parameters.base + (math.max(1, 6 - #heroes) * killedHeroLevel) + (parameters.nwMult * killedNetworth * nwFactor) + (parameters.advantageMult * teamNWDisadvantage))
-    DebugPrint('(' .. parameters.base .. ' + (' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevel .. ') + (' .. parameters.nwMult .. ' * ' .. killedNetworth .. ' * ' .. nwFactor .. ') + (' .. parameters.advantageMult .. ' * ' .. teamNWDisadvantage .. '))) = ' .. assistGold)
-    -- × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × [NW ranking factor]
-    DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)] .. ' = ...')
-    assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)]
+    -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
+    local assistGold = parameters.base + 0.9*(killedHeroLevelFactor/#heroes) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
+    DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
+    local assistComebackGold = 0
+    if killedTeamNW > killerTeamNW then
+      assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/#heroes
+      DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. #heroes .. ' = ' .. assistComebackGold)
+    end
+    assistGold = assistGold + assistComebackGold
     assistGold = math.floor(assistGold)
-    DebugPrint(assistGold)
+    DebugPrint("Total assist gold: " .. assistGold)
 
     -- Modify gold displayed in kill toast message for player last hits
     if hero:GetPlayerOwnerID() == killerPlayerID then
