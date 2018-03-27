@@ -17,14 +17,14 @@ Updated 2017-12-05
 ## Playing the Game
 1. Play Dota 2
 2. Press console shortcut key
-3. Type 'dota_launch_custom_game oaa oaa'
-4. Press console shortcut key again to close.
+3. Type 'dota_launch_custom_game oaa oaa', press 'Enter'
 5. Play and identify broke shit.
 6. Disconnect from lobby when done. You don't need to close Dota 2
-7. Make your KeyValue changes, compile using 'gulp'
-8. Copy-paste the npc text into 'http://arhowk.github.io' to check for syntax errors if necessary.
-9. Hop back into Dota 2.
-8. Repeat 2-9 as necessary.
+7. Make your individual KeyValue changes. Commit your KeyValue changes in git.
+8. Populate changes to ``addon_english.txt`` by running ``node scripts/generate-translations.js`` using cmd-prompt in the oaa directory.
+9. Hop back into dota 2 and `dota_launch_custom_game oaa oaa` and test changes.
+10. Do not commit or upload ``addon_english.txt`` remove any/all changes to this file before committing by doing ``git checkout -- game/resource/addon_english.txt``.
+11. Repeat 2-10 as necessary.
 
 ## Changing KeyValues
 As you identify things that need changing about the items/abilities, you will modify the **individual files** contained in these directories:
