@@ -23,9 +23,12 @@
     "ItemResult"                    "item_cyclone_3"
     "ItemRequirements"
     {
-      "01"                                                "item_cyclone_2;item_upgrade_core_2"
-      "02"                                                "item_cyclone_2;item_upgrade_core_3"
-      "03"                                                "item_cyclone_2;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
+      "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
+      "03"                                                "item_rod_of_atos_2;item_upgrade_core_4
+      "04"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "05"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "06"                                                "item_meteor_hammer_2;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "175 200 250 300 350"
-    "ItemCost"                      "7750"
+    "ItemCost"                      "8030"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
     "ItemAliases"                   "cyclone 3;euls 3;eul's scepter of divinity 3"
