@@ -2,8 +2,8 @@
 {
   custom_net_tables =
   [
+    "containers_lua",
     "team_scores",
-    "ngp",
     "info",
     "entity_stats",
     "stat_display_player",
@@ -11,6 +11,8 @@
     "hero_selection",
     "music",
     "timer",
-    "bottlepass"
+    "bottlepass",
+    "talents",
+    "end_game_scoreboard"
   ]
 }
