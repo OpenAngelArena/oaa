@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,10 +24,7 @@
     "ItemResult"                                          "item_martyrs_mail"
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail;item_upgrade_core;item_relic"    //item added so that it doesn't clash with blade mail
-      "02"                                                "item_blade_mail;item_upgrade_core_2;item_relic"  //item added so that it doesn't clash with blade mail
-      "03"                                                "item_blade_mail;item_upgrade_core_3;item_relic"  //item added so that it doesn't clash with blade mail
-      "04"                                                "item_blade_mail;item_upgrade_core_4;item_relic"  //item added so that it doesn't clash with blade mail
+      "01"                                                "item_blade_mail_2;item_upgrade_core_4;item_relic"    //item added so that it doesn't clash with blade mail
     }
   }
 
@@ -41,7 +38,7 @@
     "ID"                                                  "3336"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/martyrs_mail_1"
+    "AbilityTextureName"                                  "custom/martyrs_mail_4"
     "ScriptFile"                                          "items/martyrs_mail.lua"
 
     // Stats
@@ -51,12 +48,12 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "1"
     "ItemBaseLevel"                                       "1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "7500"
+    "ItemCost"                                            "39000"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm;martyrs mail;martyrsmail"
@@ -69,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 50 75 120"
+        "bonus_damage"                                    "120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "14 22 30 40"
+        "bonus_armor"                                     "40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 22 32 45"
+        "bonus_intellect"                                 "45"
       }
       "04"
       {
@@ -94,7 +91,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_percent"                             "50 60 75 100"
+        "martyr_heal_percent"                             "100"
       }
     }
   }

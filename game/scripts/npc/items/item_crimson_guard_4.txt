@@ -67,32 +67,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 750 1000 1500"
+        "bonus_health"                                    "1000 1500"  //"250 500 750 1000 1500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 19 27"
+        "bonus_health_regen"                              "19 27" //"6 9 14 19 27"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 3 5 7 10"
+        "bonus_all_stats"                                 "7 10"  //"2 3 5 7 10"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 9 11 13"
+        "bonus_armor"                                     "11 13"  //"5 7 9 11 13"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 150 200 300"
+        "block_damage_melee"                              "200 300"  //"70 100 150 200 300"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 45 75 100 150"
+        "block_damage_ranged"                             "100 150"  //"35 45 75 100 150"
       }
       "07"
       {
@@ -102,7 +102,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_armor"                                 "2 3 4 5 6"
+        "bonus_aoe_armor"                                 "5 6"  //"2 3 4 5 6"
       }
       "09"
       {
@@ -117,12 +117,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_melee_active"                       "180 275"  //"60 90 140 180 275"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
+        "block_damage_ranged_active"                      "180 275"  //"60 90 140 180 275"
       }
       "13"
       {

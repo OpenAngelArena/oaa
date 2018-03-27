@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,10 +24,8 @@
     "ItemResult"                                          "item_blade_mail_2"
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail;item_upgrade_core"
-      "02"                                                "item_blade_mail;item_upgrade_core_2"
-      "03"                                                "item_blade_mail;item_upgrade_core_3"
-      "04"                                                "item_blade_mail;item_upgrade_core_4"
+      "01"                                                "item_blade_mail;item_upgrade_core_3"
+      "02"                                                "item_blade_mail;item_upgrade_core_4"
     }
   }
 
@@ -41,7 +39,7 @@
     "ID"                                                  "3090"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_blade_mail"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/blade_mail_2"
+    "AbilityTextureName"                                  "custom/blade_mail_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
@@ -49,13 +47,13 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
+    "UpgradesItems"                                       "item_blade_mail_2;item_blade_mail_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3700"
+    "ItemCost"                                            "15200"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 2;blade mail 2;blademail 2"
@@ -68,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35 50 75 120"
+        "bonus_damage"                                    "50 75 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 14 22 30 40"
+        "bonus_armor"                                     "22 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 22 32 45"
+        "bonus_intellect"                                 "22 32 45"
       }
       "04"
       {

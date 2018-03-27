@@ -66,27 +66,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "50"  //"10 15 25 35 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
+        "bonus_strength"                                  "50"  //"10 15 25 35 50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "30"  //"10 15 20 25 30"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
+        "bonus_damage"                                    "75"  //"15 25 35 50 75"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
+        "bonus_mana_regen"                                "3.50"  //"0.75 1.25 1.75 2.50 3.50"
       }
       "06"
       {

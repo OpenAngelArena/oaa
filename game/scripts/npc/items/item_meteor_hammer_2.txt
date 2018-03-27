@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "1500"
+    "ItemCost"                      "3500"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -23,10 +23,13 @@
     "ItemResult"                    "item_meteor_hammer_2"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_1;item_upgrade_core"
-      "02"                                                "item_meteor_hammer_1;item_upgrade_core_2"
-      "03"                                                "item_meteor_hammer_1;item_upgrade_core_3"
-      "04"                                                "item_meteor_hammer_1;item_upgrade_core_4"
+      "01"                          "item_rod_of_atos_2;item_upgrade_core_2"
+      "02"                          "item_rod_of_atos_2;item_upgrade_core_3"
+      "03"                          "item_rod_of_atos_2;item_upgrade_core_4"
+      "04"                          "item_meteor_hammer_1;item_upgrade_core_2"
+      "05"                          "item_meteor_hammer_1;item_upgrade_core_3"
+      "06"                          "item_meteor_hammer_1;item_upgrade_core_4"
+
     }
   }
 
@@ -41,14 +44,14 @@
     "BaseClass"                     "item_lua"
     "ScriptFile"                    "items/meteor_hammer.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"            "custom/meteor_hammer_2"
+    "AbilityTextureName"            "custom/meteor_hammer_3"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +67,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "4125"
+    "ItemCost"                      "7625"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 2;meteor hammer 2"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -76,32 +79,32 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "12 24 36 48 60"
+        "bonus_strength"        "24 36 48 60"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "12 24 36 48 60"
+        "bonus_intellect"       "24 36 48 60"
       }
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_health_regen"    "4.0 8.0 12.0 16.0 20.0"
+        "bonus_health_regen"    "8.0 12.0 16.0 20.0"
       }
       "04"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "1.5 3.0 4.5 6.0 7.5"
+        "bonus_mana_regen"      "3.0 4.5 6.0 7.5"
       }
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"    "180 360 540 720 900"
+        "burn_dps_boss"         "360 540 720 900"
       }
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps"        "90 180 270 360 450"
+        "burn_dps"              "180 270 360 450"
       }
       "07"
       {
@@ -136,12 +139,12 @@
       "13"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_boss"   "150 300 450 600 750"
+        "impact_damage_boss"    "300 450 600 750"
       }
       "14"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage"   "150 300 450 600 750"
+        "impact_damage"         "300 450 600 750"
       }
     }
     "precache"

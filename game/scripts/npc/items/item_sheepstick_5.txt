@@ -54,27 +54,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 30 40"
+        "bonus_strength"                                  "30 40"  //"10 15 20 30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 20 30 40"
+        "bonus_agility"                                   "30 40"  //"10 15 20 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 50 70 105 140"
+        "bonus_intellect"                                 "105 140"  //"35 50 70 105 140"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
+        "bonus_mana_regen"                                "6.75 9"  //"2.25 3 4.5 6.75 9"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
+        "sheep_duration"                                  "3.8 4.0"  //"3.5 3.6 3.7 3.8 4.0"
       }
       "06"
       {

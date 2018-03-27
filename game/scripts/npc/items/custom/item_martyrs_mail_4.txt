@@ -67,17 +67,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 50 75 120"
+        "bonus_damage"                                    "120"  //"35 50 75 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "14 22 30 40"
+        "bonus_armor"                                     "40"  //"14 22 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 22 32 45"
+        "bonus_intellect"                                 "45"  //"15 22 32 45"
       }
       "04"
       {
@@ -92,7 +92,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_percent"                             "50 60 75 100"
+        "martyr_heal_percent"                             "100"  //"50 60 75 100"
       }
     }
   }
