@@ -1,0 +1,95 @@
+"DOTAUnits"
+{
+//=================================================================================
+// Roshan tier 5 Tier 5 Version
+//=================================================================================
+  "npc_dota_boss_tier_1_tier5"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
+    "SoundSet"                                            "Roshan"          // Name of sound set.
+    "ModelScale"                                          "1.5"
+    "Level"                                               "60"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "roshan_spell_block"
+    "Ability2"                                            "roshan_bash"
+    "Ability3"                                            "roshan_slam"
+    "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"      // Physical protection.
+    "MagicalResistance"                                   "-25"                  // Magical protection (percentage).
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "4250"    // Damage range min.
+    "AttackDamageMax"                                     "4500"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "0.4"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "228"    // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"    // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "420"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "9000"    // Base health
+    "StatusHealthRegen"                                   "30.5"    // Health regeneration rate.
+    "StatusMana"                                          "0"    // Base mana.
+    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+
+    // Creature data
+
+    "Creature"
+    {
+      //Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+    }
+
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+}
