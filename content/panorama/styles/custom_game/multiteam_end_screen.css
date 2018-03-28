@@ -1,0 +1,410 @@
+@define XP_BAR_ANIM_TIME: 2s;
+@define LEVEL_UP_ANIM_TIME: 2s;
+@define END_SCREEN_DELAY: 0.6s;
+
+@keyframes 'fade_in'
+{
+	0%
+	{
+		opacity: 0.0;
+	}
+
+	100%
+	{
+		opacity: 1.0;
+	}
+}
+
+@keyframes 'level_up'
+{
+	0%
+	{
+		border: 0px solid gold;
+	}
+
+	50%
+	{
+		border: 2px solid gold;
+	}
+
+	100%
+	{
+		border: 0px solid gold;
+	}
+}
+
+.es-root {
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #000000FF ), color-stop( 0.12, #000000ff ), color-stop( 0.5, #00000022 ), to( #00000000 ) );
+}
+
+#es-end-screen {
+	width: 100%;
+	height: 100%;
+}
+
+#es-end-screen-players {
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+}
+
+#es-victory-info,
+#es-teams,
+#es-buttons {
+	animation-name: fade_in;
+	animation-duration: END_SCREEN_DELAY;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+.es-text-red { color: #f03333; }
+.es-text-green { color: #72a144; }
+.es-text-white { color: #ffffff; }
+
+#es-victory-info {
+	margin-top: 14%;
+	margin-bottom: 20px;
+	flow-children: down;
+	horizontal-align: center;
+	text-align: center;
+}
+
+#es-victory-info-text {
+	font-size: 40px;
+	color: #fff;
+	horizontal-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 4px 2.0 #777;
+}
+
+.hideXP #es-teams {
+  width: 1200px;
+}
+
+#es-teams {
+	flow-children: down;
+	horizontal-align: center;
+	width: 100%;
+	padding: 10px;
+}
+
+.es-teams-columns {
+	flow-children: right;
+	horizontal-align: center;
+	width: 100%;
+}
+
+.es-team {
+	flow-children: down;
+	horizontal-align: center;
+	width: 50%;
+	border: 2px solid #44444499;
+	background-color: #222222cc;
+	padding: 20px 0px;
+	box-shadow: #111 0 0 4px 0;
+}
+
+#es-radiant {
+	background-color: #042204bb;
+}
+
+#es-dire {
+	background-color: #220404bb;
+}
+
+#es-radiant .es-team-name,
+#es-dire .es-team-name, {
+	text-shadow: 0 0 5px 2.0 #111;
+}
+
+#es-radiant .es-team-name {
+	color: #326114;
+}
+
+#es-dire .es-team-name {
+	color: #f03333;
+}
+
+.es-team-title {
+	width: 100%;
+}
+
+.es-team-name {
+	font-size: 30px;
+	color: #fff;
+	text-transform: uppercase;
+	horizontal-align: center;
+}
+
+.es-team-score {
+	font-size: 30px;
+	margin-right: 20px;
+	color: #fff;
+	text-transform: uppercase;
+	horizontal-align: right;
+}
+
+.es-legend {
+	height: 40px;
+	flow-children: right;
+	padding-left: 284px;
+}
+
+.es-legend Label {
+	color: #ddd;
+	text-align: center;
+	vertical-align: center;
+	font-size: 16px;
+}
+
+.es-legend-gold { width: 70px; }
+
+.es-legend-xp { width: 190px; }
+
+.hideXP .es-legend-xp {
+  visibility: collapse;
+}
+
+.es-player-root {
+	flow-children: right;
+	border-top: 2px solid #333;
+	padding: 3px 10px;
+	background-color: #1c1c1c77;
+}
+
+.es-players {
+	flow-children: down;
+}
+
+.es-player-name-and-desc {
+	flow-children: down;
+	width: 180px;
+}
+
+#es-player-name {
+	font-size: 18px;
+	color: #fff;
+	height: 18px;
+	margin-top: -3px;
+}
+
+#es-player-desc {
+	font-size: 12px;
+	color: #ccc;
+}
+
+.es-player-line-text {
+	font-size: 16px;
+}
+
+#es-player-avatar {
+	border: 1px solid #666;
+	height: 30px;
+	width: 30px;
+	margin-right: 5px;
+}
+
+#es-player-hero {
+	border: 1px solid #999;
+	height: 30px;
+	width: 53px;
+	margin-right: 5px;
+}
+.es-legend-kdalevel {
+	width: 35px;
+}
+
+.es-player-kdalevel {
+	width: 35px;
+	vertical-align: center;
+	text-align: center;
+	color: #eee;
+}
+
+#es-player-gold {
+	width: 70px;
+	vertical-align: center;
+	text-align: center;
+	color: #ee7;
+}
+
+.es-legend-imr {
+	width: 85px;
+}
+
+#es-player-imr {
+	width: 85px;
+	vertical-align: center;
+	text-align: center;
+}
+
+.es-player-xp {
+	flow-children: none;
+	width: 180px;
+	vertical-align: center;
+	border: 1px solid #444;
+	border-radius: 2px;
+	box-shadow: #000000 0px 0px 10px 0px;
+	margin-right: 10px;
+}
+
+.level-up {
+	animation-name: level_up;
+	animation-duration: LEVEL_UP_ANIM_TIME;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+#es-player-xp-progress {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #326114 ), color-stop( 0.3, #54BA07 ), color-stop( .5, #54BA07 ), to( #326114 ) );
+	width: 0%;
+	height: 20px;
+	transition-property: width;
+	transition-duration: XP_BAR_ANIM_TIME;
+}
+
+.es-player-xp Label {
+	color: #fff;
+	width: 100%;
+	font-size: 16px;
+	vertical-align: center;
+	padding: 0px 10px;
+}
+
+#es-player-xp-rank { text-align: right; }
+#es-player-xp-level { text-align: left; }
+#es-player-xp-xp { text-align: right; }
+
+#es-player-xp-earned {
+	width: 54px;
+	vertical-align: center;
+	text-align: center;
+}
+.hideXP #es-player-xp-earned, .hideXP .es-player-xp {
+  visibility: collapse;
+}
+
+#es-buttons {
+	flow-children: right;
+	horizontal-align: center;
+	flow-children: right;
+}
+
+#es-buttons Button {
+	padding: 7px 25px;
+	margin: 10px;
+	border: 1px solid #333;
+	box-shadow: #111 0 0 4px 0;
+}
+
+#es-buttons-stats, #es-buttons-website {
+	background-color: #222222ee;
+}
+
+#es-buttons-close {
+	background-color: green;
+}
+
+#es-buttons Label {
+	font-size: 20px;
+	color: #fff;
+}
+
+#es-buttons Button:hover {
+	background-color: #333333ee;
+}
+
+#es-buttons Button:active {
+	background-color: #222222ff;
+	border: 1px transparent;
+	box-shadow: none;
+}
+
+.es-player-reward {
+	width: 300px;
+	padding: 30px;
+	background-color: #000000da;
+	border-radius: 20px;
+	align: center center;
+	visibility: collapse;
+	flow-children: down;
+}
+
+#es-player-reward-container {
+	width: 300px;
+	padding: 30px;
+	background-color: #000000da;
+	border-radius: 20px;
+	align: center center;
+	flow-children: down;
+	visibility: collapse;
+}
+
+#es-player-reward-name {
+	width: 100%;
+	color: white;
+	text-align: center;
+	vertical-align: center;
+	font-size: 26px;
+}
+
+#es-player-reward-rarity {
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+	font-size: 20px;
+}
+
+.Arcana {
+	color: lightgreen;
+}
+
+/*
+#es-player-reward-image-container {
+	width: 180px;
+	height: 180px;
+	margin-top: 30px;
+	align: center bottom;
+	background-image: url("s2r://panorama/images/hud/reborn/ability_bg_psd.vtex");
+}
+*/
+#es-player-reward-image {
+	width: 180px;
+	height: 120px;
+	margin-top: 30px;
+	align: center bottom;
+}
+
+.es-player-reward-button {
+	margin-top: 30px;
+	height: 30px;
+	width: fill-parent-flow(1.0);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	background-size: auto 32px;
+
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
+	box-shadow: #0000008f -6px -6px 12px 12px;
+	transition-property: brightness;
+	transition-duration: 0.2s;
+	margin-bottom: 20px;
+}
+
+.es-player-reward-button Label {
+	margin-top: 5px;
+	color: darkgrey;
+	align: center center;
+	text-transform: uppercase;
+}
+
+.es-player-reward-button:hover {
+  brightness: 2.0;
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+.es-player-reward-button:active {
+  brightness: 0.5;
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}

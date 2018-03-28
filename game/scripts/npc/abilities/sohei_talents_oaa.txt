@@ -23,31 +23,6 @@
       }
     }
   }
-
-  //=================================================================================================================
-  // sohei talent 2: Guard also knockbacks enemies until they are 300 units away
-  //=================================================================================================================
-  "special_bonus_sohei_guard_knockback"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9505"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "value"         "300"     // Knockback max distance
-      }
-    }
-  }
-
   //=================================================================================================================
   // sohei talent 3: Momentum hits reduce the cooldown on Guard
   //=================================================================================================================
@@ -124,7 +99,7 @@
   //=================================================================================================================
   // sohei talent 6: Guard can be cast on allies, this isn't ready don't use this
   //=================================================================================================================
-  "special_bonus_sohei_guard_allycast"
+  "special_bonus_sohei_wholeness_allycast"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -141,6 +116,34 @@
       {
         "var_type"        "FIELD_FLOAT"
         "value"         "1"     // nothing
+      }
+    }
+  }
+  //=================================================================================================================
+  // sohei talent 2: Guard also knockbacks enemies until they are 300 units away
+  //=================================================================================================================
+  "special_bonus_sohei_wholeness_knockback"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "9505"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "500"     // Knockback max distance
+      }
+	  "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "0.5"     // Knockback max distance
       }
     }
   }
