@@ -4,6 +4,9 @@ LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic
 LinkLuaModifier( "modifier_item_refresher_core", "items/refresher_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_octarine_core_2 = class(ItemBaseClass)
+item_octarine_core_3 = item_octarine_core_2
+item_octarine_core_4 = item_octarine_core_2
+item_octarine_core_5 = item_octarine_core_2
 
 function item_octarine_core_2:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
@@ -45,6 +48,9 @@ function item_refresher_core:OnSpellStart()
   local exempt_item_table = {
     item_refresher = true,
     item_refresher_2 = true,
+    item_refresher_3 = true,
+    item_refresher_4 = true,
+    item_refresher_5 = true,
     item_refresher_core = true,
     item_refresher_core_2 = true,
     item_refresher_core_3 = true
