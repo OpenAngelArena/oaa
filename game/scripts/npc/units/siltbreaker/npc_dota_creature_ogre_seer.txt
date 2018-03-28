@@ -1,0 +1,95 @@
+"DOTAUnits"
+{
+  //=================================================================================
+	// Creature: Ogre Seer
+	// Zones: darkforest_rescue
+	//=================================================================================
+	"npc_dota_creature_ogre_seer"
+	{
+		// Script
+		"vscripts"					"units/ai_ogre_seer.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/ogre_1/small_ogre.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"IsAncient"                 "1"
+		"ModelScale" 				"1.1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ogre_magi_channelled_bloodlust"
+		"Ability2"					"ogre_seer_area_ignite"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"190"
+		"AttackDamageMax"			"200"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"160"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"330"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"80"
+		"BountyGoldMin"				"50"
+		"BountyGoldMax"				"60"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"290"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"7500"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"1200"
+		"StatusManaRegen"			"10"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+		}
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      "particle"                                          "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+    }
+	}
+}

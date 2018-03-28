@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "160"
+        "radius"                                          "180"
       }
       "02"
       {
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.75 1.25 1.75 2.25 2.75 3.25"
+        "stun_duration"                                   "0.5 1.0 1.5 2.0 2.5 3.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_3"
       }
       "05"

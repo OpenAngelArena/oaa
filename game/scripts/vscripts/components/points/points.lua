@@ -29,6 +29,7 @@ function PointsManager:Init ()
   -- Register chat commands
   ChatCommand:LinkCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
   ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+  ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 end
 
 function PointsManager:CheckWinCondition(teamID, points)
@@ -47,6 +48,8 @@ function PointsManager:SetWinner(teamID)
   -- actually need to implement lose win logic for teams
   Music:FinishMatch(teamID)
   GAME_WINNER_TEAM = teamID
+  Bottlepass:SendWinner(teamID)
+
   GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
   GameRules:SetGameWinner(teamID)
   self.hasGameEnded = true

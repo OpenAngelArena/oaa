@@ -38,6 +38,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_traps"                                       "5 8 11 14 17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin_6"
       }
       "02"
       {
@@ -46,23 +47,29 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_min_tooltip"                      "30"
+        "var_type"          "FIELD_INTEGER"
+        "movement_speed_min"      "30"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_max_tooltip"                      "60"
+        "var_type"          "FIELD_INTEGER"
+        "movement_speed_max"      "60"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "trap_duration_tooltip"                           "5"
+        "var_type"          "FIELD_INTEGER"
+        "trap_duration_tooltip"     "5"
       }
       "06"
       {
         "var_type"          "FIELD_INTEGER"
-        "trap_bonus_damage"     "175 250 325 700 1075"
+        "trap_bonus_damage"     "250 350 450 850 1250"
+        "LinkedSpecialBonus"  "special_bonus_unique_templar_assassin_3"
+      }
+      "07"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "trap_max_charge_duration"      "4"
       }
     }
   }

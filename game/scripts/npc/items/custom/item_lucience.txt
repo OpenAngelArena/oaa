@@ -1,0 +1,96 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Lucience
+  //=================================================================================================================
+  "item_recipe_lucience"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3328"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_lucience"
+    "ItemRequirements"
+    {
+      "01"                                                "item_radiance_2;item_upgrade_core_2"
+      "02"                                                "item_radiance_2;item_upgrade_core_3"
+      "03"                                                "item_radiance_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Lucience
+  //=================================================================================================================
+  "item_lucience"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3331"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/lucience.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityTextureName"                                  "custom/lucience"
+    "AbilityCooldown"                                     "1"
+    "AbilityManaCost"                                     "0"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "10150"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "lucience;lucio"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_lucience;item_lucience_2"
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
+      "particle"                                          "particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
+    }
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "65"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "regen_bonus"                                     "65 130 260"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_bonus"                                     "20 40 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heals_per_sec"                                   "3"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+//===============================================================================
+// Preemptive Reflex 2a
+//===============================================================================
+"DOTA_Tooltip_Ability_item_dispel_orb_1"                                              "Dispel Orb"
+"DOTA_Tooltip_Ability_item_dispel_orb_1_Description"                                  "<h1>Active: Shake it off</h1> Constant soft dispel for %duration% seconds for incoming debuffs."
+"DOTA_Tooltip_Ability_item_dispel_orb_1_Lore"                                         "An ancient orb of magical fortification."
+"DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_health_regen"                           "+$hp_regen"
+"DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_armor"                                  "+$armor"
+"DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana_regen"                             "+$mana_regen"
+"DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana"                                   "+$mana"
+
+"DOTA_Tooltip_Ability_item_dispel_orb_2"                                              "#{DOTA_Tooltip_Ability_item_dispel_orb_1}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_Description"                                  "#{DOTA_Tooltip_Ability_item_dispel_orb_1_Description}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_Lore"                                         "#{DOTA_Tooltip_Ability_item_dispel_orb_1_Lore}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_bonus_health_regen"                           "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_bonus_armor"                                  "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_armor}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_bonus_mana_regen"                             "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana_regen}"
+"DOTA_Tooltip_Ability_item_dispel_orb_2_bonus_mana"                                   "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana}"
+
+"DOTA_Tooltip_Ability_item_dispel_orb_3"                                              "#{DOTA_Tooltip_Ability_item_dispel_orb_1}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_Description"                                  "#{DOTA_Tooltip_Ability_item_dispel_orb_1_Description}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_Lore"                                         "#{DOTA_Tooltip_Ability_item_dispel_orb_1_Lore}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_bonus_health_regen"                           "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_health_regen}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_bonus_armor"                                  "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_armor}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_bonus_mana_regen"                             "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana_regen}"
+"DOTA_Tooltip_Ability_item_dispel_orb_3_bonus_mana"                                   "#{DOTA_Tooltip_Ability_item_dispel_orb_1_bonus_mana}"

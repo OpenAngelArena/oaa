@@ -17,7 +17,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45 35 25 15 5 0"
+    "AbilityCooldown"                                     "45 35 25 15 15 15"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -42,7 +42,8 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "disjoint_count"                                  "3"
+        "disjoint_count"                                  "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
       }
     }
   }

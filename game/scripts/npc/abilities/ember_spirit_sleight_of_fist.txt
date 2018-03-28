@@ -33,11 +33,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "250 350 450 550 650 700"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hero_damage"                               "20 40 60 80 180 280"
+        "bonus_hero_damage"                               "30 60 90 120 200 400"
         "CalculateSpellDamageTooltip"                     "0"
       }
 

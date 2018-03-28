@@ -45,10 +45,10 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "195.0"
+    "AbilityCooldown"                                     "195.0 180.0 165.0 150.0 135.0"
     "AbilitySharedCooldown"                               "refresher"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
@@ -67,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "11 17"
+        "bonus_health_regen"                              "11 17 25 40 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 4.0"
+        "bonus_mana_regen"                                "3.0 4.5 7.0 10.0 14.0"
       }
     }
   }

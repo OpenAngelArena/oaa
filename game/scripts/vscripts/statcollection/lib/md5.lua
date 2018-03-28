@@ -1,4 +1,4 @@
-local md5 = {
+md5 = {
     _VERSION = "md5.lua 0.5.0",
     _DESCRIPTION = "MD5 computation in Lua (5.1)",
     _URL = "https://github.com/kikito/md5.lua",
@@ -378,5 +378,3 @@ end
 function md5.sum(s)
     return hex2binary(md5.sumhexa(s))
 end
-
-return md5

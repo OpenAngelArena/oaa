@@ -11,10 +11,15 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemResult"          "item_spirit_vessel_2"
     "ItemRequirements"
     {
@@ -47,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "4325"
+    "ItemCost"            "4475"
     "ItemAliases"         "sv 2;spirit vessel 2"
 
     // Special

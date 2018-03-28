@@ -1,12 +1,38 @@
-.MainHolder {
+.HeroSelection {
   width: 100%;
   height: 100%;
   background-color: #252525;
   transition-property: opacity, transform;
-  transition-delay: 10s;
+  /*transition-delay: 3s;*/
   transition-timing-function: ease-in;
   transition-duration: 0.5s;
   transform: scaleX(1) scaleY(1) translateY(0);
+}
+
+#ChatPlaceholder {
+  width: 600px;
+  height: 700px;
+  vertical-align: bottom;
+  horizontal-align: left;
+  margin-bottom: 20px;
+}
+
+/*
+ARDM Loading screen
+*/
+#ARDMLoading {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  padding: 30px 50px;
+
+  background-color: #aaaaaa55;
+  width: 600px;
+  horizontal-align: center;
+  vertical-align: center;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 26px;
 }
 
 Label {
@@ -16,23 +42,30 @@ Label {
   color: white;
 }
 
-.SectionTitle {
-  background-color: #171A2590;
+#SectionTitle {
   padding: 0 12px;
+  horizontal-align: center;
 }
 
 #PregameBG {
   width: 100%;
   height: 100%;
-  blur: gaussian(4);
   horizontal-align: center;
-  pre-transform-scale2d: 2;
+  /*pre-transform-scale2d: 2;*/
   vertical-align: center;
-  transition-property: opacity;
+  transition-property: blur, brightness;
   transition-duration: 1s;
   transition-delay: 0.5s;
   transition-timing-function: ease-in-out;
   opacity: 1;
+  background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.BluredAndDark {
+  blur: gaussian(10);
+  brightness: 0.05;
 }
 
 .DashboardButton {
@@ -54,7 +87,8 @@ Label {
 }
 
 .TeamStatus {
-  width: 100%;
+  horizontal-align: center;
+  width: 90%;
   height: 10%;
   flow-children: right;
 }
@@ -66,7 +100,7 @@ Label {
 
 #TeamRadiant {
   flow-children: right;
-  width: 35%;
+  width: 45%;
   height: 65%;
   background-color: #171A2590;
 }
@@ -94,21 +128,35 @@ Label {
 
 #TeamDire {
   flow-children: left;
-  width: 35%;
+  width: 45%;
   height: 65%;
   background-color: #171A2590;
 }
 
-.Player {
-  margin: 0 1% 5px 1%;
+ .Player {
+  margin: 0 3px 5px 3px;
   width: 18%;
   height: 100%;
+}
+
+.TenVTen .Player {
+  width: 9%;
+}
+
+.TenVTen .Player DOTAHeroImage{
+  width: 100%;
+  height: 60%;
 }
 
 .PlayerImage {
   width: 100%;
   height: 100%;
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #37425ddd ), to( #2B3445dd ) );
+}
+
+.PlayerImage.PreviewHero {
+  blur: gaussian(2);
+  brightness: 0.10;
 }
 
 #TeamDire .PlayerImage {
@@ -136,7 +184,7 @@ Label {
 #MainContent {
   width: 100%;
   height: 90%;
-  margin-top: 10%;
+  margin-top: 9%;
   flow-children: right;
   transition-property: transform, opacity;
   transition-duration: 0.75s;
@@ -146,10 +194,26 @@ Label {
 }
 
 .LeftColumn {
+  visibility: collapse;
   width: 24%;
   height: 100%;
   flow-children: down;
   padding-left: 15px;
+}
+
+.MiddleColumn {
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+
+.RightColumn {
+  visibility: collapse;
+  width: 24%;
+  height: 100%;
+  flow-children: down;
+  padding-right: 15px;
 }
 
 #Minimap {
@@ -172,83 +236,171 @@ DOTAMinimap {
   padding: 10px;
 }
 
-.MiddleColumn {
-  padding: 0 20px;
-  width: 52%;
-  height: 100%;
+.HeroWrapper {
   flow-children: down;
+  width: 33.3%;
 }
 
 .AttrHolder {
+  /*width: 100%;*/
+  flow-children: right;
+}
+
+#HeroPanel {
+  margin-left: 15px;
+  width: 100%;
   flow-children: right;
 }
 
 #CMPanel {
   visibility: collapse;
-  width: 100%;
+  width: 90%;
   min-height: 150px;
-  background-color: #171A2590;
-  margin: 10px 0;
+  margin: 15px 0;
+  horizontal-align: center;
+}
+#ReserveTimePanel {
+  margin-top: -30px;
+  width: 300px;
+  height: 100%;
+  flow-children: right;
+  horizontal-align: center;
+}
+#ReserveLabel {
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+.ReserveTimeHolder {
+  horizontal-align: center;
+  width: fill-parent-flow(1.0);
+  height: 80px;
+}
+.ReserveTimeHolder Label {
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#RadiantReserve {
+  color: #00ff00;
+}
+#DireReserve {
+  color: #ff0000;
+}
+
+.CMStep.active {
+  box-shadow: #999999ff -2px -2px 4px 4px;
 }
 
 #CMProgress {
+  visibility: collapse;
+  flow-children: right;
+  background-color: #171A2590;
   width: 100%;
   height: 100%;
+  horizontal-align: center;
+}
+
+#BecomeCaptainPanel {
+  horizontal-align: center;
+}
+
+#BecomeCaptain {
+  visibility: collapse;
+  width: 400px;
+  padding-right: 90px;
+  background-image: url("s2r://panorama/images/status_icons/captain_overlay_psd.vtex");
+  background-position: 98% center;
+  background-size: contain;
+}
+
+#BecomeCaptain Label {
+  /*font-size: 12px;*/
+  text-align: center;
+  height: 80%;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
 .CMTeam {
-  width: 45%;
+  width: fill-parent-flow(1.0);
   height: 100%;
-  padding: 10px;
+  padding: 5px;
 }
 
 #CMRadiant {
   horizontal-align: left;
 }
 
+#CMRadiant.Ban, #CMDire.Ban {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #ff000020 ), to( #171A2590 ) );
+}
+
+#CMRadiant.Pick, #CMDire.Pick {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #0090ff20 ), to( #171A2590 ) );
+}
+
 #CMDire {
   horizontal-align: right;
 }
 
-.CMBan {
-  height: 30%;
+.CMLabels, .CMHeroImages, .ProgressBar {
+  flow-children: right;
   width: 100%;
-}
-
-#CMRadiantBan {
-  flow-children: right;
-}
-
-#CMRadiantBanLabel {
-  flow-children: right;
-}
-
-#CMDireBan {
-  flow-children: left;
-}
-
-#CMDireBanLabel {
-  flow-children: left;
-}
-
-.CMBan DOTAHeroImage {
-  width: 18%;
-  margin: 5% 1%;
   height: 100%;
+}
+
+.CMHeroImages {
+  vertical-align: top;
+}
+
+#CMDire .CMLabels, #CMDire .CMHeroImages {
+  flow-children: left;
+}
+
+.CMHeroImages DOTAHeroImage, .CMLabels Label {
+  width: fill-parent-flow(1.0);
+  margin: 0 1%;
+  height: 40%;
   border-radius: 5px;
+}
+
+.CMHeroImages DOTAHeroImage.pick, .CMLabels Label.pick {
+  margin-top: 60%;
+}
+
+.CMHeroImages DOTAHeroImage {
   box-shadow: #000000ff -1px -1px 2px 2px;
 }
 
-.CMBan Label {
-  padding-top: 2px;
-  width: 18%;
-  margin: 5% 1%;
-  height: 100%;
+.CMLabels Label {
   text-align: center;
-  border-radius: 5px;
+}
+.CMLabels Label.ban {
   background-color: #ff000020;
 }
+.CMLabels Label.pick {
+  background-color: #0090ff20;
+}
 
+.ProgressBar {
+  background-color: #ffffffff;
+  height: 3px;
+  vertical-align: center;
+  transition-property: width;
+  transition-duration: 0.2s;
+}
+#CMDireProgress {
+  horizontal-align: right;
+  margin-right: -5%;
+}
+#CMRadiantProgress {
+  margin-left: -5%;
+}
 
 .CMTeamInfo {
   height: 20%;
@@ -263,48 +415,8 @@ DOTAMinimap {
   font-size: 25px;
 }
 
-.CMPick {
-  height: 30%;
-  width: 100%;
-  vertical-align: bottom;
-}
-
-#CMRadiantPick {
-  flow-children: right;
-}
-
-#CMRadiantPickLabel {
-  flow-children: right;
-}
-
-#CMDirePick {
-  flow-children: left;
-}
-
-#CMDirePickLabel {
-  flow-children: left;
-}
-
-.CMPick DOTAHeroImage {
-  width: 18%;
-  margin: 5% 1%;
-  height: 100%;
-  border-radius: 5px;
-  box-shadow: #000000ff -1px -1px 2px 2px;
-}
-
-.CMPick Label {
-  padding-top: 2px;
-  width: 18%;
-  margin: 5% 1%;
-  height: 100%;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #0090ff20;
-}
-
 .CMInfo {
-  width: 10%;
+  width: 120px;
   height: 100%;
   padding: 10px;
   horizontal-align: middle;
@@ -392,25 +504,43 @@ RadioButton.Disabled:selected {
   width: 100%;
 }
 
-.RightColumn {
-  width: 24%;
-  height: 100%;
-  flow-children: down;
-  padding-right: 15px;
+#HeroSelector {
+  width: 40%;
+  height: fill-parent-flow(1.0);
+  flow-children: right;
+  horizontal-align: middle;
 }
 
-#HeroSelector {
-  margin: 0 0 15px 0;
-  background-color: #171A2590;
+#PreviewPanel {
+  margin-top: 20px;
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+  horizontal-align: center;
+}
+
+#ChatBoxHolder {
   width: 100%;
-  height: 45%;
+  height: 100%;
+  vertical-align: bottom;
+  flow-children: down;
+}
+#ChatBox {
+  width: 30%;
+  horizontal-align: left;
+  vertical-align: bottom;
+  /*height: 80%;*/
+}
+
+#ChatLinesOverlay {
+  background-color: transparent;
 }
 
 #HeroPreview {
+  /*visibility: collapse;*/
   margin-left: 10%;
   margin-right: 10%;
-  width: 80%;
   height: 100%;
+  width: 100%;
   transform: translateY( -80px );
   vertical-align: top;
   horizontal-align: middle;
@@ -421,20 +551,22 @@ DOTAScenePanel {
   height: 100%;
 }
 
+#CMHeroPreview DOTAScenePanel {
+  height: 80%;
+}
+
 #CMHeroPreview {
-  visibility: collapse;
-  margin: 12px;
   width: 100%;
-  height: 75%;
+  height: 100%;
   vertical-align: top;
   horizontal-align: middle;
-  flow-children: down;
+  flow-children: right;
 }
 
 .CMHeroPreviewItem {
-  width: 100%;
+  width: fill-parent-flow(1.0);
   height: fill-parent-flow(1.0);
-  flow-children: right;
+  flow-children: down;
   box-shadow: none;
   margin: 3px;
 }
@@ -461,116 +593,83 @@ DOTAScenePanel {
   padding-left: 10px;
 }
 
+.HeroPickLabel {
+  margin-bottom: -30px;
+}
 
+#HeroPreviewContainer {
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+}
 #HeroPickContainer {
-  width: 100%;
-  height: 15%;
-  flow-children: right;
+  width: 180px;
+  height: fill-parent-flow(1.0);
+  flow-children: down;
   margin: 12px;
   vertical-align: bottom;
   horizontal-align: middle;
 }
 
-#HeroLockIn {
-  height: 100%;
+.HeroPickerButton {
+  height: 60px;
   width: fill-parent-flow(1.0);
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: auto 32px;
+
   background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
   box-shadow: #0000008f -6px -6px 12px 12px;
   transition-property: brightness;
   transition-duration: 0.2s;
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+.HeroPickerButton Label {
+  margin-top: 5px;
+  vertical-align: center;
+  text-transform: uppercase;
+}
+
+.HeroPickerButton:hover {
+  brightness: 2.0;
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+#HeroLockIn {
+  visibility: collapse;
+  background-image: url("s2r://panorama/images/control_icons/lock_medium_png.vtex");
 }
 
 #HeroLockIn.Activated {
   sound: "ui.pick_play";
 }
 
-#HeroLockIn:hover {
-  brightness: 2.0;
-}
-
-#HeroLockLabel {
-  font-size: 35px;
-  vertical-align: middle;
-  horizontal-align: middle;
-  color: white;
-  text-transform: uppercase;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-}
-
-#BecomeCaptain {
-  visibility: collapse;
-  height: 100%;
-  width: fill-parent-flow(1.0);
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #dd4d4ddd ), to( #bb2d2ddd ) );
-  box-shadow: #0000008f -6px -6px 12px 12px;
-  transition-property: brightness;
-  transition-duration: 0.2s;
-}
-
-#BecomeCaptain:hover {
-  brightness: 2.0;
-}
-
-#BecomeCaptainLabel {
-  font-size: 35px;
-  vertical-align: middle;
-  horizontal-align: middle;
-  color: white;
-  text-transform: uppercase;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
-}
-
 #CaptainLockIn {
   visibility: collapse;
-  height: 100%;
-  width: fill-parent-flow(1.0);
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
-  box-shadow: #0000008f -6px -6px 12px 12px;
-  transition-property: brightness;
-  transition-duration: 0.2s;
 }
 
-#CaptainLockIn:hover {
-  brightness: 2.0;
+#pickLabel, #banLabel {
+  visibility: collapse;
 }
 
-#CaptainLockInLabel {
-  font-size: 35px;
-  vertical-align: middle;
-  horizontal-align: middle;
-  color: white;
-  text-transform: uppercase;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+#CaptainLockIn.PickHero #pickLabel, #CaptainLockIn.BanHero #banLabel {
+  visibility: visible;
+}
+
+#CaptainLockIn.PickHero {
+  background-image: url("s2r://panorama/images/control_icons/check_shadow_png.vtex");
+}
+
+#CaptainLockIn.BanHero {
+  background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
 }
 
 #HeroRandom {
-  height: 100%;
-  width: 93px;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
-  box-shadow: #0000008f -6px -6px 12px 12px;
-  margin-left: 12px;
-  transition-property: brightness;
-  transition-duration: 0.2s;
-}
-
-#HeroRandom:hover {
-  brightness: 2.0;
+  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
 }
 
 #HeroRandom.Activated {
   sound: "ui.pick_play";
-}
-
-#HeroRandomIcon {
-  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 65%;
-  width: 65%;
-  margin: 5%;
-  vertical-align: top;
-  horizontal-align: middle;
 }
 
 #HeroRandomLabel {
@@ -602,9 +701,6 @@ DOTAScenePanel {
   transition-timing-function: ease-out;
   opacity: 0;
   transform: scaleX(1) scaleY(1);
-  background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 
 .BossIcon {
@@ -785,4 +881,3 @@ DOTAScenePanel {
   margin-top: 10%;
   transition-delay: 7s;
 }
-

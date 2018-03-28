@@ -76,17 +76,17 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "attack_speed"      "10 20 35 50 70"
+        "attack_speed"      "5 10 15 35 45"
       }
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "attack_speed_aura"   "15 25 40 55 75"
+        "attack_speed_aura"   "20 35 60 80 100"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "hp_regen_aura"     "8 12 20 32 48"
+        "hp_regen_aura"     "8 10 12 14 16"
       }
       "05"
       {
@@ -111,7 +111,7 @@
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "tootip_bounty"   "125"
+        "tooltip_bounty"   "125"
       }
     }
   }

@@ -22,8 +22,7 @@
     "ItemResult"                                          "item_rapier"
     "ItemRequirements" // OAA
     {
-      "01"                                                "item_relic;item_demon_edge;item_upgrade_core_4;item_upgrade_core_3"
-      "02"                                                "item_relic;item_demon_edge;item_upgrade_core_4;item_upgrade_core_4"
+      "01"                                                "item_relic;item_demon_edge;item_upgrade_core_4;item_upgrade_core_4;item_upgrade_core_4"
     }
   }
 
@@ -60,7 +59,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "2500" // OAA
+        "bonus_damage"                                    "2000" // OAA
       }
     }
   }

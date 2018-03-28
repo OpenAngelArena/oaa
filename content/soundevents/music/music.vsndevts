@@ -1,259 +1,109 @@
-"music.background_1"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_1.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
 
-"music.background_2"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_2.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 
-"music.background_3"
 {
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_3.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.background_4"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_4.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.background_5"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_5.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.background_6"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_6.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.background_7"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/back_7.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.heropick_1"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/heropick_1.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.heropick_2"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/heropick_2.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.defeat"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/defeat.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.win"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/win.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.duel_intro"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/duel_intro.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
-}
-
-"music.duel"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-        "operator"          "sos_reference_stack"
-        "reference_stack"               "src1_2d"
-				"operator_variables"
-				{
-					"vsnd_files"  { "value" { "value0"		"sounds/music/duel.vsnd" } }
-          "volume"      {	"value"	"2.500000"}
-				}
-			}
-		}
-	}
+  music.duel = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/duel.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.duel_intro = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/duel_intro.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_1 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_1.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_2 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_2.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_3 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_3.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_4 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_4.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_5 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_5.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_6 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_6.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.background_7 = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/back_7.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.heropick_1 = {
+    type = "dota_update_hero_select"
+    vsnd_files =
+    [
+      "sounds/music/heropick_1.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.heropick_2 = {
+    type = "dota_update_hero_select"
+    vsnd_files =
+    [
+      "sounds/music/heropick_2.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.defeat = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/defeat.vsnd"
+    ]
+    volume = "2.500000"
+  }
+  music.win = {
+    type = "dota_update_battle_music"
+    vsnd_files =
+    [
+      "sounds/music/win.vsnd"
+    ]
+    volume = "2.500000"
+  }
 }

@@ -7,13 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_unique_oracle_2" //+1s Fortune's End Max Duration
-    "Ability11"   "special_bonus_spell_amplify_8" //OAA
-    "Ability12"   "special_bonus_cast_range_150"
-    "Ability13"   "special_bonus_gold_income_15"
-    "Ability14"   "special_bonus_movement_speed_75"
-    "Ability15"   "special_bonus_unique_oracle_4" //False Promise Invisibility (0.6s Fade Time)
-    "Ability16"   "special_bonus_unique_oracle_3" //-5s Fate's Edict Cooldown
-    "Ability17"   "special_bonus_unique_oracle" //+2 False Promise Duration
+    "Ability11"   "special_bonus_spell_amplify_8" // replaces special_bonus_exp_boost_25
+    "Ability13"   "special_bonus_intelligence_12"   // replaces special_bonus_gold_income_15
   }
 }

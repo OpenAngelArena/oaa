@@ -14,13 +14,13 @@
 
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "160 120 80 70 65"
     "AbilityManaCost"                                     "0"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -39,6 +39,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fixed_vision"                                    "675"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fixed_vision_others"                             "800"
       }
     }
   }

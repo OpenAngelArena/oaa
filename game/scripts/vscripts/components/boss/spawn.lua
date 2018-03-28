@@ -4,11 +4,20 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
+  BossSpawner.CoreItems = {
+    'item_upgrade_core',
+    'item_upgrade_core_2',
+    'item_upgrade_core_3',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4'
+  }
+
   Debug.EnabledModules['boss:spawn'] = false
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(5, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
@@ -79,6 +88,7 @@ end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = bossTier
 
   DebugPrint(pit:GetAbsOrigin().x)
   DebugPrint(pit:GetAbsOrigin().y)
@@ -107,6 +117,15 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
+  --Adding cores to the bosses inventory
+  local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)
+
+  if core == nil then
+    error('Got bad core, tier must have bad value ' .. tostring(bossTier))
+  else
+    bossHandle:AddItem(core)
+  end
+
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
   if resistance then
     DebugPrint('Leveling up the boss resistance manager')
@@ -119,6 +138,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     owner = team,
     isProtected = isProtected
   })
+
+  Minimap:SpawnBossIcon(pit, bossTier)
 
   local newBossTier = math.min(6, bossTier + 1)
 

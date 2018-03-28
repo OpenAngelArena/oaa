@@ -1,13 +1,13 @@
 {
   "name": "open_angel_arena",
-  "version": "2.14.1",
+  "version": "3.1.0",
   "description": "A really great Dota 2 game mode.",
   "main": "index.js",
   "scripts": {
     "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape \"./scripts/test/*test.js\" | tap-summary --no-progress",
     "spec": "tape \"./scripts/test/*test.js\" | tap-spec",
     "all-contributors": "all-contributors",
-    "semistandard": "semistandard",
+    "semistandard": "semistandard --global $ --global GameUI --global GameEvents --global Players",
     "tape": "tape",
     "tap-summary": "tap-summary",
     "tap-spec": "tap-spec"
@@ -36,10 +36,12 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "all-contributors-cli": "^4.6.0",
+    "@types/node": "^9.3.0",
+    "all-contributors-cli": "^4.10.0",
     "ap": "^0.2.0",
-    "request": "^2.81.0",
+    "request": "^2.83.0",
     "transifex": "^1.4.6",
+    "typescript": "^2.6.2",
     "xtend": "^4.0.1"
   }
 }

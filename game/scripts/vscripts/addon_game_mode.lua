@@ -1,6 +1,10 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "2.14.1"
+GAME_VERSION = "3.1.0"
+
+-- Setup the main logger
+require('internal/logging')
+
 CustomNetTables:SetTableValue("info", "version", { value = GAME_VERSION })
 -- lets do this here too
 local mode = ""
@@ -17,6 +21,9 @@ require('internal/eventwrapper')
 
 require('internal/util')
 require('gamemode')
+require('precache')
+
+require('libraries/keyvalues')
 -- DotaStats
 require("statcollection/init")
 
@@ -33,31 +40,40 @@ function Precache( context )
 
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
-  PrecacheItemByNameSync("item_postactive", context)
-  PrecacheItemByNameSync("item_preemptive_3c", context)
-  PrecacheItemByNameSync("item_stoneskin", context)
-  PrecacheItemByNameSync("item_greater_phase_boots", context)
-  PrecacheItemByNameSync("item_greater_power_treads", context)
-  PrecacheItemByNameSync("item_greater_tranquil_boots", context)
-  PrecacheItemByNameSync("item_dagon", context)
-  PrecacheItemByNameSync("item_manta_1", context)
+  for _,Item in pairs( g_ItemPrecache ) do
+    PrecacheItemByNameAsync( Item, function( item ) end )
+  end
 
-  PrecacheUnitByNameSync("npc_dota_visage_familiar", context)
-  PrecacheUnitByNameSync("dota_fountain", context)
-  PrecacheUnitByNameSync("npc_dota_boss_shielder", context)
-  PrecacheUnitByNameSync("npc_dota_boss_charger", context)
-  PrecacheUnitByNameSync("npc_dota_boss_charger_pillar", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_1", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_2", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_3", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_5", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_6", context)
-  PrecacheUnitByNameSync("npc_dota_boss_simple_7", context)
-  PrecacheUnitByNameSync("npc_dota_boss_stopfightingyourself", context)
+   for _,Unit in pairs( g_UnitPrecache ) do
+    PrecacheUnitByNameAsync( Unit, function( unit ) end )
+  end
 
-  -- Ambient Sounds
-  PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
-  PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
+   for _,Model in pairs( g_ModelPrecache ) do
+    PrecacheResource( "model", Model, context  )
+  end
+
+  for _,Particle in pairs( g_ParticlePrecache ) do
+    PrecacheResource( "particle", Particle, context  )
+  end
+
+  for _,ParticleFolder in pairs( g_ParticleFolderPrecache ) do
+    PrecacheResource( "particle_folder", ParticleFolder, context )
+  end
+
+  for _,Sound in pairs( g_SoundPrecache ) do
+    PrecacheResource( "soundfile", Sound, context )
+  end
+
+  -- precache all hero econ folders
+  -- this makes immortals and stuff work
+  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+    if value == 1 then
+      local hero = string.sub(key, 15)
+      -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
+      PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
+    end
+  end
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed

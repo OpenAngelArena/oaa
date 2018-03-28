@@ -2,8 +2,9 @@
 local MAX_DOORS = 2
 local MAX_ZONES = 2
 
+Debug.EnableDebugging()
+
 if CaveHandler == nil then
-  Debug.EnabledModules['cave:cave'] = true
   DebugPrint ('creating new CaveHandler object.')
   CaveHandler = class({})
 end
@@ -18,9 +19,9 @@ function CaveHandler:Init ()
     local caveName = 'cave_' .. GetShortTeamName(teamID)
     local doorDistance = 0
     if teamID == DOTA_TEAM_GOODGUYS then
-      doorDistance = 260
+      doorDistance = 400
     elseif teamID == DOTA_TEAM_BADGUYS then
-      doorDistance = 330
+      doorDistance = 400
     end
 
     self.caves[teamID] = {
@@ -32,7 +33,7 @@ function CaveHandler:Init ()
       zones = {
         ZoneControl:CreateZone(caveName .. "_zone_0", {
           mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-          players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+          players = {}
         })
       },
       radius = 1600
@@ -53,7 +54,7 @@ function CaveHandler:Init ()
         if Entities:FindByName(nil, caveName .. "_zone_" .. roomID .. '_' .. zoneID) then
           self.caves[teamID].rooms[roomID].zones[zoneID] = ZoneControl:CreateZone(caveName .. "_zone_" .. roomID .. '_' .. zoneID, {
             mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-            players = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(true)))
+            players = {}
           })
         end
       end
@@ -70,12 +71,19 @@ function CaveHandler:Init ()
     end
   end
 
-  self:InitCave(DOTA_TEAM_GOODGUYS)
-  self:InitCave(DOTA_TEAM_BADGUYS)
+  if not SKIP_TEAM_SETUP then
+    Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'Start'), self)
+  else
+    Timers:CreateTimer(Dynamic_Wrap(self, 'Start'), self)
+  end
 
   CustomNetTables:SetTableValue('stat_display_player', 'CC', { value = {} })
 end
 
+function CaveHandler:Start ()
+  self:InitCave(DOTA_TEAM_GOODGUYS)
+  self:InitCave(DOTA_TEAM_BADGUYS)
+end
 
 function CaveHandler:InitCave (teamID)
   self:ResetCave(teamID)
@@ -106,15 +114,11 @@ function CaveHandler:SpawnRoom (teamID, roomID)
     local creepProperties = self:GetCreepProperties(creep, creepList.multiplier, cave.timescleared)
 
     -- spawn the creep
-    local creepHandle = self:SpawnCreepInRoom(room.handle, creepProperties)
+    local creepHandle = self:SpawnCreepInRoom(room.handle, creepProperties, teamID, roomID)
 
     if roomID == 4 then
       creepHandle:SetModelScale( creepHandle:GetModelScale() / (0.5 * (cave.timescleared + 1)) )
     end
-
-    creepHandle:OnDeath(function(keys)
-      self:CreepDeath(teamID, roomID)
-    end)
 
     room.creepCount = room.creepCount + 1
   end
@@ -134,9 +138,15 @@ function CaveHandler:GetCreepProperties (creep, multiplier, k)
   }
 end
 
-function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
+function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   -- get random position
   local randPosition = room:GetAbsOrigin() + RandomVector(RandomFloat(10, 300))
+
+  --EXP BOUNTY
+  local minutes = math.floor(GameRules:GetGameTime() / 60)
+  if minutes > 60 then
+    properties.exp = properties.exp * 1.5^(minutes - 60)
+  end
 
   local creep = CreateUnitByName(
     properties.name, -- name
@@ -162,20 +172,95 @@ function CaveHandler:SpawnCreepInRoom (room, properties, lastRoom)
   --ARMOR
   creep:SetPhysicalArmorBaseValue(properties.armour)
 
-  --GOLD BOUNTY
-  creep:SetMinimumGoldBounty(properties.gold)
-  creep:SetMaximumGoldBounty(properties.gold)
+  -- BOUNTY
+  -- bounty is given on death to whole team
+  creep:SetMinimumGoldBounty(0)
+  creep:SetMaximumGoldBounty(0)
+  creep:SetDeathXP(0)
+
+  local function calculateMultiplier (myTeamID)
+    local function getHeroNetworth (playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not hero then
+        return 0
+      end
+      return hero:GetNetworth() + XP_PER_LEVEL_TABLE[hero:GetLevel()]
+    end
+
+    local otherTeamID = nil
+
+    if myTeamID == DOTA_TEAM_BADGUYS then
+      otherTeamID = DOTA_TEAM_GOODGUYS
+    elseif myTeamID == DOTA_TEAM_GOODGUYS then
+      otherTeamID = DOTA_TEAM_BADGUYS
+    else
+      error('Got bad myTeamID value, should be goodguys or badguys ' .. tostring(myTeamID))
+    end
+
+    local myTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(myTeamID)))
+    local theirTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(otherTeamID)))
+
+    -- generate a number between -1 and 1
+    -- 0 is when teams are even
+    -- -1 is when my team is max amount ahead (and gets the least)
+    -- 1 is when my team is max amount behind (and gets the most)
+    local maxTeamDifference = math.max(1, math.min(theirTeamNW, myTeamNW))
+
+    local nwFactor = CAVE_RELEVANCE_FACTOR * ((theirTeamNW - myTeamNW) / maxTeamDifference)
+    local multiplier = math.exp(math.log(CAVE_MAX_MULTIPLIER) * nwFactor / (1 + math.abs(nwFactor)))
+
+    DebugPrint('Multiplier: ' .. multiplier .. ' based on nwFactor ' .. nwFactor)
+
+    return multiplier
+    -- scales between doubling in either direction
+    -- local newFactor = math.min(1, math.max(-1, (theirTeamNW - myTeamNW) / maxTeamDifference)) + 1
+
+    -- -- figure out multiplier...
+    -- -- base guarenteed value
+    -- local multiplier = 0.10
+    -- multiplier = multiplier + (newFactor * 0.95)
+    -- -- multiplier is between 0.10 and 2.0
+
+    -- return multiplier
+  end
+
+  local function giveBounty (bounty, exp, playerID)
+    PlayerResource:ModifyGold(
+      playerID, -- player
+      bounty, -- amount
+      true, -- is reliable gold
+      DOTA_ModifyGold_RoshanKill -- reason
+    )
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+
+    if hero then
+      hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
+      local player = hero:GetPlayerOwner()
+      if player then
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, creep, bounty, player)
+      end
+    end
+  end
+
+  local function handleCreepDeath (gold, exp, _teamID, _roomID)
+    local playerIDs = PlayerResource:GetPlayerIDsForTeam(_teamID)
+    local bounty = math.ceil(gold / playerIDs:length())
+    exp = exp / playerIDs:length()
+
+    local multiplier = calculateMultiplier(_teamID)
+    bounty = bounty * multiplier
+    exp = exp * multiplier
+
+    each(partial(giveBounty, bounty, exp), playerIDs)
+
+    self:CreepDeath(_teamID, _roomID)
+  end
+
+  creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, teamID, roomID))
 
   if properties.magicResist ~= nil then
     creep:SetBaseMagicalResistanceValue(properties.magicResist)
   end
-
-  --EXP BOUNTY
-  local minutes = math.floor(GameRules:GetGameTime() / 60)
-  if minutes > 60 then
-    properties.exp = properties.exp * 1.5^(minutes - 60)
-  end
-  creep:SetDeathXP(properties.exp)
 
   return creep
 end
@@ -213,8 +298,11 @@ function CaveHandler:CreepDeath (teamID, roomID)
         if not hasSeenNotification[unit:GetPlayerOwnerID()] then
           -- inform players
           Notifications:Top(unit:GetPlayerOwner(), {
-            text = "Room " .. roomID .. " got cleared. You can now advance to the next room",
+            text = "#cave_room_cleared",
             duration = 5,
+            replacement_map = {
+              room_id = roomID,
+            },
           })
           hasSeenNotification[unit:GetPlayerOwnerID()] = true
         end
@@ -249,13 +337,18 @@ function CaveHandler:CreepDeath (teamID, roomID)
       end
       -- inform players
       Notifications:TopToTeam(teamID, {
-        text = "Your last Room got cleared. Every player on your Team got " .. bounty .. " gold",
+        text = "#cave_fully_cleared_reward",
         duration = 10,
-        continue = true
+        replacement_map = {
+          reward_amount = bounty,
+        },
       })
       Notifications:TopToTeam(teamID, {
-        text = "You have cleared the Cave " .. cave.timescleared .. " times. The Cave is resetting now.",
+        text = "#cave_fully_cleared_num_clears",
         duration = 10,
+        replacement_map = {
+          num_clears = cave.timescleared,
+        },
       })
     end
   end
@@ -339,9 +432,9 @@ function CaveHandler:GiveBounty (teamID, k)
   local playerCount = PlayerResource:GetPlayerCountForTeam(teamID)
   each(DebugPrint, PlayerResource:GetPlayerIDsForTeam(teamID))
   local round = math.floor
-  local BaseCreepXPGOLDMultiplier = 8
-  local CaveXPGOLDBuff = 2
-  local ExpectClear = BaseCreepXPGOLDMultiplier * k + 6
+  local BaseCreepXPGOLDMultiplier = 4 * _G.CAVE_ROOM_INTERVAL
+  local CaveXPGOLDBuff = _G.CAVE_BOUNTY
+  local ExpectClear = BaseCreepXPGOLDMultiplier * k + 3*_G.CAVE_ROOM_INTERVAL
 
   local pool = round((1 + CaveXPGOLDBuff * ((23 * ExpectClear^2 + 375 * ExpectClear + 7116) / 7116 - 1)) * roshGold * roshCount)
   local bounty = round(pool / playerCount)
@@ -403,7 +496,7 @@ function CaveHandler:KickPlayers (teamID)
     teamID, -- team
     Vector(0,0,0), -- location
     nil, -- cache
-    10000, -- radius
+    20000, -- radius
     DOTA_UNIT_TARGET_TEAM_BOTH, -- team filter
     DOTA_UNIT_TARGET_ALL, -- type filter
     DOTA_UNIT_TARGET_FLAG_NONE, -- flag filter
@@ -429,46 +522,50 @@ end
 
 function CaveHandler:TeleportAll(units, spawns)
   for _,unit in pairs(units) do
-    local origin = ParticleManager:CreateParticle(
-      'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
-      PATTACH_ABSORIGIN_FOLLOW, -- attach point
-      unit -- owner
-    )
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS or unit:GetTeam() == DOTA_TEAM_BADGUYS then
+      local origin = ParticleManager:CreateParticle(
+        'particles/econ/events/ti6/teleport_start_ti6_lvl3.vpcf', -- particle path
+        PATTACH_ABSORIGIN_FOLLOW, -- attach point
+        unit -- owner
+      )
 
-    local target = ParticleManager:CreateParticle(
-      'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
-      PATTACH_CUSTOMORIGIN, -- attach point
-      unit -- owner
-    )
-    ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
+      local target = ParticleManager:CreateParticle(
+        'particles/econ/events/ti6/teleport_end_ti6_lvl3.vpcf', -- particle path
+        PATTACH_CUSTOMORIGIN, -- attach point
+        unit -- owner
+      )
+      ParticleManager:SetParticleControl(target, 0, spawns[unit:GetTeam()])
 
-    Timers:CreateTimer(3, function ()
-      if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
-        FindClearSpaceForUnit(
-          unit, -- unit
-        spawns[unit:GetTeam()], -- locatio
-          false -- ???
-        )
-        MoveCameraToPlayer(unit)
-        unit:Stop()
-      else
-        local unlisten = Duels.onEnd(function ()
+      Timers:CreateTimer(3, function ()
+        if IsValidEntity(unit) then
+          if not Duels.currentDuel or Duels.currentDuel == DUEL_IS_STARTING then
+            FindClearSpaceForUnit(
+              unit, -- unit
+              spawns[unit:GetTeam()], -- location
+              false -- ???
+            )
+            MoveCameraToPlayer(unit)
+            unit:Stop()
+          else
+            local unlisten = Duels.onEnd(function ()
 
-        FindClearSpaceForUnit(
-          unit, -- unit
-          spawns[unit:GetTeamNumber()], -- location
-          false -- ???
-        )
-        MoveCameraToPlayer(unit)
-        unit:Stop()
+            FindClearSpaceForUnit(
+              unit, -- unit
+              spawns[unit:GetTeamNumber()], -- location
+              false -- ???
+            )
+            MoveCameraToPlayer(unit)
+            unit:Stop()
+            end)
+          end
+        end
+        Timers:CreateTimer(0, function ()
+          ParticleManager:DestroyParticle(origin, false)
+          ParticleManager:DestroyParticle(target, true)
+          ParticleManager:ReleaseParticleIndex(origin)
+          ParticleManager:ReleaseParticleIndex(target)
         end)
-      end
-      Timers:CreateTimer(0, function ()
-        ParticleManager:DestroyParticle(origin, false)
-        ParticleManager:DestroyParticle(target, true)
-        ParticleManager:ReleaseParticleIndex(origin)
-        ParticleManager:ReleaseParticleIndex(target)
       end)
-    end)
+    end
   end
 end

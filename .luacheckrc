@@ -21,6 +21,7 @@ globals = { -- these globals can be set and accessed.
 "DUEL_END_COUNTDOWN",
 "DUEL_RUNE_TIMER",
 "BOSS_RESPAWN_TIMER",
+"BOSS_RESPAWN_START",
 "BOSS_LEASH_SIZE",
 "BOSS_AGRO_FACTOR",
 "CREEP_SPAWN_INTERVAL",
@@ -43,6 +44,17 @@ globals = { -- these globals can be set and accessed.
 "CAPTAINS_MODE_HERO_PICK_TIME",
 "PREGAME_TIME",
 "CAPTAINS_MODE_CAPTAIN_TIME",
+"CAPTAINS_MODE_RESERVE_TIME",
+"SCAN_REVEAL_COOLDOWN",
+"SCAN_REVEAL_RADIUS",
+"SCAN_REVEAL_DURATION",
+"SCAN_DURATION",
+"CREEP_POWER_MAX",
+"CAVE_RELEVANCE_FACTOR",
+"CAVE_MAX_MULTIPLIER",
+"XP_PER_LEVEL_TABLE",
+"RESPAWN_NEUTRAL_DEATH_PENALTY",
+"RESPAWN_TIME_TABLE",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -117,6 +129,11 @@ read_globals = { -- these globals can only be accessed.
 "operator",
 "op",
 
+-- functional
+"CallMethod",
+"compose",
+"after",
+
 -- util
 "split",
 "regexsplit",
@@ -134,7 +151,13 @@ read_globals = { -- these globals can only be accessed.
 "IsInTrigger",
 "MoveCameraToPlayer",
 "MoveCameraToEntity",
+"IsPlayerTeam",
 
+-- cfinder
+"PrdCFinder",
+
+-- logging
+"D2CustomLogging",
 
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
@@ -244,6 +267,7 @@ read_globals = { -- these globals can only be accessed.
 "DOTA_TEAM_COUNT",
 "ACT_MP_WALK_PRIMARY",
 "ACT_DOTA_RUN",
+"ACT_DOTA_RUN_STATUE",
 "RELOAD_NPC",
 "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE_UNIQUE",
 "ACT_STEP_FORE",
@@ -2735,6 +2759,8 @@ read_globals = { -- these globals can only be accessed.
 "FindByNameWithin",
 "Timers",
 "DebugPrint",
+"Bottlepass",
+"OnGameInProgressEvent",
 "DebugPrintTable",
 "CreateGameEvent",
 "Event",
@@ -2742,7 +2768,14 @@ read_globals = { -- these globals can only be accessed.
 "GameEvents",
 "PlayerTables",
 "Notifications",
-"MODIFIER_PROPERTY_STATUS_RESISTANCE"
+"MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING",
+"FORCE_PICKED_HERO",
+"DotProduct",
+"GetDedicatedServerKey",
+"sha256",
+"TEN_V_TEN_KILL_LIMIT",
+"NORMAL_KILL_LIMIT"
 }
 
 ignore = {

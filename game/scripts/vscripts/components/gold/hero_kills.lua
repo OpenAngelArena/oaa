@@ -92,40 +92,60 @@ function HeroKillGold:HeroDeathHandler (keys)
   -- if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() and keys.killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
   --   self:AddPoints(keys.killer:GetTeam())
   -- end
-  if keys.killer:GetTeam() == keys.killed:GetTeam() then
-    return
-  end
-  if keys.killed:IsReincarnating() then
-    return
-  end
-  if keys.killed:GetTeam() == DOTA_TEAM_NEUTRALS or keys.killer:GetTeam() == DOTA_TEAM_NEUTRALS then
-    return
-  end
 
-  local killerPlayer = keys.killer:GetPlayerOwner()
-  local killedPlayer = keys.killed:GetPlayerOwner()
-  if not killedPlayer then
-    -- the killed thing wasn't a player even though it's definitely a player lololololol ???????
-    return
-  end
-
-  local killerHero = nil
-  local killerHeroID = nil
-
-  if killerPlayer then
-    killerHero = killerPlayer:GetAssignedHero()
-    killerHeroID = killerHero:GetPlayerOwnerID()
-  end
-
-  local killerTeam = keys.killer:GetTeamNumber()
-  local killedHero = killedPlayer:GetAssignedHero()
+  local killerEntity = keys.killer
+  local killedHero = keys.killed
+  local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
+  if killerTeam == killedTeam then
+    return
+  end
+  if killedHero:IsReincarnating() then
+    return
+  end
+  if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
+    return
+  end
 
-  local killedNetworth = killedHero:GetNetworth()
+  local killerPlayerID = killerEntity:GetPlayerOwnerID()
+  local killedPlayerID = killedHero:GetPlayerOwnerID()
+  local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
-  local baseGold = 110 + streakValue + (killedHeroLevel * 8)
+  local numAttackers = killedHero:GetNumAttackers()
+  local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
+  local rewardHeroes = iter({killerHero})
+  local distributeCount = 1
+
+  -- Handle non-player kills (usually the fountain in OAA's case)
+  if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    if numAttackers == 0 then
+      -- Distribute gold to all heroes on the killer team
+      rewardPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killerTeam)
+      distributeCount = math.max(1, length(rewardPlayerIDs))
+    elseif numAttackers == 1 then
+      -- Give gold to single hero
+      rewardPlayerIDs = iter({killedHero:GetAttacker(0)})
+    else
+      -- Distribute gold to heroes who assisted in kill
+      rewardPlayerIDs = range(0, numAttackers - 1)
+                          :map(partial(killedHero.GetAttacker, killedHero))
+      distributeCount = numAttackers
+    end
+    rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
+  end
+
+  local baseGold = math.floor((110 + streakValue + (killedHeroLevel * 8)) / distributeCount)
+
+  -- Grant the base last hit bounty
+  for _, hero in rewardHeroes:unwrap() do
+    Gold:ModifyGold(hero, baseGold, true, DOTA_ModifyGold_RoshanKill)
+    local killerPlayer = hero:GetPlayerOwner()
+    if killerPlayer then
+      SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, baseGold, killerPlayer)
+    end
+  end
 
   local heroes = FindHeroesInRadius(
     killerTeam,
@@ -134,10 +154,21 @@ function HeroKillGold:HeroDeathHandler (keys)
     1300,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_ALL,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
     FIND_ANY_ORDER,
     false
   )
+
+  -- When last hit by a hero, that hero should always receive assist gold, regardless of distance
+  if PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    local killerIsInHeroesTable = iter(heroes)
+                                    :map(CallMethod("GetPlayerOwnerID"))
+                                    :contains(killerPlayerID)
+
+    if not killerIsInHeroesTable then
+      table.insert(heroes, killerHero)
+    end
+  end
 
   local function sortByNetworth (a, b)
     return a:GetNetworth() > b:GetNetworth()
@@ -145,54 +176,71 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   table.sort(heroes, sortByNetworth)
 
-  local foundKiller = false
-  each(function (hero)
-    if not foundKiller and hero:GetPlayerOwnerID() == killerHeroID then
-      foundKiller = true
-    end
-  end, heroes)
-
-  if not foundKiller and killerHero then
-    table.insert(heroes, killerHero)
-  end
-
   DebugPrint(#heroes .. ' heroes getting assist gold')
 
   local parameters = AssistGoldTable[math.min(AssistGoldTable.max, #heroes)]
 
   local function getHeroNetworth (playerId)
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      return 0
+    end
     return hero:GetNetworth()
   end
 
+  local killedPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killedTeam)
   -- NW factor is defined as (enemy team net worth / allied team net worth) - 1 and has a minimum of zero and a maximum of 1.
-  local entireKilledTeamNW = map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killedTeam))
+  local entireKilledTeamNW = map(getHeroNetworth, killedPlayerIDs)
   entireKilledTeamNW = entireKilledTeamNW:totable()
-  table.sort(entireKilledTeamNW)
+  -- Get the killed hero's networth from entireKilledTeamNW
+  local killedNetworth = entireKilledTeamNW[index(killedPlayerID, killedPlayerIDs)]
+  -- Sort entireKilledTeamNW in descending order
+  table.sort(entireKilledTeamNW, op.gt)
 
-  local killerTeamNW = reduce(operator.add, 0, map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killerTeam)))
-  local killedTeamNW = reduce(operator.add, 0, entireKilledTeamNW)
+  local killerTeamNW = sum(map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killerTeam)))
+  local killedTeamNW = sum(entireKilledTeamNW)
   local nwFactor = math.min(1, math.max(0, (killedTeamNW / killerTeamNW) - 1))
   -- (Team NW disadvantage / 4000) has a maximum of 1
   local teamNWDisadvantage = math.min(math.max(0, killedTeamNW - killerTeamNW) / 4000, 1)
 
+  local killedNWRanking = index(killedNetworth, entireKilledTeamNW)
 
-  local killedNWRanking = false
-  local index = #entireKilledTeamNW
-  each(function (nw)
-    if killedNWRanking == false then
-      if nw == killedNetworth then
-        killedNWRanking = index
-      end
-      index = index - 1
-    end
-  end, entireKilledTeamNW)
+  local function catWithComma(string1, string2)
+    return string1 .. ", " .. string2
+  end
+
+  -- - don't know why this is nil sometimes but it's breaking things
+  if not killedNWRanking then
+    local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
+    killedTeamNWString = "[" .. killedTeamNWString .. "]"
+    D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND KILLED HERO NW", {
+      ErrorMessage = "Killed hero networth: " .. killedNetworth .. ", could not be found in list " .. killedTeamNWString,
+      ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
+      GameVersion = GAME_VERSION,
+      DedicatedServers = (IsDedicatedServer() and 1) or 0,
+      MatchID = tostring(GameRules:GetMatchID())
+    })
+
+    killedNWRanking = #entireKilledTeamNW
+  end
 
   DebugPrint(killedNetworth .. ' hero is in ' .. killedNWRanking .. 'th place of')
   DebugPrintTable(entireKilledTeamNW)
 
-  index = 0
-  each(function (hero)
+  -- Modify the kill toast message to display properly for non-player last hits
+  if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    CustomGameEventManager:Send_ServerToAllClients(
+      "override_hero_bounty_toast",
+      {
+        rewardIDs = rewardPlayerIDs:totable(),
+        killedID = killedPlayerID,
+        goldBounty = baseGold,
+        displayHeroes = numAttackers > 0,
+        rewardTeam = killerTeam,
+      })
+  end
+
+  for nwRank, hero in ipairs(heroes) do
     --[[
       base = 140,
       nwMult = 0.0375,
@@ -202,21 +250,32 @@ function HeroKillGold:HeroDeathHandler (keys)
       nwMultMult = 0.1,
       nwRankingFactor = { 1 }
     ]]
-    index = index + 1
     -- 5 Heroes: [20 Gold + (1 × dying hero's level) + (0.0225 × dying hero's NW × NW factor) + (25 Gold × team NW disadvantage / 4000)]
     local assistGold = (parameters.base + (math.max(1, 6 - #heroes) * killedHeroLevel) + (parameters.nwMult * killedNetworth * nwFactor) + (parameters.advantageMult * teamNWDisadvantage))
     DebugPrint('(' .. parameters.base .. ' + (' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevel .. ') + (' .. parameters.nwMult .. ' * ' .. killedNetworth .. ' * ' .. nwFactor .. ') + (' .. parameters.advantageMult .. ' * ' .. teamNWDisadvantage .. '))) = ' .. assistGold)
     -- × [1.2 - 0.1 × (dying hero's NW ranking - 1)] × [NW ranking factor]
-    DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)] .. ' = ...')
-    assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(index, #parameters.nwRankingFactor)]
+    DebugPrint(assistGold .. ' * (' .. parameters.nwMultBase .. ' - ' .. parameters.nwMultMult .. ' * (' .. killedNWRanking .. ' - 1)) * ' .. parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)] .. ' = ...')
+    assistGold = assistGold * (parameters.nwMultBase - parameters.nwMultMult * (killedNWRanking - 1)) * parameters.nwRankingFactor[math.min(nwRank, #parameters.nwRankingFactor)]
+    assistGold = math.floor(assistGold)
     DebugPrint(assistGold)
 
-    if hero:GetPlayerOwnerID() == killerHeroID then
-      assistGold = assistGold + baseGold
+    -- Modify gold displayed in kill toast message for player last hits
+    if hero:GetPlayerOwnerID() == killerPlayerID then
+      CustomGameEventManager:Send_ServerToAllClients(
+        "override_hero_bounty_toast",
+        {
+          rewardIDs = rewardPlayerIDs:totable(),
+          killedID = killedPlayerID,
+          goldBounty = baseGold + assistGold,
+          displayHeroes = numAttackers > 0,
+          rewardTeam = killerTeam,
+        })
     end
 
     Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
-    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, keys.killed, math.floor(assistGold), hero:GetPlayerOwner())
-
-  end, heroes)
+    local player = hero:GetPlayerOwner()
+    if player then
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, assistGold, player)
+    end
+  end
 end
