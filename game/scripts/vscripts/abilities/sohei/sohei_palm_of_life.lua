@@ -37,7 +37,7 @@ end
 function sohei_palm_of_life:OnHeroCalculateStatBonus()
 	local caster = self:GetCaster()
 
-	if caster:HasScepter() then
+	if caster:HasScepter() or self:IsStolen() then
 		self:SetHidden( false )
 		if self:GetLevel() <= 0 then
 			self:SetLevel( 1 )
@@ -56,7 +56,7 @@ if IsServer() then
 
 		if modifier_charges and not modifier_charges:IsNull() then
 			-- Perform the dash if there is at least one charge remaining
-			if modifier_charges:GetStackCount() >= 1 then
+			if modifier_charges:GetStackCount() >= 1 and not self:IsStolen() then
 				modifier_charges:SetStackCount( modifier_charges:GetStackCount() - 1 )
 			end
 		end
@@ -76,7 +76,7 @@ if IsServer() then
 		local modMomentum = caster:FindModifierByName( "modifier_sohei_momentum_passive" )
 		local spellMomentum = caster:FindAbilityByName( "sohei_momentum" )
 
-		if ( modMomentum and modMomentum:IsMomentumReady() ) and ( spellMomentum and spellMomentum:IsCooldownReady() ) then
+		if ( ( modMomentum and modMomentum:IsMomentumReady() ) and ( spellMomentum and spellMomentum:IsCooldownReady() ) ) or self:IsStolen() then
 			doHeal = 1
 		end
 

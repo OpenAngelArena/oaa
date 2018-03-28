@@ -198,7 +198,13 @@ end
 
 function InitModule(myModule)
   if myModule ~= nil then
-    myModule:Init()
+    local status, err = pcall(function ()
+      myModule:Init()
+    end)
+    if err then
+      print(err)
+      print('Failed to init module!!!')
+    end
   end
 end
 

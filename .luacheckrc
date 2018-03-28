@@ -2769,6 +2769,7 @@ read_globals = { -- these globals can only be accessed.
 "PlayerTables",
 "Notifications",
 "MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING",
 "FORCE_PICKED_HERO",
 "DotProduct",
 "GetDedicatedServerKey",
