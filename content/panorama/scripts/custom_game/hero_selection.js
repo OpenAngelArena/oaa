@@ -662,8 +662,13 @@ function RandomHero () {
 
 function CreateHeroPanel (parent, hero) {
   var id = 'Scene' + ~~(Math.random() * 100);
-  var scene = parent.BCreateChildren('<DOTAScenePanel hittest="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
-  $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
+  if(hero !== 'npc_dota_hero_sohei') {
+    var scene = parent.BCreateChildren('<DOTAScenePanel hittest="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
+    $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
+  }
+  else{
+    var scene = parent.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+  }
 
   return scene;
 }
