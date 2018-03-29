@@ -39,13 +39,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "500"
-        "LinkedSpecialBonus"    "special_bonus_unique_riki_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_riki_4"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_count"                                    "4 5 6 10 14"
-      }
+			"02"
+			{
+				"var_type"					                              "FIELD_FLOAT"
+				"attack_rate"				                               "0.5 0.45 0.4 0.35 0.3"
+			}
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
