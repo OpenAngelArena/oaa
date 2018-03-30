@@ -3,14 +3,14 @@ LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
 local Zones = {
-  { left = Vector( -1280, -640, 0), right = Vector( 1280, 640, 0) },
+  { left = Vector( -1280, -640, 0), right = Vector( 1280, 768, 0) },
   { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
   { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
-  { left = Vector( -960, -1280, 0), right = Vector( 960, 1280, 0) },
-  { left = Vector( -640, -1664, 0), right = Vector( 1024, 1792, 0) },
-  { left = Vector( -2048, -1408, 0), right = Vector( 2048, 1408, 0) },
+  { left = Vector( -960, -1280, 0), right = Vector( 1152, 1280, 0) },
+  { left = Vector( -640, -1664, 0), right = Vector( 1024, 1664, 0) },
+  { left = Vector( -2048, -1408, 0), right = Vector( 1792, 1280, 0) },
   { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },
-  { left = Vector( -1664, -1920, 0), right = Vector( 1664, 1920, 0) },
+  { left = Vector( -1664, -1920, 0), right = Vector( 1920, 1920, 0) },
   { left = Vector( -1408, -3200, 128), right = Vector( 1408, 3200, 128) },
   { left = Vector( -1792, -2816, 128), right = Vector( 1792, 2816, 128) },
   { left = Vector( -2304, -2944, 128), right = Vector( 2304, 2944, 128) },
@@ -18,14 +18,31 @@ local Zones = {
   { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
   { left = Vector( -2944, -3072, 128), right = Vector( 2944, 3072, 128) },
   { left = Vector( -3584, -3072, 128), right = Vector( 3584, 3072, 128) },
-  { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) }}
+  { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) }
+  { left = Vector( -1280, 768, 0), right = Vector( 1280, -768, 0) },
+  { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },
+  { left = Vector( -2176, 384, 0), right = Vector( 2176, -384, 0) },
+  { left = Vector( -1024 1280, 0), right = Vector( 1152, -1280, 0) },
+  { left = Vector( -1024, 1664, 0), right = Vector( 1024, -1664, 0) },
+  { left = Vector( -1664, 1280, 0), right = Vector( 1792, -1280, 0) },
+  { left = Vector( -2304, 2048, 0), right = Vector( 2304, -2048, 0) },
+  { left = Vector( -1664, 1920, 0), right = Vector( 1664, -1920, 0) },
+  { left = Vector( -1408, 3200, 128), right = Vector( 1408, -3200, 128) },
+  { left = Vector( -1792, 2816, 128), right = Vector( 1792, -2816, 128) },
+  { left = Vector( -2304, 2944, 128), right = Vector( 2304, -2944, 128) },
+  { left = Vector( -1566, 3584, 128), right = Vector( 1566, -3584, 128) },
+  { left = Vector( -1152, 4096, 128), right = Vector( 1152, -4096, 128) },
+  { left = Vector( -2944, 3072, 128), right = Vector( 2944, -3072, 128) },
+  { left = Vector( -3584, 3072, 128), right = Vector( 3584, -3072, 128) },
+  { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
+local NumZones = 16
 local NumCaptures = 0
 local LiveZones = 0
 local Start = Event()
 local PrepareCapture = Event()
 local CaptureFinished = Event()
-
+local CurrentZones = {}
 CapturePoints.onPreparing = PrepareCapture.listen
 CapturePoints.onStart = Start.listen
 CapturePoints.onEnd = CaptureFinished.listen
@@ -52,7 +69,27 @@ function CapturePoints:IsActive ()
   return true
 end
 
+function CapturePoints:MinimapPing(duration)
+  for playerId = 0,19 do
+    local player = PlayerResource:GetPlayer(playerId)
+    if player ~= nil then
+      if player:GetAssignedHero() then
+        if player:GetTeam() == DOTA_TEAM_BADGUYS then
+          MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , duration)
+          MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, duration)
+        else
+          MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 4)
+          Timers:CreateTimer(2, function ()
+            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , duration)
+          end)
+        end
+      end
+    end
+  end
+end
+
 function CapturePoints:StartCapture()
+  --Notifications:TopToAll({text=CurrentZones.left.x, duration=10.0, style={color="blue", ["font-size"]="70px"}})
   if self.startCaptureTimer then
     Timers:RemoveTimer(self.startCaptureTimer)
     self.startCaptureTimer = nil
@@ -69,15 +106,16 @@ function CapturePoints:StartCapture()
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
 
-
+  CurrentZones = Zones[RandomInt(1, NumZones)]
   if not Duels.startDuelTimer then
     self.currentCapture = {
       y = 1
     }
+    self:MinimapPing(5)
     Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-
     Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
       Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+      self:MinimapPing(5)
     end)
 
     for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
@@ -94,9 +132,10 @@ function CapturePoints:StartCapture()
       y = 1
     }
     Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-
+    self:MinimapPing(5)
     Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
       Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+      self:MinimapPing(5)
     end)
 
     for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
@@ -115,9 +154,10 @@ function CapturePoints:StartCapture()
           y = 1
         }
         Notifications:TopToAll({text="Capture Points delayed will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-
+        self:MinimapPing(5)
         Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
           Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+          self:MinimapPing(5)
         end)
 
         for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
@@ -169,17 +209,15 @@ function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
   NumCaptures = NumCaptures + 1
   Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-
+  self:MinimapPing(15)
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
-  for k,v in pairs(Zones) do
-    local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, v.left, DOTA_TEAM_NEUTRALS, false)
-    local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
-    capturePointModifier1:SetCallback(partial(self.Reward, self))
-    local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  v.right, DOTA_TEAM_NEUTRALS, false)
-    local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
-    capturePointModifier2:SetCallback(partial(self.Reward, self))
-  end
+  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, CurrentZones.left, DOTA_TEAM_NEUTRALS, false)
+  local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
+  capturePointModifier1:SetCallback(partial(self.Reward, self))
+  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  CurrentZones.right, DOTA_TEAM_NEUTRALS, false)
+  local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
+  capturePointModifier2:SetCallback(partial(self.Reward, self))
   Notifications:TopToAll({text="Capture Points Active!", duration=6.0, style={color="green", ["font-size"]="70px"}})
 end
 
