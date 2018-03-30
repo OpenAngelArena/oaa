@@ -1,21 +1,20 @@
---LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
-local zoneNames = {
-  "random",
-  "randomMir",
-}
+local Zones = {
+  { left = Vector( 400, 0, 128), right = Vector( -500, 40, 128) },
+  { left = Vector( 400, 200, 128), right = Vector( -400, -200, 128) }}
 
-local UninteruptedStart = Event()
-local WaitForDuel = Event()
+local NumCaptures = 0
+local LiveZones = 0
+local Start = Event()
 local PrepareCapture = Event()
-local EndCapture = Event()
+local CaptureFinished = Event()
 
 CapturePoints.onPreparing = PrepareCapture.listen
-CapturePoints.onWait = WaitForDuel.listen
-CapturePoints.onStart = UninteruptedStart.listen
-CapturePoints.onEnd = EndCapture.listen
+CapturePoints.onStart = Start.listen
+CapturePoints.onEnd = CaptureFinished.listen
 
 function CapturePoints:Init ()
   Debug.EnabledModules['components:*']  = true
@@ -23,7 +22,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
 
-  Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - CAPTURE_FIRST_WARN - 80, function ()
+  Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 80, function ()
     self:StartCapture()
   end)
 
@@ -44,18 +43,19 @@ function CapturePoints:StartCapture()
     Timers:RemoveTimer(self.startCaptureTimer)
     self.startCaptureTimer = nil
   end
-
+  PrepareCapture.broadcast(true)
   self.startCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
     self:StartCapture()
   end)
 
   if self.currentCapture then
     DebugPrint ('There is already a capture running')
+    return
   end
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
 
-  PrepareCapture.broadcast(true)
+
   if not Duels.startDuelTimer then
     self.currentCapture = {
       y = 1
@@ -120,14 +120,50 @@ function CapturePoints:StartCapture()
   end
 end
 
+function CapturePoints:GiveItemToWholeTeam (item, teamId)
+  PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+
+    if hero then
+      hero:AddItemByName(item)
+    end
+  end)
+end
+
+function CapturePoints:Reward(teamId)
+  local team = GetShortTeamName(teamId)
+  if not IsPlayerTeam(teamId) then
+    return
+  end
+
+  if NumCaptures == 1 then
+    self:GiveItemToWholeTeam("item_upgrade_core", teamId)
+  elseif NumCaptures == 2 then
+    self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+  elseif NumCaptures == 3 then
+    self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
+  elseif NumCaptures >= 4 then
+    self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
+  end
+  LiveZones = LiveZones - 1
+  if LiveZones <= 0 then
+    CapturePoints:EndCapture()
+  end
+end
+
 function CapturePoints:ActuallyStartCapture()
+  LiveZones = 2
+  NumCaptures = NumCaptures + 1
   Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
   DebugPrint ('CaptureStarted')
-  UninteruptedStart.broadcast(self.currentCapture)
-
-  Timers:CreateTimer(30, function ()
-    self:EndCapture()
-  end)
+  Start.broadcast(self.currentCapture)
+  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, Zones[1].left, DOTA_TEAM_NEUTRALS, false)
+  local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
+  capturePointModifier1:SetCallback(partial(self.Reward, self))
+  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  Zones[1].right, DOTA_TEAM_NEUTRALS, false)
+  local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
+  capturePointModifier2:SetCallback(partial(self.Reward, self))
+  Notifications:TopToAll({text="Capture Points Active!", duration=6.0, style={color="green", ["font-size"]="70px"}})
 end
 
 function CapturePoints:EndCapture ()
@@ -137,16 +173,9 @@ function CapturePoints:EndCapture ()
   end
   Notifications:TopToAll({text="Capture Ended", duration=3.0, style={color="blue", ["font-size"]="110px"}})
   DebugPrint('Capture Point has ended')
-
-  local nextCapturePointIn = CAPTURE_INTERVAL
-
+  CaptureFinished.broadcast(self.currentCapture)
   local currentCapture = self.currentCapture
   self.currentCapture = nil
 
-  Timers:CreateTimer(0.1, function ()
-    DebugPrint('Ending dual')
-    -- Remove Modifier
 
-    EndCapture.broadcast(currentCapture)
-  end)
 end
