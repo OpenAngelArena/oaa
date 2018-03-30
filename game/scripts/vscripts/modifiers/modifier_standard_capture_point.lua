@@ -59,8 +59,8 @@ end
 
 if IsServer() then
   function modifier_standard_capture_point:OnCreated(keys)
-    self.radius = keys.radius or 300
     self.captureTime = keys.captureTime or 10
+    self.radius = keys.radius or 270
     self.captureProgress = 0
     self.thinkInterval = 0.02
     local parent = self:GetParent()

@@ -3,8 +3,22 @@ LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
 local Zones = {
-  { left = Vector( 400, 0, 128), right = Vector( -500, 40, 128) },
-  { left = Vector( 400, 200, 128), right = Vector( -400, -200, 128) }}
+  { left = Vector( -1280, -640, 0), right = Vector( 1280, 640, 0) },
+  { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
+  { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
+  { left = Vector( -960, -1280, 0), right = Vector( 960, 1280, 0) },
+  { left = Vector( -640, -1664, 0), right = Vector( 1024, 1792, 0) },
+  { left = Vector( -2048, -1408, 0), right = Vector( 2048, 1408, 0) },
+  { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },
+  { left = Vector( -1664, -1920, 0), right = Vector( 1664, 1920, 0) },
+  { left = Vector( -1408, -3200, 128), right = Vector( 1408, 3200, 128) },
+  { left = Vector( -1792, -2816, 128), right = Vector( 1792, 2816, 128) },
+  { left = Vector( -2304, -2944, 128), right = Vector( 2304, 2944, 128) },
+  { left = Vector( -1566, -3584, 128), right = Vector( 1566, 3584, 128) },
+  { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
+  { left = Vector( -2944, -3072, 128), right = Vector( 2944, 3072, 128) },
+  { left = Vector( -3584, -3072, 128), right = Vector( 3584, 3072, 128) },
+  { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) }}
 
 local NumCaptures = 0
 local LiveZones = 0
@@ -155,14 +169,17 @@ function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
   NumCaptures = NumCaptures + 1
   Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
-  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, Zones[1].left, DOTA_TEAM_NEUTRALS, false)
-  local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
-  capturePointModifier1:SetCallback(partial(self.Reward, self))
-  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  Zones[1].right, DOTA_TEAM_NEUTRALS, false)
-  local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
-  capturePointModifier2:SetCallback(partial(self.Reward, self))
+  for k,v in pairs(Zones) do
+    local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, v.left, DOTA_TEAM_NEUTRALS, false)
+    local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
+    capturePointModifier1:SetCallback(partial(self.Reward, self))
+    local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  v.right, DOTA_TEAM_NEUTRALS, false)
+    local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
+    capturePointModifier2:SetCallback(partial(self.Reward, self))
+  end
   Notifications:TopToAll({text="Capture Points Active!", duration=6.0, style={color="green", ["font-size"]="70px"}})
 end
 
