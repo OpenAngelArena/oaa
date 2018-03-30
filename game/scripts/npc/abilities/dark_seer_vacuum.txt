@@ -19,12 +19,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "450 500 550 600 600 600"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "32"
+    "AbilityCooldown"                                     "60 50 40 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250 350 450 550 650 800"
+        "radius"                                          "400 450 500 550 650 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "0.5"
+        "duration"                                        "0.3 0.4 0.5 0.6 0.7 0.8"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 80 120 160 400 640"
+        "damage"                                          "25 50 100 200 400 800"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_tree"                                     "275"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "450 500 550 600 600 600"
       }
     }
   }
