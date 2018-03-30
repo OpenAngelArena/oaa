@@ -18,11 +18,11 @@ local Zones = {
   { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
   { left = Vector( -2944, -3072, 128), right = Vector( 2944, 3072, 128) },
   { left = Vector( -3584, -3072, 128), right = Vector( 3584, 3072, 128) },
-  { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) }
+  { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) },
   { left = Vector( -1280, 768, 0), right = Vector( 1280, -768, 0) },
   { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },
   { left = Vector( -2176, 384, 0), right = Vector( 2176, -384, 0) },
-  { left = Vector( -1024 1280, 0), right = Vector( 1152, -1280, 0) },
+  { left = Vector( -1024, 1280, 0), right = Vector( 1152, -1280, 0) },
   { left = Vector( -1024, 1664, 0), right = Vector( 1024, -1664, 0) },
   { left = Vector( -1664, 1280, 0), right = Vector( 1792, -1280, 0) },
   { left = Vector( -2304, 2048, 0), right = Vector( 2304, -2048, 0) },
@@ -36,7 +36,7 @@ local Zones = {
   { left = Vector( -3584, 3072, 128), right = Vector( 3584, -3072, 128) },
   { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
-local NumZones = 16
+local NumZones = 32
 local NumCaptures = 0
 local LiveZones = 0
 local Start = Event()
