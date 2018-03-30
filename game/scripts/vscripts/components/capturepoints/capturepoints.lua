@@ -51,26 +51,73 @@ function CapturePoints:StartCapture()
 
   if self.currentCapture then
     DebugPrint ('There is already a capture running')
-    return
   end
+
   self.currentCapture = CAPTUREPOINT_IS_STARTING
---if not Dual:DuelPreparingEvent
 
   PrepareCapture.broadcast(true)
+  if not Duels.startDuelTimer then
+    self.currentCapture = {
+      y = 1
+    }
+    Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
 
-  self.currentCapture = {
-    y = 1
-  }
-  Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+    Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
+      Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+    end)
 
-  Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-    Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-  end)
+    for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
+      Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
+        Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
+      end)
+    end
 
-  Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
-    self:ActuallyStartCapture()
-  end)
+    Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
+      self:ActuallyStartCapture()
+    end)
+  elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
+    self.currentCapture = {
+      y = 1
+    }
+    Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
 
+    Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
+      Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+    end)
+
+    for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
+      Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
+        Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
+      end)
+    end
+
+    Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
+      self:ActuallyStartCapture()
+    end)
+  else
+    local unlisten = Duels.onEnd(function ()
+      Timers:CreateTimer(15, function ()
+        self.currentCapture = {
+          y = 1
+        }
+        Notifications:TopToAll({text="Capture Points delayed will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+
+        Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
+          Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+        end)
+
+        for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
+          Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
+            Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
+          end)
+        end
+
+        Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
+          self:ActuallyStartCapture()
+        end)
+      end)
+    end)
+  end
 end
 
 function CapturePoints:ActuallyStartCapture()
