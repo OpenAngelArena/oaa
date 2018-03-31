@@ -248,7 +248,7 @@ local bonusNames = {
   'custom/bottles/bottle_pavlav',
   'custom/bottles/bottle_nologic',
   'custom/bottles/bottle_original',
-  'custom/bottles/bottle_firrenere', --35
+  'custom/bottles/bottle_firenere', --35
   'custom/bottles/bottle_goldenhamster',
   'custom/bottles/bottle_hylageo',
   'custom/bottles/bottle_icedragon241',
