@@ -63,6 +63,7 @@ CAPTURE_FIRST_WARN = 60                 -- how many seconds first ping on minima
 CAPTURE_SECOND_WARN = 30                -- how many seconds before second ping on minimap of CapturePoint
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
 CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
+CAPTURE_LENTGH = 30
 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss

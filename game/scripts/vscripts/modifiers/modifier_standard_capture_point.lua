@@ -39,9 +39,9 @@ function modifier_standard_capture_point:StartClockParticle()
 end
 
 function modifier_standard_capture_point:GetColor()
-  local neutralColor = Vector(200, 240, 200)
+  local neutralColor = Vector(160, 240, 160)
   local radiantColor = Vector(0, 148, 190)
-  local direColor = Vector(225, 88, 0)
+  local direColor = Vector(225, 40, 0)
   local endColor
   if self.capturingTeam == DOTA_TEAM_GOODGUYS then
     endColor = radiantColor
@@ -59,8 +59,8 @@ end
 
 if IsServer() then
   function modifier_standard_capture_point:OnCreated(keys)
-    self.captureTime = keys.captureTime or 10
     self.radius = keys.radius or 270
+    self.captureTime = keys.captureTime or CAPTURE_LENTGH
     self.captureProgress = 0
     self.thinkInterval = 0.02
     local parent = self:GetParent()

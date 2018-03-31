@@ -53,11 +53,11 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
 
-  Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 80, function ()
+  Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
     self:StartCapture()
   end)
 
-  -- Add chat commands to force start and end duels
+  -- Add chat commands to force start and end captures
   ChatCommand:LinkCommand("-capture", Dynamic_Wrap(self, "StartCapture"), self)
   ChatCommand:LinkCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
 end
@@ -69,18 +69,24 @@ function CapturePoints:IsActive ()
   return true
 end
 
-function CapturePoints:MinimapPing(duration)
+function CapturePoints:MinimapPing()
+  Timers:CreateTimer(3.2, function ()
+    Minimap:SpawnCaptureIcon(CurrentZones.right)
+  end)
+  Minimap:SpawnCaptureIcon(CurrentZones.left)
   for playerId = 0,19 do
     local player = PlayerResource:GetPlayer(playerId)
     if player ~= nil then
       if player:GetAssignedHero() then
         if player:GetTeam() == DOTA_TEAM_BADGUYS then
-          MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , duration)
-          MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, duration)
+          MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+          Timers:CreateTimer(3.2, function ()
+            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+          end)
         else
-          MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 4)
-          Timers:CreateTimer(2, function ()
-            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , duration)
+          MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+          Timers:CreateTimer(3.2, function ()
+            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
           end)
         end
       end
@@ -89,7 +95,6 @@ function CapturePoints:MinimapPing(duration)
 end
 
 function CapturePoints:StartCapture()
-  --Notifications:TopToAll({text=CurrentZones.left.x, duration=10.0, style={color="blue", ["font-size"]="70px"}})
   if self.startCaptureTimer then
     Timers:RemoveTimer(self.startCaptureTimer)
     self.startCaptureTimer = nil
@@ -112,9 +117,9 @@ function CapturePoints:StartCapture()
       y = 1
     }
     self:MinimapPing(5)
-    Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+    Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
     Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-      Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+      Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
       self:MinimapPing(5)
     end)
 
@@ -131,10 +136,10 @@ function CapturePoints:StartCapture()
     self.currentCapture = {
       y = 1
     }
-    Notifications:TopToAll({text="Capture Points will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+    Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
     self:MinimapPing(5)
     Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-      Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+      Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
       self:MinimapPing(5)
     end)
 
@@ -153,10 +158,10 @@ function CapturePoints:StartCapture()
         self.currentCapture = {
           y = 1
         }
-        Notifications:TopToAll({text="Capture Points delayed will start in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+        Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
         self:MinimapPing(5)
         Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-          Notifications:TopToAll({text="A Capture Points will start in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
+          Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
           self:MinimapPing(5)
         end)
 
@@ -208,8 +213,8 @@ end
 function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
   NumCaptures = NumCaptures + 1
-  Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-  self:MinimapPing(15)
+  Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="red", ["font-size"]="80px"}})
+  self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
   local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, CurrentZones.left, DOTA_TEAM_NEUTRALS, false)
@@ -218,7 +223,6 @@ function CapturePoints:ActuallyStartCapture()
   local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  CurrentZones.right, DOTA_TEAM_NEUTRALS, false)
   local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier2:SetCallback(partial(self.Reward, self))
-  Notifications:TopToAll({text="Capture Points Active!", duration=6.0, style={color="green", ["font-size"]="70px"}})
 end
 
 function CapturePoints:EndCapture ()

@@ -45,5 +45,10 @@ function Minimap:SpawnBossIcon(hPit, iTier)
   end
 end
 
-
-
+function Minimap:SpawnCaptureIcon(location)
+  for _,teamID in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
+    local capture_point_minimap = CreateUnitByName('minimap_capture_point', location, false, nil, nil, teamID)
+    capture_point_minimap:AddNewModifier(capture_point_minimap, nil, "modifier_minimap", {IsCapture = true })
+    capture_point_minimap.Respawn = true
+  end
+end
