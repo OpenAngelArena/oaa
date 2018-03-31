@@ -91,6 +91,21 @@
         "var_type"                                        "FIELD_INTEGER"
         "creep_bounty_percent"                            "30"
       }
+      "07"
+      {
+      	"var_type"										  "FIELD_INTEGER"
+      	"gold_given_max_percentage"						  "100" 	
+      }
+      "08"
+      {
+      	"var_type"										  "FIELD_INTEGER"
+      	"gold_given_min_percentage"						  "30"	
+      }
+      "09"
+      {
+      	"var_type"  									  "FIELD_INTEGER"
+      	"tick_interval" 								  "4"
+      }
     }
   }
 }
