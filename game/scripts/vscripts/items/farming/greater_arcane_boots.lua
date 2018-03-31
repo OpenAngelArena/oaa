@@ -64,26 +64,6 @@ function item_greater_arcane_boots:GetIntrinsicModifierNames()
   }
 end
 
-
-local function GoldTickDown(hero)
-local PercentGoldGiven = self:GetAbility:GetSpecialValueFor("gold_given_max_percentage")
-local TimeElapsed= 0
-local GoldIncome = self:GetAbility():GetSpecialValueFor("bonus_gold_per_minute")
-
-while PercentGoldGiven > self:GetAbility():GetSpecialValueFor("gold_given_min_percentage") do
-    TimeElapsed = TimeElapsed+1
-
-    if TimeElapsed == 4 then
-        TimeElapsed = 0
-        PercentGoldGiven = PercentGoldGiven-1
-    end
-
-    GoldIncome = PercentGoldGiven * GoldIncome
-    
-
-    wait(1)
-end
-
 item_greater_arcane_boots_2 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_3 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_4 = class(item_greater_arcane_boots)
