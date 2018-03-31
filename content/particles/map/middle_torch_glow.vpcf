@@ -31,7 +31,7 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.5
+			m_flFadeOutTime = 0.8
 		},
 		{
 			_class = "C_OP_FadeInSimple"
@@ -79,8 +79,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 177, 255, 125, 255 ]
-			m_ColorMax = [ 222, 255, 161, 255 ]
+			m_ColorMin = [ 116, 169, 81, 255 ]
+			m_ColorMax = [ 93, 89, 32, 255 ]
 		},
 	]
 	m_Emitters = 

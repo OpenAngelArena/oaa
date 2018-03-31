@@ -100,13 +100,13 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_wholeness_of_body_status:DeclareFunctions()
-  local funcs = {MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+  local funcs = {MODIFIER_PROPERTY_STATUS_RESISTANCE,
                  MODIFIER_EVENT_ON_TAKEDAMAGE,}
 
   return funcs
 end
 
-function modifier_sohei_wholeness_of_body_status:GetModifierStatusResistanceStacking( )
+function modifier_sohei_wholeness_of_body_status:GetModifierStatusResistance( )
   return self.status_resistance
 end
 

@@ -73,6 +73,18 @@ Each individual NPC tooltip file in OAA contains multiple units. The different f
 
 - The second string of each pair in an NPC tooltip file is the name that should appear to players in the user interface (ex. Axe).
 
+## Testing Tooltip Changes
+1. Play Dota 2
+2. Press console shortcut key
+3. Type 'dota_launch_custom_game oaa oaa', press 'Enter'
+5. Play and identify broke shit.
+6. Disconnect from lobby when done. You don't need to close Dota 2
+7. Make your individual KeyValue changes. Commit your KeyValue changes in git.
+8. Populate changes to ``addon_english.txt`` by running ``node scripts/generate-translations.js`` using cmd-prompt in the oaa directory.
+9. Hop back into dota 2 and `dota_launch_custom_game oaa oaa` and test changes.
+10. Do not commit or upload ``addon_english.txt`` remove any/all changes to this file before committing by doing ``git checkout -- game/resource/addon_english.txt``.
+11. Repeat 2-10 as necessary.
+
 ## Summary
 
 Tooltips are fairly easy to learn, but properly creating the text requires a very high attention to detail and great communication skills. Changes to any file or set of files should be done completely at once to save the translators from having to re-translate files multiple times. Authors should maintain intimate knowledge of the designs of items and abilities so that their tooltips will be accurate. Descriptions should be succinct and clear, based on a complete understanding of how the item/ability/unit works. 

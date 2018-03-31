@@ -1,5 +1,6 @@
 zuus_cloud_oaa = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_zuus_bolt_true_sight", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
 
 function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -154,20 +155,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
     AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
 
-    local true_sight_targets = FindUnitsInRadius(
-        caster:GetTeamNumber(),
-        target:GetAbsOrigin(),
-        nil,
-        sight_radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
-        bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE),
-        FIND_ANY_ORDER,
-        false
-      )
-    for _, true_sight_target in pairs(true_sight_targets) do
-      true_sight_target:AddNewModifier(caster, lightning_bolt_ability, "modifier_truesight", {duration = sight_duration})
-    end
+    CreateModifierThinker( caster, lightning_bolt_ability, "modifier_zuus_bolt_true_sight", { duration = sight_duration }, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
 
     local talent = caster:FindAbilityByName("special_bonus_unique_zeus_3")
 
@@ -186,4 +174,44 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
     ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
     EmitSoundOn("Hero_Zuus.LightningBolt.Cloud", target)
   end
+end
+
+
+modifier_zuus_bolt_true_sight = class(ModifierBaseClass)
+
+function modifier_zuus_bolt_true_sight:IsHidden()
+  return true
+end
+
+function modifier_zuus_bolt_true_sight:IsPurgable()
+  return false
+end
+
+function modifier_zuus_bolt_true_sight:IsAura()
+  return true
+end
+
+function modifier_zuus_bolt_true_sight:GetModifierAura()
+  return "modifier_truesight"
+end
+
+function modifier_zuus_bolt_true_sight:GetAuraRadius()
+  local lightning_bolt_ability = self:GetAbility()
+  if GameRules:IsDaytime() then
+    return lightning_bolt_ability:GetSpecialValueFor("sight_radius_day")
+  else
+    return lightning_bolt_ability:GetSpecialValueFor("sight_radius_night")
+  end
+end
+
+function modifier_zuus_bolt_true_sight:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_zuus_bolt_true_sight:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
+end
+
+function modifier_zuus_bolt_true_sight:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 end
