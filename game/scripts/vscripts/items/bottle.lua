@@ -201,6 +201,16 @@ local special_bottles = {
   [148999070] = 32, --steam: http://steamcommunity.com/profiles/76561198109264798 - twitch: Pavlav_
   [159775101] = 33, --steam: http://steamcommunity.com/profiles/76561198120040829 - twitch: TheManWithNoLogic
   [185444775] = 34, --steam: http://steamcommunity.com/profiles/76561198145710503 - twitch: -no name given, current steam name original
+  [134290738] = 35, --steam: http://steamcommunity.com/profiles/76561198094556466 - twitch: Firenere
+  [112815376] = 36, --steam: https://steamcommunity.com/profiles/76561198073081104 - twitch: Golden_Hamster
+  [63114914] = 37, --steam: http://steamcommunity.com/profiles/76561198023380642 - twitch: HylaGeo
+  [372975176] = 38, --steam: http://steamcommunity.com/profiles/76561198333240904 - twitch: icedragon241
+  [100390464] = 39, --steam: http://steamcommunity.com/profiles/76561198060656192 - twitch: JamesGoodfellow
+  [78069323] = 40, --steam: http://steamcommunity.com/profiles/76561198038335051 - twitch: ll-NastyDaddy-ll
+  [108495619] = 41, --steam: http://steamcommunity.com/profiles/76561198068761347 - twitch: LordSxey
+  [117601424] = 42, --steam: http://steamcommunity.com/profiles/76561198077867152- twitch: Shonkjr
+  [105759579] = 43, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
+  [94327365] = 44, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
 }
 
 local bonusNames = {
@@ -238,7 +248,16 @@ local bonusNames = {
   'custom/bottles/bottle_pavlav',
   'custom/bottles/bottle_nologic',
   'custom/bottles/bottle_original',
-
+  'custom/bottles/bottle_firrenere', --35
+  'custom/bottles/bottle_goldenhamster',
+  'custom/bottles/bottle_hylageo',
+  'custom/bottles/bottle_icedragon241',
+  'custom/bottles/bottle_jamesgoodfellow_2',
+  'custom/bottles/bottle_nastydaddy', --40
+  'custom/bottles/bottle_lordsxey',
+  'custom/bottles/bottle_shonkjr',
+  'custom/bottles/bottle_zapp',
+  'custom/bottles/bottle_sdakfreezes',
 }
 
 --------------------------------------------------------------------------------
