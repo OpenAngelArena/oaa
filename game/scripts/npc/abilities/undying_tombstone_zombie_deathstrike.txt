@@ -46,14 +46,18 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "50"
+        "bonus_move_speed"                                "50"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "75"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"
       }
     }
   }
-
 }

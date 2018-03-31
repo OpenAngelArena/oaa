@@ -34,11 +34,11 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.5
+			m_flFadeOutTime = 0.8
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.2
+			m_flFadeInTime = 0.4
 		},
 		{
 			_class = "C_OP_Noise"
@@ -63,9 +63,7 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flBias = 0.75
-			m_flStartScale = 0.2
-			m_flEndTime = 0.4
+			m_flStartScale = 0.1
 		},
 		{
 			_class = "C_OP_DistanceToCP"
@@ -81,8 +79,8 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMax = 2.0
-			m_fLifetimeMin = 1.0
+			m_fLifetimeMax = 0.8
+			m_fLifetimeMin = 0.5
 		},
 		{
 			_class = "C_INIT_RandomColor"
@@ -131,7 +129,7 @@
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 6.0
+			m_flEmitRate = 7.0
 		},
 	]
 	m_ForceGenerators = 
