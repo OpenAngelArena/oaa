@@ -58,7 +58,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "600"
     "AbilitySharedCooldown"         "meteor"
-    "AbilityCooldown"               "40"
+    "AbilityCooldown"               "28"
     "AbilityManaCost"               "125"
 
 
@@ -96,7 +96,7 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"    "90 180 270 360 450"
+        "burn_dps_boss"    "180 360 540 720 900"
       }
       "06"
       {
@@ -147,9 +147,9 @@
     "precache"
     {
     "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf" 
+    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
     "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
     "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
-    }      
+    }
   }
 }

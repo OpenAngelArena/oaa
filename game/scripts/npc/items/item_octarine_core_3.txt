@@ -1,0 +1,89 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Octarine Core 3
+  //=================================================================================================================
+  "item_recipe_octarine_core_3"
+  {
+    "ID"                                                  "8472"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_octarine_core_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_octarine_core_2;item_upgrade_core_2"
+      "02"                                                "item_octarine_core_2;item_upgrade_core_3"
+      "03"                                                "item_octarine_core_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Octarine Core 3
+  //=================================================================================================================
+  "item_octarine_core_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8461"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/octarine_core_3"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "10900"
+    "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "octarine core 3;octarine 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intelligence"                              "25 38 57 85 115"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "425 650 1000 1500 2000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "425 650 1000 1500 2000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "25 27 29 31 33"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_lifesteal"                                  "25 27 29 31 33"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "5 7 9 11 13"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "active_duration"   "7"
+      }
+    }
+  }
+}

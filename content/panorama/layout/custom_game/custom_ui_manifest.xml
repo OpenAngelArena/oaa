@@ -1,6 +1,6 @@
 <root>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/playertables/playertables_base.js" />
     <include src="file://{resources}/scripts/custom_game/gold.js" />
     <include src="file://{resources}/scripts/custom_game/pointsmanager.js" />
@@ -9,6 +9,7 @@
     <include src="file://{resources}/scripts/custom_game/huderrors.js" />
     <include src="file://{resources}/scripts/custom_game/health_mana.js" />
     <include src="file://{resources}/scripts/custom_game/hero_bounty_override.js" />
+    <include src="file://{resources}/scripts/custom_game/scepter_talents_overlay.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
@@ -30,7 +31,7 @@
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_GAME_NAME, false );     //Hero selection game mode name display.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_CLOCK, false );     //Hero selection clock.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_MENU_BUTTONS, false );     //Top-left menu buttons in the HUD.
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false );      //Endgame scoreboard.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false );      //Endgame scoreboard.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND, false );     //Top-left menu buttons in the HUD.
 
     // These lines set up the panorama colors used by each team (for game select/setup, etc)
@@ -93,6 +94,9 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/timer.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/bottle_announcement.xml" />
+    <CustomUIElement type="EndScreen"           layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
 
     <!-- From Overthrow.
 

@@ -144,8 +144,6 @@ function GameMode:OnHeroInGame(hero)
 end
 
 function GameMode:OnStrategyTime()
-  -- Force random hero for players that have not picked
-  PlayerResource:RandomHeroForPlayersWithoutHero()
 end
 
 function GameMode:OnPreGame()
@@ -166,6 +164,7 @@ function GameMode:OnPreGame()
   InitModule(HeroKillGold)
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
+  InitModule(RespawnManager)
 
   CheckCheatMode()
 end
@@ -199,7 +198,13 @@ end
 
 function InitModule(myModule)
   if myModule ~= nil then
-    myModule:Init()
+    local status, err = pcall(function ()
+      myModule:Init()
+    end)
+    if err then
+      print(err)
+      print('Failed to init module!!!')
+    end
   end
 end
 

@@ -60,7 +60,7 @@ request.get({
     encoding: 'ucs2'
   });
 
-  if (!process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
+  if (process.argv[2] || !process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
     console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
     process.exit(0);
   } else {
@@ -188,6 +188,13 @@ function generateTranslations (lang) {
   getTranslationsForLanguage(languageShortNames[lang], function (err, data) {
     if (err) {
       throw err;
+    }
+
+    if (data.workshop_description) {
+      fs.writeFileSync(path.join(__dirname, '../workshop/', lang + '.txt'), data.workshop_description, {
+        encoding: 'utf8'
+      });
+      delete data.workshop_description;
     }
 
     // translations

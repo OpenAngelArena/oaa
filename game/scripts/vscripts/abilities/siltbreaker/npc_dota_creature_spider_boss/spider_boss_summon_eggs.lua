@@ -34,10 +34,10 @@ function spider_boss_summon_eggs:OnSpellStart()
 
     local caster = self:GetCaster()
 
-		EmitSoundOn( "LycanBoss.SummonWolves", caster )
+		caster:EmitSound("LycanBoss.SummonWolves")
 
-		local nEggSpawns = 8
-		local nPoisonSpiderSpawns = 4
+		local nEggSpawns = self:GetSpecialValueFor("num_egg_spawn")
+		local nPoisonSpiderSpawns = self:GetSpecialValueFor("num_poison_spider_spawn")
 
 		for i = 0, nEggSpawns do
 			if #caster.hSummonedUnits + 1 < caster.nMaxSummonedUnits then
@@ -132,40 +132,40 @@ function spider_boss_summon_eggs:PlaySummonEggsSpeech()
 		end
 
 		if nSound == 1 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_01", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_01")
 		end
 		if nSound == 2 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_02", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_02")
 		end
 		if nSound == 3 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_03", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_03")
 		end
 		if nSound == 4 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_04", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_04")
 		end
 		if nSound == 5 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_05", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_05")
 		end
 		if nSound == 6 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_06", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_06")
 		end
 		if nSound == 7 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_07", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_07")
 		end
 		if nSound == 8 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_08", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_08")
 		end
 		if nSound == 9 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_09", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_09")
 		end
 		if nSound == 10 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_10", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_10")
 		end
 		if nSound == 11 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_11", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_11")
 		end
 		if nSound == 12 then
-			EmitSoundOn( "broodmother_broo_ability_spawn_12", caster )
+			caster:EmitSound("broodmother_broo_ability_spawn_12")
 		end
 
 		caster.nLastSummonEggsSound = nSound

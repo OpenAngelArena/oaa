@@ -56,7 +56,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 						ParticleManager:SetParticleControlForward( critParticle, 1, -self:GetCaster():GetForwardVector() )
 						ParticleManager:SetParticleControlEnt( critParticle, 10, enemy, PATTACH_ABSORIGIN_FOLLOW, nil, enemy:GetOrigin(), true )
 
-						EmitSoundOn( "Dungeon.BloodSplatterImpact", enemy )
+						enemy:EmitSound("Dungeon.BloodSplatterImpact")
 					else
 						enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = self.stun_duration } )
 					end

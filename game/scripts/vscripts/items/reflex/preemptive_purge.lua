@@ -57,8 +57,8 @@ function modifier_item_preemptive_purge:OnCreated()
   self:StartIntervalThink( interval )
   if IsServer() then
     if self.nFXIndex == nil then
-      self.nFXIndex = ParticleManager:CreateParticle( "particles/items/dispel_orb/blue_flare.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-      ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
+      self.nFXIndex = ParticleManager:CreateParticle( "particles/items/dispel_orb/dispel_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+      ParticleManager:SetParticleControlEnt( self.nFXIndex, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
     end
   end
 end
@@ -74,33 +74,20 @@ end
 
 function modifier_item_preemptive_purge:OnIntervalThink()
   if IsServer() then
-    local caster = self:GetCaster()
+    local parent = self:GetParent()
 
-    -- Tests if given modifier is a debuff and purgable with a basic dispel
-    --Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
-    --then checks if the modifier was purged (All because IsDebuff and IsPurgable don't exist in the Lua API
-    --for built-in modifiers)
-    local modifiers = caster:FindAllModifiers()
-    local hasPurgableDebuffs = false
-    for _, modifier in pairs( modifiers ) do
-      if modifier:GetName() ~= self:GetName() then
-        local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
-        testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
-        testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
-        testUnit:Purge(false, true, true, false, false)
-        if not testUnit:HasModifier(modifier:GetName()) then
-          print(modifier:GetName())
-          hasPurgableDebuffs = true
-          break
-        end
-      end
-    end
+    local modifiers = parent:FindAllModifiers()
+    local modifierCount = #modifiers
 
-    if hasPurgableDebuffs then
-      local burstEffect = ParticleManager:CreateParticle( "particles/items/dispel_orb/steam_burst.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-      ParticleManager:SetParticleControlEnt( burstEffect, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
+    parent:Purge(false, true, false, false, false)
+
+    modifiers = parent:FindAllModifiers()
+    local modifierCountAfter = #modifiers
+
+    if modifierCountAfter < modifierCount then
+      local burstEffect = ParticleManager:CreateParticle( "particles/items/dispel_orb/dispel_steam.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+      ParticleManager:SetParticleControlEnt( burstEffect, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true )
       ParticleManager:ReleaseParticleIndex( burstEffect )
-      caster:Purge(false, true, false, false, false)
     end
   end
 end

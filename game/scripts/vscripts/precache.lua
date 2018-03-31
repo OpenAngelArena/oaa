@@ -1,22 +1,24 @@
 g_ItemPrecache = {
-  "item_postactive",
   "item_bubble_orb_1",
   "item_stoneskin",
   "item_greater_phase_boots",
   "item_greater_power_treads",
   "item_greater_tranquil_boots",
   "item_dagon",
-  "item_manta_1",
+  "item_vampire",
   "item_regen_crystal_1",
   "item_trumps_fists",
-  "item_vampire",
   "item_enrage_crystal_1",
+  "item_dagger_of_moriah",
   "item_dispel_orb_1",
-  "item_dagger_of_moriah"
+  "item_reflection_shard_1",
+  "item_heart_transplant",
+  "item_manta_1",
 }
 
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
+  "npc_dota_hero_sohei",
   "dota_fountain",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
@@ -59,11 +61,13 @@ g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
   "particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
-  "particles/items/dagger_of_moriah",
   "particles/items/dispel_orb",
+  "particles/items/dagger_of_moriah",
   "particles/items/enrage_crystal",
   "particles/items/regen_crystal",
   "particles/items/vampire",
+  "particles/items/reflection_shard",
+  "particles/items/heart_transplant",
 }
 
 g_SoundPrecache = {

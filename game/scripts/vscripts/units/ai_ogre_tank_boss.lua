@@ -20,8 +20,8 @@ end
 function FrendlyHasAgro()
   for i, hSummonedUnit in ipairs( thisEntity.OgreSummonSeers ) do
     if ( IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro) then
-      local fHpPercent = (hSummonedUnit:GetHealth() / hSummonedUnit:GetMaxHealth()) * 100
-      if fHpPercent < 100 then
+      local hasDamageThreshold = hSummonedUnit:GetMaxHealth() - hSummonedUnit:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+      if hasDamageThreshold then
         return true
       end
 		end
@@ -45,9 +45,17 @@ function OgreTankBossThink()
     SpawnAllies()
 	end
 
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_CLOSEST,
+    false )
 
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES , FIND_CLOSEST, false )
-  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Agro
@@ -55,7 +63,7 @@ function OgreTankBossThink()
     DebugPrint("Ogre Boss Deagro")
     thisEntity.bHasAgro = false
     return 2
-  elseif (fHpPercent < 100 and #enemies > 0) or FrendlyHasAgro() then
+  elseif (hasDamageThreshold and #enemies > 0) or FrendlyHasAgro() then
     if not thisEntity.bHasAgro then
       DebugPrint("Ogre Boss Agro")
       thisEntity.bHasAgro = true
@@ -63,7 +71,7 @@ function OgreTankBossThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -148,6 +156,6 @@ function RetreatHome()
 		Position = thisEntity.vInitialSpawnPos,
 		Queue = false,
   })
-  return 2
+  return 6
 end
 

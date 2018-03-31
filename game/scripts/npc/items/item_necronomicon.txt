@@ -37,7 +37,7 @@
     "AbilityTextureName"                                  "item_necronomicon"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50" // OAA -- this is a valve KV error, this isn't custom
+    "AbilityManaCost"                                     "50"
     "ItemCost"                                            "2400"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
@@ -125,7 +125,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_attack_speed"                             "5 10 15 20 25 30 35"
+        "archer_attack_speed"                             "5 7 9 11 13 15 17"
       }
     }
   }

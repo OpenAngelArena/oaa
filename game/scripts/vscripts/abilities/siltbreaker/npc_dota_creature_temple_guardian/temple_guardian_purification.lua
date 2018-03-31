@@ -54,7 +54,7 @@ function temple_guardian_purification:OnSpellStart()
 		ParticleManager:SetParticleControlEnt( nFXIndex2, 1, hTarget, PATTACH_ABSORIGIN_FOLLOW, nil, hTarget:GetOrigin(), true );
 		ParticleManager:ReleaseParticleIndex( nFXIndex2 );
 
-		EmitSoundOn( "TempleGuardian.Purification", hTarget )
+		hTarget:EmitSound("TempleGuardian.Purification")
 		local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), hTarget:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 		for _,enemy in pairs( enemies ) do
 			if enemy ~= nil and enemy:IsInvulnerable() == false and enemy:IsMagicImmune() == false then

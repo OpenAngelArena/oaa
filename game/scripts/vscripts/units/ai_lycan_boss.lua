@@ -36,8 +36,17 @@ function LycanBossThink()
     thisEntity:SetAcquisitionRange(0)
 	end
 
-  local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange() , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local hEnemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(), nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_CLOSEST,
+    false )
+
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
 	--Agro
@@ -47,7 +56,7 @@ function LycanBossThink()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
-  elseif (fHpPercent < 100 and #hEnemies > 0) then
+  elseif (hasDamageThreshold and #hEnemies > 0) then
     if not thisEntity.bHasAgro then
       DebugPrint("Lycan Boss Agro")
       thisEntity.bHasAgro = true
@@ -56,7 +65,7 @@ function LycanBossThink()
     end
   end
 
-  -- Leash
+  -- Leash (lycan needs more leash because his abilities)
   if not thisEntity.bHasAgro or #hEnemies==0 or fDistanceToOrigin > 2000 then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
@@ -122,7 +131,7 @@ function RetreatHome()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
   })
-  return 2
+  return 6
 end
 
 

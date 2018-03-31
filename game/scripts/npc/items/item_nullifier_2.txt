@@ -38,6 +38,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "FightRecapLevel"       "1"
+    "AbilityTextureName"    "custom/nullifier_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -81,7 +82,7 @@
       "05"
       {
         "var_type"        "FIELD_INTEGER"
-        "projectile_speed"    "1200"
+        "projectile_speed"    "900"
       }
       "06"
       {

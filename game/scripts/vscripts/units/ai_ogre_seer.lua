@@ -56,7 +56,11 @@ function OgreSeerThink()
 
 	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, 0, false )
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-  local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > BOSS_AGRO_FACTOR;
+  if thisEntity.hOgreBoss then
+    hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.hOgreBoss.BossTier * BOSS_AGRO_FACTOR;
+  end
 
   --Agro
   if (IsValidEntity(thisEntity.hOgreBoss) and thisEntity.hOgreBoss:IsAlive() and not thisEntity.hOgreBoss.bHasAgro and thisEntity.bHasAgro and #enemies == 0) then
@@ -65,7 +69,7 @@ function OgreSeerThink()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
-  elseif thisEntity.hOgreBoss==nil or not thisEntity.hOgreBoss:IsAlive() or (fHpPercent < 100 and #enemies > 0) or (thisEntity.hOgreBoss~=nil and thisEntity.hOgreBoss.bHasAgro) then
+  elseif thisEntity.hOgreBoss==nil or not thisEntity.hOgreBoss:IsAlive() or (hasDamageThreshold and #enemies > 0) or (thisEntity.hOgreBoss~=nil and thisEntity.hOgreBoss.bHasAgro) then
     if not thisEntity.bHasAgro then
       DebugPrint("Ogre Seer Agro")
       thisEntity.bHasAgro = true
@@ -75,7 +79,7 @@ function OgreSeerThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 800 then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -148,5 +152,5 @@ function RetreatHome()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
   })
-  return 1
+  return 6
 end

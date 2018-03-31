@@ -30,6 +30,41 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
         {
+          "01"
+          {
+            "var_type"                                        "FIELD_FLOAT"
+            "wolf_duration"                                   "90.0"
+          }
+           "02"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_hound_spawn"                                 "3"
+          }
+           "03"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_hound_boss_spawn"                            "1"
+          }
+           "04"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_werewolf_spawn"                              "1"
+          }
+           "05"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_hound_spawn"                              "6"
+          }
+           "06"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_hound_boss_spawn"                         "2"
+          }
+           "07"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_werewolf_spawn"                           "2"
+          }
         }
     }
 }

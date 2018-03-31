@@ -59,35 +59,36 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_attack:PlayClawAttackSpeech( bShapeshift )
-	if IsServer() then
-		if self:GetCaster().nLastClawSound == nil then
-			self:GetCaster().nLastClawSound = 0
+  if IsServer() then
+    local caster = self:GetCaster()
+		if caster.nLastClawSound == nil then
+			caster.nLastClawSound = 0
 		end
 		local nSound = RandomInt( 0, 3 )
-		while nSound == self:GetCaster().nLastClawSound do
+		while nSound == caster.nLastClawSound do
 			nSound = RandomInt( 0, 3 )
 		end
 		if nSound == 1 then
-				EmitSoundOn( "lycan_lycan_pain_01", self:GetCaster() )
+      caster:EmitSound("lycan_lycan_pain_01")
 		end
 		if nSound == 2 then
-			EmitSoundOn( "lycan_lycan_pain_08", self:GetCaster() )
+			caster:EmitSound("lycan_lycan_pain_08")
 		end
 		if bShapeshift then
 			if nSound == 0 then
-				EmitSoundOn( "lycan_lycan_wolf_attack_01", self:GetCaster() )
+				caster:EmitSound("lycan_lycan_wolf_attack_01")
 			end
 			if nSound == 3 then
-				EmitSoundOn( "lycan_lycan_wolf_attack_10", self:GetCaster() )
+				caster:EmitSound("lycan_lycan_wolf_attack_10")
 			end
 		else
 			if nSound == 0 then
-				EmitSoundOn( "lycan_lycan_attack_01", self:GetCaster() )
+				caster:EmitSound("lycan_lycan_attack_01")
 			end
 			if nSound == 3 then
-				EmitSoundOn( "lycan_lycan_pain_09", self:GetCaster() )
+				caster:EmitSound("lycan_lycan_pain_09")
 			end
 		end
-		self:GetCaster().nLastClawSound = nSound
+		caster.nLastClawSound = nSound
 	end
 end

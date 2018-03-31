@@ -21,6 +21,7 @@ globals = { -- these globals can be set and accessed.
 "DUEL_END_COUNTDOWN",
 "DUEL_RUNE_TIMER",
 "BOSS_RESPAWN_TIMER",
+"BOSS_RESPAWN_START",
 "BOSS_LEASH_SIZE",
 "BOSS_AGRO_FACTOR",
 "CREEP_SPAWN_INTERVAL",
@@ -52,6 +53,8 @@ globals = { -- these globals can be set and accessed.
 "CAVE_RELEVANCE_FACTOR",
 "CAVE_MAX_MULTIPLIER",
 "XP_PER_LEVEL_TABLE",
+"RESPAWN_NEUTRAL_DEATH_PENALTY",
+"RESPAWN_TIME_TABLE",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -129,6 +132,7 @@ read_globals = { -- these globals can only be accessed.
 -- functional
 "CallMethod",
 "compose",
+"after",
 
 -- util
 "split",
@@ -2765,8 +2769,13 @@ read_globals = { -- these globals can only be accessed.
 "PlayerTables",
 "Notifications",
 "MODIFIER_PROPERTY_STATUS_RESISTANCE",
+"MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING",
 "FORCE_PICKED_HERO",
-"DotProduct"
+"DotProduct",
+"GetDedicatedServerKey",
+"sha256",
+"TEN_V_TEN_KILL_LIMIT",
+"NORMAL_KILL_LIMIT"
 }
 
 ignore = {

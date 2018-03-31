@@ -8,27 +8,29 @@ function modifier_spider_boss_rage:OnCreated( kv )
 	self.bonus_movespeed_pct = self:GetAbility():GetSpecialValueFor( "bonus_movespeed_pct" )
 	self.lifesteal_pct = self:GetAbility():GetSpecialValueFor( "lifesteal_pct" )
 
-	if IsServer() then
-		self:GetParent().bIsEnraged = true
+  if IsServer() then
+    local parent = self:GetParent()
+		parent.bIsEnraged = true
 
-		self:GetParent():SetModelScale( self:GetParent().fOrigModelScale * 1.25 )
+		parent:SetModelScale( parent.fOrigModelScale * 1.25 )
 
-		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent() )
-		ParticleManager:SetParticleControlEnt( nFXIndex, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_thorax", self:GetParent():GetAbsOrigin(), true )
+		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, parent )
+		ParticleManager:SetParticleControlEnt( nFXIndex, 0, parent, PATTACH_POINT_FOLLOW, "attach_thorax", parent:GetAbsOrigin(), true )
 		self:AddParticle( nFXIndex, false, false, -1, false, false  )
 
-		EmitSoundOn( "Dungeon.SpiderBoss.Rage", self:GetParent() )
+		parent:EmitSound("Dungeon.SpiderBoss.Rage")
 	end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:OnDestroy()
-	StopSoundOn( "Dungeon.SpiderBoss.Rage", self:GetParent() )
+  local parent = self:GetParent()
+	parent:StopSound("Dungeon.SpiderBoss.Rage")
 
 	if IsServer() then
-		self:GetParent():SetModelScale( self:GetParent().fOrigModelScale )
-		self:GetParent().bIsEnraged = false
+		parent:SetModelScale( parent.fOrigModelScale )
+		parent.bIsEnraged = false
 	end
 end
 

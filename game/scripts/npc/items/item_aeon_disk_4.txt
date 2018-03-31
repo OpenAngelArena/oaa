@@ -40,7 +40,7 @@
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilityCooldown"       "90.0 75.0 60.0 45.0 30.0"
     "AbilityTextureName"                                  "custom/combo_breaker_4"
 
     // Special
@@ -60,7 +60,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "health_threshold_pct"      "80"
+        "health_threshold_pct"      "70"
       }
       "04"
       {

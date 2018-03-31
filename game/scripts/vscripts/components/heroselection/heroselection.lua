@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
 
 if HeroSelection == nil then
-  Debug.EnabledModules['heroselection:*'] = true
   DebugPrint ( 'Starteng HeroSelection' )
   HeroSelection = class({})
 end
@@ -30,30 +29,85 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
+  Debug:EnableDebugging()
+
   DebugPrint("Initializing HeroSelection")
+  self.isCM = GetMapName() == "oaa_captains_mode"
+  self.isARDM = GetMapName() == "ardm"
+  self.is10v10 = GetMapName() == "oaa_10v10"
+  self.spawnedHeroes = {}
+  self.spawnedPlayers = {}
+  self.attemptedSpawnPlayers = {}
+
+  local herolistFile = 'scripts/npc/herolist.txt'
+
+  if self.isCM then
+    herolistFile = 'scripts/npc/herolist_cm.txt'
+  end
+  if self.isARDM then
+    herolistFile = 'scripts/npc/herolist_ardm.txt'
+  end
+  if self.is10v10 then
+    herolistFile = 'scripts/npc/herolist_10v10.txt'
+  end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+  for key,value in pairs(LoadKeyValues(herolistFile)) do
+    DebugPrint("Heroes: ".. key)
+    if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
+      DebugPrint(key .. " is not in vanilla file!")
+      local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
+      if data and data[key] then
+        allheroes[key] = data[key]
+        DebugPrintTable(allheroes[key])
+      end
+    end
     if value == 1 then
+      DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
     end
   end
+
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
 
+  -- lock down the "pick" hero so that they can't do anything
   GameEvents:OnHeroInGame(function (npc)
     local playerId = npc:GetPlayerID()
     DebugPrint('An NPC spawned ' .. npc:GetUnitName())
     if npc:GetUnitName() == FORCE_PICKED_HERO then
       npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
       npc:AddNoDraw()
+
+      if self.attemptedSpawnPlayers[playerId] then
+        self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
+      end
     end
   end)
 
   GameEvents:OnPreGame(function (keys)
-    HeroSelection:StartSelection()
+    if self.isARDM and ARDMMode then
+      -- if it's ardm, show strategy screen right away,
+      -- lock in all heroes to initial random heroes
+      HeroSelection:StrategyTimer(3)
+      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+        lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
+      end)
+      -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
+      ARDMMode:OnPrecache(function ()
+        DebugPrint('Precache finished! Woohoo!')
+        PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+          DebugPrint('Giving starting hero ' .. lockedHeroes[playerID])
+          HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
+        end)
+        LoadFinishEvent.broadcast()
+      end)
+    else
+      HeroSelection:StartSelection()
+    end
   end)
+
   GameEvents:OnPlayerReconnect(function (keys)
     -- [VScript] [components\duels\duels:64] PlayerID: 1
     -- [VScript] [components\duels\duels:64] name: Minnakht
@@ -69,9 +123,13 @@ function HeroSelection:Init ()
     local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
     if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
       DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
-      PlayerResource:ReplaceHeroWith(keys.PlayerID, lockedHeroes[keys.PlayerID], STARTING_GOLD, 0)
+      HeroSelection:GiveStartingHero(keys.PlayerID, lockedHeroes[keys.PlayerID])
     end
   end)
+
+  if self.isARDM and ARDMMode then
+    ARDMMode:Init(herolist)
+  end
 end
 
 -- set "empty" hero for every player and start picking phase
@@ -316,9 +374,37 @@ function HeroSelection:SelectHero (playerId, hero)
     if player == nil then -- disconnected! don't give em a hero yet...
       return
     end
+    self:GiveStartingHero(playerId, hero)
     DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
-    PlayerResource:ReplaceHeroWith(playerId, hero, STARTING_GOLD, 0)
   end)
+end
+
+function HeroSelection:GiveStartingHero (playerId, heroName)
+  if self.spawnedPlayers[playerId] then
+    return
+  end
+  local startingGold = 0
+  if self.hasGivenStartingGold then
+    startingGold = STARTING_GOLD
+  end
+
+  PlayerResource:ReplaceHeroWith(playerId, heroName, startingGold, 0)
+  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+
+  if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
+    table.insert(self.spawnedHeroes, hero)
+    self.spawnedPlayers[playerId] = true
+  else
+    self.attemptedSpawnPlayers[playerId] = heroName
+    Timers:CreateTimer(2, function ()
+      self:GiveStartingHero(playerId, heroName)
+    end)
+  end
+
+  if hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
+    HeroCosmetics:Sohei (hero)
+  end
+
 end
 
 function HeroSelection:IsHeroDisabled (hero)
@@ -372,8 +458,19 @@ function HeroSelection:EndStrategyTime ()
   HeroSelection:CheckPause()
 
   GameRules:SetTimeOfDay(0.25)
+
+  if self.isCM then
+    PauseGame(true)
+  end
+
   GameMode:OnGameInProgress()
   OnGameInProgressEvent()
+
+  self.hasGivenStartingGold = true
+  for _,hero in ipairs(self.spawnedHeroes) do
+    Gold:SetGold(hero, STARTING_GOLD)
+  end
+
   CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = -1, mode = ""})
 end
 

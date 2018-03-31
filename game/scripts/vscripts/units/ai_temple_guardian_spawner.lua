@@ -25,7 +25,10 @@ function TempleGuardianSpawnerThink()
   end
 
   thisEntity.bossHandle1 = CreateUnitByName('npc_dota_creature_temple_guardian', thisEntity:GetAbsOrigin() +  Vector( 300, 0, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  thisEntity.bossHandle1.BossTier = thisEntity.BossTier
   thisEntity.bossHandle2 = CreateUnitByName('npc_dota_creature_temple_guardian', thisEntity:GetAbsOrigin() +  Vector(-300, 0, 0 ), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  thisEntity.bossHandle2.BossTier = thisEntity.BossTier
+
   thisEntity.bossHandle1:SetHullRadius( 150 )
   thisEntity.bossHandle2:SetHullRadius( 150 )
 

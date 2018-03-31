@@ -3,22 +3,23 @@
     <include src="file://{resources}/styles/custom_game/hero_selection.css" />
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
   <Panel class="HeroSelection" onactivate=";">
     <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
-    <Panel class="TeamStatus">
-      <Panel class="FillWidth">
+    <Label id="ARDMLoading" text="...">
+    </Label>
+    <Panel class="FillWidth">
         <Button class="DashboardButton" onactivate="DOTAHUDShowDashboard();"/>
-      </Panel>
+    </Panel>
+    <Panel class="TeamStatus">
       <Panel id="TeamRadiant"/>
       <Panel id="Clock">
         <Label id="TimeLeft" text="WAIT"/>
         <Label id="GameMode" text="WAIT"/>
       </Panel>
       <Panel id="TeamDire"/>
-      <Panel class="FillWidth"/>
     </Panel>
     <Panel id="MainContent">
       <Panel class="MiddleColumn">
@@ -170,14 +171,12 @@
               </Button>
             </Panel>
           </Panel>
+          <Panel id="ChatPlaceholder" />
           <Panel id="CMHeroPreview" hittest="false">
           </Panel>
         </Panel>
       </Panel>
     </Panel>
-    <!-- <Panel id="ChatBoxHolder" hittest="false"> -->
-      <!-- <DOTAChat id="ChatBox" class="ChatExpanded" chatstyle="hudpregame" /> -->
-    <!-- </Panel> -->
     <Panel id="StrategyContent">
       <Panel class="BossIcon" id="Boss1r">
         <Label text="Tier 1"/>

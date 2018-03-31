@@ -173,7 +173,7 @@ if IsServer() then
 	function modifier_dragon_knight_elder_dragon_form_oaa:OnAttackLanded( event )
 		local parent = self:GetParent()
 
-		if event.attacker == parent then
+		if event.attacker == parent and event.process_procs then
 			local spell = self:GetAbility()
 
 			if spell:GetLevel() == 4 then

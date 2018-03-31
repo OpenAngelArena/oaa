@@ -9,6 +9,31 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
+#ChatPlaceholder {
+  width: 600px;
+  height: 700px;
+  vertical-align: bottom;
+  horizontal-align: left;
+  margin-bottom: 20px;
+}
+
+/*
+ARDM Loading screen
+*/
+#ARDMLoading {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  padding: 30px 50px;
+
+  background-color: #aaaaaa55;
+  width: 600px;
+  horizontal-align: center;
+  vertical-align: center;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 26px;
+}
 
 Label {
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
@@ -62,7 +87,8 @@ Label {
 }
 
 .TeamStatus {
-  width: 100%;
+  horizontal-align: center;
+  width: 90%;
   height: 10%;
   flow-children: right;
 }
@@ -74,13 +100,13 @@ Label {
 
 #TeamRadiant {
   flow-children: right;
-  width: 35%;
+  width: 45%;
   height: 65%;
   background-color: #171A2590;
 }
 
 #Clock {
-  width: 15%;
+  width: 10%;
   height: 80%;
   background-color: #171A2590;
 }
@@ -102,15 +128,24 @@ Label {
 
 #TeamDire {
   flow-children: left;
-  width: 35%;
+  width: 45%;
   height: 65%;
   background-color: #171A2590;
 }
 
-.Player {
-  margin: 0 1% 5px 1%;
+ .Player {
+  margin: 0 3px 5px 3px;
   width: 18%;
   height: 100%;
+}
+
+.TenVTen .Player {
+  width: 9%;
+}
+
+.TenVTen .Player DOTAHeroImage{
+  width: 100%;
+  height: 60%;
 }
 
 .PlayerImage {
@@ -149,7 +184,7 @@ Label {
 #MainContent {
   width: 100%;
   height: 90%;
-  margin-top: 10%;
+  margin-top: 9%;
   flow-children: right;
   transition-property: transform, opacity;
   transition-duration: 0.75s;
@@ -212,6 +247,7 @@ DOTAMinimap {
 }
 
 #HeroPanel {
+  margin-left: 15px;
   width: 100%;
   flow-children: right;
 }
@@ -220,7 +256,7 @@ DOTAMinimap {
   visibility: collapse;
   width: 90%;
   min-height: 150px;
-  margin: 40px 0;
+  margin: 15px 0;
   horizontal-align: center;
 }
 #ReserveTimePanel {

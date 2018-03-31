@@ -53,6 +53,7 @@ end
 
 function modifier_spider_boss_larval_parasite:OnDestroy()
   if IsServer() then
+    local parent = self:GetParent()
 
     -- This should be destroy the particle but is not destroying it
     ParticleManager:DestroyParticle( self.nFXWarningIndex, false )
@@ -62,11 +63,11 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 			return
 		end
 
-		EmitSoundOn( "Broodmother.LarvalParasite.Burst", self:GetParent() )
+		parent:EmitSound("Broodmother.LarvalParasite.Burst")
 
-		local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_broodmother_debuff_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+		local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_broodmother_debuff_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
 
-		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, self.infection_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), parent:GetOrigin(), nil, self.infection_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		for _, hEnemy in pairs( hEnemies ) do
 			-- Apply explosion damage
 			local damage = {
@@ -103,7 +104,7 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 
 			--[[
 			-- Infect other enemies near target, but not victim again
-			if hEnemy ~= self:GetParent() then
+			if hEnemy ~= parent then
 				--print( "modifier_spider_boss_larval_parasite:OnDestroy() - infecting enemy named " .. hEnemy:GetUnitName() )
 				hEnemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_spider_boss_larval_parasite", { duration = self.buff_duration } )
 			end

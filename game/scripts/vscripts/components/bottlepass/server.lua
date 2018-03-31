@@ -1,4 +1,3 @@
-
 Debug:EnableDebugging()
 DebugPrint('Bottlepass script loaded')
 
@@ -6,10 +5,11 @@ Bottlepass = Bottlepass or class({})
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
 BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'
+AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://chrisinajar.com:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.10.169:9969/'
 end
 
 function Bottlepass:Init ()
@@ -35,9 +35,11 @@ function Bottlepass:SendWinner (winner)
   local gameLength = HudTimer.gameTime
   local connectedPlayers = {}
 
+  local playerBySteamid = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     local player = PlayerResource:GetPlayer(playerID)
+    playerBySteamid[tostring(steamid)] = playerID
 
     if player then
       table.insert(connectedPlayers, tostring(steamid))
@@ -50,8 +52,42 @@ function Bottlepass:SendWinner (winner)
     gameLength = gameLength,
     players = connectedPlayers
   }, function (err, data)
-    DebugPrint(data)
-    DebugPrintTable(data)
+    if data and data.ok then
+      local mmrDiffs = {}
+      DebugPrintTable(data)
+      for _,bottlePlayer in ipairs(data.playerDiffs) do
+        local playerID = playerBySteamid[bottlePlayer.steamid]
+        mmrDiffs[playerID] = {
+          imr = bottlePlayer.mmr,
+          imr_diff = bottlePlayer.mmrDiff,
+        }
+      end
+
+      Bottlepass.mmrDiffs = mmrDiffs
+      Bottlepass:SendEndGameStats()
+    end
+--[[
+  ok: true
+  playerDiffs:
+      1:
+      2:
+          1:
+              bottlepass:
+                  levelUp: 0
+                  xp: 0
+              mmr: 0
+              steamid: 7131038
+
+    // player.result.imr_calibrating = false;
+    // player.result.imr = 1594;
+    // player.result.imr_diff = +9;
+    // player.result.xp_diff = 600;
+    // player.result.xp = 500;
+    // player.result.max_xp = 1000;
+
+    // player.xp = [];
+    // player.xp.level = 2;
+]]
   end)
 end
 
@@ -80,18 +116,28 @@ end
 
 function Bottlepass:Ready ()
   local userList = {}
+  local hostId = 0
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     if steamid ~= 0 then
       table.insert(userList, steamid)
+
+      local player = PlayerResource:GetPlayer(playerID)
+      if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+        hostId = steamid
+      end
     end
   end
 
   DebugPrint('Sending auth request ' .. GameStartTime)
+  DebugPrint(BATTLE_PASS_SERVER .. 'auth')
 
   self:Request('auth', {
     users = userList,
-    gametime = GameStartTime
+    gametime = GameStartTime,
+    toolsMode = IsInToolsMode(),
+    hostId = hostId,
+    cheatsMode = GameRules:IsCheatMode()
   }, function (err, data)
     if err then
       DebugPrint(err)
@@ -106,11 +152,25 @@ function Bottlepass:Ready ()
 end
 
 function Bottlepass:Request(api, data, cb)
+  if HeroSelection.isARDM then
+    cb("No bottlepass in ARDM", {})
+    return
+  end
+  if HeroSelection.is10v10 then
+    cb("No bottlepass in 10v10", {})
+    return
+  end
+  if GameRules:IsCheatMode() and not IsInToolsMode() then
+    cb("No Bottlepass while in cheats mode", {})
+    return
+  end
+
   local req = CreateHTTPRequestScriptVM('POST', BATTLE_PASS_SERVER .. api)
   local encoded = json.encode(data)
 
-  DebugPrint(encoded)
+  local authToken = sha256(encoded .. AUTH_KEY)
 
+  req:SetHTTPRequestHeaderValue("Auth-Checksum", authToken)
   req:SetHTTPRequestHeaderValue("Accept", "application/json")
   if self.token then
     req:SetHTTPRequestHeaderValue('X-Auth-Token', self.token)

@@ -10,6 +10,11 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
+// for testing
+var neverHideStrategy = false;
+
+var currentMap = Game.GetMapInfo().map_display_name;
+var hasGoneToStrategy = false;
 var selectedhero = 'empty';
 var disabledheroes = [];
 var herolocked = false;
@@ -23,6 +28,57 @@ var stepsCompleted = {
   3: 0
 };
 var lastPickIndex = 0;
+var hilariousLoadingPhrases = [
+  'Precaching all heroes',
+  'Filling bottles',
+  'Spawning extra Ogres',
+  'Procrastinating',
+  'Loading a bunch of other stuff too',
+  'Mining bitcoins',
+  'Charging into towers',
+  'Breaking boss agro leashes',
+  'Hacking the gibson',
+  'Adding more pointless loading screen quotes',
+  'Attempting to index a nil value',
+  'Changing Workshop entries',
+  'Forking to make balance changes',
+  'Constructing additional pylons',
+  'Sedating Azazel',
+  'Filling lava pools',
+  'Rehearsing "Ocean Man"',
+  'Painting the happy little trees',
+  'Grinding Moon Shards into moon dust',
+  'Dusting off the farming cave',
+  'Priming tesla coils',
+  'Rigging uphill attack misses',
+  'Eating Jaffa cakes',
+  'Nerfing your hero',
+  'Buffing opponents',
+  'Loading Warcraft 3',
+  'Unboxing map',
+  'Searching for a worthy opponent',
+  'Pay no attention to the man behind the curtain',
+  'Reticulating Splines',
+  'Bugfixing waveshines and fun-canceling',
+  'Daydreaming about standalone',
+  'Donating $1 to tournament prize pool',
+  'Selling arcanas to afford custom bottle',
+  'Finding a 5-stack on Discord',
+  'Rigging the tournament',
+  'Arbitrarily resetting everyone\'s MMR',
+  'Adding another overpowered custom hero',
+  'Actually doing nothing',
+  'Prolonging loading screen for dramatic effect',
+  'Begging for Oracle sets',
+  'Crashing tournament finals',
+  'Banning spectators on a hunch',
+  'Nerfing Tinker more',
+  'Replacing all heroes with Oracle',
+  'Losing self in the music the moment I owned it',
+  'Practicing invincible ledgedash'
+];
+
+SetupTopBar();
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
@@ -32,11 +88,46 @@ onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection',
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+changeHilariousLoadingText();
+
+$('#ARDMLoading').style.opacity = 0;
+
+function changeHilariousLoadingText () {
+  var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
+
+  noDots();
+  $.Schedule(1, oneDots);
+  $.Schedule(2, twoDots);
+  $.Schedule(3, threeDots);
+  $.Schedule(6, noDots);
+  $.Schedule(7, oneDots);
+  $.Schedule(8, twoDots);
+  $.Schedule(9, threeDots);
+
+  $.Schedule(12, changeHilariousLoadingText);
+
+  function noDots () {
+    $('#ARDMLoading').text = incredibleWit;
+  }
+  function oneDots () {
+    $('#ARDMLoading').text = incredibleWit + '.';
+  }
+  function twoDots () {
+    $('#ARDMLoading').text = incredibleWit + '..';
+  }
+  function threeDots () {
+    $('#ARDMLoading').text = incredibleWit + '...';
+  }
+}
 
 function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
   if (key === 'herolist' && data != null) {
+    // do not move chat for ardm
+    if (currentMap !== 'ardm') {
+      MoveChatWindow();
+    }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
@@ -249,8 +340,87 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('TimeLeft').text = data['time'];
       FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
     } else {
+      // CM Hides the chat on last pick, before selecting plyer hero
+      // ARDM don't have pick screen chat
+      if (currentMap === 'oaa' || currentMap === 'oaa_10v10' || currentMap === 'oaa_test') {
+        ReturnChatWindow();
+      }
       HideStrategy();
     }
+  }
+}
+
+function SetupTopBar () {
+  if (currentMap !== 'oaa_10v10') {
+    return;
+  }
+
+  $.GetContextPanel().SetHasClass('TenVTen', true);
+  var topbar = FindDotaHudElement('topbar');
+  topbar.style.width = '1550px';
+
+  // Top Bar Radiant
+  var TopBarRadiantTeam = FindDotaHudElement('TopBarRadiantTeam');
+  TopBarRadiantTeam.style.width = '690px';
+
+  var topbarRadiantPlayers = FindDotaHudElement('TopBarRadiantPlayers');
+  topbarRadiantPlayers.style.width = '690px';
+
+  var topbarRadiantPlayersContainer = FindDotaHudElement('TopBarRadiantPlayersContainer');
+  topbarRadiantPlayersContainer.style.width = '630px';
+  FillTopBarPlayer(topbarRadiantPlayersContainer);
+
+  var RadiantTeamContainer = FindDotaHudElement('RadiantTeamContainer');
+  RadiantTeamContainer.style.height = '737px';
+
+  // Top Bar Dire
+  var TopBarDireTeam = FindDotaHudElement('TopBarDireTeam');
+  TopBarDireTeam.style.width = '690px';
+
+  var topbarDirePlayers = FindDotaHudElement('TopBarDirePlayers');
+  topbarDirePlayers.style.width = '690px';
+
+  var topbarDirePlayersContainer = FindDotaHudElement('TopBarDirePlayersContainer');
+  topbarDirePlayersContainer.style.width = '630px';
+  FillTopBarPlayer(topbarDirePlayersContainer);
+
+  var DireTeamContainer = FindDotaHudElement('DireTeamContainer');
+  DireTeamContainer.style.height = '737px';
+}
+
+function FillTopBarPlayer (TeamContainer) {
+  // Fill players top bar in case on partial lobbies
+  var playerCount = TeamContainer.GetChildCount();
+  for (var i = playerCount + 1; i <= 10; i++) {
+    var newPlayer = $.CreatePanel('DOTATopBarPlayer', TeamContainer, 'RadiantPlayer-1');
+    if (newPlayer) {
+      newPlayer.FindChildTraverse('PlayerColor').style.backgroundColor = '#FFFFFFFF';
+    }
+    newPlayer.SetHasClass('EnemyTeam', true);
+  }
+}
+
+function MoveChatWindow () {
+  var vanillaChat = FindDotaHudElement('HudChat');
+  vanillaChat.SetHasClass('ChatExpanded', true);
+  vanillaChat.SetHasClass('Active', true);
+  vanillaChat.style.y = '0px';
+  vanillaChat.hittest = true;
+  vanillaChat.SetParent(FindDotaHudElement('ChatPlaceholder'));
+}
+
+function ReturnChatWindow () {
+  var vanillaChat = FindDotaHudElement('HudChat');
+  var vanillaChatParent = FindDotaHudElement('HUDElements');
+
+  if (vanillaChat.GetParent() !== vanillaChatParent) {
+    // Remove focus before change parent
+    vanillaChatParent.SetFocus();
+    vanillaChat.SetParent(vanillaChatParent);
+    vanillaChat.style.y = '-240px';
+    vanillaChat.hittest = false;
+    vanillaChat.SetHasClass('ChatExpanded', false);
+    vanillaChat.SetHasClass('Active', false);
   }
 }
 
@@ -311,6 +481,7 @@ function ReloadCMStatus (data) {
 
     // the "select your hero at the end" thing
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
+      ReturnChatWindow();
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
@@ -455,6 +626,9 @@ function HideStrategy () {
   //   FindDotaHudElement(element).style.transform = 'translateY(0)';
   //   FindDotaHudElement(element).style.opacity = '1';
   // });
+  if (neverHideStrategy) {
+    return;
+  }
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
@@ -467,6 +641,13 @@ function GoToStrategy () {
   FindDotaHudElement('StrategyContent').style.opacity = '1';
   // FindDotaHudElement('PregameBG').style.opacity = '0.15';
   FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
+
+  if (!hasGoneToStrategy) {
+    hasGoneToStrategy = true;
+    $.Schedule(6, function () {
+      $('#ARDMLoading').style.opacity = 1;
+    });
+  }
 }
 
 function RandomHero () {
@@ -481,8 +662,13 @@ function RandomHero () {
 
 function CreateHeroPanel (parent, hero) {
   var id = 'Scene' + ~~(Math.random() * 100);
-  var scene = parent.BCreateChildren('<DOTAScenePanel hittest="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
-  $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
+  var scene = null;
+  if (hero !== 'npc_dota_hero_sohei') {
+    scene = parent.BCreateChildren('<DOTAScenePanel hittest="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
+    $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
+  } else {
+    scene = parent.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+  }
 
   return scene;
 }

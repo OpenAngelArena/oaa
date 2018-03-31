@@ -5,7 +5,7 @@ temple_guardian_rage_hammer_smash = class(AbilityBaseClass)
 
 function temple_guardian_rage_hammer_smash:OnAbilityPhaseStart()
 	if IsServer() then
-		EmitSoundOn( "TempleGuardian.PreAttack", self:GetCaster() )
+		self:GetCaster():EmitSound("TempleGuardian.PreAttack")
 	end
 	return true
 end

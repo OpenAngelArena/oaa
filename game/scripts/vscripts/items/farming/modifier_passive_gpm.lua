@@ -46,3 +46,7 @@ end
 function modifier_passive_gpm:IsPurgable()
   return false
 end
+
+function modifier_passive_gpm:RemoveOnDeath()
+  return false
+end

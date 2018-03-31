@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_lycan_boss_shapeshift", "modifiers/modifier_lycan_bos
 
 function lycan_boss_shapeshift:OnAbilityPhaseStart()
 	if IsServer() then
-		EmitSoundOn( "lycan_lycan_ability_shapeshift_06", self:GetCaster() )
+		self:GetCaster():EmitSound("lycan_lycan_ability_shapeshift_06")
 	end
 	return true
 end

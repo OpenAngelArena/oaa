@@ -152,7 +152,7 @@ if IsServer() then
 
     -- with lua events, you need to make sure you're actually looking for the right unit's
     -- attacks and stuff
-    if event.attacker == parent then
+    if event.attacker == parent and event.process_procs then
       local target = event.target
 
       -- make sure the initial target is an appropriate unit to split off of

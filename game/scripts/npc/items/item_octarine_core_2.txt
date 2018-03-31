@@ -43,7 +43,7 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Special
@@ -53,32 +53,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 38"
+        "bonus_intelligence"                              "25 38 57 85 115"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 550"
+        "bonus_health"                                    "425 650 1000 1500 2000"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 550"
+        "bonus_mana"                                      "425 650 1000 1500 2000"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25 25"
+        "bonus_cooldown"                                  "25 27 29 31 33"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "25 30"
+        "hero_lifesteal"                                  "25 27 29 31 33"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "5 10"
+        "creep_lifesteal"                                 "5 7 9 11 13"
       }
       "07"
       {

@@ -38,16 +38,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3557"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/reactive_invincibility.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reflection_shard_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "0.5"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
+
+    "ItemInitialCharges"                                  "1 2 3"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
 
 
     // Item Info
@@ -56,9 +60,27 @@
     "ItemCost"                                            "10050"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "invulnerability shard"
+    "ItemAliases"                                         "reflect shard 1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "Precache"
+    {
+      "particle"                                          "particles/items/reflection_shard/reflection_shield.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_highlight1.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_plasma.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_rings.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_end.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_endcap.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_b.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_lincoln_b.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -84,6 +106,17 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "0.75"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "1 2 3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "14 14 14"
+      }
     }
+
   }
 }

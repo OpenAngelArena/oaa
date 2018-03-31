@@ -264,6 +264,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCastPoint',
     'AbilityChannelTime',
     'AbilityCooldown',
+    'AbilityDuration',
     'AbilityManaCost',
     'AbilityUnitTargetType',
     'AbilityUnitDamageType',
@@ -389,7 +390,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
   });
 
   Object.keys(parentData).forEach(function (name) {
-    t.ok(result[name], 'has value for ' + name);
+    t.ok(result[name], 'has value for ' + name + ' (' + parentData[name][name] + ', ' + parentData[name].var_type + ')');
   });
 
   return result;

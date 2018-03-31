@@ -28,6 +28,7 @@
 #base "heroes/ogre_magi.txt"
 #base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
+#base "heroes/pangolier.txt"
 #base "heroes/phoenix.txt"
 #base "heroes/puck.txt"
 #base "heroes/pudge.txt"
@@ -42,7 +43,6 @@
 #base "heroes/timbersaw.txt"
 #base "heroes/tinker.txt"
 #base "heroes/tiny.txt"
-#base "heroes/treant_protector.txt"
 #base "heroes/tusk.txt"
 #base "heroes/undying.txt"
 #base "heroes/venomancer.txt"
@@ -58,4 +58,37 @@
 
 "DOTAHeroes"
 {
+	//=================================================================================================================
+	// HERO: Ronin
+	//=================================================================================================================
+	"npc_dota_hero_sohei"
+	{
+		"BaseClass"					"npc_dota_hero_juggernaut"
+		"HeroID"					"128"
+		"Model"						"models/heroes/juggernaut/juggernaut.vmdl"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementTurnRate"			"1.5"
+		"MovementSpeed"				"325"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"31"
+		"AttackDamageMax"			"33"
+		"AttackRate"				"1.7"
+
+		"ArmorPhysical"				"5"
+		"StatusHealthRegen"			"3.25"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"23"
+		"AttributeStrengthGain"		"4.0"
+		"AttributeBaseAgility"		"18"
+		"AttributeAgilityGain"		"1.5"
+		"AttributeBaseIntelligence"	"17"
+		"AttributeIntelligenceGain"	"1.5"
+
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+	}
 }

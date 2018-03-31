@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "75 100 125 250 375"
+        "golem_dmg_tooltip"                               "75 125 175 375 600"
       }
       "06"
       {
@@ -87,7 +87,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "56 75 94 236 315"
+        "golem_dmg_tooltip_scepter"                       "56 94 131 280 450"
       }
       "11"
       {
@@ -101,5 +101,4 @@
       }
     }
   }
-
 }

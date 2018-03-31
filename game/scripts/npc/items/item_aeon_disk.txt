@@ -37,7 +37,7 @@
     "ItemBaseLevel"                                       "1"
     "ItemAliases"         "ad;aeon disk"
 
-    "AbilityCooldown"       "100.0 80 60 40 20"
+    "AbilityCooldown"       "90.0 75.0 60.0 45.0 30.0"
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityTextureName"                                  "custom/combo_breaker"
 
@@ -58,7 +58,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "health_threshold_pct"      "80"
+        "health_threshold_pct"      "70"
       }
       "04"
       {

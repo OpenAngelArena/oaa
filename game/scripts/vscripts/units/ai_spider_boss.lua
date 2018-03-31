@@ -50,8 +50,19 @@ function SpiderBossThink()
 		-- end
   end
 
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_CLOSEST,
+    false )
+
   local fHpPercent = (thisEntity:GetHealth() / thisEntity:GetMaxHealth()) * 100
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Aggro
@@ -61,7 +72,7 @@ function SpiderBossThink()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
-  elseif fHpPercent < 100 and #enemies > 0 then
+  elseif hasDamageThreshold and #enemies > 0 then
     if not thisEntity.bHasAgro then
       DebugPrint("Spider Boss Aggro")
       thisEntity.bHasAgro = true
@@ -71,7 +82,7 @@ function SpiderBossThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 2000 then
+  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -88,7 +99,7 @@ function SpiderBossThink()
 		return CastRage()
   end
 
-	if fHpPercent < 95 and thisEntity.hLarvalParasiteAbility ~= nil and thisEntity.hLarvalParasiteAbility:IsFullyCastable() then
+	if fHpPercent < 90 and thisEntity.hLarvalParasiteAbility ~= nil and thisEntity.hLarvalParasiteAbility:IsFullyCastable() then
 		return CastLarvalParasite()
 	end
 
@@ -118,7 +129,7 @@ function RetreatHome()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 		Position = thisEntity.vInitialSpawnPos
   })
-  return 2
+  return 6
 end
 
 ----------------------------------------------------------------------------------------------
@@ -168,22 +179,22 @@ end
 function PlayHungerSpeech()
 	local nSound = RandomInt( 1, 6 )
 	if nSound == 1 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_01", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_01")
 	end
 	if nSound == 2 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_02", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_02")
 	end
 	if nSound == 3 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_03", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_03")
 	end
 	if nSound == 4 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_04", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_04")
 	end
 	if nSound == 5 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_05", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_05")
 	end
 	if nSound == 6 then
-		EmitSoundOn( "broodmother_broo_ability_hunger_06", thisEntity )
+		thisEntity:EmitSound("broodmother_broo_ability_hunger_06")
 	end
 end
 

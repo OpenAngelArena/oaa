@@ -17,7 +17,7 @@ if BossSpawner == nil then
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(5, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
@@ -88,6 +88,7 @@ end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = bossTier
 
   DebugPrint(pit:GetAbsOrigin().x)
   DebugPrint(pit:GetAbsOrigin().y)

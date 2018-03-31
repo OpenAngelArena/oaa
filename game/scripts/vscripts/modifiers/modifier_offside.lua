@@ -37,6 +37,10 @@ function modifier_offside:OnCreated()
 end
 modifier_offside.OnRefresh = modifier_offside.OnCreated
 
+function modifier_offside:OnDestroy()
+  self:ReleaseParticles()
+end
+
 function modifier_offside:IsPurgable()
   return false
 end
@@ -118,7 +122,6 @@ end
 
 function modifier_offside:OnIntervalThink()
   if not ProtectionAura then
-    self:ReleaseParticles()
     self:Destroy()
     return
   end
@@ -149,7 +152,6 @@ function modifier_offside:OnIntervalThink()
 
   if not isInOffside then
     if stackCount <= 0 then
-      self:ReleaseParticles()
       self:Destroy()
     end
     return

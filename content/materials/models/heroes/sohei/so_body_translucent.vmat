@@ -1,0 +1,19 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Translucent ----
+	F_TRANSLUCENT 1
+
+	//---- Color ----
+	g_vColorTint "[0.643137 0.439216 0.082353 1.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/models/heroes/sohei/sohei_body_color.png"
+
+	//---- Translucent ----
+	g_flOpacityScale "0.500"
+	TextureTranslucency "materials/default/default_trans.tga"
+}
