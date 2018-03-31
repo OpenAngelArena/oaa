@@ -45,6 +45,7 @@ function Minimap:SpawnBossIcon(hPit, iTier)
   end
 end
 
+--To Add capture point icons
 function Minimap:SpawnCaptureIcon(location)
   for _,teamID in pairs({DOTA_TEAM_GOODGUYS, DOTA_TEAM_BADGUYS}) do
     local capture_point_minimap = CreateUnitByName('minimap_capture_point', location, false, nil, nil, teamID)

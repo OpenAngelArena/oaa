@@ -35,6 +35,7 @@ if IsServer() then
     self.CampHasBeenKilled = false
     self.neutrals = {}
 
+    --Capture points Icons
     if self.IsCapture then
       Timers:CreateTimer(45, function()
         if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then

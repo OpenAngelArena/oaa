@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
 local Zones = {
-  { left = Vector( -1280, -640, 0), right = Vector( 1280, 768, 0) },
+  { left = Vector( -1280, -640, 0), right = Vector( 1280, 768, 0) }, --Zones
   { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
   { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
   { left = Vector( -960, -1280, 0), right = Vector( 1152, 1280, 0) },
@@ -70,6 +70,7 @@ function CapturePoints:IsActive ()
 end
 
 function CapturePoints:MinimapPing()
+  --Pings Minimap about zones
   Timers:CreateTimer(3.2, function ()
     Minimap:SpawnCaptureIcon(CurrentZones.right)
   end)
@@ -110,8 +111,9 @@ function CapturePoints:StartCapture()
   end
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
-
+  --Chooses random zone
   CurrentZones = Zones[RandomInt(1, NumZones)]
+  --If statemant checks for duel interference
   if not Duels.startDuelTimer then
     self.currentCapture = {
       y = 1
