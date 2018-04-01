@@ -14,18 +14,6 @@ Updated 2017-12-05
 2. If you do not have the proper Clone, you'll have to Git one :D. 
 3. Ensure Launch Options: Dota 2 > Properties > Set Launch Options > '-console'
 
-## Playing the Game
-1. Play Dota 2
-2. Press console shortcut key
-3. Type 'dota_launch_custom_game oaa oaa'
-4. Press console shortcut key again to close.
-5. Play and identify broke shit.
-6. Disconnect from lobby when done. You don't need to close Dota 2
-7. Make your KeyValue changes, compile using 'gulp'
-8. Copy-paste the npc text into 'http://arhowk.github.io' to check for syntax errors if necessary.
-9. Hop back into Dota 2.
-8. Repeat 2-9 as necessary.
-
 ## Changing KeyValues
 As you identify things that need changing about the items/abilities, you will modify the **individual files** contained in these directories:
 
