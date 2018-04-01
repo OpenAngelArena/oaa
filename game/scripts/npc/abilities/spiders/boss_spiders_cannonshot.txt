@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Second Day Spiders: Spidershot
+  // Second Day Spiders: Cannonshot
   //=================================================================================================================
-  "boss_spiders_spidershot"
+  "boss_spiders_cannonshot"
   {
     //"ID"                            "99455"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/spiders/boss_spiders_spidershot.lua"
-    "AbilityTextureName"            "broodmother_spawn_spiderlings"
+    "ScriptFile"                    "abilities/spiders/boss_spiders_cannonshot.lua"
+    "AbilityTextureName"            "sniper_shrapnel"
 
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -46,34 +46,19 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "impact_damage"             "100"
+        "damage"                    "100"
       }
       "02"
       {
         "var_type"                  "FIELD_FLOAT"
-        "impact_slow_rate"          "-50"
+        "radius"                    "400"
       }
       "03"
       {
         "var_type"                  "FIELD_FLOAT"
-        "impact_slow_duration"      "3.0"
+        "projectile_speed"          "0.02"
       }
       "04"
-      {
-        "var_type"                  "FIELD_FLOAT"
-        "explode_time"              "5.0"
-      }
-      "05"
-      {
-        "var_type"                  "FIELD_INTEGER"
-        "spiders_count"             "3"
-      }
-      "06"
-      {
-        "var_type"                  "FIELD_FLOAT"
-        "projectile_speed"          "0.03"
-      }
-      "07"
       {
         "var_type"                  "FIELD_INTEGER"
         "projectile_height"         "300"

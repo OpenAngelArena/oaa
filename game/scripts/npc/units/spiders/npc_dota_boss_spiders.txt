@@ -1,14 +1,14 @@
 "DOTAUnits"
 {
 //=================================================================================
-// Boss tier 2
+// Boss tier ?
 //=================================================================================
   "npc_dota_boss_spiders"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
-    "Model"                                               "models/heroes/sniper/sniper.vmdl"  // Model.
+    "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
     "vscripts"                                            "units/spiders.lua"
     "SoundSet"                                            "sniper"                    // Name of sound set.
     "ModelScale"                                          "1"
@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "boss_spiders_canonshot"
+    "Ability1"                                            "boss_spiders_cannonshot"
     "Ability2"                                            "boss_spiders_spidershot"
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_cliffwalk"
@@ -30,7 +30,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
     "AttackDamageMin"                                     "1"       // Damage range min.
     "AttackDamageMax"                                     "1"       // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
@@ -68,8 +68,32 @@
 
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
+	      //Makes it only have 50% remaining of applied crowd control
+	      "DisableResistance"                                 "50.0"
+
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef"			"280"
+			}
+			"Wearable2"
+			{
+				"ItemDef"			"278"
+			}
+			"Wearable3"
+			{
+				"ItemDef"			"277"
+			}
+			"Wearable4"
+			{
+				"ItemDef"			"585"
+			}
+			"Wearable5"
+			{
+				"ItemDef"			"279"
+			}
+		}
     }
 
 

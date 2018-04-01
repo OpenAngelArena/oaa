@@ -10,7 +10,7 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
-        "vscripts"                  "units/baneling"
+        "vscripts"                  "units/ai_baneling"
         "Level"                     "1"
         "ModelScale"                ".3"
         "IsAncient"                 "1"
@@ -20,7 +20,7 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"                  "creep_cold_combustion"      // Ability 1
+        "Ability1"                  "boss_spiders_spider_cold_combustion"      // Ability 1
         "Ability2"                  ""      // Ability 2
         "Ability3"                  ""      // Ability 3
         "Ability4"                  ""      // Ability 4
