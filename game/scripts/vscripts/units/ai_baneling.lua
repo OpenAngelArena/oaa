@@ -1,7 +1,7 @@
 local Baneling = class({})
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  local Baneling = Baneling()
+  local Baneling = class(Baneling)
   Baneling:Init(thisEntity)
 end
 
