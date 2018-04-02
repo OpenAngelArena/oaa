@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 function FindCannonshotLocations()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
-  
+
   local target1, target2
   local count = 0
   local closest
@@ -40,7 +40,7 @@ end
 function FindSpidershotLocations()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
-  
+
   local target1, target2
   local count = 0
 
@@ -124,7 +124,7 @@ function SpidersThink()
     if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() then
       if target1 then
         ability.target_points = { target1 = target1, target2 = target2 }
-        Cast(ability, target)
+        Cast(ability, target1)
       end
     end
   elseif thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.5 then -- phase 2
@@ -196,5 +196,5 @@ end
 function PointOnCircle(radius, angle)
   local x = radius * math.cos(angle * math.pi / 180)
   local y = radius * math.sin(angle * math.pi / 180)
-  return Vector(x,y,0) 
+  return Vector(x,y,0)
 end

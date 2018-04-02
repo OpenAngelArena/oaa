@@ -64,8 +64,7 @@ function boss_spiders_cannonshot:Explode(explosive)
 
 	for k,v in pairs(units) do
 		local point = explosive:GetAbsOrigin()
-    	local knockbackModifierTable =
-	    {
+    	local knockbackModifierTable = {
 	        should_stun = 1,
 	        knockback_duration = 1.0,
 	        duration = 1.0,
