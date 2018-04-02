@@ -319,6 +319,7 @@ read_globals = { -- these globals can only be accessed.
 "ACT_IDLE",
 "ACT_DROP_WEAPON_SHOTGUN",
 "VectorLerp",
+"LerpVectors",
 "ACT_DOTA_THIRST",
 "ACT_RUN_CROUCH",
 "ACT_PDA_VM_RELOAD",
