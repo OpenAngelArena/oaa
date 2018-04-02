@@ -1,5 +1,7 @@
 modifier_generic_projectile = class(ModifierBaseClass)
 
+LerpVectors = _G.LerpVectors
+
 ------------------------------------------------------------------------------------
 
 function modifier_generic_projectile:InitProjectile(projectileTable)

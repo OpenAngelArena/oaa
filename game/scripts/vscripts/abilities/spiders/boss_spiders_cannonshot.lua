@@ -64,17 +64,17 @@ function boss_spiders_cannonshot:Explode(explosive)
 
 	for k,v in pairs(units) do
 		local point = explosive:GetAbsOrigin()
-    	local knockbackModifierTable = {
-	        should_stun = 1,
-	        knockback_duration = 1.0,
-	        duration = 1.0,
-	        knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
-	        knockback_height = 80,
-	        center_x = point.x,
-	        center_y = point.y,
-	        center_z = point.z
-	    }
-		v:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
+		local knockbackModifierTable = {
+			should_stun = 1,
+			knockback_duration = 1.0,
+			duration = 1.0,
+			knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
+			knockback_height = 80,
+			center_x = point.x,
+			center_y = point.y,
+			center_z = point.z
+		}
+		v:AddNewModifier( explosive, self, "modifier_knockback", knockbackModifierTable )
 
 		local damageTable = {
 			victim = v,
@@ -88,7 +88,7 @@ function boss_spiders_cannonshot:Explode(explosive)
 
 	EmitSoundOnLocationWithCaster(explosive:GetAbsOrigin(), "Hero_Techies.Suicide", explosive)
 
-	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, explosive)
 	ParticleManager:SetParticleControl(explosion, 0, explosive:GetAbsOrigin())
 	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
 
