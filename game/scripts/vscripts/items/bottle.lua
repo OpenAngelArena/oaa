@@ -211,6 +211,7 @@ local special_bottles = {
   [117601424] = 42, --steam: http://steamcommunity.com/profiles/76561198077867152- twitch: Shonkjr
   [105759579] = 43, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
   [94327365] = 44, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
+  [196939910] = 45, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
 }
 
 local bonusNames = {
@@ -258,6 +259,7 @@ local bonusNames = {
   'custom/bottles/bottle_shonkjr',
   'custom/bottles/bottle_zapp',
   'custom/bottles/bottle_sdakfreezes',
+  'custom/bottles/bottle_brickbrack743', --45
 }
 
 --------------------------------------------------------------------------------
