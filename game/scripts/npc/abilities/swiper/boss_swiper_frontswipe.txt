@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Swiper Boss: Frontswipe
+    //=================================================================================================================
+    "boss_swiper_frontswipe"
+    {
+        "ID"                            "10001"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "abilities/swiper/boss_swiper_frontswipe.lua"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+        "AnimationIgnoresModelScale"     "1"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "200"
+        "AbilityCastPoint"              "2.0"
+        // "Radius"                        "200"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "5"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "300"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "min_targets"               "2"
+            }
+        }
+    }
+}
