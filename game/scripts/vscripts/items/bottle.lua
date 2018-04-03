@@ -168,7 +168,6 @@ local special_bottles = {
   [70763083] = 5, --steam: http://steamcommunity.com/profiles/76561198031028811 - twitch: vatsalyagoel
   [144060401] = 5, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
   [53067223] = 5, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
-  [196939910] = 5, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
   [107719587] = 5, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
   [80434451] = 5, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
 
