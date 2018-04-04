@@ -9,8 +9,6 @@ function boss_swiper_backswipe:OnAbilityPhaseStart()
 		local caster = self:GetCaster()
 		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
 
-		caster:SetForwardVector(-caster:GetForwardVector())
-
 		DebugRange(caster, range, self)
 	end
 	return true

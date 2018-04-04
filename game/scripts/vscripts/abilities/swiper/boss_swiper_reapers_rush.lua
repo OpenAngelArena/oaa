@@ -14,7 +14,7 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
 
 		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime) 
-		DebugDrawCircle(target, Vector(255,0,0), 255, width, false, castTime + 2.0)
+		DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
 	end
 	return true
 end
@@ -108,41 +108,43 @@ end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:OnDestroy()
-	local caster = self:GetParent()
-	local ability = self:GetAbility()
-	local radius = ability:GetSpecialValueFor("radius")
+if IsServer() then
+	function boss_swiper_reapers_rush_active:OnDestroy()
+		local caster = self:GetParent()
+		local ability = self:GetAbility()
+		local radius = ability:GetSpecialValueFor("radius")
 
-	local units = FindUnitsInRadius(
-		caster:GetTeamNumber(),
-		caster:GetAbsOrigin(),
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_CLOSEST,
-		false
-	)
+		local units = FindUnitsInRadius(
+			caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			radius,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_ALL,
+			DOTA_UNIT_TARGET_FLAG_NONE,
+			FIND_CLOSEST,
+			false
+		)
 
-	for k,v in pairs(units) do
-		local damageTable = {
-			victim = v,
-			attacker = caster,
-			damage = ability:GetSpecialValueFor("max_damage"),
-			damage_type = ability:GetAbilityDamageType(),
-			ability = ability
-		}
-		ApplyDamage(damageTable)
+		for k,v in pairs(units) do
+			local damageTable = {
+				victim = v,
+				attacker = caster,
+				damage = ability:GetSpecialValueFor("max_damage"),
+				damage_type = ability:GetAbilityDamageType(),
+				ability = ability
+			}
+			ApplyDamage(damageTable)
 
-		local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
+			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
 
-		v:EmitSound("hero_ursa.attack")
+			v:EmitSound("hero_ursa.attack")
+		end
+
+		ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", PATTACH_POINT, caster)
+
+		caster:Stop()
 	end
-
-	ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", PATTACH_POINT, caster)
-
-	caster:Stop()
 end
 
 ------------------------------------------------------------------------------------
