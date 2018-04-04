@@ -16,6 +16,8 @@ function boss_spiders_cannonshot:OnSpellStart(keys)
 	local caster = self:GetCaster()
 
 	if self.target_points then
+		caster:EmitSound("hero_ursa.attack")
+
 		for k,target in pairs(self.target_points) do
 			local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(indicator, 0, target + Vector(0,0,32))
@@ -39,9 +41,9 @@ function boss_spiders_cannonshot:OnSpellStart(keys)
 				height = self:GetSpecialValueFor("projectile_height"),
 			}
 			projectileModifier:InitProjectile(projectileTable)
-
-			caster:EmitSound("hero_ursa.attack")
 		end
+
+		self.target_points = nil
 	end
 end
 

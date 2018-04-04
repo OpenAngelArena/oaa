@@ -161,7 +161,7 @@ function SpidersThink()
         Timers:CreateTimer(0.3, function (  )
           local spiderTarget1, spiderTarget2 = FindSpidershotLocations()
           for i=1,spidershots do
-            thisEntity.SpidershotAbility.target_points = { target1 = spiderTarget1 + RandomVector(128) }
+            thisEntity.SpidershotAbility.target_points = { target1 = spiderTarget1 + RandomVector(200) }
             thisEntity.SpidershotAbility:OnSpellStart()
           end
           thisEntity.SpidershotAbility:StartCooldown(thisEntity.SpidershotAbility:GetCooldownTime())
@@ -172,9 +172,9 @@ function SpidersThink()
         elseif cannonshots == 2 then
           ability.target_points = { target1 = target1, target2 = target2 }
         elseif cannonshots == 3 then
-          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(128) }
+          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
         else
-          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(128), target4 = target2 + RandomVector(128) }
+          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200), target4 = target2 + RandomVector(200) }
         end
         Cast(ability, target1)
       end

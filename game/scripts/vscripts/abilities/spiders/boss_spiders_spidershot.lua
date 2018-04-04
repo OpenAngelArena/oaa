@@ -18,6 +18,8 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 	-- local target = GetGroundPosition(self:GetCursorPosition(), caster)
 
 	if self.target_points then
+		caster:EmitSound("hero_ursa.attack")
+
 		for k,target in pairs(self.target_points) do
 			local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/range_finder_generic_wardspot_model.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(indicator, 2, target)
@@ -76,9 +78,9 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 				height = self:GetSpecialValueFor("projectile_height"),
 			}
 			projectileModifier:InitProjectile(projectileTable)
-
-			caster:EmitSound("hero_ursa.attack")
 		end
+
+		self.target_points = nil
 	end
 end
 
