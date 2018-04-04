@@ -114,24 +114,26 @@ function SwiperBossThink()
 	local reapersMaxRange = thisEntity.hReapersRushAbility:GetSpecialValueFor("max_range")
 	local reapersRushRadius = thisEntity.hReapersRushAbility:GetSpecialValueFor("radius")
 	local reapersRushTarget
+	local moveToTarget
 	local reapersRushCount = 0
 	for k,v in pairs(enemies) do
 		local d = (v:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
-		if d < reapersMaxRange and d > reapersMinRange then
-			local closeEnemies = FindUnitsInRadius(
-				thisEntity:GetTeamNumber(),
-				v:GetOrigin(), nil,
-				reapersRushRadius,
-				DOTA_UNIT_TARGET_TEAM_ENEMY,
-				DOTA_UNIT_TARGET_HERO,
-				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-				FIND_CLOSEST,
-				false)
+		local closeEnemies = FindUnitsInRadius(
+			thisEntity:GetTeamNumber(),
+			v:GetOrigin(), nil,
+			reapersRushRadius,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+			FIND_CLOSEST,
+			false)
 
-			if #closeEnemies > reapersRushCount then
+		if #closeEnemies > reapersRushCount then
+			if d < reapersMaxRange and d > reapersMinRange then
 				reapersRushCount = #closeEnemies
 				reapersRushTarget = v
 			end
+			moveToTarget = v
 		end
 	end
 
@@ -139,11 +141,11 @@ function SwiperBossThink()
 		return CastReapersRush( reapersRushTarget:GetAbsOrigin() )
 	end
 
-	if reapersRushTarget and thisEntity:IsIdle() then
+	if moveToTarget and thisEntity:IsIdle() then
 		ExecuteOrderFromTable({
 			UnitIndex = thisEntity:entindex(),
 			OrderType = DOTA_UNIT_ORDER_MOVE_TO_TARGET,
-			TargetIndex = reapersRushTarget:entindex()
+			TargetIndex = moveToTarget:entindex()
 		})
 	end
 
@@ -172,9 +174,9 @@ function CastFrontswipe( )
 
 	if math.random(1,4) == 1 then
 		-- thisEntity.hFrontswipeAbility:StartCooldown(8.0)
-
-		Timers:CreateTimer(delay + 1.0, function (  )
+		Timers:CreateTimer(delay - 0.9, function (  )
 			thisEntity.hFrontswipeAbility:StartCooldown(8.0)
+			thisEntity:Stop()
 			ExecuteOrderFromTable({
 				UnitIndex = thisEntity:entindex(),
 				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
