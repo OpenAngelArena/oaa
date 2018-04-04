@@ -13,7 +13,7 @@ function boss_swiper_thrust:OnAbilityPhaseStart()
 		local castTime = self:GetCastPoint()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime) 
+		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
 	end
 	return true
 end
@@ -37,7 +37,7 @@ function boss_swiper_thrust:OnSpellStart()
 		local info = {
 			EffectName = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf",
 			Ability = self,
-			vSpawnOrigin = caster:GetAbsOrigin(), 
+			vSpawnOrigin = caster:GetAbsOrigin(),
 			fStartRadius = width,
 			fEndRadius = width,
 			vVelocity = direction * 2000,
@@ -59,10 +59,10 @@ function boss_swiper_thrust:OnProjectileHit( target, location )
 			target:EmitSound("hero_ursa.attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, target)
-		
+
 			local damageTable = {
 				victim = target,
-				attacker = caster,
+				attacker = self:GetCaster(),
 				damage = self:GetSpecialValueFor("damage"),
 				damage_type = self:GetAbilityDamageType(),
 				ability = self

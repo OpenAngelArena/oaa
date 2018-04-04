@@ -67,7 +67,6 @@ function boss_swiper_backswipe_base:OnSpellStart()
 			v:EmitSound("hero_ursa.attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
-		
 			local damageTable = {
 				victim = v,
 				attacker = caster,

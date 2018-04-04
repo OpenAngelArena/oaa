@@ -13,7 +13,7 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
 		local castTime = self:GetCastPoint()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime) 
+		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
 		DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
 	end
 	return true
