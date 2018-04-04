@@ -52,7 +52,7 @@ function SwiperBossThink()
 	if thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.75 then -- phase 1
 		canUseRush = false
 	elseif thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.5 then -- phase 2
-		-- something unique to phase 2
+		canUseRush = true
 	else
 		canUseTeleport = true
 	end
