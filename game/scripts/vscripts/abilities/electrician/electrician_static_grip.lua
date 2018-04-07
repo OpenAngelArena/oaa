@@ -6,7 +6,11 @@ LinkLuaModifier( "modifier_electrician_static_grip_movement", "abilities/electri
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-	return self:GetSpecialValueFor( "channel_time" )
+	if self.modGrip and not self.modGrip:IsNull() then
+		return self.modGrip:GetDuration()
+	end
+
+	return 0
 end
 
 --------------------------------------------------------------------------------
@@ -20,17 +24,15 @@ function electrician_static_grip:OnSpellStart()
 		local durationMax = self:GetSpecialValueFor( "channel_time" )
 
 		-- create the stun modifier on target
-		self.modGrip = target:AddNewModifier( caster, self, "modifier_electrician_static_grip", {
+		target:AddNewModifier( caster, self, "modifier_electrician_static_grip", {
 			duration = durationMax,
 		} )
+
 		-- create the movement modifier on caster
 		caster:AddNewModifier( caster, self, "modifier_electrician_static_grip_movement", {
 			target = target:entindex(),
 			duration = durationMax,
 		} )
-	else
-		-- without this the caster will continue channeling with no effect
-		caster:Interrupt()
 	end
 end
 
@@ -74,6 +76,10 @@ function modifier_electrician_static_grip:GetPriority()
 	return MODIFIER_PRIORITY_ULTRA
 end
 
+function modifier_electrician_static_grip:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 --------------------------------------------------------------------------------
 
 function modifier_electrician_static_grip:CheckState()
@@ -104,11 +110,18 @@ end
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-	function modifier_electrician_static_grip:OnCreated( event )
+function modifier_electrician_static_grip:OnCreated( event )
+	local spell = self:GetAbility()
+
+	-- link modifier to spell
+	-- this can't be done in OnSpellStuff as that's server-side only
+	-- so we have to make sure that at least this part of OnCreated
+	-- is ran on the client
+	spell.modGrip = self
+
+	if IsServer() then
 		local parent = self:GetParent()
 		local caster = self:GetCaster()
-		local spell = self:GetAbility()
 
 		-- grab ability specials
 		local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
@@ -127,13 +140,22 @@ if IsServer() then
 		-- start thinking
 		self:StartIntervalThink( damageInterval )
 	end
+end
 
 --------------------------------------------------------------------------------
 
-	function modifier_electrician_static_grip:OnRefresh( event )
+function modifier_electrician_static_grip:OnRefresh( event )
+	local spell = self:GetAbility()
+
+	-- link modifier to spell
+	-- this can't be done in OnSpellStuff as that's server-side only
+	-- so we have to make sure that at least this part of OnRefresh
+	-- is ran on the client
+	spell.modGrip = self
+
+	if IsServer() then
 		local parent = self:GetParent()
 		local caster = self:GetCaster()
-		local spell = self:GetAbility()
 
 		-- grab ability specials
 		local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
@@ -147,9 +169,11 @@ if IsServer() then
 		-- start thinking
 		self:StartIntervalThink( damageInterval )
 	end
+end
 
 --------------------------------------------------------------------------------
 
+if IsServer() then
 	function modifier_electrician_static_grip:OnDestroy()
 		-- clean up the particle
 		ParticleManager:DestroyParticle( self.part, false )
@@ -162,7 +186,9 @@ if IsServer() then
 		self:GetCaster():RemoveModifierByName( "modifier_electrician_static_grip_movement" )
 
 		-- end the channel
-		self:GetAbility():EndChannel( true )
+		-- with the new channel duration method this seems superfluous
+		-- but i'll leave this commented out in case it isn't
+		--self:GetAbility():EndChannel( true )
 	end
 
 --------------------------------------------------------------------------------
