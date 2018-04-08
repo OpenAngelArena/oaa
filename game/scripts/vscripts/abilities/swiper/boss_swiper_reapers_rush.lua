@@ -136,11 +136,13 @@ if IsServer() then
 			ApplyDamage(damageTable)
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
+			ParticleManager:ReleaseParticleIndex(impact)
 
 			v:EmitSound("hero_ursa.attack")
 		end
 
-		ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", PATTACH_POINT, caster)
+		local swipe = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", PATTACH_POINT, caster)
+		ParticleManager:ReleaseParticleIndex(swipe)
 
 		caster:Stop()
 	end
@@ -223,6 +225,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 			v:EmitSound("hero_ursa.attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
+			ParticleManager:ReleaseParticleIndex(impact)
 		end
 	end
 end

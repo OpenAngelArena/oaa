@@ -8,8 +8,8 @@ function boss_swiper_thrust:OnAbilityPhaseStart()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local width = self:GetSpecialValueFor("width")
-		local target = self:GetCursorPosition()
-		local distance = (target - caster:GetAbsOrigin()):Length2D()
+		local target = GetGroundPosition(self:GetCursorPosition(), caster)
+		local distance = (target - caster:GetAbsOrigin()):Length()
 		local castTime = self:GetCastPoint()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
 
@@ -30,9 +30,10 @@ function boss_swiper_thrust:OnSpellStart()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local width = self:GetSpecialValueFor("width")
-		local target = self:GetCursorPosition()
-		local distance = (target - caster:GetAbsOrigin()):Length2D()
-		local direction = (target - caster:GetAbsOrigin()):Normalized()
+		local target = GetGroundPosition(self:GetCursorPosition(), caster)
+		local distance = (target - caster:GetAbsOrigin()):Length()
+		local direction = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+		local velocity = direction * 2000
 
 		local info = {
 			EffectName = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf",
@@ -40,7 +41,7 @@ function boss_swiper_thrust:OnSpellStart()
 			vSpawnOrigin = caster:GetAbsOrigin(),
 			fStartRadius = width,
 			fEndRadius = width,
-			vVelocity = direction * 2000,
+			vVelocity = velocity,
 			fDistance = distance,
 			Source = self:GetCaster(),
 			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -59,6 +60,7 @@ function boss_swiper_thrust:OnProjectileHit( target, location )
 			target:EmitSound("hero_ursa.attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, target)
+			ParticleManager:ReleaseParticleIndex(impact)
 
 			local damageTable = {
 				victim = target,

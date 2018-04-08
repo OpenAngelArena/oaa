@@ -17,10 +17,11 @@ function boss_swiper_backswipe_base:FindUnitsInCone(position, coneDirection, con
 	coneDirection = coneDirection:Normalized()
 
 	local output = {}
+	local cone = math.cos(coneWidth/2)
 
 	for _, unit in pairs(units) do
 		local direction = (unit:GetAbsOrigin() - position):Normalized()
-		if direction:Dot(coneDirection) >= math.cos(coneWidth/2) then
+		if direction:Dot(coneDirection) >= cone then
 			table.insert(output, unit)
 		end
 	end
@@ -48,6 +49,7 @@ function boss_swiper_backswipe_base:OnSpellStart()
 		local swipe = ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_ti6/invoker_deafening_blast_swipe_right_ti6.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(swipe, 3, caster:GetAbsOrigin() + (caster:GetForwardVector() * 100))
 		ParticleManager:SetParticleControlForward(swipe, 3, caster:GetForwardVector())
+		ParticleManager:ReleaseParticleIndex(swipe)
 
 		local units = self:FindUnitsInCone(
 			caster:GetAbsOrigin(),
@@ -67,6 +69,7 @@ function boss_swiper_backswipe_base:OnSpellStart()
 			v:EmitSound("hero_ursa.attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
+			ParticleManager:ReleaseParticleIndex(impact)
 			local damageTable = {
 				victim = v,
 				attacker = caster,

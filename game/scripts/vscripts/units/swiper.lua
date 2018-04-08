@@ -14,6 +14,8 @@ function Spawn( entityKeyValues )
 	thisEntity.hBackswipeAbility = thisEntity:FindAbilityByName( "boss_swiper_backswipe" )
 	thisEntity.hReapersRushAbility = thisEntity:FindAbilityByName( "boss_swiper_reapers_rush" )
 
+	thisEntity.retreatDelay = 6.0
+
 	thisEntity:SetContextThink( "SwiperBossThink", SwiperBossThink, 1 )
 end
 
@@ -166,7 +168,7 @@ function RetreatHome()
 		Position = thisEntity.vInitialSpawnPos
 	})
 
-	return 6
+	return thisEntity.retreatDelay
 end
 
 function CastFrontswipe( )
@@ -178,10 +180,11 @@ function CastFrontswipe( )
 
 	local delay = thisEntity.hFrontswipeAbility:GetCastPoint() + 1.0
 
-	if math.random(1,4) == 1 then
+	if RandomInt(1,4) == 1 then
 		-- thisEntity.hFrontswipeAbility:StartCooldown(8.0)
 		Timers:CreateTimer(delay - 0.9, function (  )
-			thisEntity.hFrontswipeAbility:StartCooldown(8.0)
+			if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then return end
+			thisEntity.hFrontswipeAbility:StartCooldown(thisEntity.hFrontswipeAbility:GetCooldownTime() * 2)
 			thisEntity:Stop()
 			ExecuteOrderFromTable({
 				UnitIndex = thisEntity:entindex(),
