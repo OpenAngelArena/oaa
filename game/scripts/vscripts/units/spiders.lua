@@ -1,7 +1,7 @@
 
 LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
 
-function FindCannonshotLocations()
+local function FindCannonshotLocations()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
@@ -37,7 +37,7 @@ function FindCannonshotLocations()
   return target1, target2
 end
 
-function FindSpidershotLocations()
+local function FindSpidershotLocations()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
@@ -61,6 +61,21 @@ function FindSpidershotLocations()
   return target1, target2
 end
 
+local function Cast(ability, target)
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = ability:entindex(),
+    Position = target,
+  })
+end
+
+local function PointOnCircle(radius, angle)
+  local x = radius * math.cos(angle * math.pi / 180)
+  local y = radius * math.sin(angle * math.pi / 180)
+  return Vector(x,y,0)
+end
+
 function Spawn( entityKeyValues )
   if not IsServer() then
     return
@@ -72,6 +87,9 @@ function Spawn( entityKeyValues )
 
   thisEntity.CannonshotAbility = thisEntity:FindAbilityByName( "boss_spiders_cannonshot" )
   thisEntity.SpidershotAbility = thisEntity:FindAbilityByName( "boss_spiders_spidershot" )
+
+  thisEntity.retreatDelay = 6
+  thisEntity.roamRadius = 300
 
   thisEntity:SetContextThink( "SpidersThink", SpidersThink, 1 )
 end
@@ -90,7 +108,7 @@ function SpidersThink()
     thisEntity.bInitialized = true
     thisEntity.vPath = {}
     for i=1,13 do
-      table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(300, 360 / 12 * i))
+      table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(thisEntity.roamRadius, 360 / 12 * i))
     end
     thisEntity.vPathPoint = 0
     thisEntity.bHasAgro = false
@@ -151,7 +169,7 @@ function SpidersThink()
     end
   else -- phase 3
     if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() then
-      local cannonshots = math.random(1,4)
+      local cannonshots = RandomInt(1,4)
       local spidershots = 4 - cannonshots
 
       local ability = thisEntity.CannonshotAbility
@@ -182,19 +200,4 @@ function SpidersThink()
   end
 
   return 0.1
-end
-
-function Cast(ability, target)
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = ability:entindex(),
-    Position = target,
-  })
-end
-
-function PointOnCircle(radius, angle)
-  local x = radius * math.cos(angle * math.pi / 180)
-  local y = radius * math.sin(angle * math.pi / 180)
-  return Vector(x,y,0)
 end

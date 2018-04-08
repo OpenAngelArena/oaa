@@ -93,6 +93,7 @@ function boss_spiders_cannonshot:Explode(explosive)
 	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, explosive)
 	ParticleManager:SetParticleControl(explosion, 0, explosive:GetAbsOrigin())
 	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(explosion)
 
 	UTIL_Remove(explosive)
 end

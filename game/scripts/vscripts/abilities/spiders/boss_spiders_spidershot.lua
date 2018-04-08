@@ -31,7 +31,8 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 			local projectileModifier = ball:AddNewModifier(caster, self, "modifier_generic_projectile", {})
 			local projectileTable = {
 				onLandedCallback = function ()
-					ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, ball)
+					local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, ball)
+					ParticleManager:ReleaseParticleIndex(smoke)
 
 					ParticleManager:DestroyParticle(indicator, true)
 
@@ -42,11 +43,13 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 							local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, caster)
 							ParticleManager:SetParticleControl(explosion, 0, ball:GetAbsOrigin())
 							ParticleManager:SetParticleControl(explosion, 3, ball:GetAbsOrigin())
+							ParticleManager:ReleaseParticleIndex(explosion)
 
 							for i=1,self:GetSpecialValueFor("spiders_count") do
 								PrecacheUnitByNameAsync("npc_dota_boss_spiders_spider", function (  )
 									local spider = CreateUnitByName("npc_dota_boss_spiders_spider", target + RandomVector(32), true, caster, caster, caster:GetTeamNumber())
-									ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", PATTACH_POINT, spider)
+									local spawn = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf", PATTACH_POINT, spider)
+									ParticleManager:ReleaseParticleIndex(spawn)
 								end, 0)
 							end
 
@@ -68,6 +71,7 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 
 					local impact = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf", PATTACH_POINT, v)
 					ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
+					ParticleManager:ReleaseParticleIndex(impact)
 
 					EmitSoundOn("Hero_Broodmother.SpawnSpiderlingsImpact", v)
 				end,
