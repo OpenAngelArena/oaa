@@ -62,19 +62,22 @@ function SwiperBossThink()
 	-- Swipe
 
 	local swipeRange = thisEntity.hFrontswipeAbility:GetCastRange(thisEntity:GetAbsOrigin(), thisEntity)
-	local frontSwipeEnemies = FindUnitsInCone(
-		thisEntity:GetAbsOrigin(),
-		thisEntity:GetForwardVector(),
-		swipeRange,
-		swipeRange*2,
-		thisEntity:GetTeamNumber(),
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_CLOSEST)
 
-	if thisEntity.hFrontswipeAbility:IsCooldownReady() and #frontSwipeEnemies > 0 then
-		return CastFrontswipe()
+	if thisEntity.hFrontswipeAbility:IsCooldownReady() then
+		local frontSwipeEnemies = thisEntity.hFrontswipeAbility:FindUnitsInCone(
+			thisEntity:GetAbsOrigin(),
+			thisEntity:GetForwardVector(),
+			swipeRange,
+			swipeRange*2,
+			thisEntity:GetTeamNumber(),
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_ALL,
+			DOTA_UNIT_TARGET_FLAG_NONE,
+			FIND_CLOSEST)
+
+		if #frontSwipeEnemies > 0 then
+			return CastFrontswipe()
+		end
 	end
 
 	-- Thrust
@@ -84,28 +87,31 @@ function SwiperBossThink()
 	local thrustMinRange = thisEntity.hThrustAbility:GetSpecialValueFor("target_min_range")
 	local thrustTarget
 	local thrustCount = 0
-	for k,v in pairs(enemies) do
-		local d = (v:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
-		if d < thrustRange and d > thrustMinRange then
-			local thrustEnemies = FindUnitsInLine(
-				thisEntity:GetTeamNumber(),
-				thisEntity:GetAbsOrigin(),
-				v:GetAbsOrigin(),
-				nil,
-				thrustWidth,
-				DOTA_UNIT_TARGET_TEAM_ENEMY,
-				DOTA_UNIT_TARGET_ALL,
-				DOTA_UNIT_TARGET_FLAG_NONE)
 
-			if #thrustEnemies > thrustCount then
-				thrustCount = #thrustEnemies
-				thrustTarget = v:GetAbsOrigin()
+	if thisEntity.hThrustAbility:IsCooldownReady() then
+		for k,v in pairs(enemies) do
+			local d = (v:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
+			if d < thrustRange and d > thrustMinRange then
+				local thrustEnemies = FindUnitsInLine(
+					thisEntity:GetTeamNumber(),
+					thisEntity:GetAbsOrigin(),
+					v:GetAbsOrigin(),
+					nil,
+					thrustWidth,
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_ALL,
+					DOTA_UNIT_TARGET_FLAG_NONE)
+
+				if #thrustEnemies > thrustCount then
+					thrustCount = #thrustEnemies
+					thrustTarget = v:GetAbsOrigin()
+				end
 			end
 		end
-	end
 
-	if thisEntity.hThrustAbility:IsCooldownReady() and thrustTarget then
-		return CastThrust( thrustTarget )
+		if thrustTarget then
+			return CastThrust( thrustTarget )
+		end
 	end
 
 	-- Reaper's Rush

@@ -1,4 +1,4 @@
-LinkLuaModifier("boss_swiper_reapers_rush_active", "abilities/swiper/boss_swiper_reapers_rush.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_swiper_reapers_rush_active", "abilities/swiper/boss_swiper_reapers_rush.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_swiper_reapers_rush = class(AbilityBaseClass)
 
@@ -36,51 +36,50 @@ function boss_swiper_reapers_rush:OnSpellStart()
 
 		caster:Stop()
 
-		local modifier = caster:AddNewModifier(caster, self, "boss_swiper_reapers_rush_active", {})
 		local modifierTable = {}
 		modifierTable.speed = self:GetSpecialValueFor("speed")
 		modifierTable.distance = distance
-		modifier:InitRush(modifierTable)
+		caster:AddNewModifier(caster, self, "modifier_boss_swiper_reapers_rush_active", modifierTable)
 	end
 end
 
 ------------------------------------------------------------------------------------
 
-boss_swiper_reapers_rush_active = class(ModifierBaseClass)
+modifier_boss_swiper_reapers_rush_active = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:IsPurgable()
+function modifier_boss_swiper_reapers_rush_active:IsPurgable()
 	return false
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:GetActivityTranslationModifiers()
+function modifier_boss_swiper_reapers_rush_active:GetActivityTranslationModifiers()
     return "haste"
 end
 
 --------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:GetOverrideAnimationRate()
+function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationRate()
 	return 2.0
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:GetOverrideAnimation()
+function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimation()
 	return ACT_DOTA_RUN
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:GetOverrideAnimationWeight(params)
+function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationWeight(params)
     return 1.0
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:DeclareFunctions()
+function modifier_boss_swiper_reapers_rush_active:DeclareFunctions()
 	local funcs = {
         MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
         MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
@@ -93,7 +92,7 @@ end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:CheckState()
+function modifier_boss_swiper_reapers_rush_active:CheckState()
     local state = {
         [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
@@ -109,7 +108,7 @@ end
 ------------------------------------------------------------------------------------
 
 if IsServer() then
-	function boss_swiper_reapers_rush_active:OnDestroy()
+	function modifier_boss_swiper_reapers_rush_active:OnDestroy()
 		local caster = self:GetParent()
 		local ability = self:GetAbility()
 		local radius = ability:GetSpecialValueFor("radius")
@@ -149,21 +148,25 @@ end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:InitRush(keys)
-	self.speed = keys.speed
-	self.distance = keys.distance
-	self.traveled = 0
-	self.step = self.speed / 30
-	self.hit = {}
+if IsServer() then
+	function modifier_boss_swiper_reapers_rush_active:OnCreated(keys)
+		if keys then
+			self.speed = keys.speed
+			self.distance = keys.distance
+			self.traveled = 0
+			self.step = self.speed / 30
+			self.hit = {}
 
-	self:SetDuration(self.distance / self.speed, false)
+			self:SetDuration(self.distance / self.speed, false)
 
-	self:StartIntervalThink(0.03)
+			self:StartIntervalThink(0.03)
+		end
+	end
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush_active:OnIntervalThink()
+function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
 	local radius = ability:GetSpecialValueFor("radius")

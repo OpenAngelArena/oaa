@@ -1,13 +1,17 @@
-function DebugRange(caster, range, ability)
+boss_swiper_backswipe_base = class(AbilityBaseClass)
+
+--------------------------------------------------------------------------------
+
+function boss_swiper_backswipe_base:DebugRange(caster, range)
 	for i=1,8 do
-		local point = caster:GetAbsOrigin() + PointOnCircle(range, 360 / 16 * i)
-		DebugDrawSphere(RotatePosition(caster:GetAbsOrigin(), caster:GetAngles() + QAngle(0,-90,0), point), Vector(255,0,0), 255, 32, true, ability:GetCastPoint())
+		local point = caster:GetAbsOrigin() + self:PointOnCircle(range, 360 / 16 * i)
+		DebugDrawSphere(RotatePosition(caster:GetAbsOrigin(), caster:GetAngles() + QAngle(0,-90,0), point), Vector(255,0,0), 255, 32, true, self:GetCastPoint())
 	end
 end
 
 --------------------------------------------------------------------------------
 
-function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
+function boss_swiper_backswipe_base:FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
 	local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
 
 	coneDirection = coneDirection:Normalized()
@@ -26,15 +30,11 @@ end
 
 --------------------------------------------------------------------------------
 
-function PointOnCircle(radius, angle)
+function boss_swiper_backswipe_base:PointOnCircle(radius, angle)
 	local x = radius * math.cos(angle * math.pi / 180)
 	local y = radius * math.sin(angle * math.pi / 180)
 	return Vector(x,y,0)
 end
-
---------------------------------------------------------------------------------
-
-boss_swiper_backswipe_base = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ function boss_swiper_backswipe_base:OnSpellStart()
 		ParticleManager:SetParticleControl(swipe, 3, caster:GetAbsOrigin() + (caster:GetForwardVector() * 100))
 		ParticleManager:SetParticleControlForward(swipe, 3, caster:GetForwardVector())
 
-		local units = FindUnitsInCone(
+		local units = self:FindUnitsInCone(
 			caster:GetAbsOrigin(),
 			caster:GetForwardVector(),
 			range,
