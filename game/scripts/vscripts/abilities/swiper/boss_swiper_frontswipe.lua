@@ -9,7 +9,7 @@ function boss_swiper_frontswipe:OnAbilityPhaseStart()
 		local caster = self:GetCaster()
 		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
 
-		DebugRange(caster, range, self)
+		self:DebugRange(caster, range)
 	end
 	return true
 end
