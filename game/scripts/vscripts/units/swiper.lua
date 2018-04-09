@@ -44,7 +44,7 @@ function SwiperBossThink()
 		false
 	)
 
-	if #enemies == 0 then
+	if (thisEntity.vInitialSpawnPos - thisEntity:GetAbsOrigin()):Length() >= BOSS_LEASH_SIZE or #enemies == 0 then
 		return RetreatHome()
 	end
 
