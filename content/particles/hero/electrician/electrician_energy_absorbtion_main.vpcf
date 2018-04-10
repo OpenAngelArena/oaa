@@ -46,8 +46,8 @@
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMax = 145
-			m_nAlphaMin = 145
+			m_nAlphaMax = 175
+			m_nAlphaMin = 175
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
@@ -66,8 +66,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 255, 0, 169, 255 ]
-			m_ColorMax = [ 255, 0, 140, 255 ]
+			m_ColorMin = [ 205, 0, 122, 255 ]
+			m_ColorMax = [ 209, 0, 114, 255 ]
 		},
 	]
 	m_Emitters = 
