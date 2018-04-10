@@ -181,11 +181,23 @@ modifier_electrician_shell = class( ModifierBaseClass )
 
 --------------------------------------------------------------------------------
 
+function modifier_electrician_shell:IsDebuff()
+  return false
+end
+
+function modifier_electrician_shell:IsHidden()
+  return true
+end
+
+function modifier_electrician_shell:IsPurgable()
+  return true
+end
+
 function modifier_electrician_shell:OnCreated( event )
   local parent = self:GetParent()
   local spell = self:GetAbility()
   local caster = self:GetCaster()
-  self.partShield = ParticleManager:CreateParticle( "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+  self.partShield = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     ParticleManager:SetParticleControlEnt( self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
 end
 

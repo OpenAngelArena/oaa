@@ -124,7 +124,7 @@ if IsServer() then
 		self.damageType = spell:GetAbilityDamageType()
 
 		-- create the shield particles
-		self.partShield = ParticleManager:CreateParticle( "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+		self.partShield = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
 		ParticleManager:SetParticleControlEnt( self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
 
 		-- play sound
