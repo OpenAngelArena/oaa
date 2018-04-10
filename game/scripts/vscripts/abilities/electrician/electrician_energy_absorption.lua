@@ -1,7 +1,7 @@
 electrician_energy_absorption = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_electrician_energy_absorption", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE )
-
+LinkLuaModifier( "modifier_electrician_shell", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
 
 function electrician_energy_absorption:OnSpellStart()
@@ -32,6 +32,11 @@ function electrician_energy_absorption:OnSpellStart()
 
 	-- play sound
 	caster:EmitSound( "Hero_StormSpirit.StaticRemnantPlant" )
+
+  -- make particle
+  caster:AddNewModifier( caster, self, "modifier_electrician_shell", {
+    duration = self:GetSpecialValueFor( "move_speed_duration" )
+  } )
 
 	-- don't bother with anything after this if we didnt' hit a single enemy
 	if #units > 0 then
@@ -168,4 +173,34 @@ end
 
 function modifier_electrician_energy_absorption:GetModifierMoveSpeedBonus_Constant( event )
 	return self.moveSpeed
+end
+
+--------------------------------------------------------------------------------
+
+modifier_electrician_shell = class( ModifierBaseClass )
+
+--------------------------------------------------------------------------------
+
+function modifier_electrician_shell:OnCreated( event )
+  local parent = self:GetParent()
+  local spell = self:GetAbility()
+  local caster = self:GetCaster()
+  self.partShield = ParticleManager:CreateParticle( "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+    ParticleManager:SetParticleControlEnt( self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_electrician_shell:OnRefresh( event )
+  -- destroy the shield particles
+  ParticleManager:DestroyParticle( self.partShield, false )
+  ParticleManager:ReleaseParticleIndex( self.partShield )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_electrician_shell:OnDestroy()
+  -- destroy the shield particles
+  ParticleManager:DestroyParticle( self.partShield, false )
+  ParticleManager:ReleaseParticleIndex( self.partShield )
 end

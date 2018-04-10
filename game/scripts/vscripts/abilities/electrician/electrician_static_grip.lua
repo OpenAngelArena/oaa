@@ -137,6 +137,9 @@ function modifier_electrician_static_grip:OnCreated( event )
 		-- play sound
 		parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
 
+    -- cast animation
+    caster:StartGesture( ACT_DOTA_CAST_ABILITY_3 )
+
 		-- start thinking
 		self:StartIntervalThink( damageInterval )
 	end

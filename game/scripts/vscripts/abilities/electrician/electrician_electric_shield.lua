@@ -112,6 +112,7 @@ if IsServer() then
 	function modifier_electrician_electric_shield:OnCreated( event )
 		local parent = self:GetParent()
 		local spell = self:GetAbility()
+    local caster = self:GetCaster()
 
 		self:SetStackCount( event.shieldHP )
 
@@ -128,6 +129,8 @@ if IsServer() then
 
 		-- play sound
 		parent:EmitSound( "Ability.static.start" )
+  -- cast animation
+    caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
 
 		-- start thinking
 		self:StartIntervalThink( damageInterval )

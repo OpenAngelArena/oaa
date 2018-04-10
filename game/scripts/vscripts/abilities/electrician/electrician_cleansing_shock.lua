@@ -24,6 +24,8 @@ function electrician_cleansing_shock:OnSpellStart()
 
 	-- cast sound
 	caster:EmitSound( "Hero_Tinker.Laser" )
+  -- cast animation
+  caster:StartGesture( ACT_DOTA_CAST_ABILITY_1 )
 
 	-- trigger and get blocked by linkens
 	if not target:TriggerSpellAbsorb( self ) then

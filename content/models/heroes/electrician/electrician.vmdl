@@ -112,7 +112,7 @@
 					m_Animationname = "ability1_poison_touch"
 					m_Filepath = "models/heroes/electrician/anims/ability1_poison_touch.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 24
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -129,7 +129,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_1"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -152,7 +158,7 @@
 					m_Animationname = "attack1"
 					m_Filepath = "models/heroes/electrician/anims/attack1.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 18
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -169,7 +175,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
@@ -209,7 +221,7 @@
 					m_Animationname = "attack02"
 					m_Filepath = "models/heroes/electrician/anims/attack02.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 21
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -226,7 +238,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK2"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
@@ -266,7 +284,7 @@
 					m_Animationname = "cast02_shallow_grave"
 					m_Filepath = "models/heroes/electrician/anims/cast02_shallow_grave.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 24
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -283,7 +301,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_2"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -306,7 +330,7 @@
 					m_Animationname = "cast03_shallow_grave"
 					m_Filepath = "models/heroes/electrician/anims/cast03_shallow_grave.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 24
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -323,7 +347,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_3"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -346,7 +376,7 @@
 					m_Animationname = "cast04_weave"
 					m_Filepath = "models/heroes/electrician/anims/cast04_weave.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 24
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -363,7 +393,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_4"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -386,7 +422,7 @@
 					m_Animationname = "death"
 					m_Filepath = "models/heroes/electrician/anims/death.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 45
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -403,7 +439,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_DIE"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
@@ -443,11 +485,11 @@
 					m_Animationname = "flail"
 					m_Filepath = "models/heroes/electrician/anims/flail.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 14
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -460,7 +502,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_FLAIL"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -483,7 +531,7 @@
 					m_Animationname = "forcestaff"
 					m_Filepath = "models/heroes/electrician/anims/forcestaff.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 12
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -500,7 +548,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_FORCESTAFF_STATUE"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -523,11 +577,11 @@
 					m_Animationname = "generic_channel"
 					m_Filepath = "models/heroes/electrician/anims/generic_channel.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 48
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -540,7 +594,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CHANNEL_ABILITY_5"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -563,7 +623,7 @@
 					m_Animationname = "idle"
 					m_Filepath = "models/heroes/electrician/anims/idle.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 41
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -580,7 +640,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_IDLE"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -603,11 +669,11 @@
 					m_Animationname = "loadout"
 					m_Filepath = "models/heroes/electrician/anims/loadout.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 41
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -620,7 +686,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_LOADOUT"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -643,11 +715,11 @@
 					m_Animationname = "portrait"
 					m_Filepath = "models/heroes/electrician/anims/portrait.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 41
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -683,7 +755,7 @@
 					m_Animationname = "run"
 					m_Filepath = "models/heroes/electrician/anims/run.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 16
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -700,7 +772,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_RUN"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
@@ -740,7 +818,7 @@
 					m_Animationname = "spawn"
 					m_Filepath = "models/heroes/electrician/anims/spawn.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 27
 					m_flFps = 24.0
 					m_Loop = 
 					{
@@ -757,7 +835,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_SPAWN"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -780,11 +864,11 @@
 					m_Animationname = "stun"
 					m_Filepath = "models/heroes/electrician/anims/stun.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 40
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -797,7 +881,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_DISABLED"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -820,11 +910,11 @@
 					m_Animationname = "teleport"
 					m_Filepath = "models/heroes/electrician/anims/teleport.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 48
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -837,7 +927,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_TELEPORT"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
@@ -860,11 +956,11 @@
 					m_Animationname = "victory"
 					m_Filepath = "models/heroes/electrician/anims/victory.dmx"
 					m_nStartframe = 0
-					m_nEndframe = 1440
+					m_nEndframe = 158
 					m_flFps = 24.0
 					m_Loop = 
 					{
-						m_bLoop = false
+						m_bLoop = true
 						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
@@ -877,7 +973,13 @@
 					}
 					m_bHidden = false
 					m_bDisable = false
-					m_Activities = [  ]
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_VICTORY"
+							m_nWeight = 1
+						},
+					]
 					m_AnimationEvents = [  ]
 					m_MotionFrames = [  ]
 					m_pIkRules = [  ]
