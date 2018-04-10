@@ -51,6 +51,10 @@ g_UnitPrecache = {
 }
 
 g_ModelPrecache = {
+  "models/items",
+}
+
+g_ModelFolderPrecache = {
 
 }
 
