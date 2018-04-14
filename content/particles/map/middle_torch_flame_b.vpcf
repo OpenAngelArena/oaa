@@ -34,11 +34,11 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.5
+			m_flFadeOutTime = 0.9
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.2
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_Noise"
@@ -63,7 +63,6 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flEndTime = 0.4
 			m_flStartScale = 0.0
 			m_flBias = 0.75
 		},
@@ -81,13 +80,13 @@
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 1.0
-			m_fLifetimeMax = 2.0
+			m_fLifetimeMin = 0.4
+			m_fLifetimeMax = 1.4
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 255, 254, 203, 255 ]
-			m_ColorMin = [ 220, 255, 146, 255 ]
+			m_ColorMax = [ 188, 185, 127, 255 ]
+			m_ColorMin = [ 164, 188, 113, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomColor"

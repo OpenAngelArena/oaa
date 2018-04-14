@@ -28,6 +28,12 @@ end
 
 --------------------------------------------------------------------------------
 
+function sohei_momentum:IsHiddenWhenStolen( arg )
+	return true
+end
+
+--------------------------------------------------------------------------------
+
 -- Momentum's passive modifier
 modifier_sohei_momentum_passive = class( ModifierBaseClass )
 
@@ -78,12 +84,6 @@ end
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_sohei_momentum_passive:OnRefresh( event )
-		self:SetStackCount( 0 )
-	end
-
---------------------------------------------------------------------------------
-
 	function modifier_sohei_momentum_passive:OnIntervalThink()
 		-- Update position
 		local parent = self:GetParent()
@@ -92,7 +92,7 @@ if IsServer() then
 		self.parentOrigin = parent:GetAbsOrigin()
 
 		if not self:IsMomentumReady() then
-			if spell:IsCooldownReady() then
+			if spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() then
 				self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
 			end
 		end
@@ -114,8 +114,9 @@ end
 
 if IsServer() then
 	function modifier_sohei_momentum_passive:GetModifierPreAttack_CriticalStrike( event )
+		local parent = self:GetParent()
 		local spell = self:GetAbility()
-		if self:IsMomentumReady() and ( spell:IsCooldownReady() or self:GetParent():HasModifier( "modifier_sohei_flurry_self" ) ) then
+		if self:IsMomentumReady() and ( ( spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() ) or parent:HasModifier( "modifier_sohei_flurry_self" ) ) then
 
 			-- make sure the target is valid
 			local ufResult = UnitFilter(
@@ -148,7 +149,9 @@ if IsServer() then
 			local spell = self:GetAbility()
 
 			-- Consume the buff
-			self:ForceRefresh()
+			if not attacker:HasModifier( "modifier_sohei_flurry_self" ) then
+				self:SetStackCount( 0 )
+			end
 
 			-- Knock the enemy back
 			local distance = spell:GetSpecialValueFor( "knockback_distance" )
@@ -270,7 +273,7 @@ if IsServer() then
 
 		-- Movement parameters
 		self.direction = difference:Normalized()
-		self.distance = event.distance
+		self.distance = event.distance + 1
 		self.speed = event.speed
 		self.collision_radius = event.collision_radius
 

@@ -16,11 +16,12 @@ if IsServer() then
 	function sohei_dash:OnUpgrade()
 		local caster = self:GetCaster()
 		local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
+		local chargesMax = self:GetSpecialValueFor( "max_charges" )
 
 		if not modifier_charges then
 			modifier_charges = caster:AddNewModifier( self:GetCaster(), self, "modifier_sohei_dash_charges", {} )
-			modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
-		elseif modifier_charges:GetDuration() <= 0 then
+			modifier_charges:SetStackCount( chargesMax )
+		elseif modifier_charges:GetStackCount() < chargesMax then
 			modifier_charges:SetDuration( self:GetChargeRefreshTime(), true )
 			modifier_charges:StartIntervalThink( 0.1 )
 		end
@@ -123,9 +124,9 @@ if IsServer() then
 	function sohei_dash:RefreshCharges()
 		local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
 
-    if modifier_charges and not modifier_charges:IsNull() then
-		  modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
-    end
+		if modifier_charges and not modifier_charges:IsNull() then
+			modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
+		end
 	end
 end
 
@@ -274,7 +275,7 @@ if IsServer() then
 
 				local spellPalm = self:GetParent():FindAbilityByName( "sohei_palm_of_life" )
 
-				if remainingTime > spellPalm:GetCooldownTimeRemaining() then
+				if spellPalm and not spellPalm:IsStolen() and remainingTime > spellPalm:GetCooldownTimeRemaining() then
 					spellPalm:EndCooldown()
 					spellPalm:StartCooldown( remainingTime )
 				end
@@ -330,7 +331,7 @@ if IsServer() then
 		-- Movement parameters
 		local parent = self:GetParent()
 		self.direction = parent:GetForwardVector()
-		self.distance = event.distance
+		self.distance = event.distance + 1
 		self.speed = event.speed
 		self.tree_radius = event.tree_radius
 
@@ -342,7 +343,7 @@ if IsServer() then
 		-- Trail particle
 		local trail_pfx = ParticleManager:CreateParticle( "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf", PATTACH_CUSTOMORIGIN, parent )
 		ParticleManager:SetParticleControl( trail_pfx, 0, parent:GetAbsOrigin() )
-		ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * 300 )
+		ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * self.distance )
 		ParticleManager:ReleaseParticleIndex( trail_pfx )
 	end
 

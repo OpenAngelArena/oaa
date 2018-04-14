@@ -1,9 +1,19 @@
-.Discord
+.Discord.InGame
 {
   horizontal-align: left;
   vertical-align: bottom;
   margin-left: 350px;
   margin-bottom: 25px;
+  width: 148px;
+  height: fit-children;
+  flow-children: down;
+}
+
+.Discord
+{
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 42px;
   width: 148px;
   height: fit-children;
   flow-children: down;

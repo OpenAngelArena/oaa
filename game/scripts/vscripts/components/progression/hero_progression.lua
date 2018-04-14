@@ -24,8 +24,6 @@ GameEvents:OnNPCSpawned(function(keys)
 end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
-  self.customLevellingPatterns = {}
-
   self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
     -- Invoker gets all dem ability points
     return true
@@ -38,6 +36,7 @@ function HeroProgression:Init()
     "Agility",
     "Intellect"
   }
+  self.customLevellingPatterns = {}
   self.statStorage = {} -- Cache for calculated reduced stats
   self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   GameEvents:OnPlayerReconnect(function(keys)

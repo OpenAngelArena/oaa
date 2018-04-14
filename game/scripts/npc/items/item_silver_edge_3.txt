@@ -35,7 +35,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -101,7 +101,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "backstab_duration"                               "5"
+        "backstab_duration"                               "4"
       }
     }
   }
