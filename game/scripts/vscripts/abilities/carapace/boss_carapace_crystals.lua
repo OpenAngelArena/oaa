@@ -380,7 +380,7 @@ function modifier_boss_carapace_crystals_passive:GetRandomElements(list, count, 
 			end
 			counter = counter + 1
 			if counter == count then
-				break 
+				break
 			end
 		end
 		i = i + 1
