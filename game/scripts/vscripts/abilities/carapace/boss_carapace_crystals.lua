@@ -119,7 +119,7 @@ if IsServer() then
 		local ability = self:GetAbility()
 
 		local position = RotatePosition(caster:GetAbsOrigin(), QAngle(0,angle + caster:GetAngles().y,0), caster:GetAbsOrigin() + Vector(ability:GetSpecialValueFor("crystal_distance"),0,0))
-		
+
 		return position + Vector(0,0,64)
 	end
 end
@@ -152,7 +152,7 @@ if IsServer() then
 		return AngleOfPoint( { x=x, y=y } )
 	end
 
-	local function IsAngleBetween(target, angle1, angle2) 
+	local function IsAngleBetween(target, angle1, angle2)
 		local rAngle = ((angle2 - angle1) % 360 + 360) % 360
 		if rAngle >= 180 then
 			local temp = angle1
@@ -242,7 +242,7 @@ if IsServer() then
 
 					local distance = ability:GetSpecialValueFor("crystal_distance")
 					local range = ability:GetSpecialValueFor("range")
-					local width = range * (self.angle / distance)		
+					local width = range * (self.angle / distance)
 
 					-- TODO: Replace with proper indicator
 					Timers:CreateTimer(function (  )
@@ -261,7 +261,7 @@ if IsServer() then
 
 						ParticleManager:DestroyParticle(self.crystals[k].particle, true)
 						self.crystals[k].particle = nil
-						
+
 						local explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
 						ParticleManager:SetParticleControl(explosion, 0, self:GetCrystalPosition(self.angle * k))
 						ParticleManager:ReleaseParticleIndex(explosion)
@@ -298,13 +298,13 @@ if IsServer() then
 							DOTA_UNIT_TARGET_FLAG_NONE,
 							FIND_CLOSEST)
 
-						for k,v in pairs(units) do
-							local explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
-							ParticleManager:SetParticleControl(explosion, 0, v:GetAbsOrigin())
+						for _,target in pairs(units) do
+							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, target)
+							ParticleManager:SetParticleControl(explosion, 0, target:GetAbsOrigin())
 							ParticleManager:ReleaseParticleIndex(explosion)
 
-							local damageTable = {
-								victim = v,
+							damageTable = {
+								victim = target,
 								attacker = caster,
 								damage = ability:GetSpecialValueFor("damage"),
 								damage_type = ability:GetAbilityDamageType(),
@@ -338,7 +338,7 @@ function modifier_boss_carapace_crystals_passive:GetRandomElements(list, count, 
 		end
 	end
 
-	function TableCount( t )
+	local function TableCount( t )
 		local n = 0
 		for _ in pairs( t ) do
 			n = n + 1
@@ -380,7 +380,7 @@ function modifier_boss_carapace_crystals_passive:GetRandomElements(list, count, 
 			end
 			counter = counter + 1
 			if counter == count then
-				break  
+				break 
 			end
 		end
 		i = i + 1
