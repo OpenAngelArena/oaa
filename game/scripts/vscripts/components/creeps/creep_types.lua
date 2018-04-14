@@ -23,16 +23,16 @@ CreepTypes = {
     -- 2 "medium camp"
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 118}, --expected gold is 75 and XP is 212
-      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 118},
-      {"npc_dota_neutral_harpy_scout",              440,    0,  40,   0.7,   14,  70},
+      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 155}, --expected gold is 75 and XP is 272
+      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 155},
+      {"npc_dota_neutral_harpy_scout",              440,    0,  40,   0.7,   14,  79},
     },
     {
-      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 118}
+      {"npc_dota_neutral_harpy_storm",              560,  320,  24,   1.2,   45, 155}
     },
     {
-      {"npc_dota_neutral_polar_furbolg_champion",   480,    0,  28,   1.3,   38, 106},
-      {"npc_dota_neutral_beardude",                 800,    0,  28,   1.3,   38, 106}
+      {"npc_dota_neutral_polar_furbolg_champion",   480,    0,  28,   1.3,   38, 136},
+      {"npc_dota_neutral_beardude",                 800,    0,  28,   1.3,   38, 136}
     }
   },
     -- 3 "hard camp"
@@ -67,16 +67,22 @@ CreepTypes = {
    -- 4 "ancient camp"
   {
     {                                               --HP  MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_granite_golem",           1400,    0,  50,    2,   122, 106}, --expected gold is 244 and XP is 212
-      {"npc_dota_neutral_rock_golem",              1000,    0,  40,    1,    61,  53},
-      {"npc_dota_neutral_rock_golem",              1000,    0,  40,    1,    61,  53}
+      {"npc_dota_neutral_granite_golem",           1400,    0,  50,    2,   122,  75}, --expected gold is 244 and XP is 151
+      {"npc_dota_neutral_rock_golem",              1000,    0,  40,    1,    61,  38},
+      {"npc_dota_neutral_rock_golem",              1000,    0,  40,    1,    61,  38}
     },
     {
-      {"npc_dota_neutral_prowler_acolyte",          900,    0,  30,    1,    82,  71},
-      {"npc_dota_neutral_prowler_shaman",          1200,    0,  60,    2,   162, 141}
+      {"npc_dota_neutral_prowler_acolyte",          900,    0,  30,    1,    82,  51},
+      {"npc_dota_neutral_prowler_shaman",          1200,    0,  60,    2,   162, 100}
     },
     {
-      {"npc_dota_neutral_custom_black_dragon",     1700,    0,  80,    3,   244, 212}
+      {"npc_dota_neutral_custom_black_dragon",     1700,    0,  80,    3,   244, 151}
+    }
+  },
+   -- 5 "solo camp"
+  {
+    {
+       {"npc_dota_neutral_brack_drake",            1500,    0,  70,    3,   131, 212}
     }
   }
 }
