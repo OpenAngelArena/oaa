@@ -28,5 +28,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                  "particles/items/upgrade_3.vpcf"
+      "model"                     "models/items/upgrade_3.vmdl"
+    }
   }
 }
