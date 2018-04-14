@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Carapace Boss: Crystals
+    //=================================================================================================================
+    "boss_carapace_crystals"
+    {
+        "ID"                            "8479"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "abilities/carapace/boss_carapace_crystals.lua"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+        "AnimationIgnoresModelScale"     "1"
+        "MaxLevel" "1"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_amplification"      "1000"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "threshold_min"             "70"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "threshold_max"             "140"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "range"                     "500"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "300"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "crystal_distance"          "100"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "initial"                   "2"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "additional"                "10"
+            }
+        }
+
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+        }
+    }
+}
