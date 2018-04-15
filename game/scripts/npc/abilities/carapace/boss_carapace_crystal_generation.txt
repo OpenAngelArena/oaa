@@ -1,0 +1,65 @@
+
+"DOTAAbilities" {
+  "boss_carapace_crystal_generation" {
+    "ID"                                                  "9912"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/carapace/boss_carapace_crystal_generation.lua"
+    "AbilityTextureName"                                  "winter_wyvern_cold_embrace"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+	  "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_amplification"                            "35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_min"                                   "400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "threshold_max"                                   "800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "explode_delay"                                   "1.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "angle"                                           "10"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "explode_radius"                                  "350"
+      }
+	  "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "explode_damage"                                  "1000"
+      }
+	  "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "start_crystals"                                  "2"
+      }
+	  "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "new_crystal_threshold"                           "10"
+      }
+    }
+  }
+}
