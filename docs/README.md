@@ -50,6 +50,8 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 
 20. [Translation][20]
 
+21. [Tournament][21]
+
 [1]: setup/README.md
 [2]: discord/README.md
 [3]: git/README.md
@@ -70,3 +72,4 @@ A note to aspiring authors and subject-field experts who wish to contribute thei
 [18]: documentation/README.md
 [19]: writing/README.md
 [20]: translation/README.md
+[21]: tourney/README.md

@@ -2,6 +2,17 @@
   <styles>
     <include src="file://{resources}/styles/custom_game/discord.css" />
   </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
+  </scripts>
+  <script>
+    function onPlayerStatChange (table, key, data) {
+      if (key === 'time' && data != null && data.time === -1){
+        $.GetContextPanel().SetHasClass('InGame', true);
+      }
+    }
+    CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+  </script>
   <Panel class="Discord">
     <Panel id="DiscordContainer">
       <Image id="DiscordLogo" src="file://{images}/custom_game/hud/discord.png" scaling="stretch-to-fit-x-preserve-aspect" />
