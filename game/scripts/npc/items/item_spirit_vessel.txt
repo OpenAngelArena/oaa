@@ -36,6 +36,7 @@
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityCooldown"       	"7.0"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_1"
 
@@ -96,7 +97,7 @@
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "soul_heal_amount"      "35 70 140 240 480"
+        "soul_heal_amount"      "35 55 75 95 105"
       }
       "10"
       {
