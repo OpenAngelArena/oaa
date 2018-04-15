@@ -1,6 +1,7 @@
 electrician_energy_absorption = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_electrician_energy_absorption", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE )
+
 --------------------------------------------------------------------------------
 
 function electrician_energy_absorption:OnSpellStart()
@@ -149,7 +150,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_energy_absorption:OnCreated( event )
-    local parent = self:GetParent()
+  local parent = self:GetParent()
   self.partShell = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
   ParticleManager:SetParticleControlEnt( self.partShell, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
 
@@ -171,7 +172,6 @@ function modifier_electrician_energy_absorption:OnDestroy()
   -- destroy the shield particles
   ParticleManager:DestroyParticle( self.partShell, false )
   ParticleManager:ReleaseParticleIndex( self.partShell )
-
 end
 
 --------------------------------------------------------------------------------
