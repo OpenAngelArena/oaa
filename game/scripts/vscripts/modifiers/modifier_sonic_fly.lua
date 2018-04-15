@@ -21,3 +21,4 @@ end
 
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Constant()
   return self.GetAbility():GetSpecialValueFor("speed_bonus")
+end
