@@ -12,6 +12,8 @@ Updated 2018-02-26
 
 - Source Film Maker
 
+- Source import/export plugin for Blender
+
 ## Exporting existing models into Blender
 
 1. Get the armature/model (fbx file or other) from [Valve][http://www.dota2.com/workshop/requirements].
@@ -52,28 +54,28 @@ Updated 2018-02-26
 
 13. **Save Blend file frequently. Keep this file backed up safely.**
 
-14. When exporting the new fbx file export to scale 0.01x
-
-15. Put models into ``oaa/models/<name of folder>``. ``Put your images into oaa/materials/models/<name of folder>``.
-
 ### Import to Tools
 
-1. Open Dota 2 Tools
+1. When exporting existing Dota 2 models as fbx file export to scale 0.01x. When exporting other models different scales may be required.
 
-2. Open the Model Editor. Create new model from mesh (this crashes the model editor).
+2. Put models (fbx file) into ``oaa/models/<name of folder>``. Put animations (dmx file) into ``oaa/models/<name of folder>/anims``. Put your images (png files) into ``oaa/materials/models/<name of folder>``.
 
-3. In the Assets Manager, type in the name of your model, you should see it. Open the model by double clicking.
+3. Open Dota 2 Tools
 
-4. If you cannot see your model, look around. Sometimes the model editor offsets the model by a thousand or so units. You can "adjust" these in the properties panel on the right. Some numbers that seem to work for Valve's Dota 2 models are:
+4. Open the Model Editor. Create new model from mesh (this crashes the model editor but does actually create the vmdl).
+
+5. In the Assets Manager, type in the name of your model, you should see it. Open the model by double clicking.
+
+6. If you cannot see your model, look around. Sometimes the model editor offsets the model by a thousand or so units. You can "adjust" these in the properties panel on the right. Some numbers that seem to work for Valve's Dota 2 models are:
 
 - Translation: -1837, 0, -1304
 - Rotation: 0, 0, 135
 
-5. If materials fail to show up simply create new Material Remaps using the images in the dota 2 materials folder. 
+7. If materials fail to show up simply create new Material Remaps using the images in the dota 2 materials folder. 
 
-6. Once everything looks normal start importing animations, give them actions (ex. ACT_DOTA_RUN) and other parameters such as sounds and particles.
+8. Once everything looks normal start importing animations, give them actions (ex. ACT_DOTA_RUN) and other parameters such as sounds and particles.
 
-7. Compile the map and test in game.
+9. Compile the map and test in game.
 
 ### Tutorials:
 
