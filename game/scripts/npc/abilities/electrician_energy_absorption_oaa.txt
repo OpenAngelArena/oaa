@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Electrician: Energy Absorption
+	//=================================================================================================================
+	"electrician_energy_absorption"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ID"							"8479"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"custom/electrician_energy_absorption"
+		"ScriptFile"					"abilities/electrician/electrician_energy_absorption.lua"
+		"MaxLevel"						"6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 100 125 150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"85 150 215 280 680 1080"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_break"			"8 10 12 14 16 20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_mana_restore"	"12 16 20 24 34 44"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hero_mana_restore"		"36 48 60 72 102 132"
+				"LinkedSpecialBonus"	"special_bonus_electrician_absorption_hero_mana_restore"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_speed_bonus"		"50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"move_speed_duration"	"7.0"
+			}
+		}
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"Precache"
+		{
+			"particle"					"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+			"particle"					"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+			"particle"					"particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		}
+	}
+}

@@ -61,28 +61,28 @@
         "targets"         "4 5 6 7 9 11"
       }
       "05"
-      { 
+      {
         "var_type"      "FIELD_INTEGER"
-        "damage"      "10 20 30 40 100 160"
+        "damage"      "10 24 38 52 136 220"
         "LinkedSpecialBonus"  "special_bonus_unique_dazzle_3"
       }
       "06"
-      { 
+      {
         "var_type"      "FIELD_INTEGER"
         "slow"      "-14 -16 -18 -20 -22 -24"
       }
       "07"
-      { 
+      {
         "var_type"      "FIELD_INTEGER"
         "projectile_speed"  "1300"
       }
       "08"
-      { 
+      {
         "var_type"      "FIELD_FLOAT"
         "duration"    "4 5 6 7 9 11"
       }
       "09"
-      { 
+      {
         "var_type"      "FIELD_INTEGER"
         "range_tooltip"   "600 700 800 900 1000 1100"
       }
