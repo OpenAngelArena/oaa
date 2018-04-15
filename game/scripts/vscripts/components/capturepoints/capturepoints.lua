@@ -3,6 +3,8 @@ LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
 local Zones = {
+-- TODO, change this. These should be zones in the map or programatically generated
+-- hard coded is a bad in-between with the disadvantages of both
   { left = Vector( -1280, -640, 0), right = Vector( 1280, 768, 0) }, --Zones
   { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
   { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
@@ -48,7 +50,7 @@ CapturePoints.onStart = Start.listen
 CapturePoints.onEnd = CaptureFinished.listen
 
 function CapturePoints:Init ()
-  Debug.EnabledModules['components:*']  = true
+  Debug.EnableDebugging()
   DebugPrint('Init capture point')
 
   self.currentCapture = nil

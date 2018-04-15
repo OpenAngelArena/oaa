@@ -58,12 +58,12 @@ DUEL_RUNE_TIMER = 30                    -- how long until the highground object 
 DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 900               -- how long after the clock hits 0 should the CapturePoint duel start countind down
+INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds first ping on minimap of CapturePoint
 CAPTURE_SECOND_WARN = 30                -- how many seconds before second ping on minimap of CapturePoint
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
 CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
-CAPTURE_LENTGH = 30
+CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
