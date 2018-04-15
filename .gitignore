@@ -80,6 +80,9 @@ game/models/*
 !game/models/creeps/
 !game/models/heroes/
 !game/models/items/
+game/models/items/*
+!game/models/items/lycan/
+
 
 game/models/heroes/*
 !game/models/heroes/lycan/
@@ -88,6 +91,7 @@ game/models/heroes/*
 game/materials/*
 !game/materials/models/
 game/materials/models/*
+game/materials/overviews/
 !game/materials/models/creeps/
 game/materials/models/creeps/*
 !game/materials/models/heroes/
@@ -97,6 +101,10 @@ game/materials/models/heroes/*
 !game/materials/models/heroes/ogre_magi/
 !game/materials/models/heroes/omniknight/
 !game/materials/models/items/
+game/materials/models/items/*
+!game/materials/models/items/broodmother
+!game/materials/models/items/lycan
+!game/materials/models/items/omniknight
 !game/materials/models/creeps/knoll_1/
 !game/materials/models/creeps/spiders/
 !game/materials/models/creeps/omni_golem/
