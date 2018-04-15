@@ -1,0 +1,31 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/models/items/upgrade_1_color.png"
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.000"
+	TextureNormal "materials/models/items/upgrade_1_normal.png"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/models/items/upgrade_1_selfillum.png"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.909"
+	g_flSpecularIntensity "0.100"
+	TextureBloom "materials/models/items/upgrade_1_bloom.png"
+	TextureReflectance "materials/default/default_refl.tga"
+}

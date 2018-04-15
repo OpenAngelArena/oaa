@@ -51,15 +51,17 @@ g_UnitPrecache = {
 }
 
 g_ModelPrecache = {
-  "models/items",
-}
-
-g_ModelFolderPrecache = {
-
+  "models/items/upgrade_1.vmdl",
+  "models/items/upgrade_2.vmdl",
+  "models/items/upgrade_3.vmdl",
+  "models/items/upgrade_4.vmdl",
 }
 
 g_ParticlePrecache = {
-
+  "particles/items/upgrade_1.vpcf",
+  "particles/items/upgrade_2.vpcf",
+  "particles/items/upgrade_3.vpcf",
+  "particles/items/upgrade_4.vpcf",
 }
 
 g_ParticleFolderPrecache = {
