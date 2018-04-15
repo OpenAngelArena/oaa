@@ -112,6 +112,7 @@ if IsServer() then
 	function modifier_electrician_electric_shield:OnCreated( event )
 		local parent = self:GetParent()
 		local spell = self:GetAbility()
+    local caster = self:GetCaster()
 
 		self:SetStackCount( event.shieldHP )
 
@@ -123,11 +124,13 @@ if IsServer() then
 		self.damageType = spell:GetAbilityDamageType()
 
 		-- create the shield particles
-		self.partShield = ParticleManager:CreateParticle( "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+		self.partShield = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
 		ParticleManager:SetParticleControlEnt( self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
 
 		-- play sound
 		parent:EmitSound( "Ability.static.start" )
+  -- cast animation
+    caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
 
 		-- start thinking
 		self:StartIntervalThink( damageInterval )

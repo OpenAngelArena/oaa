@@ -75,6 +75,7 @@ g_ParticleFolderPrecache = {
   "particles/items/vampire",
   "particles/items/reflection_shard",
   "particles/items/heart_transplant",
+  "particles/hero/electrician",
 }
 
 g_SoundPrecache = {

@@ -33,6 +33,11 @@ function electrician_energy_absorption:OnSpellStart()
 	-- play sound
 	caster:EmitSound( "Hero_StormSpirit.StaticRemnantPlant" )
 
+  -- make particle
+--  caster:AddNewModifier( caster, self, "modifier_electrician_shell", {
+--    duration = self:GetSpecialValueFor( "move_speed_duration" )
+--  } )
+
 	-- don't bother with anything after this if we didnt' hit a single enemy
 	if #units > 0 then
 		-- grab abilityspecials
@@ -145,6 +150,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_energy_absorption:OnCreated( event )
+  local parent = self:GetParent()
+  self.partShell = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+  ParticleManager:SetParticleControlEnt( self.partShell, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
+
 	self.moveSpeed = self:GetAbility():GetSpecialValueFor( "move_speed_bonus" )
 end
 
@@ -152,6 +161,17 @@ end
 
 function modifier_electrician_energy_absorption:OnRefresh( event )
 	self.moveSpeed = self:GetAbility():GetSpecialValueFor( "move_speed_bonus" )
+  -- destroy the shield particles
+  ParticleManager:DestroyParticle( self.partShell, false )
+  ParticleManager:ReleaseParticleIndex( self.partShell )
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_electrician_energy_absorption:OnDestroy()
+  -- destroy the shield particles
+  ParticleManager:DestroyParticle( self.partShell, false )
+  ParticleManager:ReleaseParticleIndex( self.partShell )
 end
 
 --------------------------------------------------------------------------------
