@@ -21,7 +21,7 @@ function item_sonic:OnToggle()
 end
 
 function item_sonic:OnOwnerDied()
-  owner = self.GetOwner()
+  local owner = self.GetOwner()
   if owner.HasModifier("modifier_sonic_fly") then
     owner.RemoveModifierByName("modifier_sonic_fly")
   end
