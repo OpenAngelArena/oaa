@@ -1,0 +1,58 @@
+"npc_dota_hero_electrician"                                                     "Electrician"
+
+"DOTA_Tooltip_Ability_electrician_static_grip"                                  "Static Grip"
+"DOTA_Tooltip_Ability_electrician_static_grip_Description"                      "CHANNELED - Creates a magnetic link towards an enemy that stuns, reveals, and damages it over time. Electrician is pulled towards the target while the link holds."
+"DOTA_Tooltip_Ability_electrician_static_grip_channel_time"                     "MAX CHANNEL TIME:"
+"DOTA_Tooltip_Ability_electrician_static_grip_damage_per_second"                "DAMAGE PER SECOND:"
+"DOTA_Tooltip_Ability_electrician_static_grip_Note0"                            "Pulls Electrician towards the target at a speed of 120."
+"DOTA_Tooltip_Ability_electrician_static_grip_Note1"                            "The link will break if the target is moved over 750 distance away from Electrician."
+
+"DOTA_Tooltip_Ability_electrician_electric_shield"                              "Electric Shield"
+"DOTA_Tooltip_Ability_electrician_electric_shield_Description"                  "Converts up to %mana_cost%%% of Electrician's total mana pool into a shield that absorbs incoming damage, fading if it sustains too much damage. While the shield holds, nearby enemies are shocked and damaged every second."
+"DOTA_Tooltip_Ability_electrician_electric_shield_shield_per_mana"              "%SHIELD HP PER MANA:"
+"DOTA_Tooltip_Ability_electrician_electric_shield_shield_damage_block"          "%SHIELD DAMAGE ABSORPTION:"
+"DOTA_Tooltip_Ability_electrician_electric_shield_shield_duration"              "DURATION:"
+"DOTA_Tooltip_Ability_electrician_electric_shield_aura_radius"                  "SHOCK RADIUS:"
+"DOTA_Tooltip_Ability_electrician_electric_shield_aura_damage"                  "SHOCK DAMAGE PER SECOND:"
+
+"DOTA_Tooltip_Ability_electrician_energy_absorption"                            "Energy Absorption"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_Description"                "Forcefully draws energy from all nearby enemies, damaging them and destroying a percentage of their maximum mana. Electrician restores mana for each enemy affected and gains movement speed if at least one enemy is affected."
+"DOTA_Tooltip_Ability_electrician_energy_absorption_radius"                     "RADIUS:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_damage"                     "DAMAGE:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_mana_break"                 "%MANA DESTROYED:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_creep_mana_restore"         "MANA RESTORED PER CREEP:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_hero_mana_restore"          "MANA RESTORED PER HERO:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_hero_mana_restore"          "MANA RESTORED PER HERO:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_move_speed_bonus"           "MOVE SPEED BONUS:"
+"DOTA_Tooltip_Ability_electrician_energy_absorption_move_speed_duration"        "MOVE SPEED DURATION:"
+
+"DOTA_Tooltip_Ability_electrician_cleansing_shock"                              "Cleansing Shock"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_Description"                  "Strikes a unit with a purging bolt that removes most debuffs from an ally and grants them bonus movement speed, or removes most buffs from an enemy and slows them. Both movement speed effects decay over their duration. Destroys summoned units.\n\nDISPEL TYPE: Basic Dispel"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_duration"                     "DURATION:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_move_speed_bonus"             "%ALLY MOVE SPEED BONUS:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_slow"                         "%ENEMY SLOW:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_bounces_scepter"              "SCEPTER BOUNCES:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_bounce_range_scepter"         "SCEPTER BOUNCE RANGE:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_aghanim_description"          "Causes the bolt to bounce to the nearest target, prioritizing heroes."
+
+// modifiers
+"DOTA_Tooltip_modifier_electrician_static_grip"                                 "Static Grip"
+"DOTA_Tooltip_modifier_electrician_static_grip_Description"                     "Stunned and taking damage over time."
+
+"DOTA_Tooltip_modifier_electrician_electric_shield"                             "Electric Shield"
+"DOTA_Tooltip_modifier_electrician_electric_shield_Description"                 "Absorbing damage taken, up to a limit. Dealing damage over time to nearby enemies."
+
+"DOTA_Tooltip_modifier_electrician_energy_absorption"                           "Energy Absorption"
+"DOTA_Tooltip_modifier_electrician_energy_absorption_Description"               "Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% bonus movement speed."
+
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_ally"                        "Cleanse"
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_ally_Description"            "Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed, decaying over time."
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_enemy"                       "Shock"
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_enemy_Description"           "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, decaying over time."
+
+
+// talents
+"DOTA_Tooltip_Ability_special_bonus_electrician_absorption_hero_mana_restore"   "x%value% Energy Absorption Mana Restore per Hero"
+"DOTA_Tooltip_Ability_special_bonus_electrician_shock_autoself"                 "Cleansing Shock Always Affects Self"
+"DOTA_Tooltip_Ability_special_bonus_electrician_shock_autoself_Description"     "Casting Cleansing Shock on another unit will still apply its effects to you."
+"DOTA_Tooltip_Ability_special_bonus_hp_1000"                                    "+1000 Health"
