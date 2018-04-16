@@ -85,11 +85,11 @@
 		[
 			{
 				m_sSearchMaterial = "rad_tower_stone2.vmat"
-				m_sReplaceMaterial = "materials/models/props_stone/stoneblock001a.vmat"
+				m_sReplaceMaterial = "materials/models/tileset/blends/rad_tileset_smooth_stone.vmat"
 			},
 			{
 				m_sSearchMaterial = "*"
-				m_sReplaceMaterial = "materials/models/tileset/blends/rad_tower_cobblestone.vmat"
+				m_sReplaceMaterial = "materials/models/tileset/blends/rad_tileset_cobblestone.vmat"
 			},
 		]
 	}
@@ -104,7 +104,7 @@
 	m_nMaxClothVertsPerMesh = 2048
 	m_bBuildClothBoneHierarchy = false
 	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
+	m_bMakeUniqueVMeshes = true
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
 	m_bHiddenAssetFlag = false
