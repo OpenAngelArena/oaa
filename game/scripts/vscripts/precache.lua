@@ -19,6 +19,7 @@ g_ItemPrecache = {
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
   "npc_dota_hero_sohei",
+  "npc_dota_hero_electrician",
   "dota_fountain",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
@@ -74,6 +75,7 @@ g_ParticleFolderPrecache = {
   "particles/items/vampire",
   "particles/items/reflection_shard",
   "particles/items/heart_transplant",
+  "particles/hero/electrician",
 }
 
 g_SoundPrecache = {
