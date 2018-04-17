@@ -47,6 +47,8 @@
     "AbilitySharedCooldown"                 "elixier"
     "AbilityCooldown"                       "60.0"
     "AbilityManaCost"                       "0"
+    "MaxUpgradeLevel"                       "4"
+    "ItemBaseLevel"                         "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -79,7 +81,7 @@
       "01"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_ms"                          "160"
+        "bonus_ms"                          "40 80 120 160"
       }
       "02"
       {
@@ -89,7 +91,7 @@
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_attacks"                     "10"
+        "bonus_attacks"                     "4 6 8 10"
       }
       "04"
       {
