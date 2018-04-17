@@ -5,7 +5,7 @@
   //=================================================================================================================
   "item_recipe_sonic"
   {
-    "ID"                  "8473"
+    "ID"                  "8501"
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"  "custom/recipe/recipe_3"
@@ -27,7 +27,7 @@
   //=================================================================================================================
   "item_sonic"
   {
-    "ID"                  "8474"
+    "ID"                  "8502"
     "BaseClass"           "item_lua"
     "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"  ""
