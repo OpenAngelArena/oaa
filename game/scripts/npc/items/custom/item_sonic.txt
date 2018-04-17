@@ -30,7 +30,7 @@
     "ID"                  "8502"
     "BaseClass"           "item_lua"
     "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"  ""
+    "AbilityTextureName"  "custom/sonic"
     "ScriptFile"          "items/sonic.lua"
 
     "AbilityCooldown"     "8.0"
@@ -84,7 +84,7 @@
       "07"
       {
         "var_type"                "FIELD_INTEGER"
-        "status_resist"  "-10 -15 -20"
+        "status_resist"           "-10 -15 -20"
       }
     }
   }
