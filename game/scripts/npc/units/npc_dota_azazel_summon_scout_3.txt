@@ -9,15 +9,15 @@
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_creature"
-    "SoundSet"                                            "n_creep_Melee"
+    "SoundSet"                                            "n_creep_SatyrSmall"
     "Level"                                               "3"
-    "ModelScale"                                          "0.85"
+    "ModelScale"                                          "0.7"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "azazel_scout"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "azazel_scout_permanent_invisibility"      // Ability 1
+    "Ability1"                                            ""      // Ability 1
     "Ability2"                                            ""      // Ability 2
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4

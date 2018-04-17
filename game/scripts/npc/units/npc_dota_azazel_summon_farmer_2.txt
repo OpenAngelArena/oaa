@@ -9,15 +9,15 @@
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_b.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_creature"
-    "SoundSet"                                            "n_creep_Melee"
+    "SoundSet"                                            "n_creep_Spawnlord"
     "Level"                                               "2"
-    "ModelScale"                                          "0.95"
+    "ModelScale"                                          "0.9"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "azazel_farmer"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "azazel_summon_farmer_innate"      // Ability 1
+    "Ability1"                                            ""      // Ability 1
     "Ability2"                                            ""      // Ability 2
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
@@ -29,7 +29,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "600"    // Damage range min.
     "AttackDamageMax"                                     "600"    // Damage range max.
     "AttackRate"                                          "2.0"    // Speed of attack.
