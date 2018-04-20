@@ -19,7 +19,7 @@ function Music:Init ()
   CustomNetTables:SetTableValue('music', 'mute', muteTable)
   --to recompile all music
 
-  ChatCommand:LinkCommand("-compile_music", Dynamic_Wrap(Music, "Recompile"), Music)
+  ChatCommand:LinkDevCommand("-compile_music", Dynamic_Wrap(Music, "Recompile"), Music)
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song

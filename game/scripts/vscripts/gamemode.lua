@@ -180,6 +180,7 @@ function GameMode:OnGameInProgress()
   -- initialize modules
   InitModule(HudTimer)
   InitModule(PointsManager)
+  InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
