@@ -48,9 +48,9 @@ function ZoneControlTest:Init ()
   ZoneControl:DisableZone(ZoneControlTest.lockIn)
   -- ZoneControl:DisableZone(ZoneControlTest.lockOut)
 
-  ChatCommand:LinkCommand("-enable_lock_in", Dynamic_Wrap(ZoneControlTest, "EnableLockIn"), ZoneControlTest)
+  ChatCommand:LinkDevCommand("-enable_lock_in", Dynamic_Wrap(ZoneControlTest, "EnableLockIn"), ZoneControlTest)
 
-  ChatCommand:LinkCommand("-enable_lock_out", Dynamic_Wrap(ZoneControlTest, "EnableLockOut"), ZoneControlTest)
+  ChatCommand:LinkDevCommand("-enable_lock_out", Dynamic_Wrap(ZoneControlTest, "EnableLockOut"), ZoneControlTest)
 end
 
 function ZoneControlTest:EnableLockIn ()

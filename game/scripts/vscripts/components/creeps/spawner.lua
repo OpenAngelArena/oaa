@@ -36,7 +36,7 @@ function CreepCamps:Init ()
 
   Minimap:InitializeCampIcons()
 
-  ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+  ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
 function CreepCamps:SetPowerLevel (powerLevel)

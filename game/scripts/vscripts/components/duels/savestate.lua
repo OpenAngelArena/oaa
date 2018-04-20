@@ -142,7 +142,7 @@ local function TestSaveAndLoadState(keys)
   end)
 end
 
-ChatCommand:LinkCommand("-test_state", TestSaveAndLoadState, nil)
+ChatCommand:LinkDevCommand("-test_state", TestSaveAndLoadState, nil)
 export.PurgeDuelHighgroundBuffs = PurgeDuelHighgroundBuffs
 export.SaveState = SaveState
 export.ResetState = ResetState
