@@ -24,22 +24,45 @@ function CarapaceBossThink()
 	if not thisEntity.bInitialized then
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
 		thisEntity.bInitialized = true
+		thisEntity.bHasAgro = false
+		thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
+		thisEntity:SetIdleAcquire(false)
+		thisEntity:SetAcquisitionRange(0)
 	end
 
-	if (thisEntity.vInitialSpawnPos - thisEntity:GetAbsOrigin()):Length() >= BOSS_LEASH_SIZE then
-		return RetreatHome()
+	local enemies = FindUnitsInRadius(
+		thisEntity:GetTeamNumber(),
+		thisEntity:GetOrigin(), nil,
+		1000,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+		FIND_CLOSEST,
+		false
+	)
+
+	local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
+	local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+
+	if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
+		thisEntity.bHasAgro = false
+		thisEntity:SetIdleAcquire(false)
+		thisEntity:SetAcquisitionRange(0)
+		return 2
+	elseif (hasDamageThreshold and #enemies > 0) then
+		if not thisEntity.bHasAgro then
+			thisEntity.bHasAgro = true
+			thisEntity:SetIdleAcquire(true)
+			thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
+		end
 	end
 
-	-- local enemies = FindUnitsInRadius(
-	-- 	thisEntity:GetTeamNumber(),
-	-- 	thisEntity:GetOrigin(), nil,
-	-- 	1000,
-	-- 	DOTA_UNIT_TARGET_TEAM_ENEMY,
-	-- 	DOTA_UNIT_TARGET_HERO,
-	-- 	DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-	-- 	FIND_CLOSEST,
-	-- 	false
-	-- )
+	if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+		if fDistanceToOrigin > 10 then
+			return RetreatHome()
+		end
+		return 1
+	end
 
 	if thisEntity.hHeadbuttAbility and thisEntity.hHeadbuttAbility:IsCooldownReady() then
 		local headbuttEnemies = thisEntity.hHeadbuttAbility:GetEnemies()
