@@ -30,9 +30,20 @@ if IsServer() then
     local teamNumber = minimap_entity:GetTeamNumber()
     local origin = minimap_entity:GetAbsOrigin()
     self.IsBoss = params.IsBoss or false
+    self.IsCapture = params.IsCapture or false
     self:SetHiddenState(false)
     self.CampHasBeenKilled = false
     self.neutrals = {}
+
+    --Capture points Icons
+    if self.IsCapture then
+      Timers:CreateTimer(45, function()
+        if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
+          minimap_entity:ForceKill(false)
+        end
+      end)
+      return -1
+    end
 
     Timers:CreateTimer(0.5, function()
       if not IsValidEntity(minimap_entity) or not minimap_entity:IsAlive() then

@@ -186,6 +186,29 @@ function Timers:HandleEventError(name, event, err)
   end
 end
 
+function Timers:RemainingTime(name)
+  --Calculates Remaining Time on a given timer
+  v = Timers.timers[name]
+  local bUseGameTime = true
+  if v.useGameTime ~= nil and v.useGameTime == false then
+    bUseGameTime = false
+  end
+  local bOldStyle = false
+  if v.useOldStyle ~= nil and v.useOldStyle == true then
+    bOldStyle = true
+  end
+  local now = GameRules:GetGameTime()
+  if not bUseGameTime then
+    now = Time()
+  end
+
+  if v.endTime == nil then
+    v.endTime = now
+  end
+
+  return v.endTime - now
+end
+
 function Timers:CreateTimer(name, args, context)
   if type(name) == "function" then
     if args ~= nil then

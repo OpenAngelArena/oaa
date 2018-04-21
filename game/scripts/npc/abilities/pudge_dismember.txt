@@ -58,6 +58,11 @@
       {
         "var_type"        "FIELD_INTEGER"
         "pull_distance_limit"   "125"
+      }//OAA
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "animation_rate"    "1.5"
       }
     }
   }
