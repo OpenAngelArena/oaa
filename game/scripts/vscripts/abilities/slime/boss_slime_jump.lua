@@ -40,7 +40,7 @@ function boss_slime_jump:OnAbilityPhaseStart()
 	local origin = caster:GetAbsOrigin()
 	local radius = self:GetSpecialValueFor("radius")
 
-	DebugDrawCircle(target, Vector(255,0,0), 55, radius, false, self:GetCastPoint())
+	DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
 	return true
 end
 
