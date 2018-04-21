@@ -67,7 +67,7 @@ function boss_slime_jump:OnSpellStart(keys)
 				})
 			end
 
-			local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, ball)
+			local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, caster)
 			ParticleManager:ReleaseParticleIndex(smoke)
 
 			ParticleManager:DestroyParticle(indicator, true)

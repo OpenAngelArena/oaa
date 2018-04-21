@@ -39,7 +39,7 @@ local function RandomPointsInsideCircleUniform( pos, radius, count, uniform, min
 	for i=1,count do
 		local point
 
-		repeat 
+		repeat
 			point = RandomPointInsideCircle(pos.x, pos.y, radius, minLength)
 			fallback = fallback - 1
 			if fallback == 0 then

@@ -40,11 +40,11 @@ function modifier_boss_slime_split_passive:OnDeath()
 
 		local unitName = caster:GetUnitName()
 
-		function CreateClone(origin)
+		local function CreateClone(origin)
 			local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
 			clone:RemoveAbility("boss_slime_split")
 		end
-		
+
 		CreateClone(caster:GetAbsOrigin() + Vector(100,0,0))
 		CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
 
