@@ -7,7 +7,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
     "vscripts"                                            "units/spiders.lua"
     "SoundSet"                                            "sniper"                    // Name of sound set.
@@ -68,34 +68,32 @@
 
     "Creature"
     {
-	      //Makes it only have 50% remaining of applied crowd control
-	      "DisableResistance"                                 "50.0"
-
-		"AttachWearables"
-		{
-			"Wearable1"
-			{
-				"ItemDef"			"280"
-			}
-			"Wearable2"
-			{
-				"ItemDef"			"278"
-			}
-			"Wearable3"
-			{
-				"ItemDef"			"277"
-			}
-			"Wearable4"
-			{
-				"ItemDef"			"585"
-			}
-			"Wearable5"
-			{
-				"ItemDef"			"279"
-			}
-		}
+        //Makes it only have 50% remaining of applied crowd control
+        "DisableResistance"                                 "50.0"
+        "AttachWearables"
+        {
+            "Wearable1"
+            {
+                "ItemDef"           "280"
+            }
+            "Wearable2"
+            {
+                "ItemDef"           "278"
+            }
+            "Wearable3"
+            {
+                "ItemDef"           "277"
+            }
+            "Wearable4"
+            {
+                "ItemDef"           "585"
+            }
+            "Wearable5"
+            {
+                "ItemDef"           "279"
+            }
+        }
     }
-
 
     // Team
     //----------------------------------------------------------------
