@@ -87,8 +87,8 @@ if IsServer() then
 
 		self.crystals[key].threshold = RandomInt(thresholdMin, thresholdMax)
 		self.crystals[key].taken = 0
-		self.crystals[key].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(self.crystals[key].particle, 3, self:GetCrystalPosition(angle))
+		self.crystals[key].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(self.crystals[key].particle, 4, self:GetCrystalPosition(angle))
 
 		self.count = self.count + 1
 
@@ -105,7 +105,7 @@ if IsServer() then
 		for k,v in pairs(self.crystals) do
 			if v.particle then
 				local angle = self.angle * k
-				ParticleManager:SetParticleControl(v.particle, 3, self:GetCrystalPosition(angle))
+				ParticleManager:SetParticleControl(v.particle, 4, self:GetCrystalPosition(angle))
 			end
 		end
 	end
@@ -237,7 +237,7 @@ if IsServer() then
 					self.crystals[k].full = true
 					ParticleManager:DestroyParticle(self.crystals[k].particle, true)
 
-					self.crystals[k].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					self.crystals[k].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf", PATTACH_CUSTOMORIGIN, caster)
 					ParticleManager:SetParticleControl(self.crystals[k].particle, 3, self:GetCrystalPosition(self.angle * k))
 
 					local distance = ability:GetSpecialValueFor("crystal_distance")
