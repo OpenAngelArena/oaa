@@ -1,0 +1,19 @@
+<root>
+  <styles>
+    <include src='file://{resources}/styles/custom_game/yes_no_poll.css' />
+  </styles>
+  <scripts>
+    <!-- <include src="file://{resources}/scripts/custom_game/util.js" /> -->
+    <include src="file://{resources}/scripts/custom_game/yes_no_poll.js"/>
+  </scripts>
+  <Panel class='YesNoPoll'>
+    <Panel id='YesNoPollPanel' class=''>
+      <Label id='YesNoPollTime' class=''/>
+      <Label id='YesNoPollText' class=''/>
+      <Panel class='YesNoButtonPanel'>
+        <Label class='YesNoButton NoButton' text='No' hittest='true' onactivate='No()' oncontextmenu='No()'/>
+        <Label class='YesNoButton YesButton' text='Yes' hittest='true' onactivate='Yes()' oncontextmenu='Yes()'/>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
