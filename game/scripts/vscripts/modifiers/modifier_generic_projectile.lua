@@ -35,17 +35,26 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_generic_projectile:CheckState()
-    local state = {
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-        [MODIFIER_STATE_UNSELECTABLE] = true,
-        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-        [MODIFIER_STATE_INVULNERABLE] = true,
-    }
+function modifier_generic_projectile:GetPriority()
+    return MODIFIER_PRIORITY_SUPER_ULTRA
+end
 
-    return state
+------------------------------------------------------------------------------------
+
+function modifier_generic_projectile:CheckState()
+    if self.projectileTable then
+        local state = {
+            [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+            [MODIFIER_STATE_UNSELECTABLE] = self.projectileTable.selectable == false,
+            [MODIFIER_STATE_NO_HEALTH_BAR] = self.projectileTable.selectable == false,
+            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+            [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+            [MODIFIER_STATE_INVULNERABLE] = self.projectileTable.noInvul == false,
+            [MODIFIER_STATE_STUNNED] = false,
+        }
+
+        return state
+    end
 end
 
 ------------------------------------------------------------------------------------

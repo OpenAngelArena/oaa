@@ -110,7 +110,9 @@ function boss_slime_jump:OnSpellStart(keys)
 		origin = origin,
 		target = target,
 		height = 256,
-		flail = true
+		flail = true,
+		noInvul = true,
+		selectable = true
 	}
 	projectileModifier:InitProjectile(projectileTable)
 end
