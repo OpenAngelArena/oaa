@@ -139,5 +139,6 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_jump_slow:GetModifierMoveSpeedBonus_Percentage()
+	if not self:GetAbility() then return end
 	return self:GetAbility():GetSpecialValueFor("slow")
 end

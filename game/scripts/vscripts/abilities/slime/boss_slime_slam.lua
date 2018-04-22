@@ -140,5 +140,6 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_slam_slow:GetModifierMoveSpeedBonus_Percentage()
+	if not self:GetAbility() then return end
 	return self:GetAbility():GetSpecialValueFor("slow")
 end

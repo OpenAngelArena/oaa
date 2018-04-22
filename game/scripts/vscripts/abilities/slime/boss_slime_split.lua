@@ -34,20 +34,21 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_boss_slime_split_passive:OnDeath()
+function modifier_boss_slime_split_passive:OnDeath(keys)
 	if IsServer() then
 		local caster = self:GetParent()
+		if keys.unit:entindex() == caster:entindex() then
+			local unitName = caster:GetUnitName()
 
-		local unitName = caster:GetUnitName()
+			local function CreateClone(origin)
+				local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
+				clone:RemoveAbility("boss_slime_split")
+			end
 
-		local function CreateClone(origin)
-			local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
-			clone:RemoveAbility("boss_slime_split")
+			CreateClone(caster:GetAbsOrigin() + Vector(100,0,0))
+			CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
+
+			UTIL_Remove(caster)
 		end
-
-		CreateClone(caster:GetAbsOrigin() + Vector(100,0,0))
-		CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
-
-		UTIL_Remove(caster)
 	end
 end
