@@ -39,6 +39,7 @@ function SurrenderManager:CheckSurrenderConditions(keys)
       CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId), "show_yes_no_poll", {pollText = text, pollTimeout = timeout, returnEventName = 'surrender_result'} )
     end)
 
+-- Start a timer - just in case there's an error at a player's machine (crash etc.)
     Timers:CreateTimer(timeout + 2, Dynamic_Wrap(SurrenderManager, 'CalculateVotesFromTimer'))
   end
 end

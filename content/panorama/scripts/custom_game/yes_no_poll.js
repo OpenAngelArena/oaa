@@ -23,12 +23,12 @@ function Open (data) {
   }
 }
 
-function ScheduleSetTime(time) {
+function ScheduleSetTime (time) {
   $('#YesNoPollTime').text = time;
   $.Schedule(1, SetTime);
 }
 
-function SetTime() {
+function SetTime () {
   --timeout;
   if (timeout == 0) {
     No();
@@ -37,15 +37,15 @@ function SetTime() {
   }
 }
 
-function Yes() {
+function Yes () {
   SendResult(1);
 }
 
-function No() {
+function No () {
   SendResult(0);
 }
 
-function SendResult(result) {
+function SendResult (result) {
   if (isRunning) { // you can get here if the timer has run out
     $('#YesNoPollPanel').SetHasClass('Show', false);
     GameEvents.SendCustomGameEventToServer(returnEventName, {
