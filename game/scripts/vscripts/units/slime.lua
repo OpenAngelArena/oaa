@@ -44,7 +44,7 @@ function SlimeBossThink()
 		false
 	)
 
-	local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
+	local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > (thisEntity.BossTier or 1) * BOSS_AGRO_FACTOR
 	local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
 	if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
