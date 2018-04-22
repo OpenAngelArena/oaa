@@ -20,7 +20,7 @@ function SlimeBossThink()
 		return 1
 	end
 
-	if thisEntity:IsInvulnerable() then
+	if thisEntity:IsChanneling() then
 		return 2.0
 	end
 

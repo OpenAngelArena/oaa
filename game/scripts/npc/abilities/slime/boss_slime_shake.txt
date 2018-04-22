@@ -12,7 +12,7 @@
         "AbilityTextureName"            "bloodseeker_bloodrage"
         "ScriptFile"                    "abilities/slime/boss_slime_shake.lua"
         "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -22,8 +22,8 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "700"
-        "AbilityCastPoint"              "2.0"
-
+        "AbilityCastPoint"              "0.5"
+        "AbilityChannelTime"            "6.0"
         // Time
         //-------------------------------------------------------------------------------------------------------------
         // "AbilityCooldown"               "10"
@@ -74,7 +74,12 @@
             "08"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "projectile_count"          "12"
+                "projectile_count"          "24"
+            }
+            "09"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "delay"                     "1.25"
             }
         }
     }

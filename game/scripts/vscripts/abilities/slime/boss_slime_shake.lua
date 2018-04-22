@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_boss_slime_shake_slow", "abilities/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_slime_anti_stun", "abilities/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
@@ -57,27 +58,28 @@ end
 
 function boss_slime_shake:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "modifier_invulnerable", {duration = self:GetCastPoint()})
+	caster:AddNewModifier(caster, self, "modifier_boss_slime_anti_stun", {duration = self:GetCastPoint() + self:GetChannelTime()})
 	return true
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_slime_shake:OnSpellStart()
+function boss_slime_shake:FireProjectile(point)
 	local caster = self:GetCaster()
 	local minSize = self:GetSpecialValueFor("projectile_min_size")
 	local maxSize = self:GetSpecialValueFor("projectile_max_size")
-	local points = RandomPointsInsideCircleUniform( caster:GetAbsOrigin(), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("projectile_count"), maxSize * 2, maxSize)
+	local size = RandomInt(minSize, maxSize)
+	local delay = self:GetSpecialValueFor("delay")
 
-	for k,v in pairs(points) do
-		local size = RandomInt(minSize, maxSize)
-		local pos = GetGroundPosition(v, caster)
-		DebugDrawCircle(pos, Vector(255,0,0), 55, size, false, 1.0)
+	local pos = GetGroundPosition(point, caster)
 
+	DebugDrawCircle(pos + Vector(0,0,32), Vector(255,0,0), 55, size, false, delay)
+
+	Timers:CreateTimer(delay, function ()
 		local wave = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(wave, 0, pos)
 
-		Timers:CreateTimer(0.4, function ()
+		Timers:CreateTimer(0.6, function ()
 			local units = FindUnitsInRadius(
 				caster:GetTeamNumber(),
 				pos,
@@ -103,6 +105,30 @@ function boss_slime_shake:OnSpellStart()
 				ApplyDamage(damageTable)
 			end
 		end)
+	end)
+
+	return true
+end
+
+------------------------------------------------------------------------------------
+
+function boss_slime_shake:OnSpellStart()
+	local caster = self:GetCaster()
+	local minSize = self:GetSpecialValueFor("projectile_min_size")
+	local maxSize = self:GetSpecialValueFor("projectile_max_size")
+	self.points = RandomPointsInsideCircleUniform( caster:GetAbsOrigin(), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("projectile_count"), maxSize, maxSize)
+	self.n = 1
+	self.t = 0
+end
+
+------------------------------------------------------------------------------------
+
+function boss_slime_shake:OnChannelThink(flInterval)
+	self.t = self.t + flInterval 
+	if self.n and self.points[self.n] and self.t > (self:GetChannelTime() / #self.points) * self.n then
+		print(flInterval)
+		self:FireProjectile(self.points[self.n])
+		self.n = self.n + 1
 	end
 end
 
@@ -131,4 +157,31 @@ end
 
 function modifier_boss_slime_shake_slow:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetAbility():GetSpecialValueFor("slow")
+end
+
+------------------------------------------------------------------------------------
+
+modifier_boss_slime_anti_stun = class(ModifierBaseClass)
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_anti_stun:GetPriority()
+	return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_anti_stun:IsPurgable()
+	return false
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_anti_stun:CheckState()
+	local state =
+	{
+		[MODIFIER_STATE_STUNNED] = false
+	}
+
+	return state
 end
