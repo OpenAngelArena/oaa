@@ -124,7 +124,7 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_slime_shake:OnChannelThink(flInterval)
-	self.t = self.t + flInterval 
+	self.t = self.t + flInterval
 	if self.n and self.points[self.n] and self.t > (self:GetChannelTime() / #self.points) * self.n then
 		print(flInterval)
 		self:FireProjectile(self.points[self.n])
