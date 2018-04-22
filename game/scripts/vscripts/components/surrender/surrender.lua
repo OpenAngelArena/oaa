@@ -13,6 +13,7 @@ local lastTimeSurrenderWasCalled
 local lastTimeSurrenderWasCalledByPlayer = {}
 local votes = {}
 local numberOfVotesCast = 0
+local numberOfVotesExpected = 0
 local teamIdToSurrender
 
 function SurrenderManager:Init ()
@@ -33,10 +34,12 @@ function SurrenderManager:CheckSurrenderConditions(keys)
     local timeout = 10
     local text = "Would you like to surrender?"
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+      numberOfVotesExpected = numberOfVotesExpected + 1
+      DebugPrint("numberOfVotesExpected = " .. numberOfVotesExpected)
       CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId), "show_yes_no_poll", {pollText = text, pollTimeout = timeout, returnEventName = 'surrender_result'} )
     end)
 
-    Timers:CreateTimer(timeout + 1, Dynamic_Wrap(SurrenderManager, 'CalculateVotes'))
+    Timers:CreateTimer(timeout + 2, Dynamic_Wrap(SurrenderManager, 'CalculateVotesFromTimer'))
   end
 end
 
@@ -85,6 +88,16 @@ function SurrenderManager:PlayerVote (eventSourceIndex, args)
   votes[playerId] = selection
   numberOfVotesCast = numberOfVotesCast + 1
   DebugPrint("numberOfVotesCast = " .. numberOfVotesCast)
+  if numberOfVotesCast == numberOfVotesExpected then
+    SurrenderManager:CalculateVotes()
+  end
+end
+
+function SurrenderManager:CalculateVotesFromTimer()
+DebugPrint("numberOfVotesExpected = " .. numberOfVotesExpected)
+  if numberOfVotesExpected > 0 then -- if CalculateVotes has already ran this will be 0
+    SurrenderManager:CalculateVotes()
+  end
 end
 
 function SurrenderManager:CalculateVotes()
@@ -98,6 +111,7 @@ function SurrenderManager:CalculateVotes()
     local requiredNumberOfYesVotes = REQUIRED_YES_VOTES[numberOfVotesCast]
     votes = {}
     numberOfVotesCast = 0
+    numberOfVotesExpected = 0
     DebugPrint("requiredNumberOfYesVotes = " .. requiredNumberOfYesVotes)
     if requiredNumberOfYesVotes <= yesVotesCast then
       DebugPrint("End game")
