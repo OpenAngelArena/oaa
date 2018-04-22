@@ -9,17 +9,13 @@ var returnEventName;
 }());
 
 function Open (data) {
-  if (!isRunning &&
-    data != null &&
-    data.returnEventName != null &&
-    data.pollText != null &&
-    data.pollTimeout != null) {
-      isRunning = true;
-      returnEventName = data.returnEventName;
-      $('#YesNoPollPanel').SetHasClass('Show', true);
-      $('#YesNoPollText').text = data.pollText;
-      timeout = data.pollTimeout;
-      ScheduleSetTime(timeout);
+  if (!isRunning && data != null && data.returnEventName != null && data.pollText != null && data.pollTimeout != null) {
+    isRunning = true;
+    returnEventName = data.returnEventName;
+    $('#YesNoPollPanel').SetHasClass('Show', true);
+    $('#YesNoPollText').text = data.pollText;
+    timeout = data.pollTimeout;
+    ScheduleSetTime(timeout);
   }
 }
 
@@ -30,7 +26,7 @@ function ScheduleSetTime (time) {
 
 function SetTime () {
   --timeout;
-  if (timeout == 0) {
+  if (timeout === 0) {
     No();
   } else if (isRunning) {
     ScheduleSetTime(timeout);
