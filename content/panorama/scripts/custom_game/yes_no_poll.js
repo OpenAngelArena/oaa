@@ -1,4 +1,3 @@
-/* jshint unused:false */
 'use strict';
 
 var isRunning = false;
@@ -34,7 +33,7 @@ function SetTime () {
   }
 }
 
-function SelectYes () {
+function SelectYes () { // jshint ignore:line
   SendResult(1);
 }
 
