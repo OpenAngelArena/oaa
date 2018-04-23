@@ -57,8 +57,10 @@ function modifier_boss_slime_split_passive:OnTakeDamage(keys)
 						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 						AbilityIndex = shakeAbility:entindex(),
 					})
+					caster:AddNewModifier(caster, shakeAbility, "modifier_invulnerable", {})
 					Timers:CreateTimer(shakeAbility:GetChannelTime(), function ()
 						self.readyToDie = true
+						caster:RemoveModifierByName("modifier_invulnerable")
 						Timers:CreateTimer(function()
 							caster:Kill()
 						end)
