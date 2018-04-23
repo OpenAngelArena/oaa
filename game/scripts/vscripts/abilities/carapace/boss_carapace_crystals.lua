@@ -105,6 +105,7 @@ if IsServer() then
 		for k,v in pairs(self.crystals) do
 			if v.particle then
 				local angle = self.angle * k
+				ParticleManager:SetParticleControl(v.particle, 0, self:GetCrystalPosition(angle))
 				ParticleManager:SetParticleControl(v.particle, 4, self:GetCrystalPosition(angle))
 			end
 		end
@@ -233,19 +234,25 @@ if IsServer() then
 				}
 				ApplyDamage(damageTable)
 
+				local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
+				ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * k))
+				-- ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * k))
+				ParticleManager:ReleaseParticleIndex(impact)
+
+				caster:EmitSound("Hero_Crystal.CrystalNova.Yulsaria")
+
 				if self.crystals[k].taken >= self.crystals[k].threshold then
 					self.crystals[k].full = true
 					ParticleManager:DestroyParticle(self.crystals[k].particle, true)
 
-					self.crystals[k].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf", PATTACH_CUSTOMORIGIN, caster)
-					ParticleManager:SetParticleControl(self.crystals[k].particle, 3, self:GetCrystalPosition(self.angle * k))
+					self.crystals[k].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf", PATTACH_CUSTOMORIGIN, caster)
 
 					local distance = ability:GetSpecialValueFor("crystal_distance")
 					local range = ability:GetSpecialValueFor("range")
 					local width = range * (self.angle / distance)
 
 					-- TODO: Replace with proper indicator
-					Timers:CreateTimer(function (  )
+					Timers:CreateTimer(function ()
 						if not IsValidEntity(caster) or not caster:IsAlive() then return nil end
 
 						if not self.crystals[k].particle then return nil end
@@ -291,7 +298,7 @@ if IsServer() then
 							caster:GetAbsOrigin(),
 							direction,
 							range,
-							width,
+							width/2,
 							caster:GetTeamNumber(),
 							DOTA_UNIT_TARGET_TEAM_ENEMY,
 							DOTA_UNIT_TARGET_ALL,
