@@ -25,7 +25,6 @@ function boss_swiper_backswipe_base:FindUnitsInCone(position, coneDirection, con
 
 	for _, unit in pairs(units) do
 		local direction = ((unit:GetAbsOrigin() - position) * Vector(1,1,0)):Normalized()
-		print("bs")
 		if direction:Dot(coneDirection) >= cone then
 			table.insert(output, unit)
 		end
@@ -44,14 +43,21 @@ end
 
 --------------------------------------------------------------------------------
 
+function boss_swiper_backswipe_base:GetPlaybackRateOverride()
+	return 0.375
+end
+
+--------------------------------------------------------------------------------
+
 function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
+		local hit = {}
 
 		caster:AddNewModifier(caster, self, "modifier_boss_swiper_anti_stun", {duration = self:GetCastPoint()})
 
-		Timers:CreateTimer(0.5, function()
+		Timers:CreateTimer(self:GetCastPoint()/3, function()
 			local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(swipe, 0, caster:GetAbsOrigin() + (caster:GetForwardVector() * 50) + Vector(0,0,100))
 			ParticleManager:SetParticleControl(swipe, 1, caster:GetAbsOrigin() + (caster:GetForwardVector() * 100) + Vector(0,0,100))
@@ -129,9 +135,12 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 		local delay = self:GetCastPoint() / 3
 
 		for k,v in pairs(units) do
-			Timers:CreateTimer(delay * math.abs(k - modifier), function ()
+			Timers:CreateTimer((delay * math.abs(k - modifier) / 2.5) + delay, function ()
 				for _,target in pairs(units[k]) do
-					Impact(target)
+					if not hit[target:entindex()] then
+						hit[target:entindex()] = true
+						Impact(target)
+					end
 				end
 			end)
 		end
