@@ -44,7 +44,7 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_backswipe_base:GetPlaybackRateOverride()
-	return 0.375
+	return 0.35
 end
 
 --------------------------------------------------------------------------------
@@ -59,12 +59,14 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 
 		self:DebugRange(caster, range)
 
-		Timers:CreateTimer(self:GetCastPoint()/3, function()
+		local actualCastPoint = self:GetCastPoint()/2
+
+		Timers:CreateTimer(actualCastPoint, function()
 			local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(swipe, 0, caster:GetAbsOrigin() + (caster:GetForwardVector() * 50) + Vector(0,0,100))
 			ParticleManager:SetParticleControl(swipe, 1, caster:GetAbsOrigin() + (caster:GetForwardVector() * 100) + Vector(0,0,100))
-			ParticleManager:SetParticleControl(swipe, 2, Vector(0.8,0,0))
-			ParticleManager:SetParticleControl(swipe, 3, Vector(0.75,0,0))
+			ParticleManager:SetParticleControl(swipe, 2, Vector(1.25,0,0))
+			ParticleManager:SetParticleControl(swipe, 3, Vector(0.8,0,0))
 			ParticleManager:ReleaseParticleIndex(swipe)
 		end)
 
@@ -132,10 +134,10 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 		if isFront then
 			modifier = 4
 		end
-		local delay = self:GetCastPoint() / 3
+		local delay = actualCastPoint / 3 / 2
 
 		for k,v in pairs(units) do
-			Timers:CreateTimer((delay * math.abs(k - modifier) / 2.5) + delay, function ()
+			Timers:CreateTimer((delay * math.abs(k - modifier)) + actualCastPoint, function ()
 				for _,target in pairs(units[k]) do
 					if not hit[target:entindex()] then
 						hit[target:entindex()] = true
