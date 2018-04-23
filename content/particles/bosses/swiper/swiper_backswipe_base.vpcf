@@ -28,8 +28,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 6.5
-			m_flEndScale = 6.5
+			m_flStartScale = 10.0
+			m_flEndScale = 10.0
 			m_flEndTime = 0.1
 		},
 		{
@@ -41,7 +41,7 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.5
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_LerpEndCapScalar"
@@ -77,6 +77,31 @@
 			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
 			m_flTextureVWorldSize = 5.0
 			m_flScalarAttributeTextureCoordScale = 5.0
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_flTextureVWorldSize = 5.0
+			m_bUseScalarForTextureCoordinate = true
+			m_flScalarAttributeTextureCoordScale = 5.0
+			m_nOrientationType = 2
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_flTextureVWorldSize = 5.0
+			m_bUseScalarForTextureCoordinate = true
+			m_flScalarAttributeTextureCoordScale = 5.0
+			m_nOrientationType = 2
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
 		},
 	]
 	m_Initializers = 
@@ -103,7 +128,7 @@
 		{
 			_class = "C_INIT_RingWave"
 			m_flParticlesPerOrbit = 66.0
-			m_flInitialRadius = 75.0
+			m_flInitialRadius = 219.0
 			m_bEvenDistribution = true
 			m_flYaw = -90.0
 		},

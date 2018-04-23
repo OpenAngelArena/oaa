@@ -28,8 +28,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 6.5
-			m_flEndScale = 6.5
+			m_flStartScale = 10.0
+			m_flEndScale = 10.0
 			m_flEndTime = 0.1
 		},
 		{
@@ -45,7 +45,7 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.5
+			m_flFadeInTime = 0.1
 		},
 		{
 			_class = "C_OP_LerpEndCapScalar"
@@ -74,6 +74,31 @@
 			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
 			m_flTextureVWorldSize = 5.0
 			m_flScalarAttributeTextureCoordScale = 12.1
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_flTextureVWorldSize = 5.0
+			m_bUseScalarForTextureCoordinate = true
+			m_flScalarAttributeTextureCoordScale = 12.1
+			m_nOrientationType = 2
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_flTextureVWorldSize = 5.0
+			m_bUseScalarForTextureCoordinate = true
+			m_flScalarAttributeTextureCoordScale = 12.1
+			m_nOrientationType = 2
+			m_flSelfIllumAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 1.0
+			m_hTexture = resource:"materials/particle/pangolier/pangolier_range_gradient.vtex"
 		},
 	]
 	m_Initializers = 
@@ -107,8 +132,8 @@
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMin = [ 0.0, -39.0, 0.0 ]
-			m_OffsetMax = [ 0.0, -39.0, 0.0 ]
+			m_OffsetMin = [ 0.0, -58.0, 0.0 ]
+			m_OffsetMax = [ 0.0, -58.0, 0.0 ]
 			m_bLocalCoords = true
 		},
 	]
@@ -123,10 +148,10 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/bosses/swiper/swiper_rush_sword.vpcf"
+			m_ChildRef = resource:"particles/bosses/swiper/swiper_rush_movement_base.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/bosses/swiper/swiper_rush_movement_base.vpcf"
+			m_ChildRef = resource:"particles/bosses/swiper/swiper_rush_sword.vpcf"
 		},
 	]
 }
