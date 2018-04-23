@@ -32,7 +32,7 @@ function SurrenderManager:CheckSurrenderConditions(keys)
     lastTimeSurrenderWasCalledByPlayer[keys.playerid] = now
     teamIdToSurrender = teamId
     local timeout = 10
-    local text = "Would you like to surrender?"
+    local text = "#surrender_suggestion"
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
       numberOfVotesExpected = numberOfVotesExpected + 1
       DebugPrint("numberOfVotesExpected = " .. numberOfVotesExpected)

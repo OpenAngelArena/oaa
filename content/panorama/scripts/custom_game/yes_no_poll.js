@@ -13,7 +13,7 @@ function Open (data) {
     isRunning = true;
     returnEventName = data.returnEventName;
     $('#YesNoPollPanel').SetHasClass('Show', true);
-    $('#YesNoPollText').text = data.pollText;
+    $('#YesNoPollText').text = $.Localize(data.pollText);
     timeout = data.pollTimeout;
     ScheduleSetTime(timeout);
   }
@@ -27,17 +27,17 @@ function ScheduleSetTime (time) {
 function SetTime () {
   --timeout;
   if (timeout === 0) {
-    No();
+    SelectNo();
   } else if (isRunning) {
     ScheduleSetTime(timeout);
   }
 }
 
-function Yes () {
+function SelectYes () {
   SendResult(1);
 }
 
-function No () {
+function SelectNo () {
   SendResult(0);
 }
 

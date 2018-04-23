@@ -11,8 +11,8 @@
       <Label id='YesNoPollTime' class=''/>
       <Label id='YesNoPollText' class=''/>
       <Panel class='YesNoButtonPanel'>
-        <Label class='YesNoButton NoButton' text='No' hittest='true' onactivate='No()' oncontextmenu='No()'/>
-        <Label class='YesNoButton YesButton' text='Yes' hittest='true' onactivate='Yes()' oncontextmenu='Yes()'/>
+        <Label class='YesNoButton NoButton' text='No' hittest='true' onactivate='SelectNo()' oncontextmenu='SelectNo()'/>
+        <Label class='YesNoButton YesButton' text='Yes' hittest='true' onactivate='SelectYes()' oncontextmenu='SelectYes()'/>
       </Panel>
     </Panel>
   </Panel>
