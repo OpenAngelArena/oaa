@@ -29,8 +29,8 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 1.5
-			m_flStartScale = 0.8
-			m_flEndScale = 0.8
+			m_flStartScale = 1.1
+			m_flEndScale = 1.1
 			m_bEaseInAndOut = true
 		},
 		{
@@ -64,7 +64,7 @@
 		},
 		{
 			_class = "C_OP_Orient2DRelToCP"
-			m_flRotOffset = 160.0
+			m_flRotOffset = 180.0
 			m_nFieldOutput = 12
 		},
 		{
@@ -89,27 +89,27 @@
 	[
 		{
 			_class = "C_INIT_RingWave"
-			m_flParticlesPerOrbit = 17.0
-			m_flInitialRadius = 10.0
+			m_flParticlesPerOrbit = 18.0
+			m_flInitialRadius = 125.0
 			m_bEvenDistribution = true
-			m_flYaw = -82.0
+			m_flYaw = -110.0
 		},
 		{
 			_class = "C_INIT_RemapParticleCountToScalar"
 			m_nFieldOutput = 7
-			m_nInputMin = 7
-			m_nInputMax = 8
-			m_flOutputMin = 0.1
+			m_nInputMin = 8
+			m_nInputMax = 9
+			m_flOutputMin = 0.5
 		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 20.0
+			m_flEmitRate = 23.0
 			m_nScaleControlPoint = 3
 		},
 	]
 	m_ConstantColor = [ 110, 0, 255, 255 ]
-	m_nMaxParticles = 9
+	m_nMaxParticles = 10
 }
