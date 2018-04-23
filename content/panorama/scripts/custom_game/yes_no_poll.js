@@ -1,3 +1,4 @@
+/* global SelectYes */
 'use strict';
 
 var isRunning = false;
