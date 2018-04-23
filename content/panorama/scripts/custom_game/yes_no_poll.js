@@ -33,7 +33,7 @@ function SetTime () {
   }
 }
 
-function SelectYes () { // jshint ignore:line
+function SelectYes () { // eslint-disable-line no-unused-vars
   SendResult(1);
 }
 
