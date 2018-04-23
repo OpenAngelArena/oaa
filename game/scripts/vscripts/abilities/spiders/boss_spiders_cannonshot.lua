@@ -90,7 +90,7 @@ function boss_spiders_cannonshot:Explode(explosive)
 
 	EmitSoundOnLocationWithCaster(explosive:GetAbsOrigin(), "Hero_Techies.Suicide", explosive)
 
-	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, explosive)
+	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
 	ParticleManager:SetParticleControl(explosion, 0, explosive:GetAbsOrigin())
 	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(explosion)
