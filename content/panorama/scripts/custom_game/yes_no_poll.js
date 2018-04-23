@@ -1,4 +1,4 @@
-/* global SelectYes */
+/* exported SelectYes */
 'use strict';
 
 var isRunning = false;
