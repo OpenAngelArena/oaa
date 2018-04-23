@@ -57,6 +57,8 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 
 		caster:AddNewModifier(caster, self, "modifier_boss_swiper_anti_stun", {duration = self:GetCastPoint()})
 
+		self:DebugRange(caster, range)
+
 		Timers:CreateTimer(self:GetCastPoint()/3, function()
 			local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(swipe, 0, caster:GetAbsOrigin() + (caster:GetForwardVector() * 50) + Vector(0,0,100))
@@ -64,8 +66,6 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 			ParticleManager:SetParticleControl(swipe, 2, Vector(0.8,0,0))
 			ParticleManager:SetParticleControl(swipe, 3, Vector(0.75,0,0))
 			ParticleManager:ReleaseParticleIndex(swipe)
-
-			self:DebugRange(caster, range)
 		end)
 
 		local position2 = caster:GetAbsOrigin() + (caster:GetForwardVector() * range)
