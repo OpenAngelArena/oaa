@@ -22,12 +22,12 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "200"
-        "AbilityCastPoint"              "0.3"
+        "AbilityCastPoint"              "1.0"
         // "Radius"                        "200"
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "0"
+        "AbilityCooldown"               "2"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,12 @@
                 "var_type"                  "FIELD_INTEGER"
                 "damage"                    "300"
             }
+        }
+
+        "precache"
+        {
+            "particle" "particles/bosses/swiper/swiper_backswipe_base.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
         }
     }
 }

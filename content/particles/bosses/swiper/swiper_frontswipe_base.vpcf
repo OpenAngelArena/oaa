@@ -55,7 +55,7 @@
 		},
 		{
 			_class = "C_OP_MovementPlaceOnGround"
-			m_flOffset = 1.0
+			m_flOffset = 100.0
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -123,4 +123,5 @@
 			m_ChildRef = resource:"particles/bosses/swiper/swiper_frontswipe_sword.vpcf"
 		},
 	]
+	m_flConstantRadius = 10.0
 }

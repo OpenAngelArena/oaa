@@ -22,7 +22,7 @@
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "200"
-        "AbilityCastPoint"              "2.0"
+        "AbilityCastPoint"              "1.0"
         // "Radius"                        "200"
 
         // Time
@@ -51,6 +51,7 @@
 
         "precache"
         {
+            "particle" "particles/bosses/swiper/swiper_frontswipe_base.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
         }
     }
