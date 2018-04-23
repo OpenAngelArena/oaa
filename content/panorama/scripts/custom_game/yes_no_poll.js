@@ -1,4 +1,4 @@
-/* exported SelectYes */
+/* jshint unused:false */
 'use strict';
 
 var isRunning = false;
