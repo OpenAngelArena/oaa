@@ -304,7 +304,7 @@ if IsServer() then
 							caster:GetAbsOrigin() + (direction * range),
 							caster, width/2, DOTA_UNIT_TARGET_TEAM_ENEMY,
 							DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-							DOTA_UNIT_TARGET_FLAG_NONE) 
+							DOTA_UNIT_TARGET_FLAG_NONE)
 
 						for _,target in pairs(units) do
 							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, target)
