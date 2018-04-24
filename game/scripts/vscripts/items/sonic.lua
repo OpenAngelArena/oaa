@@ -7,7 +7,7 @@ function item_sonic:GetIntrinsicModifierName()
   return "modifier_item_sonic"
 end
 
-function item_sonic:GetTransformtionModifierName()
+function item_sonic:GetTransformationModifierName()
   return "modifier_sonic_fly"
 end
 
@@ -20,6 +20,11 @@ end
 function modifier_item_sonic:IsPurgable()
   return false
 end
+
+function modifier_item_sonic:RemoveOnDeath( ) {
+  return false
+end
+
 
 function modifier_item_sonic:DeclareFunctions()
   return {

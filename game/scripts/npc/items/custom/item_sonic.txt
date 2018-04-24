@@ -27,27 +27,25 @@
   //=================================================================================================================
   "item_sonic"
   {
-    "ID"                  "8502"
-    "BaseClass"           "item_lua"
-    "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"  "custom/sonic"
-    "ScriptFile"          "items/sonic.lua"
+    "ID"                    "8502"
+    "BaseClass"             "item_lua"
+    "AbilityBehavior"			  "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"    "custom/sonic"
+    "AbilitySharedCooldown" "sonic"
+    "ScriptFile"            "items/sonic.lua"
 
-    "AbilityCooldown"     "8.0"
-    "AbilityCastPoint"    "0.0"
+    "AbilityCooldown"       "8.0"
+    "AbilityCastPoint"      "0.0"
 
-    "MaxUpgradeLevel"     "3"
-    "ItemBaseLevel"       "1"
-    "UpgradesItems"       "item_sonic_2;item_sonic_3"
+    "MaxUpgradeLevel"       "3"
+    "ItemBaseLevel"         "1"
+    "UpgradesItems"         "item_sonic_2;item_sonic_3"
 
-    "ItemCost"            "6615"
-    "ItemShopTags"        "sonic"
-    "ItemQuality"         ""
-    "ItemAliases"         "sonic"
-    "ItemInitialCharges"  "-1"
-    "ItemDisplayCharges"  "0"
-    "ItemRequiresCharges" "0"
-    "ItemDeclarations"    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"              "6615"
+    "ItemShopTags"          "sonic"
+    "ItemQuality"           ""
+    "ItemAliases"           "sonic"
+    "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "AbilitySpecial"
     {
