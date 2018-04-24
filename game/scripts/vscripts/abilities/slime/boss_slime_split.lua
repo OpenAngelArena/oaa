@@ -30,6 +30,12 @@ end
 
 ------------------------------------------------------------------------------------
 
+function modifier_boss_slime_split_passive:RemoveOnDeath()
+	return true
+end
+
+------------------------------------------------------------------------------------
+
 function modifier_boss_slime_split_passive:GetMinHealth()
 	if self.readyToDie then return nil end
 	return 1.0
