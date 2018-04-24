@@ -21,7 +21,7 @@ function modifier_item_sonic:IsPurgable()
   return false
 end
 
-function modifier_item_sonic:RemoveOnDeath( ) {
+function modifier_item_sonic:RemoveOnDeath( )
   return false
 end
 
