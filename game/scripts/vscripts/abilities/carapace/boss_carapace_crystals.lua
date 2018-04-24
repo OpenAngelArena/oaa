@@ -56,7 +56,7 @@ if IsServer() then
 
 		local additional = ability:GetSpecialValueFor("additional")
 		local initial = ability:GetSpecialValueFor("initial")
-		local total = math.ceil(100 / additional) + initial - 1
+		local total = additional + initial
 		self.angle =  math.ceil(360 / total)
 		self.count = 0
 
@@ -65,7 +65,7 @@ if IsServer() then
 			self.crystals[i] = {}
 		end
 
-		local initialKeys = self:GetRandomElements(self.crystals, 2, nil, true)
+		local initialKeys = self:GetRandomElements(self.crystals, initial, nil, true)
 		for k,v in pairs(initialKeys) do
 			self:CreateCrystal(v)
 		end
@@ -191,7 +191,7 @@ if IsServer() then
 	end
 
 	function modifier_boss_carapace_crystals_passive:OnTakeDamage(keys)
-		local caster = self:GetCaster()
+		local caster = self:GetParent()
 		local attacker = keys.attacker
 		local damage = keys.damage
 		local ability = self:GetAbility()
@@ -199,9 +199,13 @@ if IsServer() then
 		local initial = ability:GetSpecialValueFor("initial")
 		local additional = ability:GetSpecialValueFor("additional")
 
+		if keys.unit:entindex() ~= caster:entindex() then
+			return
+		end
+
 		if self.count - initial < additional - math.ceil((caster:GetHealth() / caster:GetMaxHealth()) * additional) then
 			local function CheckCrystal(k)
-				return self.crystals[k] and self.crystals[k].particle == nil
+				return self.crystals[k] and not self.crystals[k].full and self.crystals[k].particle == nil
 			end
 
 			local newCrystals = self:GetRandomElements(self.crystals, 1, CheckCrystal, true)
@@ -221,6 +225,7 @@ if IsServer() then
 			local angle = Repeat((k * self.angle) + caster:GetAngles().y, 360)
 			local min = angle - (self.angle / 2)
 			local max = angle + (self.angle / 2)
+
 			if not v.full and v.particle and IsAngleBetween(result_angle, min, max) then
 				self.crystals[k].taken = self.crystals[k].taken + keys.damage
 
@@ -229,14 +234,13 @@ if IsServer() then
 					victim = caster,
 					attacker = attacker,
 					damage = damage * ((ability:GetSpecialValueFor("damage_amplification") / 100) + 1),
-					damage_type = keys.damage_type,
+					damage_type = DAMAGE_TYPE_PURE,
 					ability = ability
 				}
 				ApplyDamage(damageTable)
 
 				local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
 				ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * k))
-				-- ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * k))
 				ParticleManager:ReleaseParticleIndex(impact)
 
 				caster:EmitSound("Hero_Crystal.CrystalNova.Yulsaria")
@@ -294,16 +298,13 @@ if IsServer() then
 
 						ProjectileManager:CreateLinearProjectile( info )
 
-						local units = FindUnitsInCone(
-							caster:GetAbsOrigin(),
-							direction,
-							range,
-							width/2,
+						local units = FindUnitsInLine(
 							caster:GetTeamNumber(),
-							DOTA_UNIT_TARGET_TEAM_ENEMY,
-							DOTA_UNIT_TARGET_ALL,
-							DOTA_UNIT_TARGET_FLAG_NONE,
-							FIND_CLOSEST)
+							caster:GetAbsOrigin(),
+							caster:GetAbsOrigin() + (direction * range),
+							caster, width/2, DOTA_UNIT_TARGET_TEAM_ENEMY,
+							DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+							DOTA_UNIT_TARGET_FLAG_NONE) 
 
 						for _,target in pairs(units) do
 							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, target)
@@ -321,6 +322,8 @@ if IsServer() then
 						end
 					end)
 				end
+
+				break
 			end
 		end
 	end
