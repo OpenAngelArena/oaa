@@ -38,7 +38,7 @@ function item_devastator:OnSpellStart()
 
 	local info = {
 		-- replace with the correct particles
-		
+
 		EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
 		Ability = self,
 		vSpawnOrigin = self:GetCaster():GetOrigin(),
