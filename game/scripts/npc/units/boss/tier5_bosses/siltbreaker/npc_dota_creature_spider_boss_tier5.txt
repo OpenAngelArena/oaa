@@ -3,7 +3,7 @@
   "npc_dota_creature_spider_boss_tier5"
 	{
 		// Script
-		"vscripts"					"units/ai_spider_boss.lua"
+		"vscripts"					"units/ai_spider_boss_tier5.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -21,9 +21,9 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"spider_boss_larval_parasite"
-		"Ability2"					"spider_boss_summon_eggs"
-		"Ability3"					"spider_boss_passive"
+		"Ability1"					"spider_boss_larval_parasite_tier5"
+		"Ability2"					"spider_boss_summon_eggs_tier5"
+		"Ability3"					"spider_boss_passive_tier5"
 		"Ability4"          "boss_resistance"
 		"Ability5"          "boss_cliffwalk"
 		"Ability6"          "siltbreaker_boss_protection"

@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Boss Rage
+  //=================================================================================================================
+  "spider_boss_rage_tier5"
+  {
+    "ID"                            "58453"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_boss_rage_tier5.lua"
+    "AbilityTextureName"            "broodmother_insatiable_hunger"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"               "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.2"
+    "AbilityCooldown"               "25"
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "bonus_damage"          "1500"
+      }
+      "02"
+      {
+          "var_type"              "FIELD_INTEGER"
+          "lifesteal_pct"         "10"
+      }
+      "03"
+      {
+          "var_type"              "FIELD_FLOAT"
+          "duration"              "15"
+      }
+      "04"
+      {
+          "var_type"              "FIELD_FLOAT"
+          "bonus_movespeed_pct"   "15"
+      }
+    }
+  }
+}
