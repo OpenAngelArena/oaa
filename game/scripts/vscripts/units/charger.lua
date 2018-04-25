@@ -10,7 +10,7 @@ local function GetAllPillars ()
     thisEntity:GetTeamNumber(),
     GLOBAL_origin,
     nil,
-    1200,
+    1500,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
@@ -30,14 +30,14 @@ local function CheckPillars ()
 
   -- print('Found ' .. towers:length() .. ' towers!')
 
-  if towers:length() > 7 then
+  if towers:length() > 3 then
     return false
   end
 
   local towerLocation = Vector(0,0,0)
-  while towerLocation:Length() < 700 do
+  while towerLocation:Length() < 500 do
     -- sometimes rng fails us
-    towerLocation = RandomVector(1):Normalized() * RandomFloat(700, 800)
+    towerLocation = RandomVector(1):Normalized() * RandomFloat(500, 600)
   end
 
   towerLocation = towerLocation + GLOBAL_origin
