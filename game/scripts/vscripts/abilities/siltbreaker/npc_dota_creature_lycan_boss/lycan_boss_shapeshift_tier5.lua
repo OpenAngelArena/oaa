@@ -1,6 +1,6 @@
 lycan_boss_shapeshift_tier5 = class(AbilityBaseClass)
-LinkLuaModifier( "modifier_lycan_boss_shapeshift_tier5_transform", "modifiers/modifier_lycan_boss_shapeshift_tier5_transform", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_lycan_boss_shapeshift_tier5", "modifiers/modifier_lycan_boss_shapeshift_tier5", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_lycan_boss_shapeshift_transform", "modifiers/modifier_lycan_boss_shapeshift_transform", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_lycan_boss_shapeshift", "modifiers/modifier_lycan_boss_shapeshift", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -15,6 +15,6 @@ end
 
 function lycan_boss_shapeshift_tier5:OnSpellStart()
 	if IsServer() then
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_shapeshift_tier5_transform", { duration = self:GetSpecialValueFor( "transformation_time" ) } )
+		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_shapeshift_transform", { duration = self:GetSpecialValueFor( "transformation_time" ) } )
 	end
 end
