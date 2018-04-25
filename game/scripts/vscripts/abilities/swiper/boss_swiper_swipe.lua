@@ -77,42 +77,10 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 		local forward3 = (position3 - caster:GetAbsOrigin()):Normalized()
 		local width = (position2 - position1):Length2D() / 2
 
-		local units = {}
-		table.insert(units, self:FindUnitsInCone(
-			caster:GetAbsOrigin(),
-			forward1,
-			range,
-			width,
-			caster:GetTeamNumber(),
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST
-		))
-
-		table.insert(units, self:FindUnitsInCone(
-			caster:GetAbsOrigin(),
-			caster:GetForwardVector(),
-			range,
-			width,
-			caster:GetTeamNumber(),
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST
-		))
-
-		table.insert(units, self:FindUnitsInCone(
-			caster:GetAbsOrigin(),
-			forward3,
-			range,
-			width,
-			caster:GetTeamNumber(),
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST
-		))
+		local directions = {}
+		table.insert(directions, forward1)
+		table.insert(directions, caster:GetForwardVector())
+		table.insert(directions, forward3)
 
 		local function Impact(v)
 			v:EmitSound("Hero_Juggernaut.BladeDance")
@@ -136,9 +104,20 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 		end
 		local delay = actualCastPoint / 3 / 2
 
-		for k,v in pairs(units) do
+		for k,direction in pairs(directions) do
 			Timers:CreateTimer((delay * math.abs(k - modifier)) + actualCastPoint, function ()
-				for _,target in pairs(units[k]) do
+				local units = self:FindUnitsInCone(
+					caster:GetAbsOrigin(),
+					direction,
+					range,
+					width,
+					caster:GetTeamNumber(),
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_ALL,
+					DOTA_UNIT_TARGET_FLAG_NONE,
+					FIND_CLOSEST
+				)
+				for __,target in pairs(units) do
 					if not hit[target:entindex()] then
 						hit[target:entindex()] = true
 						Impact(target)
