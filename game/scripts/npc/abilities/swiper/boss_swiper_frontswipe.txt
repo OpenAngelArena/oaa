@@ -12,7 +12,7 @@
         "AbilityTextureName"            "bloodseeker_bloodrage"
         "ScriptFile"                    "abilities/swiper/boss_swiper_frontswipe.lua"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"

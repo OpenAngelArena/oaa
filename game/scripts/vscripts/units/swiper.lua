@@ -43,7 +43,7 @@ function SwiperBossThink()
 		1000,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO,
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_CLOSEST,
 		false
 	)
@@ -89,19 +89,20 @@ function SwiperBossThink()
 	local swipeRange = thisEntity.hFrontswipeAbility:GetCastRange(thisEntity:GetAbsOrigin(), thisEntity)
 
 	if thisEntity.hFrontswipeAbility:IsCooldownReady() then
-		local frontSwipeEnemies = thisEntity.hFrontswipeAbility:FindUnitsInCone(
-			thisEntity:GetAbsOrigin(),
-			thisEntity:GetForwardVector(),
-			swipeRange,
-			swipeRange*2,
+		local frontSwipeEnemies = FindUnitsInRadius(
 			thisEntity:GetTeamNumber(),
+			thisEntity:GetOrigin(), nil,
+			swipeRange,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST)
+			DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+			FIND_CLOSEST,
+			false
+		)
 
-		if #frontSwipeEnemies > 0 then
-			return CastFrontswipe()
+		if #frontSwipeEnemies >= thisEntity.hFrontswipeAbility:GetSpecialValueFor("min_targets") then
+			thisEntity:SetForwardVector((frontSwipeEnemies[1]:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Normalized())
+			return CastFrontswipe(frontSwipeEnemies[1]:GetAbsOrigin())
 		end
 	end
 
@@ -194,11 +195,12 @@ function RetreatHome()
 	return thisEntity.retreatDelay
 end
 
-function CastFrontswipe( )
+function CastFrontswipe( position )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 		AbilityIndex = thisEntity.hFrontswipeAbility:entindex(),
+		Position = position
 	})
 
 	local delay = thisEntity.hFrontswipeAbility:GetCastPoint() + 1.0
