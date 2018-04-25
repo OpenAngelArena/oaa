@@ -29,7 +29,7 @@ function azazel_summon:OnSpellStart()
     GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
     caster.azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
     caster.azazel_summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-    caster.azazel_summon:AddNewModifier(caster, ability, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
+    caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
 
     -- Level up any relevant abilities
     if string.find(summon_name, "farmer") then

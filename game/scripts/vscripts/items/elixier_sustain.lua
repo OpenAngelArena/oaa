@@ -25,7 +25,7 @@ function item_elixier_sustain_1:OnSpellStart()
     caster:RemoveModifierByName("modifier_elixier_hybrid_trigger")
 
     caster:AddNewModifier(caster, self, "modifier_elixier_sustain_active", {duration = self:GetSpecialValueFor("bonus_duration")})
-    
+
     self:SpendCharge()
   end
 end

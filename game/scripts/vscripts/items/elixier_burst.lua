@@ -27,7 +27,7 @@ function item_elixier_burst_1:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_elixier_burst_active", {duration = self:GetSpecialValueFor("total_duration")})
     caster:AddNewModifier(caster, self, "modifier_elixier_burst_trigger", {bonus_as = self:GetSpecialValueFor("bonus_as"), bonus_attacks = self:GetSpecialValueFor("bonus_attacks"), bonus_duration = self:GetSpecialValueFor("bonus_duration"), duration = self:GetSpecialValueFor("total_duration")})
-    
+
     self:SpendCharge()
   end
 end

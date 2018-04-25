@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1600"
+    "ItemCost"                              "100"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
@@ -62,7 +62,7 @@
     "ItemInitialCharges"                    "1"
     "ItemRequiresCharges"                   "1"
     "ItemKillable"                          "1"
-    "ItemPurchasable"                       "0"
+    "ItemPurchasable"                       "1"
     "ItemSellable"                          "0"
 
     // Precache

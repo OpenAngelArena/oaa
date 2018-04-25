@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7556"
+    "ID"                                    "8474"
     "BaseClass"                             "item_datadriven"
     "AbilityTextureName"                    "custom/recipe/recipe_4"
     "Model"                                 "models/props_gameplay/recipe.mdl"
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7557"
+    "ID"                                    "8475"
     "BaseClass"                             "item_lua"
     "ScriptFile"                            "items/elixier_hybrid.lua"
     "AbilityTextureName"                    "custom/elixier_hybrid_4"
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "4600"
+    "ItemCost"                              "100"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
@@ -62,7 +62,7 @@
     "ItemInitialCharges"                    "1"
     "ItemRequiresCharges"                   "1"
     "ItemKillable"                          "1"
-    "ItemPurchasable"                       "0"
+    "ItemPurchasable"                       "1"
     "ItemSellable"                          "0"
 
     // Precache
