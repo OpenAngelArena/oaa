@@ -1,5 +1,5 @@
 lycan_boss_claw_attack_tier5 = class(AbilityBaseClass)
-LinkLuaModifier( "modifier_lycan_boss_claw_attack_tier5", "modifiers/modifier_lycan_boss_claw_attack_tier5", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_lycan_boss_claw_attack", "modifiers/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ function lycan_boss_claw_attack_tier5:OnAbilityPhaseStart()
 			kv["initial_delay"] = self.initial_delay
 		end
 
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_claw_attack_tier5", kv )
+		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_claw_attack", kv )
 	end
 	return true
 end
@@ -34,7 +34,7 @@ end
 
 function lycan_boss_claw_attack_tier5:OnAbilityPhaseInterrupted()
 	if IsServer() then
-		self:GetCaster():RemoveModifierByName( "modifier_lycan_boss_claw_attack_tier5" )
+		self:GetCaster():RemoveModifierByName( "modifier_lycan_boss_claw_attack" )
 	end
 end
 
@@ -48,7 +48,7 @@ end
 
 function lycan_boss_claw_attack_tier5:GetCastRange( vLocation, hTarget )
 	if IsServer() then
-		if self:GetCaster():FindModifierByName( "modifier_lycan_boss_claw_attack_tier5" ) ~= nil then
+		if self:GetCaster():FindModifierByName( "modifier_lycan_boss_claw_attack" ) ~= nil then
 			return 99999
 		end
 	end
