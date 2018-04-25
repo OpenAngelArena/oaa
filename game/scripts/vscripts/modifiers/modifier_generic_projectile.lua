@@ -41,15 +41,39 @@ end
 
 ------------------------------------------------------------------------------------
 
+function modifier_generic_projectile:DeclareFunctions()
+    local funcs =
+    {
+        MODIFIER_EVENT_ON_DEATH,
+    }
+
+    return funcs
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_generic_projectile:OnDeath(keys)
+    if IsServer() then
+        local caster = self:GetParent()
+        if keys.unit:entindex() == caster:entindex() then
+            if self.projectileTable and self.projectileTable.onDiedCallback then
+                self.projectileTable.onDiedCallback()
+            end
+        end
+    end
+end
+
+------------------------------------------------------------------------------------
+
 function modifier_generic_projectile:CheckState()
     if self.projectileTable then
         local state = {
             [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-            [MODIFIER_STATE_UNSELECTABLE] = self.projectileTable.selectable == false,
-            [MODIFIER_STATE_NO_HEALTH_BAR] = self.projectileTable.selectable == false,
+            [MODIFIER_STATE_UNSELECTABLE] = not self.projectileTable.selectable,
+            [MODIFIER_STATE_NO_HEALTH_BAR] = not self.projectileTable.selectable,
             [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
             [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-            [MODIFIER_STATE_INVULNERABLE] = self.projectileTable.noInvul == false,
+            [MODIFIER_STATE_INVULNERABLE] = not self.projectileTable.noInvul,
             [MODIFIER_STATE_STUNNED] = false,
         }
 

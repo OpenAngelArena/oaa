@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_projectile.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_spiders_spiderball_slow", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_spiders_spiderball_skip_death_animation", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
@@ -27,6 +28,7 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 			local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")) + (caster:GetForwardVector() * 30)
 
 			local ball = CreateUnitByName("npc_dota_boss_spiders_spiderball", origin, false, caster, caster, caster:GetTeamNumber())
+			ball:AddNewModifier(caster, self, "modifier_boss_spiders_spiderball_skip_death_animation", {})
 
 			local projectileModifier = ball:AddNewModifier(caster, self, "modifier_generic_projectile", {})
 			local projectileTable = {
@@ -75,11 +77,17 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 
 					EmitSoundOn("Hero_Broodmother.SpawnSpiderlingsImpact", v)
 				end,
+				onDiedCallback = function ()
+					ParticleManager:DestroyParticle(indicator, true)
+					UTIL_Remove(ball)
+				end,
 				hitRadius = 128,
 				speed = self:GetSpecialValueFor("projectile_speed"),
 				origin = origin,
 				target = target,
 				height = self:GetSpecialValueFor("projectile_height"),
+				selectable = true,
+				noInvul = true
 			}
 			projectileModifier:InitProjectile(projectileTable)
 		end
@@ -113,4 +121,42 @@ end
 
 function modifier_boss_spiders_spiderball_slow:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetAbility():GetSpecialValueFor("impact_slow_rate")
+end
+
+------------------------------------------------------------------------------------
+
+modifier_boss_spiders_spiderball_skip_death_animation = class(ModifierBaseClass)
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_skip_death_animation:IsPurgable()
+    return false
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_skip_death_animation:IsHidden()
+    return true
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_skip_death_animation:DeclareFunctions()
+    local funcs =
+    {
+        MODIFIER_EVENT_ON_DEATH,
+    }
+
+    return funcs
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_skip_death_animation:OnDeath(keys)
+    if IsServer() then
+        local caster = self:GetParent()
+        if keys.unit:entindex() == caster:entindex() then
+            UTIL_Remove(caster)
+        end
+    end
 end
