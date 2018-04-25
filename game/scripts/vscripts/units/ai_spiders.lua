@@ -12,7 +12,7 @@ local function FindCannonshotLocations()
       if v2 ~= v then
         local distance = (v:GetAbsOrigin() - v2:GetAbsOrigin()):Length2D()
 
-        if distance > count and distance > 200 then
+        if distance > count then
           count = distance
           closest = v2
           closest2 = v
@@ -198,19 +198,33 @@ function SpidersThink()
     end
   else -- phase 3
     if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() then
-      local cannonshots = RandomInt(1,4)
+      local cannonshots = RandomInt(1,3)
       local spidershots = 4 - cannonshots
 
       local ability = thisEntity.CannonshotAbility
       local target1, target2 = FindCannonshotLocations()
 
       if target1 then
-        Timers:CreateTimer(0.3, function (  )
+        Timers:CreateTimer(ability:GetCastPoint(), function (  )
           local spiderTarget1, spiderTarget2 = FindSpidershotLocations()
-          for i=1,spidershots do
-            thisEntity.SpidershotAbility.target_points = { target1 = spiderTarget1 + RandomVector(200) }
-            thisEntity.SpidershotAbility:OnSpellStart()
+          local spiderTargetPoints = {}
+          table.insert(spiderTargetPoints, spiderTarget1)
+          table.insert(spiderTargetPoints, spiderTarget2)
+          if #spiderTargetPoints < spidershots then
+            for i=#spiderTargetPoints,spidershots-1 do
+              table.insert(spiderTargetPoints, spiderTarget1 + RandomVector(200))
+            end
+          elseif #spiderTargetPoints > spidershots then
+            local i = #spiderTargetPoints
+            repeat
+              table.remove(spiderTargetPoints, i)
+              i = i - 1
+            until
+              #spiderTargetPoints == spidershots
           end
+
+          thisEntity.SpidershotAbility.target_points = spiderTargetPoints
+          thisEntity.SpidershotAbility:OnSpellStart()
           thisEntity.SpidershotAbility:StartCooldown(thisEntity.SpidershotAbility:GetCooldownTime())
         end)
 
@@ -220,15 +234,10 @@ function SpidersThink()
           ability.target_points = { target1 = target1, target2 = target2 }
         elseif cannonshots == 3 then
           ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
-        else
-          ability.target_points = {
-            target1 = target1,
-            target2 = target2,
-            target3 = target2 + RandomVector(200),
-            target4 = target2 + RandomVector(200)
-          }
         end
-        Cast(ability, target1)
+        if ability.target_points then
+          Cast(ability, target1)
+        end
       end
     end
   end
