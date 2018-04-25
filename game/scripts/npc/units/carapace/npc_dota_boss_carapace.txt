@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier ?
+  // Boss tier 2
   //=================================================================================
   "npc_dota_boss_carapace"
   {
@@ -9,7 +9,7 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
-    "vscripts"                                            "units/carapace.lua"
+    "vscripts"                                            "units/ai_carapace.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "2.0"
     "Level"                                               "30"

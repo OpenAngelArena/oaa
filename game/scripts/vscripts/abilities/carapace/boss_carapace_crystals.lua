@@ -39,9 +39,9 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_crystals_passive:OnDeath()
-	for k,v in pairs(self.crystals) do
-		if v.particle then
-			ParticleManager:DestroyParticle(v.particle, true)
+	for _,crystal in pairs(self.crystals) do
+		if crystal.particle then
+			ParticleManager:DestroyParticle(crystal.particle, true)
 		end
 	end
 	return true
@@ -66,8 +66,8 @@ if IsServer() then
 		end
 
 		local initialKeys = self:GetRandomElements(self.crystals, initial, nil, true)
-		for k,v in pairs(initialKeys) do
-			self:CreateCrystal(v)
+		for _,id in pairs(initialKeys) do
+			self:CreateCrystal(id)
 		end
 
 		self:StartIntervalThink(0.03)
@@ -102,11 +102,11 @@ if IsServer() then
 	function modifier_boss_carapace_crystals_passive:OnIntervalThink()
 		local caster = self:GetCaster()
 
-		for k,v in pairs(self.crystals) do
-			if v.particle then
-				local angle = self.angle * k
-				ParticleManager:SetParticleControl(v.particle, 0, self:GetCrystalPosition(angle))
-				ParticleManager:SetParticleControl(v.particle, 4, self:GetCrystalPosition(angle))
+		for id,crystal in pairs(self.crystals) do
+			if crystal.particle then
+				local angle = self.angle * id
+				ParticleManager:SetParticleControl(crystal.particle, 0, self:GetCrystalPosition(angle))
+				ParticleManager:SetParticleControl(crystal.particle, 4, self:GetCrystalPosition(angle))
 			end
 		end
 	end
@@ -209,8 +209,8 @@ if IsServer() then
 			end
 
 			local newCrystals = self:GetRandomElements(self.crystals, 1, CheckCrystal, true)
-			for k,v in pairs(newCrystals) do
-				self:CreateCrystal(v)
+			for _,id in pairs(newCrystals) do
+				self:CreateCrystal(id)
 			end
 		end
 
@@ -221,13 +221,13 @@ if IsServer() then
 
 		local result_angle = AngleBetweenPoints( caster:GetAbsOrigin(), attacker:GetAbsOrigin() )
 
-		for k,v in pairs(self.crystals) do
-			local angle = Repeat((k * self.angle) + caster:GetAngles().y, 360)
+		for id,crystal in pairs(self.crystals) do
+			local angle = Repeat((id * self.angle) + caster:GetAngles().y, 360)
 			local min = angle - (self.angle / 2)
 			local max = angle + (self.angle / 2)
 
-			if not v.full and v.particle and IsAngleBetween(result_angle, min, max) then
-				self.crystals[k].taken = self.crystals[k].taken + keys.damage
+			if not crystal.full and crystal.particle and IsAngleBetween(result_angle, min, max) then
+				self.crystals[id].taken = self.crystals[id].taken + keys.damage
 
 				self.skip = true
 				local damageTable = {
@@ -240,16 +240,16 @@ if IsServer() then
 				ApplyDamage(damageTable)
 
 				local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
-				ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * k))
+				ParticleManager:SetParticleControl(impact, 3, self:GetCrystalPosition(self.angle * id))
 				ParticleManager:ReleaseParticleIndex(impact)
 
 				caster:EmitSound("Hero_Crystal.CrystalNova.Yulsaria")
 
-				if self.crystals[k].taken >= self.crystals[k].threshold then
-					self.crystals[k].full = true
-					ParticleManager:DestroyParticle(self.crystals[k].particle, true)
+				if self.crystals[id].taken >= self.crystals[id].threshold then
+					self.crystals[id].full = true
+					ParticleManager:DestroyParticle(self.crystals[id].particle, true)
 
-					self.crystals[k].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					self.crystals[id].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf", PATTACH_CUSTOMORIGIN, caster)
 
 					local distance = ability:GetSpecialValueFor("crystal_distance")
 					local range = ability:GetSpecialValueFor("range")
@@ -259,9 +259,9 @@ if IsServer() then
 					Timers:CreateTimer(function ()
 						if not IsValidEntity(caster) or not caster:IsAlive() then return nil end
 
-						if not self.crystals[k].particle then return nil end
+						if not self.crystals[id].particle then return nil end
 
-						local crystalPosition = self:GetCrystalPosition(self.angle * k)
+						local crystalPosition = self:GetCrystalPosition(self.angle * id)
 						local direction = ((crystalPosition - caster:GetAbsOrigin()) * Vector(1,1,0)):Normalized()
 						DebugDrawLine(caster:GetAbsOrigin(), caster:GetAbsOrigin() + (direction * range), 255, 0, 0, false, 0.03)
 						return 0.03
@@ -270,16 +270,16 @@ if IsServer() then
 					Timers:CreateTimer(2.0, function ()
 						if not IsValidEntity(caster) or not caster:IsAlive() then return nil end
 
-						ParticleManager:DestroyParticle(self.crystals[k].particle, true)
-						self.crystals[k].particle = nil
+						ParticleManager:DestroyParticle(self.crystals[id].particle, true)
+						self.crystals[id].particle = nil
 
 						local explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
-						ParticleManager:SetParticleControl(explosion, 0, self:GetCrystalPosition(self.angle * k))
+						ParticleManager:SetParticleControl(explosion, 0, self:GetCrystalPosition(self.angle * id))
 						ParticleManager:ReleaseParticleIndex(explosion)
 
 						caster:EmitSound("Hero_Crystal.CrystalNova")
 
-						local crystalPosition = self:GetCrystalPosition(self.angle * k)
+						local crystalPosition = self:GetCrystalPosition(self.angle * id)
 						local direction = ((crystalPosition - caster:GetAbsOrigin()) * Vector(1,1,0)):Normalized()
 
 						-- TODO: Proper area particle
@@ -306,13 +306,13 @@ if IsServer() then
 							DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 							DOTA_UNIT_TARGET_FLAG_NONE)
 
-						for _,target in pairs(units) do
-							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, target)
-							ParticleManager:SetParticleControl(explosion, 0, target:GetAbsOrigin())
+						for _,victim in pairs(units) do
+							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, victim)
+							ParticleManager:SetParticleControl(explosion, 0, victim:GetAbsOrigin())
 							ParticleManager:ReleaseParticleIndex(explosion)
 
 							damageTable = {
-								victim = target,
+								victim = victim,
 								attacker = caster,
 								damage = ability:GetSpecialValueFor("damage"),
 								damage_type = ability:GetAbilityDamageType(),

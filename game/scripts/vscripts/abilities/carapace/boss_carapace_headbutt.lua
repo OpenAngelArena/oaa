@@ -65,16 +65,16 @@ if IsServer() then
 
 		local enemies = self:GetEnemies()
 
-		for k,v in pairs(enemies) do
-			DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 5.3)
+		for k,victim in pairs(enemies) do
+			DebugDrawSphere(victim:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 5.3)
 
-			v:EmitSound("hero_ursa.attack")
+			victim:EmitSound("hero_ursa.attack")
 
-			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
+			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, victim)
 			ParticleManager:ReleaseParticleIndex(impact)
 
 			local damageTable = {
-				victim = v,
+				victim = victim,
 				attacker = caster,
 				damage = self:GetSpecialValueFor("damage"),
 				damage_type = self:GetAbilityDamageType(),
@@ -92,9 +92,9 @@ if IsServer() then
 				center_y = target.y,
 				center_z = target.z
 			}
-			v:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
+			victim:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
 
-			v:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration=self:GetSpecialValueFor("slow_duration")} )
+			victim:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration=self:GetSpecialValueFor("slow_duration")} )
 		end
 
 		caster:SetAbsOrigin(target)
