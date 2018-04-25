@@ -1,15 +1,15 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier ?
-//=================================================================================
+  //=================================================================================
+  // Boss tier 3
+  //=================================================================================
   "npc_dota_boss_spiders"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
-    "vscripts"                                            "units/spiders.lua"
+    "Model"                                               "models/heroes/alchemist/alchemist.vmdl"  // Model.
+    "vscripts"                                            "units/ai_spiders.lua"
     "SoundSet"                                            "sniper"                    // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
@@ -70,28 +70,17 @@
     {
         //Makes it only have 50% remaining of applied crowd control
         "DisableResistance"                                 "50.0"
-        "AttachWearables"
+        "AttachWearables" // Default npc_dota_hero_alchemist
         {
-            "Wearable1"
-            {
-                "ItemDef"           "280"
-            }
-            "Wearable2"
-            {
-                "ItemDef"           "278"
-            }
-            "Wearable3"
-            {
-                "ItemDef"           "277"
-            }
-            "Wearable4"
-            {
-                "ItemDef"           "585"
-            }
-            "Wearable5"
-            {
-                "ItemDef"           "279"
-            }
+            "1" { "ItemDef" "123" } // Alchemist's Goblin Head
+            "2" { "ItemDef" "120" } // Alchemist's Gauntlets
+            "3" { "ItemDef" "119" } // Alchemist's Saddle
+            "4" { "ItemDef" "121" } // Alchemist's Goblin Hat
+            "5" { "ItemDef" "124" } // Alchemist's Ogre Head
+            "6" { "ItemDef" "117" } // Alchemist's Goblin Body
+            "7" { "ItemDef" "118" } // Alchemist's Weapon
+            "8" { "ItemDef" "125" } // Alchemist's Shoulder Bottle
+            "9" { "ItemDef" "122" } // Alchemist's Left Bottle
         }
     }
 
