@@ -55,7 +55,7 @@
 		},
 		{
 			_class = "C_OP_MovementPlaceOnGround"
-			m_flOffset = 1.0
+			m_flOffset = 100.0
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -128,10 +128,15 @@
 		{
 			_class = "C_INIT_RingWave"
 			m_flParticlesPerOrbit = 66.0
-			m_flInitialRadius = 219.0
+			m_flInitialRadius = 285.0
 			m_bEvenDistribution = true
 			m_flRoll = 180.0
 			m_flYaw = 90.0
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 0.85, 1.0, 1.0 ]
+			m_vecWarpMax = [ 0.85, 1.0, 0.0 ]
 		},
 	]
 	m_Emitters = 
