@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "13400"
+    "ItemCost"            "13450"
     "ItemShopTags"          "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"         "common"
     "ItemAliases"         "magic wand 4;wand 4"
@@ -67,7 +67,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "max_charges"     "17"
+        "max_charges"     "20"
       }
       "02"
       {
@@ -77,14 +77,9 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "2 20 40 60 90"
+        "bonus_all_stats"   "3 20 40 60 90"
       }
       "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "1.5 3 6 12 24"
-      }
-      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "restore_per_charge"  "15 30 60 120 240"

@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "70"
     "ItemStackable"                                       "0"
     "ItemHideCharges"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
@@ -26,12 +26,12 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "hp_regen"    "1.0"
+        "hp_regen"    "0.7"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "replenish_amount"    "175"
+        "replenish_amount"    "125"
       }
       "03"
       {
