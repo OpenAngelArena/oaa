@@ -25,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "130.0 130.0 130.0 130.0 100.0 75.0"
-    "AbilityDuration"                                     "4.0 5.0 6.0 6.5 7.0"
+    "AbilityDuration"                                     "4.5 5.25 6.0 6.5 7.0"
 
 
     // Cost
@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "4.0 5.0 6.0 6.5 7.0"
+        "tooltip_duration"                                "4.5 5.25 6.0 6.5 7.0"
         "LinkedSpecialBonus"  "special_bonus_unique_silencer_4"
       }
     }

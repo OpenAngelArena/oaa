@@ -273,7 +273,7 @@ if IsServer() then
 
 		-- Movement parameters
 		self.direction = difference:Normalized()
-		self.distance = event.distance
+		self.distance = event.distance + 1
 		self.speed = event.speed
 		self.collision_radius = event.collision_radius
 

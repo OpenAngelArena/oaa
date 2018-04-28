@@ -41,7 +41,7 @@
     "AbilityTextureName"                                  "custom/monkey_king_bar_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17200"
+    "ItemCost"                                            "17175"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 4;monkey king bar 4"
@@ -55,21 +55,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_attack_speed"  "60 70 80 90 100"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_chance"      "75"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_chance_damage"     "60 90 145 220 330"
-      }
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "bonus_damage"      "52 95 140 210 285"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"10 20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_chance"			"75"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "bonus_chance_damage"     "100 130 185 260 370"
+			}
     }
   }
 }

@@ -23,10 +23,13 @@ Bosses = {
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_boss_charger",
+      "npc_dota_boss_swiper",
+      "npc_dota_boss_carapace"
     },
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders"
     },
     {
       "npc_dota_boss_tier_4",
@@ -48,10 +51,13 @@ Bosses = {
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_boss_charger",
+      "npc_dota_boss_swiper",
+      "npc_dota_boss_carapace"
     },
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
     },
     {
       "npc_dota_boss_tier_4",
@@ -69,10 +75,13 @@ Bosses = {
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_boss_charger",
+      "npc_dota_boss_swiper",
+      "npc_dota_boss_carapace"
     },
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
     },
     {
       "npc_dota_boss_tier_4",
@@ -87,7 +96,8 @@ Bosses = {
   {
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
     },
     {
       "npc_dota_boss_tier_4",
@@ -102,7 +112,8 @@ Bosses = {
   {
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
     },
     {
       "npc_dota_boss_tier_4",
@@ -117,7 +128,8 @@ Bosses = {
   {
     {
       "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss"
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
     },
     {
       "npc_dota_boss_tier_4",

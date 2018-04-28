@@ -23,10 +23,10 @@
     "ItemResult"                    "item_meteor_hammer_2"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_1;item_upgrade_core"
-      "02"                                                "item_meteor_hammer_1;item_upgrade_core_2"
-      "03"                                                "item_meteor_hammer_1;item_upgrade_core_3"
-      "04"                                                "item_meteor_hammer_1;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos;item_upgrade_core"
+      "02"                                                "item_rod_of_atos;item_upgrade_core_2"
+      "03"                                                "item_rod_of_atos;item_upgrade_core_3"
+      "04"                                                "item_rod_of_atos;item_upgrade_core_4"
     }
   }
 
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "4125"
+    "ItemCost"                      "4530"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 2;meteor hammer 2"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
