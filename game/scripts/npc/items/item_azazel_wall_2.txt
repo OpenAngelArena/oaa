@@ -1,0 +1,40 @@
+"DOTAItems"
+{
+    //=================================================================================================================
+    // Azazel: Wall 2
+    //=================================================================================================================
+    "item_azazel_wall_2"
+    {
+        "ID"                            "8495"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/azazel_wall.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityCastRange"              "600"
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "2"
+        "ItemStackable"                 "1"
+        "ItemCost"                      "100"
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "construction_time"         "10"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_health"              "0 4500 10500 22500"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "wall_length"               "800"
+            }
+        }
+    }
+}

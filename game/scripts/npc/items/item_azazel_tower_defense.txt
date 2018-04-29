@@ -1,0 +1,48 @@
+"DOTAItems"
+{
+    //=================================================================================================================
+    // Azazel: Defense Tower 1
+    //=================================================================================================================
+    "item_azazel_tower_defense_1"
+    {
+        "ID"                            "8486"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/azazel_tower_defense.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityCastRange"              "600"
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "1"
+        "ItemStackable"                 "1"
+        "ItemCost"                      "100"
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "construction_time"         "10"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_health"              "0 3000 7000 15000"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_damage"              "0 300 700 1500"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "true_sight_radius"         "800"
+            }
+        }
+        "precache"
+        {
+        }
+    }
+}
