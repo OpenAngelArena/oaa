@@ -35,6 +35,16 @@
                 "var_type"                  "FIELD_INTEGER"
                 "bonus_vision_range"        "0 500 1000 1500"
             }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_health"            "500 2000 4000 8000"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_vision_range"      "1500 2000 2500 3000"
+            }
         }
         "precache"
         {

@@ -16,20 +16,25 @@ function item_azazel_wall_1:OnSpellStart()
   local distance = length % SEGMENT_RADIUS / count + SEGMENT_RADIUS
   local origin_caster = caster:GetOrigin()
   -- direction of the wall.
-  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -90, 0)), Vector(origin[1] - origin_caster[1], origin[2] - origin_caster[2], origin[3] - origin_caster[3]):Normalized()) --[[rotate the vector between the cast location and the caster
+  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -90, 0)), Vector(origin[1] - origin_caster[1], origin[2] - origin_caster[2], origin[3]):Normalized()) --[[rotate the vector between the cast location and the caster
     by 90 deg (-90) to the right, thus geting the *opposite* of the direction we will spawn wall segments in.]]
   local location = origin - direction * length / 2 --[[get the leftmost point of the spawn line,
     as visible from the caster's position; advances further to the right with each segment by `distance`.]]
   foreach(function()
-    if #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, SEGMENT_RADIUS, DOTA_UNIT_TARGET_TEAM_BOTH,DOTA_UNIT_TARGET_ALL,
-      DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) < 1 then
+    if #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, SEGMENT_RADIUS, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING,
+      DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) < 1
+    then
+      GridNav:DestroyTreesAroundPoint(location, SEGMENT_RADIUS, true)
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
       building:SetOrigin(location)
       building:RemoveModifierByName("modifier_invulnerable")
       building:AddNewModifier(building, self, "modifier_wall_segment_construction", {duration = -1})
       building:SetOwner(caster)
+      local location_saved = Vector(location.x, location.y, location.z)
+      Timers:CreateTimer(0.1,function()
+        ResolveNPCPositions(location_saved, SEGMENT_RADIUS)
+      end)
       location = location + direction * distance
-      --building:SetForwardVector((location - origin):Normalized()) -- buildings can't be rotated.
     end
   end,range(count))
 end
@@ -44,7 +49,7 @@ item_azazel_wall_4 = item_azazel_wall_1
 
 modifier_wall_segment_construction = class(ModifierBaseClass)
 
-local SINK_HEIGHT = 300
+local SINK_HEIGHT = 200
 local THINK_INTERVAL = 0.1
 
 function modifier_wall_segment_construction:OnCreated()
@@ -53,18 +58,20 @@ function modifier_wall_segment_construction:OnCreated()
     local ab = self:GetAbility()
     local maxhealth = target:GetMaxHealth() + ab:GetSpecialValueFor("bonus_health")
     local location = target:GetOrigin()
+    local time = ab:GetSpecialValueFor("construction_time")
+    target:Attribute_SetIntValue("construction_time", time)
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
     target:SetMaxHealth(maxhealth)
     target:SetHealth(maxhealth * 0.01)
     self:StartIntervalThink(THINK_INTERVAL)
-    self:SetStackCount(math.floor(ab:GetSpecialValueFor("construction_time") / THINK_INTERVAL) - 1) -- `construction_time` should be divisible by `THINK_INTERVAL`!
+    self:SetStackCount(math.floor(time / THINK_INTERVAL)) -- `construction_time` should be divisible by `THINK_INTERVAL`!
   end
 end
 
 function modifier_wall_segment_construction:OnIntervalThink()
   if IsServer() then
     local target = self:GetParent()
-    local time = self:GetAbility():GetSpecialValueFor("construction_time")
+    local time = target:Attribute_GetIntValue("construction_time", 10)
     local count = self:GetStackCount()
     local location = target:GetOrigin()
     target:SetOrigin(target:GetOrigin() + Vector(0, 0, SINK_HEIGHT / (time / THINK_INTERVAL)))
@@ -106,7 +113,7 @@ end
 
 function modifier_wall_segment_construction:GetModifierConstantHealthRegen()
   if self:GetStackCount() > 0 then
-    return self:GetParent():GetMaxHealth() / self:GetAbility():GetSpecialValueFor("construction_time")
+    return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
   else
     return 0
   end

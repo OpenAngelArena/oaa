@@ -40,6 +40,16 @@
                 "var_type"                  "FIELD_INTEGER"
                 "true_sight_radius"         "800"
             }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_health"            "1000 4000 8000 16000"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_damage"            "110 410 810 1610"
+            }
         }
         "precache"
         {
