@@ -68,7 +68,7 @@ function modifier_boss_slime_split_passive:OnTakeDamage(keys)
 						self.readyToDie = true
 						caster:RemoveModifierByName("modifier_invulnerable")
 						Timers:CreateTimer(function()
-							caster:Kill()
+							caster:Kill(nil, caster)
 						end)
 					end)
 				end
