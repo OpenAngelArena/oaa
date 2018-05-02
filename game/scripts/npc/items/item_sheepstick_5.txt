@@ -15,7 +15,10 @@
     "ItemResult"                                          "item_sheepstick_5"
     "ItemRequirements"
     {
-      "01"                                                "item_sheepstick_4;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "02"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+      "03"                                                "item_cyclone_4;item_upgrade_core_4"
+      "04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
 
@@ -42,7 +45,7 @@
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "38700"
+    "ItemCost"                                            "36030"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 5;sheepstick 5;scythe of vyse 5"

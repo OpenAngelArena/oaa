@@ -1,0 +1,90 @@
+"DOTAUnits"
+{
+    //=================================================================================
+    // HORDE SPECIAL 6: BANELING - working
+    //=================================================================================
+    "npc_dota_boss_spiders_spider"
+    {
+        // General
+        //----------------------------------------------------------------
+        "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
+        "BaseClass"                 "npc_dota_creature"
+        "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/ai_baneling"
+        "Level"                     "1"
+        "ModelScale"                ".3"
+        "IsAncient"                 "1"
+
+        // director
+        "SpawnCount"                "1"
+
+        // Abilities
+        //----------------------------------------------------------------
+        "Ability1"                  "boss_spiders_spider_cold_combustion"      // Ability 1
+        "Ability2"                  ""      // Ability 2
+        "Ability3"                  ""      // Ability 3
+        "Ability4"                  ""      // Ability 4
+
+        "Creature"
+        {
+
+            "AttachWearables"
+            {
+                "Wearable1" "models/items/broodmother/lycosidae_back/lycosidae_back.vmdl"
+                "Wearable2" "models/items/broodmother/virulent_matriarchs_legs/virulent_matriarchs_legs.vmdl"
+                "Wearable3" "models/items/broodmother/araknarok_broodmother_head/araknarok_broodmother_head.vmdl"
+            }
+        }
+
+        // Armor
+        //----------------------------------------------------------------
+        "ArmorPhysical"            "0"     // Physical protection.
+
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "30"    // Damage range min.
+        "AttackDamageMax"           "40"    // Damage range max.
+        "AttackRate"                "1.5"   // Speed of attack.
+        "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
+        "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+        "AttackRange"               "100"   // Range within a target can be attacked.
+        "ProjectileModel"           ""      // Particle system model for projectile.
+        "ProjectileSpeed"           "0"     // Speed of projectile.
+
+        // Bounds
+        //----------------------------------------------------------------
+        "RingRadius"                "35"
+        "HealthBarOffset"           "175"
+
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyXP"                  "0"    // Experience earn.
+        "BountyGoldMin"             "0"    // Gold earned min.
+        "BountyGoldMax"             "0"    // Gold earned max.
+
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "300"   // Speed.
+
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"              "100"   // Base health.
+        "StatusHealthRegen"         "0"   // Health regeneration rate.
+        "StatusMana"                "0"     // Base mana.
+        "StatusManaRegen"           "1.0"   // Mana regeneration rate.
+
+        // Vision
+        //----------------------------------------------------------------
+        "VisionDaytimeRange"        "800"   // Range of vision during day light.
+        "VisionNighttimeRange"      "800"   // Range of vision at night time.
+
+        // Team
+        //----------------------------------------------------------------
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    }
+}

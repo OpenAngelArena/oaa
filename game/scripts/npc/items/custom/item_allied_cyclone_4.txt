@@ -23,7 +23,10 @@
     "ItemResult"                                          "item_allied_cyclone_4"
     "ItemRequirements"
     {
-      "01"                                                "item_allied_cyclone_3;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "02"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+      "03"                                                "item_cyclone_4;item_upgrade_core_4"
+      "04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "175"
-    "ItemCost"                                            "35750"
+    "ItemCost"                                            "36030"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "allied cyclone 4;allied euls 4"
