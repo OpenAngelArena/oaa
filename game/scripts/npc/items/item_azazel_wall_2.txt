@@ -10,8 +10,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/azazel_wall.lua"
+        "AbilityTextureName"            "custom/spirit_vessel_2"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityCastRange"              "600"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
         "MaxUpgradeLevel"               "4"
         "ItemBaseLevel"                 "2"
         "ItemStackable"                 "1"

@@ -10,8 +10,11 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/azazel_tower_watch.lua"
+        "AbilityTextureName"            "custom/far_sight"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityCastRange"              "600"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
         "MaxUpgradeLevel"               "4"
         "ItemBaseLevel"                 "1"
         "ItemStackable"                 "1"
