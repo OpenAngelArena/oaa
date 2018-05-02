@@ -10,7 +10,6 @@ function Spawn( entityKeyValues )
 	thisEntity.hJumpAbility = thisEntity:FindAbilityByName( "boss_slime_jump" )
 	thisEntity.hSlamAbility = thisEntity:FindAbilityByName( "boss_slime_slam" )
 	thisEntity.hShakeAbility = thisEntity:FindAbilityByName( "boss_slime_shake" )
-	-- thisEntity.hReapersRushAbility = thisEntity:FindAbilityByName( "boss_swiper_reapers_rush" )
 
 	thisEntity:SetContextThink( "SlimeBossThink", SlimeBossThink, 1 )
 end

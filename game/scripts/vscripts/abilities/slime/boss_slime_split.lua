@@ -88,13 +88,17 @@ function modifier_boss_slime_split_passive:OnDeath(keys)
 			local function CreateClone(origin)
 				local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
 				clone:RemoveAbility("boss_slime_split")
+				for i=0,5 do
+					local item = caster:GetItemInSlot(i)
+					if item then
+						clone:AddItem(CreateItem(item:GetName(), clone, clone))
+					end
+				end
+				return clone
 			end
-
-			CreateClone(caster:GetAbsOrigin() + Vector(100,0,0))
-			CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
-
+			caster:SetClones(CreateClone(caster:GetAbsOrigin() + Vector(100,0,0)),
+				CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
 			caster:AddNoDraw()
-			-- UTIL_Remove(caster)
 		end
 	end
 end

@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier ?
+  // Boss tier 2
   //=================================================================================
   "npc_dota_boss_slime"
   {
@@ -9,7 +9,7 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
-    "vscripts"                                            "units/slime.lua"
+    "vscripts"                                            "units/ai_slime.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
@@ -116,5 +116,19 @@
 
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
+  }
+  "npc_dota_creature_slime_spawner"
+  {
+    "vscripts"                          "units/ai_slime_spawner.lua"
+
+    "BaseClass"                         "npc_dota_creature"
+    "Model"                               "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"            "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"            "0"
+    "VisionNighttimeRange"        "0"
+    "UnitRelationshipClass"       "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_NONE"
+
+    "Ability1"                          "out_of_game"
   }
 }
