@@ -117,7 +117,7 @@
 	[
 		{
 			m_bEndCap = true
-			m_ChildRef = resource:"particles/hero/ronin/flurry_of_blows_ground_projection.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_ground_projection.vpcf"
 		},
 		{
 			m_bEndCap = true
@@ -128,59 +128,7 @@
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ground_scorch.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_light.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_dark_swirl.vpcf"
-			m_bDisableChild = true
-		},
-		{
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_star_perimeter.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ember.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_warp_ripple.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_warp.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_spiral.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_swirl_orange.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_galaxy.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_core_rays.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_core_glow.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_model.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_outer_debris.vpcf"
-			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ember_streak.vpcf"
@@ -189,33 +137,13 @@
 			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_streak_start.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_ring_flash.vpcf"
-			m_bDisableChild = true
+			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_ground_ring.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/flurry_of_blows_ground_ring.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_ground_shake.vpcf"
 		},
 		{
-			m_flDelay = 0.5
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/hero/ronin/flurry_of_blows_ground_shake.vpcf"
-		},
-		{
-			m_flDelay = 0.5
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare_b.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_xray.vpcf"
-			m_bDisableChild = true
-		},
-		{
-			m_flDelay = 1.0
-			m_ChildRef = resource:"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5_flare_c.vpcf"
-			m_bDisableChild = true
+			m_ChildRef = resource:"particles/hero/sohei/flurry_of_blows_dance.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 
@@ -227,49 +155,56 @@
 				{
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 1
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 3
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 6
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 7
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 8
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 				{
 					m_iControlPoint = 9
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 400.0, 0.0, 0.0 ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
 					m_entityName = "self"
 				},
 			]

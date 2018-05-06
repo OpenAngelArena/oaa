@@ -22,7 +22,10 @@
     "ItemResult"                    "item_meteor_hammer_5"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "02"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+      "03"                                                "item_cyclone_4;item_upgrade_core_4"
+      "04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
 
@@ -61,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "35625"
+    "ItemCost"                      "36030"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 5;meteor hammer 5"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

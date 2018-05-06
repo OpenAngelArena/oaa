@@ -40,6 +40,11 @@ local special_bottles = {
   [57898114] = 2, --KGBurger
   [89367798] = 2, --Naeil
 
+  [168785654] = 2, --german player, bent but not broken
+  [32128719] = 2, -- jmn, Hot Guy (very)
+  [78937420] = 2, -- PerTzo, road to rank daun
+  [91854805] = 2, -- Scabo, Scabo
+  [90810663] = 2, -- hwa, hwa
 
 
   -- special people
@@ -123,7 +128,8 @@ local special_bottles = {
   [268013660] = 3, --steam: http://steamcommunity.com/profiles/76561198228279388 - twitch: Johnathan963
   [293127420] = 3, --steam: http://steamcommunity.com/profiles/76561198253393148 - twitch: -no name given, current steam name crazyrock
   [156899250] = 3, --steam: http://steamcommunity.com/profiles/76561198117164978 - twitch: -no name given, current steam name bonde
-
+  [226594311] = 3, --steam: http://steamcommunity.com/profiles/76561198186860039 - twitch: Oaksworth
+  [92726647] = 3, --steam: http://steamcommunity.com/profiles/76561198052992375 - twitch: -no name given, current steam name Pomfritten
 
 
   -- twitch donators 20
@@ -160,6 +166,10 @@ local special_bottles = {
   [90567040] = 5, --steam: http://steamcommunity.com/profiles/76561198050832768 - twitch: Teloba
   [123352359] = 5, --steam: http://steamcommunity.com/profiles/76561198083618087 - twitch: tobymhj
   [70763083] = 5, --steam: http://steamcommunity.com/profiles/76561198031028811 - twitch: vatsalyagoel
+  [144060401] = 5, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
+  [53067223] = 5, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
+  [107719587] = 5, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
+  [80434451] = 5, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
 
 
 
@@ -185,6 +195,22 @@ local special_bottles = {
   [28215809] = 27, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
   [119820692] = 28, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
   [59735209] = 29, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
+  [101238957] = 30, --steam: http://steamcommunity.com/profiles/76561198061504685 - twitch: AssassinsFurr
+  [209872243] = 31, --steam: http://steamcommunity.com/profiles/76561198170137971 - twitch: HL_Vortex
+  [148999070] = 32, --steam: http://steamcommunity.com/profiles/76561198109264798 - twitch: Pavlav_
+  [159775101] = 33, --steam: http://steamcommunity.com/profiles/76561198120040829 - twitch: TheManWithNoLogic
+  [185444775] = 34, --steam: http://steamcommunity.com/profiles/76561198145710503 - twitch: -no name given, current steam name original
+  [134290738] = 35, --steam: http://steamcommunity.com/profiles/76561198094556466 - twitch: Firenere
+  [112815376] = 36, --steam: https://steamcommunity.com/profiles/76561198073081104 - twitch: Golden_Hamster
+  [63114914] = 37, --steam: http://steamcommunity.com/profiles/76561198023380642 - twitch: HylaGeo
+  [372975176] = 38, --steam: http://steamcommunity.com/profiles/76561198333240904 - twitch: icedragon241
+  [100390464] = 39, --steam: http://steamcommunity.com/profiles/76561198060656192 - twitch: JamesGoodfellow
+  [78069323] = 40, --steam: http://steamcommunity.com/profiles/76561198038335051 - twitch: ll-NastyDaddy-ll
+  [108495619] = 41, --steam: http://steamcommunity.com/profiles/76561198068761347 - twitch: LordSxey
+  [117601424] = 42, --steam: http://steamcommunity.com/profiles/76561198077867152- twitch: Shonkjr
+  [105759579] = 43, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
+  [94327365] = 44, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
+  [196939910] = 45, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
 }
 
 local bonusNames = {
@@ -217,7 +243,22 @@ local bonusNames = {
   'custom/bottles/bottle_mrpootis',
   'custom/bottles/bottle_tokengoat',
   'custom/bottles/bottle_sms77',
-
+  'custom/bottles/bottle_assassinsfurr', --30
+  'custom/bottles/bottle_hl_vortex',
+  'custom/bottles/bottle_pavlav',
+  'custom/bottles/bottle_nologic',
+  'custom/bottles/bottle_original',
+  'custom/bottles/bottle_firenere', --35
+  'custom/bottles/bottle_goldenhamster',
+  'custom/bottles/bottle_hylageo',
+  'custom/bottles/bottle_icedragon241',
+  'custom/bottles/bottle_jamesgoodfellow_2',
+  'custom/bottles/bottle_nastydaddy', --40
+  'custom/bottles/bottle_lordsxey',
+  'custom/bottles/bottle_shonkjr',
+  'custom/bottles/bottle_zapp',
+  'custom/bottles/bottle_sdakfreezes',
+  'custom/bottles/bottle_brickbrack743', --45
 }
 
 --------------------------------------------------------------------------------

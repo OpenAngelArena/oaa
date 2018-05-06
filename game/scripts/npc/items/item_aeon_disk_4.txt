@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8403"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8403"   // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -15,11 +15,11 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
-    "ItemResult"          "item_aeon_disk_4"
+    "ItemResult"                                          "item_aeon_disk_4"
     "ItemRequirements"
     {
-      "01"                                                "item_aeon_disk_3;item_upgrade_core_3"
-      "02"                                                "item_aeon_disk_3;item_upgrade_core_4"
+      "01"                                                "item_bloodstone_3;item_upgrade_core_3"
+      "02"                                                "item_bloodstone_3;item_upgrade_core_4"
     }
   }
 
@@ -30,17 +30,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"            "8404"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"     "item_aeon_disk"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "8404"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_aeon_disk"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "16350"
+    "ItemCost"                                            "17900"
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"       "90.0 75.0 60.0 45.0 30.0"
+    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0 30.0"
     "AbilityTextureName"                                  "custom/combo_breaker_4"
 
     // Special

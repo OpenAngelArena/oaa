@@ -1,7 +1,8 @@
 <root>
 	<Panel style="visibility:collapse;">
 		<Panel id="container" style="visibility:collapse;">
-			<Image src="file://panorama/images/heroes/npc_dota_hero_sohei.png" hittest="false" /> <!-- Cookies: Find out why it doesn't precache the image, and then hide it just like the other one -->
+			<Image src="file://panorama/images/heroes/npc_dota_hero_sohei.png" hittest="false" />
+      <Image src="file://panorama/images/heroes/npc_dota_hero_electrician.png" hittest="false" /> <!-- Cookies: Find out why it doesn't precache the image, and then hide it just like the other one -->
 <!--		<Image src="file://panorama/images/heroes/icons/npc_dota_hero_sohei.png" hittest="false" /> -->
 		</Panel>
 	</Panel>

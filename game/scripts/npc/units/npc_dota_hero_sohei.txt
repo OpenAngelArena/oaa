@@ -8,6 +8,8 @@
     "BaseClass"                 "npc_dota_hero_juggernaut"
     "HeroID"                    "128"
     "Model"                     "models/heroes/sohei/sohei.vmdl"
+    "SoundSet"                  "Sohei"
+    "GameSoundsFile"            "soundevents/units/game_sounds_sohei.vsndevts"
 
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementTurnRate"          "1.5"
@@ -36,14 +38,14 @@
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
     "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.0"
+    "AttributeStrengthGain"     "3.5"
     "AttributeBaseAgility"      "18"
     "AttributeAgilityGain"      "1.5"
     "AttributeBaseIntelligence" "17"
-    "AttributeIntelligenceGain" "1.5"
+    "AttributeIntelligenceGain" "1.2"
 
     "Ability1"                  "sohei_dash"
-    "Ability2"                  "sohei_guard"
+    "Ability2"                  "sohei_wholeness_of_body"
     "Ability3"                  "sohei_momentum"
     "Ability4"                  "sohei_palm_of_life"
     "Ability5"                  "generic_hidden"
@@ -52,8 +54,8 @@
     "Ability10"                 "special_bonus_sohei_stun"             // Momentum inflicts a brief stun if the target collides with an obstacle
     "Ability11"                 "special_bonus_cleave_15"
     "Ability12"                 "special_bonus_strength_20"
-    "Ability13"                 "special_bonus_sohei_guard_knockback"             // Guard also knockbacks enemies until they are 300 units away
-    "Ability14"                 "special_bonus_sohei_momentum_guard_cooldown"             // Momentum hits reduce the cooldown on Guard
+    "Ability13"                 "special_bonus_sohei_wholeness_knockback"             // Guard also knockbacks enemies until they are 300 units away
+    "Ability14"                 "special_bonus_sohei_wholeness_allycast"             // Momentum hits reduce the cooldown on Guard
     "Ability15"                 "special_bonus_movement_speed_75"
     "Ability16"                 "special_bonus_sohei_dash_recharge"             // Dash charges cool down all at once
     "Ability17"                 "special_bonus_sohei_fob_radius"             // Increases Flurry of Blows' AOE radius
@@ -64,6 +66,6 @@
     "HasInventory"        "1" // This KV must be added in units file only
 
     "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
-    "VisionNighttimeRange"      "800"                             // Range of vision at night time.
+    "VisionNighttimeRange"      "1200"                             // Range of vision at night time.
   }
 }

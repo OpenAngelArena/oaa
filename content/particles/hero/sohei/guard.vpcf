@@ -10,34 +10,34 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_cast.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_cast.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/items3_fx/lotus_orb_shell_shield_shell.vpcf"
 		},
 		{
 			m_bEndCap = true
-			m_ChildRef = resource:"particles/hero/ronin/guard_end.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_end.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_shell.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_shell.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_plasma.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_plasma.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_highlight1.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_highlight1.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_rings.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_rings.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/hero/ronin/guard_warp_cast.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_warp_cast.vpcf"
 		},
 		{
 			m_flDelay = 0.3
 			m_bEndCap = true
-			m_ChildRef = resource:"particles/hero/ronin/guard_warp_endcap.vpcf"
+			m_ChildRef = resource:"particles/hero/sohei/guard_warp_endcap.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 

@@ -91,4 +91,17 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 	}
+	//=================================================================================================================
+	// HERO: Electrician
+	//=================================================================================================================
+	"npc_dota_hero_electrician"
+	{
+		"BaseClass"					"npc_dota_hero_dazzle"
+		"HeroID"					"129"
+		"Model"						"models/heroes/dazzle/dazzle.vmdl"
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+	}
 }

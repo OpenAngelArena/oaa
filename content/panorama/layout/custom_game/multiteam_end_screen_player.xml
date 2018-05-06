@@ -1,0 +1,26 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/multiteam_end_screen.css" />
+	</styles>
+
+	<Panel class="es-player-root">
+		<DOTAHeroImage id="es-player-hero" heroname="npc_dota_hero_pudge" heroimagestyle="landscape" />
+		<DOTAAvatarImage id="es-player-avatar" steamid="" />
+		<Panel class="es-player-name-and-desc">
+			<Label id="es-player-name" text="N/A" />
+			<Label id="es-player-desc" text="N/A" />
+		</Panel>
+		<Label id="es-player-level" class="es-player-kdalevel es-player-line-text"  text="999" />
+		<Label id="es-player-k" class="es-player-kdalevel es-player-line-text" text="999" />
+		<Label id="es-player-d" class="es-player-kdalevel es-player-line-text" text="999" />
+		<Label id="es-player-a" class="es-player-kdalevel es-player-line-text" text="999" />
+		<Label id="es-player-gold" class="es-player-line-text" text="99999" />
+		<Label id="es-player-imr" class="es-player-line-text" text="10000 (-50)" />
+		<Panel class="es-player-xp">
+			<Panel id="es-player-xp-progress" />
+			<Label id="es-player-xp-level" text="N/A" />
+			<Label id="es-player-xp-rank" text="N/A" />
+		</Panel>
+		<Label id="es-player-xp-earned" class="es-player-line-text" text="+200" />
+	</Panel>
+</root>

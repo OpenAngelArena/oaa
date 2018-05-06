@@ -82,19 +82,19 @@ if IsServer() then
 		target:Purge( false, true, false, true, true )
 
 		-- Start an animation
-    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_1 , 1)
+    caster:StartGestureWithPlaybackRate( ACT_DOTA_OVERRIDE_ABILITY_2 , 1)
 
 		-- Play guard sound
 		target:EmitSound( "Sohei.Guard" )
 
 		--Apply Linken's + Lotus Orb + Attack reflect modifier for 2 seconds
 		local duration = self:GetSpecialValueFor("guard_duration")
-		target:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", { duration = duration })
+		--target:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", { duration = duration })
 		target:AddNewModifier(caster, self, "modifier_sohei_guard_reflect", { duration = duration })
 
 		-- Stop the animation when it's done
 		Timers:CreateTimer(duration, function()
-			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
+			caster:FadeGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 		end)
 
 		-- If there is at least one target to attack, hit it
@@ -176,15 +176,15 @@ end
 
 --------------------------------------------------------------------------------
 
---[[
+
 function modifier_sohei_guard_reflect:GetEffectName()
-	return "particles/items3_fx/lotus_orb_shell.vpcf"
+	return "particles/hero/sohei/guard.vpcf"
 end
 
 function modifier_sohei_guard_reflect:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
-]]--
+
 
 --------------------------------------------------------------------------------
 
@@ -192,7 +192,7 @@ function modifier_sohei_guard_reflect:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_AVOID_DAMAGE,
 		MODIFIER_PROPERTY_ABSORB_SPELL,
-		--MODIFIER_PROPERTY_REFLECT_SPELL,
+		MODIFIER_PROPERTY_REFLECT_SPELL,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 
@@ -212,15 +212,49 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-	function modifier_sohei_guard_reflect:GetAbsorbSpell( event )
-		return 1
+  function modifier_sohei_guard_reflect:GetAbsorbSpell( event )
+    local caster = event.ability:GetCaster()
+    local casterIsAlly = caster:GetTeamNumber() == self:GetParent():GetTeamNumber()
+    if casterIsAlly then
+      return 0
+    end
+    return 1
 	end
 
 --------------------------------------------------------------------------------
 
-	-- why does this do nothing
-	function modifier_sohei_guard_reflect:GetReflectSpell( event )
-		return 1
+	-- why does this do nothing. It does work, but you have to reflect yourself! it was done on reactive_reflect before
+	function modifier_sohei_guard_reflect:GetReflectSpell( kv )
+
+    if IsServer() then
+      local hCaster = self:GetParent()
+      hCaster:EmitSound( "Item.LotusOrb.Activate" )
+
+      local burst = ParticleManager:CreateParticle( "particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+      local leaves = ParticleManager:CreateParticle( "particles/hero/sohei/reflect_sakura_leaves.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+      Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle( burst, false )
+        ParticleManager:ReleaseParticleIndex(burst)
+        ParticleManager:DestroyParticle( leaves, false )
+        ParticleManager:ReleaseParticleIndex(leaves)
+      end)
+
+      local hAbility = hCaster:AddAbility(kv.ability:GetAbilityName())
+
+      if hAbility ~= nil then
+        hAbility:SetStolen(true) --just to be safe with some interactions.
+        hAbility:SetHidden(true) --hide the ability.
+        hAbility:SetLevel(kv.ability:GetLevel()) --same level of ability as the origin.
+        hCaster:SetCursorCastTarget(kv.ability:GetCaster()) --lets send this spell back.
+        hAbility:OnSpellStart() --cast the spell.
+
+        Timers:CreateTimer(10, function()
+          hCaster:RemoveAbility( hAbility:GetAbilityName() )
+        end)
+      end
+    end
+
+    return 1
 	end
 
 --------------------------------------------------------------------------------

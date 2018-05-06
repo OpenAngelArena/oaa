@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities */
+/* global FindDotaHudElement, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
 /*
   Author:
     Chronophylos
@@ -11,11 +11,15 @@
 // settings
 var useFormatting = 'half';
 
-(function () {
-  PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
-  GameEvents.Subscribe('dota_player_update_query_unit', onQueryChange); // This doesn't work but I'm leaving it in
-  GameEvents.Subscribe('dota_player_update_selected_unit', onQueryChange);
-}());
+// subscribe only after the game start (fix loading problems)
+var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
+  if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+    PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
+    GameEvents.Subscribe('dota_player_update_query_unit', onQueryChange); // This doesn't work but I'm leaving it in
+    GameEvents.Subscribe('dota_player_update_selected_unit', onQueryChange);
+    GameEvents.Unsubscribe(eventHandler);
+  }
+});
 
 function onQueryChange () {
   onGoldChange('gold', PlayerTables.GetAllTableValues('gold'));

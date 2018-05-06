@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17125"
+    "ItemCost"                                            "17175"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "urn of sorcery 3;melon 3"
@@ -76,17 +76,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "12 15 18 21"
+        "bonus_all_stats"                                 "12 24 36 48"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen"                                      "4 8 16 32"
+        "mana_regen"                                      "2 3 4 6"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 13 16"
+        "bonus_armor"                                     "7 12 18 25"
       }
       "06"
       {
@@ -96,12 +96,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "soul_heal_amount"                                "400 600 800 1000"
+        "soul_heal_amount"                                "400 700 1000 1300"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "soul_damage_amount"                              "150 225 300 400"
+        "soul_damage_amount"                              "150 250 350 400"
       }
       "09"
       {
@@ -121,7 +121,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "4 8 12 16"
+        "aura_health_regen"                               "4 9 14 20"
       }
       "13"
       {

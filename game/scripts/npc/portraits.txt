@@ -2385,6 +2385,37 @@
 		"PortraitHideDropShadow"		"0"
 		"PortraitDesaturateParticles"		"0"
 	}
+  "models/heroes/electrician/electrician.vmdl"
+  {
+    "PortraitLightPosition"   "50.45 -31.84 189.14"
+    "PortraitLightAngles"   "52.57 131.53 0.00"
+    "PortraitLightFOV"    "80"
+    "PortraitLightDistance"   "120"
+    "PortraitLightColor"    "160 210 255"
+    "PortraitShadowColor"   "56 56 56"
+    "PortraitShadowScale"   "5.000000"
+    "PortraitAmbientColor"    "120 50 104"
+    "PortraitAmbientScale"    "7.000000"
+    "PortraitSpecularColor"   "251 64 84"
+    "PortraitBackgroundTexture"   "materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+    "PortraitBackgroundColor1"    ".45 .3 .68"
+    "PortraitBackgroundColor2"    "1 1 1"
+    "PortraitBackgroundColor3"    ".18 .1 .28"
+    "PortraitBackgroundColor4"    "0 0 0"
+    "PortraitLightScale"    "2.4000"
+    "PortraitGroundShadowScale"   "1.500000"
+    "PortraitAmbientDirection"    "15.590 51.600 21.350"
+    "PortraitAnimationActivity"   "ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"    "175.87 -110.45 137.76"
+        "PortraitAngles"    "1.54 147.00 0.00"
+        "PortraitFOV"   "20"
+      }
+    }
+  }
 	"models/heroes/juggernaut/jugg_healing_ward.vmdl"
 	{
 		"PortraitLightPosition"		"58.77 58.27 194.33"
@@ -24018,6 +24049,91 @@
 		"PortraitDesaturateHero"		"1"
 	}
 
+  "models/props/bottle_statue.vmdl"
+  {
+    "PortraitLightPosition"		"328.508209 174.050247 168.072632"
+    "PortraitLightAngles"		"14.793806 -154.854080 28.844908"
+    "PortraitLightFOV"		"42.769001"
+    "PortraitLightDistance"		"1016.940002"
+    "PortraitLightColor"		"209 207 186"
+    "PortraitShadowColor"		"26 89 107"
+    "PortraitShadowScale"		"2.458000"
+    "PortraitAmbientColor"		"98 184 255"
+    "PortraitAmbientScale"		"1.072000"
+    "PortraitSpecularColor"		"251 74 84"
+    "PortraitParticle"		      "particles/misc/aegis_oaa_t2.vpcf"
+    "PortraitBackgroundColor1"		"0.000000 0.000000 0.000000"
+    "PortraitBackgroundColor2"		"0.792157 0.768627 0.760784"
+    "PortraitBackgroundColor3"		"0.164706 0.407843 0.486275"
+    "PortraitBackgroundColor4"		"0.184314 0.266667 0.298039"
+    "PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_whiteexteriornight.vmat"
+    "PortraitLightScale"		"2.600000"
+    "PortraitGroundShadowScale"		"1.500000"
+    "PortraitAmbientDirection"		"0.602 -0.580 -0.549"
+    "PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"		"397.99 89.38 200.53"
+				"PortraitAngles"		"12.34 193.86 -5.00"
+        "PortraitFOV"		"24.000000"
+        "PortraitFar"		"1000.000000"
+      }
+    }
+    "PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+    "PortraitSpecularPower"		"16.000000"
+    "PortraitAnimationCycle"		"0.500000"
+    "PortraitAnimationRate"		"1.000000"
+    "PortraitHideHero"		"0"
+    "PortraitHideParticles"		"0"
+    "PortraitHideDropShadow"		"0"
+    "PortraitDesaturateParticles"		"0"
+    "PortraitDesaturateHero"		"1"
+  }
+
+  "models/props/bottle2_statue.vmdl"
+  {
+    "PortraitLightPosition"		"328.508209 174.050247 168.072632"
+    "PortraitLightAngles"		"14.793806 -154.854080 28.844908"
+    "PortraitLightFOV"		"42.769001"
+    "PortraitLightDistance"		"1016.940002"
+    "PortraitLightColor"		"209 207 186"
+    "PortraitShadowColor"		"26 89 107"
+    "PortraitShadowScale"		"2.458000"
+    "PortraitAmbientColor"		"98 184 255"
+    "PortraitAmbientScale"		"1.072000"
+    "PortraitSpecularColor"		"251 74 84"
+    "PortraitParticle"		      "particles/misc/aegis_oaa_t2.vpcf"
+    "PortraitBackgroundColor1"		"0.000000 0.000000 0.000000"
+    "PortraitBackgroundColor2"		"0.792157 0.768627 0.760784"
+    "PortraitBackgroundColor3"		"0.164706 0.407843 0.486275"
+    "PortraitBackgroundColor4"		"0.184314 0.266667 0.298039"
+    "PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_whiteexteriornight.vmat"
+    "PortraitLightScale"		"2.600000"
+    "PortraitGroundShadowScale"		"1.500000"
+    "PortraitAmbientDirection"		"0.602 -0.580 -0.549"
+    "PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"		"397.99 89.38 200.53"
+				"PortraitAngles"		"12.34 193.86 -5.00"
+        "PortraitFOV"		"24.000000"
+        "PortraitFar"		"1000.000000"
+      }
+    }
+    "PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+    "PortraitSpecularPower"		"16.000000"
+    "PortraitAnimationCycle"		"0.500000"
+    "PortraitAnimationRate"		"1.000000"
+    "PortraitHideHero"		"0"
+    "PortraitHideParticles"		"0"
+    "PortraitHideDropShadow"		"0"
+    "PortraitDesaturateParticles"		"0"
+    "PortraitDesaturateHero"		"1"
+  }
 
 
 

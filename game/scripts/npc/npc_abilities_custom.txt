@@ -9,13 +9,20 @@
 #base "abilities/silencer_glaives_of_wisdom_oaa.txt"
 #base "abilities/slardar_bash_oaa.txt"
 #base "abilities/sohei_dash_oaa.txt"
-#base "abilities/sohei_guard_oaa.txt"
+#base "abilities/sohei_wholeness_of_body_oaa.txt"
 #base "abilities/sohei_momentum_oaa.txt"
 #base "abilities/sohei_flurry_of_blows_oaa.txt"
 #base "abilities/sohei_palm_of_life_oaa.txt"
 #base "abilities/sohei_talents_oaa.txt"
 #base "abilities/tiny_grow_oaa.txt"
 #base "abilities/visage_gravekeepers_cloak_oaa.txt"
+#base "abilities/zuus_cloud_oaa.txt"
+
+#base "abilities/electrician_static_grip_oaa.txt"
+#base "abilities/electrician_electric_shield_oaa.txt"
+#base "abilities/electrician_energy_absorption_oaa.txt"
+#base "abilities/electrician_cleansing_shock_oaa.txt"
+#base "abilities/electrician_talents_oaa.txt"
 
 #base "abilities/boss/boss_great_cleave.txt"
 #base "abilities/boss/boss_geostrike.txt"
@@ -30,11 +37,21 @@
 #base "abilities/boss/boss_cliffwalk.txt"
 #base "abilities/siltbreaker/siltbreaker_boss_protection.txt"
 
+#base "abilities/spiders/boss_spiders_spider_cold_combustion.txt"
+#base "abilities/spiders/boss_spiders_spidershot.txt"
+#base "abilities/spiders/boss_spiders_cannonshot.txt"
+
 #base "abilities/charger/boss_charger_charge.txt"
 #base "abilities/charger/boss_charger_summon_pillar.txt"
 #base "abilities/charger/boss_charger_super_armor.txt"
 #base "abilities/shielder/boss_shielder_shield.txt"
 #base "abilities/twin/boss_twin_twin_empathy.txt"
+#base "abilities/carapace/boss_carapace_headbutt.txt"
+#base "abilities/carapace/boss_carapace_crystals.txt"
+#base "abilities/swiper/boss_swiper_thrust.txt"
+#base "abilities/swiper/boss_swiper_frontswipe.txt"
+#base "abilities/swiper/boss_swiper_backswipe.txt"
+#base "abilities/swiper/boss_swiper_reapers_rush.txt"
 
 #base "abilities/siltbreaker/ogre_tank_boss_melee_smash.txt"
 #base "abilities/siltbreaker/ogre_tank_boss_jump_smash.txt"
@@ -72,6 +89,7 @@
 
 #base "abilities/misc/out_of_game.txt"
 #base "abilities/misc/environment_passive.txt"
+#base "abilities/misc/bottle_selection.txt"
 
 #base "abilities/fountain_attack.txt"
 #base "abilities/dev_attack.txt"

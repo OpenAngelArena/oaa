@@ -56,12 +56,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 1500 2000 4500 7000"
+        "golem_hp_tooltip"                                "1000 2000 3000 4500 7000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "75 100 125 250 375"
+        "golem_dmg_tooltip"                               "75 125 175 375 600"
       }
       "06"
       {
@@ -82,12 +82,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 1125 1500 3375 5250"
+        "golem_hp_tooltip_scepter"                        "750 1500 2250 3375 5250"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "56 75 94 236 315"
+        "golem_dmg_tooltip_scepter"                       "56 94 131 280 450"
       }
       "11"
       {
@@ -101,5 +101,4 @@
       }
     }
   }
-
 }

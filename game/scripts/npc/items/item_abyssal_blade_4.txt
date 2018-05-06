@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "19400"
+    "ItemCost"                                            "19900"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,70 +64,75 @@
     "AbilitySpecial"
     {
       "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 750 1250 2000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 14 21 28 35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 130 160 190"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 50 70 100 140"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_chance_melee"                               "25"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_chance_ranged"                              "10"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "1.4"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_cooldown"                                   "2.3"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 150 225 325 475"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "140"
-      }
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"		"25 45 70 105 140"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "bonus_health"    "250 500 750 1250 2000"
+			}
+			"03"
+			{
+				"var_type"				    "FIELD_INTEGER"
+        "bonus_health_regen"  "7 14 21 28 35"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_melee"	"70 100 130 160 190"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_ranged"	"35 50 70 100 140"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance"			"50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10 15 20 25 30"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_chance_melee"		"25"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_chance_ranged"		"10"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bash_duration"			"1.5"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bash_cooldown"			"2.3"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_chance_damage"	"100 150 225 325 475"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"2.0"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"140"
+			}
     }
   }
 }

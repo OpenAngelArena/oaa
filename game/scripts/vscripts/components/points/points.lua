@@ -29,6 +29,7 @@ function PointsManager:Init ()
   -- Register chat commands
   ChatCommand:LinkCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
   ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+  ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 end
 
 function PointsManager:CheckWinCondition(teamID, points)

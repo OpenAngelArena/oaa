@@ -18,6 +18,20 @@
 				m_bGetSkinningFromLod0 = false
 				m_pMorphInfo = null
 			},
+			{
+				m_meshName = "so_weapon"
+				m_meshFile = "models/heroes/sohei/so_weapon.fbx"
+				m_materialSearchPath = ""
+				m_bSkinParentedObjects = true
+				m_bLegacySkinParentedTransforms = false
+				m_bExpensiveTangents = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
+				m_bIgnoreCloth = false
+				m_bGetSkinningFromLod0 = false
+				m_pMorphInfo = null
+			},
 		]
 	}
 	m_clothProxyMeshList = 
@@ -677,6 +691,19 @@
 							},
 						]
 					},
+					{
+						m_name = "attach_origin"
+						m_influences = 
+						[
+							{
+								m_influenceName = "root"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
 				]
 			}
 		},
@@ -775,14 +802,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -845,14 +865,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -915,14 +928,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 7
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -1371,14 +1377,7 @@
 							m_nWeight = 1
 						},
 					]
-					m_AnimationEvents = 
-					[
-						{
-							m_Event = "AE_CL_PLAYSOUND_POSITION"
-							m_nFrame = 9
-							m_DataString = "Sohei.Attacks"
-						},
-					]
+					m_AnimationEvents = [  ]
 					m_MotionFrames = 
 					[
 						{
@@ -1459,6 +1458,320 @@
 					m_folderName = ""
 					m_MotionFramesRootBone = ""
 				},
+				{
+					m_Animationname = "victory"
+					m_Filepath = "models/heroes/sohei/anims/victory.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 69
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_VICTORY"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1285.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "jump"
+					m_Filepath = "models/heroes/sohei/anims/jump.dmx"
+					m_nStartframe = 1
+					m_nEndframe = 12
+					m_flFps = 25.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_FLAIL"
+							m_nWeight = 1
+						},
+						{
+							m_Name = "forcestaff_friendly"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1285.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "jump_end"
+					m_Filepath = "models/heroes/sohei/anims/jump_end.dmx"
+					m_nStartframe = 1
+					m_nEndframe = 12
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_FORCESTAFF_END"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1285.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "taunt_maskLord"
+					m_Filepath = "models/heroes/sohei/anims/taunt_maskLord.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 124
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CHANNEL_ABILITY_4"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1285.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "taunt_face_me"
+					m_Filepath = "models/heroes/sohei/anims/taunt_face_me.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 70
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_4"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1285.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "idle_capture"
+					m_Filepath = "models/heroes/sohei/anims/idle.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 83
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAPTURE"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ -1837.0, 0.0, -1304.0 ]
+						m_rotation = [ 0.0, 0.0, 135.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
 			]
 			m_sScripts = [  ]
 			m_folderNames = [  ]
@@ -1507,6 +1820,10 @@
 			{
 				m_sSearchMaterial = "rice_hat.vmat"
 				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_hat_color.vmat"
+			},
+			{
+				m_sSearchMaterial = "tetsubo.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/sohei_tetsubo.vmat"
 			},
 			{
 				m_sSearchMaterial = "*"

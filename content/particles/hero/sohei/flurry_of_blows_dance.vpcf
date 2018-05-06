@@ -1,0 +1,97 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ActivityName = "ACT_DOTA_CHANNEL_ABILITY_4"
+			m_EconSlotName = "0"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/heroes/sohei/sohei.vmdl"
+				},
+			]
+			m_bResetAnimOnStop = true
+			m_bAnimated = true
+			m_bOriginalModel = true
+			m_bDisableShadows = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomRadius"
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMax = 0.0
+			m_flDegrees = 90.0
+			m_bRandomlyFlipDirection = false
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_flDegreesMax = 0.0
+			m_flDegrees = 90.0
+			m_nFieldOutput = 12
+			m_bRandomlyFlipDirection = false
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_nTintBlendMode = "PARTICLEBLEND_LIGHTEN"
+			m_bDisableOperator = true
+			m_ColorMin = [ 96, 88, 56, 255 ]
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 200.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 200.0 ]
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 150
+			m_nAlphaMax = 150
+		},
+		{
+			_class = "C_INIT_CreateFromCPs"
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_MaintainEmitter"
+			m_nParticlesToMaintain = 1
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+	]
+}

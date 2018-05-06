@@ -22,8 +22,3 @@ See you there!
 [1]: https://discord.gg/EZpjGgd
 [2]: https://discord.gg/EBTrVJP
 [3]: ../bug-reports/bug-report-template.md
-[4]: filename.md
-[5]: filename.md
-[6]: filename.md
-[7]: filename.md
-[8]: filename.md
