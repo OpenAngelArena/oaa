@@ -113,7 +113,7 @@ function modifier_defense_tower_construction:OnDeath(data)
   end
 end
 function modifier_defense_tower_construction:GetModifierConstantHealthRegen()
-  if self:GetStackCount() > 0 then
+  if  IsServer() and self:GetStackCount() > 0 then
     return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
   else
     return 0

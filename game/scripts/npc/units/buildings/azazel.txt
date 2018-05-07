@@ -5,7 +5,8 @@
     // General
     //
     "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
-    "Model"                                               "models/props_structures/tower_good.vmdl"// Model.
+    "Model"                                               "models/props_structures/tower_good.vmdl"
+    "ModelScale"                                          ".75"
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower90"
@@ -65,7 +66,8 @@
     // General
     //
     "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
-    "Model"                                               "models/props_structures/wooden_sentry_tower001.vmdl"// Model.
+    "Model"                                               "models/props_structures/tower_upgrade/tower_upgrade.vmdl"
+    "ModelScale"                                          ".75"
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower45"

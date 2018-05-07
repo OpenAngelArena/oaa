@@ -43,13 +43,15 @@ item_azazel_tower_watch_4 = item_azazel_tower_watch_1
 
 modifier_watch_tower_construction = class(ModifierBaseClass)
 
-local SINK_HEIGHT = 300
+local SINK_HEIGHT = 200
 local THINK_INTERVAL = 0.1
 
 function modifier_watch_tower_construction:OnCreated()
+  local ab = self:GetAbility()
+  local level = ab:GetLevel()
+  self.level = level
   if IsServer() then
     local target = self:GetParent()
-    local ab = self:GetAbility()
     local maxhealth = target:GetMaxHealth() + ab:GetSpecialValueFor("bonus_health")
     local location = target:GetOrigin()
     local time = ab:GetSpecialValueFor("construction_time")
@@ -60,6 +62,7 @@ function modifier_watch_tower_construction:OnCreated()
       ResolveNPCPositions(location, target:GetHullRadius())
       target:SetMaxHealth(maxhealth)
       target:SetHealth(maxhealth * 0.01)
+      target:SetMaterialGroup('radiant_level'..level)
       self:StartIntervalThink(THINK_INTERVAL)
       self:SetStackCount(math.floor(time / THINK_INTERVAL)) -- `construction_time` should be divisible by `THINK_INTERVAL`!
     end)
@@ -95,32 +98,43 @@ function modifier_watch_tower_construction:IsPurgable()
 end
 function modifier_watch_tower_construction:CheckState()
   return {
-    [MODIFIER_STATE_BLIND] = self:GetStackCount() > 0
+    [MODIFIER_STATE_BLIND] = self:GetStackCount() > 0,
+    [MODIFIER_STATE_FROZEN] = self:GetStackCount() > 0 -- animation seem to restar on each `SetOrigin()` call, causing jittery look.
   }
 end
 function modifier_watch_tower_construction:DeclareFunctions()
   return {
-    --MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_BONUS_DAY_VISION,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
 function modifier_watch_tower_construction:OnDeath(data)
   if data.unit == self:GetParent() then
-    --self:GetParent():SetModel("models/props_structures/radiant_tower002_destruction.vmdl") -- doesn't seem to work.
-    self:GetParent():SetOriginalModel("models/props_structures/radiant_tower002_destruction.vmdl")
+    self:GetParent():SetOriginalModel("models/props_structures/tower_upgrade/tower_upgrade_dest.vmdl")
     self:GetParent():ManageModelChanges()
+    ParticleManager:CreateParticle("particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl1_dest.vpcf", PATTACH_ABSORIGIN, data.unit)
   end
 end
 function modifier_watch_tower_construction:GetModifierConstantHealthRegen()
-  if self:GetStackCount() > 0 then
+  if IsServer() and self:GetStackCount() > 0 then
     return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
   else
     return 0
   end
 end
 function modifier_watch_tower_construction:GetBonusDayVision()
-  return self:GetParent():Attribute_GetIntValue("bonus_vision_range", 0)
+  if IsServer() then
+    return self:GetParent():Attribute_GetIntValue("bonus_vision_range", 0)
+  end
 end
 modifier_watch_tower_construction.GetBonusNightVision = modifier_watch_tower_construction.GetBonusDayVision
+function modifier_watch_tower_construction:GetOverrideAnimation()
+  return ACT_DOTA_CAPTURE
+end
+function modifier_watch_tower_construction:GetActivityTranslationModifiers()
+  return "level"..self.level
+end
