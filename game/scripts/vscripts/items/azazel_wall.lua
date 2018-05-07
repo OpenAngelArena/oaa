@@ -5,7 +5,7 @@ item_azazel_wall_1 = class(ItemBaseClass)
 local SEGMENT_RADIUS = 96 -- the wall segments's collision radius as defined in the script data.
 
 function item_azazel_wall_1:CastFilterResultLocation(location)
-  if self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS) then
+  if self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS + self:GetCaster():GetHullRadius()) then
     return UF_FAIL_CUSTOM
   else
     return UF_SUCCESS
