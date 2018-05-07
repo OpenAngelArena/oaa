@@ -7,7 +7,9 @@ function item_azazel_tower_defense_1:CastFilterResultLocation(location)
   if IsClient() then
     return UF_SUCCESS -- the client can't use the GridNav, but the server will correct it anyway, you can't cheat that.
   end
-  if (not GridNav:IsTraversable(location)) or #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 144, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) > 0 then
+  if (not GridNav:IsTraversable(location)) or #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 144, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) > 0 or
+    self:GetCaster():IsPositionInRange(location, 144)
+  then
     return UF_FAIL_CUSTOM
   else
     return UF_SUCCESS
@@ -58,7 +60,7 @@ function modifier_defense_tower_construction:OnCreated()
     target:Attribute_SetIntValue("construction_time", time)
     target:Attribute_SetIntValue("bonus_damage", ab:GetSpecialValueFor("bonus_damage"))
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.1,function()
+    Timers:CreateTimer(0.1, function()
       ResolveNPCPositions(location, target:GetHullRadius())
       target:SetMaxHealth(maxhealth)
       target:SetHealth(maxhealth * 0.01)

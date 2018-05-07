@@ -4,6 +4,17 @@ item_azazel_wall_1 = class(ItemBaseClass)
 
 local SEGMENT_RADIUS = 96 -- the wall segments's collision radius as defined in the script data.
 
+function item_azazel_wall_1:CastFilterResultLocation(location)
+  if self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS) then
+    return UF_FAIL_CUSTOM
+  else
+    return UF_SUCCESS
+  end
+end
+function item_azazel_wall_1:GetCustomCastErrorLocation(location)
+  return "#dota_hud_error_no_buildings_here"
+end
+
 -- Spawns a line of wall segments perpendicular to the line between the cast location and the caster.
 function item_azazel_wall_1:OnSpellStart()
   local caster = self:GetCaster()
@@ -71,7 +82,7 @@ function modifier_wall_segment_construction:OnCreated()
     local time = ab:GetSpecialValueFor("construction_time")
     target:Attribute_SetIntValue("construction_time", time)
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.1,function()
+    Timers:CreateTimer(0.1, function()
       ResolveNPCPositions(location, target:GetHullRadius())
       target:SetMaxHealth(maxhealth)
       target:SetHealth(maxhealth * 0.01)

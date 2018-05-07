@@ -1,6 +1,24 @@
 "DOTAItems"
 {
     //=================================================================================================================
+    // Recipe: Watch Tower 2
+    //=================================================================================================================
+    "item_recipe_azazel_tower_watch_2"
+    {
+        "ID"                            "8503"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "ItemCost"                      "100"
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_azazel_tower_watch_2"
+        "AbilityTextureName"            "custom/recipe/recipe_2"
+        "ItemRequirements"
+        {
+            "01"                        "item_upgrade_core_2"
+        }
+    }
+    //=================================================================================================================
     // Azazel: Watch Tower 2
     //=================================================================================================================
     "item_azazel_tower_watch_2"
@@ -51,7 +69,8 @@
         }
         "precache"
         {
-           "model"                          "models/props_structures/wooden_sentry_tower001.vmdl"
+           "model"                          "models/props_structures/tower_upgrade/tower_upgrade.vmdl"
+           "particle"                       "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl1_dest.vpcf"
         }
     }
 }
