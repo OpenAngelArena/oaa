@@ -6,7 +6,7 @@
   "item_recipe_bfury"
   {
     "ID"                                                  "144"    // unique ID
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "300"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4100"
+    "ItemCost"                                            "4400"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf;battle fury"

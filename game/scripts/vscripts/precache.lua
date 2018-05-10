@@ -19,6 +19,7 @@ g_ItemPrecache = {
 g_UnitPrecache = {
   "npc_dota_visage_familiar",
   "npc_dota_hero_sohei",
+  "npc_dota_hero_electrician",
   "dota_fountain",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
@@ -47,14 +48,22 @@ g_UnitPrecache = {
 
   "npc_dota_creature_small_lycosidae",
   "npc_dota_creature_spider_boss",
+  "npc_dota_boss_spiders",
+  "npc_dota_boss_swiper"
 }
 
 g_ModelPrecache = {
-
+  "models/items/upgrade_1.vmdl",
+  "models/items/upgrade_2.vmdl",
+  "models/items/upgrade_3.vmdl",
+  "models/items/upgrade_4.vmdl",
 }
 
 g_ParticlePrecache = {
-
+  "particles/items/upgrade_1.vpcf",
+  "particles/items/upgrade_2.vpcf",
+  "particles/items/upgrade_3.vpcf",
+  "particles/items/upgrade_4.vpcf",
 }
 
 g_ParticleFolderPrecache = {
@@ -68,6 +77,7 @@ g_ParticleFolderPrecache = {
   "particles/items/vampire",
   "particles/items/reflection_shard",
   "particles/items/heart_transplant",
+  "particles/hero/electrician",
 }
 
 g_SoundPrecache = {
