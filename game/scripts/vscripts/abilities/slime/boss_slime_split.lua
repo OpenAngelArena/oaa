@@ -14,11 +14,19 @@ end
 
 modifier_boss_slime_split_passive = class(ModifierBaseClass)
 
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_split_passive:GetModifierModelChange( params )
+	return "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+end
+
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_split_passive:DeclareFunctions()
 	local funcs =
 	{
+		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_MIN_HEALTH,
 		MODIFIER_EVENT_ON_DEATH,
 		MODIFIER_PROPERTY_MODEL_SCALE,
@@ -26,6 +34,12 @@ function modifier_boss_slime_split_passive:DeclareFunctions()
 	}
 
 	return funcs
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_split_passive:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
 end
 
 ------------------------------------------------------------------------------------
@@ -43,8 +57,8 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_boss_slime_split_passive:GetModifierModelScale()
-	return 2.0
+function modifier_boss_slime_split_passive:GetModifierModelScale( params )
+	return 150.0
 end
 
 ------------------------------------------------------------------------------------
@@ -62,7 +76,7 @@ function modifier_boss_slime_split_passive:OnTakeDamage(keys)
 						UnitIndex = caster:entindex(),
 						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 						AbilityIndex = shakeAbility:entindex(),
-					})
+          })
 					caster:AddNewModifier(caster, shakeAbility, "modifier_invulnerable", {})
 					Timers:CreateTimer(shakeAbility:GetChannelTime(), function ()
 						self.readyToDie = true
@@ -86,7 +100,8 @@ function modifier_boss_slime_split_passive:OnDeath(keys)
 			local unitName = caster:GetUnitName()
 
 			local function CreateClone(origin)
-				local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
+        local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
+        clone:SetModel("models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl")
 				clone:RemoveAbility("boss_slime_split")
 				for i=0,5 do
 					local item = caster:GetItemInSlot(i)
