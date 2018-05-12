@@ -6,8 +6,11 @@ LinkLuaModifier("modifier_boss_charger_pillar_debuff", "abilities/charger/modifi
 LinkLuaModifier("modifier_boss_charger_hero_pillar_debuff", "abilities/charger/modifier_boss_charger_hero_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PITH YEVY IMPARTIAL
 LinkLuaModifier("modifier_boss_charger_trampling", "abilities/charger/modifier_boss_charger_trampling.lua", LUA_MODIFIER_MOTION_BOTH) --- MARTH FAIRY IPARTY
 
+print ("SRXZR DEBUG")
+print (AbilityBaseClass)
 boss_charger_charge = class(AbilityBaseClass)
-
+print("MMMM")
+print (boss_charger_charge)
 function boss_charger_charge:OnSpellStart()
   self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
 end
@@ -35,14 +38,17 @@ function boss_charger_charge:OnOwnerDied()
 end
 
 --------------------------------------------------------------------------------
-
+print ("HERE2")
 modifier_boss_charger_charge = class(ModifierBaseClass)
+print ("HERE3")
+print (modifier_boss_charger_charge)
 
 function modifier_boss_charger_charge:IsHidden()
   return false
 end
 
 function modifier_boss_charger_charge:OnIntervalThink()
+  print ("I AM HERE THINK")
   if not IsServer() then
     return
   end
@@ -147,7 +153,7 @@ function modifier_boss_charger_charge:OnCreated(keys)
   if not IsServer() then
     return
   end
-
+  print (" I AM HERE")
   self.draggedHeroes = {}
 
   local ability = self:GetAbility()
