@@ -19,6 +19,7 @@ end
 function modifier_ward_invisibility:CheckState()
   return {
     [MODIFIER_STATE_INVISIBLE] = self.isInvis,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
 end
 
