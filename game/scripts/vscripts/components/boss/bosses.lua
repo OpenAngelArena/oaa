@@ -71,6 +71,7 @@ Bosses = {
       "npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
+      "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
       "npc_dota_boss_swiper",
       "npc_dota_boss_carapace"
@@ -110,6 +111,7 @@ Bosses = {
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_boss_charger",
+      "npc_dota_creature_slime_spawner",
       "npc_dota_boss_swiper",
       "npc_dota_boss_carapace"
     },
@@ -120,7 +122,7 @@ Bosses = {
     },
     {
       "npc_dota_creature_temple_guardian_spawner",
-    "npc_dota_boss_stopfightingyourself",
+      "npc_dota_boss_stopfightingyourself",
       "npc_dota_boss_tier_4",
       "npc_dota_creature_spider_boss"
     },
