@@ -1,0 +1,70 @@
+
+"DOTAAbilities" {
+    //=================================================================================================================
+    // LycanBoss: Summon Wolves
+    //=================================================================================================================
+    "lycan_boss_summon_wolves_tier5"
+    {
+        "ID"                            "58448"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "lycan_summon_wolves"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_summon_wolves_tier5.lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.4"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "20"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+          "01"
+          {
+            "var_type"                                        "FIELD_FLOAT"
+            "wolf_duration"                                   "90.0"
+          }
+           "02"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_hound_spawn"                                 "10"
+          }
+           "03"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_hound_boss_spawn"                            "1"
+          }
+           "04"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_werewolf_spawn"                              "1"
+          }
+           "05"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_hound_spawn"                              "6"
+          }
+           "06"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_hound_boss_spawn"                         "2"
+          }
+           "07"
+          {
+            "var_type"                                        "FIELD_INTEGER"
+            "num_ss_werewolf_spawn"                           "2"
+          }
+        }
+    }
+}

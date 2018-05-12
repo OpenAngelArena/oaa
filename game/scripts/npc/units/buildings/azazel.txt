@@ -1,0 +1,178 @@
+"DOTAUnits"
+{
+  "npc_azazel_tower_defense"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "Model"                                               "models/props_structures/tower_good.vmdl"
+    "ModelScale"                                          ".75"
+    "SoundSet"                                            "Tower.Water"          // Name of sound set.
+    "HealthBarOffset"                                     "260"
+    "MinimapIcon"                                         "minimap_tower90"
+    "MinimapIconSize"                                     "320"
+
+    // Abilities
+    //----------------------------------------------------------------
+
+    "Ability1"                                            ""          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "20"        // Physical protection.
+    "MagicalResistance"                                   "0"         // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackRange"                                         "700"       // Range within a target can be attacked.
+    "AttackDamageMin"                                     "100"       // Damage range min.
+    "AttackDamageMax"                                     "120"       // Damage range max.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_tower_good.vpcf"
+    "ProjectileSpeed"                                     "750"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER"          // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "220"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"         // Speed
+    "MovementTurnRate"                                    "1"         // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1000"       // Base health.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"      // Range of vision at night time.
+  }
+  "npc_azazel_tower_watch"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "Model"                                               "models/props_structures/tower_upgrade/tower_upgrade.vmdl"
+    "ModelScale"                                          ".75"
+    "SoundSet"                                            "Tower.Water"          // Name of sound set.
+    "HealthBarOffset"                                     "260"
+    "MinimapIcon"                                         "minimap_tower45"
+    "MinimapIconSize"                                     "320"
+
+    // Abilities
+    //----------------------------------------------------------------
+
+    "Ability1"                                            ""          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "20"         // Physical protection.
+    "MagicalResistance"                                   "0"         // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER"          // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "220"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"         // Speed
+    "MovementTurnRate"                                    "0"         // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "500"       // Base health.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1500"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1500"      // Range of vision at night time.
+  }
+  "npc_azazel_wall_segment"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "Model"                                               "models/props_structures/radiant_statue001.vmdl"// Model.
+    "SoundSet"                                            "Tower.Water"          // Name of sound set.
+    "HealthBarOffset"                                     "260"
+    "MinimapIcon"                                         "minimap_miscbuilding"
+
+    // Abilities
+    //----------------------------------------------------------------
+
+    "Ability1"                                            ""          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "20"         // Physical protection.
+    "MagicalResistance"                                   "0"         // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"                                     "0"    // Damage range min.
+    "AttackDamageMax"                                     "0"    // Damage range max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_FILLER"          // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "100"
+    "HealthBarOffset"                                     "260"
+    "MinimapIconSize"                                     "200"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"         // Speed
+    "MovementTurnRate"                                    "1"         // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1500"       // Base health.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "100"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "100"      // Range of vision at night time.
+  }
+}
