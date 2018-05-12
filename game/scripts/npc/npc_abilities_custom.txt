@@ -42,6 +42,7 @@
 #base "abilities/spiders/boss_spiders_cannonshot.txt"
 
 #base "abilities/charger/boss_charger_charge.txt"
+#base "abilities/charger/boss_charger_charge_tier5.txt"
 #base "abilities/charger/boss_charger_summon_pillar.txt"
 #base "abilities/charger/boss_charger_super_armor.txt"
 #base "abilities/shielder/boss_shielder_shield.txt"
@@ -56,14 +57,30 @@
 #base "abilities/siltbreaker/ogre_tank_boss_melee_smash.txt"
 #base "abilities/siltbreaker/ogre_tank_boss_jump_smash.txt"
 
+#base "abilities/siltbreaker/ogre_tank_boss_melee_smash_tier5.txt"
+#base "abilities/siltbreaker/ogre_tank_boss_jump_smash_tier5.txt"
+
 #base "abilities/siltbreaker/ogre_seer_area_ignite.txt"
 #base "abilities/siltbreaker/ogre_magi_channelled_bloodlust.txt"
+
+
+#base "abilities/siltbreaker/ogre_seer_area_ignite_tier5.txt"
+#base "abilities/siltbreaker/ogre_magi_channelled_bloodlust_tier5.txt"
+
 
 #base "abilities/siltbreaker/lycan_boss_summon_wolves.txt"
 #base "abilities/siltbreaker/lycan_boss_shapeshift.txt"
 #base "abilities/siltbreaker/lycan_boss_claw_lunge.txt"
 #base "abilities/siltbreaker/lycan_boss_claw_attack.txt"
 #base "abilities/siltbreaker/lycan_boss_rupture_ball.txt"
+
+#base "abilities/siltbreaker/lycan_boss_summon_wolves_tier5.txt"
+#base "abilities/siltbreaker/lycan_boss_shapeshift_tier5.txt"
+#base "abilities/siltbreaker/lycan_boss_claw_lunge_tier5.txt"
+#base "abilities/siltbreaker/lycan_boss_claw_attack_tier5.txt"
+#base "abilities/siltbreaker/lycan_boss_rupture_ball_tier5.txt"
+
+
 #base "abilities/siltbreaker/ranged_quill_attack.txt"
 #base "abilities/siltbreaker/werewolf_howl.txt"
 
@@ -76,6 +93,21 @@
 #base "abilities/siltbreaker/spider_web.txt"
 #base "abilities/siltbreaker/mini_spider_slow_attack.txt"
 
+
+
+#base "abilities/siltbreaker/spider_boss_larval_parasite_tier5.txt"
+#base "abilities/siltbreaker/spider_boss_passive_tier5.txt"
+#base "abilities/siltbreaker/spider_boss_rage_tier5.txt"
+#base "abilities/siltbreaker/spider_boss_summon_eggs_tier5.txt"
+#base "abilities/siltbreaker/spider_egg_sack_tier5.txt"
+#base "abilities/siltbreaker/spider_poison_spit_tier5.txt"
+#base "abilities/siltbreaker/spider_web_tier5.txt"
+#base "abilities/siltbreaker/mini_spider_slow_attack_tier5.txt"
+
+
+
+
+
 #base "abilities/siltbreaker/temple_guardian_purification.txt"
 #base "abilities/siltbreaker/temple_guardian_hammer_throw.txt"
 #base "abilities/siltbreaker/temple_guardian_hammer_smash.txt"
@@ -83,9 +115,24 @@
 #base "abilities/siltbreaker/temple_guardian_wrath.txt"
 #base "abilities/siltbreaker/temple_guardian_passive.txt"
 
+
+
+#base "abilities/siltbreaker/temple_guardian_purification_tier5.txt"
+#base "abilities/siltbreaker/temple_guardian_hammer_throw_tier5.txt"
+#base "abilities/siltbreaker/temple_guardian_hammer_smash_tier5.txt"
+#base "abilities/siltbreaker/temple_guardian_rage_hammer_smash_tier5.txt"
+#base "abilities/siltbreaker/temple_guardian_wrath_tier5.txt"
+#base "abilities/siltbreaker/temple_guardian_passive_tier5.txt"
+
+
+
+
 #base "abilities/stopfightingyourself/dupe_heroes.txt"
 #base "abilities/stopfightingyourself/debuff_mirror.txt"
 #base "abilities/stopfightingyourself/dupe_items.txt"
+
+#base "abilities/boss/slice/oaa_boss_slice_spirit.txt"
+
 
 #base "abilities/misc/out_of_game.txt"
 #base "abilities/misc/environment_passive.txt"

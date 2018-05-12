@@ -1,0 +1,65 @@
+
+"DOTAAbilities" {
+  //=================================================================================================================
+    // Lycan Boss: Shapeshift
+    //=================================================================================================================
+    "lycan_boss_shapeshift_tier5"
+    {
+        "ID"                            "58447"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "lycan_shapeshift"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_shapeshift_tier5.lua"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "2"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "45"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "10"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "99999"
+                "LinkedSpecialBonus"        "special_bonus_unique_lycan_1"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "speed"             "950"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_night_vision"        "1000"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "transformation_time"       "0.5"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "crit_chance"           "80"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "crit_multiplier"       "540 660 780"
+            }
+        }
+    }
+}
