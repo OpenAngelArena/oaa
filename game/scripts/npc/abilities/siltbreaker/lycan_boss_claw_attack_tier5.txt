@@ -1,0 +1,97 @@
+
+"DOTAAbilities" {
+  //=================================================================================================================
+    // Lycan Boss: Claw Attack
+    //=================================================================================================================
+    "lycan_boss_claw_attack_tier5"
+    {
+        "ID"                            "58441"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_claw_attack_tier5.lua"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        "AnimationIgnoresModelScale"     "1"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "200"
+        "AbilityCastPoint"              "1.32"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.5"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "25000"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_radius"             "80"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "animation_time"            "1.32"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "initial_delay"             "1.08"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "6.0"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_damage_pct"       "15"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_cap_amount"         "2500"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_cap_interval"       "0.25"
+            }
+            "09"
+            {
+                "var_type"                              "FIELD_FLOAT"
+                "shapeshift_animation_time"            "1.14"
+            }
+            "10"
+            {
+                "var_type"                               "FIELD_FLOAT"
+                "shapeshift_initial_delay"             "0.84"
+            }
+            "11"
+            {
+                "var_type"                               "FIELD_FLOAT"
+                "stun_duration"             "1.0"
+            }
+        }
+    }
+}

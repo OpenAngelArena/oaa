@@ -55,6 +55,12 @@ globals = { -- these globals can be set and accessed.
 "XP_PER_LEVEL_TABLE",
 "RESPAWN_NEUTRAL_DEATH_PENALTY",
 "RESPAWN_TIME_TABLE",
+"INITIAL_CAPTURE_POINT_DELAY",
+"CAPTURE_FIRST_WARN",
+"CAPTURE_SECOND_WARN",
+"CAPTURE_START_COUNTDOWN",
+"CAPTURE_INTERVAL",
+"CAPTURE_LENTGH",
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -319,6 +325,7 @@ read_globals = { -- these globals can only be accessed.
 "ACT_IDLE",
 "ACT_DROP_WEAPON_SHOTGUN",
 "VectorLerp",
+"LerpVectors",
 "ACT_DOTA_THIRST",
 "ACT_RUN_CROUCH",
 "ACT_PDA_VM_RELOAD",

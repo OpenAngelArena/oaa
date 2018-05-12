@@ -32,27 +32,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "modelscale"                                      "25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "10 12 14 16 20 36"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 60 100 140"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30"
-      }
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"modelscale"		"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"		"10 12 14 16 20 36"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30 40 50 60 100 140"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_bonus"	"30 50 70 90 130 180"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"30"
+			}
     }
   }
 }

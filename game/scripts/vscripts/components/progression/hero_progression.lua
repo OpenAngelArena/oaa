@@ -15,12 +15,12 @@ GameEvents:OnPlayerLevelUp(function(keys)
     return
   end
 
-  HeroProgression:ReduceStatGain(hero, level)
+--  HeroProgression:ReduceStatGain(hero, level)
   HeroProgression:ProcessAbilityPointGain(hero, level)
 end)
 GameEvents:OnNPCSpawned(function(keys)
   local npc = EntIndexToHScript(keys.entindex)
-  HeroProgression:ReduceIllusionStats(npc)
+--  HeroProgression:ReduceIllusionStats(npc)
 end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
@@ -67,6 +67,7 @@ function HeroProgression.ModifyStat(entity, statName, modifyAmount)
   entity["Modify" .. statName](entity, modifyAmount)
 end
 
+--[[
 function HeroProgression:ReduceStatGain(hero, level)
   if level > 25 then
     local reductionFactor = 12 / (level - 25 + 12)
@@ -149,6 +150,7 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
     end)
   end
 end
+]]--
 
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]

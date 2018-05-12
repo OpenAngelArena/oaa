@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "25"
+    "AbilityManaCost"       "100"
     "ItemCost"            "4615"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
@@ -70,7 +70,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "5.5 7.5 10 15 30"
+        "bonus_health_regen"    "2 5.5 10 15 30"
       }
       "03"
       {
