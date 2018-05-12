@@ -11,13 +11,12 @@
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
         "ScriptFile"                    "abilities/slime/boss_slime_shake.lua"
-        "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+        "AbilityCastAnimation"          "ACT_DOTA_IDLE"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
-        "AnimationIgnoresModelScale"     "1"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------

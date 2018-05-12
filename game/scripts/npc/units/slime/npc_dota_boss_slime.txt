@@ -8,9 +8,8 @@
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/heroes/weaver/weaver.vmdl"  // Model.
+    "Model"                                               "models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"  // Model.
     "vscripts"                                            "units/ai_slime.lua"
-    "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
@@ -24,6 +23,7 @@
     "Ability4"                                            "boss_slime_split"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_cliffwalk"
+		"Ability7"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
@@ -68,34 +68,10 @@
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
         //Makes it only have 50% remaining of applied crowd control
         "DisableResistance"                                 "50.0"
-        "AttachWearables"
-        {
-            "Wearable1"
-            {
-                "ItemDef"           "280"
-            }
-            "Wearable2"
-            {
-                "ItemDef"           "278"
-            }
-            "Wearable3"
-            {
-                "ItemDef"           "277"
-            }
-            "Wearable4"
-            {
-                "ItemDef"           "585"
-            }
-            "Wearable5"
-            {
-                "ItemDef"           "279"
-            }
-        }
     }
 
     // Team
@@ -117,6 +93,7 @@
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
   }
+
   "npc_dota_creature_slime_spawner"
   {
     "vscripts"                          "units/ai_slime_spawner.lua"

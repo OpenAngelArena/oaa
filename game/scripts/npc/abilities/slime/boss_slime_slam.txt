@@ -5,7 +5,7 @@
     //=================================================================================================================
     "boss_slime_slam"
     {
-        "ID"                            "8486"
+        "ID"                            "922902"
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
@@ -17,7 +17,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
-        "AnimationIgnoresModelScale"     "1"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
