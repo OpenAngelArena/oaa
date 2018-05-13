@@ -109,8 +109,7 @@ function getTranslationsForLanguage (lang, cb) {
     }
     try {
       data = JSON.parse(data.body.content.replace('"fading if it sustains too much damage"', '\\"fading if it sustains too much damage\\"'));
-    }
-    catch(err) {
+    } catch (err) {
       console.error('Error parsing return value:');
       console.error('http://www.transifex.com/api/2/project/open-angel-arena/resource/addon_english/translation/' + lang + '?mode=onlytranslated');
     }
