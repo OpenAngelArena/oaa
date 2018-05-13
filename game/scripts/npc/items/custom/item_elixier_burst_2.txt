@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7532"
+    "ID"                                    "10005"
     "BaseClass"                             "item_datadriven"
     "AbilityTextureName"                    "custom/recipe/recipe_2"
     "Model"                                 "models/props_gameplay/recipe.mdl"
@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                            "1"
     "ItemResult"                            "item_elixier_burst_2"
-    "ItemRequirements"
+    "ItemRequirements"  // OAA
     {
       "01"                                  "item_upgrade_core_2"
     }
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7533"
+    "ID"                                    "10006"
     "BaseClass"                             "item_lua"
     "ScriptFile"                            "items/elixier_burst.lua"
     "AbilityTextureName"                    "custom/elixier_burst_2"

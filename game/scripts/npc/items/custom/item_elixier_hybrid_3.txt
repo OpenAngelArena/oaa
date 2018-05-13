@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "8488"
+    "ID"                                    "10015"
     "BaseClass"                             "item_datadriven"
     "AbilityTextureName"                    "custom/recipe/recipe_3"
     "Model"                                 "models/props_gameplay/recipe.mdl"
@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                            "1"
     "ItemResult"                            "item_elixier_hybrid_3"
-    "ItemRequirements"
+    "ItemRequirements"  // OAA
     {
       "01"                                  "item_upgrade_core_3"
     }
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "8489"
+    "ID"                                    "10016"
     "BaseClass"                             "item_lua"
     "ScriptFile"                            "items/elixier_hybrid.lua"
     "AbilityTextureName"                    "custom/elixier_hybrid_3"
