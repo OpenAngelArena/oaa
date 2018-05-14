@@ -56,11 +56,11 @@ function CapturePoints:Init ()
   self.currentCapture = nil
 
   Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
-    self:StartCapture()
+    self:ScheduleCapture()
   end)
 
   -- Add chat commands to force start and end captures
-  ChatCommand:LinkCommand("-capture", Dynamic_Wrap(self, "StartCapture"), self)
+  ChatCommand:LinkCommand("-capture", Dynamic_Wrap(self, "ScheduleCapture"), self)
   ChatCommand:LinkCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
 end
 
@@ -84,12 +84,16 @@ function CapturePoints:MinimapPing()
         if player:GetTeam() == DOTA_TEAM_BADGUYS then
           MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
           Timers:CreateTimer(3.2, function ()
-            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+            if player ~= nil and not player:IsNull() then
+              MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+            end
           end)
         else
           MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x,  CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
           Timers:CreateTimer(3.2, function ()
-            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+            if player ~= nil and not player:IsNull() then
+              MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x,  CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+            end
           end)
         end
       end
@@ -97,14 +101,14 @@ function CapturePoints:MinimapPing()
   end
 end
 
-function CapturePoints:StartCapture()
-  if self.startCaptureTimer then
-    Timers:RemoveTimer(self.startCaptureTimer)
-    self.startCaptureTimer = nil
+function CapturePoints:ScheduleCapture()
+  if self.scheduleCaptureTimer then
+    Timers:RemoveTimer(self.scheduleCaptureTimer)
+    self.scheduleCaptureTimer = nil
   end
   PrepareCapture.broadcast(true)
-  self.startCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
-    self:StartCapture()
+  self.scheduleCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
+    self:ScheduleCapture()
   end)
 
   if self.currentCapture then
@@ -117,71 +121,45 @@ function CapturePoints:StartCapture()
   CurrentZones = Zones[RandomInt(1, NumZones)]
   --If statemant checks for duel interference
   if not Duels.startDuelTimer then
-    self.currentCapture = {
-      y = 1
-    }
-    self:MinimapPing(5)
-    Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-    Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-      Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="blue", ["font-size"]="70px"}})
-      self:MinimapPing(5)
-    end)
-
-    for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
-      Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
-        Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
-      end)
-    end
-
-    Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
-      self:ActuallyStartCapture()
-    end)
+    CapturePoints:StartCapture("blue")
   elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
-    self.currentCapture = {
-      y = 1
-    }
-    Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
-    self:MinimapPing(5)
-    Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-      Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
-      self:MinimapPing(5)
-    end)
-
-    for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
-      Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
-        Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
-      end)
-    end
-
-    Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
-      self:ActuallyStartCapture()
-    end)
+    CapturePoints:StartCapture("red")
   else
-    local unlisten = Duels.onEnd(function ()
+    CapturePoints.unlistenDuel = Duels.onEnd(function ()
       Timers:CreateTimer(15, function ()
-        self.currentCapture = {
-          y = 1
-        }
-        Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
-        self:MinimapPing(5)
-        Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-          Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
-          self:MinimapPing(5)
-        end)
-
-        for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
-          Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
-            Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
-          end)
-        end
-
-        Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
-          self:ActuallyStartCapture()
-        end)
+        CapturePoints:StartCapture("red")
       end)
+      if CapturePoints.unlistenDuel ~= nil then
+        local unlisten = CapturePoints.unlistenDuel
+        unlisten()
+        CapturePoints.unlistenDuel = nil
+      end
     end)
   end
 end
+
+function CapturePoints:StartCapture(color)
+  self.currentCapture = {
+    y = 1
+  }
+  Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+  self:MinimapPing(5)
+  Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
+    Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+    self:MinimapPing(5)
+  end)
+
+  for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
+    Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_START_COUNTDOWN + index, function ()
+      Notifications:TopToAll({text=(CAPTURE_START_COUNTDOWN - index), duration=1.0})
+    end)
+  end
+
+  Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
+    self:ActuallyStartCapture()
+  end)
+end
+
 
 function CapturePoints:GiveItemToWholeTeam (item, teamId)
   PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
