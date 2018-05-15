@@ -49,8 +49,9 @@ local SINK_HEIGHT = 200
 local THINK_INTERVAL = 0.1
 
 function modifier_watch_tower_construction:OnCreated()
+
   local ability = self:GetAbility()
-  if IsValidEntity(ability) then
+  if not IsValidEntity(ability) then
     return
   end
   local level = ability:GetLevel()
