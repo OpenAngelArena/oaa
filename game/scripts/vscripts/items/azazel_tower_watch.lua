@@ -49,16 +49,20 @@ local SINK_HEIGHT = 200
 local THINK_INTERVAL = 0.1
 
 function modifier_watch_tower_construction:OnCreated()
-  local ab = self:GetAbility()
-  local level = ab:GetLevel()
+
+  local ability = self:GetAbility()
+  if not IsValidEntity(ability) then
+    return
+  end
+  local level = ability:GetLevel()
   self.level = level
   if IsServer() then
     local target = self:GetParent()
-    local maxhealth = target:GetMaxHealth() + ab:GetSpecialValueFor("bonus_health")
+    local maxhealth = target:GetMaxHealth() + ability:GetSpecialValueFor("bonus_health")
     local location = target:GetOrigin()
-    local time = ab:GetSpecialValueFor("construction_time")
+    local time = ability:GetSpecialValueFor("construction_time")
     target:Attribute_SetIntValue("construction_time", time)
-    target:Attribute_SetIntValue("bonus_vision_range", ab:GetSpecialValueFor("bonus_vision_range"))
+    target:Attribute_SetIntValue("bonus_vision_range", ability:GetSpecialValueFor("bonus_vision_range"))
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
     Timers:CreateTimer(0.1, function()
       ResolveNPCPositions(location, target:GetHullRadius())
