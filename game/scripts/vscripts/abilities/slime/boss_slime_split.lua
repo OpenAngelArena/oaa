@@ -98,22 +98,26 @@ function modifier_boss_slime_split_passive:OnDeath(keys)
 		local caster = self:GetParent()
 		if keys.unit:entindex() == caster:entindex() then
 			local unitName = caster:GetUnitName()
-
-			local function CreateClone(origin)
-        local clone = CreateUnitByName(unitName, origin, true, nil, nil, caster:GetTeamNumber())
-        clone:SetModel("models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl")
-				clone:RemoveAbility("boss_slime_split")
-				for i=0,5 do
-					local item = caster:GetItemInSlot(i)
-					if item then
-						clone:AddItem(CreateItem(item:GetName(), clone, clone))
-					end
-				end
-				return clone
-			end
-			caster:SetClones(CreateClone(caster:GetAbsOrigin() + Vector(100,0,0)),
-				CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
+			caster:SetClones(
+        self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
+        self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
 			caster:AddNoDraw()
 		end
 	end
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_slime_split_passive:CreateClone(origin)
+  local caster = self:GetParent()
+  local unitName = caster:GetUnitName()
+  local clone = CreateUnitByName(unitName, origin, true, caster, caster, caster:GetTeamNumber())
+  clone:RemoveAbility("boss_slime_split")
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    local item = caster:GetItemInSlot(i)
+    if item then
+      clone:AddItem(CreateItem(item:GetName(), clone, clone))
+    end
+  end
+  return clone
 end

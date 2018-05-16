@@ -1,4 +1,3 @@
-
 LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
 
 local ABILITY_charge = nil
@@ -130,34 +129,19 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
 
   thisEntity:SetContextThink( "ChargerThink", partial(ChargerThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
-  ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
-
-  if string.match(thisEntity:GetUnitName(),'tier5') then
-    print("I am tier5")
-    ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge_tier5")
-    print ("I am MMM")
-    print (ABILITY_charge)
-
-    local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
-    phaseController:SetPhases({ 66, 33 })
-    print("I AM HERE 6")
-    phaseController:SetAbilities({
-      "boss_charger_charge_tier5",
-      "boss_charger_super_armor"
-    })
-
-  else
-    print("I am not tier5")
-    ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
-    local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
-    phaseController:SetPhases({ 66, 33 })
-
-    phaseController:SetAbilities({
-      "boss_charger_charge",
-      "boss_charger_super_armor"
-    })
-
+  local chargeAbilityName = "boss_charger_charge"
+  if not thisEntity:HasAbility( chargeAbilityName ) then
+    chargeAbilityName = "boss_charger_charge_tier5"
   end
 
+  ABILITY_charge = thisEntity:FindAbilityByName(chargeAbilityName)
+  ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+
+  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
+  phaseController:SetPhases({ 66, 33 })
+  phaseController:SetAbilities({
+    chargeAbilityName,
+    "boss_charger_super_armor"
+  })
 end
