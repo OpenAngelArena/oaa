@@ -5,7 +5,7 @@ item_azazel_wall_1 = class(ItemBaseClass)
 local SEGMENT_RADIUS = 96 -- the wall segments's collision radius as defined in the script data.
 
 function item_azazel_wall_1:CastFilterResultLocation(location)
-  if self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS + self:GetCaster():GetHullRadius()) then
+  if IsServer() and self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS + self:GetCaster():GetHullRadius()) then
     return UF_FAIL_CUSTOM
   else
     return UF_SUCCESS
@@ -20,7 +20,7 @@ function item_azazel_wall_1:OnSpellStart()
   local caster = self:GetCaster()
   local origin = self:GetCursorPosition()
   -- total length of the wall.
-  local length = self:GetSpecialValueFor("wall_length") - SEGMENT_RADIUS * 2 -- adjusting in order to make a total of `length`.
+  local length = self:GetSpecialValueFor("wall_length") - SEGMENT_RADIUS * 2 -- adjusting in order to make a total of `wall_length`.
   -- number of segments.
   local count = math.floor(length / SEGMENT_RADIUS)
   local origin_caster = caster:GetOrigin()
@@ -30,10 +30,10 @@ function item_azazel_wall_1:OnSpellStart()
   if #direction == 0 then
     direction = RandomVector(1)
   end
-  -- small gaps between each segment to spread them evenly along the wall, if `length` isn't divisible by `SEGMENT_RADIUS`.
+  -- small gaps (spacing) between each segment to spread them evenly along the wall, if `length` isn't divisible by `SEGMENT_RADIUS`.
   local offset = (length % SEGMENT_RADIUS / count + SEGMENT_RADIUS) * direction
   local location = origin - direction * (length / 2) --[[get the leftmost point of the spawn line,
-    as visible from the caster's position; advances further to the right with each segment by `distance`.]]
+    as visible from the caster's position; advances further to the right with each segment by `offset`.]]
   local spawned = false
   foreach(function()
     if #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, SEGMENT_RADIUS, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING,
@@ -48,7 +48,7 @@ function item_azazel_wall_1:OnSpellStart()
       building:SetOwner(caster)
       location = location + offset
     end
-  end,range(count))
+  end, range(count))
   if not spawned then
     return
   end
