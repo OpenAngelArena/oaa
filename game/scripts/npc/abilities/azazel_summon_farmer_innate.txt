@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Azazel Farmer: Innate abilities
+  //=================================================================================================================
+  "azazel_summon_farmer_innate"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5845"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "items/azazel_summon.lua"
+    "AbilityTextureName"                                  "sven_great_cleave"
+    "MaxLevel"                                            "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block"                                    "50 150 300 600"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_pct"                                      "50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_start_radius"                             "200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_end_radius"                               "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_length"                                   "200"
+      }
+    }
+  }
+}
