@@ -36,6 +36,7 @@
         "AbilityCastRange"              "600"
         "ItemPermanent"                 "0"
         "ItemInitialCharges"            "1"
+        "ItemRequiresCharges"           "1"
         "MaxUpgradeLevel"               "4"
         "ItemBaseLevel"                 "2"
         "ItemStackable"                 "1"
@@ -52,7 +53,7 @@
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_health"              "0 1500 3500 7500"
+                "health"                    "500 2000 4000 8000"
             }
             "03"
             {
@@ -60,11 +61,6 @@
                 "bonus_vision_range"        "0 500 1000 1500"
             }
             "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tooltip_health"            "500 2000 4000 8000"
-            }
-            "05"
             {
                 "var_type"                  "FIELD_INTEGER"
                 "tooltip_vision_range"      "1500 2000 2500 3000"

@@ -37,6 +37,7 @@
         "AbilityCastRange"              "600"
         "ItemPermanent"                 "0"
         "ItemInitialCharges"            "1"
+        "ItemRequiresCharges"           "1"
         "MaxUpgradeLevel"               "4"
         "ItemBaseLevel"                 "1"
         "ItemStackable"                 "1"
@@ -53,7 +54,7 @@
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_health"              "0 3000 7000 15000"
+                "health"                    "1000 4000 8000 16000"
             }
             "03"
             {
@@ -66,11 +67,6 @@
                 "true_sight_radius"         "800"
             }
             "05"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tooltip_health"            "1000 4000 8000 16000"
-            }
-            "06"
             {
                 "var_type"                  "FIELD_INTEGER"
                 "tooltip_damage"            "110 410 810 1610"

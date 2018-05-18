@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_defense_tower_construction", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_defense_tower", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_defense_tower_true_sight", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_defense_1 = class(ItemBaseClass)
@@ -26,8 +26,7 @@ function item_azazel_tower_defense_1:OnSpellStart()
   building:SetOwner(caster)
   GridNav:DestroyTreesAroundPoint(location, building:GetHullRadius(), true)
   building:SetOrigin(location)
-  building:RemoveModifierByName('modifier_invulnerable')
-  building:AddNewModifier(building, self, "modifier_defense_tower_construction", {duration = -1})
+  building:AddNewModifier(building, self, "modifier_defense_tower", {duration = -1})
   building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {duration = -1})
   local charges = self:GetCurrentCharges() - 1
   if charges < 1 then
@@ -45,22 +44,23 @@ item_azazel_tower_defense_4 = item_azazel_tower_defense_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_defense_tower_construction = class(ModifierBaseClass)
+modifier_defense_tower = class(ModifierBaseClass)
 
 local SINK_HEIGHT = 300
 local THINK_INTERVAL = 0.1
 
-function modifier_defense_tower_construction:OnCreated()
+function modifier_defense_tower:OnCreated()
   if IsServer() then
     local target = self:GetParent()
     local ab = self:GetAbility()
-    local maxhealth = target:GetMaxHealth() + ab:GetSpecialValueFor("bonus_health")
+    local maxhealth = ab:GetSpecialValueFor("health")
     local location = target:GetOrigin()
     local time = ab:GetSpecialValueFor("construction_time")
     target:Attribute_SetIntValue("construction_time", time)
     target:Attribute_SetIntValue("bonus_damage", ab:GetSpecialValueFor("bonus_damage"))
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.1, function()
+    Timers:CreateTimer(0.5, function()
+      target:RemoveModifierByName('modifier_invulnerable')
       ResolveNPCPositions(location, target:GetHullRadius())
       target:SetMaxHealth(maxhealth)
       target:SetHealth(maxhealth * 0.01)
@@ -69,12 +69,11 @@ function modifier_defense_tower_construction:OnCreated()
     end)
   end
 end
-function modifier_defense_tower_construction:OnIntervalThink()
+function modifier_defense_tower:OnIntervalThink()
   if IsServer() then
     local target = self:GetParent()
     local time = target:Attribute_GetIntValue("construction_time", 10)
     local count = self:GetStackCount()
-    local location = target:GetOrigin()
     target:SetOrigin(target:GetOrigin() + Vector(0, 0, SINK_HEIGHT / (time / THINK_INTERVAL)))
     self:SetStackCount(count - 1)
     if count < 1 then
@@ -82,46 +81,46 @@ function modifier_defense_tower_construction:OnIntervalThink()
     end
   end
 end
-function modifier_defense_tower_construction:GetAttributes()
+function modifier_defense_tower:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-function modifier_defense_tower_construction:IsHidden()
+function modifier_defense_tower:IsHidden()
   return true
 end
-function modifier_defense_tower_construction:IsDebuff()
+function modifier_defense_tower:IsDebuff()
   return false
 end
-function modifier_defense_tower_construction:IsPurgable()
+function modifier_defense_tower:IsPurgable()
   return false
 end
-function modifier_defense_tower_construction:CheckState()
+function modifier_defense_tower:CheckState()
   return {
     [MODIFIER_STATE_DISARMED] = self:GetStackCount() > 0,
     [MODIFIER_STATE_BLIND] = self:GetStackCount() > 0
   }
 end
-function modifier_defense_tower_construction:DeclareFunctions()
+function modifier_defense_tower:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
-function modifier_defense_tower_construction:OnDeath(data)
+function modifier_defense_tower:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_tower002_destruction.vmdl") -- doesn't seem to work.
-    self:GetParent():SetOriginalModel("models/props_structures/radiant_tower002_destruction.vmdl")
-    self:GetParent():ManageModelChanges()
+    data.unit:SetOriginalModel("models/props_structures/radiant_tower002_destruction.vmdl")
+    data.unit:ManageModelChanges()
   end
 end
-function modifier_defense_tower_construction:GetModifierConstantHealthRegen()
+function modifier_defense_tower:GetModifierConstantHealthRegen()
   if  IsServer() and self:GetStackCount() > 0 then
     return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
   else
     return 0
   end
 end
-function modifier_defense_tower_construction:GetModifierBaseAttack_BonusDamage()
+function modifier_defense_tower:GetModifierBaseAttack_BonusDamage()
   return self:GetParent():Attribute_GetIntValue("bonus_damage", 0)
 end
 
