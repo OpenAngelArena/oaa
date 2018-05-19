@@ -176,8 +176,6 @@ function LoadGameKeyValues()
 
   for key,value in pairs(KeyValues.ItemKV) do
     if type(KeyValues.ItemKV[key]) == "table" and KeyValues.ItemKV[key].SecretShopType ~= nil then
-      DevPrintTable(value)
-      print(tostring(key))
       -- Reusing info net table cause we can't create new net tables (max limit)
       CustomNetTables:SetTableValue( "info", tostring(key), value )
     end
