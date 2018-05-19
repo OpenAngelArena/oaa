@@ -14,6 +14,7 @@
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_azazel_wall_1"
         "AbilityTextureName"            "custom/recipe/recipe_1"
+        "SecretShop"                    "1"
         "ItemRequirements"
         {
             "01"                        "item_upgrade_core"
@@ -41,6 +42,9 @@
         "ItemBaseLevel"                 "1"
         "ItemStackable"                 "1"
         "ItemCost"                      "100"
+        "SecretShop"                    "1"
+        "SecretShopType"                "Buildings"
+
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
