@@ -14,6 +14,7 @@
         "ItemRecipe"                    "1"
         "ItemResult"                    "item_azazel_tower_watch_4"
         "AbilityTextureName"            "custom/recipe/recipe_4"
+        "SecretShop"                    "1"
         "ItemRequirements"
         {
             "01"                        "item_upgrade_core_4"
@@ -38,6 +39,8 @@
         "ItemBaseLevel"                 "4"
         "ItemStackable"                 "1"
         "ItemCost"                      "100"
+        "SecretShop"                    "1"
+        "SecretShopType"                "Buildings"
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"

@@ -16,7 +16,7 @@ function azazel_summon:OnSpellStart()
     caster:EmitSound("DOTA_Item.Necronomicon.Activate")
 
     -- Destroy any existing summons tied to this caster
-    if caster.azazel_summon then
+    if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
       caster.azazel_summon:Kill(nil, caster)
     end
 
