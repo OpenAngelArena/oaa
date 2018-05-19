@@ -1,5 +1,5 @@
 
-/* global FindDotaHudElement, GameEvents, $, DOTA_GameState, Game */
+/* global FindDotaHudElement, $, CustomNetTables */
 
 interface DotaShopImage extends Panel {
   itemname : string;
@@ -18,18 +18,17 @@ secretShopColumn.Children().forEach(item => {
   let itemTable = CustomNetTables.GetTableValue('info', itemName);
   if (itemTable !== null && itemTable !== undefined)
   {
-    if(itemTable.SecretShopType === "Buildings")
+    if(itemTable.SecretShopType === 'Buildings')
     {
       item.SetParent(buildingsColumn)
-    }
-    else if(itemTable.SecretShopType === "Summons")
+    }else if(itemTable.SecretShopType === 'Summons')
     {
       item.SetParent(summonsColumn)
-    }
-    else if(itemTable.SecretShopType === "Elixirs")
+    }else if(itemTable.SecretShopType === 'Elixirs')
     {
       item.SetParent(elixirColumn)
     }
+
     // item.SetPanelEvent(
     //   PanelEvent.ON_MOUSE_OVER,
     //   function(){
@@ -43,8 +42,8 @@ secretShopColumn.visible = false;
 
 // =================== Functions ===========================
 
-function CreateOrSelectBuildingsColumn() {
-  let column = secretShopColumnsParent.FindChildTraverse("ShopItems_Buildings");
+function CreateOrSelectBuildingsColumn( ) {
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Buildings');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Buildings');
   }
@@ -53,8 +52,8 @@ function CreateOrSelectBuildingsColumn() {
   return column;
 }
 
-function CreateOrSelectSummonsColumn() {
-  let column = secretShopColumnsParent.FindChildTraverse("ShopItems_Summons");
+function CreateOrSelectSummonsColumn( ) {
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Summons');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Summons');
   }
@@ -63,8 +62,8 @@ function CreateOrSelectSummonsColumn() {
   return column;
 }
 
-function CreateOrSelectElixirColumn() {
-  let column = secretShopColumnsParent.FindChildTraverse("ShopItems_Elixir");
+function CreateOrSelectElixirColumn( ) {
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Elixir');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Elixir');
   }
