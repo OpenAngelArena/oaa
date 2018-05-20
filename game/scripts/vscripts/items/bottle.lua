@@ -155,6 +155,7 @@ local special_bottles = {
   [83886066] = 4, --steam: http://steamcommunity.com/profiles/76561198044151794 - twitch: Stanno0
   [269146136] = 4, --steam: http://steamcommunity.com/profiles/76561198229411864 - twitch: ThatMusicWriter
   [74822878] = 4, --steam: http://steamcommunity.com/profiles/76561198035088606 - twitch: UrusMerek
+  [123104098] = 4, --steam: http://steamcommunity.com/profiles/76561198083369826 - twitch: sir_mampfer
 
 
 
@@ -211,6 +212,9 @@ local special_bottles = {
   [105759579] = 43, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
   [94327365] = 44, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
   [196939910] = 45, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
+  [147100058] = 46, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
+  [94579357] = 47, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: 
+  [232219850] = 48, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
 }
 
 local bonusNames = {
@@ -259,6 +263,9 @@ local bonusNames = {
   'custom/bottles/bottle_zapp',
   'custom/bottles/bottle_sdakfreezes',
   'custom/bottles/bottle_brickbrack743', --45
+  'custom/bottles/bottle_yoloswag',
+  'custom/bottles/bottle_kyler',
+  'custom/bottles/bottle_maxpower', --48
 }
 
 --------------------------------------------------------------------------------
