@@ -213,7 +213,7 @@ local special_bottles = {
   [94327365] = 44, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
   [196939910] = 45, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
   [147100058] = 46, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
-  [94579357] = 47, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: 
+  [94579357] = 47, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: -no name given, current steam name Doctor Demon
   [232219850] = 48, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
 }
 
