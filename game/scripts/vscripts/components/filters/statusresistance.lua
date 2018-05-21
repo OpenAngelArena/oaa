@@ -23,16 +23,16 @@ function StatusResistance:StatusResistanceFilter(filterTable)
     local params = {caster = caster, target = parent, duration = duration, ability = ability, modifier_name = name}
 	local resistance = 0
 	local stackResist = 0
-    for _, modifier in ipairs( caster:FindAllModifiers() ) do
+    for _, modifier in ipairs( parent:FindAllModifiers() ) do
       if modifier.GetModifierStatusResistanceStacking and modifier:GetModifierStatusResistanceStacking(params) then
-        stackResist = stackResist + modifier:GetModifierStatusResistanceStacking(params)
+        stackResist = (stackResist or 0) + modifier:GetModifierStatusResistanceStacking(params)
       end
       if modifier.GetModifierStatusResistance and modifier:GetModifierStatusResistance(params) and modifier:GetModifierStatusResistance(params) > resistance then
         resistance = modifier:GetModifierStatusResistance( params )
       end
     end
+	filterTable["duration"] = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
   end
-  filterTable["duration"] = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
   if filterTable["duration"] == 0 then return false end
   return true
 end
