@@ -1,0 +1,105 @@
+"DOTAUnits"
+{
+  "npc_dota_creature_temple_guardian_tier5"
+	{
+		// Script
+		"vscripts"					"units/ai_temple_guardian_tier5.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"Model"						  "models/creeps/omniknight_golem/omniknight_golem.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"n_creep_Melee"
+		"GameSoundsFile"		"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						  "1"
+		"ModelScale" 				"2.3072"
+		"ConsideredHero"		"1"
+		"IsAncient"					"1"
+		"IsBossMonster"			"1"
+
+		"MinimapIcon"       "minimap_roshancamp"
+    "MinimapIconSize"   "275"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"temple_guardian_purification_tier5"
+		"Ability2"					"temple_guardian_hammer_throw_tier5"
+		"Ability3"					"temple_guardian_hammer_smash_tier5"
+		"Ability4"					"temple_guardian_rage_hammer_smash_tier5"
+		"Ability5"					"temple_guardian_wrath_tier5"
+		"Ability6"					"temple_guardian_passive_tier5"
+		"Ability7"          "boss_resistance"
+		"Ability8"          "boss_cliffwalk"
+		"Ability9"          "siltbreaker_boss_protection"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "45"        // Physical protection.
+    "MagicalResistance"                                   "25"        // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		  "DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			    "0"
+		"AttackDamageMax"			    "1"
+		"AttackRate"				      "0.9"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1500"
+		"AttackRange"				      "1"
+		"ProjectileModel"			    ""
+		"ProjectileSpeed"			    "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		"RingRadius"				  "100"
+		"HealthBarOffset"			"500"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				    "260"
+		"MovementTurnRate"			  "0.2"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				  "40000"
+		"StatusHealthRegen"			"55" // they can spam heal bombs for effective 500 hp/s heals
+		"StatusMana"				    "5000"
+		"StatusManaRegen"			  "30"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"
+		"VisionNighttimeRange"	"1300"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					    "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"100"
+		}
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
+      "particle"                                          "particles/test_particle/generic_attack_charge.vpcf"
+      "particle"                                          "particles/test_particle/dungeon_generic_blast.vpcf"
+      "particle"                                          "particles/test_particle/omniknight_wildaxe.vpcf"
+      "particle"                                          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf"
+      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
+      "particle"                                          "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf"
+    }
+	}
+}

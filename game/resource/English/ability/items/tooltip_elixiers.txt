@@ -1,0 +1,62 @@
+//======================================================================
+// Azazel's Elixiers
+//======================================================================
+"DOTA_Tooltip_Ability_item_elixier_burst_1"                                        "Burst Elixier"
+"DOTA_Tooltip_Ability_item_recipe_elixier_burst_1"                                 "Burst Elixier Recipe"
+"DOTA_Tooltip_Ability_item_elixier_burst_1_Description"                            "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra movement speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixier."
+"DOTA_Tooltip_Ability_item_elixier_burst_1_Lore"                                   "A tangy concoction that grants a sudden burst of swiftness."
+
+"DOTA_Tooltip_Ability_item_elixier_burst_2"                                        "#{DOTA_Tooltip_Ability_item_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_burst_2"                                 "#{DOTA_Tooltip_Ability_item_recipe_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_elixier_burst_2_Description"                            "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_burst_2_Lore"                                   "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_burst_3"                                        "#{DOTA_Tooltip_Ability_item_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_burst_3"                                 "#{DOTA_Tooltip_Ability_item_recipe_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_elixier_burst_3_Description"                            "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_burst_3_Lore"                                   "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_burst_4"                                        "#{DOTA_Tooltip_Ability_item_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_burst_4"                                 "#{DOTA_Tooltip_Ability_item_recipe_elixier_burst_1}"
+"DOTA_Tooltip_Ability_item_elixier_burst_4_Description"                            "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_burst_4_Lore"                                   "#{DOTA_Tooltip_Ability_item_elixier_burst_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_hybrid_1"                                       "Hybrid Elixier"
+"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_1"                                "Hybrid Elixier Recipe"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_1_Description"                           "<h1>Active: Imbibe</h1> For %bonus_duration% seconds, increases mana regen by %bonus_regen%.\n\nAlso grants you %bonus_damage% bonus magical damage on your next attack every time you cast a spell."
+"DOTA_Tooltip_Ability_item_elixier_hybrid_1_Lore"                                  "A sweet concoction that empowers both mind and body with the essence of magic."
+
+"DOTA_Tooltip_Ability_item_elixier_hybrid_2"                                       "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_2"                                "#{DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_2_Description"                           "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_2_Lore"                                  "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_hybrid_3"                                       "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_3"                                "#{DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_3_Description"                           "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_3_Lore"                                  "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_hybrid_4"                                       "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_4"                                "#{DOTA_Tooltip_Ability_item_recipe_elixier_hybrid_1}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_4_Description"                           "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_4_Lore"                                  "#{DOTA_Tooltip_Ability_item_elixier_hybrid_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_sustain_1"                                      "Sustainability Elixier"
+"DOTA_Tooltip_Ability_item_recipe_elixier_sustain_1"                               "Sustainability Elixier Recipe"
+"DOTA_Tooltip_Ability_item_elixier_sustain_1_Description"                          "<h1>Active: Imbibe</h1> For %bonus_duration% seconds, increases health regen by %bonus_regen%.\n\nAlso grants you %bonus_dmg_reduction%%% damage reduction while you are stunned."
+"DOTA_Tooltip_Ability_item_elixier_sustain_1_Lore"                                 "A mellow concoction that protects the body and enhances its natural regeneration."
+
+"DOTA_Tooltip_Ability_item_elixier_sustain_2"                                      "#{DOTA_Tooltip_Ability_item_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_sustain_2"                               "#{DOTA_Tooltip_Ability_item_recipe_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_2_Description"                          "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_2_Lore"                                 "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_sustain_3"                                      "#{DOTA_Tooltip_Ability_item_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_sustain_3"                               "#{DOTA_Tooltip_Ability_item_recipe_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_3_Description"                          "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_3_Lore"                                 "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Lore}"
+
+"DOTA_Tooltip_Ability_item_elixier_sustain_4"                                      "#{DOTA_Tooltip_Ability_item_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_recipe_elixier_sustain_4"                               "#{DOTA_Tooltip_Ability_item_recipe_elixier_sustain_1}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_4_Description"                          "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Description}"
+"DOTA_Tooltip_Ability_item_elixier_sustain_4_Lore"                                 "#{DOTA_Tooltip_Ability_item_elixier_sustain_1_Lore}"

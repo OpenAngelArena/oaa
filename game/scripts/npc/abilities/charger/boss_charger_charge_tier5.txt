@@ -1,0 +1,86 @@
+
+"DOTAAbilities" {
+  "boss_charger_charge_tier5" {
+    "ID"                                                  "922901"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/charger/boss_charger_charge_tier5.lua"
+    "AbilityTextureName"                                  "magnataur_skewer"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+    "AbilityChannelTime"                                  "0.8 0.6 0.4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown"                                        "6 4 0" // Put cooldown in AbilitySpecial to avoid triggering cooldown on channel start
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "charge_duration"                                 "2.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "20 25 35"
+      }
+
+      //----------------------------
+      // boss hits pillar without striking a hero
+      //----------------------------
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "5.0 4.0 3.0"
+      }
+      //----------------------------
+      // hero is dragged into a pillar
+      //----------------------------
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_stun_duration"                              "2.0 2.75 3.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_pillar_damage"                              "8000 10000 12000"
+      }
+      //----------------------------------
+      // Glancing blow, when the charger strikes a hero indirectly and pushes them away
+      //----------------------------------
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "glancing_damage"                                  "75 100 150"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "glancing_slow"                                    "10 30 50"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "glancing_duration"                                "1 2 3"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "glancing_knockback"                               "200 250 300"
+      }
+    }
+  }
+}

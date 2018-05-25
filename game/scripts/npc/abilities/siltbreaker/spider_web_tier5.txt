@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Web
+  //=================================================================================================================
+  "spider_web_tier5"
+  {
+    "ID"                            "58457"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "AbilityTextureName"            "broodmother_spin_web"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_web_tier5.lua"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "1500"
+      }
+    }
+  }
+}
