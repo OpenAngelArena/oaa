@@ -35,6 +35,7 @@
         "AbilityCastRange"              "600"
         "ItemPermanent"                 "0"
         "ItemInitialCharges"            "1"
+        "ItemRequiresCharges"           "1"
         "MaxUpgradeLevel"               "4"
         "ItemBaseLevel"                 "4"
         "ItemStackable"                 "1"
@@ -53,17 +54,12 @@
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_health"              "0 4500 10500 22500"
+                "health"                    "1500 6000 12000 24000"
             }
             "03"
             {
                 "var_type"                  "FIELD_INTEGER"
                 "wall_length"               "800"
-            }
-            "04"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "tooltip_health"            "1500 6000 12000 24000"
             }
         }
     }
