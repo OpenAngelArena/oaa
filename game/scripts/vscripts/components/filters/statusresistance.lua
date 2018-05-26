@@ -11,18 +11,21 @@ function StatusResistance:StatusResistanceFilter(filterTable)
   local parent_index = filterTable["entindex_parent_const"]
   local caster_index = filterTable["entindex_caster_const"]
   local ability_index = filterTable["entindex_ability_const"]
-    if not parent_index or not caster_index or not ability_index then
-      return true
-    end
+
+  if not parent_index or not caster_index or not ability_index then
+    return true
+  end
+
   local duration = filterTable["duration"]
   local parent = EntIndexToHScript( parent_index )
   local caster = EntIndexToHScript( caster_index )
   local ability = EntIndexToHScript( ability_index )
   local name = filterTable["name_const"]
+
   if parent and caster and duration ~= -1 then
     local params = {caster = caster, target = parent, duration = duration, ability = ability, modifier_name = name}
-	local resistance = 0
-	local stackResist = 0
+    local resistance = 0
+    local stackResist = 0
     for _, modifier in ipairs( parent:FindAllModifiers() ) do
       if modifier.GetModifierStatusResistanceStacking and modifier:GetModifierStatusResistanceStacking(params) then
         stackResist = (stackResist or 0) + modifier:GetModifierStatusResistanceStacking(params)
@@ -31,8 +34,19 @@ function StatusResistance:StatusResistanceFilter(filterTable)
         resistance = modifier:GetModifierStatusResistance( params )
       end
     end
-	filterTable["duration"] = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
+    local newDuration = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
+
+    local modifier = parent:FindModifierByName( name )
+
+    if modifier ~= nil and filterTable["duration"] ~= newDuration and (
+      (modifier.IsDebuff and modifier:IsDebuff()) or
+      modifier.IsStunDebuff and modifier:IsStunDebuff()) then
+      print("newDuration Applied")
+      filterTable["duration"] = newDuration
+    end
+
   end
+
   if filterTable["duration"] == 0 then return false end
   return true
 end
