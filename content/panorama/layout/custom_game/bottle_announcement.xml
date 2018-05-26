@@ -10,7 +10,7 @@
     $('#AnnouncementPanel').SetHasClass('Show', true);
   });
   </script>
-  <Panel class='Announcement'>
+  <Panel class='Announcement' hittest='false'>
     <Panel id='AnnouncementPanel' class=''>
       <Image id='AnnouncementImage' src='file://{images}/custom_game/hud/tournament2_winners.png' scaling='stretch-to-fit-x-preserve-aspect' />
       <Button id='CloseBtn' hittest='true' onactivate='Close()' oncontextmenu='Close()'/>
