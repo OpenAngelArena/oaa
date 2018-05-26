@@ -82,7 +82,7 @@ CreepTypes = {
    -- 5 "solo camp"
   {
     {
-       {"npc_dota_neutral_brack_drake",            1500,    0,  70,    3,   131, 212}
+       {"npc_dota_neutral_black_drake",            1500,    0,  70,    3,   131, 212}
     }
   }
 }
