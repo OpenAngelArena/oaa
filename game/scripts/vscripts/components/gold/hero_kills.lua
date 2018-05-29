@@ -95,6 +95,24 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killerEntity = keys.killer
   local killedHero = keys.killed
+  -- killer is sometimes nil for some reason
+  if not killerEntity then
+    local killedHeroName
+    if killedHero then
+      killedHeroName = killedHero:GetName()
+    else
+      killedHeroName = "Killed entity also nil ??????"
+    end
+    D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "HERO DEATH EVENT FIRED WITH NIL KILLER", {
+      ErrorMessage = killedHeroName,
+      ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
+      GameVersion = GAME_VERSION,
+      DedicatedServers = (IsDedicatedServer() and 1) or 0,
+      MatchID = tostring(GameRules:GetMatchID())
+    })
+
+    return
+  end
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
   if killerTeam == killedTeam then
@@ -189,7 +207,6 @@ function HeroKillGold:HeroDeathHandler (keys)
   end
 
   local killedPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killedTeam)
-  -- NW factor is defined as (enemy team net worth / allied team net worth) - 1 and has a minimum of zero and a maximum of 1.
   local entireKilledTeamNW = map(getHeroNetworth, killedPlayerIDs)
   entireKilledTeamNW = entireKilledTeamNW:totable()
   -- Get the killed hero's networth from entireKilledTeamNW
@@ -199,6 +216,7 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killerTeamNW = sum(map(getHeroNetworth, PlayerResource:GetPlayerIDsForTeam(killerTeam)))
   local killedTeamNW = sum(entireKilledTeamNW)
+  -- NW factor is defined as (enemy team net worth / allied team net worth) - 1 and has a minimum of zero and a maximum of 1.
   local nwFactor = math.min(1, math.max(0, (killedTeamNW / killerTeamNW) - 1))
   -- (Team NW disadvantage / 4000) has a maximum of 1
   local teamNWDisadvantage = math.min(math.max(0, killedTeamNW - killerTeamNW) / 4000, 1)
@@ -212,9 +230,10 @@ function HeroKillGold:HeroDeathHandler (keys)
   -- - don't know why this is nil sometimes but it's breaking things
   if not killedNWRanking then
     local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
+    local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
     killedTeamNWString = "[" .. killedTeamNWString .. "]"
     D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND KILLED HERO NW", {
-      ErrorMessage = "Killed hero networth: " .. killedNetworth .. ", could not be found in list " .. killedTeamNWString,
+      ErrorMessage = "Killed team networth list: " .. killedTeamNWString ", killed player ID: " .. killedPlayerID ", killed team player IDs: " .. killedPlayerIDsString,
       ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
       GameVersion = GAME_VERSION,
       DedicatedServers = (IsDedicatedServer() and 1) or 0,
