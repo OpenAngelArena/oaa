@@ -1,0 +1,77 @@
+.YesNoPoll
+{
+  horizontal-align: center;
+  vertical-align: top;
+  margin-top: 100px;
+}
+
+#YesNoPollPanel
+{
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.35s ;
+  transition-timing-function: ease-in-out;
+}
+
+#YesNoPollPanel.Show
+{
+  z-index: 10;
+  flow-children: down;
+  horizontal-align: left;
+  opacity: 1;
+  padding: 10px;
+  background-color: #425663cc;
+  width: 175px;
+  transition-property: opacity;
+  transition-duration: 0.12s;
+  transition-timing-function: ease-out;
+}
+
+#YesNoPollTime
+{
+  color: white;
+  text-align: left;
+  horizontal-align: center;
+  font-size: 16px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#YesNoPollText
+{
+  color: white;
+  text-align: left;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.YesNoButtonPanel
+{
+  flow-children: right;
+}
+
+.YesNoButton
+{
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  padding-top: 4px;
+  color: white;
+  text-align: center;
+  vertical-align: center;
+  background-color: #bbbbbb;
+  font-size: 16px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.NoButton
+{
+  horizontal-align: left;
+}
+
+.YesButton
+{
+  horizontal-align: right;
+  margin-left: 95px;
+}

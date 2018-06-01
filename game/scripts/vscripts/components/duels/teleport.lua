@@ -101,7 +101,7 @@ local function TestSafeTeleport(keys)
   SafeTeleportAll(hero, Vector(0, 0, 0), 150)
 end
 
-ChatCommand:LinkCommand("-test_tp", TestSafeTeleport, nil)
+ChatCommand:LinkDevCommand("-test_tp", TestSafeTeleport, nil)
 export.SafeTeleport = SafeTeleport
 export.SafeTeleportAll = SafeTeleportAll
 
