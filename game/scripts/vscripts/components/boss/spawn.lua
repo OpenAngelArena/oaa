@@ -17,7 +17,7 @@ if BossSpawner == nil then
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  Timers:CreateTimer(0, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
@@ -83,7 +83,7 @@ function BossSpawner:SpawnBossAtPit (pit)
   local isProtected = bossList == 1 and pit.killCount == 1
 
   DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
-  BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)
+  BossSpawner:SpawnBoss(pit, 'npc_dota_boss_swiper', bossTier, isProtected)
 end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)

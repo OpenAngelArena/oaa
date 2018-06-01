@@ -27,8 +27,10 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_thrust:OnSpellStart()
-	if IsServer() then
+  if IsServer() then
+
 		local caster = self:GetCaster()
+    caster:StartGesture( ACT_DOTA_CAST_ABILITY_4 )
 		local width = self:GetSpecialValueFor("width")
 		local target = GetGroundPosition(self:GetCursorPosition(), caster)
 		local distance = (target - caster:GetAbsOrigin()):Length()

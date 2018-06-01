@@ -1006,19 +1006,19 @@
 		[
 			{
 				m_sSearchMaterial = "swiper_sword.vmat"
-				m_sReplaceMaterial = "materials/swiper/sword.vmat"
+				m_sReplaceMaterial = "materials/models/bosses/swiper/sword.vmat"
 			},
 			{
 				m_sSearchMaterial = "skin.vmat"
-				m_sReplaceMaterial = "materials/swiper/body.vmat"
+				m_sReplaceMaterial = "materials/models/bosses/swiper/body.vmat"
 			},
 			{
 				m_sSearchMaterial = "necklace.vmat"
-				m_sReplaceMaterial = "materials/swiper/neckalce.vmat"
+				m_sReplaceMaterial = "materials/models/bosses/swiper/neckalce.vmat"
 			},
 			{
 				m_sSearchMaterial = "*"
-				m_sReplaceMaterial = "materials/swiper/skull.vmat"
+				m_sReplaceMaterial = "materials/models/bosses/swiper/skull.vmat"
 			},
 		]
 	}

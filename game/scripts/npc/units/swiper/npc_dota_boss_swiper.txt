@@ -8,7 +8,7 @@
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/heroes/sven/sven.vmdl"  // Model.
+    "Model"                                               "models/bosses/swiper/swiperreal.vmdl"  // Model.
     "vscripts"                                            "units/ai_swiper.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "1.8"
@@ -74,16 +74,6 @@
     {
         //Makes it only have 50% remaining of applied crowd control
         "DisableResistance"                                 "50.0"
-        "AttachWearables" // Default npc_dota_hero_sven
-        {
-            "1" { "ItemDef" "16" } // Sven's Mask
-            "2" { "ItemDef" "581" } // Sven's Back
-            "3" { "ItemDef" "20" } // Sven's Shoulder
-            "4" { "ItemDef" "17" } // Sven's Sword
-            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
-            "6" { "ItemDef" "19" } // Sven's Gauntlet
-            "7" { "ItemDef" "18" } // Sven's Belt
-        }
     }
 
     // Team
