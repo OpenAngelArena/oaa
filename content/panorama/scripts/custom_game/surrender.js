@@ -19,10 +19,9 @@ function Open (data) {
   }
 }
 
-function UpdateVisibility(data)
-{
-  if (!isRunning && data != null && data.visible != null ) {
-    $('#SurrenderBtn').SetHasClass('Show', data.visible===1);
+function UpdateVisibility (data) {
+  if (!isRunning && data != null && data.visible != null) {
+    $('#SurrenderBtn').SetHasClass('Show', data.visible === 1);
   }
 }
 
@@ -60,8 +59,6 @@ function SendResult (result) {
   }
 }
 
-function StartSurrenderVote()
-{
-  $.Msg("StartSurrenderVote!!!!")
-  GameEvents.SendCustomGameEventToServer('surrender_start_vote', { playerid: Game.GetLocalPlayerID()});
+function StartSurrenderVote () { // eslint-disable-line no-unused-vars
+  GameEvents.SendCustomGameEventToServer('surrender_start_vote', { playerid: Game.GetLocalPlayerID() });
 }
