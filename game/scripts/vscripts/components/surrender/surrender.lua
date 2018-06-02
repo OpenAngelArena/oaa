@@ -19,11 +19,28 @@ function SurrenderManager:Init ()
   -- Register chat commands
   ChatCommand:LinkCommand("-surrender", Dynamic_Wrap(SurrenderManager, "CheckSurrenderConditions"), self)
   CustomGameEventManager:RegisterListener('surrender_result', Dynamic_Wrap(SurrenderManager, 'PlayerVote'))
+  CustomGameEventManager:RegisterListener('surrender_start_vote', Dynamic_Wrap(SurrenderManager, 'CheckSurrenderConditions'))
+
+  PointsManager.onScoreChanged(partial(SurrenderManager.UpdateVisibility, SurrenderManager))
 end
+
+function SurrenderManager:UpdateVisibility()
+  local score = CustomNetTables:GetTableValue('team_scores', 'score')
+  local radiantScore = score.goodguys
+  local direScore = score.badguys
+  local loserTeamID = 0
+  local now = HudTimer:GetGameTime()
+  if direScore < radiantScore then loserTeamID = DOTA_TEAM_BADGUYS else loserTeamID = DOTA_TEAM_GOODGUYS end
+  PlayerResource:GetPlayerIDsForTeam(loserTeamID):each(function (playerId)
+    local isSurrenderEnabled = SurrenderManager:ScoreAllowsSurrender(loserTeamID) and SurrenderManager:TimeAllowsSurrender(playerId, now)
+    CustomGameEventManager:Send_ServerToPlayer ( PlayerResource:GetPlayer(playerId), "surrender_visbility_changed", { visible = isSurrenderEnabled } )
+  end)
+end
+
 
 function SurrenderManager:CheckSurrenderConditions(keys)
   local teamId = PlayerResource:GetTeam(keys.playerid)
-  local now = GameRules:GetGameTime()
+  local now = HudTimer:GetGameTime()
   if SurrenderManager:ScoreAllowsSurrender(teamId) and
       SurrenderManager:TimeAllowsSurrender(keys.playerid, now) then
     lastTimeSurrenderWasCalled = GameRules:GetGameTime()
@@ -40,6 +57,7 @@ function SurrenderManager:CheckSurrenderConditions(keys)
 -- Start a timer - just in case there's an error at a player's machine (crash etc.)
     Timers:CreateTimer(timeout + 2, Dynamic_Wrap(SurrenderManager, 'CalculateVotesFromTimer'))
   end
+  SurrenderManager:UpdateVisibility()
 end
 
 function SurrenderManager:ScoreAllowsSurrender(teamId)
@@ -131,6 +149,7 @@ function SurrenderManager:CalculateVotes()
   else
     DebugPrint("Error: table.getn{SURRENDER_REQUIRED_YES_VOTES} > numberOfVotesCast  table.getn{SURRENDER_REQUIRED_YES_VOTES} = " .. table.getn{SURRENDER_REQUIRED_YES_VOTES} .. " numberOfVotesCast = " .. numberOfVotesCast)
   end
+  SurrenderManager:UpdateVisibility()
 end
 
 function SurrenderManager:EndGame()

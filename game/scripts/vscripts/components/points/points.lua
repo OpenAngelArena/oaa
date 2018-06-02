@@ -7,7 +7,9 @@ if PointsManager == nil then
 end
 
 local WinnerEvent = Event()
+local ScoreChangedEvent = Event()
 PointsManager.onWinner = WinnerEvent.listen
+PointsManager.onScoreChanged = ScoreChangedEvent.listen
 
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
@@ -66,24 +68,21 @@ function PointsManager:SetPoints(teamID, amount)
   end
 
   CustomNetTables:SetTableValue('team_scores', 'score', score)
+  ScoreChangedEvent.broadcast()
   self:CheckWinCondition(teamID, amount)
 end
 
 function PointsManager:AddPoints(teamID, amount)
   amount = amount or 1
-
   local score = CustomNetTables:GetTableValue('team_scores', 'score')
 
   if teamID == DOTA_TEAM_GOODGUYS then
-    score.goodguys = score.goodguys + amount
-    amount = score.goodguys
+    amount = score.goodguys + amount
   elseif teamID == DOTA_TEAM_BADGUYS then
-    score.badguys = score.badguys + amount
-    amount = score.badguys
+    amount = score.badguys + amount
   end
 
-  CustomNetTables:SetTableValue('team_scores', 'score', score)
-  self:CheckWinCondition(teamID, amount)
+  PointsManager:SetPoints(teamID, amount)
 end
 
 function PointsManager:GetPoints(teamID)
