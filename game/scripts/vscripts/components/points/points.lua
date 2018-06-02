@@ -28,6 +28,7 @@ function PointsManager:Init ()
 
   -- Register chat commands
   ChatCommand:LinkDevCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
+  ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 end
@@ -105,6 +106,20 @@ end
 
 function PointsManager:SetLimit(killLimit)
   CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
+end
+
+function PointsManager:AddEnemyPointsCommand(keys)
+  local text = string.lower(keys.text)
+  local splitted = split(text, " ")
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local teamID = hero:GetTeamNumber()
+  if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    teamID = DOTA_TEAM_BADGUYS
+  else
+    teamID = DOTA_TEAM_GOODGUYS
+  end
+  local pointsToAdd = tonumber(splitted[2]) or 1
+  self:AddPoints(teamID, pointsToAdd)
 end
 
 function PointsManager:AddPointsCommand(keys)
