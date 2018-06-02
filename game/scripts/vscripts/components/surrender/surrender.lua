@@ -4,9 +4,7 @@ if SurrenderManager == nil then
   SurrenderManager = class({})
 end
 
-local MINIMUM_KILLS_BEHIND = 50
-local REQUIRED_YES_VOTES = {1, 2, 2, 3, 4}
-local TIME_TO_DISPLAY = 10
+
 local ONE_MINUTE = 60
 local FIVE_MINUTES = 60 * 5
 local lastTimeSurrenderWasCalled
@@ -31,7 +29,7 @@ function SurrenderManager:CheckSurrenderConditions(keys)
     lastTimeSurrenderWasCalled = GameRules:GetGameTime()
     lastTimeSurrenderWasCalledByPlayer[keys.playerid] = now
     teamIdToSurrender = teamId
-    local timeout = 10
+    local timeout = SURRENDER_TIME_TO_DISPLAY
     local text = "#surrender_suggestion"
     PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
       numberOfVotesExpected = numberOfVotesExpected + 1
@@ -53,7 +51,7 @@ function SurrenderManager:ScoreAllowsSurrender(teamId)
     scoreDiff = score.goodguys - score.badguys
   end
 
-  return scoreDiff >= MINIMUM_KILLS_BEHIND
+  return scoreDiff >= SURRENDER_MINIMUM_KILLS_BEHIND
 end
 
 function SurrenderManager:TimeAllowsSurrender(playerId, now)
@@ -108,8 +106,8 @@ function SurrenderManager:CalculateVotes()
   end
 
   DebugPrint("yesVotesCast = " .. yesVotesCast)
-  if table.getn{REQUIRED_YES_VOTES} <= numberOfVotesCast then
-    local requiredNumberOfYesVotes = REQUIRED_YES_VOTES[numberOfVotesCast]
+  if table.getn{SURRENDER_REQUIRED_YES_VOTES} <= numberOfVotesCast then
+    local requiredNumberOfYesVotes = SURRENDER_REQUIRED_YES_VOTES[numberOfVotesCast]
     votes = {}
     numberOfVotesCast = 0
     numberOfVotesExpected = 0
@@ -131,7 +129,7 @@ function SurrenderManager:CalculateVotes()
       DebugPrint("Do not end game")
     end
   else
-    DebugPrint("Error: table.getn{REQUIRED_YES_VOTES} > numberOfVotesCast  table.getn{REQUIRED_YES_VOTES} = " .. table.getn{REQUIRED_YES_VOTES} .. " numberOfVotesCast = " .. numberOfVotesCast)
+    DebugPrint("Error: table.getn{SURRENDER_REQUIRED_YES_VOTES} > numberOfVotesCast  table.getn{SURRENDER_REQUIRED_YES_VOTES} = " .. table.getn{SURRENDER_REQUIRED_YES_VOTES} .. " numberOfVotesCast = " .. numberOfVotesCast)
   end
 end
 
