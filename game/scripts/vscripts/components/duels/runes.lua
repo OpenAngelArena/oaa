@@ -82,7 +82,10 @@ function DuelRunes:StartTouch(event)
 [   VScript  ]: outputid: 0
 ]]
   local modifier = event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
-  modifier.zone = event.caller
+  -- No idea how this can be nil if the previous line doesn't have an error, but it happens for some reason
+  if modifier then
+    modifier.zone = event.caller
+  end
 end
 
 function DuelRunes:EndTouch(event)

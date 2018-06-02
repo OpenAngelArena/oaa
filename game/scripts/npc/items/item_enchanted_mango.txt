@@ -18,26 +18,5 @@
     "ItemStackable"                                       "0"
     "ItemHideCharges"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "hp_regen"    "0.6"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "replenish_amount"    "125"
-      }
-      "03"
-      {
-        "var_type"  "FIELD_INTEGER"
-        "range_tooltip"   "400"
-      }
-    }
   }
 }
