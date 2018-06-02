@@ -1,12 +1,13 @@
+/* global Game, GameEvents, $ */
+
 'use strict';
 
 var isRunning = false;
 var timeout;
 var returnEventName;
 
-(function () {
-  GameEvents.Subscribe('show_yes_no_poll', Open);
-}());
+GameEvents.Subscribe('show_yes_no_poll', Open);
+GameEvents.Subscribe('surrender_visbility_changed', UpdateVisibility);
 
 function Open (data) {
   if (!isRunning && data != null && data.returnEventName != null && data.pollText != null && data.pollTimeout != null) {
@@ -15,6 +16,13 @@ function Open (data) {
     $('#SurrenderGG').SetHasClass('Show', true);
     timeout = data.pollTimeout;
     ScheduleSetTime(timeout);
+  }
+}
+
+function UpdateVisibility(data)
+{
+  if (!isRunning && data != null && data.visible != null ) {
+    $('#SurrenderBtn').SetHasClass('Show', data.visible===1);
   }
 }
 
@@ -50,4 +58,10 @@ function SendResult (result) {
 
     isRunning = false;
   }
+}
+
+function StartSurrenderVote()
+{
+  $.Msg("StartSurrenderVote!!!!")
+  GameEvents.SendCustomGameEventToServer('surrender_start_vote', { playerid: Game.GetLocalPlayerID()});
 }

@@ -19,5 +19,8 @@
         <Label text='#UI_No'/>
       </Button>
     </Panel>
+    <Button id='SurrenderBtn' onactivate='StartSurrenderVote()' oncontextmenu='StartSurrenderVote()'>
+        <Image class='SurrenderFlag'/>
+    </Button>
   </Panel>
 </root>
