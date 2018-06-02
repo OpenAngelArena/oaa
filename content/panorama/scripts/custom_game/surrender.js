@@ -12,15 +12,15 @@ function Open (data) {
   if (!isRunning && data != null && data.returnEventName != null && data.pollText != null && data.pollTimeout != null) {
     isRunning = true;
     returnEventName = data.returnEventName;
-    $('#YesNoPollPanel').SetHasClass('Show', true);
-    $('#YesNoPollText').text = $.Localize(data.pollText);
+    $('#SurrenderGG').SetHasClass('Show', true);
     timeout = data.pollTimeout;
     ScheduleSetTime(timeout);
   }
 }
 
 function ScheduleSetTime (time) {
-  $('#YesNoPollTime').text = time;
+  $('#Time').visible = true;
+  $('#Time').text = time;
   $.Schedule(1, SetTime);
 }
 
@@ -43,7 +43,7 @@ function SelectNo () {
 
 function SendResult (result) {
   if (isRunning) { // you can get here if the timer has run out
-    $('#YesNoPollPanel').SetHasClass('Show', false);
+    $('#SurrenderGG').SetHasClass('Show', false);
     GameEvents.SendCustomGameEventToServer(returnEventName, {
       result: result
     });
