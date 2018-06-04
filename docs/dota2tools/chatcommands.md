@@ -39,6 +39,8 @@ Commands to be used for debugging and testing purposes, currently requires the g
 <br>
 -addpoints x - Adds specified number of points to the user's team. Adds 1 point if no number specified.
 <br>
+-add_enemy_points x - Adds specified number of points to the enemy team. Adds 1 point if no number specified.
+<br>
 -switchhero x - Switch hero. Accepts partial names. Uses internal names, so -switchhero obsidian switches to Outworld Devourer, because his internal name is obsidian_destroyer.
 <br>
 -loadout x - Gives a pre-determined set of items. -loadout tank gives max level Heart, Stoneskin, and Satanic Core. -loadout damage gives max level Daedalus, Desolator, and Moon Shard.

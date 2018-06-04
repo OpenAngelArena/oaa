@@ -29,3 +29,7 @@ end
 function HudTimer:SetGameTime(gameTime)
   self.gameTime = gameTime
 end
+
+function HudTimer:GetGameTime()
+  return self.gameTime
+end

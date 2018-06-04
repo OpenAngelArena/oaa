@@ -107,7 +107,12 @@ function getTranslationsForLanguage (lang, cb) {
       console.error('Unexpected output: ', data.body);
       return cb(new Error('Unexpected output from transifex server. Check user / password'));
     }
-    data = JSON.parse(data.body.content);
+    try {
+      data = JSON.parse(data.body.content.replace('"fading if it sustains too much damage"', '\\"fading if it sustains too much damage\\"'));
+    } catch (err) {
+      console.error('Error parsing return value:');
+      console.error('http://www.transifex.com/api/2/project/open-angel-arena/resource/addon_english/translation/' + lang + '?mode=onlytranslated');
+    }
     cb(err, data);
   });
 }

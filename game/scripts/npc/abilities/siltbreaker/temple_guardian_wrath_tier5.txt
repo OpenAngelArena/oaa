@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Wrath
+  //=================================================================================================================
+  "temple_guardian_wrath_tier5"
+  {
+    "ID"                            "599459"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_wrath_tier5.lua"
+    "AbilityTextureName"            "omniknight_guardian_angel"
+
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL" // it's actually pure
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"               "2"
+
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "30"
+    "AbilityChannelTime"            "8.0"
+    "AbilityCastPoint"              "1.0"
+
+      // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "effect_radius"             "3500"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "delay"                     "1.0"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "radius"                    "300"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "blast_damage"              "1200" // 19200 dps
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "channel_duration"          "10.0"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "interval"                  "0.06"
+      }
+    }
+  }
+}

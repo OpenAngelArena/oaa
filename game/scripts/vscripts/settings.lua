@@ -81,7 +81,7 @@ CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get s
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
 
 --Gold
-_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+_G.BOOT_GOLD_FACTOR = 1.0               -- Multiplier to account for the presence of bonus gold boots
 
 --Cave
 _G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
@@ -230,6 +230,10 @@ TEAM_COLORS[DOTA_TEAM_CUSTOM_6] = { 27, 192, 216 }  --    Cyan
 TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }  --    Olive
 TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }  --    Purple
 
+-- Surrender Options
+SURRENDER_MINIMUM_KILLS_BEHIND = 50
+SURRENDER_REQUIRED_YES_VOTES = {1, 2, 2, 3, 4}
+SURRENDER_TIME_TO_DISPLAY = 10
 
 USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
 

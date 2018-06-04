@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Boss Passive
+  //=================================================================================================================
+  "spider_boss_passive_tier5"
+  {
+    "ID"                            "58452"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "AbilityTextureName"            "sandking_caustic_finale"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_boss_passive_tier5.lua"
+
+    "MaxLevel"                      "1"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+    }
+  }
+}

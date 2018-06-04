@@ -528,7 +528,7 @@ function buildItemTree (t, data, cb) {
         }
       });
 
-      if (upgradeCores.length) {
+      if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
         var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
         for (var i = minCore; i < 5; ++i) {
