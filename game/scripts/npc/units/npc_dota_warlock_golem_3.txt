@@ -4,7 +4,7 @@
 // Warlock: Golem 3
 //=================================================================================
   "npc_dota_warlock_golem_3"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"  // Model.
@@ -17,7 +17,7 @@
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "golem"
     "wearable"                                            "8362"
-    
+
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "warlock_golem_flaming_fists"      // Ability 1
@@ -28,19 +28,19 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "15"    // Physical protection.
-    "MagicalResistance"                                   "33"    // Magical protection. 
+    "MagicalResistance"                                   "33"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "150"    // Damage range min.
-    "AttackDamageMax"                                     "150"    // Damage range max.  
+    "AttackDamageMin"                                     "175"    // Damage range min.
+    "AttackDamageMax"                                     "175"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "225"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -59,11 +59,11 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2500"    // Base health.
+    "StatusHealth"                                        "2000"    // Base health.
     "StatusHealthRegen"                                   "75"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
-    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
-    
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -79,10 +79,10 @@
     "VoiceFile"                                           "soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
     //Inventory
     "HasInventory"                                        "0"
-  }  
+  }
 
   "npc_dota_warlock_golem_scepter_3"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"  // Model.
@@ -94,7 +94,7 @@
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "golem"
     "wearable"                                            "8362"
-    
+
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "warlock_golem_flaming_fists"      // Ability 1
@@ -104,20 +104,20 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15"      // Physical protection.
-    "MagicalResistance"                                   "33"  
+    "ArmorPhysical"                                       "12"      // Physical protection.
+    "MagicalResistance"                                   "33"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "112"    // Damage range min.
-    "AttackDamageMax"                                     "112"    // Damage range max.  
+    "AttackDamageMin"                                     "131"    // Damage range min.
+    "AttackDamageMax"                                     "131"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "225"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -139,8 +139,8 @@
     "StatusHealth"                                        "1875"    // Base health.
     "StatusHealthRegen"                                   "75"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
-    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
-    
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -157,6 +157,6 @@
 
     //Inventory
     "HasInventory"                                        "0"
-  }  
+  }
 
 }

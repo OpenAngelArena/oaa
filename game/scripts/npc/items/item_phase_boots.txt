@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1240"
+    "ItemCost"                                            "1360"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "phase boots"
@@ -58,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45"
+        "bonus_movement_speed"                            "50"
       }
       "02"
       {
@@ -83,17 +83,17 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "24"
+        "phase_movement_speed"                            "20"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "20"
+        "phase_movement_speed_range"                      "16"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "phase_duration"                                  "2.5"
+        "phase_duration"                                  "3.0"
       }
       "09"
       {

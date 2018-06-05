@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Azazel Scout: Permanent Invisibility
+  //=================================================================================================================
+  "azazel_scout_permanent_invisibility"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5844"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                                           "riki_permanent_invisibility"
+    "MaxLevel"                                            "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_multiplier"                               "0.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "backstab_angle"                                  "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.5"
+      }
+    }
+  }
+}

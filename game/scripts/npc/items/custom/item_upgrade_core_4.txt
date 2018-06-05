@@ -1,0 +1,38 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Demons Soul
+  //=================================================================================================================
+  "item_upgrade_core_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3533"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "custom/demons_soul"
+    "Effect"                                              "particles/items/upgrade_4.vpcf"
+    "Model"                                               "models/items/upgrade_4.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+
+    "ItemCost"                                            "4500"
+    "ItemPurchasable"                                     "0"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                  "particles/items/upgrade_4.vpcf"
+      "model"                     "models/items/upgrade_4.vmdl"
+    }
+
+  }
+}

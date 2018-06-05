@@ -7,13 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_spell_amplify_10" //OAA
-    "Ability11"   "special_bonus_unique_techies_3" //-4s Proximity Mines Cooldown
-    "Ability12"   "special_bonus_unique_techies" //+300 Blast Off Damage
-    "Ability13"   "special_bonus_mp_regen_4"
-    "Ability14"   "special_bonus_movement_speed_75"
-    "Ability15"   "special_bonus_attack_range_100" //OAA
-    "Ability16"   "special_bonus_attack_damage_251"
-    "Ability17"   "special_bonus_unique_techies_4" //+25 Mines Movement Speed
+    "Ability10"   "special_bonus_spell_amplify_10" // replaces special_bonus_exp_boost_30
+    "Ability15"   "special_bonus_attack_range_100" // replaces special_bonus_gold_income_25
   }
 }

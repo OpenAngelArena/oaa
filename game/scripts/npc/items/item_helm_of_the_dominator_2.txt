@@ -69,50 +69,45 @@
     "AbilitySpecial"
     {
       "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_stats"     "2 15 30 50 70"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "attack_speed"      "10 20 35 50 70"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "attack_speed_aura"   "15 25 40 55 75"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "hp_regen_aura"     "8 12 20 32 48"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"     "900"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_stats"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "attack_speed_aura"   "20 35 60 80 100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "hp_regen_aura"     "7 10 12 14 16"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"900"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
         "health_min"      "1500 3000 6000 12000 24000"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "speed_base"      "425"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"   "700"
-      }
-      "09"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tootip_bounty"   "125"
-      }
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_base"			"425"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"700"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_bounty"			"200"
+			}
     }
   }
 }

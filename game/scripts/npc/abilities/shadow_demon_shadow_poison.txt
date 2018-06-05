@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "10.0"
+    "AbilityDuration"                                     "10"
     "AbilityCooldown"                                     "2.5"
 
     // Casting
@@ -71,9 +71,8 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "10.0"
+        "tooltip_duration"                                "10"
       }
     }
   }
-
 }

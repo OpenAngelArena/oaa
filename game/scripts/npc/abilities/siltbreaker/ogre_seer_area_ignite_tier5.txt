@@ -1,0 +1,72 @@
+
+"DOTAAbilities" {
+    //=================================================================================================================
+    // Ogre Seer Area Ignite
+    //=================================================================================================================
+    "ogre_seer_area_ignite_tier5"
+    {
+        "ID"                            "58436"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_ogre_seer/ogre_seer_area_ignite_tier5.lua"
+        "AbilityTextureName"            "ogre_magi_ignite"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "MaxLevel"                      "1"
+
+         // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "800"
+        "AbilityCastPoint"              "0.35"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "10"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "duration"          "5"
+            }
+
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "burn_damage"       "3000"
+            }
+
+            "03"
+            {
+                "var_type"                      "FIELD_INTEGER"
+                "slow_movement_speed_pct"       "-30"
+            }
+
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_speed"      "1400"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275" // magi's: 275
+            }
+            "06"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "area_duration"         "10.0" // magi's: 2.0
+            }
+        }
+    }
+}

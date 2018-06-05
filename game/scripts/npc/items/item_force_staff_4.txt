@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "25"
+    "AbilityManaCost"       "100"
     "ItemCost"            "15250"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "5 10 20 40 80"
+        "bonus_health_regen"  "2 10 20 30 40"
       }
       "03"
       {
@@ -83,7 +83,7 @@
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "tooltip_range"   "800"
+        "tooltip_range"   "750"
       }
     }
   }

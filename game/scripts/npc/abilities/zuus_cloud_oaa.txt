@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Zeus: Zuus Cloud
+  //=================================================================================================================
+  "zuus_cloud_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8460" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "BaseClass"                                           "ability_lua"
+    "Scriptfile"                                          "abilities/oaa_zuus_cloud.lua"
+    "AbilityTextureName"                                  "zuus_cloud"
+    "MaxLevel"                                            "1"
+    "FightRecapLevel"                                     "1"
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "275"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.1"  // just a ministun
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cloud_duration"                                  "35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cloud_bolt_interval"                             "2.25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cloud_radius"                                    "500"
+      }
+    }
+  }
+}

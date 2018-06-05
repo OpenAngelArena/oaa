@@ -15,12 +15,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 750 800 850 850 850"
     "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 175 275 350 725 1100"
+    "AbilityDamage"                                       "125 200 275 350 625 900"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -42,24 +42,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "true_sight_radius"                               "750"
+        "cast_range_tooltip"                              "700 750 800 850 850 850"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_day"                                "750"
+        "true_sight_radius"                               "750"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_night"                              "750"
+        "sight_radius_day"                                "750"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sight_radius_night"                              "750"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "sight_duration"                                  "4.5"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "spread_aoe"                                      "325"

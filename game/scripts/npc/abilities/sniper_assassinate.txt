@@ -39,7 +39,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175 275 375 875 1375"
+    "AbilityManaCost"                                     "175 225 275 415 690"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -63,6 +63,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "total_cast_time_tooltip"                         "2"
+        "LinkedSpecialBonus"  "special_bonus_unique_sniper_4"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
       }
       "04"
       {

@@ -7,13 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_armor_6"
-    "Ability11"   "special_bonus_mp_regen_2" //OAA
-    "Ability12"   "special_bonus_movement_speed_40"
-    "Ability13"   "special_bonus_unique_zeus" //+1% Static Field
-    "Ability14"   "special_bonus_cooldown_reduction_15"
-    "Ability15"   "special_bonus_unique_zeus_3" //+0.5 Lightning Bolt Stun
-    "Ability16"   "special_bonus_cast_range_200"
-    "Ability17"   "special_bonus_unique_zeus_2" //+170 Arc Lightning Damage
+    "Ability11"   "special_bonus_mp_regen_2" // OAA replaces special_bonus_exp_boost_25
+    "Ability4"		"zuus_cloud_oaa" // replaces zuus_cloud
   }
 }

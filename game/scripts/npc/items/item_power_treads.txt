@@ -40,7 +40,7 @@
     "AbilityTextureName"                                  "item_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1350"
+    "ItemCost"                                            "1450"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "power treads"
@@ -56,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45"
+        "bonus_movement_speed"                            "50"
       }
       "02"
       {

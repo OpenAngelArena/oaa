@@ -24,7 +24,7 @@
     "ItemResult"                                          "item_hand_of_midas_2"
     "ItemRequirements"
     {
-      "01"                                                "item_hand_of_midas"
+      "01"                                                "item_hand_of_midas_1"
     }
   }
 
@@ -47,12 +47,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "100.0"
+    "AbilityCooldown"                                     "95.0"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_hand_of_midas_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

@@ -13,13 +13,13 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500 750 1000 1250 1350 1450"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 16 12 8 7.5 7.0"
 
@@ -44,12 +44,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "857"
+        "speed"                                           "900"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_range"                                   "500 750 1000 1250 1350 1450"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_4"
       }
     }
   }

@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
+LinkLuaModifier("modifier_boss_truesight", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_resistance = class(AbilityBaseClass)
 
@@ -9,6 +10,8 @@ end
 function boss_resistance:GetBehavior ()
   return DOTA_ABILITY_BEHAVIOR_PASSIVE
 end
+
+-----------------------------------------------------------------------------------------
 
 modifier_boss_resistance = class(ModifierBaseClass)
 
@@ -22,13 +25,24 @@ end
 
 function modifier_boss_resistance:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_EVENT_ON_TAKEDAMAGE
   }
 end
 
 function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   return keys.damage * damageReduction / 100
+end
+
+function modifier_boss_resistance:OnTakeDamage(keys)
+  local parent = self:GetParent()
+  if not keys.attacker or not keys.unit or keys.unit ~= parent then
+    return
+  end
+  local ability = self:GetAbility()
+  local revealDuration = ability:GetSpecialValueFor("reveal_duration")
+  keys.attacker:AddNewModifier(parent, self:GetAbility(), "modifier_boss_truesight", {duration = revealDuration})
 end
 
 -- function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
@@ -120,3 +134,49 @@ end
 --   local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
 --   return 0 - damageReduction + damageAmpReduction
 -- end
+
+-----------------------------------------------------------------------------------------
+
+modifier_boss_truesight = class(ModifierBaseClass)
+
+function modifier_boss_truesight:OnCreated()
+  self.maxRevealDist = self:GetAbility():GetSpecialValueFor("reveal_max_distance")
+end
+
+if IsServer() then
+  function modifier_boss_truesight:CheckState()
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+
+    -- Only reveal when within reveal_max_distance of boss
+    if (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= self.maxRevealDist then
+      return {
+        [MODIFIER_STATE_INVISIBLE] = false
+      }
+    else
+      return {}
+    end
+  end
+end
+
+function modifier_boss_truesight:IsPurgable()
+  return false
+end
+
+function modifier_boss_truesight:IsDebuff()
+  return true
+end
+
+function modifier_boss_truesight:GetTexture()
+  return "item_gem"
+end
+
+function modifier_boss_truesight:IsHidden()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  return (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self.maxRevealDist
+end
+
+function modifier_boss_truesight:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end

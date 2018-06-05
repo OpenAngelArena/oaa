@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "40 30 20 20 20"
+    "AbilityCooldown"               "30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
         "01"
         {
             "var_type"              "FIELD_INTEGER"
-            "attack_damage"         "60 140 220 460 700"
+            "attack_damage"         "60 120 180 460 700"
         }
         "02"
         {
@@ -56,12 +56,12 @@
         "06"
         {
             "var_type"              "FIELD_FLOAT"
-            "roaming_seconds_per_rotation"              "1.5"
+            "roaming_seconds_per_rotation"              "1.8"
         }
         "07"
         {
             "var_type"              "FIELD_FLOAT"
-            "roaming_duration"      "4.0"
+            "roaming_duration"      "5.0"
         }
     }
 }

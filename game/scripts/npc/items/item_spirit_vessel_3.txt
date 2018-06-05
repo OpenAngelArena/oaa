@@ -11,10 +11,15 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemResult"          "item_spirit_vessel_3"
     "ItemRequirements"
     {
@@ -37,6 +42,7 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilitySharedCooldown"     "urn"
+    "AbilityCooldown"       	"7.0"
     "AbilityTextureName"            "custom/spirit_vessel_3"
 
     // Spicy Parameters
@@ -46,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "7825"
+    "ItemCost"            "7975"
     "ItemAliases"         "sv 3;spirit vessel 3"
 
     // Special
@@ -96,7 +102,7 @@
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "soul_heal_amount"      "35 70 140 240 480"
+        "soul_heal_amount"      "35 55 75 95 105"
       }
       "10"
       {
@@ -126,7 +132,7 @@
       "15"
       {
         "var_type"        "FIELD_FLOAT"
-        "enemy_hp_drain"    "3.0"
+        "enemy_hp_drain"    "4.5"
       }
       "16"
       {

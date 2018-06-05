@@ -20,35 +20,36 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "4 8 12 16 32 50"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_3"
+        "var_type"                                      "FIELD_INTEGER"
+        "movement_speed_pct"                            "4 8 12 16 32 50"
+        "LinkedSpecialBonus"                            "special_bonus_unique_razor_3"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "hit_interval"      "5"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_4"
+        "var_type"                                      "FIELD_FLOAT"
+        "hit_interval"                                  "5"
+        "LinkedSpecialBonus"                            "special_bonus_unique_razor_4"
+        "LinkedSpecialBonusOperation"                   "SPECIAL_BONUS_SUBTRACT"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5 1.0 1.5 2.0 2.5 3.0"
+        "var_type"                                      "FIELD_FLOAT"
+        "slow_duration"                                 "0.5 1.0 1.5 2.0 2.5 3.0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_amount"                                     "-40"
+        "var_type"                                      "FIELD_INTEGER"
+        "slow_amount"                                   "-40"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage"    "100 130 160 190 340 490"
+        "var_type"                                      "FIELD_INTEGER"
+        "damage"                                        "60 100 140 180 380 580"
       }
       "06"
       {
-        "var_type"    "FIELD_INTEGER"
-        "radius"    "350"
+        "var_type"                                      "FIELD_INTEGER"
+        "radius"                                        "350"
       }
     }
   }

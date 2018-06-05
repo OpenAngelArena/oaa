@@ -4,7 +4,7 @@
 		<include src="file://{resources}/styles/custom_game/oaa_game_info.css" />
 	</styles>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/game_info.js" />
   </scripts>
   <Panel class="GameInfoHolder">

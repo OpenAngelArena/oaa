@@ -516,7 +516,6 @@
 #base "abilities/zuus_lightning_bolt.txt"
 #base "abilities/zuus_static_field.txt"
 #base "abilities/zuus_thundergods_wrath.txt"
-#base "abilities/zuus_cloud.txt"
 
 #base "abilities/items/necronomicon_archer_aoe.txt"
 #base "abilities/items/necronomicon_archer_mana_burn.txt"
@@ -525,4 +524,11 @@
 
 "DOTAAbilities"
 {
+  "item_aeon_disk"          "REMOVE"
+  "item_blade_mail"         "REMOVE"
+  "item_crimson_guard"      "REMOVE"
+  "item_cyclone"            "REMOVE"
+  "item_echo_sabre"         "REMOVE"
+  "item_meteor_hammer"      "REMOVE"
+  "item_sheepstick"         "REMOVE"
 }

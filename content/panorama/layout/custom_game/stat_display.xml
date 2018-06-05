@@ -3,7 +3,7 @@
     <include src="file://{resources}/styles/custom_game/stat_display.css"/>
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/util.js" />
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/stat_display.js"/>
   </scripts>
   <Panel class="StatDisplay">

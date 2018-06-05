@@ -1,6 +1,31 @@
 "DOTAItems"
 {
   //=================================================================================================================
+  // Recipe: Spirit Vessel
+  //=================================================================================================================
+  "item_recipe_spirit_vessel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "266"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "750"
+    "ItemShopTags"          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_spirit_vessel"
+    "ItemRequirements"
+    {
+      "01"            "item_urn_of_shadows;item_vitality_booster;item_wind_lace"
+    }
+  }
+  //=================================================================================================================
   // Spirit Vessel
   //=================================================================================================================
   "item_spirit_vessel"
@@ -11,6 +36,7 @@
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityCooldown"       	"7.0"
     "AbilitySharedCooldown"     "urn"
     "AbilityTextureName"            "custom/spirit_vessel_1"
 
@@ -21,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2825"
+    "ItemCost"            "2975"
     "ItemAliases"         "sv;spirit vessel"
 
     // Special
@@ -71,7 +97,7 @@
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "soul_heal_amount"      "35 70 140 240 480"
+        "soul_heal_amount"      "35 55 75 95 105"
       }
       "10"
       {
@@ -101,7 +127,7 @@
       "15"
       {
         "var_type"        "FIELD_FLOAT"
-        "enemy_hp_drain"    "3.0"
+        "enemy_hp_drain"    "4.5"
       }
       "16"
       {

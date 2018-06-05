@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Slime Boss: Split
+    //=================================================================================================================
+    "boss_slime_split"
+    {
+        "ID"                            "922903"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "abilities/slime/boss_slime_split.lua"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        // "AbilityCastRange"              "800"
+        // "AbilityCastPoint"              "2.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        // "AbilityCooldown"               "10"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        // "AbilityManaCost"               "0"
+    }
+}

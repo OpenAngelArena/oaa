@@ -30,6 +30,23 @@ function error(...)
     "Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. args[1],
     debug.traceback()
   }
+
+  -- Report to the external server immediately (This is blocked by calls futrther down unfortunately, so it needs to run early)
+  local mode = "Unknown game mode!"
+  if IsInToolsMode() then
+    mode = "Tools Mode"
+  elseif GameRules:IsCheatMode() then
+    mode = "Cheat Mode"
+  end
+  D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_EXCEPTION, "CAPTURED_EXCEPTION", {
+    ErrorMessage = "Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. args[1],
+    ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
+    GameVersion = GAME_VERSION,
+    GameMode = mode,
+    DedicatedServers = (IsDedicatedServer() and 1) or 0,
+    MatchID = tostring(GameRules:GetMatchID())
+  })
+
   CustomGameEventManager:Send_ServerToAllClients("vconsole", {
     type = "error",
     data = data -- pass traceback to panorma

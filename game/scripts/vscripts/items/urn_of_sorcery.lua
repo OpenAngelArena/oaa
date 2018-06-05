@@ -55,6 +55,10 @@ function item_urn_of_sorcery:OnSpellStart()
   self:SetCurrentCharges(0)
 end
 
+item_urn_of_sorcery_2 = item_urn_of_sorcery
+item_urn_of_sorcery_3 = item_urn_of_sorcery
+item_urn_of_sorcery_4 = item_urn_of_sorcery
+
 --------------------------------------------------------------------------
 
 modifier_item_urn_of_sorcery = class(ModifierBaseClass)
@@ -67,10 +71,12 @@ function modifier_item_urn_of_sorcery:IsPurgable()
   return false
 end
 
+function modifier_item_urn_of_sorcery:RemoveOnDeath()
+  return false
+end
+
 function modifier_item_urn_of_sorcery:GetAttributes()
-  return {
-    MODIFIER_ATTRIBUTE_MULTIPLE
-  }
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_urn_of_sorcery:OnCreated()

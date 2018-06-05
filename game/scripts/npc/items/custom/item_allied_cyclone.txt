@@ -1,0 +1,133 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Allied cyclone
+  //=================================================================================================================
+  "item_recipe_allied_cyclone"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3316"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_allied_cyclone"
+    "ItemRequirements"
+    {
+      "01"                                                "item_cyclone;item_upgrade_core"
+      "02"                                                "item_cyclone;item_upgrade_core_2"
+      "03"                                                "item_cyclone;item_upgrade_core_3"
+      "04"                                                "item_cyclone;item_upgrade_core_4"
+
+    }
+  }
+
+  //=================================================================================================================
+  // Allied cyclone
+  //=================================================================================================================
+  "item_allied_cyclone"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3318"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityTextureName"                                  "custom/cyclone_2"
+
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    "FightRecapLevel"                                     "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "575"
+    "AbilityCastPoint"                                    "0.0"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "23.0"
+    "AbilitySharedCooldown"                               "cyclone"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "175"
+    "ItemCost"                                            "4250"
+    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "allied cyclone;allied euls"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "25 35 45 55"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bonus_mana_regen"      "3.25 4.50 6.50 8.75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "55 60 65 70"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "allied_cyclone_duration"                         "2.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "575"
+      }
+    }
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "Target"                                          "TARGET"
+        "ModifierName"                                    "modifier_eul_cyclone"
+        "Duration"                                        "%allied_cyclone_duration"
+      }
+      "RunScript"
+      {
+        "ScriptFile"                                      "items/allied_cyclone.lua"
+        "Function"                                        "allied_cyclone_Purge"
+        "target"                                          "TARGET"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_item_allied_cyclone"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "Attributes"                                      "MODIFIER_ATTRIBUTE_MULTIPLE"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"         "%bonus_intellect"
+          "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
+        }
+      }
+    }
+  }
+}

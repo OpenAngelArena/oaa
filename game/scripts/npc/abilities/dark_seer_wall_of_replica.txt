@@ -44,28 +44,28 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_outgoing"                         "-40 -25 -10 20 140"
+        "replica_damage_outgoing"                         "-30 -15 0 20 140"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "60 75 90 120 240"
+        "tooltip_outgoing"                                "70 85 100 120 240"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_incoming"                         "300 300 300 300 300"
+        "replica_damage_incoming"                         "100"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_replica_total_damage_incoming"           "400 400 400 400 400"
+        "tooltip_replica_total_damage_incoming"           "200"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "1000 1000 1000 1250 1500"
+        "width"                                           "1300 1300 1300 1300 1300"
       }
       "07"
       {

@@ -18,23 +18,23 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 6 6"
+    "AbilityCooldown"                                     "9 8 7 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"    
-    
+    "AbilityManaCost"                                     "0"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.1"  // Primarily about the damage
@@ -62,6 +62,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "health_bonus_creep_pct"                          "19 21 23 25 35 70"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_bonus_aoe"                                "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_bonus_share_percent"                      "50"
       }
     }
   }

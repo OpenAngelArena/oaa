@@ -26,7 +26,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8"
-    "AbilityDuration"                                     "20.0"
+    "AbilityDuration"                                     "8 12 16 20 20 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,6 +41,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "enfeeble_attack_reduction"                       "30 60 90 120 270 420"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "enfeeble_tooltip_duration"                       "8 12 16 20 20 20"
       }
     }
   }

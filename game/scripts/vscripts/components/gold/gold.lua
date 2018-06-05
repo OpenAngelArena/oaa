@@ -112,6 +112,7 @@ end
 
 function Gold:RemoveGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
+  self:Think()
   --  PLAYER_GOLD[playerID].SavedGold = math.max((PLAYER_GOLD[playerID].SavedGold or 0) - math.ceil(gold), 0)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
@@ -124,6 +125,7 @@ function Gold:AddGold(unitvar, gold)
   DebugPrint("arg.gold: " .. gold)
   DebugPrintTable(PLAYER_GOLD)]]
   local playerID = UnitVarToPlayerID(unitvar)
+  self:Think()
   --PLAYER_GOLD[playerID].SavedGold = (PLAYER_GOLD[playerID].SavedGold or 0) + math.floor(gold)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = (oldGold or 0) + math.floor(gold)

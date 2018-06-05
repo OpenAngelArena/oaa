@@ -1,0 +1,62 @@
+
+"DOTAAbilities" {
+  //=================================================================================================================
+    // Lycan Boss Claw Lunge
+    //=================================================================================================================
+    "lycan_boss_claw_lunge_tier5"
+    {
+        "ID"                            "58445"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+
+        "AbilityTextureName"            "lycan_feral_impulse"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_claw_lunge_tier5.lua"
+
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        "FightRecapLevel"               "1"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "2.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "20.0"
+
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "50"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "lunge_damage"          "20000"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "lunge_width"           "200"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "lunge_speed"           "900"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "lunge_distance"           "1000"
+            }
+        }
+    }
+}

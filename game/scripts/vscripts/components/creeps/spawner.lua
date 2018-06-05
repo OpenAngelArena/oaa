@@ -27,12 +27,16 @@ function CreepCamps:Init ()
   DebugPrint ( 'Initializing.' )
   CreepCamps = self
   self.CampPRDCounters = {}
+  self.firstSpawn = true
   if not SKIP_TEAM_SETUP then
     Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   else
     Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   end
-  ChatCommand:LinkCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+
+  Minimap:InitializeCampIcons()
+
+  ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
 function CreepCamps:SetPowerLevel (powerLevel)
@@ -43,14 +47,17 @@ function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')
   local camps = Entities:FindAllByName('creep_camp')
+
   for _,camp in pairs(camps) do
     self:DoSpawn(camp:GetAbsOrigin(), camp:GetIntAttr('CreepType'), camp:GetIntAttr('CreepMax'))
   end
 
   self:UpgradeCreeps()
 
+  Minimap:Respawn()
 
-  if GameRules:GetDOTATime(false, false) < CREEP_SPAWN_INTERVAL then
+  if self.firstSpawn then
+    self.firstSpawn = false
     return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
   return CREEP_SPAWN_INTERVAL
@@ -146,9 +153,21 @@ function CreepCamps:AddCreepPropertiesWithScale( propertiesOne, scaleOne, proper
   local addedCreepProperties = {}
 
   addedCreepProperties[HEALTH_ENUM] = propertiesOne[HEALTH_ENUM] * scaleOne + propertiesTwo[HEALTH_ENUM] * scaleTwo
+  if addedCreepProperties[HEALTH_ENUM] > propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[HEALTH_ENUM] = propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[MANA_ENUM] = propertiesOne[MANA_ENUM] * scaleOne + propertiesTwo[MANA_ENUM] * scaleTwo
+  if addedCreepProperties[MANA_ENUM] > propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[MANA_ENUM] = propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[DAMAGE_ENUM] = propertiesOne[DAMAGE_ENUM] * scaleOne + propertiesTwo[DAMAGE_ENUM] * scaleTwo
+  if addedCreepProperties[DAMAGE_ENUM] > propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[DAMAGE_ENUM] = propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[ARMOR_ENUM] = propertiesOne[ARMOR_ENUM] * scaleOne + propertiesTwo[ARMOR_ENUM] * scaleTwo
+  if addedCreepProperties[ARMOR_ENUM] > propertiesTwo[ARMOR_ENUM] * CREEP_POWER_MAX then
+    addedCreepProperties[ARMOR_ENUM] = propertiesTwo[ARMOR_ENUM] * CREEP_POWER_MAX
+  end
   addedCreepProperties[GOLD_BOUNTY_ENUM] = propertiesOne[GOLD_BOUNTY_ENUM] * scaleOne + propertiesTwo[GOLD_BOUNTY_ENUM] * scaleTwo
   addedCreepProperties[EXP_BOUNTY_ENUM] = propertiesOne[EXP_BOUNTY_ENUM] * scaleOne + propertiesTwo[EXP_BOUNTY_ENUM] * scaleTwo
 
@@ -161,7 +180,7 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   local targetHealth = creepProperties[HEALTH_ENUM]
 
   if currentHealthMissing > 0 then
-    targetHealth = creepProperties[HEALTH_ENUM] - currentHealthMissing
+    targetHealth = math.max(1, creepProperties[HEALTH_ENUM] - currentHealthMissing)
   end
 
   creepHandle:SetBaseMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))

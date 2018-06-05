@@ -17,6 +17,7 @@ var stupidItemNames = [
   'item_halloween_candy_corn',
   'item_halloween_rapier',
   'item_firework_mine',
+  'sylph_sprite_shield',
   'nothing'
 ];
 
@@ -147,7 +148,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     if (!isBuiltIn && item !== 'item_dummy_datadriven') {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
-      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);
 
       if (usedIDs[values.ID]) {
         t.fail('ID number is already in use by ' + usedIDs[values.ID]);
@@ -263,9 +264,12 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCastPoint',
     'AbilityChannelTime',
     'AbilityCooldown',
+    'AbilityDuration',
     'AbilityManaCost',
     'AbilityUnitTargetType',
+    'AbilityUnitDamageType',
     'SpellImmunityType',
+    'SpellDispellableType',
     'ItemInitialCharges',
     'ItemRequiresCharges',
     'ItemDisplayCharges'
@@ -386,7 +390,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
   });
 
   Object.keys(parentData).forEach(function (name) {
-    t.ok(result[name], 'has value for ' + name);
+    t.ok(result[name], 'has value for ' + name + ' (' + parentData[name][name] + ', ' + parentData[name].var_type + ')');
   });
 
   return result;
@@ -524,7 +528,7 @@ function buildItemTree (t, data, cb) {
         }
       });
 
-      if (upgradeCores.length) {
+      if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
         var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
         for (var i = minCore; i < 5; ++i) {

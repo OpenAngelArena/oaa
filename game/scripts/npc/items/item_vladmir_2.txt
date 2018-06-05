@@ -11,7 +11,7 @@
     "ID"                                                  "3921"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -66,12 +66,12 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "hp_regen"        "2.5 5 10 20 40"
+        "hp_regen"        "2.5 5 10 15 20"
       }
       "03"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura"   "0.65 1.6 3.2 4.8 6.5"
+        "mana_regen_aura"   "1.0 1.6 3.2 4.8 6.5"
       }
       "04"
       {

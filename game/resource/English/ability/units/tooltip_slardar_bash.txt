@@ -1,12 +1,11 @@
 //=============================================================================
 // Slardar's Bash of the Deep
 //=============================================================================
-
-"DOTA_Tooltip_ability_slardar_bash_oaa"												"Bash of the Deep"
-"DOTA_Tooltip_ability_slardar_bash_oaa_Description"									"Grants a chance that an attack will do bonus damage and stun an enemy.  The duration is doubled against creeps."
-"DOTA_Tooltip_ability_slardar_bash_oaa_Lore"										"Thieves of the wealth of the Deep Ones meet the brutality of the Slithereen Guard in melee combat."
-"DOTA_Tooltip_ability_slardar_bash_oaa_Note0"										"Stun works on Spell Immune units."
-"DOTA_Tooltip_ability_slardar_bash_oaa_Note1"										"Does not stack with Skull Basher."
-"DOTA_Tooltip_ability_slardar_bash_oaa_chance"										"%CHANCE:"
-"DOTA_Tooltip_ability_slardar_bash_oaa_bonus_damage"								"BONUS DAMAGE:"
-"DOTA_Tooltip_ability_slardar_bash_oaa_duration"									"DURATION:"
+"DOTA_Tooltip_ability_slardar_bash_oaa"                       "#{DOTA_Tooltip_ability_slardar_bash}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Description"           "<font color='#FFA500'>Bash of the Deep has a %tooltip_cooldown% seconds cooldown.</font>\n#{DOTA_Tooltip_ability_slardar_bash_Description}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Lore"                  "#{DOTA_Tooltip_ability_slardar_bash_Lore}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Note0"                 "#{DOTA_Tooltip_ability_slardar_bash_Note0}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Note1"                 "#{DOTA_Tooltip_ability_slardar_bash_Note1}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_chance"                "#{DOTA_Tooltip_ability_slardar_bash_chance}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_bonus_damage"          "#{DOTA_Tooltip_ability_slardar_bash_bonus_damage}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_duration"              "#{DOTA_Tooltip_ability_slardar_bash_duration}"

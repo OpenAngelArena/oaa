@@ -1,6 +1,6 @@
 if HeroProgression == nil then
     HeroProgression = class({})
-    Debug.EnabledModules['progression:*'] = true
+    Debug.EnabledModules['progression:*'] = false
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
@@ -15,17 +15,15 @@ GameEvents:OnPlayerLevelUp(function(keys)
     return
   end
 
-  HeroProgression:ReduceStatGain(hero, level)
+--  HeroProgression:ReduceStatGain(hero, level)
   HeroProgression:ProcessAbilityPointGain(hero, level)
 end)
 GameEvents:OnNPCSpawned(function(keys)
   local npc = EntIndexToHScript(keys.entindex)
-  HeroProgression:ReduceIllusionStats(npc)
+--  HeroProgression:ReduceIllusionStats(npc)
 end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
-  self.customLevellingPatterns = {}
-
   self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
     -- Invoker gets all dem ability points
     return true
@@ -38,6 +36,8 @@ function HeroProgression:Init()
     "Agility",
     "Intellect"
   }
+  self.customLevellingPatterns = {}
+  self.statStorage = {} -- Cache for calculated reduced stats
   self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   GameEvents:OnPlayerReconnect(function(keys)
     local playerID = keys.PlayerID
@@ -67,14 +67,15 @@ function HeroProgression.ModifyStat(entity, statName, modifyAmount)
   entity["Modify" .. statName](entity, modifyAmount)
 end
 
+--[[
 function HeroProgression:ReduceStatGain(hero, level)
   if level > 25 then
-    local div = (level - 25 + 12) / 12
+    local reductionFactor = 12 / (level - 25 + 12)
 
     local statGains = map(partial(self.GetStatGain, hero), self.statNames)
 
-    local newStats = map(operator.div, zip(statGains, duplicate(div)))
-    local statModifications = map(operator.sub, zip(newStats, statGains))
+    local reducedStatGains = map(operator.mul, zip(statGains, duplicate(reductionFactor)))
+    local statModifications = map(operator.sub, zip(reducedStatGains, statGains))
 
     foreach(partial(self.ModifyStat, hero), zip(self.statNames, statModifications))
   end
@@ -87,7 +88,13 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
   end
 
   local function CalculateReducedStat(unitLevel, statAt25, statGain)
-    return statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1)) + statAt25
+    self.statStorage[statGain] = self.statStorage[statGain] or {}
+    local post25Stat = self.statStorage[statGain][unitLevel]
+    if not post25Stat then
+      post25Stat = statGain * 12 * math.log((2 * (unitLevel - 13) + 1) / (2 * 13 - 1))
+      self.statStorage[statGain][unitLevel] = post25Stat
+    end
+    return statAt25 + post25Stat
   end
 
   local GetBaseStat = partial(self.GetBaseStat, illusionEnt)
@@ -143,6 +150,7 @@ function HeroProgression:ReduceIllusionStats(illusionEnt)
     end)
   end
 end
+]]--
 
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]

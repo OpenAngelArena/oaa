@@ -41,19 +41,24 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "-15 -20 -25 -30 -45 -60"
+        "movement_speed_pct"                              "-15 -20 -25 -30 -40 -50"
         "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_resist_pct"                                "-15 -20 -25 -30 -45 -60"
+        "spell_resist_pct"                                "-15 -20 -25 -30 -40 -50"
         "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "vision_aoe"                                      "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vortex_duration"                                 "16"
       }
     }
   }

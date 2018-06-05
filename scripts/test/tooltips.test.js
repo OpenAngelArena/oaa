@@ -1,11 +1,24 @@
-var test = require('tape');
-var findTooltips = require('../find-tooltips');
-var luaEntitiesUtil = require('../lua-entities-util');
+const request = require('request');
+const parseKV = require('parse-kv');
+const test = require('tape');
+const findTooltips = require('../find-tooltips');
+const luaEntitiesUtil = require('../lua-entities-util');
 
 test('can read in tooltip list', function (t) {
-  var getTranslations = require('../parse-translation');
-  t.ok(Object.keys(getTranslations().lang.Tokens.values).length, 'there are tokens');
-  t.end();
+  const getTranslations = require('../parse-translation');
+
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+  }, function (err, result) {
+    if (err) {
+      t.fail(err);
+    }
+    let dotaEnglish = parseKV(result.body);
+    t.ok(dotaEnglish);
+
+    t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');
+    t.end();
+  });
 });
 
 test('can read list of items', function (t) {
