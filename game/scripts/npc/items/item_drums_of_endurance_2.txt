@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Drums of Endurance 2
   //=================================================================================================================
-  "item_recipe_ancient_janggo_2"
+  "item_recipe_drums_of_endurance_2"
   {
     "ID"                                                  "3140"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -12,7 +12,7 @@
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo_2"
+    "ItemResult"                                          "item_drums_of_endurance_2"
     "ItemRequirements"
     {
       "01"                                                "item_ancient_janggo;item_upgrade_core"
@@ -25,12 +25,12 @@
   //=================================================================================================================
   // Drums of Endurance 2
   //=================================================================================================================
-  "item_ancient_janggo_2"
+  "item_drums_of_endurance_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3141"    // unique ID
-    "BaseClass"                                           "item_ancient_janggo"
+    "BaseClass"                                           "item_drums_of_endurance_oaa"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/drums_2"
     "ItemPermanent"                                       "1"
@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
+    "UpgradesItems"                                       "item_drums_of_endurance_2;item_drums_of_endurance_3;item_drums_of_endurance_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
