@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Drums of Endurance 4
   //=================================================================================================================
-  "item_recipe_ancient_janggo_4"
+  "item_recipe_drums_of_endurance_4"
   {
     "ID"                                                  "3856"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -12,23 +12,23 @@
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo_4"
+    "ItemResult"                                          "item_drums_of_endurance_4"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo_3;item_upgrade_core_3"
-      "02"                                                "item_ancient_janggo_3;item_upgrade_core_4"
+      "01"                                                "item_drums_of_endurance_3;item_upgrade_core_3"
+      "02"                                                "item_drums_of_endurance_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Drums of Endurance 4
   //=================================================================================================================
-  "item_ancient_janggo_4"
+  "item_drums_of_endurance_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3857"    // unique ID
-    "BaseClass"                                           "item_ancient_janggo"
+    "BaseClass"                                           "item_drums_of_endurance_oaa"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/drums_4"
     "ItemPermanent"                                       "1"
@@ -44,7 +44,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_ancient_janggo_4"
+    "UpgradesItems"                                       "item_drums_of_endurance_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
