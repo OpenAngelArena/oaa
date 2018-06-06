@@ -30,7 +30,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3141"    // unique ID
-    "BaseClass"                                           "item_drums_of_endurance_oaa"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile" 					                                "items/drums_of_endurance.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/drums_2"
     "ItemPermanent"                                       "1"
