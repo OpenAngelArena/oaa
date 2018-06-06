@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Drums of Endurance 5
   //=================================================================================================================
-  "item_recipe_ancient_janggo_5"
+  "item_recipe_drums_of_endurance_5"
   {
     "ID"                                                  "3858"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -12,22 +12,23 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo_5"
+    "ItemResult"                                          "item_drums_of_endurance_5"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo_4;item_upgrade_core_4"
+      "01"                                                "item_drums_of_endurance_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Drums of Endurance 5
   //=================================================================================================================
-  "item_ancient_janggo_5"
+  "item_drums_of_endurance_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3859"    // unique ID
-    "BaseClass"                                           "item_ancient_janggo"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile" 					                                "items/drums_of_endurance.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/drums_5"
     "ItemPermanent"                                       "1"
