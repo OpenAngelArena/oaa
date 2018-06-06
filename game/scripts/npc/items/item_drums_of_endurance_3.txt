@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Drums of Endurance 3
   //=================================================================================================================
-  "item_recipe_ancient_janggo_3"
+  "item_recipe_drums_of_endurance_3"
   {
     "ID"                                                  "3854"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -12,24 +12,24 @@
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ancient_janggo_3"
+    "ItemResult"                                          "item_drums_of_endurance_3"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo_2;item_upgrade_core_2"
-      "02"                                                "item_ancient_janggo_2;item_upgrade_core_3"
-      "03"                                                "item_ancient_janggo_2;item_upgrade_core_4"
+      "01"                                                "item_drums_of_endurance_2;item_upgrade_core_2"
+      "02"                                                "item_drums_of_endurance_2;item_upgrade_core_3"
+      "03"                                                "item_drums_of_endurance_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Drums of Endurance 3
   //=================================================================================================================
-  "item_ancient_janggo_3"
+  "item_drums_of_endurance_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3855"    // unique ID
-    "BaseClass"                                           "item_ancient_janggo"
+    "BaseClass"                                           "item_drums_of_endurance_oaa"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/drums_3"
     "ItemPermanent"                                       "1"
@@ -45,7 +45,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "UpgradesItems"                                       "item_ancient_janggo_3;item_ancient_janggo_4"
+    "UpgradesItems"                                       "item_drums_of_endurance_3;item_drums_of_endurance_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
