@@ -38,17 +38,17 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "impact_radius"         "700"
+                "impact_radius"         "400"
             }
             "02"
             {
                 "var_type"              "FIELD_FLOAT"
-                "stun_duration"         "8.0" // regular: 4.0
+                "stun_duration"         "4.0" // regular: 4.0
             }
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "5000"
+                "damage"                "15000"
             }
             "04"
             {
