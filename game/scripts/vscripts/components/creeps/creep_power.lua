@@ -4,26 +4,14 @@ if CreepPower == nil then
 end
 
 function CreepPower:GetPowerForMinute (minute)
-  local multFactor = 1
-
-  local ExponentialGrowthOnset = {
-    short = 40,
-    normal = 60,
-    long = 120
-  }
-
   if minute == 0 then
     return {   0,        1.0,      1.0,      1.0,      1.0,      1.0 * self.BootGoldFactor,      1.0 * self.numPlayersXPFactor}
   end
 
-  if minute > ExponentialGrowthOnset[PointsManager:GetGameLength()] then
-    multFactor = 1.5 ^ (minute - ExponentialGrowthOnset[PointsManager:GetGameLength()])
-  end
-
-  return CreepPower:GetBasePowerForMinute(minute, multFactor)
+  return CreepPower:GetBasePowerForMinute(minute)
 end
 
-function CreepPower:GetBasePowerForMinute (minute, multFactor)
+function CreepPower:GetBasePowerForMinute (minute)
   if minute == 0 then
     return {   0,        1.0,      1.0,      1.0,      1.0,      1.0 * self.BootGoldFactor,      1.0 * self.numPlayersXPFactor}
   end
@@ -34,8 +22,24 @@ function CreepPower:GetBasePowerForMinute (minute, multFactor)
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- mana
     (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 60 * ((minute/100) ^ 2) + 6 * (minute/100)) + 1,     -- damage
     (0 * (minute / 26) ^ 2 + minute / 6) + 1,       -- armor
-    ((3 * minute ^ 2 - 5 * minute + 177)/177) * self.BootGoldFactor,                      -- gold
-    ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor * multFactor -- xp
+    ((0 * minute ^ 2 + 6*4 * minute + 7*15)/(6*15)) * self.BootGoldFactor,                      -- gold
+    ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor                      -- xp
+  }
+end
+
+function CreepPower:GetBaseCavePowerForMinute (minute)
+  if minute == 0 then
+    return {   0,        1.0,      1.0,      1.0,      1.0,      1.0 * self.BootGoldFactor,      1.0 * self.numPlayersXPFactor}
+  end
+
+  return {
+    minute,                                   -- minute
+    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- hp
+    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,   -- mana
+    (0 * ((minute / 100) ^ 4) - 0 * ((minute/100) ^ 3) + 60 * ((minute/100) ^ 2) + 6 * (minute/100)) + 1,     -- damage
+    (0 * (minute / 26) ^ 2 + minute / 6) + 1,       -- armor
+    ((0 * minute ^ 2 + 2 * minute + 15)/(15)) * self.BootGoldFactor,                      -- gold
+    ((9 * minute ^ 2 + 17 * minute + 607) / 607) * self.numPlayersXPFactor -- xp
   }
 end
 

@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_wall_segment_construction", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wall_segment", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_wall_1 = class(ItemBaseClass)
 
@@ -43,8 +43,7 @@ function item_azazel_wall_1:OnSpellStart()
       GridNav:DestroyTreesAroundPoint(location, SEGMENT_RADIUS, true)
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
       building:SetOrigin(location)
-      building:RemoveModifierByName("modifier_invulnerable")
-      building:AddNewModifier(building, self, "modifier_wall_segment_construction", {duration = -1})
+      building:AddNewModifier(building, self, "modifier_wall_segment", {duration = -1})
       building:SetOwner(caster)
       location = location + offset
     end
@@ -68,21 +67,22 @@ item_azazel_wall_4 = item_azazel_wall_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_wall_segment_construction = class(ModifierBaseClass)
+modifier_wall_segment = class(ModifierBaseClass)
 
 local SINK_HEIGHT = 200
 local THINK_INTERVAL = 0.1
 
-function modifier_wall_segment_construction:OnCreated()
+function modifier_wall_segment:OnCreated()
   if IsServer() then
     local target = self:GetParent()
     local ab = self:GetAbility()
-    local maxhealth = target:GetMaxHealth() + ab:GetSpecialValueFor("bonus_health")
+    local maxhealth = ab:GetSpecialValueFor("health")
     local location = target:GetOrigin()
     local time = ab:GetSpecialValueFor("construction_time")
     target:Attribute_SetIntValue("construction_time", time)
     target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.1, function()
+    Timers:CreateTimer(0.5, function()
+      target:RemoveModifierByName('modifier_invulnerable')
       ResolveNPCPositions(location, target:GetHullRadius())
       target:SetMaxHealth(maxhealth)
       target:SetHealth(maxhealth * 0.01)
@@ -91,12 +91,11 @@ function modifier_wall_segment_construction:OnCreated()
     end)
   end
 end
-function modifier_wall_segment_construction:OnIntervalThink()
+function modifier_wall_segment:OnIntervalThink()
   if IsServer() then
     local target = self:GetParent()
     local time = target:Attribute_GetIntValue("construction_time", 10)
     local count = self:GetStackCount()
-    local location = target:GetOrigin()
     target:SetOrigin(target:GetOrigin() + Vector(0, 0, SINK_HEIGHT / (time / THINK_INTERVAL)))
     self:SetStackCount(count - 1)
     if count < 1 then
@@ -104,32 +103,32 @@ function modifier_wall_segment_construction:OnIntervalThink()
     end
   end
 end
-function modifier_wall_segment_construction:GetAttributes()
+function modifier_wall_segment:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-function modifier_wall_segment_construction:IsHidden()
+function modifier_wall_segment:IsHidden()
   return true
 end
-function modifier_wall_segment_construction:IsDebuff()
+function modifier_wall_segment:IsDebuff()
   return false
 end
-function modifier_wall_segment_construction:IsPurgable()
+function modifier_wall_segment:IsPurgable()
   return false
 end
-function modifier_wall_segment_construction:DeclareFunctions()
+function modifier_wall_segment:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
-function modifier_wall_segment_construction:OnDeath(data)
+function modifier_wall_segment:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_statue001_destruction.vmdl") -- doesn't seem to work.
-    self:GetParent():SetOriginalModel("models/props_structures/radiant_statue001_destruction.vmdl")
-    self:GetParent():ManageModelChanges()
+    data.unit:SetOriginalModel("models/props_structures/radiant_statue001_destruction.vmdl")
+    data.unit:ManageModelChanges()
   end
 end
-function modifier_wall_segment_construction:GetModifierConstantHealthRegen()
+function modifier_wall_segment:GetModifierConstantHealthRegen()
   if IsServer() and self:GetStackCount() > 0 then
     return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
   else

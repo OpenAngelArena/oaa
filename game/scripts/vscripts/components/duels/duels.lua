@@ -109,8 +109,8 @@ function Duels:Init ()
   end)
 
   -- Add chat commands to force start and end duels
-  ChatCommand:LinkCommand("-duel", Dynamic_Wrap(self, "StartDuel"), self)
-  ChatCommand:LinkCommand("-end_duel", Dynamic_Wrap(self, "EndDuel"), self)
+  ChatCommand:LinkDevCommand("-duel", Dynamic_Wrap(self, "StartDuel"), self)
+  ChatCommand:LinkDevCommand("-end_duel", Dynamic_Wrap(self, "EndDuel"), self)
 end
 
 function Duels:RegisterZone(zoneName)
@@ -613,4 +613,3 @@ function Duels:PlayerForDuel(playerId)
 
   return foundIt
 end
-

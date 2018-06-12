@@ -61,6 +61,9 @@ globals = { -- these globals can be set and accessed.
 "CAPTURE_START_COUNTDOWN",
 "CAPTURE_INTERVAL",
 "CAPTURE_LENTGH",
+"SURRENDER_MINIMUM_KILLS_BEHIND",
+"SURRENDER_REQUIRED_YES_VOTES",
+"SURRENDER_TIME_TO_DISPLAY"
 }
 
 read_globals = { -- these globals can only be accessed.

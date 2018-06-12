@@ -180,6 +180,7 @@ function GameMode:OnGameInProgress()
   -- initialize modules
   InitModule(HudTimer)
   InitModule(PointsManager)
+  InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
@@ -191,6 +192,7 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+  InitModule(StatusResistance)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
