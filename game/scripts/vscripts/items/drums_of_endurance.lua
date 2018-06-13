@@ -14,8 +14,7 @@ function item_drums_of_endurance_oaa:GetIntrinsicModifierNames()
   return {
     "modifier_item_drums_of_endurance_oaa",
     "modifier_item_drums_of_endurance_oaa_swiftness_aura",
-    "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect",
-    "modifier_item_drums_of_endurance_oaa_active"
+    "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
   }
 end
 
@@ -46,6 +45,7 @@ function item_drums_of_endurance_oaa:OnSpellStart()
   --Applying_Active_Effect_to_allied_units
   units = iter(units)
   foreach(EnduranceActive,units)
+
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:DeclareFunctions()
   local decFuncs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
   }
   return decFuncs
 end
@@ -170,11 +170,31 @@ function modifier_item_drums_of_endurance_oaa:OnCreated()
 
   if IsServer() then
     --If no previous drums aura then add the aura effect
+    local parent = self:GetParent()
+    -- Remove effect modifiers from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAbility():GetSpecialValueFor("radius"),
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
     if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa_swiftness_aura") then
       self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_drums_of_endurance_oaa_swiftness_aura", {})
     end
+
+    local function RemoveEnduranceActive(unit)
+      unit:RemoveModifierByName("modifier_item_drums_of_endurance_oaa_active")
+    end
+    foreach(RemoveEnduranceActive,units)
   end
 end
+
+modifier_item_drums_of_endurance_oaa.OnRefresh = modifier_item_drums_of_endurance_oaa.OnCreated
 
 function modifier_item_drums_of_endurance_oaa:IsHidden()
   return true
