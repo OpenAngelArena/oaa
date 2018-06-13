@@ -41,7 +41,7 @@ function item_drums_of_endurance_oaa:OnSpellStart()
   )
 
   local function EnduranceActive(unit)
-    unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = duration})
+    unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = self:GetSpecialValueFor("duration")})
   end
   --Applying_Active_Effect_to_allied_units
   units = iter(units)
