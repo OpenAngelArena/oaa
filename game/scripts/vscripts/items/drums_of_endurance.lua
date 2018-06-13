@@ -7,53 +7,45 @@ LinkLuaModifier( "modifier_item_drums_of_endurance_oaa_active", "items/drums_of_
 item_drums_of_endurance_oaa = class(ItemBaseClass)
 
 function item_drums_of_endurance_oaa:GetIntrinsicModifierName()
-	return "modifier_intrinsic_multiplexer"
+  return "modifier_intrinsic_multiplexer"
 end
 
 function item_drums_of_endurance_oaa:GetIntrinsicModifierNames()
-	return {
-      "modifier_item_ancient_janggo_of_endurance_oaa",
-      "modifier_item_drums_of_endurance_oaa"
-    }
+  return {
+    "modifier_item_drums_of_endurance_oaa",
+    "modifier_item_drums_of_endurance_oaa_swiftness_aura",
+    "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect",
+    "modifier_item_drums_of_endurance_oaa_active"
+  }
 end
------------------------------------------------------------------------------------------------------------------------------
---Upgrades
-
-item_drums_of_endurance_2 = class(item_drums_of_endurance_oaa)
-item_drums_of_endurance_3 = class(item_drums_of_endurance_oaa)
-item_drums_of_endurance_4 = class(item_drums_of_endurance_oaa)
 
 ------------------------------------------------------------------------------------------------------------------------------
 --On Casting/Activating Item
 
 function item_drums_of_endurance_oaa:OnSpellStart()
-	--Initializing needed variables
-	local ability = self
-	local caster = ability:GetCaster()
-	local casterTeam = caster:GetTeamNumber()
-	local drums = self.GetAbility()
-  local needsSetCharges = true
+  --Initializing needed variables
+  local ability = self
+  local caster = ability:GetCaster()
+  local casterTeam = caster:GetTeamNumber()
 
-	local units = FindUnitsInRadius(
-					casterTeam,
-					caster:GetAbsOrigin(),
-					nil,
-					ability:GetSpecialValueFor("radius"),
-					DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-					DOTA_UNIT_TARGET_HERO,
-					DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-					FIND_CLOSEST,
-					false
-					)
+  local units = FindUnitsInRadius(
+    casterTeam,
+    caster:GetAbsOrigin(),
+    nil,
+    ability:GetSpecialValueFor("radius"),
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+    FIND_ANY_ORDER,
+    false
+  )
 
-	local duration = ability:GetSpecialValueFor("duration")
-
-	local modifier_active = "modifier_item_drums_of_endurance_active"
-
-	--Applying_Active_Effect_to_allied_units
-	for _,unit in pairs(units) do
-		unit:AddNewModifier(caster, ability, modifier_active, {duration = duration})
-	end
+  local function EnduranceActive(unit)
+    unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = duration})
+  end
+  --Applying_Active_Effect_to_allied_units
+  units = iter(units)
+  foreach(EnduranceActive,units)
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -62,24 +54,25 @@ end
 modifier_item_drums_of_endurance_oaa_active = class(ModifierBaseClass)
 
 function modifier_item_drums_of_endurance_oaa_active:OnCreated()
-	--Ability_specials
-	self.active_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed_pct")
-	self.active_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed_pct")
+  --Ability_specials
+  self.active_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed_pct")
+  self.active_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed_pct")
 end
 
 function modifier_item_drums_of_endurance_oaa_active:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
-	return decFuncs
+  local decFuncs = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+  }
+  return decFuncs
 end
 
 function modifier_item_drums_of_endurance_oaa_active:GetModifierMoveSpeedBonus_Constant()
-	return self.active_movement_speed
+  return self.active_movement_speed
 end
 
 function modifier_item_drums_of_endurance_oaa_active:GetModifierAttackSpeedBonus_Constant()
-	return self.active_attack_speed
+  return self.active_attack_speed
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -88,47 +81,47 @@ end
 modifier_item_drums_of_endurance_oaa_swiftness_aura = class(ModifierBaseClass)
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:OnCreated()
-	self.radius = self:GetAbility():GetSpecialValueFor("radius")
+  self.radius = self:GetAbility():GetSpecialValueFor("radius")
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:AllowIllusionDuplicate()
-	return true
+  return true
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraRadius()
-	return self.radius
+  return self.radius
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_NONE
+  return DOTA_UNIT_TARGET_FLAG_NONE
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetModifierAura()
-	return "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
+  return "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsAura()
-	return true
+  return true
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -137,30 +130,30 @@ end
 modifier_item_drums_of_endurance_oaa_swiftness_aura_effect = class(ModifierBaseClass)
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:OnCreated()
-	self.aura_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_aura_movement_speed")
+  self.aura_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_aura_movement_speed")
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:IsHidden()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-    }
-	return decFuncs
+  local decFuncs = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+  }
+  return decFuncs
 end
 
 function modifier_item_drums_of_endurance_oaa_swiftness_aura_effect:GetModifierMoveSpeedBonus_Constant()
-	return self.aura_movement_speed
+  return self.aura_movement_speed
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -168,85 +161,79 @@ end
 
 modifier_item_drums_of_endurance_oaa = class(ModifierBaseClass)
 
-function modifier_item_drums_of_endurance_oaa:Setup(created)
-  local ability = self:GetAbility()
-  local caster = self:GetCaster()
-	-- Needs charges only in tier 1
-  local needsSetCharges = false
-end
-
 function modifier_item_drums_of_endurance_oaa:OnCreated()
-	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_int")
-	self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_str")
-	self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agi")
-	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
-	self.bonus_mana_regeneration = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+  self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_int")
+  self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_str")
+  self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agi")
+  self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+  self.bonus_mana_regeneration = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 
-	if IsServer() then
-		self:Setup()
-		--If no previous drums aura then add the aura effect
-		if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa_swiftness_aura") then
-			self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_drums_of_endurance_oaa_swiftness_aura", {})
-		end
-	end
-end
-
-function modifier_item_drums_of_endurance_oaa:OnRefreshed()
-	if IsServer() then
-		self:Setup()
-	end
+  if IsServer() then
+    --If no previous drums aura then add the aura effect
+    if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa_swiftness_aura") then
+      self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_drums_of_endurance_oaa_swiftness_aura", {})
+    end
+  end
 end
 
 function modifier_item_drums_of_endurance_oaa:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_drums_of_endurance_oaa:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_drums_of_endurance_oaa:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_drums_of_endurance_oaa:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT}
-	return decFuncs
+  local decFuncs = {
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT}
+    return decFuncs
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierBonusStats_Intellect()
-	return self.bonus_intellect
+  return self.bonus_intellect
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierBonusStats_Strength()
-	return self.bonus_strength
+  return self.bonus_strength
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierBonusStats_Agility()
-	return self.bonus_agility
+  return self.bonus_agility
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierPreAttack_BonusDamage()
-	return self.bonus_damage
+  return self.bonus_damage
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierConstantManaRegen()
-	return self.bonus_mana_regeneration
+  return self.bonus_mana_regeneration
 end
 
 function modifier_item_drums_of_endurance_oaa:OnDestroy()
-	if IsServer() then
-		if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa") then
-			self:GetCaster():RemoveModifierByName("modifier_item_drums_of_endurance_oaa_swiftness_aura")
-		end
-	end
+  if IsServer() then
+    if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa") then
+      self:GetCaster():RemoveModifierByName("modifier_item_drums_of_endurance_oaa_swiftness_aura")
+    end
+  end
 end
+
+-----------------------------------------------------------------------------------------------------------------------------
+--Upgrades
+
+item_drums_of_endurance_2 = class(item_drums_of_endurance_oaa)
+item_drums_of_endurance_3 = class(item_drums_of_endurance_oaa)
+item_drums_of_endurance_4 = class(item_drums_of_endurance_oaa)
+item_drums_of_endurance_5 = class(item_drums_of_endurance_oaa)
