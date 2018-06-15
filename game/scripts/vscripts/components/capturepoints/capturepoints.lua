@@ -177,6 +177,8 @@ function CapturePoints:Reward(teamId)
     return
   end
 
+  PointsManager:AddPoints(teamId, 1)
+
   if NumCaptures == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif NumCaptures == 2 then
