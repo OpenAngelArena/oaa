@@ -55,6 +55,11 @@
         "echo_slam_echo_damage"                           "60 85 110 235 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_initial_damage"                        "100"
+      }
     }
   }
 }
