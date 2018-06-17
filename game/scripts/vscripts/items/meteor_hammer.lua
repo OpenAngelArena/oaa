@@ -31,13 +31,20 @@ end
 function item_meteor_hammer_1:OnChannelFinish(bInterrupted)
   local caster = self:GetCaster()
 
-  caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
   caster:FadeGesture(ACT_DOTA_TELEPORT)
 
   if not bInterrupted then
+    caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
     CreateModifierThinker(caster, self, "modifier_item_meteor_hammer_thinker", {},self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
-    end
+  else
+    caster:StopSound("DOTA_Item.MeteorHammer.Channel")
+    ParticleManager:DestroyParticle(self.channel_particle_caster, true)
+    ParticleManager:DestroyParticle(self.channel_particle, true)
   end
+
+  ParticleManager:ReleaseParticleIndex(self.channel_particle_caster)
+  ParticleManager:ReleaseParticleIndex(self.channel_particle)
+end
 
 function item_meteor_hammer_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
@@ -63,13 +70,14 @@ function modifier_item_meteor_hammer_thinker:OnCreated()
     --landtime should not be a negative number
     self:StartIntervalThink(self.land_time)
 
-    self.impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
+    local impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
 
     --Controls the metoer position to origin
-    ParticleManager:SetParticleControl(self.impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
-    ParticleManager:SetParticleControl(self.impact_particle, 1, parent:GetOrigin())
+    ParticleManager:SetParticleControl(impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
+    ParticleManager:SetParticleControl(impact_particle, 1, parent:GetOrigin())
     --Fade time of cetain particles
-    ParticleManager:SetParticleControl(self.impact_particle, 2, Vector(self.land_time, 0, 0))
+    ParticleManager:SetParticleControl(impact_particle, 2, Vector(self.land_time, 0, 0))
+    ParticleManager:ReleaseParticleIndex(impact_particle)
   end
 end
 
