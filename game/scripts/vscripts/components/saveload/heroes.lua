@@ -10,6 +10,7 @@ function SaveLoadStateHero:GetState ()
     if hero then
       state[playerID].items = self:GetItemState(playerID, hero)
       state[playerID].abilities = self:GetAbilityState(playerID, hero)
+      state[playerID].special = self:GetSpecialState(playerID, hero)
       state[playerID].xp = hero:GetCurrentXP()
 
       if hero:IsAlive() then
@@ -40,6 +41,7 @@ function SaveLoadStateHero:LoadState (state)
 
       self:LoadItemState(playerID, hero, state[playerID].items)
       self:LoadAbilityState(playerID, hero, state[playerID].abilities)
+      self:LoadSpecialState(playerID, hero, state[playerID].special)
       hero:SetAbsOrigin(Vector(state[playerID].location[1], state[playerID].location[2], state[playerID].location[3]))
     end
   end
@@ -93,8 +95,6 @@ function SaveLoadStateHero:LoadItemState (playerID, hero, state)
   for _,item in ipairs(dummies) do
     item:Destroy()
   end
-
-  return state
 end
 
 function SaveLoadStateHero:GetAbilityState (playerID, hero)
@@ -123,7 +123,6 @@ function SaveLoadStateHero:GetAbilityState (playerID, hero)
   return state
 end
 
-
 function SaveLoadStateHero:LoadAbilityState (playerID, hero, state)
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
@@ -140,6 +139,43 @@ function SaveLoadStateHero:LoadAbilityState (playerID, hero, state)
   end
 
   hero:SetAbilityPoints(state.abilityPoints)
+end
+
+function SaveLoadStateHero:GetSpecialState (playerID, hero)
+  local state = {}
+
+  if hero:FindModifierByName('modifier_legion_commander_duel_damage_boost' ) then
+    state.duel_damage = hero:FindModifierByName('modifier_legion_commander_duel_damage_boost' ):GetStackCount()
+  end
+
+  if hero:FindModifierByName('modifier_oaa_int_steal' ) then
+    state.stolen_int = hero:FindModifierByName('modifier_oaa_int_steal' ):GetStackCount()
+  end
+
+  if hero:FindModifierByName('modifier_pudge_flesh_heap' ) then
+    state.flesh_heap = hero:FindModifierByName('modifier_pudge_flesh_heap' ):GetStackCount()
+  end
 
   return state
+end
+
+function SaveLoadStateHero:LoadSpecialState (playerID, hero, state)
+  if state.duel_damage then
+    if not hero:HasModifier('modifier_legion_commander_duel_damage_boost' ) then
+      hero:AddNewModifier( hero, hero:FindAbilityByName('legion_commander_duel'), 'modifier_legion_commander_duel_damage_boost', {} )
+    end
+    hero:FindModifierByName('modifier_legion_commander_duel_damage_boost' ):SetStackCount(state.duel_damage)
+  end
+
+  if state.stolen_int then
+    hero:FindModifierByName('modifier_oaa_int_steal' ):SetStackCount(state.stolen_int)
+  end
+
+  if state.flesh_heap then
+    -- Not Working. But is should!
+    if not hero:HasModifier('modifier_pudge_flesh_heap' ) then
+      hero:AddNewModifier( hero, hero:FindAbilityByName('pudge_flesh_heap'), 'modifier_pudge_flesh_heap', {} )
+    end
+    hero:FindModifierByName('modifier_pudge_flesh_heap' ):SetStackCount(state.flesh_heap)
+  end
 end

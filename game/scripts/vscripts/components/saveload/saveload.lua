@@ -69,58 +69,58 @@ function SaveLoadState:Init ()
         [0] = {
           abilities = {
             abilityPoints = 9,
-            generic_hidden = {
-              cooldown = 0,
-              level = 0,
-            },
-            medusa_mana_shield = {
-              cooldown = 0,
-              level = 1,
-            },
-            medusa_mystic_snake = {
-              cooldown = 0,
-              level = 1,
-            },
-            medusa_split_shot = {
-              cooldown = 0,
-              level = 1,
-            },
-            medusa_stone_gaze = {
-              cooldown = 17,
-              level = 3,
-            },
-            special_bonus_attack_damage_20 = {
-              cooldown = 0,
-              level = 0,
-            },
-            special_bonus_attack_speed_30 = {
-              cooldown = 0,
-              level = 1,
-            },
-            special_bonus_evasion_15 = {
-              cooldown = 0,
-              level = 1,
-            },
-            special_bonus_mp_700 = {
-              cooldown = 0,
-              level = 0,
-            },
-            special_bonus_unique_medusa = {
-              cooldown = 0,
-              level = 1,
-            },
-            special_bonus_unique_medusa_2 = {
-              cooldown = 0,
-              level = 0,
-            },
-            special_bonus_unique_medusa_3 = {
-              cooldown = 0,
-              level = 0,
-            },
-            special_bonus_unique_medusa_4 = {
-              cooldown = 0,
-              level = 0,
-            },
+             generic_hidden = {
+               cooldown = 0,
+               level = 0
+             },
+             silencer_curse_of_the_silent = {
+               cooldown = 0,
+               level = 0
+             },
+             silencer_glaives_of_wisdom_oaa = {
+               cooldown = 0,
+               level = 0
+             },
+             silencer_global_silence = {
+               cooldown = 0,
+               level = 0
+             },
+             silencer_last_word = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_armor_5 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_attack_range_125 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_attack_speed_25 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_spell_amplify_5 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_unique_silencer = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_unique_silencer_2 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_unique_silencer_3 = {
+               cooldown = 0,
+               level = 0
+             },
+             special_bonus_unique_silencer_4 = {
+               cooldown = 0,
+               level = 0
+             },
           },
           hp = 1780,
           items = {
@@ -164,6 +164,9 @@ function SaveLoadState:Init ()
               cooldown = 0,
               name = 'item_azazel_wall_4',
             }
+          },
+          special = {
+            stolen_int = 51
           },
           location = {
             [1] = -5052.3349609375,
