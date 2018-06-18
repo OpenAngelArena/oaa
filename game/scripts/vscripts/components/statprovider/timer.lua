@@ -18,6 +18,18 @@ function HudTimer:Init()
   end)
 end
 
+function HudTimer:GetState ()
+  return {
+    time = self:GetGameTime(),
+    day = GameRules:GetTimeOfDay()
+  }
+end
+
+function HudTimer:LoadState (state)
+  self:SetGameTime(state.time)
+  GameRules:SetTimeOfDay(state.day)
+end
+
 function HudTimer:Pause()
   self.isPaused = true
 end

@@ -48,6 +48,36 @@ function BossSpawner:Init ()
     margin = 300,
     players = allBadPlayers
   })
+
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
+  end
+end
+
+function BossSpawner:GetState ()
+  local state = {}
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    state[self:PitID(bossPit)] = bossPit.killCount
+  end
+
+  return state
+end
+
+function BossSpawner:LoadState (state)
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    bossPit.killCount = state[self:PitID(bossPit)]
+  end
+end
+
+function BossSpawner:PitID (pit)
+  local origin = pit:GetAbsOrigin()
+  return origin.x .. '/' .. origin.y .. '/' .. origin.z
 end
 
 function BossSpawner:SpawnAllBosses ()
@@ -59,7 +89,6 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
     BossSpawner:SpawnBossAtPit(bossPit)
   end
 end

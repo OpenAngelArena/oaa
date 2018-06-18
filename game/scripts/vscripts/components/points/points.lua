@@ -35,6 +35,20 @@ function PointsManager:Init ()
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 end
 
+function PointsManager:GetState ()
+  return {
+    limit = self:GetLimit(),
+    goodScore = self:GetPoints(DOTA_TEAM_GOODGUYS),
+    badScore = self:GetPoints(DOTA_TEAM_BADGUYS)
+  }
+end
+
+function PointsManager:LoadState (state)
+  self:SetLimit(state.limit)
+  self:SetPoints(DOTA_TEAM_GOODGUYS, state.goodScore)
+  self:SetPoints(DOTA_TEAM_BADGUYS, state.badScore)
+end
+
 function PointsManager:CheckWinCondition(teamID, points)
   if self.hasGameEnded then
     return

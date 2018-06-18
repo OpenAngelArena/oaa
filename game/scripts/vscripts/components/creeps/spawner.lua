@@ -39,6 +39,16 @@ function CreepCamps:Init ()
   ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
 end
 
+function CreepCamps:GetState ()
+  return {
+    power = CreepPowerLevel
+  }
+end
+
+function CreepCamps:LoadState (state)
+  self:SetPowerLevel(state.power)
+end
+
 function CreepCamps:SetPowerLevel (powerLevel)
   CreepPowerLevel = powerLevel
 end
@@ -60,7 +70,7 @@ function CreepCamps:CreepSpawnTimer ()
     self.firstSpawn = false
     return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
-  return CREEP_SPAWN_INTERVAL
+  return CREEP_SPAWN_INTERVAL + (60 - (HudTimer:GetGameTime() % 60))
 end
 
 function CreepCamps:UpgradeCreeps ()
