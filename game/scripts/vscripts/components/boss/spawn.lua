@@ -73,6 +73,8 @@ function BossSpawner:LoadState (state)
   for _,bossPit in ipairs(bossPits) do
     bossPit.killCount = state[self:PitID(bossPit)]
   end
+
+  BossSpawner:SpawnAllBosses()
 end
 
 function BossSpawner:PitID (pit)
