@@ -38,12 +38,12 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "effect_radius"             "3500"
+        "effect_radius"             "1500"
       }
       "02"
       {
         "var_type"                  "FIELD_FLOAT"
-        "delay"                     "1.0"
+        "delay"                     "1.5"
       }
       "03"
       {
@@ -53,12 +53,12 @@
       "04"
       {
         "var_type"                  "FIELD_INTEGER"
-        "blast_damage"              "1200" // 19200 dps
+        "blast_damage"              "1600" // 25600 dps
       }
       "05"
       {
         "var_type"                  "FIELD_FLOAT"
-        "channel_duration"          "10.0"
+        "channel_duration"          "8.0"
       }
       "06"
       {

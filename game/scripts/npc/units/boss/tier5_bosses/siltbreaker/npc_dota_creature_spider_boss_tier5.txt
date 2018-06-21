@@ -36,8 +36,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"6500"
-		"AttackDamageMax"			"6500"
+		"AttackDamageMin"			"8000"
+		"AttackDamageMax"			"8100"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"2000"
@@ -58,7 +58,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"36000"
+		"StatusHealth"				"20000"
 		"StatusHealthRegen"			"20.5"
 		"StatusMana"				"2400"
 		"StatusManaRegen"			"25"

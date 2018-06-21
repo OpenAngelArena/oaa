@@ -122,7 +122,7 @@ function Duels:RegisterZone(zoneName)
       margin = 500,
       padding = 200,
       players = {}
-      })
+    })
   )
 end
 
@@ -134,9 +134,13 @@ function Duels:CountPlayerDeath (player)
     self.currentDuel['duelEnd' .. player.duelNumber] = player.team
     DebugPrint('Duel number ' .. scoreIndex .. ' is over and ' .. player.team .. ' lost')
     local winningTeam = "bad"
+    local winningTeamId = DOTA_TEAM_BADGUYS
     if player.team == "bad" then
       winningTeam = "good"
+      winningTeamId = DOTA_TEAM_GOODGUYS
     end
+
+    PointsManager:AddPoints(winningTeamId, 1)
 
     self:AllPlayers(self.currentDuel, function (otherPlayer)
       if player.duelNumber ~= otherPlayer.duelNumber then
@@ -151,8 +155,6 @@ function Duels:CountPlayerDeath (player)
         }
       })
     end)
-
-
   end
 
   if self.currentDuel.duelEnd1 and self.currentDuel.duelEnd2 then

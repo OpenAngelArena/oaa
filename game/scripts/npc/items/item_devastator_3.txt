@@ -52,9 +52,9 @@
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.25"
-    "AbilityCooldown"                                     "10 9 8 7 6"
-    "AbilityManaCost"                                     "50 100 200 300 500"
-    "AbilityDamage"                                       "50 70 100 140 200"
+    "AbilityCooldown"                                     "10"
+    "AbilityManaCost"                                     "100"
+    "AbilityDamage"                                       "200 300 400 600 800"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -77,12 +77,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 140 200"
+        "bonus_damage"                                    "50 70 100 130 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-6 -9 -13 -18 -24"
+        "corruption_armor"                                "-6 -9 -12 -15 -18"
       }
       "03"
       {
@@ -114,7 +114,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "50 70 100 140 200"
+        "devastator_damage"                               "200 300 400 600 800"
       }
       "09"
       {
