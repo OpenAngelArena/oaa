@@ -1,11 +1,13 @@
 //=============================================================================
 // Drums of Endurance Swiftness Aura
 //=============================================================================
-"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"                      "Swiftness Aura"
-"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_swiftness_aura_effect_Description" "Gives %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% Movement Speed to nearby allies."
+
+"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"                      "#{DOTA_Tooltip_modifier_item_ancient_janggo_aura_effect}"
+"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_swiftness_aura_effect_Description" "#{DOTA_Tooltip_modifier_item_ancient_janggo_aura_effect_Description}"
 
 //=============================================================================
 // Drums of Endurance Active Effect
 //=============================================================================
-"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_active"                              "Endurance"
-"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_active_Description"                  "Gives +%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% % movement speed to nearby allies for 6 seconds."
+
+"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_active"                              "#{DOTA_Tooltip_modifier_item_ancient_janggo_active}"
+"DOTA_Tooltip_modifier_item_drums_of_endurance_oaa_active_Description"                  "#{DOTA_Tooltip_modifier_item_ancient_janggo_active_Description}"
