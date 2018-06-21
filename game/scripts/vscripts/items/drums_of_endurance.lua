@@ -13,8 +13,7 @@ end
 function item_drums_of_endurance_oaa:GetIntrinsicModifierNames()
   return {
     "modifier_item_drums_of_endurance_oaa",
-    "modifier_item_drums_of_endurance_oaa_swiftness_aura",
-    "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
+    "modifier_item_drums_of_endurance_oaa_swiftness_aura"
   }
 end
 
