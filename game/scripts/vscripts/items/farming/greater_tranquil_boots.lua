@@ -71,8 +71,13 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 	self.interval = spell:GetSpecialValueFor( "check_interval" )
 
-	if IsServer() then
-		self:SetDuration( spell:GetCooldownTimeRemaining(), true )
+  if IsServer() then
+		local cdRemaining = spell:GetCooldownTimeRemaining()
+    -- Break for any remaining duration (e.g. if item was dropped and picked up)
+    -- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
+    if cdRemaining > 0 then
+      self:SetDuration( cdRemaining, true )
+    end
 
 		self:StartIntervalThink( self.interval )
 	end
@@ -102,8 +107,13 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 
 	self.interval = spell:GetSpecialValueFor( "check_interval" )
 
-	if IsServer() then
-		self:SetDuration( spell:GetCooldownTime(), true )
+  if IsServer() then
+    local cdRemaining = spell:GetCooldownTimeRemaining()
+    -- Break for any remaining duration (e.g. if item was dropped and picked up)
+    -- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
+    if cdRemaining > 0 then
+      self:SetDuration( cdRemaining, true )
+    end
 
 		self:StartIntervalThink( self.interval )
 	end
