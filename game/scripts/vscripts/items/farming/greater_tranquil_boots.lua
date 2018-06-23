@@ -272,7 +272,10 @@ if IsServer() then
 
 			-- less so is actually making this do anything
 			-- because valve
-			self:SetDuration( spell:GetCooldownTime(), true )
+      local cdRemaining = spell:GetCooldownTimeRemaining()
+      if cdRemaining > 0 then
+        self:SetDuration( cdRemaining, true )
+      end
 		end
 	end
 
