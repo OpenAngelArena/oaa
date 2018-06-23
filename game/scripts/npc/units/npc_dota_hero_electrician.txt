@@ -8,12 +8,12 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"npc_dota_hero_dazzle"
-		"Model"							"models/heroes/electrician/electrician.vmdl"
+		"Model"							  "models/heroes/electrician/electrician.vmdl"
 		"SoundSet"						"Hero_Electrician"
-		"HeroID"						"129"
-		"particle_folder"				"particles/units/heroes/hero_electrician"
-		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
-		"VoiceFile"						"soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
+		"HeroID"						  "129"
+		"particle_folder"			"particles/units/heroes/hero_electrician"
+		//"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+		//"VoiceFile"						"soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
 
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------

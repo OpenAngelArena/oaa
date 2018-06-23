@@ -12,8 +12,7 @@ g_ItemPrecache = {
   "item_dagger_of_moriah",
   "item_dispel_orb_1",
   "item_reflection_shard_1",
-  "item_heart_transplant",
-  "item_manta_1",
+  "item_heart_transplant"
 }
 
 g_UnitPrecache = {
@@ -68,7 +67,6 @@ g_ParticlePrecache = {
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
-  "particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
   "particles/items/dispel_orb",
   "particles/items/dagger_of_moriah",

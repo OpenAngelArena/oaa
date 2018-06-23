@@ -40,14 +40,6 @@ function Precache( context )
 
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
-  for _,Item in pairs( g_ItemPrecache ) do
-    PrecacheItemByNameAsync( Item, function( item ) end )
-  end
-
-   for _,Unit in pairs( g_UnitPrecache ) do
-    PrecacheUnitByNameAsync( Unit, function( unit ) end )
-  end
-
    for _,Model in pairs( g_ModelPrecache ) do
     PrecacheResource( "model", Model, context  )
   end
@@ -66,14 +58,37 @@ function Precache( context )
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work
-  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
-    if value == 1 then
-      local hero = string.sub(key, 15)
-      -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
-      PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
+  -- I'm comment this out cause the prior code was only loading the particles (moved to later)
+  -- And loading all the items models are just impossible cause it gives out of memory exception
+
+  -- local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  -- for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+  --   if value == 1 then
+  --     local hero = string.sub(key, 15)
+  --     local modelFolder = "models/items/" .. hero
+  --     print("Loading model folder :" .. modelFolder)
+  --     PrecacheResource("model_folder", modelFolder, context)
+  --   end
+  -- end
+
+  -- Delay Precache particle
+  -- Team Selection + Picking screen should be enough to load all the information needed
+  -- This is better than using GameMode:PostLoadPrecache because it start the loading as soon as the players connect
+  -- and gives less delay when loading to the next screen
+  GameEvents:OnConnectFull( function()
+    print("Precaching all hero particle cosmetics")
+    PrecacheUnitByNameAsync( "npc_dota_load_econ_dummy", function( unit )
+      print("Finish loading cosmetics")
+    end )
+
+    for _,Item in pairs( g_ItemPrecache ) do
+      PrecacheItemByNameAsync( Item, function( item ) end )
     end
-  end
+
+    for _,Unit in pairs( g_UnitPrecache ) do
+      PrecacheUnitByNameAsync( Unit, function( unit ) end )
+    end
+  end )
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
