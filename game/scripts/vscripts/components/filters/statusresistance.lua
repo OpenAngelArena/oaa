@@ -22,7 +22,7 @@ function StatusResistance:StatusResistanceFilter(filterTable)
   local ability = EntIndexToHScript( ability_index )
   local name = filterTable["name_const"]
 
-  if parent and caster and duration ~= -1 then
+  if parent and caster and duration ~= -1 and parent:GetTeam() ~= caster:GetTeam() then
     local params = {caster = caster, target = parent, duration = duration, ability = ability, modifier_name = name}
     local resistance = 0
     local stackResist = 0
@@ -35,18 +35,8 @@ function StatusResistance:StatusResistanceFilter(filterTable)
       end
     end
     local newDuration = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
-
-    local modifier = parent:FindModifierByName( name )
-
-    if modifier ~= nil and filterTable["duration"] ~= newDuration and (
-      (modifier.IsDebuff and modifier:IsDebuff()) or
-      modifier.IsStunDebuff and modifier:IsStunDebuff()) then
-      print("newDuration Applied")
-      filterTable["duration"] = newDuration
-    end
-
   end
-
+  filterTable["duration"] = newDuration
   if filterTable["duration"] == 0 then return false end
   return true
 end
