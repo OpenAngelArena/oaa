@@ -22,8 +22,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
-    "AbilityCooldown"                                     "10"
+    "AbilityCastRange"                                    "600"
+    "AbilityCooldown"                                     "32 24 18 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,13 +42,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "700 800 900 1000 5000 10000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_chen_4"
+        "level_req"                                       "6"
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "teleport_delay"  "6.0 5.0 4.0 3.0 2.0 1.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "health_min"                                      "700 800 900 1000 5000 10000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_chen_4"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "6.0"
       }
     }
   }
