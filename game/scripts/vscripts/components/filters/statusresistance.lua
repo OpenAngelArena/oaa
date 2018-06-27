@@ -35,8 +35,8 @@ function StatusResistance:StatusResistanceFilter(filterTable)
       end
     end
     local newDuration = filterTable["duration"] * (1 - resistance/100) * (1 - stackResist/100)
+    filterTable["duration"] = newDuration
   end
-  filterTable["duration"] = newDuration
   if filterTable["duration"] == 0 then return false end
   return true
 end
