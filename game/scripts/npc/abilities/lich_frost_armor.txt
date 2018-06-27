@@ -41,25 +41,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_bonus"                                     "3 5 7 9 19 30"
+        "armor_bonus"                                     "4 6 8 10 22 36"
       }
       "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "building_armor_bonus_tooltip"                    "3 5 7 9 19 30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lich_1"
-      }
-      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "2.0"
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-8 -16 -24 -32 -40 -48"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_attack_speed"                               "-8 -16 -24 -32 -40 -48"

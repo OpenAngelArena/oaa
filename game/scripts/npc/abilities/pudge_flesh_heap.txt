@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5074"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "flesh_heap_magic_resist"                         "6 8 10 12 15 25"
+        "flesh_heap_magic_resist"                         "8 10 12 14 20 28"
       }
       "02"
       {
