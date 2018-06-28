@@ -29,6 +29,7 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
+  Debug:EnableDebugging()
 
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "oaa_captains_mode"
@@ -134,7 +135,6 @@ end
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
-
   DebugPrint(GetMapName())
 
   HeroSelection.shouldBePaused = true
