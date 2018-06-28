@@ -28,7 +28,8 @@ end
 function Gold:GetState ()
   local state = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
-    state[playerID] = self:GetGold(playerID)
+    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    state[steamid] = self:GetGold(playerID)
   end
 
   return state
@@ -36,10 +37,9 @@ end
 
 function Gold:LoadState (state)
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
-    self:SetGold(playerID, state[playerID])
+    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    self:SetGold(playerID, state[steamid])
   end
-
-  return state
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)

@@ -18,6 +18,22 @@ function Bottlepass:Init ()
   GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
 end
 
+function Bottlepass:StateLoad (callback)
+  self:Request('state/load', {}, function (err, data)
+    if data and data.ok then
+      callback(data)
+    else
+      callback(nil)
+    end
+  end)
+end
+
+function Bottlepass:StateSave (state)
+  self:Request('state/save', state, function (err, data)
+    -- state saved! cool!
+  end)
+end
+
 function Bottlepass:SendWinner (winner)
   if self.winner then
     -- only send winner once

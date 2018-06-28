@@ -9,11 +9,35 @@ local SaveLoadModules = {
   points = PointsManager,
   bosses = BossSpawner,
   gold = Gold,
-  heroes = SaveLoadStateHero
+  heroes = SaveLoadStateHero,
+  capturePoints = CapturePoints
 }
 
 function SaveLoadState:Init ()
-  -- start auto-saving when we should?
+  -- don't ever do or trigger anything before this point
+  if not SAVE_STATE_ENABLED then
+    return
+  end
+
+  -- check if we can resume state
+  Bottlepass:StateLoad(function (data)
+    if not data then
+      return
+    end
+    PauseGame(true)
+    self:LoadState(data.state)
+  end)
+
+  Timers:CreateTimer(BOSS_RESPAWN_START, function ()
+    -- start auto-saving after beasts have spawned
+    if not Duels:IsActive() then
+      local data = self:GetState()
+      Bottlepass:StateSave(data)
+    end
+
+    return SAVE_STATE_INTERVAL
+  end)
+
   Timers:CreateTimer(5, function ()
     local data = self:GetState()
     DebugPrintTable(data)

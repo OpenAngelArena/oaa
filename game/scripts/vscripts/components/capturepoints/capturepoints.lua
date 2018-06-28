@@ -64,6 +64,18 @@ function CapturePoints:Init ()
   ChatCommand:LinkDevCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
 end
 
+function CapturePoints:GetState ()
+  local state = {}
+
+  state.captures = NumCaptures
+
+  return state
+end
+
+function CapturePoints:LoadState (state)
+  NumCaptures = state.captures
+end
+
 function CapturePoints:IsActive ()
   if not self.currentCapture or self.currentCapture == CAPTUREPOINT_IS_STARTING then
     return false
