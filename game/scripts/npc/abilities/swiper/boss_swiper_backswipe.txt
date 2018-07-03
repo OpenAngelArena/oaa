@@ -9,7 +9,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "AbilityTextureName"            "custom/bosses/swiper/backswipe.png"
+        "AbilityTextureName"            "custom/bosses/swiper/backswipe"
         "ScriptFile"                    "abilities/swiper/boss_swiper_backswipe.lua"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
