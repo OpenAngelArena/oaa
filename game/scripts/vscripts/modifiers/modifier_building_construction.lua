@@ -3,6 +3,12 @@
 -- Defaults to not making the building rise from the ground if no "sink_hegiht" is set
 -- Defaults to "think_interval" of 0.1
 
+-- If you look at this and wonder why it doesn't use SetMaxHealth,
+-- it's because for some weird reason, doing that causes the max health to revert when the modifier is destroyed
+-- #ThanksValve
+
+LinkLuaModifier("modifier_building_health", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_building_construction = class(ModifierBaseClass)
 
 function modifier_building_construction:IsHidden()
@@ -17,6 +23,7 @@ if IsServer() then
   function modifier_building_construction:OnCreated()
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    parent:AddNewModifier(parent, ability, "modifier_building_health", {})
     self.constructionTime = ability:GetSpecialValueFor("construction_time")
     self.maxHealth = ability:GetSpecialValueFor("health")
     self.initialSinkHeight = ability:GetSpecialValueFor("sink_height")
@@ -30,7 +37,6 @@ if IsServer() then
 
     ResolveNPCPositions(origin, parent:GetHullRadius())
 
-    parent:SetMaxHealth(self.maxHealth)
     parent:SetHealth(self.maxHealth * 0.01)
 
     self.totalTicks = math.floor(self.constructionTime / self.thinkInterval)
@@ -46,14 +52,11 @@ if IsServer() then
     end
     local parent = self:GetParent()
 
-    -- Setting max health directly after spawning pretty much never works, so this ensures max health gets set corretly
-    if parent:GetMaxHealth() ~= self.maxHealth then
-      parent:SetMaxHealth(self.maxHealth)
-    end
-
     local origin = parent:GetOrigin()
     parent:SetOrigin(origin + Vector(0, 0, self.initialSinkHeight / self.totalTicks))
 
+    -- The call in OnCreated often does not push units out, so call continuously to
+    -- ensure units don't get stuck inside the building
     ResolveNPCPositions(origin, parent:GetHullRadius())
 
     self.ticksRemaining = self.ticksRemaining - 1
@@ -64,16 +67,53 @@ function modifier_building_construction:CheckState()
   return {
     [MODIFIER_STATE_DISARMED] = true,
     [MODIFIER_STATE_BLIND] = true,
-    [MODIFIER_STATE_FROZEN] = true
+    [MODIFIER_STATE_FROZEN] = true -- Freeze animation to prevent choppiness as calling SetOrigin resets the animation
   }
 end
 
 function modifier_building_construction:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
   }
 end
 
 function modifier_building_construction:GetModifierConstantHealthRegen()
-  return self.maxHealth * 0.99 / self.constructionTime
+  if IsServer() then
+    return self.maxHealth * 0.99 / self.constructionTime
+  end
+end
+
+
+
+modifier_building_health = class(ModifierBaseClass)
+
+function modifier_building_health:IsHidden()
+  return true
+end
+
+function modifier_building_health:IsPurgable()
+  return false
+end
+
+if IsServer() then
+  function modifier_building_health:OnCreated()
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    self.initialMaxHealth = parent:GetMaxHealth()
+    self.maxHealth = ability:GetSpecialValueFor("health")
+  end
+end
+
+function modifier_building_health:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS
+  }
+end
+
+function modifier_building_health:GetModifierExtraHealthBonus()
+  if self.maxHealth == 0 then
+    return 0
+  else
+    return self.maxHealth - self.initialMaxHealth
+  end
 end
