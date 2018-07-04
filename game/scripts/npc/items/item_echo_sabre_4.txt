@@ -70,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
+        "bonus_strength"                                  "12 18 30 42 60"
       }
       "03"
       {
@@ -80,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
+        "bonus_damage"                                    "12 18 30 42 60"
       }
       "05"
       {
@@ -105,7 +105,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.7"
+        "slow_duration"                                   "0.8"
       }
     }
   }

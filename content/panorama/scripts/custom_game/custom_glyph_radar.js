@@ -65,8 +65,14 @@ var GlyphScanContainer = /** @class */ (function () {
     var _this = this;
     this.GlyphTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
     this.GlyphTooltip.BLoadLayoutSnippet('DotaCustomTooltipGlyph');
-    this.GlyphIcon.SetPanelEvent('onmouseover' /* ON_MOUSE_OVER */, function () { _this.GlyphTooltip.SetHasClass('Hidden', false); });
-    this.GlyphIcon.SetPanelEvent('onmouseout' /* ON_MOUSE_OUT */, function () { _this.GlyphTooltip.SetHasClass('Hidden', true); });
+    this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseover' /* ON_MOUSE_OVER */, function () {
+      _this.GlyphTooltip.SetHasClass('Hidden', false);
+      FindDotaHudElement('DOTAHUDGlyphTooltip').visible = false;
+    });
+    this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseout' /* ON_MOUSE_OUT */, function () {
+      _this.GlyphTooltip.SetHasClass('Hidden', true);
+      FindDotaHudElement('DOTAHUDRadarTooltip').visible = false;
+    });
   };
   GlyphScanContainer.prototype.CreateRadarTooltip = function () {
     var _this = this;

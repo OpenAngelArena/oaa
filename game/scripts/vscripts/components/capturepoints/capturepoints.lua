@@ -60,8 +60,8 @@ function CapturePoints:Init ()
   end)
 
   -- Add chat commands to force start and end captures
-  ChatCommand:LinkCommand("-capture", Dynamic_Wrap(self, "ScheduleCapture"), self)
-  ChatCommand:LinkCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
+  ChatCommand:LinkDevCommand("-capture", Dynamic_Wrap(self, "ScheduleCapture"), self)
+  ChatCommand:LinkDevCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
 end
 
 function CapturePoints:IsActive ()
@@ -219,6 +219,4 @@ function CapturePoints:EndCapture ()
   CaptureFinished.broadcast(self.currentCapture)
   local currentCapture = self.currentCapture
   self.currentCapture = nil
-
-
 end
