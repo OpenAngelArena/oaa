@@ -24,7 +24,7 @@ function item_azazel_wall_1:OnSpellStart()
   local segment_count = math.ceil(wall_length / (SEGMENT_RADIUS * 2)) -- Each segment can cover SEGMENT_RADIUS * 2 units
   local origin_caster = caster:GetOrigin()
   -- direction of the wall.
-  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -90, 0)), Vector(target_pos.x - origin_caster.x, target_pos.y - origin_caster.y, target_pos.z)):Normalized() --[[rotate the vector between the cast location and the caster
+  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -1, 0)), Vector(target_pos.x - origin_caster.x, target_pos.y - origin_caster.y, 0)):Normalized() --[[rotate the vector between the cast location and the caster
     by 90 deg to the right, thus geting the *opposite* of the direction we will spawn wall segments in.]]
   if #direction == 0 then
     direction = RandomVector(1)
