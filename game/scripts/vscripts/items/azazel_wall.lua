@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_wall_segment", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_wall_1 = class(ItemBaseClass)
 
@@ -46,9 +47,9 @@ function item_azazel_wall_1:OnSpellStart()
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
       building:RemoveModifierByName("modifier_invulnerable")
       building:SetOrigin(location)
+      building:SetOwner(caster)
       building:AddNewModifier(building, self, "modifier_building_construction", {})
       building:AddNewModifier(building, self, "modifier_wall_segment", {})
-      building:SetOwner(caster)
     end
   end
   if not spawned then
