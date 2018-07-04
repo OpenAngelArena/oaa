@@ -18,36 +18,39 @@ end
 -- Spawns a line of wall segments perpendicular to the line between the cast location and the caster.
 function item_azazel_wall_1:OnSpellStart()
   local caster = self:GetCaster()
-  local origin = self:GetCursorPosition()
-  -- total length of the wall.
-  local length = self:GetSpecialValueFor("wall_length") - SEGMENT_RADIUS * 2 -- adjusting in order to make a total of `wall_length`.
-  -- number of segments.
-  local count = math.floor(length / SEGMENT_RADIUS)
+  local target_pos = self:GetCursorPosition()
+  local wall_length = self:GetSpecialValueFor("wall_length")
+  local segment_count = math.ceil(wall_length / (SEGMENT_RADIUS * 2)) -- Each segment can cover SEGMENT_RADIUS * 2 units
   local origin_caster = caster:GetOrigin()
   -- direction of the wall.
-  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -90, 0)), Vector(origin.x - origin_caster.x, origin.y - origin_caster.y, origin.z)):Normalized() --[[rotate the vector between the cast location and the caster
+  local direction = RotatePosition(Vector(0, 0, 0), VectorToAngles(Vector(0, -90, 0)), Vector(target_pos.x - origin_caster.x, target_pos.y - origin_caster.y, target_pos.z)):Normalized() --[[rotate the vector between the cast location and the caster
     by 90 deg to the right, thus geting the *opposite* of the direction we will spawn wall segments in.]]
   if #direction == 0 then
     direction = RandomVector(1)
   end
-  -- small gaps (spacing) between each segment to spread them evenly along the wall, if `length` isn't divisible by `SEGMENT_RADIUS`.
-  local offset = (length % SEGMENT_RADIUS / count + SEGMENT_RADIUS) * direction
-  local location = origin - direction * (length / 2) --[[get the leftmost point of the spawn line,
+  -- Spacing between each segment
+  local segment_offset = 0
+  if segment_count > 1 then
+    segment_offset = (wall_length - SEGMENT_RADIUS * 2) / (segment_count - 1) * direction
+  end
+  local first_location = target_pos - direction * (wall_length / 2 - SEGMENT_RADIUS) --[[get the leftmost point of the spawn line,
     as visible from the caster's position; advances further to the right with each segment by `offset`.]]
   local spawned = false
-  foreach(function()
+  for i = 0,segment_count-1 do
+    local location = first_location + segment_offset * i
     if #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, SEGMENT_RADIUS, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING,
       DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) < 1
     then
       spawned = true
       GridNav:DestroyTreesAroundPoint(location, SEGMENT_RADIUS, true)
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
+      building:RemoveModifierByName("modifier_invulnerable")
       building:SetOrigin(location)
-      building:AddNewModifier(building, self, "modifier_wall_segment", {duration = -1})
+      building:AddNewModifier(building, self, "modifier_building_construction", {})
+      building:AddNewModifier(building, self, "modifier_wall_segment", {})
       building:SetOwner(caster)
-      location = location + offset
     end
-  end, range(count))
+  end
   if not spawned then
     return
   end
@@ -69,69 +72,28 @@ item_azazel_wall_4 = item_azazel_wall_1
 
 modifier_wall_segment = class(ModifierBaseClass)
 
-local SINK_HEIGHT = 200
-local THINK_INTERVAL = 0.1
-
-function modifier_wall_segment:OnCreated()
-  if IsServer() then
-    local target = self:GetParent()
-    local ab = self:GetAbility()
-    local maxhealth = ab:GetSpecialValueFor("health")
-    local location = target:GetOrigin()
-    local time = ab:GetSpecialValueFor("construction_time")
-    target:Attribute_SetIntValue("construction_time", time)
-    target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.5, function()
-      target:RemoveModifierByName('modifier_invulnerable')
-      ResolveNPCPositions(location, target:GetHullRadius())
-      target:SetMaxHealth(maxhealth)
-      target:SetHealth(maxhealth * 0.01)
-      self:StartIntervalThink(THINK_INTERVAL)
-      self:SetStackCount(math.floor(time / THINK_INTERVAL)) -- `construction_time` should be divisible by `THINK_INTERVAL`!
-    end)
-  end
-end
-function modifier_wall_segment:OnIntervalThink()
-  if IsServer() then
-    local target = self:GetParent()
-    local time = target:Attribute_GetIntValue("construction_time", 10)
-    local count = self:GetStackCount()
-    target:SetOrigin(target:GetOrigin() + Vector(0, 0, SINK_HEIGHT / (time / THINK_INTERVAL)))
-    self:SetStackCount(count - 1)
-    if count < 1 then
-      self:StartIntervalThink(-1)
-    end
-  end
-end
-function modifier_wall_segment:GetAttributes()
-  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
 function modifier_wall_segment:IsHidden()
   return true
 end
+
 function modifier_wall_segment:IsDebuff()
   return false
 end
+
 function modifier_wall_segment:IsPurgable()
   return false
 end
+
 function modifier_wall_segment:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
+
 function modifier_wall_segment:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_statue001_destruction.vmdl") -- doesn't seem to work.
     data.unit:SetOriginalModel("models/props_structures/radiant_statue001_destruction.vmdl")
     data.unit:ManageModelChanges()
-  end
-end
-function modifier_wall_segment:GetModifierConstantHealthRegen()
-  if IsServer() and self:GetStackCount() > 0 then
-    return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
-  else
-    return 0
   end
 end
