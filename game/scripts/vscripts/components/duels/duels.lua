@@ -2,6 +2,7 @@ local HeroState = require("components/duels/savestate")
 local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_duel_invulnerability", "modifiers/modifier_duel_invulnerability", LUA_MODIFIER_MOTION_NONE)
 
 DUEL_IS_STARTING = 21
 
@@ -444,6 +445,23 @@ function Duels:ActuallyStartDuel(options)
     end
   end
 
+  --duel start invulnerability
+  --Invulnerability Duration/ Should probably move this to options
+  local invulnerabilityduration = 3.0
+  --Invulnerability Duration
+  for _,player in ipairs(badPlayers) do
+    if player.assigned ~= nil then
+      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = invulnerabilityduration})
+    end
+  end
+  for _,player in ipairs(goodPlayers) do
+    if player.assigned ~= nil then
+      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = invulnerabilityduration})
+    end
+  end
+  
   self.currentDuel = {
     goodLiving1 = playerSplitOffset,
     badLiving1 = playerSplitOffset,
@@ -457,7 +475,7 @@ function Duels:ActuallyStartDuel(options)
     goodPlayerIndex = goodPlayerIndex
   }
   DuelStartEvent.broadcast(self.currentDuel)
-
+  
   if options.timeout == nil then
     options.timeout = DUEL_TIMEOUT
   end
