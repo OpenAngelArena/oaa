@@ -40,7 +40,7 @@ function SaveLoadStateHero:LoadState (state)
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
     if hero then
-      hero:AddExperience(state[steamid].xp, DOTA_ModifyXP_Unspecified, false, false)
+      hero:AddExperience(state[steamid].xp - hero:GetCurrentXP(), DOTA_ModifyXP_Unspecified, false, false)
 
       self:LoadItemState(playerID, hero, state[steamid].items)
       self:LoadAbilityState(playerID, hero, state[steamid].abilities)
@@ -112,7 +112,7 @@ function SaveLoadStateHero:GetAbilityState (playerID, hero)
           cooldown = 0,
           level = 0,
         }
-        extraPoints = extraPoints + 1
+        extraPoints = extraPoints + ability:GetLevel()
       else
         state[ability:GetAbilityName()] = {
           cooldown = ability:GetCooldownTimeRemaining(),
