@@ -446,19 +446,16 @@ function Duels:ActuallyStartDuel(options)
   end
 
   --duel start invulnerability
-  --Invulnerability Duration/ Should probably move this to options
-  local invulnerabilityduration = 2.0
-  --Invulnerability Duration
   for _,player in ipairs(badPlayers) do
     if player.assigned ~= nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
-      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = invulnerabilityduration})
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
   for _,player in ipairs(goodPlayers) do
     if player.assigned ~= nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
-      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = invulnerabilityduration})
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
   
