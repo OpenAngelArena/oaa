@@ -475,7 +475,7 @@ function Duels:ActuallyStartDuel(options)
     goodPlayerIndex = goodPlayerIndex
   }
   DuelStartEvent.broadcast(self.currentDuel)
-  
+
   if options.timeout == nil then
     options.timeout = DUEL_TIMEOUT
   end
