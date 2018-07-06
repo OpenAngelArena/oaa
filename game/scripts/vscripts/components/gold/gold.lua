@@ -28,7 +28,7 @@ end
 function Gold:GetState ()
   local state = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
     state[steamid] = self:GetGold(playerID)
   end
 
@@ -37,8 +37,10 @@ end
 
 function Gold:LoadState (state)
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
-    self:SetGold(playerID, state[steamid])
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    if state[steamid] then
+      self:SetGold(playerID, state[steamid])
+    end
   end
 end
 

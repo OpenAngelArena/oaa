@@ -5,7 +5,7 @@ function SaveLoadStateHero:GetState ()
 
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
     state[steamid] = {}
 
@@ -37,7 +37,7 @@ end
 function SaveLoadStateHero:LoadState (state)
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
     if hero then
       hero:AddExperience(state[steamid].xp, DOTA_ModifyXP_Unspecified, false, false)

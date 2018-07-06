@@ -9,7 +9,7 @@ AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://10.0.10.169:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.10.197:9969/'
 end
 
 function Bottlepass:Init ()
@@ -18,9 +18,11 @@ function Bottlepass:Init ()
   GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
 end
 
-function Bottlepass:StateLoad (callback)
-  self:Request('state/load', {}, function (err, data)
-    if data and data.ok then
+function Bottlepass:StateLoad (players, callback)
+  self:Request('state/load', {
+    players = players
+  }, function (err, data)
+    if data and data.state then
       callback(data)
     else
       callback(nil)
@@ -28,8 +30,11 @@ function Bottlepass:StateLoad (callback)
   end)
 end
 
-function Bottlepass:StateSave (state)
-  self:Request('state/save', state, function (err, data)
+function Bottlepass:StateSave (players, state)
+  self:Request('state/save', {
+    state = state,
+    players = players
+  }, function (err, data)
     -- state saved! cool!
   end)
 end

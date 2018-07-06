@@ -60,22 +60,37 @@ function SaveLoadState:GetState ()
 end
 
 function SaveLoadState:LoadState (state)
+  DebugPrintTable(state)
   for name,Module in pairs(SaveLoadModules) do
+    DebugPrint(name .. ' loading state')
+    DebugPrintTable(state[name])
     Module:LoadState(state[name])
   end
 end
 
 function SaveLoadState:GetPlayerList ()
-  local players = {}
+  local players = {
+    radiant = {},
+    dire = {}
+  }
 
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local hero = PlayerResource:GetSelectedHeroName(playerID)
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
-    table.insert(players, {
-      hero = hero,
-      steamid = steamid
-    })
+    if steamid ~= '0' then
+      if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+        table.insert(players.radiant, {
+          hero = hero,
+          steamid = tostring(steamid)
+        })
+      elseif PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
+        table.insert(players.dire, {
+          hero = hero,
+          steamid = tostring(steamid)
+        })
+      end
+    end
   end
 
   return players
