@@ -447,7 +447,7 @@ function Duels:ActuallyStartDuel(options)
 
   --duel start invulnerability
   --Invulnerability Duration/ Should probably move this to options
-  local invulnerabilityduration = 3.0
+  local invulnerabilityduration = 2.0
   --Invulnerability Duration
   for _,player in ipairs(badPlayers) do
     if player.assigned ~= nil then
