@@ -56,6 +56,7 @@ FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game 
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
 INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
