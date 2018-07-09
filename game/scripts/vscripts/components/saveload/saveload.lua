@@ -19,27 +19,23 @@ function SaveLoadState:Init ()
     return
   end
 
-  -- once this is tested just remove the linkcommands
-
-  ChatCommand:LinkCommand("-load", function ()
-    -- check if we can resume state
-    Bottlepass:StateLoad(self:GetPlayerList(), function (data)
-      if not data then
-        return
-      end
-      PauseGame(true)
-      self:LoadState(data.state)
-    end)
+  -- check if we can resume state
+  Bottlepass:StateLoad(self:GetPlayerList(), function (data)
+    if not data or not data.state then
+      return
+    end
+    PauseGame(true)
+    self:LoadState(data.state)
   end)
 
-  ChatCommand:LinkCommand("-state", function ()
+  ChatCommand:LinkDevCommand("-state", function ()
     local data = self:GetState()
     DebugPrintTable(data)
     DebugPrint(json.encode(data))
   end)
 
-  -- Timers:CreateTimer(BOSS_RESPAWN_START, function ()
-  ChatCommand:LinkCommand("-save", function ()
+  Timers:CreateTimer(BOSS_RESPAWN_START, function ()
+  -- ChatCommand:LinkCommand("-save", function ()
     -- start auto-saving after beasts have spawned
     if not Duels:IsActive() then
       local data = self:GetState()
