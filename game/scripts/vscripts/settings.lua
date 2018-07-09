@@ -80,6 +80,11 @@ CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get s
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
 
+-- Save/resume state
+SAVE_STATE_ENABLED = true              -- kill switch
+SAVE_STATE_INTERVAL = 21               -- kind of a random number so they're unpredictable. it makes them seem more frequent on load
+SAVE_STATE_AP = true                   -- should we save state in all pick games?
+
 --Gold
 _G.BOOT_GOLD_FACTOR = 1.0               -- Multiplier to account for the presence of bonus gold boots
 
