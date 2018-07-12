@@ -37,7 +37,7 @@ function SaveLoadState:Init ()
   Timers:CreateTimer(BOSS_RESPAWN_START, function ()
   -- ChatCommand:LinkCommand("-save", function ()
     -- start auto-saving after beasts have spawned
-    if not Duels:IsActive() then
+    if not Duels:IsActive() and not PlayerConnection:IsAnyDisconnected() then
       local data = self:GetState()
       Bottlepass:StateSave(self:GetPlayerList(), data)
     end
