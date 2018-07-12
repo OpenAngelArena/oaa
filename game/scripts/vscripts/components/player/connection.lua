@@ -31,7 +31,7 @@ function PlayerConnection:Init()
   self.countdown = nil
 end
 
-function PlayerConnection:IsAnyDisconnected (playerID)
+function PlayerConnection:IsAnyDisconnected ()
   for _,dc in pairs(self.disconnectedPlayers) do
     if dc then
       return true
