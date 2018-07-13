@@ -5,15 +5,44 @@ if PlayerConnection == nil then
 end
 
 function PlayerConnection:Init()
+  self.disconnectedPlayers = {}
+
   GameEvents:OnPlayerDisconnect(function(keys)
+-- [VScript] [components\duels\duels:48] PlayerID: 1
+-- [VScript] [components\duels\duels:48] splitscreenplayer: -1
     if HeroSelection.isCM then
       PauseGame(true)
     end
+    self.disconnectedPlayers[keys.PlayerID] = true
+  end)
+  GameEvents:OnPlayerReconnect(function (keys)
+-- [VScript] [components\duels\duels:64] PlayerID: 1
+-- [VScript] [components\duels\duels:64] name: Minnakht
+-- [VScript] [components\duels\duels:64] networkid: [U:1:53917791]
+-- [VScript] [components\duels\duels:64] reason: 2
+-- [VScript] [components\duels\duels:64] splitscreenplayer: -1
+-- [VScript] [components\duels\duels:64] userid: 3
+-- [VScript] [components\duels\duels:64] xuid: 76561198014183519
+    self.disconnectedPlayers[keys.PlayerID] = nil
   end)
   Timers:CreateTimer(function()
     return self:Think()
   end)
   self.countdown = nil
+end
+
+function PlayerConnection:IsAnyDisconnected ()
+  for _,dc in pairs(self.disconnectedPlayers) do
+    if dc then
+      return true
+    end
+  end
+
+  return false
+end
+
+function PlayerConnection:IsConnected (playerID)
+  return not self.disconnectedPlayers[playerID]
 end
 
 function PlayerConnection:Think()
