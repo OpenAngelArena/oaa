@@ -12,9 +12,7 @@ Bosses = {
       "npc_dota_boss_tier_1_tier5",
       "npc_dota_boss_twin_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
-      "npc_dota_boss_tier_6_tier5"
     }
   },
   -----------------------------
@@ -54,7 +52,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
@@ -97,7 +94,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
@@ -136,7 +132,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
@@ -168,7 +163,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
@@ -200,7 +194,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
@@ -231,7 +224,6 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
