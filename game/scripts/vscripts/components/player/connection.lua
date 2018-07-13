@@ -42,7 +42,7 @@ function PlayerConnection:IsAnyDisconnected ()
 end
 
 function PlayerConnection:IsConnected (playerID)
-  return not self.disconnectedPlayers[keys.playerID]
+  return not self.disconnectedPlayers[playerID]
 end
 
 function PlayerConnection:Think()
