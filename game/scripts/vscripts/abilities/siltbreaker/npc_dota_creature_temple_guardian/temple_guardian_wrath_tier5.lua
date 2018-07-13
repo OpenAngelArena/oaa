@@ -1,4 +1,4 @@
-temple_guardian_wratht_tier5 = class(AbilityBaseClass)
+temple_guardian_wrath_tier5 = class(AbilityBaseClass)
 LinkLuaModifier( "modifier_temple_guardian_wrath_thinker", "modifiers/modifier_temple_guardian_wrath_thinker", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_temple_guardian_immunity", "modifiers/modifier_temple_guardian_immunity", LUA_MODIFIER_MOTION_NONE )
 
