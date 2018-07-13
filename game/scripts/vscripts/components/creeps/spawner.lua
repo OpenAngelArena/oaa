@@ -70,7 +70,7 @@ function CreepCamps:CreepSpawnTimer ()
     self.firstSpawn = false
     return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
-  return CREEP_SPAWN_INTERVAL + (60 - (HudTimer:GetGameTime() % 60))
+  return CREEP_SPAWN_INTERVAL - (HudTimer:GetGameTime() % CREEP_SPAWN_INTERVAL)
 end
 
 function CreepCamps:UpgradeCreeps ()
