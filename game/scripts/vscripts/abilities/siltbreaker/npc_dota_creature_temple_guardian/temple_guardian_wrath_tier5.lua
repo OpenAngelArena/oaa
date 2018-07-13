@@ -1,16 +1,16 @@
-temple_guardian_wratht_tier5 = class(AbilityBaseClass)
+temple_guardian_wrath_tier5 = class(AbilityBaseClass)
 LinkLuaModifier( "modifier_temple_guardian_wrath_thinker", "modifiers/modifier_temple_guardian_wrath_thinker", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_temple_guardian_immunity", "modifiers/modifier_temple_guardian_immunity", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:GetChannelAnimation()
+function temple_guardian_wrath_tier5:GetChannelAnimation()
 	return ACT_DOTA_CHANNEL_ABILITY_4
 end
 
 --------------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:OnAbilityPhaseStart()
+function temple_guardian_wrath_tier5:OnAbilityPhaseStart()
 	if IsServer() then
 		self.channel_duration = self:GetSpecialValueFor( "channel_duration" )
 		local fImmuneDuration = self.channel_duration + self:GetCastPoint()
@@ -27,7 +27,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:OnAbilityPhaseInterrupted()
+function temple_guardian_wrath_tier5:OnAbilityPhaseInterrupted()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
 	end
@@ -35,7 +35,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:OnSpellStart()
+function temple_guardian_wrath_tier5:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
@@ -56,7 +56,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:OnChannelThink( flInterval )
+function temple_guardian_wrath_tier5:OnChannelThink( flInterval )
 	if IsServer() then
 		self.flNextCast = self.flNextCast + flInterval
 		if self.flNextCast >= self.interval  then
@@ -91,7 +91,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function temple_guardian_wratht_tier5:OnChannelFinish( bInterrupted )
+function temple_guardian_wrath_tier5:OnChannelFinish( bInterrupted )
 	if IsServer() then
 		self:GetCaster():RemoveModifierByName( "modifier_omninight_guardian_angel" )
 	end
