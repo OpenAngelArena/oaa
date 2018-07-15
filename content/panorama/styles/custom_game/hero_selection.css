@@ -601,6 +601,17 @@ DOTAScenePanel {
   width: fill-parent-flow(1.0);
   height: fill-parent-flow(1.0);
 }
+
+#AbilityPreview {
+  width: fill-parent-flow(1.0);
+  vertical-align: bottom;
+  flow-children: right;
+}
+#AbilityPreview DOTAAbilityImage {
+  width: fill-parent-flow(1.0);
+  tooltip-position: top;
+}
+
 #HeroPickContainer {
   width: 180px;
   height: fill-parent-flow(1.0);
