@@ -44,8 +44,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityTextureName"                                  "custom/devastator_5"
 
     "AbilityCastRange"                                    "800"
