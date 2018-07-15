@@ -130,10 +130,10 @@ function changeHilariousLoadingText () {
 function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
-  if (data
-    && (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH'
-    || key === 'abilities_DOTA_ATTRIBUTE_AGILITY'
-    || key === 'abilities_DOTA_ATTRIBUTE_INTELLECT')
+  if (data &&
+    (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
+    key === 'abilities_DOTA_ATTRIBUTE_AGILITY' ||
+    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT')
   ) {
     Object.keys(data).forEach(function (heroName) {
       heroAbilities[heroName] = data[heroName];
