@@ -52,6 +52,7 @@ function HeroSelection:Init ()
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  local heroAbilities = {}
   for key,value in pairs(LoadKeyValues(herolistFile)) do
     DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
@@ -64,6 +65,20 @@ function HeroSelection:Init ()
     end
     if value == 1 then
       DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
+      if not heroAbilities[allheroes[key].AttributePrimary] then
+        heroAbilities[allheroes[key].AttributePrimary] = {}
+      end
+      heroAbilities[allheroes[key].AttributePrimary][key] = {
+        allheroes[key].Ability1,
+        allheroes[key].Ability2,
+        allheroes[key].Ability3,
+        allheroes[key].Ability4,
+        allheroes[key].Ability5,
+        allheroes[key].Ability6,
+        allheroes[key].Ability7,
+        allheroes[key].Ability8,
+        allheroes[key].Ability9
+      }
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
@@ -71,6 +86,11 @@ function HeroSelection:Init ()
   end
 
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
+  for attr,data in pairs(heroAbilities) do
+    Debug:EnableDebugging()
+    DebugPrintTable(data)
+    CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
+  end
 
   -- lock down the "pick" hero so that they can't do anything
   GameEvents:OnHeroInGame(function (npc)

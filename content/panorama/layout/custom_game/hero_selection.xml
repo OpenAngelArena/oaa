@@ -157,6 +157,8 @@
               <Panel id="HeroPreview">
                 <DOTAScenePanel hittest="false" unit="" />
               </Panel>
+              <Panel id="AbilityPreview">
+              </Panel>
             </Panel>
             <Panel id="HeroPickContainer">
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
@@ -172,8 +174,7 @@
             </Panel>
           </Panel>
           <Panel id="ChatPlaceholder" />
-          <Panel id="CMHeroPreview" hittest="false">
-          </Panel>
+          <Panel id="CMHeroPreview" hittest="false" />
         </Panel>
       </Panel>
     </Panel>
