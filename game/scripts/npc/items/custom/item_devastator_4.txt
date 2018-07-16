@@ -3,39 +3,40 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator_5"
+  "item_recipe_devastator_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4056"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4055"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator_5"
+    "ItemResult"                                          "item_devastator_4"
 
     "ItemRequirements"
     {
-      "01"                                                "item_devastator_4;item_upgrade_core_4"
+      "01"                                                "item_devastator_3;item_upgrade_core_3"
+      "02"                                                "item_devastator_3;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator_5"
+  "item_devastator_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4053"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4052"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
@@ -44,9 +45,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityTextureName"                                  "custom/devastator_5"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"                                  "custom/devastator_4"
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.25"
@@ -57,14 +58,14 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36500"
+    "ItemCost"                                            "16500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "devastator 5"
+    "ItemAliases"                                         "devastator 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
 
