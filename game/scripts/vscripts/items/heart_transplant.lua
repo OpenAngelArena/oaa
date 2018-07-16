@@ -152,6 +152,10 @@ end
 
 modifier_item_heart_transplant_buff = class(ModifierBaseClass)
 
+function modifier_item_heart_transplant_buff:IsPurgable()
+  return false
+end
+
 function modifier_item_heart_transplant_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
