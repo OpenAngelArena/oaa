@@ -68,17 +68,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "20 30 40 50 65"
+        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "120"
+        "quelling_bonus"                                  "120"	//OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "120"
+        "quelling_bonus_ranged"                           "120"	//OAA
       }
       "07"
       {
@@ -108,12 +108,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus"                          "20"
+        "tooltip_quelling_bonus"                          "20"	//OAA
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus_ranged"                   "20"
+        "tooltip_quelling_bonus_ranged"                   "20"	//OAA
       }
     }
   }
