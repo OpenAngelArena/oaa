@@ -21,8 +21,8 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "75"               // Physical protection.
-    "MagicalResistance"                                   "20"               // Magical protection (percentage).
+    "ArmorPhysical"                                       "25"               // Physical protection.
+    "MagicalResistance"                                   "-25"               // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -57,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"             // Base health
+    "StatusHealth"                                        "20000"             // Base health
     "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
     "StatusMana"                                          "500"               // Base mana.
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
