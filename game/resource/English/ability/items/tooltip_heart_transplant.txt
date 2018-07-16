@@ -3,7 +3,7 @@
 //======================================================================
 "DOTA_Tooltip_Ability_item_heart_transplant"                                        "Heart Transplant"
 "DOTA_Tooltip_Ability_item_recipe_heart_transplant"                                 "Heart Transplant Recipe"
-"DOTA_Tooltip_Ability_item_heart_transplant_Description"                            "<h1>Active: Transplant</h1> Gives all bonus Strength, HP, and Regeneration to the selected allied unit for %transplant_duration% seconds. If damage is taken from an enemy hero or Roshan, this Ability is disabled for %cooldown_melee% seconds for melee heroes, or %cooldown_ranged_tooltip% seconds for ranged heroes.<br><br>Range: %transplant_range_tooltip%\n<h1>Passive: Health Regeneration</h1>Restores %health_regen_rate%%% of max health per second. Health Regeneration is also disabled by damage as described above."
+"DOTA_Tooltip_Ability_item_heart_transplant_Description"                            "<h1>Active: Transplant</h1> Gives all bonus Strength, HP, and Regeneration to the selected allied unit for %transplant_duration% seconds. If damage is taken from an enemy hero, the transplanted regeneration is disabled for %transplant_break_cooldown% seconds.<br><br>Range: %transplant_range_tooltip%\n<h1>Passive: Health Regeneration</h1>Restores %health_regen_rate%%% of max health per second. If damage is taken from an enemy hero, this ability is disabled for %cooldown_melee% seconds for melee heroes, or %cooldown_ranged_tooltip% seconds for ranged heroes."
 "DOTA_Tooltip_Ability_item_heart_transplant_Lore"                                   "A talisman containing a beautiful priestess's soul."
 "DOTA_Tooltip_Ability_item_heart_transplant_bonus_strength"                         "+$str"
 "DOTA_Tooltip_Ability_item_heart_transplant_bonus_health"                           "+$health"
@@ -20,3 +20,5 @@
 "DOTA_Tooltip_modifier_item_heart_transplant_debuff_Description"                    "All the benefits of your Heart are being given to another unit"
 "DOTA_Tooltip_modifier_item_heart_transplant_buff"                                  "Donated Heart"
 "DOTA_Tooltip_modifier_item_heart_transplant_buff_Description"                      "Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, Health increased by %dMODIFIER_PROPERTY_HEALTH_BONUS%, and healing %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP per second"
+
+"oaa_hud_error_only_one_transplant"                                                 "Can't cast multiple Heart Transplants simultaneously"
