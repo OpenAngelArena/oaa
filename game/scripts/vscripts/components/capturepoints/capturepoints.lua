@@ -154,10 +154,10 @@ function CapturePoints:StartCapture(color)
   self.currentCapture = {
     y = 1
   }
-  Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
   self:MinimapPing(5)
-  Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-    Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+  Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
+    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
     self:MinimapPing(5)
   end)
 
@@ -209,7 +209,7 @@ end
 function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
   NumCaptures = NumCaptures + 1
-  Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="red", ["font-size"]="80px"}})
+  Notifications:TopToAll({text="#capturepoints_start", duration=3.0, style={color="red", ["font-size"]="80px"}})
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
@@ -226,7 +226,7 @@ function CapturePoints:EndCapture ()
     DebugPrint ('There is no Capture running')
     return
   end
-  Notifications:TopToAll({text="Capture Ended", duration=3.0, style={color="blue", ["font-size"]="110px"}})
+  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="110px"}})
   DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
   local currentCapture = self.currentCapture
