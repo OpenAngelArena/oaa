@@ -5,15 +5,14 @@
 
 
 "Dota_Tooltip_Modifier_item_devastator_corruption_armor"                   "Corruption Armor"
-"Dota_Tooltip_Modifier_item_devastator_reduce_armor"                       "Reduce Armor"
-"Dota_Tooltip_Modifier_item_devastator_slow_movespeed"                     "Slow Move Speed"
+"Dota_Tooltip_Modifier_item_devastator_reduce_armor"                       "Armour reduced"
+"Dota_Tooltip_Modifier_item_devastator_slow_movespeed"                     "Movement slowed"
 
 "DOTA_Tooltip_Ability_item_devastator_3"                                     "Devastator"
 "DOTA_Tooltip_Ability_item_recipe_devastator_3"                              "Devastator Recipe"
-"DOTA_Tooltip_Ability_item_devastator_3_Description"                         "Devastator description"
-"DOTA_Tooltip_Ability_item_devastator_3_Lore"                                "Devsatator Lore"
-//"DOTA_Tooltip_Ability_item_devastator_3_corruption_armor"                  "ARMOR REDUCTION:"
-"DOTA_Tooltip_Ability_item_devastator_3_bonus_damage"                        "Devastator bonus_damage"
+"DOTA_Tooltip_Ability_item_devastator_3_Description"                         "<h1>Active: Path of Destruction</h1> Shoots out a wave that slows enemies by %devastator_movespeed_reduction%%% for %devastator_movespeed_reduction_duration% seconds and applies corruption for %devastator_armor_reduction% minus armour for %devastator_armor_reduction_duration% seconds. Enemies hit will also take %devastator_damage% physical damage and be hit by an instant attack that cannot miss.<br><br>WAVE LENGTH: %devastator_distance%\n<h1>Passive: Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
+"DOTA_Tooltip_Ability_item_devastator_3_Lore"                                "His fury focused, carving his way through entire armies."
+"DOTA_Tooltip_Ability_item_devastator_3_bonus_damage"                        "+$damage"
 
 
 
