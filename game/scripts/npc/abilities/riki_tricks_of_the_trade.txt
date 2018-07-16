@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityChannelTime"                                  "3 4 5 6 7"
+    "AbilityChannelTime"                                  "3 4 5 6 7" //OAA
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
@@ -49,12 +49,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "3 4 5 6 7"
+        "duration_tooltip"                                "3 4 5 6 7" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus"                                   "1"
+        "scepter_bonus"                                   "1" //OAA
       }
     }
   }
