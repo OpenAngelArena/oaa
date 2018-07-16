@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "180 170 160 160 160"
+    "AbilityCooldown"                                     "240 240 240 240 240"
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
@@ -32,17 +32,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0 7.0 8.0 8.5 9.0"
+        "duration"                                        "3.0 4.0 5.0 6.0 7.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600 600 600 800 1000"
+        "radius"                                          "600 600 600 600 600"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "8.0 9.0 10.0 10.5 11.0"
+        "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"
       }
     }
   }
