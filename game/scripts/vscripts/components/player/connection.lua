@@ -21,6 +21,7 @@ function PlayerConnection:Init()
     self.disconnectedPlayers[keys.PlayerID] = true
     self.disconnectedTime[keys.PlayerID] = HudTimer:GetGameTime()
   end)
+
   GameEvents:OnPlayerReconnect(function (keys)
 -- [VScript] [components\duels\duels:64] PlayerID: 1
 -- [VScript] [components\duels\duels:64] name: Minnakht
@@ -159,8 +160,11 @@ end
 
 function PlayerConnection:CheckAbandons ()
   if not HeroSelection.isCM or AUTO_ABANDON_IN_CM then
-    for playerID,time in self.disconnectedTime do
-      if not self:IsAbandoned(playerID) and time and self.disconnectTime[playerID] + (HudTimer:GetGameTime() - self.disconnectedTime[keys.PlayerID]) > TIME_TO_ABANDON then
+    for playerID,time in pairs(self.disconnectedTime) do
+      if not self.disconnectTime[playerID] then
+        self.disconnectTime[playerID] = 0
+      end
+      if not self:IsAbandoned(playerID) and time and self.disconnectTime[playerID] + (HudTimer:GetGameTime() - time) > TIME_TO_ABANDON then
         self:ForceAbandon(playerID)
       end
     end
