@@ -1,5 +1,5 @@
 oaa_wrath_of_nature_lua = class({})
-LinkLuaModifier( "modifier_furion_wrath_of_nature_thinker_oaa", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifiers/modifier_furion_wrath_of_nature_thinker_oaa", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
