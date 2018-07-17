@@ -71,7 +71,9 @@ function Bottlepass:SendWinner (winner)
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
-    players = connectedPlayers
+    players = connectedPlayers,
+    -- let player connection decide if this game should count
+    isValid = PlayerConnection:IsValid()
   }, function (err, data)
     if data and data.ok then
       local mmrDiffs = {}
