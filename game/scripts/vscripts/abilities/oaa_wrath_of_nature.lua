@@ -1,9 +1,9 @@
-oaa_wrath_of_nature_lua = class({})
-LinkLuaModifier( "modifiers/modifier_furion_wrath_of_nature_thinker_oaa", LUA_MODIFIER_MOTION_NONE )
+furion_wrath_of_nature = class({})
+LinkLuaModifier( "modifiers/modifier_furion_wrath_of_nature_thinker", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function oaa_wrath_of_nature_lua:OnAbilityPhaseStart()
+function furion_wrath_of_nature:OnAbilityPhaseStart()
 	local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_furion/furion_wrath_of_nature_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControlEnt( nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), false )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
@@ -14,19 +14,19 @@ end
 
 --------------------------------------------------------------------------------
 
-function oaa_wrath_of_nature_lua:OnSpellStart()
+function furion_wrath_of_nature:OnSpellStart()
 	self.hTarget = self:GetCursorTarget()
 	self.vTargetPos = self:GetCursorPosition()
 
 	EmitSoundOn( "Hero_Furion.WrathOfNature_Cast", self:GetCaster() )
 
-	CreateModifierThinker( self:GetCaster(), self, "modifier_furion_wrath_of_nature_thinker_oaa", kv, self.vTargetPos, self:GetCaster():GetTeamNumber(), false )
+	CreateModifierThinker( self:GetCaster(), self, "modifier_furion_wrath_of_nature_thinker", kv, self.vTargetPos, self:GetCaster():GetTeamNumber(), false )
 end
 
 --------------------------------------------------------------------------------
 
-function oaa_wrath_of_nature_lua:GetAssociatedSecondaryAbilities()
-	return "oaa_force_of_nature_lua"
+function furion_wrath_of_nature:GetAssociatedSecondaryAbilities()
+	return "furion_force_of_nature"
 end
 
 --------------------------------------------------------------------------------
