@@ -1,5 +1,5 @@
 if PlayerConnection == nil then
-  Debug.EnabledModules["player:connection"] = true
+  Debug:EnableDebugging()
   DebugPrint("Creating PlayerConnection Object")
   PlayerConnection = class({})
 end
@@ -42,6 +42,7 @@ function PlayerConnection:Init()
   self.isValid = true
 
   GameEvents:OnPlayerAbandon(function (keys)
+    DebugPrint('A player just abandoned!')
     if HudTimer:GetGameTime() < MIN_MATCH_TIME then
       self.isValid = false
     end
