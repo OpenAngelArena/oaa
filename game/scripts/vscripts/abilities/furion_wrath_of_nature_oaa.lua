@@ -18,8 +18,6 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
 	self.hTarget = self:GetCursorTarget()
 	self.vTargetPos = self:GetCursorPosition()
 
-  print('usedcustomwrath')
-
 	EmitSoundOn( "Hero_Furion.WrathOfNature_Cast", self:GetCaster() )
 
 	CreateModifierThinker( self:GetCaster(), self, "modifier_furion_wrath_of_nature_thinker_oaa", kv, self.vTargetPos, self:GetCaster():GetTeamNumber(), false )

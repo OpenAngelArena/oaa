@@ -11,7 +11,6 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated( kv )
-  print('usedcustommodifier')
   self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
   self.max_targets = self:GetAbility():GetSpecialValueFor( "max_targets" )
   self.damage_percent_add = self:GetAbility():GetSpecialValueFor( "damage_percent_add" )
@@ -169,7 +168,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget( hTarget )
     local hForceOfNature = self:GetCaster():FindAbilityByName( "furion_force_of_nature" )
     if ( not hTarget:IsAlive() ) and hForceOfNature ~= nil and hForceOfNature:IsTrained() then
       level = hForceOfNature:GetLevel()
-      print(level)
       local treantName = "npc_dota_furion_treant_" .. hForceOfNature:GetLevel()
       if hTarget:IsHero() then
         treantName = "npc_dota_furion_treant_large_" .. hForceOfNature:GetLevel()
