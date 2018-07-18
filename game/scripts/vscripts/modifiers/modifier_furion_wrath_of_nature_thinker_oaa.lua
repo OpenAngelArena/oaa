@@ -15,7 +15,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated( kv )
 	self.damage_percent_add = self:GetAbility():GetSpecialValueFor( "damage_percent_add" )
 	self.jump_delay = self:GetAbility():GetSpecialValueFor( "jump_delay" )
 	self.damage_scepter = self:GetAbility():GetSpecialValueFor( "damage_scepter" )
-	self.max_targets_scepter = self:GetAbility():GetSpecialValueFor( "max_targets_scepter" )
 
 	if IsServer() then
 		self.hTarget = self:GetAbility().hTarget
@@ -85,9 +84,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnIntervalThink()
 		self:HitTarget( hNewTarget )
 
 		local nMaxTargets = self.max_targets
-		if self:GetCaster():HasScepter() then
-			nMaxTargets = self.max_targets_scepter
-		end
 
 		if #self.hTargetsHit >= nMaxTargets then
 			self:Destroy()
