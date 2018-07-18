@@ -1,14 +1,14 @@
-modifier_furion_wrath_of_nature_thinker = class({})
+modifier_furion_wrath_of_nature_thinker_oaa = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:IsHidden()
+function modifier_furion_wrath_of_nature_thinker_oaa:IsHidden()
 	return true
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:OnCreated( kv )
+function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated( kv )
   print('usedcustommodifier')
 	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 	self.max_targets = self:GetAbility():GetSpecialValueFor( "max_targets" )
@@ -53,7 +53,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:OnDestroy()
+function modifier_furion_wrath_of_nature_thinker_oaa:OnDestroy()
 	if IsServer() then
 		UTIL_Remove( self:GetParent() )
 	end
@@ -61,7 +61,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:OnIntervalThink()
+function modifier_furion_wrath_of_nature_thinker_oaa:OnIntervalThink()
 	if IsServer() then
 		local flCurTime = GameRules:GetGameTime()
 		local dt = flCurTime - self.flLastTickTime
@@ -97,7 +97,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:GetNextTarget()
+function modifier_furion_wrath_of_nature_thinker_oaa:GetNextTarget()
 	local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 
 	local hClosestTarget = nil
@@ -133,7 +133,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:HitTarget( hTarget )
+function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget( hTarget )
 	if hTarget == nil then
 		return
 	end
@@ -186,7 +186,7 @@ function modifier_furion_wrath_of_nature_thinker:HitTarget( hTarget )
 					duration = hForceOfNature:GetSpecialValueFor( "duration" )
 				}
 
-				hTreant:AddNewModifier( self:GetCaster(), self, "modifier_furion_force_of_nature", kv )
+				hTreant:AddNewModifier( self:GetCaster(), self, "modifier_kill", kv )
 				EmitSoundOnLocationWithCaster( hTarget:GetOrigin(), "Hero_Furion.ForceOfNature", self:GetCaster() )
 			end
 		end
@@ -197,7 +197,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_furion_wrath_of_nature_thinker:CreateBounceFX( hTarget )
+function modifier_furion_wrath_of_nature_thinker_oaa:CreateBounceFX( hTarget )
 	--FX
 	local vTarget1 = self:GetParent():GetOrigin()
 
