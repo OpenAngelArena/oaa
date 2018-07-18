@@ -9,6 +9,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_furion_wrath_of_nature_thinker:OnCreated( kv )
+  print('usedcustommodifier')
 	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 	self.max_targets = self:GetAbility():GetSpecialValueFor( "max_targets" )
 	self.damage_percent_add = self:GetAbility():GetSpecialValueFor( "damage_percent_add" )

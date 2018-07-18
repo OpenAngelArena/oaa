@@ -1,5 +1,5 @@
 furion_wrath_of_nature = class({})
-LinkLuaModifier( "modifiers/modifier_furion_wrath_of_nature_thinker", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifiers/modifier_oaa_wrath_of_nature_thinker", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -17,6 +17,8 @@ end
 function furion_wrath_of_nature:OnSpellStart()
 	self.hTarget = self:GetCursorTarget()
 	self.vTargetPos = self:GetCursorPosition()
+
+  print('usedcustomwrath')
 
 	EmitSoundOn( "Hero_Furion.WrathOfNature_Cast", self:GetCaster() )
 
