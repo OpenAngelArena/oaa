@@ -22,6 +22,7 @@ function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(keys)
   local target = keys.target
   local caster = self:GetCaster()
   local blacklist = {
+    "item_gem",
     "item_rapier"
   }
 

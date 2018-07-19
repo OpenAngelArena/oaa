@@ -61,6 +61,21 @@
     "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
   }
 
+  "minimap_boss_tier5"
+  {
+    "MinimapIcon"       "minimap_boss_tier5"
+    "MinimapIconSize"     "500"
+    "MinimapDisableTint"    "1"
+
+    "BaseClass"         "npc_dota_creature"
+    "Model"           "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"    "0"
+    "VisionNighttimeRange"    "0"
+    "UnitRelationshipClass"   "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"
+  }
+
   "minimap_ancient_camp"
   {
     "MinimapIcon"				"minimap_ancient_camp"

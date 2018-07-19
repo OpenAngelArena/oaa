@@ -12,9 +12,7 @@ Bosses = {
       "npc_dota_boss_tier_1_tier5",
       "npc_dota_boss_twin_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
-      "npc_dota_boss_tier_6_tier5"
     }
   },
   -----------------------------
@@ -41,7 +39,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss",
+      --"npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself"
     },
@@ -54,8 +52,7 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
     }
@@ -84,7 +81,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss",
+      --"npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself"
     },
@@ -97,8 +94,7 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
     }
@@ -122,10 +118,10 @@ Bosses = {
       "npc_dota_boss_spiders",
     },
     {
-      "npc_dota_creature_temple_guardian_spawner",
-      "npc_dota_boss_stopfightingyourself",
       "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss"
+      --"npc_dota_creature_spider_boss",
+      "npc_dota_creature_temple_guardian_spawner",
+      "npc_dota_boss_stopfightingyourself"
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Juxtapose, Geostrike
@@ -136,8 +132,7 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
     }
@@ -154,10 +149,10 @@ Bosses = {
       "npc_dota_boss_spiders",
     },
     {
-      "npc_dota_creature_temple_guardian_spawner",
-      "npc_dota_boss_stopfightingyourself",
       "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss"
+      --"npc_dota_creature_spider_boss",
+      "npc_dota_creature_temple_guardian_spawner",
+      "npc_dota_boss_stopfightingyourself"
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Juxtapose, Geostrike
@@ -168,40 +163,7 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
-      "npc_dota_creature_temple_guardian_spawner_tier5",
-      "npc_dota_boss_stopfightingyourself_tier5"
-    }
-
-  },
-  -----------------------------
-  ---- TIER 3 10v10 ONLY
-  -----------------------------
-  {
-    {
-      "npc_dota_creature_ogre_tank_boss",
-      "npc_dota_creature_lycan_boss",
-      "npc_dota_boss_spiders",
-    },
-
-    {
-      "npc_dota_creature_temple_guardian_spawner",
-      "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss"
-    },
-    {
-      "npc_dota_boss_simple_1_tier5", -- Juxtapose, Geostrike
-      "npc_dota_boss_simple_5_tier5", -- Great Cleave
-      "npc_dota_boss_twin_tier5",
-      "npc_dota_boss_shielder_tier5",
-      "npc_dota_boss_simple_2_tier5", -- Fury Swipes
-      "npc_dota_boss_charger_tier5",
-      "npc_dota_creature_ogre_tank_boss_tier5",
-      "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
     }
@@ -217,10 +179,10 @@ Bosses = {
       "npc_dota_boss_spiders",
     },
     {
-      "npc_dota_creature_temple_guardian_spawner",
-      "npc_dota_boss_stopfightingyourself",
       "npc_dota_boss_tier_4",
-      "npc_dota_creature_spider_boss"
+      --"npc_dota_creature_spider_boss",
+      "npc_dota_creature_temple_guardian_spawner",
+      "npc_dota_boss_stopfightingyourself"
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Juxtapose, Geostrike
@@ -231,8 +193,36 @@ Bosses = {
       "npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
-      "npc_dota_boss_tier_4_tier5",
-      "npc_dota_creature_spider_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
+      "npc_dota_creature_temple_guardian_spawner_tier5",
+      "npc_dota_boss_stopfightingyourself_tier5"
+    }
+  },
+  -----------------------------
+  ---- TIER 3 10v10 ONLY
+  -----------------------------
+  {
+    {
+      "npc_dota_creature_ogre_tank_boss",
+      "npc_dota_creature_lycan_boss",
+      "npc_dota_boss_spiders",
+    },
+    {
+      "npc_dota_boss_tier_4",
+      --"npc_dota_creature_spider_boss",
+      "npc_dota_creature_temple_guardian_spawner",
+      "npc_dota_boss_stopfightingyourself"
+    },
+    {
+      "npc_dota_boss_simple_1_tier5", -- Juxtapose, Geostrike
+      "npc_dota_boss_simple_5_tier5", -- Great Cleave
+      "npc_dota_boss_twin_tier5",
+      "npc_dota_boss_shielder_tier5",
+      "npc_dota_boss_simple_2_tier5", -- Fury Swipes
+      "npc_dota_boss_charger_tier5",
+      "npc_dota_creature_ogre_tank_boss_tier5",
+      "npc_dota_creature_lycan_boss_tier5",
+      --"npc_dota_creature_spider_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
       "npc_dota_boss_stopfightingyourself_tier5"
     }

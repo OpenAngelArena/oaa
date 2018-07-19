@@ -44,7 +44,7 @@ end
 
 
 function Minimap:SpawnBossIcon(hPit, iTier)
-  local minimap_bosses = {'minimap_boss_tier1', 'minimap_boss_tier2', 'minimap_boss_tier3', 'minimap_boss_tier4', 'minimap_boss_tier4', 'minimap_boss_tier4'}
+  local minimap_bosses = {'minimap_boss_tier1', 'minimap_boss_tier2', 'minimap_boss_tier3', 'minimap_boss_tier4', 'minimap_boss_tier5', 'minimap_boss_tier5'}
   if not self.Minimap_Bosses then
     self.Minimap_Bosses = {}
   end

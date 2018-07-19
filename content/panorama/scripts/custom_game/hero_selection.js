@@ -13,6 +13,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // for testing
 var neverHideStrategy = false;
 
+var heroAbilities = {};
 var currentMap = Game.GetMapInfo().map_display_name;
 var hasGoneToStrategy = false;
 var selectedhero = 'empty';
@@ -81,7 +82,13 @@ var hilariousLoadingPhrases = [
 SetupTopBar();
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+
+// load hero selection
+onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
+onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
+onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
 onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
 onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
@@ -123,7 +130,15 @@ function changeHilariousLoadingText () {
 function onPlayerStatChange (table, key, data) {
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
   var newimage = null;
-  if (key === 'herolist' && data != null) {
+  if (data &&
+    (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
+    key === 'abilities_DOTA_ATTRIBUTE_AGILITY' ||
+    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT')
+  ) {
+    Object.keys(data).forEach(function (heroName) {
+      heroAbilities[heroName] = data[heroName];
+    });
+  } else if (key === 'herolist' && data != null) {
     // do not move chat for ardm
     if (currentMap !== 'ardm') {
       MoveChatWindow();
@@ -133,6 +148,7 @@ function onPlayerStatChange (table, key, data) {
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
     Object.keys(data.herolist).sort().forEach(function (heroName) {
       var currentstat = null;
+
       switch (data.herolist[heroName]) {
         case 'DOTA_ATTRIBUTE_STRENGTH':
           currentstat = strengthholder;
@@ -559,6 +575,16 @@ function PreviewHero (name) {
       preview.RemoveAndDeleteChildren();
       CreateHeroPanel(preview, name);
       $('#SectionTitle').text = $.Localize('#' + name, $('#SectionTitle'));
+
+      var abilityPreview = $('#AbilityPreview');
+      abilityPreview.RemoveAndDeleteChildren();
+      Object.keys(heroAbilities[name]).forEach(function (i) {
+        var ability = heroAbilities[name][i];
+        if (ability === 'generic_hidden') {
+          return;
+        }
+        CreateAbilityPanel(abilityPreview, ability);
+      });
     }
     selectedhero = name;
     selectedherocm = name;
@@ -671,4 +697,16 @@ function CreateHeroPanel (parent, hero) {
   }
 
   return scene;
+}
+
+function CreateAbilityPanel (parent, ability) {
+  var id = 'Ability_' + ability;
+  parent.BCreateChildren('<DOTAAbilityImage abilityname="' + ability + '" id="' + id + '" />');
+  var icon = $('#' + id);
+  icon.SetPanelEvent('onmouseover', function () {
+    $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);
+  });
+  icon.SetPanelEvent('onmouseout', function () {
+    $.DispatchEvent('DOTAHideAbilityTooltip', icon);
+  });
 }

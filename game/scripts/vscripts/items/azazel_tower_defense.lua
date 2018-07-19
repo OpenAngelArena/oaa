@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_defense_tower", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_defense_tower_true_sight", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_defense_1 = class(ItemBaseClass)
 
@@ -15,6 +16,7 @@ function item_azazel_tower_defense_1:CastFilterResultLocation(location)
     return UF_SUCCESS
   end
 end
+
 function item_azazel_tower_defense_1:GetCustomCastErrorLocation(location)
   return "#dota_hud_error_no_buildings_here"
 end
@@ -23,11 +25,14 @@ function item_azazel_tower_defense_1:OnSpellStart()
   local caster = self:GetCaster()
   local location = self:GetCursorPosition()
   local building = CreateUnitByName("npc_azazel_tower_defense", location, true, caster, caster:GetOwner(), caster:GetTeam())
+  building:RemoveModifierByName("modifier_invulnerable")
   building:SetOwner(caster)
   GridNav:DestroyTreesAroundPoint(location, building:GetHullRadius(), true)
   building:SetOrigin(location)
-  building:AddNewModifier(building, self, "modifier_defense_tower", {duration = -1})
-  building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {duration = -1})
+  building:AddNewModifier(building, self, "modifier_building_construction", {})
+  building:AddNewModifier(building, self, "modifier_defense_tower", {})
+  building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {})
+
   local charges = self:GetCurrentCharges() - 1
   if charges < 1 then
     caster:RemoveItem(self)
@@ -46,66 +51,30 @@ item_azazel_tower_defense_4 = item_azazel_tower_defense_1
 
 modifier_defense_tower = class(ModifierBaseClass)
 
-local SINK_HEIGHT = 300
-local THINK_INTERVAL = 0.1
-
-function modifier_defense_tower:OnCreated()
-  if IsServer() then
-    local target = self:GetParent()
-    local ab = self:GetAbility()
-    local maxhealth = ab:GetSpecialValueFor("health")
-    local location = target:GetOrigin()
-    local time = ab:GetSpecialValueFor("construction_time")
-    target:Attribute_SetIntValue("construction_time", time)
-    target:Attribute_SetIntValue("bonus_damage", ab:GetSpecialValueFor("bonus_damage"))
-    target:SetOrigin(GetGroundPosition(location, target) - Vector(0, 0, SINK_HEIGHT))
-    Timers:CreateTimer(0.5, function()
-      target:RemoveModifierByName('modifier_invulnerable')
-      ResolveNPCPositions(location, target:GetHullRadius())
-      target:SetMaxHealth(maxhealth)
-      target:SetHealth(maxhealth * 0.01)
-      self:StartIntervalThink(THINK_INTERVAL)
-      self:SetStackCount(math.floor(time / THINK_INTERVAL)) -- `construction_time` should be divisible by `THINK_INTERVAL`!
-    end)
-  end
-end
-function modifier_defense_tower:OnIntervalThink()
-  if IsServer() then
-    local target = self:GetParent()
-    local time = target:Attribute_GetIntValue("construction_time", 10)
-    local count = self:GetStackCount()
-    target:SetOrigin(target:GetOrigin() + Vector(0, 0, SINK_HEIGHT / (time / THINK_INTERVAL)))
-    self:SetStackCount(count - 1)
-    if count < 1 then
-      self:StartIntervalThink(-1)
-    end
-  end
-end
-function modifier_defense_tower:GetAttributes()
-  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
 function modifier_defense_tower:IsHidden()
   return true
 end
+
 function modifier_defense_tower:IsDebuff()
   return false
 end
+
 function modifier_defense_tower:IsPurgable()
   return false
 end
-function modifier_defense_tower:CheckState()
-  return {
-    [MODIFIER_STATE_DISARMED] = self:GetStackCount() > 0,
-    [MODIFIER_STATE_BLIND] = self:GetStackCount() > 0
-  }
+
+function modifier_defense_tower:OnCreated()
+  local ability = self:GetAbility()
+  self.bonusDamage = ability:GetSpecialValueFor("bonus_damage")
 end
+
 function modifier_defense_tower:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
 end
+
 function modifier_defense_tower:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_tower002_destruction.vmdl") -- doesn't seem to work.
@@ -113,15 +82,9 @@ function modifier_defense_tower:OnDeath(data)
     data.unit:ManageModelChanges()
   end
 end
-function modifier_defense_tower:GetModifierConstantHealthRegen()
-  if  IsServer() and self:GetStackCount() > 0 then
-    return self:GetParent():GetMaxHealth() / self:GetParent():Attribute_GetIntValue("construction_time", 10)
-  else
-    return 0
-  end
-end
+
 function modifier_defense_tower:GetModifierBaseAttack_BonusDamage()
-  return self:GetParent():Attribute_GetIntValue("bonus_damage", 0)
+  return self.bonusDamage
 end
 
 modifier_defense_tower_true_sight = class(ModifierBaseClass)
@@ -131,27 +94,35 @@ function modifier_defense_tower_true_sight:OnCreated()
     self:GetParent():Attribute_SetIntValue("true_sight_radius", self:GetAbility():GetSpecialValueFor("true_sight_radius"))
   end
 end
+
 function modifier_defense_tower_true_sight:IsHidden()
   return false
 end
+
 function modifier_defense_tower_true_sight:GetTexture()
   return "item_ward_sentry"
 end
+
 function modifier_defense_tower_true_sight:IsPurgable()
   return false
 end
+
 function modifier_defense_tower_true_sight:IsAura()
   return true
 end
+
 function modifier_defense_tower_true_sight:GetModifierAura()
   return "modifier_truesight"
 end
+
 function modifier_defense_tower_true_sight:GetAuraRadius()
   return self:GetParent():Attribute_GetIntValue("true_sight_radius", 800)
 end
+
 function modifier_defense_tower_true_sight:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
+
 function modifier_defense_tower_true_sight:GetAuraSearchType()
   return DOTA_UNIT_TARGET_ALL
 end

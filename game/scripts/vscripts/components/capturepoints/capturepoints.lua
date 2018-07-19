@@ -64,6 +64,18 @@ function CapturePoints:Init ()
   ChatCommand:LinkDevCommand("-end_capture", Dynamic_Wrap(self, "EndCapture"), self)
 end
 
+function CapturePoints:GetState ()
+  local state = {}
+
+  state.captures = NumCaptures
+
+  return state
+end
+
+function CapturePoints:LoadState (state)
+  NumCaptures = state.captures
+end
+
 function CapturePoints:IsActive ()
   if not self.currentCapture or self.currentCapture == CAPTUREPOINT_IS_STARTING then
     return false
@@ -142,10 +154,10 @@ function CapturePoints:StartCapture(color)
   self.currentCapture = {
     y = 1
   }
-  Notifications:TopToAll({text="Capture Points will be active in 1 minute!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
   self:MinimapPing(5)
-  Timers:CreateTimer(CAPTURE_SECOND_WARN, function ()
-    Notifications:TopToAll({text="Capture Points will be active in 30 seconds!", duration=3.0, style={color="red", ["font-size"]="70px"}})
+  Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
+    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
     self:MinimapPing(5)
   end)
 
@@ -180,12 +192,10 @@ function CapturePoints:Reward(teamId)
   PointsManager:AddPoints(teamId, 1)
 
   if NumCaptures == 1 then
-    self:GiveItemToWholeTeam("item_upgrade_core", teamId)
-  elseif NumCaptures == 2 then
     self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-  elseif NumCaptures == 3 then
+  elseif NumCaptures == 2 then
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-  elseif NumCaptures >= 4 then
+  elseif NumCaptures >= 3 then
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
   LiveZones = LiveZones - 1
@@ -197,7 +207,7 @@ end
 function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
   NumCaptures = NumCaptures + 1
-  Notifications:TopToAll({text="Capture Points Active!", duration=3.0, style={color="red", ["font-size"]="80px"}})
+  Notifications:TopToAll({text="#capturepoints_start", duration=3.0, style={color="red", ["font-size"]="80px"}})
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
@@ -214,7 +224,7 @@ function CapturePoints:EndCapture ()
     DebugPrint ('There is no Capture running')
     return
   end
-  Notifications:TopToAll({text="Capture Ended", duration=3.0, style={color="blue", ["font-size"]="110px"}})
+  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="110px"}})
   DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
   local currentCapture = self.currentCapture

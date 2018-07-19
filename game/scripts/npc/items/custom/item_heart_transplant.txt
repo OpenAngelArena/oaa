@@ -92,28 +92,33 @@
         "var_type"                                        "FIELD_INTEGER"
         "transplant_range_tooltip"                        "700"
       }
-      // Heart Parameters
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "80 85"
+        "bonus_strength"                                  "135 170"
       }
+      // Heart Parameters
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2300 3400"
+        "bonus_health"                                    "1000 1400"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "transplant_break_cooldown"                       "3"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "health_regen_rate"                               "4.5"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_melee"                                  "5"
       }
-      "08"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_ranged_tooltip"                         "7"
