@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,8 +23,8 @@
     "ItemResult"                                          "item_charge_bkb_3"
     "ItemRequirements"
     {
-      "01"                                                "item_charge_bkb_2;item_upgrade_core_3;item_charge_bkb_3_dummy"
-      "02"                                                "item_charge_bkb_2;item_upgrade_core_4;item_charge_bkb_3_dummy"
+      "01"                                                "item_charge_bkb_2;item_upgrade_core_3"
+      "02"                                                "item_charge_bkb_2;item_upgrade_core_4"
       "03"                                                "item_black_king_bar_4;item_magic_wand;item_recipe_charge_bkb"
     }
   }

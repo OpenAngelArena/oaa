@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_charge_bkb_4"
     "ItemRequirements"
     {
-      "01"                                                "item_charge_bkb_3;item_upgrade_core_4;item_charge_bkb_4_dummy"
+      "01"                                                "item_charge_bkb_3;item_upgrade_core_4"
       "02"                                                "item_black_king_bar_5;item_magic_wand;item_recipe_charge_bkb"
     }
   }
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38925"
+    "ItemCost"                                            "27425"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb"
