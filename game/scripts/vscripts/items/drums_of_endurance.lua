@@ -38,9 +38,13 @@ function item_drums_of_endurance_oaa:OnSpellStart()
     false
   )
 
+	-- Play cast sound effect
+  EmitSoundOn("DOTA_Item.DoE.Activate", caster)
+
   local function EnduranceActive(unit)
     unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = self:GetSpecialValueFor("duration")})
   end
+
   --Applying_Active_Effect_to_allied_units
   units = iter(units)
   foreach(EnduranceActive,units)
@@ -60,13 +64,13 @@ end
 
 function modifier_item_drums_of_endurance_oaa_active:DeclareFunctions()
   local decFuncs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
   }
   return decFuncs
 end
 
-function modifier_item_drums_of_endurance_oaa_active:GetModifierMoveSpeedBonus_Constant()
+function modifier_item_drums_of_endurance_oaa_active:GetModifierMoveSpeedBonus_Percentage()
   return self.active_movement_speed
 end
 
