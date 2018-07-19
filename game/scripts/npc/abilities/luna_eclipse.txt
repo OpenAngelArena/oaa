@@ -70,17 +70,17 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "beams_scepter"                                   "5 10 15 20 25" //OAA
+        "beams_scepter"                                   "6 12 18 24 30"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "5 10 15 20 25" //OAA
+        "hit_count_scepter"                               "6 12 18 24 30"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "1.5 3.0 4.5 6.0 7.5" //OAA
+        "duration_tooltip_scepter"                        "1.8 3.6 5.4 7.2 9.0"
       }
       "10"
       {
@@ -89,4 +89,5 @@
       }
     }
   }
+
 }
