@@ -135,7 +135,8 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget( hTarget )
     return
   end
 
-  local bHasScepter = self:GetCaster():HasScepter()
+  local caster = self:GetCaster()
+  local bHasScepter = caster:HasScepter()
   local nTargetsHit = 0
   if self.hTargetsHit ~= nil then
     nTargetsHit = #self.hTargetsHit
@@ -150,7 +151,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget( hTarget )
 
   local damage = {
     victim = hTarget,
-    attacker = self:GetCaster(),
+    attacker = caster,
     damage = flDamage,
     damage_type = DAMAGE_TYPE_MAGICAL,
     ability = self:GetAbility()
@@ -165,31 +166,31 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget( hTarget )
   end
 
   if bHasScepter then
-    local hForceOfNature = self:GetCaster():FindAbilityByName( "furion_force_of_nature" )
+    local hForceOfNature = caster:FindAbilityByName( "furion_force_of_nature" )
     if ( not hTarget:IsAlive() ) and hForceOfNature ~= nil and hForceOfNature:IsTrained() then
-      level = hForceOfNature:GetLevel()
-      local treantName = "npc_dota_furion_treant_" .. hForceOfNature:GetLevel()
+      local level = hForceOfNature:GetLevel()
+      local treantName = "npc_dota_furion_treant_" .. level
       if hTarget:IsHero() then
-        treantName = "npc_dota_furion_treant_large_" .. hForceOfNature:GetLevel()
+        treantName = "npc_dota_furion_treant_large_" .. level
       end
 
       -- Check whether the caster has learnt the 2x Treant health/damage talent
-      local caster_has_treant_bonus = self:GetCaster():HasLearnedAbility( "special_bonus_unique_furion" )
+      local caster_has_treant_bonus = caster:HasLearnedAbility( "special_bonus_unique_furion" )
 
-      local hTreant = CreateUnitByName( treantName, hTarget:GetOrigin(), true, self:GetCaster(), self:GetCaster():GetOwner(), self:GetCaster():GetTeamNumber() )
+      local hTreant = CreateUnitByName( treantName, hTarget:GetOrigin(), true, caster, caster:GetOwner(), caster:GetTeamNumber() )
       if hTreant ~= nil then
-        hTreant:SetControllableByPlayer( self:GetCaster():GetPlayerID(), false )
-        hTreant:SetOwner( self:GetCaster() )
+        hTreant:SetControllableByPlayer( caster:GetPlayerID(), false )
+        hTreant:SetOwner( caster )
         if caster_has_treant_bonus then
-          hTreant:AddNewModifier( self:GetCaster(), self, "modifier_treant_bonus_oaa", {} )
+          hTreant:AddNewModifier( caster, self, "modifier_treant_bonus_oaa", {} )
         end
 
         local kv = {
           duration = hForceOfNature:GetSpecialValueFor( "duration" )
         }
 
-        hTreant:AddNewModifier( self:GetCaster(), self, "modifier_kill", kv )
-        EmitSoundOnLocationWithCaster( hTarget:GetOrigin(), "Hero_Furion.ForceOfNature", self:GetCaster() )
+        hTreant:AddNewModifier( caster, self, "modifier_kill", kv )
+        EmitSoundOnLocationWithCaster( hTarget:GetOrigin(), "Hero_Furion.ForceOfNature", caster )
       end
     end
   end
