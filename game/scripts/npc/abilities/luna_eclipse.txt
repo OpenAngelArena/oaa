@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 1000 2000"
+    "AbilityManaCost"                                     "150 200 250 500 1000"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "beam_interval_scepter"                           "0.3"
+        "beam_interval_scepter"                           "0.5" //OAA
       }
       "05"
       {
@@ -70,17 +70,17 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "beams_scepter"                                   "6 12 18 24 30"
+        "beams_scepter"                                   "8 11 14 16 18" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "6 12 18 24 30"
+        "hit_count_scepter"                               "8 11 14 16 18" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "1.8 3.6 5.4 7.2 9.0"
+        "duration_tooltip_scepter"                        "3.5 5.5 7.0 8.0 9.0" //OAA
       }
       "10"
       {

@@ -68,37 +68,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "99"    //RamonNZ: Baumi changed this from 17 to 99.
+        "max_charges"                                     "99"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_radius"                                   "1200"    //RamonNZ: Wand gain charge radius.
+        "charge_radius"                                   "1200"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "14 20 30 45"    //RamonNZ: +10 BKB +4 Wand
+        "bonus_strength"                                  "20 30 40 55"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "4 6 9 13"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
+        "bonus_agility"                                   "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "4 6 9 13"      //RamonNZ: I had to seperate these out, because there is a bonus str from BKB
+        "bonus_intellect"                                 "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 36 54 75"
+        "bonus_damage"                                    "48 72 96 120"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "restore_per_charge"                              "0"    //RamonNZ: If used - keeping this functionality of wand would restore a bit of health/mana when activated. Set to 0 if not wanted.
+        "restore_per_charge"                              "0"
       }
       "08"
       {
@@ -113,12 +113,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "immunity_time_per_charge"                        "1"    //RamonNZ: New KV - Baumi wanted this nerfed hard
+        "immunity_time_per_charge"                        "1"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_time_per_charge"                        "5"    //RamonNZ: New KV requested by Baumi to increase the cooldown this much extra per charge
+        "cooldown_time_per_charge"                        "5"
       }
       "12"
       {
