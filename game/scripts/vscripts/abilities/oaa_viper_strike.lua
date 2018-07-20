@@ -56,7 +56,7 @@ function viper_viper_strike_oaa:OnProjectileHit_ExtraData( target, loc, data )
 	-- we manually destroy and clean it up here
 	ParticleManager:DestroyParticle( data.part, false )
 	ParticleManager:ReleaseParticleIndex( data.part )
-	
+
 	return true
 end
 
