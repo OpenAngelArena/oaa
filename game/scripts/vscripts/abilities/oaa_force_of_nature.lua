@@ -44,12 +44,12 @@ function furion_force_of_nature:OnSpellStart()
   local duration = self:GetSpecialValueFor( "duration" )
   local ability_level = self:GetLevel()
   -- Units to spawn for each ability level
-  local treant_names = {"npc_dota_furion_treant",
-                        "npc_dota_furion_treant",
-                        "npc_dota_furion_treant",
-                        "npc_dota_furion_treant",
-                        "npc_dota_furion_giant_treant",
-                        "npc_dota_furion_giant_treant_2"}
+  local treant_names = {"npc_dota_furion_treant_1",
+                        "npc_dota_furion_treant_2",
+                        "npc_dota_furion_treant_3",
+                        "npc_dota_furion_treant_4",
+                        "npc_dota_furion_treant_5",
+                        "npc_dota_furion_treant_6"}
 
   local trees = GridNav:GetAllTreesAroundPoint( target_point, area_of_effect, true )
   local tree_count = #trees
