@@ -28,6 +28,14 @@ function PointsManager:Init ()
     end
   end)
 
+  GameEvents:OnPlayerAbandon(function (keys)
+    local limit = self:GetLimit()
+    local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
+    limit = math.max(maxPoints + 10, limit - 10)
+
+    self:SetLimit(limit)
+  end)
+
   -- Register chat commands
   ChatCommand:LinkDevCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
   ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)

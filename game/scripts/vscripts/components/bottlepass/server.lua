@@ -55,6 +55,7 @@ function Bottlepass:SendWinner (winner)
   local endTime = GetSystemDate() .. GetSystemTime()
   local gameLength = HudTimer.gameTime
   local connectedPlayers = {}
+  local abandonedPlayers = {}
 
   local playerBySteamid = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
@@ -64,6 +65,8 @@ function Bottlepass:SendWinner (winner)
 
     if player then
       table.insert(connectedPlayers, tostring(steamid))
+    elseif PlayerConnection:IsAbandoned(playerID) then
+      table.insert(abandonedPlayers, tostring(steamid))
     end
   end
 
@@ -71,7 +74,10 @@ function Bottlepass:SendWinner (winner)
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
-    players = connectedPlayers
+    players = connectedPlayers,
+    abandoned = abandonedPlayers,
+    -- let player connection decide if this game should count
+    isValid = PlayerConnection:IsValid()
   }, function (err, data)
     if data and data.ok then
       local mmrDiffs = {}
