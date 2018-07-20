@@ -30,27 +30,34 @@ function viper_viper_strike_oaa:OnProjectileHit_ExtraData( target, loc, data )
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor( "duration" )
 
-	-- play the sound
-	target:EmitSound( "Hero_Viper.ViperStrike.Target" )
+	-- make sure the projectile actually hit the target
+	-- and the target is still valid
+	-- before applying the rest of the effects
+	if target and UnitFilter( target, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), caster:GetTeamNumber() ) then
+		-- play the sound
+		target:EmitSound( "Hero_Viper.ViperStrike.Target" )
 
-	-- apply the standard viper strike modifier
-	target:AddNewModifier( caster, self, "modifier_viper_viper_strike_slow", {
-		duration = duration,
-	} )
-
-	-- apply the silence modifier if the talent is picked
-	local talent = caster:FindAbilityByName( "special_bonus_unique_viper_3_oaa" )
-
-	if talent and talent:GetLevel() > 0 then
-		target:AddNewModifier( caster, self, "modifier_viper_viper_strike_silence", {
+		-- apply the standard viper strike modifier
+		target:AddNewModifier( caster, self, "modifier_viper_viper_strike_slow", {
 			duration = duration,
 		} )
+
+		-- apply the silence modifier if the talent is picked
+		local talent = caster:FindAbilityByName( "special_bonus_unique_viper_3_oaa" )
+
+		if talent and talent:GetLevel() > 0 then
+			target:AddNewModifier( caster, self, "modifier_viper_viper_strike_silence", {
+				duration = duration,
+			} )
+		end
 	end
 
 	-- due to the unique way the projectile part works
 	-- we manually destroy and clean it up here
 	ParticleManager:DestroyParticle( data.part, false )
 	ParticleManager:ReleaseParticleIndex( data.part )
+	
+	return true
 end
 
 --------------------------------------------------------------------------------
