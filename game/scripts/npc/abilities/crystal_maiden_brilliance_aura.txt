@@ -23,12 +23,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "0.8 1.0 1.2 1.4 3.4 5.4"
+        "mana_regen"                                      "1.2 1.4 1.6 1.8 4.0 6.2" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_self"                                 "1.8 2.6 3.4 4.2 9.4 14.6"
+        "mana_regen_self"                                 "2.8 3.6 4.4 5.2 9.4 14.6" //OAA
       }
     }
   }
