@@ -51,13 +51,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_self"                                 "150 250 350 850 1350"
+        "bonus_gold_self"                                 "500 1000 1500 3000 4500" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "40 80 120 320 520"
+        "bonus_gold"                                      "250 500 750 1500 2250" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_3"
       }
       "06"

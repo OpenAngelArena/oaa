@@ -47,7 +47,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "40"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
 
@@ -88,7 +88,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0"
+        "duration"                                        "8.0"
       }
       "06"
       {
