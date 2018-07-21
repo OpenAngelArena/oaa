@@ -81,12 +81,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-6 -9 -12 -15 -18"
+        "corruption_armor"                                "-3 -6 -9 -12 -15"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "15.0"
+        "corruption_duration"                             "5.0"
       }
       "04"
       {
@@ -113,7 +113,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "200 300 400 600 800"
+        "devastator_damage"                               "100 200 300 400 500"
       }
       "09"
       {
@@ -123,17 +123,17 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_movespeed_reduction_duration"         "15.0"
+        "devastator_movespeed_reduction_duration"         "5.0"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-20"
+        "devastator_armor_reduction"                      "-8 -11 -14 -17 -20"
       }
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_armor_reduction_duration"             "15.0"
+        "devastator_armor_reduction_duration"             "5.0"
       }
     }
   }
