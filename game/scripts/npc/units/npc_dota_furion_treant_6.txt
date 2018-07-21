@@ -4,14 +4,14 @@
 // Giant Treants
 //=================================================================================
 
-  "npc_dota_furion_giant_treant"
+  "npc_dota_furion_treant_6"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creep"  // Class of entity of link to.
     "Model"                                               "models/heroes/furion/treant.vmdl"  // Model.
     "SoundSet"                                            "Furion_Treant"          // Name of sound set.
-    "ModelScale"                                          "1.01"
+    "ModelScale"                                          "1.02"
     "Level"                                               "2"
     "IsSummoned"                                          "1"
     "SelectionGroup"                                      "Furion_Treants"
@@ -37,8 +37,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "42"    // Damage range min.
-    "AttackDamageMax"                                     "48"    // Damage range max.
+    "AttackDamageMin"                                     "410"    // Damage range min.
+    "AttackDamageMax"                                     "430"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.875"    // Speed of attack.
     "AttackAnimationPoint"                                "0.467"    // Normalized time in animation cycle to attack.
@@ -49,9 +49,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "42"    // Experience earn.
-    "BountyGoldMin"                                       "25"    // Gold earned min.
-    "BountyGoldMax"                                       "34"    // Gold earned max.
+    "BountyXP"                                            "66"    // Experience earn.
+    "BountyGoldMin"                                       "40"    // Gold earned min.
+    "BountyGoldMax"                                       "53"    // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
@@ -66,8 +66,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "770"    // Base health.
-    "StatusHealthRegen"                                   "0.7"    // Health regeneration rate.
+    "StatusHealth"                                        "4000"    // Base health.
+    "StatusHealthRegen"                                   "1.1"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 

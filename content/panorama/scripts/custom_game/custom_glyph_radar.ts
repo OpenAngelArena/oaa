@@ -112,8 +112,15 @@ class GlyphScanContainer {
     this.GlyphTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
     this.GlyphTooltip.BLoadLayoutSnippet('DotaCustomTooltipGlyph');
 
-    this.GlyphIcon.SetPanelEvent(PanelEvent.ON_MOUSE_OVER , ()=>{ this.GlyphTooltip.SetHasClass('Hidden', false)})
-    this.GlyphIcon.SetPanelEvent(PanelEvent.ON_MOUSE_OUT  , ()=>{ this.GlyphTooltip.SetHasClass('Hidden', true)})
+    this.root.FindChildTraverse('glyph').SetPanelEvent(PanelEvent.ON_MOUSE_OVER , ()=>{
+      this.GlyphTooltip.SetHasClass('Hidden', false);
+      FindDotaHudElement('DOTAHUDGlyphTooltip').visible = false;
+    })
+
+    this.root.FindChildTraverse('glyph').SetPanelEvent(PanelEvent.ON_MOUSE_OUT  , ()=>{
+      this.GlyphTooltip.SetHasClass('Hidden', true);
+      FindDotaHudElement('DOTAHUDRadarTooltip').visible = false;
+    })
   }
 
   CreateRadarTooltip()

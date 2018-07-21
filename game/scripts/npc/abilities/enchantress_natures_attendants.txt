@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0 45.0 45.0 45.0 40.0 35.0"
+    "AbilityCooldown"                                     "35"
     "AbilityDuration"                                     "11"
 
 
@@ -49,7 +49,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wisp_count"                                      "4 6 8 10 34 55"
+        "wisp_count"                                      "4 6 8 10 15 20"
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
       }
     }

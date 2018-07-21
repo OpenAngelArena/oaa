@@ -21,6 +21,12 @@ setmetatable(RESPAWN_TIME_TABLE, {
   end
 })
 
+-- safe to leave
+TIME_TO_ABANDON = 300                     -- how long a player can be disconnected before they're forced to abandon
+AUTO_ABANDON_IN_CM = false                -- if force abandon should be enabled in captains mode
+MIN_MATCH_TIME = 180                      -- if someone abandons before this point, the match doesn't count
+ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on your team for the countdown to start
+
 -- kill limits
 NORMAL_KILL_LIMIT = 100
 TEN_V_TEN_KILL_LIMIT = 150
@@ -59,8 +65,8 @@ DUEL_INTERVAL = 300                     -- time from duel ending until dnext due
 
 -- CapturePoints
 INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
-CAPTURE_FIRST_WARN = 60                 -- how many seconds first ping on minimap of CapturePoint
-CAPTURE_SECOND_WARN = 30                -- how many seconds before second ping on minimap of CapturePoint
+CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
+CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
 CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
 CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
@@ -79,6 +85,11 @@ CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get s
 
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
+
+-- Save/resume state
+SAVE_STATE_ENABLED = true              -- kill switch
+SAVE_STATE_INTERVAL = 21               -- kind of a random number so they're unpredictable. it makes them seem more frequent on load
+SAVE_STATE_AP = true                   -- should we save state in all pick games?
 
 --Gold
 _G.BOOT_GOLD_FACTOR = 1.0               -- Multiplier to account for the presence of bonus gold boots

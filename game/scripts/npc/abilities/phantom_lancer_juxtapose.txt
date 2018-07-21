@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "6 8 10 10 10"
+        "max_illusions"                                   "4 6 8 8 8" //OAA
         "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_3"
       }
       "02"
@@ -39,12 +39,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-84 -84 -84 -80 -76"
+        "illusion_damage_out_pct"                         "-76 -76 -76 -72 -68" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "16 16 16 20 24"
+        "tooltip_illusion_damage"                         "20 20 20 24 28"  //OAA
       }
       "07"
       {

@@ -35,49 +35,49 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_treants"                                     "2 3 4 5 5 5"
+        "max_treants"                                     "2 3 4 5 6 7"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion_2"
       }
 
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "60 60 60 60"
+        "duration"                                        "60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_health_tooltip"                           "550 550 550 550 770 1210"
+        "treant_health_tooltip"                           "550 700 900 1200 2000 4000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_min_dmg_tooltip"                          "34 34 34 34 47 76"
+        "treant_min_dmg_tooltip"                          "34 50 68 90 200 410"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_max_dmg_tooltip"                          "38 38 38 38 53 84"
+        "treant_max_dmg_tooltip"                          "38 56 78 110 220 430"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_hp_bonus"                                 "550"
+        "treant_hp_bonus"                                 "550 700 900 1200 2000 4000"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_damage_bonus"                             "32"
+        "treant_damage_bonus"                             "36 53 74 100 210 420"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_hp_bonus"                           "1650"
+        "treant_large_hp_bonus"                           "1650 2100 2700 3600 6000 12000"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage_bonus"                       "96"
+        "treant_large_damage_bonus"                       "108 159 222 300 630 1260"
       }
     }
   }

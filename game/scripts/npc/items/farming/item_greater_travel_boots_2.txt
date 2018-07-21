@@ -10,7 +10,7 @@
     "ID"                                                  "3021"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
@@ -76,7 +76,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "100 110 120 130"
+        "assist_percent"                                  "85 100 115 130"
       }
       "03"
       {

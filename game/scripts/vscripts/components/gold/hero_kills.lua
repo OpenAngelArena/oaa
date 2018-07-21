@@ -227,7 +227,7 @@ function HeroKillGold:HeroDeathHandler (keys)
     local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
     killedTeamNWString = "[" .. killedTeamNWString .. "]"
     D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND KILLED HERO NW", {
-      ErrorMessage = "Killed team networth list: " .. killedTeamNWString ", killed player ID: " .. killedPlayerID ", killed team player IDs: " .. killedPlayerIDsString,
+      ErrorMessage = "Killed team networth list: " .. killedTeamNWString .. ", killed player ID: " .. killedPlayerID .. ", killed team player IDs: " .. killedPlayerIDsString,
       ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
       GameVersion = GAME_VERSION,
       DedicatedServers = (IsDedicatedServer() and 1) or 0,

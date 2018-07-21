@@ -42,6 +42,7 @@
         "ItemCost"                      "100"
         "SecretShop"                    "1"
         "SecretShopType"                "Buildings"
+        "IsTempestDoubleClonable"       "0"
         // Special
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -60,6 +61,11 @@
             {
                 "var_type"                  "FIELD_INTEGER"
                 "wall_length"               "800"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "sink_height"               "200"
             }
         }
     }

@@ -24,7 +24,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "45"      // Physical protection.
+    "ArmorPhysical"                                       "25"      // Physical protection.
     "MagicalResistance"                                   "25"      // Magical protection (percentage).
 
     // Attack
@@ -58,7 +58,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "6500" // Base health
+    "StatusHealth"                                        "20000" // Base health
     "StatusHealthRegen"                                   "3.5"  // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.

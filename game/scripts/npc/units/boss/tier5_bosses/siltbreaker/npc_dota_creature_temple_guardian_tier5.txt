@@ -34,7 +34,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "45"        // Physical protection.
+    "ArmorPhysical"                                       "25"        // Physical protection.
     "MagicalResistance"                                   "25"        // Magical protection.
 
 		// Attack
@@ -63,7 +63,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				  "40000"
+		"StatusHealth"				  "20000"
 		"StatusHealthRegen"			"55" // they can spam heal bombs for effective 500 hp/s heals
 		"StatusMana"				    "5000"
 		"StatusManaRegen"			  "30"

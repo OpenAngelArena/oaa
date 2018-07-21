@@ -38,7 +38,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "impact_radius"         "500" // regular version: 200
+                "impact_radius"         "200" // regular version: 200
             }
             "02"
             {
@@ -48,7 +48,7 @@
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "3500" // regular version: 750
+                "damage"                "10000" // regular version: 750
             }
             "04"
             {

@@ -57,7 +57,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 65 95 145 195"
+        "bonus_damage"                                    "45 60 85 125 180"
       }
       "02"
       {
@@ -72,17 +72,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "40 45 50 55 65"
+        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "150"
+        "quelling_bonus"                                  "120"	//OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "125"
+        "quelling_bonus_ranged"                           "120"	//OAA
       }
       "07"
       {
@@ -92,12 +92,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "330 345 360 375 390"
+        "cleave_ending_width"                             "330"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "625 645 665 685 705"
+        "cleave_distance"                                 "625"
       }
       "10"
       {
@@ -112,12 +112,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus"                          "60"
+        "tooltip_quelling_bonus"                          "20"	//OAA
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus_ranged"                   "25"
+        "tooltip_quelling_bonus_ranged"                   "20"	//OAA
       }
     }
   }
