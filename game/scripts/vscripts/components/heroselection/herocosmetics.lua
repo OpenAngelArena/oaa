@@ -1,5 +1,6 @@
 
 LinkLuaModifier( "modifier_animation_translate_permanent_string", "libraries/modifiers/modifier_animation_translate_permanent_string.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_MODIFIER_MOTION_NONE)
 
 if HeroCosmetics == nil then
   DebugPrint ( 'Starting HeroCosmetics' )
@@ -8,6 +9,9 @@ end
 
 function HeroCosmetics:Sohei (hero)
   DebugPrint ( 'Starting Sohei Cosmetics' )
+  -- Add bottlepass arcana check here
+  hero:AddNewModifier( hero, nil, 'modifier_arcana_dbz', nil )
+
   --hero.body = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/thousand_faces_hakama/thousand_faces_hakama.vmdl"})
   --hero.hand = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/sohei/so_weapon.vmdl"})
   --hero.head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/sohei/so_head.vmdl"})
