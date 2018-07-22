@@ -9,7 +9,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
-
+  
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10 10 10 10 10 10" //OAA
+   
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

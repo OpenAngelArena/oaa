@@ -1,4 +1,4 @@
-/* global Players, $, GameEvents, CustomNetTables, Game, DOTATeam_t */
+/* global $, CustomNetTables, Game, DOTATeam_t */
 
 'use strict';
 
@@ -147,8 +147,8 @@ function EndScoreboard (table, key, args) {
 
     var xpBar = pp.FindChildrenWithClassTraverse('es-player-xp');
 
-//    $.Msg("Player:");
-//    $.Msg(player);
+    //    $.Msg("Player:");
+    //    $.Msg(player);
 
     var values = {
       name: pp.FindChildInLayoutFile('es-player-name'),

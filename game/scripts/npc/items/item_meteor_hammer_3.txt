@@ -23,9 +23,12 @@
     "ItemResult"                    "item_meteor_hammer_3"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_2;item_upgrade_core_2"
-      "02"                                                "item_meteor_hammer_2;item_upgrade_core_3"
-      "03"                                                "item_meteor_hammer_2;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
+      "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
+      "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
+      "04"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "05"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "06"                                                "item_meteor_hammer_2;item_upgrade_core_4"
     }
   }
 
@@ -40,7 +43,7 @@
     "BaseClass"                     "item_lua"
     "ScriptFile"                    "items/meteor_hammer.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"            "custom/meteor_hammer_3"
+    "AbilityTextureName"            "item_custom/meteor_hammer_3"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
@@ -64,7 +67,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "7625"
+    "ItemCost"                      "7930"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 3;meteor hammer 3"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

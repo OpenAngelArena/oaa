@@ -2385,6 +2385,37 @@
 		"PortraitHideDropShadow"		"0"
 		"PortraitDesaturateParticles"		"0"
 	}
+  "models/heroes/electrician/electrician.vmdl"
+  {
+    "PortraitLightPosition"   "50.45 -31.84 189.14"
+    "PortraitLightAngles"   "52.57 131.53 0.00"
+    "PortraitLightFOV"    "80"
+    "PortraitLightDistance"   "120"
+    "PortraitLightColor"    "160 210 255"
+    "PortraitShadowColor"   "56 56 56"
+    "PortraitShadowScale"   "5.000000"
+    "PortraitAmbientColor"    "120 50 104"
+    "PortraitAmbientScale"    "7.000000"
+    "PortraitSpecularColor"   "251 64 84"
+    "PortraitBackgroundTexture"   "materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+    "PortraitBackgroundColor1"    ".45 .3 .68"
+    "PortraitBackgroundColor2"    "1 1 1"
+    "PortraitBackgroundColor3"    ".18 .1 .28"
+    "PortraitBackgroundColor4"    "0 0 0"
+    "PortraitLightScale"    "2.4000"
+    "PortraitGroundShadowScale"   "1.500000"
+    "PortraitAmbientDirection"    "15.590 51.600 21.350"
+    "PortraitAnimationActivity"   "ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"    "175.87 -110.45 137.76"
+        "PortraitAngles"    "1.54 147.00 0.00"
+        "PortraitFOV"   "20"
+      }
+    }
+  }
 	"models/heroes/juggernaut/jugg_healing_ward.vmdl"
 	{
 		"PortraitLightPosition"		"58.77 58.27 194.33"

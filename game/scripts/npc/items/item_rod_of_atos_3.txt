@@ -26,6 +26,9 @@
       "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
       "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
       "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
+      "04"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "05"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "06"                                                "item_meteor_hammer_2;item_upgrade_core_4"
     }
   }
 
@@ -54,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "8030"
+    "ItemCost"                                            "7930"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos 3;atos 3"

@@ -21,7 +21,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "30"
+        "duration"                                        "40"
       }
       "02"
       {
@@ -36,12 +36,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "16 20 24 28 56 84"
+        "bonus_gold_cap"                                  "20 24 28 32 60 88"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bounty_multiplier_tooltip"                       "2.5"
+        "bounty_multiplier_tooltip"                       "3.5"
       }
     }
   }

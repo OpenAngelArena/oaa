@@ -23,10 +23,10 @@
     "ItemResult"                    "item_meteor_hammer_2"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_1;item_upgrade_core"
-      "02"                                                "item_meteor_hammer_1;item_upgrade_core_2"
-      "03"                                                "item_meteor_hammer_1;item_upgrade_core_3"
-      "04"                                                "item_meteor_hammer_1;item_upgrade_core_4"
+      "01"                                                "item_rod_of_atos;item_upgrade_core"
+      "02"                                                "item_rod_of_atos;item_upgrade_core_2"
+      "03"                                                "item_rod_of_atos;item_upgrade_core_3"
+      "04"                                                "item_rod_of_atos;item_upgrade_core_4"
     }
   }
 
@@ -41,7 +41,7 @@
     "BaseClass"                     "item_lua"
     "ScriptFile"                    "items/meteor_hammer.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"            "custom/meteor_hammer_2"
+    "AbilityTextureName"            "item_custom/meteor_hammer_2"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "4125"
+    "ItemCost"                      "4430"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 2;meteor hammer 2"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

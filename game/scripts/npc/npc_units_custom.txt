@@ -1,11 +1,16 @@
 #base "units/buildings/npc_dota_bottle_statue_dire.txt"
 #base "units/buildings/npc_dota_bottle_statue_radiant.txt"
 
+#base "units/spiders/npc_dota_boss_spiders.txt"
+#base "units/spiders/npc_dota_boss_spiders_explosive.txt"
+#base "units/spiders/npc_dota_boss_spiders_spiderball.txt"
+#base "units/spiders/npc_dota_boss_spiders_spider.txt"
 #base "units/charger/npc_dota_boss_charger_pillar.txt"
 #base "units/charger/npc_dota_boss_charger.txt"
 #base "units/shielder/npc_dota_boss_shielder.txt"
 #base "units/twin/npc_dota_boss_twin.txt"
 #base "units/twin/npc_dota_boss_twin_dumb.txt"
+#base "units/swiper/npc_dota_boss_swiper.txt"
 
 #base "units/stopfightingyourself/stopfightingyourself.txt"
 
@@ -24,6 +29,9 @@
 #base "units/siltbreaker/npc_dota_creature_temple_guardian.txt"
 #base "units/siltbreaker/npc_dota_creature_temple_guardian_spawner.txt"
 
+#base "units/slime/npc_dota_boss_slime.txt"
+#base "units/carapace/npc_dota_boss_carapace.txt"
+
 #base "units/boss/npc_dota_boss_tier_1.txt"
 #base "units/boss/npc_dota_boss_tier_2.txt"
 #base "units/boss/npc_dota_boss_tier_3.txt"
@@ -37,6 +45,54 @@
 #base "units/boss/npc_dota_boss_simple_5.txt"
 #base "units/boss/npc_dota_boss_simple_6.txt"
 #base "units/boss/npc_dota_boss_simple_7.txt"
+
+
+
+#base "units/npc_dota_azazel_summon_farmer_1.txt"
+#base "units/npc_dota_azazel_summon_farmer_2.txt"
+#base "units/npc_dota_azazel_summon_farmer_3.txt"
+#base "units/npc_dota_azazel_summon_farmer_4.txt"
+#base "units/npc_dota_azazel_summon_scout_1.txt"
+#base "units/npc_dota_azazel_summon_scout_2.txt"
+#base "units/npc_dota_azazel_summon_scout_3.txt"
+#base "units/npc_dota_azazel_summon_scout_4.txt"
+#base "units/npc_dota_azazel_summon_tank_1.txt"
+#base "units/npc_dota_azazel_summon_tank_2.txt"
+#base "units/npc_dota_azazel_summon_tank_3.txt"
+#base "units/npc_dota_azazel_summon_tank_4.txt"
+
+#base "units/boss/tier5_bosses/charger/npc_dota_boss_charger_tier5.txt"
+#base "units/boss/tier5_bosses/shielder/npc_dota_boss_shielder_tier5.txt"
+#base "units/boss/tier5_bosses/twin/npc_dota_boss_twin_tier5.txt"
+#base "units/boss/tier5_bosses/twin/npc_dota_boss_twin_dumb_tier5.txt"
+#base "units/boss/tier5_bosses/stopfightingyourself/stopfightingyourself_tier5.txt"
+
+
+
+
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_ogre_tank_boss_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_ogre_seer_tier5.txt"
+
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_lycan_boss_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_dire_hound_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_dire_hound_boss_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_werewolf_tier5.txt"
+
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_spider_boss_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_spider_minions_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_spider_web_sack_tier5.txt"
+
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_temple_guardian_tier5.txt"
+#base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_temple_guardian_spawner_tier5.txt"
+
+#base "units/boss/tier5_bosses/npc_dota_boss_tier_1_tier5.txt"
+
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_1_tier5.txt"
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_2_tier5.txt"
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_3_tier5.txt"
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_5_tier5.txt"
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_6_tier5.txt"
+#base "units/boss/tier5_bosses/npc_dota_boss_simple_7_tier5.txt"
 
 #base "units/misc/npc_dota_creature_pedestal.txt"
 
@@ -54,11 +110,26 @@
 #base "units/npc_dota_broodmother_giant_spiderite.txt"
 #base "units/npc_dota_colossal_eidolon.txt"
 #base "units/npc_dota_decoy_courier.txt"
-#base "units/npc_dota_furion_giant_treant.txt"
-#base "units/npc_dota_furion_giant_treant_2.txt"
+#base "units/npc_dota_furion_treant_1.txt"
+#base "units/npc_dota_furion_treant_2.txt"
+#base "units/npc_dota_furion_treant_3.txt"
+#base "units/npc_dota_furion_treant_4.txt"
+#base "units/npc_dota_furion_treant_5.txt"
+#base "units/npc_dota_furion_treant_6.txt"
+#base "units/npc_dota_furion_treant_large_1.txt"
+#base "units/npc_dota_furion_treant_large_2.txt"
+#base "units/npc_dota_furion_treant_large_3.txt"
+#base "units/npc_dota_furion_treant_large_4.txt"
+#base "units/npc_dota_furion_treant_large_5.txt"
+#base "units/npc_dota_furion_treant_large_6.txt"
 #base "units/npc_dota_giant_eidolon.txt"
 #base "units/npc_dota_healing_mine.txt"
 #base "units/npc_dota_hero_sohei.txt"
+#base "units/npc_dota_hero_electrician.txt"
+#base "units/npc_dota_lone_druid_bear1.txt"
+#base "units/npc_dota_lone_druid_bear2.txt"
+#base "units/npc_dota_lone_druid_bear3.txt"
+#base "units/npc_dota_lone_druid_bear4.txt"
 #base "units/npc_dota_lone_druid_bear5.txt"
 #base "units/npc_dota_lone_druid_bear6.txt"
 #base "units/npc_dota_lycan_wolf5.txt"
@@ -107,6 +178,7 @@
 #base "units/npc_dota_punching_bag.txt"
 
 #base "units/minimap/minimap.txt"
+#base "units/buildings/azazel.txt"
 
 "DOTAUnits"
 {

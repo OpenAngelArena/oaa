@@ -7,7 +7,9 @@ if PointsManager == nil then
 end
 
 local WinnerEvent = Event()
+local ScoreChangedEvent = Event()
 PointsManager.onWinner = WinnerEvent.listen
+PointsManager.onScoreChanged = ScoreChangedEvent.listen
 
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
@@ -26,10 +28,33 @@ function PointsManager:Init ()
     end
   end)
 
+  GameEvents:OnPlayerAbandon(function (keys)
+    local limit = self:GetLimit()
+    local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
+    limit = math.max(maxPoints + 10, limit - 10)
+
+    self:SetLimit(limit)
+  end)
+
   -- Register chat commands
-  ChatCommand:LinkCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
-  ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
-  ChatCommand:LinkCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+  ChatCommand:LinkDevCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
+  ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)
+  ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+  ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+end
+
+function PointsManager:GetState ()
+  return {
+    limit = self:GetLimit(),
+    goodScore = self:GetPoints(DOTA_TEAM_GOODGUYS),
+    badScore = self:GetPoints(DOTA_TEAM_BADGUYS)
+  }
+end
+
+function PointsManager:LoadState (state)
+  self:SetLimit(state.limit)
+  self:SetPoints(DOTA_TEAM_GOODGUYS, state.goodScore)
+  self:SetPoints(DOTA_TEAM_BADGUYS, state.badScore)
 end
 
 function PointsManager:CheckWinCondition(teamID, points)
@@ -65,24 +90,21 @@ function PointsManager:SetPoints(teamID, amount)
   end
 
   CustomNetTables:SetTableValue('team_scores', 'score', score)
+  ScoreChangedEvent.broadcast()
   self:CheckWinCondition(teamID, amount)
 end
 
 function PointsManager:AddPoints(teamID, amount)
   amount = amount or 1
-
   local score = CustomNetTables:GetTableValue('team_scores', 'score')
 
   if teamID == DOTA_TEAM_GOODGUYS then
-    score.goodguys = score.goodguys + amount
-    amount = score.goodguys
+    amount = score.goodguys + amount
   elseif teamID == DOTA_TEAM_BADGUYS then
-    score.badguys = score.badguys + amount
-    amount = score.badguys
+    amount = score.badguys + amount
   end
 
-  CustomNetTables:SetTableValue('team_scores', 'score', score)
-  self:CheckWinCondition(teamID, amount)
+  PointsManager:SetPoints(teamID, amount)
 end
 
 function PointsManager:GetPoints(teamID)
@@ -105,6 +127,20 @@ end
 
 function PointsManager:SetLimit(killLimit)
   CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
+end
+
+function PointsManager:AddEnemyPointsCommand(keys)
+  local text = string.lower(keys.text)
+  local splitted = split(text, " ")
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local teamID = hero:GetTeamNumber()
+  if hero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    teamID = DOTA_TEAM_BADGUYS
+  else
+    teamID = DOTA_TEAM_GOODGUYS
+  end
+  local pointsToAdd = tonumber(splitted[2]) or 1
+  self:AddPoints(teamID, pointsToAdd)
 end
 
 function PointsManager:AddPointsCommand(keys)

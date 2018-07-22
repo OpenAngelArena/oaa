@@ -37,12 +37,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "350"
+        "bonus_attack_speed"                              "400"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "focusfire_damage_reduction"                      "-50 -40 -30 -20 -0"
+        "focusfire_damage_reduction"                      "-50 -40 -30 -20 -10"
       }
       "03"
       {
@@ -57,7 +57,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "focusfire_damage_reduction_scepter"              "-30 -15 -0 10 30"
+        "focusfire_damage_reduction_scepter"              "-30 -22 -14 -6 0"  //OAA
       }
       "06"
       {

@@ -1,4 +1,3 @@
-
 LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
 
 local ABILITY_charge = nil
@@ -10,7 +9,7 @@ local function GetAllPillars ()
     thisEntity:GetTeamNumber(),
     GLOBAL_origin,
     nil,
-    1200,
+    1500,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
@@ -30,14 +29,14 @@ local function CheckPillars ()
 
   -- print('Found ' .. towers:length() .. ' towers!')
 
-  if towers:length() > 7 then
+  if towers:length() > 3 then
     return false
   end
 
   local towerLocation = Vector(0,0,0)
-  while towerLocation:Length() < 700 do
+  while towerLocation:Length() < 500 do
     -- sometimes rng fails us
-    towerLocation = RandomVector(1):Normalized() * RandomFloat(700, 800)
+    towerLocation = RandomVector(1):Normalized() * RandomFloat(500, 600)
   end
 
   towerLocation = towerLocation + GLOBAL_origin
@@ -131,13 +130,18 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
   thisEntity:SetContextThink( "ChargerThink", partial(ChargerThink, thisEntity) , 1)
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
-  ABILITY_charge = thisEntity:FindAbilityByName("boss_charger_charge")
+  local chargeAbilityName = "boss_charger_charge"
+  if not thisEntity:HasAbility( chargeAbilityName ) then
+    chargeAbilityName = "boss_charger_charge_tier5"
+  end
+
+  ABILITY_charge = thisEntity:FindAbilityByName(chargeAbilityName)
   ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })
   phaseController:SetAbilities({
-    "boss_charger_charge",
+    chargeAbilityName,
     "boss_charger_super_armor"
   })
 end

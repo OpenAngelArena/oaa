@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_reduction_orb_3"
     "ItemRequirements"
     {
-      "01"                                                "item_reduction_orb_2;item_upgrade_core_4"
+      "01"                                                "item_crimson_guard_4;item_upgrade_core_4"
     }
   }
 
@@ -47,13 +47,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36550"
+    "ItemCost"                                            "38200"
     "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "heal damage reduction orb"

@@ -45,7 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "195.0 180.0 165.0 150.0 135.0"
+    "AbilityCooldown"                                     "195.0 170.0 145.0 120.0 95.0"
     "AbilitySharedCooldown"                               "refresher"
 
     "MaxUpgradeLevel"                                     "5"
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "6700"
+    "ItemCost"                                            "6600"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 2;refresher 2"
@@ -67,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "11 17 25 40 50"
+        "bonus_health_regen"                              "11 17 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 4.5 7.0 10.0 14.0"
+        "bonus_mana_regen"                                "5.0 7.0 10.0 14.0 20.0"
       }
     }
   }

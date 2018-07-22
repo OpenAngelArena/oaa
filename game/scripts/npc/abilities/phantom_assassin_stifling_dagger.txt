@@ -10,8 +10,9 @@
     "ID"                                                  "5190"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
@@ -47,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1 2 3 4 5 7"
+        "duration"                                        "1.75 2.5 3.25 4 5 6"
       }
       "04"
       {

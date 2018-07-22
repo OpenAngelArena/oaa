@@ -1,10 +1,10 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Pangolier: Gyroshell
-//=================================================================================================================
-"pangolier_gyroshell"
-{
+  //=================================================================================================================
+  // Pangolier: Gyroshell
+  //=================================================================================================================
+  "pangolier_gyroshell"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6343"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -25,8 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "70 65 60 60 60"
-    "AbilityDuration"               "8.0"
+    "AbilityCooldown"               "70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,74 +37,75 @@
 
     "precache"
     {
-        "model" "models/heroes/pangolier/pangolier_gyroshell.vmdl"
-        "model" "models/heroes/pangolier/pangolier_gyroshell2.vmdl"
+      "model" "models/heroes/pangolier/pangolier_gyroshell.vmdl"
+      "model" "models/heroes/pangolier/pangolier_gyroshell2.vmdl"
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "cast_time_tooltip"     "1.2"
-        }
-        "02"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "tick_interval"         "0.05"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "forward_move_speed"    "600"
-        }
-        "04"
-        {
-            "var_type"              "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
-            "turn_rate_boosted"     "165"
-        }
-        "05"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "turn_rate"             "120"
-        }
-        "06"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "radius"                "400"
-        }
-        "07"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "hit_radius"            "150"
-        }
-        "08"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "bounce_duration"       "0.4"
-        }
-        "09"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "stun_duration"         "1.0 1.25 1.5 1.75 2.0"
-        }
-        "10"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "knockback_radius"      "150"
-        }
-        "11"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "duration"              "6.0 7.0 8.0 9.0 10.0"
-        }
-        "12"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "jump_recover_time"     "0.25"
-        }
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "cast_time_tooltip"     "1.2"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "tick_interval"         "0.05"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "forward_move_speed"    "600"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
+        "turn_rate_boosted"     "165"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "turn_rate"             "120"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "400"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "hit_radius"            "150"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bounce_duration"       "0.4"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "stun_duration"         "1.0 1.25 1.5 1.75 2.0"
+      }
+      "10"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "knockback_radius"      "150"
+      }
+      "11"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "8.0"
+        "LinkedSpecialBonus"  "special_bonus_unique_pangolier_6"
+      }
+      "12"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "jump_recover_time"     "0.25"
+      }
     }
-}
+  }
 }

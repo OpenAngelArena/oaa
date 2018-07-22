@@ -49,12 +49,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "85"
+        "bonus_attack_speed"                              "55 55 55 60 65"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.25 4 4.75 5.5 5.5"
+        "duration"                                        "4.0 4.75 5.5 5.5 5.5"
         "LinkedSpecialBonus"  "special_bonus_unique_winter_wyvern_3"
       }
     }

@@ -1,0 +1,86 @@
+"DOTAUnits"
+{
+  //=================================================================================
+	// Creature: Dire Hound
+	// Zones: forest, forest_holdout
+	//=================================================================================
+	"npc_dota_creature_dire_hound_tier5"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					  "npc_dota_creature"
+		"Model"						    "models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
+		"SoundSet"					  "DireHound"
+		"Level"						    "1"
+		"IsAncient"					"1"
+		"ModelScale" 				  ".67"
+		"IsNeutralUnitType"	  "1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"55"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"2000"
+		"AttackDamageMax"			"3000"
+		"AttackRate"				"1.25"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"45"
+		"HealthBarOffset"			"90"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"20"
+		"BountyGoldMin"				"11"
+		"BountyGoldMax"				"15"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+	}
+}

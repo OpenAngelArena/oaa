@@ -16,6 +16,7 @@
 #base "heroes/earth_spirit.txt"
 #base "heroes/enigma.txt"
 #base "heroes/faceless_void.txt"
+#base "heroes/furion.txt"
 #base "heroes/io.txt"
 #base "heroes/jakiro.txt"
 #base "heroes/keeper_of_the_light.txt"
@@ -90,5 +91,18 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+	}
+	//=================================================================================================================
+	// HERO: Electrician
+	//=================================================================================================================
+	"npc_dota_hero_electrician"
+	{
+		"BaseClass"					"npc_dota_hero_dazzle"
+		"HeroID"					"129"
+		"Model"						"models/heroes/dazzle/dazzle.vmdl"
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
 	}
 }

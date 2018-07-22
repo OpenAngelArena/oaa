@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "5700"
+    "ItemCost"                                            "5600"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mjollnir;lightning"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "80 90 100 110 120"
+        "bonus_attack_speed"                              "75 85 95 105 115"
       }
       "03"
       {
@@ -123,7 +123,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "150 200 250 350 450"
+        "chain_damage"                                    "170 200 250 350 450"
       }
       "13"
       {

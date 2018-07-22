@@ -2,14 +2,13 @@ LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua"
 LinkLuaModifier("modifier_item_meteor_hammer_thinker", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_item_meteor_hammer_damage_over_time", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_meteor_hammer = class(ItemBaseClass)
-item_meteor_hammer_1 = item_meteor_hammer
+item_meteor_hammer_1 = class(ItemBaseClass)
 item_meteor_hammer_2 = item_meteor_hammer_1
 item_meteor_hammer_3 = item_meteor_hammer_1
 item_meteor_hammer_4 = item_meteor_hammer_1
 item_meteor_hammer_5 = item_meteor_hammer_1
 
-function item_meteor_hammer:OnSpellStart()
+function item_meteor_hammer_1:OnSpellStart()
 
   local caster = self:GetCaster()
 
@@ -18,7 +17,6 @@ function item_meteor_hammer:OnSpellStart()
   caster:StartGesture(ACT_DOTA_TELEPORT)
 
   if IsServer() then
-
     self:CreateVisibilityNode(self:GetCursorPosition(),self:GetSpecialValueFor("impact_radius"), 3.8 )
 
     --Particle that surrounds caster
@@ -27,22 +25,28 @@ function item_meteor_hammer:OnSpellStart()
     self.channel_particle = ParticleManager:CreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeam())
     ParticleManager:SetParticleControl(self.channel_particle, 0, self:GetCursorPosition())
     ParticleManager:SetParticleControl(self.channel_particle, 1, Vector(self:GetSpecialValueFor("impact_radius"), 0, 0))
-
   end
 end
 
-function item_meteor_hammer:OnChannelFinish(bInterrupted)
+function item_meteor_hammer_1:OnChannelFinish(bInterrupted)
   local caster = self:GetCaster()
 
-  caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
   caster:FadeGesture(ACT_DOTA_TELEPORT)
 
   if not bInterrupted then
+    caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
     CreateModifierThinker(caster, self, "modifier_item_meteor_hammer_thinker", {},self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
-    end
+  else
+    caster:StopSound("DOTA_Item.MeteorHammer.Channel")
+    ParticleManager:DestroyParticle(self.channel_particle_caster, true)
+    ParticleManager:DestroyParticle(self.channel_particle, true)
   end
 
-function item_meteor_hammer:GetIntrinsicModifierName()
+  ParticleManager:ReleaseParticleIndex(self.channel_particle_caster)
+  ParticleManager:ReleaseParticleIndex(self.channel_particle)
+end
+
+function item_meteor_hammer_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 -----------------------------------------------------------------------------------------------------------------------
@@ -54,6 +58,7 @@ function modifier_item_meteor_hammer_thinker:OnCreated()
 
   if IsServer() then
     local ability = self:GetAbility()
+    local parent = self:GetParent()
     -- item info from kv
     self.impact_radius = ability:GetSpecialValueFor("impact_radius")
     self.impact_damage = ability:GetSpecialValueFor("impact_damage")
@@ -65,6 +70,14 @@ function modifier_item_meteor_hammer_thinker:OnCreated()
     --landtime should not be a negative number
     self:StartIntervalThink(self.land_time)
 
+    local impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
+
+    --Controls the metoer position to origin
+    ParticleManager:SetParticleControl(impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
+    ParticleManager:SetParticleControl(impact_particle, 1, parent:GetOrigin())
+    --Fade time of cetain particles
+    ParticleManager:SetParticleControl(impact_particle, 2, Vector(self.land_time, 0, 0))
+    ParticleManager:ReleaseParticleIndex(impact_particle)
   end
 end
 
@@ -75,23 +88,13 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
   parent:EmitSound("DOTA_Item.MeteorHammer.Impact")
 
   if IsServer() then
-    self.impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
-
-   --Controls the metoer position to origin
-    ParticleManager:SetParticleControl(self.impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
-    ParticleManager:SetParticleControl(self.impact_particle, 1, parent:GetOrigin())
-    --Fade time of cetain particles
-    ParticleManager:SetParticleControl(self.impact_particle, 2, Vector(0.5, 0,0 ) )
-
     GridNav:DestroyTreesAroundPoint(parent:GetOrigin(), self.impact_radius, true)
 
     local ability = self:GetAbility()
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), caster, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE , FIND_ANY_ORDER, false)
 
     if enemies then
-
       for _, enemy in pairs(enemies) do
-
           local damage = {
                       victim = enemy,
                       attacker = caster,
@@ -100,20 +103,15 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
           }
           -- Is the enemy a boss?
           if enemy:FindAbilityByName( "boss_resistance" ) then
-
              damage.damage = self.impact_damage_bosses
-
           else
-
             damage.damage = self.impact_damage
-
           end
 
         ApplyDamage( damage )
         --Applies danage and stun
         enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_damage_over_time", {duration = self.burn_duration} )
         enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = self.stun_duration} )
-
       end-- end of for enemy pairs
     end-- end of if enemies statemnt
 
@@ -147,28 +145,19 @@ function modifier_item_meteor_hammer_damage_over_time:OnCreated(params)
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
 
     self.damage = {
-
-            victim = enemy,
-            attacker = caster,
-            damage_type = DAMAGE_TYPE_MAGICAL,
-            ability = ability
-
-        }
+      victim = enemy,
+      attacker = caster,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      ability = ability
+    }
 
      if enemy:FindAbilityByName("boss_resistance") then
-
        self.damage.damage = self.burn_dps_boss
-
      else
-
        self.damage.damage = self.burn_dps
-
     end
-
     self:StartIntervalThink(self.burn_interval)
-
   end
-
 end
 
 function modifier_item_meteor_hammer_damage_over_time:OnIntervalThink()
@@ -177,22 +166,16 @@ function modifier_item_meteor_hammer_damage_over_time:OnIntervalThink()
   local caster = self:GetCaster()
 
   if IsServer() then
-
     ApplyDamage(self.damage)
-
-  end -- IsServer() if
+  end
 end
 
 function modifier_item_meteor_hammer_damage_over_time:GetEffectName()
-
   return "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-
 end
 
 function modifier_item_meteor_hammer_damage_over_time:IsDebuff()
-
-return true
-
+  return true
 end
 
 -----------------------------------------------------------------------------------------------------------------------

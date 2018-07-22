@@ -21,6 +21,12 @@ setmetatable(RESPAWN_TIME_TABLE, {
   end
 })
 
+-- safe to leave
+TIME_TO_ABANDON = 300                     -- how long a player can be disconnected before they're forced to abandon
+AUTO_ABANDON_IN_CM = false                -- if force abandon should be enabled in captains mode
+MIN_MATCH_TIME = 180                      -- if someone abandons before this point, the match doesn't count
+ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on your team for the countdown to start
+
 -- kill limits
 NORMAL_KILL_LIMIT = 100
 TEN_V_TEN_KILL_LIMIT = 150
@@ -57,6 +63,14 @@ DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
 
+-- CapturePoints
+INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
+CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
+CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
+CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
+CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
+CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
+
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
@@ -72,8 +86,13 @@ CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get s
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
 
+-- Save/resume state
+SAVE_STATE_ENABLED = true              -- kill switch
+SAVE_STATE_INTERVAL = 21               -- kind of a random number so they're unpredictable. it makes them seem more frequent on load
+SAVE_STATE_AP = true                   -- should we save state in all pick games?
+
 --Gold
-_G.BOOT_GOLD_FACTOR = 0.7               -- Multiplier to account for the presence of bonus gold boots
+_G.BOOT_GOLD_FACTOR = 1.0               -- Multiplier to account for the presence of bonus gold boots
 
 --Cave
 _G.CAVE_ROOM_INTERVAL = 2               -- Expected time of room clear, in minutes
@@ -133,7 +152,7 @@ END_GAME_ON_KILLS = false               -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 5000                        -- What level should we let heroes get to?
+MAX_LEVEL = 50                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
@@ -222,6 +241,10 @@ TEAM_COLORS[DOTA_TEAM_CUSTOM_6] = { 27, 192, 216 }  --    Cyan
 TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }  --    Olive
 TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }  --    Purple
 
+-- Surrender Options
+SURRENDER_MINIMUM_KILLS_BEHIND = 50
+SURRENDER_REQUIRED_YES_VOTES = {1, 2, 2, 3, 4}
+SURRENDER_TIME_TO_DISPLAY = 10
 
 USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players to 10 / MAX_NUMBER_OF_TEAMS?
 

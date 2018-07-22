@@ -1,0 +1,130 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Azazel Summon - Farmer 3
+  //=================================================================================================================
+  "item_recipe_azazel_summon_farmer_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "7552"
+    "BaseClass"                             "item_datadriven"
+    "AbilityTextureName"                    "custom/recipe/recipe_3"
+    "Model"                                 "models/props_gameplay/recipe.mdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "SecretShop"                            "1"
+    "ItemShopTags"                          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                            "1"
+    "ItemResult"                            "item_azazel_summon_farmer_3"
+    "ItemRequirements" // OAA
+    {
+      "01"                                  "item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Azazel Summon - Farmer 3
+  //=================================================================================================================
+  "item_azazel_summon_farmer_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "7553"
+    "BaseClass"                             "item_lua"
+    "ScriptFile"                            "items/azazel_summon.lua"
+    "AbilityTextureName"                    "custom/azazel_summon_farmer_3"
+    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                      "0"
+    "AbilityCastPoint"                      "0.0"
+    "AbilitySharedCooldown"                 "azazel_summon"
+    "AbilityCooldown"                       "1.0"
+    "AbilityManaCost"                       "0"
+    "MaxUpgradeLevel"                       "4"
+    "ItemBaseLevel"                         "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                          "consumable"
+    "ItemQuality"                           "epic"
+    "ItemAliases"                           "summon, farmer, azazel"
+    "ItemStackable"                         "0"
+    "ItemPermanent"                         "0"
+    "ItemInitialCharges"                    "1"
+    "ItemRequiresCharges"                   "1"
+    "ItemKillable"                          "1"
+    "ItemPurchasable"                       "1"
+    "ItemSellable"                          "0"
+    "SecretShop"                            "1"
+    "SecretShopType"                        "Summons"
+    "IsTempestDoubleClonable"               "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_health"                     "2000 4000 6000 8000"
+      }
+      "02"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_armor"                      "0"
+      }
+      "03"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_ms"                         "300"
+      }
+      "04"
+      {
+        "var_type"                          "FIELD_FLOAT"
+        "summon_bat"                        "2.0"
+      }
+      "05"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_damage"                     "300 600 1200 2400"
+      }
+      "06"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_vision"                     "800"
+      }
+      "07"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_damage_block"               "50 150 300 600"
+      }
+      "08"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_duration"                   "300"
+      }
+      "09"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_duration_tooltip"           "5"
+      }
+    }
+  }
+}

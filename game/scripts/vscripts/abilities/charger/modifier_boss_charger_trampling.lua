@@ -13,7 +13,7 @@ function modifier_boss_charger_trampling:OnIntervalThink()
     return
   end
 
-  if not charger:HasModifier('modifier_boss_charger_charge') then
+  if not charger:HasModifier('modifier_boss_charger_charge') and not charger:HasModifier('modifier_boss_charger_charge_tier5') then
     self:StartIntervalThink(-1)
     self:Destroy()
     FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)

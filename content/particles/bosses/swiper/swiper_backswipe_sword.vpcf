@@ -1,0 +1,125 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_flConstantRadius = 0.75
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_EndCapTimedDecay"
+			m_flDecayTime = 0.1
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 1.5
+			m_flStartScale = 1.1
+			m_flEndScale = 1.1
+			m_bEaseInAndOut = true
+		},
+		{
+			_class = "C_OP_RemapCPtoScalar"
+			m_nCPInput = 2
+			m_nFieldOutput = 1
+			m_flInputMax = 1000.0
+			m_flOutputMax = 1000.0
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
+		},
+		{
+			_class = "C_OP_LerpEndCapScalar"
+			m_nFieldOutput = 7
+			m_flOutput = 0.0
+			m_flLerpTime = 0.1
+		},
+		{
+			_class = "C_OP_StopAfterCPDuration"
+			m_nCP = 2
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.95
+		},
+		{
+			_class = "C_OP_RemapCPOrientationToRotations"
+			m_vecRotation = [ 0.0, 0.0, 90.0 ]
+		},
+		{
+			_class = "C_OP_Orient2DRelToCP"
+			m_flRotOffset = 180.0
+			m_nFieldOutput = 12
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_flOffset = 1.0
+			m_bDisableOperator = true
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList = 
+			[
+				{
+					m_model = resource:"models/heroes/sven/sven_sword.vmdl"
+				},
+			]
+			m_bIgnoreNormal = true
+			m_hOverrideMaterial = resource:"materials/models/props_destruction/jakiro_lava_flow.vmat"
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 18.0
+			m_flInitialRadius = 195.0
+			m_bEvenDistribution = true
+			m_flYaw = -110.0
+		},
+		{
+			_class = "C_INIT_RemapParticleCountToScalar"
+			m_nFieldOutput = 7
+			m_nInputMin = 8
+			m_nInputMax = 9
+			m_flOutputMin = 0.5
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 0.8, 1.0, 1.0 ]
+			m_vecWarpMax = [ 0.8, 1.0, 0.0 ]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 23.0
+			m_nScaleControlPoint = 3
+		},
+	]
+	m_ConstantColor = [ 110, 0, 255, 255 ]
+	m_nMaxParticles = 10
+}

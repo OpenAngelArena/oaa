@@ -1,0 +1,141 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Devastator
+  //=================================================================================================================
+  "item_recipe_devastator_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "4054"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_devastator_3"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_desolator_2;item_upgrade_core_2"
+      "02"                                                "item_desolator_2;item_upgrade_core_3"
+      "03"                                                "item_desolator_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Devastator
+  //=================================================================================================================
+  "item_devastator_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "4051"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/devastator.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"                                  "custom/devastator_3"
+
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.25"
+    "AbilityCooldown"                                     "10"
+    "AbilityManaCost"                                     "100"
+    "AbilityDamage"                                       "200 300 400 600 800"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8500"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "devastator;devastator 3;"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 70 100 130 180"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "corruption_armor"                                "-6 -9 -12 -15 -18"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "corruption_duration"                             "15.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_speed"                                "1200"
+      }
+
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_width_initial"                        "275"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_width_end"                            "200"
+      }
+
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_distance"                             "600"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_damage"                               "200 300 400 600 800"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_movespeed_reduction"                  "-20"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "devastator_movespeed_reduction_duration"         "15.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_armor_reduction"                      "-20"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "devastator_armor_reduction_duration"             "15.0"
+      }
+    }
+  }
+}

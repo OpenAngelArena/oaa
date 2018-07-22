@@ -10,7 +10,7 @@
     "ID"                                                  "3001"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4940"
+    "ItemCost"                                            "4960"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots 2;phase boots 2;phase 2"
