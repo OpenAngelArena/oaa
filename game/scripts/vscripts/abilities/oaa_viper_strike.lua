@@ -4,6 +4,38 @@ LinkLuaModifier( "modifier_viper_viper_strike_silence", "abilities/oaa_viper_str
 
 --------------------------------------------------------------------------------
 
+function viper_viper_strike_oaa:GetCastRange( loc, target )
+	local caster = self:GetCaster()
+
+	if caster:HasScepter() then
+		return self:GetSpecialValueFor( "cast_range_scepter" )
+	end
+
+	return self.BaseClass.GetCastRange( self, loc, target )
+end
+
+function viper_viper_strike_oaa:GetManaCost( level )
+	local caster = self:GetCaster()
+
+	if caster:HasScepter() then
+		return self:GetSpecialValueFor( "mana_cost_scepter" )
+	end
+
+	return self.BaseClass.GetManaCost( self, level )
+end
+
+function viper_viper_strike_oaa:GetCooldown( level )
+	local caster = self:GetCaster()
+
+	if caster:HasScepter() then
+		return self:GetSpecialValueFor( "cooldown_scepter" )
+	end
+
+	return self.BaseClass.GetCooldown( self, level )
+end
+
+--------------------------------------------------------------------------------
+
 function viper_viper_strike_oaa:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	local originCaster = caster:GetAbsOrigin()
