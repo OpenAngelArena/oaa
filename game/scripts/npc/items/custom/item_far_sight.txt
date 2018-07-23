@@ -92,24 +92,14 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "10 20 30 40"
+        "bonus_all_stats"                                 "10 20 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "10 20 30 40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "10 20 30 40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "reveal_radius"                                   "750"
       }
-      "07"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "reveal_duration"                                 "10.0"
