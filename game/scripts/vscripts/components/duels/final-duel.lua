@@ -38,7 +38,8 @@ function FinalDuel:Trigger (team)
 
   Duels:StartDuel({
     players = 0,
-    timeout = FINAL_DUEL_TIMEOUT
+    timeout = FINAL_DUEL_TIMEOUT,
+    isFinalDuel = true
   })
 end
 

@@ -7,10 +7,11 @@ DUEL_IS_STARTING = 21
 
 Duels = Duels or {}
 local zoneNames = {
-  "duel_1",
-  "duel_2",
+  "duel_1", -- small arena
+  "duel_2", -- small arena
   "duel_3",
   "duel_4",
+  "duel_5",
 }
 
 local DuelPreparingEvent = Event()
@@ -23,7 +24,6 @@ Duels.onEnd = DuelEndEvent.listen
 
 function Duels:Init ()
   DebugPrint('Init duels')
-
   self.currentDuel = nil
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
@@ -247,7 +247,7 @@ function Duels:StartDuel(options)
   end)
 end
 
-function Duels:ActuallyStartDuel(options)
+function Duels:SplitDuelPlayers(options)
   -- respawn everyone
   local goodPlayerIndex = 1
   local badPlayerIndex = 1
@@ -318,125 +318,95 @@ function Duels:ActuallyStartDuel(options)
     Notifications:TopToAll({text="#duel_not_enough_players", duration=2.0})
     self.currentDuel = nil
     Music:PlayBackground(1, 7)
-    return
+    return nil
   end
-
   Music:SetMusic(13)
 
   local playerSplitOffset = RandomInt(0, maxPlayers)
   if options.players then
     playerSplitOffset = math.min(options.players, maxPlayers)
   end
-  -- local playerSplitOffset = maxPlayers
-  local spawnLocations = RandomInt(0, 1) == 1
-  local arenaChoice = RandomInt(0, 1) == 1
-  local duel_1 = 'duel_1'
-  local duel_2 = 'duel_2'
-  if arenaChoice then
-    duel_1 = 'duel_3'
-  end
-  local spawn1 = Entities:FindByName(nil, duel_1 .. '_spawn_1'):GetAbsOrigin()
-  local spawn2 = Entities:FindByName(nil, duel_1 .. '_spawn_2'):GetAbsOrigin()
 
-  if spawnLocations then
-    local tmp = spawn1
-    spawn1 = spawn2
-    spawn2 = tmp
+  if playerSplitOffset > maxPlayers / 2.0 then
+    playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  for playerNumber = 1,playerSplitOffset do
-    DebugPrint('Adding player number ' .. playerNumber)
-    local goodGuy = self:GetUnassignedPlayer(goodPlayers, goodPlayerIndex)
-    local badGuy = self:GetUnassignedPlayer(badPlayers, badPlayerIndex)
-    local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
-    local badPlayer = PlayerResource:GetPlayer(badGuy.id)
-    local goodHero = goodPlayer:GetAssignedHero()
-    local badHero = badPlayer:GetAssignedHero()
-
-    goodGuy.duelNumber = 1
-    badGuy.duelNumber = 1
-
-    SafeTeleportAll(goodHero, spawn1, 150)
-    SafeTeleportAll(badHero, spawn2, 150)
-
-    if arenaChoice then
-      self.zones[3].addPlayer(goodGuy.id)
-      self.zones[3].addPlayer(badGuy.id)
-    else
-      self.zones[1].addPlayer(goodGuy.id)
-      self.zones[1].addPlayer(badGuy.id)
-    end
-
-    MoveCameraToPlayer(goodHero)
-    MoveCameraToPlayer(badHero)
-
-    -- stop player action
-    goodHero:Stop()
-    badHero:Stop()
-
-    -- disable respawn
-    goodHero:SetRespawnsDisabled(true)
-    badHero:SetRespawnsDisabled(true)
+  if options.isFinalDuel then
+    playerSplitOffset = 0
   end
 
-  spawnLocations = RandomInt(0, 1) == 1
-  arenaChoice = RandomInt(0, 1) == 1
-  if arenaChoice then
-    duel_2 = 'duel_4'
+  return
+  {
+    MaxPlayers = maxPlayers,
+    PlayerSplitOffset = playerSplitOffset,
+    GoodPlayers = goodPlayers,
+    BadPlayers = badPlayers,
+    GoodPlayerIndex = goodPlayerIndex,
+    BadPlayerIndex = badPlayerIndex,
+  }
+end
+
+function Duels:ActuallyStartDuel(options)
+  local split = self:SplitDuelPlayers(options)
+  if split == nil then
+    return
   end
 
-  spawn1 = Entities:FindByName(nil, duel_2 .. '_spawn_1'):GetAbsOrigin()
-  spawn2 = Entities:FindByName(nil, duel_2 .. '_spawn_2'):GetAbsOrigin()
+  DebugPrint("Duel Player Split")
+  DebugPrint(split.PlayerSplitOffset)
 
-  if spawnLocations then
-    local tmp = spawn1
-    spawn1 = spawn2
-    spawn2 = tmp
-  end
+  local bigArenaIndex = RandomInt(3, 5)
+  local smallArenaIndex = RandomInt(1, 2)
 
-  for playerNumber = playerSplitOffset+1,maxPlayers do
-    DebugPrint('Adding player number ' .. playerNumber)
-    local goodGuy = self:GetUnassignedPlayer(goodPlayers, goodPlayerIndex)
-    local badGuy = self:GetUnassignedPlayer(badPlayers, badPlayerIndex)
-    local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
-    local badPlayer = PlayerResource:GetPlayer(badGuy.id)
-    local goodHero = goodPlayer:GetAssignedHero()
-    local badHero = badPlayer:GetAssignedHero()
+  self:SpawnPlayersOnArenas(split, smallArenaIndex, bigArenaIndex)
+  self:PreparePlayersToStartDuel(options, split)
 
-    goodGuy.duelNumber = 2
-    badGuy.duelNumber = 2
+end
 
-    SafeTeleportAll(goodHero, spawn1, 150)
-    SafeTeleportAll(badHero, spawn2, 150)
+function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
 
-    if arenaChoice then
-      self.zones[4].addPlayer(goodGuy.id)
-      self.zones[4].addPlayer(badGuy.id)
-    else
-      self.zones[2].addPlayer(goodGuy.id)
-      self.zones[2].addPlayer(badGuy.id)
-    end
+  local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
+  local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
-    MoveCameraToPlayer(goodHero)
-    MoveCameraToPlayer(badHero)
+  local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
+  local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
+  local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
+  local badPlayer = PlayerResource:GetPlayer(badGuy.id)
+  local goodHero = goodPlayer:GetAssignedHero()
+  local badHero = badPlayer:GetAssignedHero()
 
-    -- stop player action
-    goodHero:Stop()
-    badHero:Stop()
 
-    -- disable respawn
-    goodHero:SetRespawnsDisabled(true)
-    badHero:SetRespawnsDisabled(true)
-  end
+  DebugPrint('Spawning Hero ' .. goodHero:GetUnitName() .. ' and ' .. badHero:GetUnitName() .. ' on Arena ' .. tostring(arenaIndex) .. ' duelNumber ' .. tostring(duelNumber) )
+  goodGuy.duelNumber = duelNumber
+  badGuy.duelNumber = duelNumber
 
-  for _,player in ipairs(badPlayers) do
+  SafeTeleportAll(goodHero, spawn1, 150)
+  SafeTeleportAll(badHero, spawn2, 150)
+
+  self.zones[arenaIndex].addPlayer(goodGuy.id)
+  self.zones[arenaIndex].addPlayer(badGuy.id)
+
+  MoveCameraToPlayer(goodHero)
+  MoveCameraToPlayer(badHero)
+
+  -- stop player action
+  goodHero:Stop()
+  badHero:Stop()
+
+  -- disable respawn
+  goodHero:SetRespawnsDisabled(true)
+  badHero:SetRespawnsDisabled(true)
+end
+
+function Duels:PreparePlayersToStartDuel(options, playerSplit)
+  for _,player in ipairs(playerSplit.BadPlayers) do
     if player.assigned == nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     end
   end
-  for _,player in ipairs(goodPlayers) do
+  for _,player in ipairs(playerSplit.GoodPlayers) do
     if player.assigned == nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
@@ -445,17 +415,21 @@ function Duels:ActuallyStartDuel(options)
   end
 
   self.currentDuel = {
-    goodLiving1 = playerSplitOffset,
-    badLiving1 = playerSplitOffset,
-    goodLiving2 = maxPlayers - playerSplitOffset,
-    badLiving2 = maxPlayers - playerSplitOffset,
-    duelEnd1 = playerSplitOffset == 0,
-    duelEnd2 = maxPlayers == playerSplitOffset,
-    badPlayers = badPlayers,
-    goodPlayers = goodPlayers,
-    badPlayerIndex = badPlayerIndex,
-    goodPlayerIndex = goodPlayerIndex
+    goodLiving1 = playerSplit.PlayerSplitOffset,
+    badLiving1 = playerSplit.PlayerSplitOffset,
+    goodLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
+    badLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
+    duelEnd1 = playerSplit.PlayerSplitOffset == 0,
+    duelEnd2 = playerSplit.MaxPlayers == playerSplit.PlayerSplitOffset,
+    badPlayers = playerSplit.BadPlayers,
+    goodPlayers = playerSplit.GoodPlayers,
+    badPlayerIndex = playerSplit.BadPlayerIndex,
+    goodPlayerIndex = playerSplit.GoodPlayerIndex
   }
+
+  DebugPrint("Duel Info")
+  DebugPrintTable(self.currentDuel)
+
   DuelStartEvent.broadcast(self.currentDuel)
 
   if options.timeout == nil then
@@ -470,6 +444,20 @@ function Duels:ActuallyStartDuel(options)
       end
     })
   end
+end
+
+function Duels:SpawnPlayersOnArenas(playerSplit, arenaIndex1, arenaIndex2)
+
+  -- Smaller Arena
+  for playerNumber = 1, playerSplit.PlayerSplitOffset do
+    self:SpawnPlayerOnArena(playerSplit, arenaIndex1, 1)
+  end
+
+  -- Bigger Arena
+  for playerNumber = playerSplit.PlayerSplitOffset + 1, playerSplit.MaxPlayers do
+    self:SpawnPlayerOnArena(playerSplit, arenaIndex2, 2)
+  end
+
 end
 
 function Duels:GetUnassignedPlayer (group, max)
