@@ -75,13 +75,13 @@ function PlayerConnection:CheckPlayerState (playerID)
       playerID = playerID,
       state = state
     })
-    DebugPrint('Player changed connection state from ' .. self:ConnectionStateName(self.lastPlayerState[playerID]) .. ' to ' .. self:ConnectionStateName(state))
+    DebugPrint('Player ' .. playerID .. ' changed connection state from ' .. self:ConnectionStateName(self.lastPlayerState[playerID]) .. ' to ' .. self:ConnectionStateName(state))
     self.lastPlayerState[playerID] = state
   end
 end
 
 function PlayerConnection:ConnectionStateName (state)
-  elseif state == DOTA_CONNECTION_STATE_UNKNOWN then
+  if state == DOTA_CONNECTION_STATE_UNKNOWN then
     return "Unknown"
   elseif state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
     return "Not yet connected"
@@ -96,6 +96,7 @@ function PlayerConnection:ConnectionStateName (state)
   elseif state == DOTA_CONNECTION_STATE_FAILED then
     return "Failed"
   end
+  return "???"
 end
 
 function PlayerConnection:IsAbandoned (playerID)
