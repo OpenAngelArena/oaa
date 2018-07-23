@@ -5,12 +5,14 @@ if PlayerConnection == nil then
 end
 
 local OnPlayerAbandonEvent = CreateGameEvent('OnPlayerAbandon')
+local OnPlayerStateChangeEvent = CreateGameEvent('OnPlayerStateChange')
 
 function PlayerConnection:Init()
   self.disconnectedPlayers = {}
   self.disconnectedTime = {}
   self.disconnectTime = {}
   self.abandonedPlayers = {}
+  self.lastPlayerState = {}
 
   GameEvents:OnPlayerDisconnect(function(keys)
 -- [VScript] [components\duels\duels:48] PlayerID: 1
@@ -18,6 +20,7 @@ function PlayerConnection:Init()
     if HeroSelection.isCM then
       PauseGame(true)
     end
+    DebugPrint('A player has disconnected')
     self.disconnectedPlayers[keys.PlayerID] = true
     self.disconnectedTime[keys.PlayerID] = HudTimer:GetGameTime()
   end)
@@ -30,6 +33,10 @@ function PlayerConnection:Init()
 -- [VScript] [components\duels\duels:64] splitscreenplayer: -1
 -- [VScript] [components\duels\duels:64] userid: 3
 -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
+    DebugPrint('A player has reconnected')
+    if not self.disconnectedTime[keys.PlayerID] then
+      return
+    end
     self.disconnectedPlayers[keys.PlayerID] = nil
     local timeOff = HudTimer:GetGameTime() - self.disconnectedTime[keys.PlayerID]
     self.disconnectTime[keys.playerID] = self.disconnectTime[keys.playerID] + timeOff;
@@ -43,7 +50,7 @@ function PlayerConnection:Init()
   self.isValid = true
 
   GameEvents:OnPlayerAbandon(function (keys)
-    DebugPrint('A player just abandoned!')
+    DebugPrint('A player has abandoned!')
     if self.isValid and HudTimer:GetGameTime() < MIN_MATCH_TIME then
       self.isValid = false
       Notifications:TopToAll({
@@ -59,6 +66,36 @@ end
 
 function PlayerConnection:IsValid ()
   return self.isValid
+end
+
+function PlayerConnection:CheckPlayerState (playerID)
+  local state = PlayerResource:GetConnectionState(playerID)
+  if state ~= self.lastPlayerState[playerID] then
+    OnPlayerStateChangeEvent({
+      playerID = playerID,
+      state = state
+    })
+    DebugPrint('Player changed connection state from ' .. self:ConnectionStateName(self.lastPlayerState[playerID]) .. ' to ' .. self:ConnectionStateName(state))
+    self.lastPlayerState[playerID] = state
+  end
+end
+
+function PlayerConnection:ConnectionStateName (state)
+  elseif state == DOTA_CONNECTION_STATE_UNKNOWN then
+    return "Unknown"
+  elseif state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
+    return "Not yet connected"
+  elseif state == DOTA_CONNECTION_STATE_CONNECTED then
+    return "Connected"
+  elseif state == DOTA_CONNECTION_STATE_DISCONNECTED then
+    return "Disconnected"
+  elseif state == DOTA_CONNECTION_STATE_ABANDONED then
+    return "Abandoned"
+  elseif state == DOTA_CONNECTION_STATE_LOADING then
+    return "Loading"
+  elseif state == DOTA_CONNECTION_STATE_FAILED then
+    return "Failed"
+  end
 end
 
 function PlayerConnection:IsAbandoned (playerID)
