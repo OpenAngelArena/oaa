@@ -44,8 +44,15 @@ function PlayerConnection:Init()
 
   GameEvents:OnPlayerAbandon(function (keys)
     DebugPrint('A player just abandoned!')
-    if HudTimer:GetGameTime() < MIN_MATCH_TIME then
+    if self.isValid and HudTimer:GetGameTime() < MIN_MATCH_TIME then
       self.isValid = false
+      Notifications:TopToAll({
+        text="#abandon_game_invalid",
+        duration=15,
+        style={
+          color="red"
+        }
+      })
     end
   end)
 end
@@ -164,9 +171,6 @@ function PlayerConnection:CheckAbandons ()
       if not self.disconnectTime[playerID] then
         self.disconnectTime[playerID] = 0
       end
-      if not self:IsAbandoned(playerID) and time and self.disconnectTime[playerID] + (HudTimer:GetGameTime() - time) > TIME_TO_ABANDON then
-        self:ForceAbandon(playerID)
-      end
     end
   end
 
@@ -175,6 +179,7 @@ function PlayerConnection:CheckAbandons ()
 
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local team = PlayerResource:GetTeam(playerID)
+
     if team == DOTA_TEAM_BADGUYS then
       if self:IsAbandoned(playerID) then
         direAbandons = direAbandons + 1
@@ -186,11 +191,13 @@ function PlayerConnection:CheckAbandons ()
     end
   end
 
-  -- return the "empty" team
-  if direAbandons - radiantAbandons >= ABANDON_DIFF_NEEDED then
-    return DOTA_TEAM_BADGUYS
-  end
-  if radiantAbandons - direAbandons >= ABANDON_DIFF_NEEDED then
-    return DOTA_TEAM_GOODGUYS
+  if direAbandons + radiantAbandons > ABANDON_NEEDED then
+    -- return the "empty" team
+    if direAbandons - radiantAbandons >= ABANDON_DIFF_NEEDED and PointsManager:GetPoints(DOTA_TEAM_BADGUYS) < PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) then
+      return DOTA_TEAM_BADGUYS
+    end
+    if radiantAbandons - direAbandons >= ABANDON_DIFF_NEEDED and PointsManager:GetPoints(DOTA_TEAM_BADGUYS) > PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) then
+      return DOTA_TEAM_GOODGUYS
+    end
   end
 end

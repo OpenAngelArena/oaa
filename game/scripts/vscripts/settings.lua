@@ -26,6 +26,7 @@ TIME_TO_ABANDON = 300                     -- how long a player can be disconnect
 AUTO_ABANDON_IN_CM = false                -- if force abandon should be enabled in captains mode
 MIN_MATCH_TIME = 180                      -- if someone abandons before this point, the match doesn't count
 ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on your team for the countdown to start
+ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
 NORMAL_KILL_LIMIT = 100
