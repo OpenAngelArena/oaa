@@ -3,7 +3,7 @@ customSchema = class({})
 function customSchema:init()
 
     -- Check the schema_examples folder for different implementations
-  
+
     -- Listen for changes in the current state
     ListenToGameEvent('game_rules_state_change', function(keys)
         local state = GameRules:State_Get()
@@ -53,8 +53,8 @@ function BuildGameArray()
     st2 = PointsManager:GetPoints(DOTA_TEAM_BADGUYS), -- score team 2
 
     -- Cave Stats
-    cct1 = CaveHandler:GetCleares(DOTA_TEAM_GOODGUYS),
-    cct2 = CaveHandler:GetCleares(DOTA_TEAM_BADGUYS),
+    cct1 = 0,
+    cct2 = 0,
   }
 
   return game
