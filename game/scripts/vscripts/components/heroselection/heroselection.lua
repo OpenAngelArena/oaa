@@ -421,7 +421,7 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
     end)
   end
 
-  if hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
+  if hero and hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
     HeroCosmetics:Sohei (hero)
   end
 
