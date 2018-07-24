@@ -63,6 +63,14 @@ function PlayerConnection:Init()
           color="red"
         }
       })
+    else
+      Notifications:TopToAll({
+        text="#player_has_abandoned",
+        duration=5,
+        style={
+          color="red"
+        }
+      })
     end
   end)
 end
@@ -110,12 +118,20 @@ function PlayerConnection:IsAbandoned (playerID)
   if isAbandon then
     self:ForceAbandon(playerID)
     return true
+  elseif PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+    self.disconnectedPlayers[playerID] = nil
+    self.disconnectedTime[playerID] = nil
   end
 
   return false
 end
 
 function PlayerConnection:ForceAbandon (playerID)
+  if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+    self.disconnectedPlayers[playerID] = nil
+    self.disconnectedTime[playerID] = nil
+    return
+  end
   if not self.abandonedPlayers[playerID] then
     self.abandonedPlayers[playerID] = true
     OnPlayerAbandonEvent({
@@ -211,6 +227,9 @@ function PlayerConnection:CheckAbandons ()
     for playerID,time in pairs(self.disconnectedTime) do
       if not self.disconnectTime[playerID] then
         self.disconnectTime[playerID] = 0
+      end
+      if not self:IsAbandoned(playerID) and time and self.disconnectTime[playerID] + (HudTimer:GetGameTime() - time) > TIME_TO_ABANDON then
+        self:ForceAbandon(playerID)
       end
     end
   end
