@@ -4,7 +4,7 @@
 // Spirit Bear 4
 //=================================================================================
   "npc_dota_lone_druid_bear4"
-    {                                       
+    {
         // General
         //----------------------------------------------------------------
         "Model"                     "models/heroes/lone_druid/spirit_bear.vmdl" // Model.
@@ -32,13 +32,13 @@
         //----------------------------------------------------------------
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
         "AttackDamageMin"           "145"        // Damage range min.
-        "AttackDamageMax"           "150"        // Damage range max.    
+        "AttackDamageMax"           "150"        // Damage range max.
         "AttackRate"                "1.35"      // Speed of attack.
         "AttackAnimationPoint"      "0.43"      // Normalized time in animation cycle to attack.
         "AttackAcquisitionRange"    "500"       // Range within a target can be acquired.
         "AttackRange"               "128"       // Range within a target can be attacked.
         "ProjectileModel"           ""          // Particle system model for projectile.
-        "ProjectileSpeed"           "0"         // Speed of projectile.        
+        "ProjectileSpeed"           "0"         // Speed of projectile.
 
         // Bounds
         //----------------------------------------------------------------
@@ -62,8 +62,8 @@
         "StatusHealth"              "4500"      // Base health.
         "StatusHealthRegen"         "8"         // Health regeneration rate.
         "StatusMana"                "300"       // Base mana.
-        "StatusManaRegen"           "0.5"       // Mana regeneration rate.       
-        
+        "StatusManaRegen"           "0.5"       // Mana regeneration rate.
+
         // Vision
         //----------------------------------------------------------------
         "VisionDaytimeRange"        "1400"      // Range of vision during day light.
@@ -78,5 +78,5 @@
 
         //Inventory
         "HasInventory"              "1"
-        
-    }   
+    }
+}
