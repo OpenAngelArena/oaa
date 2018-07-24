@@ -60,6 +60,7 @@ local special_bottles = {
 
   --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided steam link didn't work
   --chrisinajar
+  --darknighthawk
   [370630108] = 3, --steam: http://steamcommunity.com/profiles/76561198330895836 - twitch: angerywalrus
   [144242481] = 3, --steam: http://steamcommunity.com/profiles/76561198104508209 - twitch: B0bbyxy
   [105264015] = 3, --steam: http://steamcommunity.com/profiles/76561198065529743 - twitch: B4mnb1
@@ -76,7 +77,6 @@ local special_bottles = {
   [58659208] = 3, --steam: http://steamcommunity.com/profiles/76561198018924936 - twitch: D34thscythe
   [75111160] = 3, --steam: http://steamcommunity.com/profiles/76561198035376888 - twitch: da1wizard
   [88602082] = 3, --steam: http://steamcommunity.com/profiles/76561198048867810 - twitch: Dark_Lord_Xana
-  [61476137] = 3, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
   [157684926] = 3, --steam: http://steamcommunity.com/profiles/76561198117950654 - twitch: deathgamer22
   [81825448] = 3, --steam: http://steamcommunity.com/profiles/76561198042091176 - twitch: Dgenaraition
   [38504326] = 3, --steam: http://steamcommunity.com/profiles/76561197998770054 - twitch: DJ_Boras
