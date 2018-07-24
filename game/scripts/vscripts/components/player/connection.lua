@@ -37,12 +37,12 @@ function PlayerConnection:Init()
     if not self.disconnectedTime[keys.PlayerID] then
       return
     end
-    if not self.disconnectTime[keys.playerID] then
-      self.disconnectTime[keys.playerID] = 0
+    if not self.disconnectTime[keys.PlayerID] then
+      self.disconnectTime[keys.PlayerID] = 0
     end
     self.disconnectedPlayers[keys.PlayerID] = nil
     local timeOff = HudTimer:GetGameTime() - self.disconnectedTime[keys.PlayerID]
-    self.disconnectTime[keys.playerID] = self.disconnectTime[keys.playerID] + timeOff;
+    self.disconnectTime[keys.PlayerID] = self.disconnectTime[keys.PlayerID] + timeOff;
     self.disconnectedTime[keys.PlayerID] = nil
   end)
   Timers:CreateTimer(function()
