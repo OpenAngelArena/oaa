@@ -204,6 +204,9 @@ function HeroKillGold:HeroDeathHandler (keys)
   entireKilledTeamNW = entireKilledTeamNW:totable()
   -- Get the killed hero's networth from entireKilledTeamNW
   local killedNetworth = entireKilledTeamNW[index(killedPlayerID, killedPlayerIDs)]
+  if not killedNetworth then
+    killedNetworth = 0
+  end
   -- Sort entireKilledTeamNW in descending order
   table.sort(entireKilledTeamNW, op.gt)
 
