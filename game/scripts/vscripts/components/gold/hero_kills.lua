@@ -84,6 +84,9 @@ function HeroKillGold:HeroDeathHandler (keys)
   -- if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() and keys.killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
   --   self:AddPoints(keys.killer:GetTeam())
   -- end
+  if not keys.killer or not keys.killed then
+    return
+  end
 
   local killerEntity = keys.killer
   local killedHero = keys.killed
@@ -119,6 +122,10 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
+  if killerPlayerID == -1 or killedPlayerID == -1 then
+    -- nope
+    return
+  end
   local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
