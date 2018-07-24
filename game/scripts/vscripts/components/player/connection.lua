@@ -119,8 +119,8 @@ function PlayerConnection:IsAbandoned (playerID)
     self:ForceAbandon(playerID)
     return true
   elseif PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-    self.disconnectedPlayers[PlayerID] = nil
-    self.disconnectedTime[PlayerID] = nil
+    self.disconnectedPlayers[playerID] = nil
+    self.disconnectedTime[playerID] = nil
   end
 
   return false
@@ -128,8 +128,8 @@ end
 
 function PlayerConnection:ForceAbandon (playerID)
   if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
-    self.disconnectedPlayers[PlayerID] = nil
-    self.disconnectedTime[PlayerID] = nil
+    self.disconnectedPlayers[playerID] = nil
+    self.disconnectedTime[playerID] = nil
     return
   end
   if not self.abandonedPlayers[playerID] then
