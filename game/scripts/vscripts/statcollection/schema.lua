@@ -68,25 +68,26 @@ function BuildPlayersArray()
             if not PlayerResource:IsBroadcaster(playerID) then
 
                 local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+                if hero then
+                  table.insert(players, {
+                      -- steamID32 required in here
+                      steamID32 = PlayerResource:GetSteamAccountID(playerID),
 
-                table.insert(players, {
-                    -- steamID32 required in here
-                    steamID32 = PlayerResource:GetSteamAccountID(playerID),
+                      -- Example functions for generic stats are defined in statcollection/lib/utilities.lua
+                      -- Add player values here as someValue = GetSomePlayerValue(),
+                      ph = GetHeroName(playerID), --Hero by its short name
+                      pk = hero:GetKills(), --Number of kills of this players hero
+                      pd = hero:GetDeaths(), --Number of deaths of this players hero
+                      pl = hero:GetLevel(), --Player Levels
+                      nt = GetNetworth(hero), --Sum of hero gold and item worth
 
-                    -- Example functions for generic stats are defined in statcollection/lib/utilities.lua
-                    -- Add player values here as someValue = GetSomePlayerValue(),
-                    ph = GetHeroName(playerID), --Hero by its short name
-                    pk = hero:GetKills(), --Number of kills of this players hero
-                    pd = hero:GetDeaths(), --Number of deaths of this players hero
-                    pl = hero:GetLevel(), --Player Levels
-                    nt = GetNetworth(hero), --Sum of hero gold and item worth
+                      -- Item List
+                      il = GetItemList(hero),
 
-                    -- Item List
-                    il = GetItemList(hero),
-
-                    -- Bottel Count
-                    bc = BottleCounter:GetBottles(playerID)
-                })
+                      -- Bottel Count
+                      bc = BottleCounter:GetBottles(playerID)
+                  })
+                end
             end
         end
     end
