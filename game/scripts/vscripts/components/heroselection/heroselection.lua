@@ -14,6 +14,7 @@ local loadedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
+local rankedTimer = nil
 
 -- storage for this game picks
 local selectedtable = {}
@@ -168,11 +169,53 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
 
-  if GetMapName() == "oaa_captains_mode" then
+  if self.isCM then
     HeroSelection:CMManager(nil)
+  elseif self.isRanked then
+    HeroSelection:RankedManager(nil)
   else
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
   end
+end
+
+function HeroSelection:RankedManager (event)
+  if event == nil then
+    -- start
+    CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
+    return self:RankedTimer(RANKED_PREGAME_TIME, "STRATEGY")
+  end
+  if event.isTimeout and rankedpickorder.phase == 'start' then
+    rankedpickorder.phase = 'bans'
+    return self:RankedTimer(RANKED_BAN_TIME, "BAN HEROES")
+  end
+  if rankedpickorder.phase == 'bans' then
+    -- end banning phase
+    if event.isTimeout then
+      rankedpickorder.phase = -- right here
+    else
+    end
+  end
+end
+
+function HeroSelection:RankedTimer (time, message)
+  HeroSelection:CheckPause()
+  if forcestop == true or time < 0 then
+    HeroSelection:RankedManager({hero = "random", isTimeout = true})
+    return
+  end
+
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+  if rankedTimer then
+    Timers:RemoveTimer(rankedTimer)
+    rankedTimer = nil
+  end
+  rankedTimer = Timers:CreateTimer({
+    useGameTime = not HERO_SELECTION_WHILE_PAUSED,
+    endTime = 1,
+    callback = function()
+      HeroSelection:RankedTimer(time - 1, message)
+    end
+  })
 end
 
 -- start heropick CM timer
@@ -424,12 +467,22 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if hero and hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
     HeroCosmetics:Sohei (hero)
   end
-
 end
 
 function HeroSelection:IsHeroDisabled (hero)
-  if GetMapName() == "oaa_captains_mode" then
+  if self.isCM then
     for _,data in ipairs(cmpickorder["order"]) do
+      if hero == data.hero then
+        return true
+      end
+    end
+  elseif self.isRanked then
+    for _,bannedHero in ipairs(rankedpickorder.bans) do
+      if hero == bannedHero then
+        return true
+      end
+    end
+    for _,data in ipairs(rankedpickorder.order) do
       if hero == data.hero then
         return true
       end
