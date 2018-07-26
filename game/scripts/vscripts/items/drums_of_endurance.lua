@@ -39,7 +39,7 @@ function item_drums_of_endurance_oaa:OnSpellStart()
   )
 
 	-- Play cast sound effect
-  EmitSoundOn("DOTA_Item.DoE.Activate", caster)
+  unit:EmitSound("DOTA_Item.DoE.Activate")
 
   local function EnduranceActive(unit)
     unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = self:GetSpecialValueFor("duration")})
@@ -170,31 +170,6 @@ function modifier_item_drums_of_endurance_oaa:OnCreated()
   self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agi")
   self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
   self.bonus_mana_regeneration = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-
-  if IsServer() then
-    --If no previous drums aura then add the aura effect
-    local parent = self:GetParent()
-    -- Remove effect modifiers from units in radius to force refresh
-    local units = FindUnitsInRadius(
-      parent:GetTeamNumber(),
-      parent:GetAbsOrigin(),
-      nil,
-      self:GetAbility():GetSpecialValueFor("radius"),
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-      DOTA_UNIT_TARGET_FLAG_NONE,
-      FIND_ANY_ORDER,
-      false
-    )
-    if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa_swiftness_aura") then
-      self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_drums_of_endurance_oaa_swiftness_aura", {})
-    end
-
-    local function RemoveEnduranceActive(unit)
-      unit:RemoveModifierByName("modifier_item_drums_of_endurance_oaa_active")
-    end
-    foreach(RemoveEnduranceActive,units)
-  end
 end
 
 modifier_item_drums_of_endurance_oaa.OnRefresh = modifier_item_drums_of_endurance_oaa.OnCreated
