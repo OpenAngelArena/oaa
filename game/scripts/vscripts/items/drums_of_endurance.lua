@@ -1,6 +1,5 @@
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_drums_of_endurance_oaa", "items/drums_of_endurance.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_drums_of_endurance_oaa_swiftness_aura", "items/drums_of_endurance.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect", "items/drums_of_endurance.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_drums_of_endurance_oaa_active", "items/drums_of_endurance.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -12,8 +11,7 @@ end
 
 function item_drums_of_endurance_oaa:GetIntrinsicModifierNames()
   return {
-    "modifier_item_drums_of_endurance_oaa",
-    "modifier_item_drums_of_endurance_oaa_swiftness_aura"
+    "modifier_item_drums_of_endurance_oaa"
   }
 end
 
@@ -79,55 +77,6 @@ function modifier_item_drums_of_endurance_oaa_active:GetModifierAttackSpeedBonus
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
---Aura
-
-modifier_item_drums_of_endurance_oaa_swiftness_aura = class(ModifierBaseClass)
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:OnCreated()
-  self.radius = self:GetAbility():GetSpecialValueFor("radius")
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsDebuff()
-  return false
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:AllowIllusionDuplicate()
-  return true
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsHidden()
-  return true
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsPurgable()
-  return false
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraRadius()
-  return self.radius
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_NONE
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:GetModifierAura()
-  return "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
-end
-
-function modifier_item_drums_of_endurance_oaa_swiftness_aura:IsAura()
-  return true
-end
-
-------------------------------------------------------------------------------------------------------------------------------
 --Aura_Modifier_Effect
 
 modifier_item_drums_of_endurance_oaa_swiftness_aura_effect = class(ModifierBaseClass)
@@ -170,6 +119,7 @@ function modifier_item_drums_of_endurance_oaa:OnCreated()
   self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agi")
   self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
   self.bonus_mana_regeneration = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+  self.radius = self:GetAbility():GetSpecialValueFor("radius")
 end
 
 modifier_item_drums_of_endurance_oaa.OnRefresh = modifier_item_drums_of_endurance_oaa.OnCreated
@@ -186,8 +136,28 @@ function modifier_item_drums_of_endurance_oaa:IsDebuff()
   return false
 end
 
+function modifier_item_drums_of_endurance_oaa:AllowIllusionDuplicate()
+  return true
+end
+
+function modifier_item_drums_of_endurance_oaa:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+end
+
 function modifier_item_drums_of_endurance_oaa:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_drums_of_endurance_oaa:IsAura()
+  return true
+end
+
+function modifier_item_drums_of_endurance_oaa:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_NONE
+end
+
+function modifier_item_drums_of_endurance_oaa:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_item_drums_of_endurance_oaa:DeclareFunctions()
@@ -198,6 +168,10 @@ function modifier_item_drums_of_endurance_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT}
     return decFuncs
+end
+
+function modifier_item_drums_of_endurance_oaa:GetModifierAura()
+  return "modifier_item_drums_of_endurance_oaa_swiftness_aura_effect"
 end
 
 function modifier_item_drums_of_endurance_oaa:GetModifierBonusStats_Intellect()
@@ -220,10 +194,14 @@ function modifier_item_drums_of_endurance_oaa:GetModifierConstantManaRegen()
   return self.bonus_mana_regeneration
 end
 
+function modifier_item_drums_of_endurance_oaa:GetAuraRadius()
+  return self.radius
+end
+
 function modifier_item_drums_of_endurance_oaa:OnDestroy()
   if IsServer() then
     if not self:GetCaster():HasModifier("modifier_item_drums_of_endurance_oaa") then
-      self:GetCaster():RemoveModifierByName("modifier_item_drums_of_endurance_oaa_swiftness_aura")
+      self:GetCaster():RemoveModifierByName("modifier_item_drums_of_endurance_oaa_swiftness_aura_effect")
     end
   end
 end
