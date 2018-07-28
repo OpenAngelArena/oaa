@@ -151,7 +151,8 @@ function BossAI:DeathHandler (state, keys)
     return
   end
 
-  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, state.handle:GetTeamNumber(), false)
+  -- Create under spectator team so that spectators can always see the capture point
+  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
   capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
 
