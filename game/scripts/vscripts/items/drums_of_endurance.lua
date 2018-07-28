@@ -37,7 +37,7 @@ function item_drums_of_endurance_oaa:OnSpellStart()
   )
 
 	-- Play cast sound effect
-  unit:EmitSound("DOTA_Item.DoE.Activate")
+  caster:EmitSound("DOTA_Item.DoE.Activate")
 
   local function EnduranceActive(unit)
     unit:AddNewModifier(self:GetCaster(), self, "modifier_item_drums_of_endurance_oaa_active", {duration = self:GetSpecialValueFor("duration")})
