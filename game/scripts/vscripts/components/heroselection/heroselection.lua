@@ -36,6 +36,7 @@ function HeroSelection:Init ()
   self.isCM = GetMapName() == "oaa_captains_mode"
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "oaa_10v10"
+  self.isRanked = GetMapName() == "oaa"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -179,20 +180,148 @@ function HeroSelection:StartSelection ()
 end
 
 function HeroSelection:RankedManager (event)
+  local function save ()
+    CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
+  end
   if event == nil then
     -- start
-    CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
-    return self:RankedTimer(RANKED_PREGAME_TIME, "STRATEGY")
+    save()
+    return self:RankedTimer(RANKED_PREGAME_TIME, "PRE-GAME")
   end
-  if event.isTimeout and rankedpickorder.phase == 'start' then
-    rankedpickorder.phase = 'bans'
-    return self:RankedTimer(RANKED_BAN_TIME, "BAN HEROES")
+
+  -- phases!
+  if rankedpickorder.phase == 'start' then
+    if event.isTimeout then
+      rankedpickorder.phase = 'bans'
+      save()
+      return self:RankedTimer(RANKED_BAN_TIME, "BAN HEROES")
+    else
+      DebugPrint('Event during ranked start phase, that makes no sense!')
+    end
   end
   if rankedpickorder.phase == 'bans' then
     -- end banning phase
     if event.isTimeout then
-      rankedpickorder.phase = -- right here
+      rankedpickorder.phase = 'picking'
+      rankedpickorder.currentOrder = 1
+      self:ChooseBans()
+      save()
+      return self:RankedTimer(RANKED_PREGAME_TIME, "PICK")
     else
+      -- ban hero
+      if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
+        return
+      end
+      rankedpickorder.banChoices[event.PlayerID] = event.hero
+      save()
+      return
+    end
+  end
+  if rankedpickorder.phase == 'picking' then
+    if not rankedpickorder.order[rankedpickorder.currentOrder] then
+      rankedpickorder.phase = 'strategy'
+      return HeroSelection:APTimer(0)
+    end
+    local choice = event.hero
+    if event.isTimeout then
+      choice = 'random'
+      PlayerResource:GetPlayerIDsForTeam(rankedpickorder.order[rankedpickorder.currentOrder].team):foreach(function (playerID)
+        if not selectedtable[playerID] then
+          if not event.PlayerID or RandomInt(0, 2) == 0 then
+            event.PlayerID = playerID
+          end
+        else
+          DebugPrint('Cant random because he selected ' .. playerID .. ' / ' .. selectedtable[playerID])
+        end
+      end)
+    end
+    if not event.PlayerID then
+      DebugPrint('How are there no players for this thing?')
+      rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
+      save()
+      return
+    end
+    if choice == 'random' then
+      choice = self:RandomHero()
+    end
+    DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
+    if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
+      -- wrong team
+      return
+    end
+    if selectedtable[event.PlayerID] then
+      -- already picked a hero
+      return
+    end
+    rankedpickorder.order[rankedpickorder.currentOrder].hero = choice
+    rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
+    save()
+    return self:RankedTimer(RANKED_PREGAME_TIME, "PICK")
+  end
+  if forcestop then
+    return HeroSelection:APTimer(0)
+  end
+end
+
+function HeroSelection:ChooseBans ()
+  local banCount = 0
+  local goodBans = 0
+  local badBans = 0
+  local goodBanChoices = 0
+  local badBanChoices = 0
+  local playerIDs = {}
+
+  for playerID,choice in pairs(rankedpickorder.banChoices) do
+    table.insert(playerIDs, playerID)
+    local team = PlayerResource:GetTeam(playerID)
+    if team == DOTA_TEAM_GOODGUYS then
+      goodBanChoices = goodBanChoices + 1
+    end
+    if team == DOTA_TEAM_BADGUYS then
+      badBanChoices = badBanChoices + 1
+    end
+  end
+
+  local totalChoices = badBanChoices + goodBanChoices
+
+  DebugPrint('Choosing bans from ' .. totalChoices .. ' choices...')
+
+  if totalChoices == 1 then
+    if RandomInt(0, 1) == 0 then
+      -- no bans! choose things!
+      DebugPrint('Rolled 0, no bans!')
+      return
+    end
+    for playerID,choice in pairs(rankedpickorder.banChoices) do
+      rankedpickorder.bans[1] = choice
+      DebugPrint('Only suggestion was ' .. choice)
+      return
+    end
+  else
+    while banCount < totalChoices / 2 do
+      local choiceNum = RandomInt(1, totalChoices)
+      local playerID = playerIDs[choiceNum]
+      table.remove(playerIDs, choiceNum)
+      local team = PlayerResource.GetTeam(playerID)
+      local canBan = true
+      if team == DOTA_TEAM_BADGUYS then
+        if badBans >= 3 then
+          canBan = false
+          DebugPrint('Not chosing this ban because we already choose ' .. badBans .. ' bad bans')
+        end
+        badBans = badBans + 1
+      elseif team == DOTA_TEAM_GOODGUYS then
+        if goodBans >= 3 then
+          canBan = false
+          DebugPrint('Not chosing this ban because we already choose ' .. goodBans .. ' good bans')
+        end
+        goodBans = goodBans + 1
+      end
+      if canBan then
+        banCount = banCount + 1
+        DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
+        table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+      end
     end
   end
 end
@@ -477,12 +606,12 @@ function HeroSelection:IsHeroDisabled (hero)
       end
     end
   elseif self.isRanked then
-    for _,bannedHero in ipairs(rankedpickorder.bans) do
+    for _,bannedHero in pairs(rankedpickorder.bans) do
       if hero == bannedHero then
         return true
       end
     end
-    for _,data in ipairs(rankedpickorder.order) do
+    for _,data in pairs(rankedpickorder.order) do
       if hero == data.hero then
         return true
       end
@@ -573,6 +702,9 @@ end
 function HeroSelection:HeroSelected (event)
   DebugPrint("Received Hero Pick")
   DebugPrintTable(event)
+  if HeroSelection.isRanked then
+    return HeroSelection:RankedManager(event)
+  end
   HeroSelection:UpdateTable(event.PlayerID, event.hero)
 end
 

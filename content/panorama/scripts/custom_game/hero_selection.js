@@ -91,6 +91,7 @@ onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selecti
 
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
 onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
 onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
@@ -138,6 +139,8 @@ function onPlayerStatChange (table, key, data) {
     Object.keys(data).forEach(function (heroName) {
       heroAbilities[heroName] = data[heroName];
     });
+  } else if (key === 'rankedData' && data != null) {
+    UpdatedRankedPickState(data);
   } else if (key === 'herolist' && data != null) {
     // do not move chat for ardm
     if (currentMap !== 'ardm') {
@@ -348,13 +351,16 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
-    if (data.mode === 'STRATEGY') {
+    if (data.mode === 'STRATEGY' || data.mode === 'PRE-GAME') {
       FindDotaHudElement('TimeLeft').text = 'VS';
-      FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
-      GoToStrategy();
-    } else if (data['time'] > -1) {
-      FindDotaHudElement('TimeLeft').text = data['time'];
-      FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
+      FindDotaHudElement('GameMode').text = $.Localize(data.mode);
+      if (data.mode === 'STRATEGY') {
+        GoToStrategy();
+      }
+    } else if (data.time > -1) {
+      $('#TimeLeft').text = data.time;
+      $('#GameMode').text = $.Localize(data.mode);
+      $.Msg('Timer mode ' + data.mode);
     } else {
       // CM Hides the chat on last pick, before selecting plyer hero
       // ARDM don't have pick screen chat
@@ -364,6 +370,59 @@ function onPlayerStatChange (table, key, data) {
       HideStrategy();
     }
   }
+}
+
+function UpdatedRankedPickState (data) {
+  $.Msg(data);
+  var bans = [];
+  Object.keys(data.banChoices)
+    .map(function (key) { return data.banChoices[key]; })
+    .filter(function (banned) { return banned !== 'empty'; })
+    .forEach(function (hero) {
+      bans.push(hero);
+    });
+  bans.forEach(function (banned) {
+    if (data.phase === 'bans') {
+      if (!IsHeroDisabled(banned)) {
+        DisableHero(banned);
+      }
+    } else {
+      if (IsHeroDisabled(banned)) {
+        EnableHero(banned);
+      }
+    }
+  });
+  Object.keys(data.bans)
+    .map(function (key) { return data.bans[key]; })
+    .filter(function (banned) { return banned !== 'empty'; })
+    .forEach(function (banned) {
+      if (!IsHeroDisabled(banned)) {
+        DisableHero(banned);
+      }
+    });
+  Object.keys(data.order)
+    .map(function (key) { return data.order[key].hero; })
+    .filter(function (banned) { return banned !== 'empty'; })
+    .forEach(function (banned) {
+      if (!IsHeroDisabled(banned)) {
+        DisableHero(banned);
+      }
+    });
+  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+
+  switch (data.phase) {
+    case 'bans':
+      $.Msg(data.banChoices[Game.GetLocalPlayerID()]);
+      isPicking = !data.banChoices[Game.GetLocalPlayerID()];
+      break;
+    case 'picking':
+      if (data.order[data.currentOrder].team === teamID) {
+        var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
+        isPicking = !apData[Game.GetLocalPlayerID()];
+      }
+      break;
+  }
+  herolocked = !isPicking;
 }
 
 function SetupTopBar () {
@@ -537,6 +596,13 @@ function ReloadCMStatus (data) {
     } else {
       FindDotaHudElement('CMDire').AddClass(currentPickData.type);
     }
+  }
+}
+
+function EnableHero (name) {
+  if (FindDotaHudElement(name) != null) {
+    FindDotaHudElement(name).RemoveClass('Disabled');
+    disabledheroes.push(name);
   }
 }
 
