@@ -23,6 +23,7 @@ var panelscreated = 0;
 var iscm = false;
 var selectedherocm = 'empty';
 var isPicking = true;
+var isBanning = true;
 var canRandom = true;
 var currentHeroPreview = '';
 var stepsCompleted = {
@@ -415,31 +416,26 @@ function UpdatedRankedPickState (data) {
 
   switch (data.phase) {
     case 'start':
-      FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
-      FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       isPicking = false;
       break;
     case 'bans':
       $.Msg(data.banChoices[Game.GetLocalPlayerID()]);
       isPicking = !data.banChoices[Game.GetLocalPlayerID()];
       herolocked = false;
-
-      FindDotaHudElement('HeroLockIn').style.visibility = 'visible';
-      FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       canRandom = false;
+      isBanning = true;
+
       break;
     case 'picking':
+      isBanning = false;
       if (order.team === teamID) {
         var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
-        isPicking = !apData[Game.GetLocalPlayerID()];
+        isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
         herolocked = !isPicking;
-        $.Msg('Set hero picking state and stuff')
-        FindDotaHudElement('HeroLockIn').style.visibility = 'visible';
-        FindDotaHudElement('HeroRandom').style.visibility = order.canRandom === false ? 'collapse' : 'visible';
-        canRandom = order.canRandom;
+        canRandom = order.canRandom !== false;
+        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[Game.GetLocalPlayerID()].selectedhero + JSON.stringify(apData[Game.GetLocalPlayerID()]))
       } else {
-        FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
-        FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+        isPicking = false;
         $.Msg('Not my turn ' + order.team + ' / ' + teamID);
         $.Msg(data.currentOrder);
         $.Msg(data.order);
@@ -447,6 +443,13 @@ function UpdatedRankedPickState (data) {
       }
       break;
   }
+  UpdateButtons();
+}
+
+function UpdateButtons () {
+  FindDotaHudElement('HeroLockIn').style.visibility = isPicking && !isBanning ? 'visible' : 'collapse';
+  FindDotaHudElement('HeroBan').style.visibility = isPicking && isBanning ? 'visible' : 'collapse';
+  FindDotaHudElement('HeroRandom').style.visibility = isPicking && canRandom ? 'visible' : 'collapse';
 }
 
 function SetupTopBar () {
@@ -679,8 +682,7 @@ function PreviewHero (name) {
     selectedhero = name;
     selectedherocm = name;
 
-    lockButton.style.visibility = (!isPicking || IsHeroDisabled(currentHeroPreview)) ? 'collapse' : 'visible';
-    $('#HeroRandom').style.visibility = (!isPicking || !canRandom) ? 'collapse' : 'visible';
+    UpdateButtons();
 
     GameEvents.SendCustomGameEventToServer('preview_hero', {
       hero: name

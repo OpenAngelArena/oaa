@@ -206,7 +206,7 @@ function HeroSelection:RankedManager (event)
       rankedpickorder.currentOrder = 1
       self:ChooseBans()
       save()
-      return self:RankedTimer(RANKED_PREGAME_TIME, "PICK")
+      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
     else
       -- ban hero
       if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
