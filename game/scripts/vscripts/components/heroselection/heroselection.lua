@@ -29,7 +29,6 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-  Debug:EnableDebugging()
 
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "oaa_captains_mode"
@@ -87,10 +86,11 @@ function HeroSelection:Init ()
 
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
   for attr,data in pairs(heroAbilities) do
-    Debug:EnableDebugging()
-    DebugPrintTable(data)
     CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
   end
+
+
+
 
   -- lock down the "pick" hero so that they can't do anything
   GameEvents:OnHeroInGame(function (npc)
@@ -167,12 +167,57 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
+  CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
+  CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
 
   if GetMapName() == "oaa_captains_mode" then
     HeroSelection:CMManager(nil)
   else
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
   end
+
+  -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
+  local special_bottles = {}
+  local special_arcanas = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    local steamid = PlayerResource:GetSteamAccountID(playerID)
+
+    if SPECIAL_BOTTLES[steamid] then
+      special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
+    end
+    if SPECIAL_ARCANAS[steamid] then
+      special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
+    end
+  end
+
+  -- Populate table with playerIds and list of bottles/arcanas for players
+  CustomNetTables:SetTableValue( 'bottlepass', 'special_bottles', special_bottles )
+  CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
+
+end
+
+
+function HeroSelection:OnBottleSelected (selectedBottle)
+  if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
+  HeroSelection.SelectedBottle[selectedBottle.PlayerId] = selectedBottle.BottleId
+  DevPrintTable(HeroSelection.SelectedBottle)
+end
+
+function HeroSelection:OnArcanaSelected (selectedArcana)
+  if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
+  if HeroSelection.SelectedArcana[selectedArcana.PlayerId] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerId] = {} end
+  HeroSelection.SelectedArcana[selectedArcana.PlayerId][selectedArcana.Hero] = selectedArcana.Arcana
+  DevPrintTable(HeroSelection.SelectedArcana)
+end
+
+function HeroSelection:GetSelectedBottleForPlayer(playerId)
+  if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
+  return HeroSelection.SelectedBottle[playerId] or 0
+end
+
+function HeroSelection:GetSelectedArcanaForPlayer(playerId)
+  if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
+  return HeroSelection.SelectedArcana[playerId] or {}
 end
 
 -- start heropick CM timer
@@ -421,9 +466,7 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
     end)
   end
 
-  if hero and hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
-    HeroCosmetics:Sohei (hero)
-  end
+  HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
 
 end
 

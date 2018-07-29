@@ -2793,7 +2793,10 @@ read_globals = { -- these globals can only be accessed.
 "GetDedicatedServerKey",
 "sha256",
 "TEN_V_TEN_KILL_LIMIT",
-"NORMAL_KILL_LIMIT"
+"NORMAL_KILL_LIMIT",
+"SPECIAL_BOTTLES",
+"SPECIAL_ARCANAS",
+"HeroSelection"
 }
 
 ignore = {

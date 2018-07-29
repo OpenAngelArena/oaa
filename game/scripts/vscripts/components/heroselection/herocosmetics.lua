@@ -26,3 +26,20 @@ function HeroCosmetics:Sohei (hero)
   --hero:AddNewModifier(hero, nil, 'modifier_animation_translate_permanent_string', {translate = 'odachi'})
   --hero:AddNewModifier(hero, nil, 'modifier_animation_translate_permanent_string', {translate = 'aggressive'})
 end
+
+function HeroCosmetics:ApplySelectedArcana (hero, arcana)
+  if hero:GetUnitName(  ) == 'npc_dota_hero_sohei' then
+    if arcana == 'DBZSohei' then
+      print('Applying Arcana DBZSohei')
+      -- TODO Apply arcana
+    elseif arcana == 'PepsiSohei' then
+      print('Applying Arcana PepsiSohei')
+      -- TODO Apply arcana
+    end
+  elseif hero:GetUnitName(  ) == 'npc_dota_hero_electrician' then
+    if arcana == 'RockElectrician' then
+      print('Applying Arcana RockElectrician')
+      -- TODO Apply arcana
+    end
+  end
+end
