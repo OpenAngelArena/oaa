@@ -218,20 +218,23 @@ function HeroSelection:RankedManager (event)
     end
   end
   if rankedpickorder.phase == 'picking' then
-    if not rankedpickorder.order[rankedpickorder.currentOrder] then
+    if forcestop or not rankedpickorder.order[rankedpickorder.currentOrder] then
       rankedpickorder.phase = 'strategy'
       return HeroSelection:APTimer(0)
     end
     local choice = event.hero
     if event.isTimeout then
+      DebugPrint('Timeout hero pick, randoming...')
       choice = 'random'
+      DebugPrint('Checking out this team ' .. rankedpickorder.order[rankedpickorder.currentOrder].team)
       PlayerResource:GetPlayerIDsForTeam(rankedpickorder.order[rankedpickorder.currentOrder].team):foreach(function (playerID)
-        if not selectedtable[playerID] then
+        if not selectedtable[playerID] or selectedtable[playerID].selectedhero == 'empty' then
+          DebugPrint('Trying ' .. playerID)
           if not event.PlayerID or RandomInt(0, 2) == 0 then
             event.PlayerID = playerID
           end
         else
-          DebugPrint('Cant random because he selected ' .. playerID .. ' / ' .. selectedtable[playerID])
+          DebugPrint('Cant random because he selected ' .. playerID .. ' / ' .. selectedtable[playerID].selectedhero)
         end
       end)
     end
@@ -239,7 +242,7 @@ function HeroSelection:RankedManager (event)
       DebugPrint('How are there no players for this thing?')
       rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
       save()
-      return
+      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
     end
     if choice == 'random' then
       choice = self:RandomHero()
@@ -247,16 +250,19 @@ function HeroSelection:RankedManager (event)
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
       -- wrong team
+      DebugPrint("This pick is from the wrong team!");
       return
     end
-    if selectedtable[event.PlayerID] then
+    if selectedtable[event.PlayerID] and selectedtable[event.PlayerID].selectedhero ~= 'empty' then
       -- already picked a hero
+      DebugPrint("This player slready selected!");
       return
     end
     rankedpickorder.order[rankedpickorder.currentOrder].hero = choice
     rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
+    HeroSelection:UpdateTable(event.PlayerID, choice)
     save()
-    return self:RankedTimer(RANKED_PREGAME_TIME, "PICK")
+    return self:RankedTimer(RANKED_PICK_TIME, "PICK")
   end
   if forcestop then
     return HeroSelection:APTimer(0)

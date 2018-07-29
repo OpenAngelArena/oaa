@@ -23,6 +23,7 @@ var panelscreated = 0;
 var iscm = false;
 var selectedherocm = 'empty';
 var isPicking = true;
+var canRandom = true;
 var currentHeroPreview = '';
 var stepsCompleted = {
   2: 0,
@@ -396,6 +397,7 @@ function UpdatedRankedPickState (data) {
     .map(function (key) { return data.bans[key]; })
     .filter(function (banned) { return banned !== 'empty'; })
     .forEach(function (banned) {
+      $.Msg('Banned hero: ' + banned);
       if (!IsHeroDisabled(banned)) {
         DisableHero(banned);
       }
@@ -409,20 +411,42 @@ function UpdatedRankedPickState (data) {
       }
     });
   var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  var order = data.order[data.currentOrder + ''];
 
   switch (data.phase) {
+    case 'start':
+      FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
+      FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+      isPicking = false;
+      break;
     case 'bans':
       $.Msg(data.banChoices[Game.GetLocalPlayerID()]);
       isPicking = !data.banChoices[Game.GetLocalPlayerID()];
+      herolocked = false;
+
+      FindDotaHudElement('HeroLockIn').style.visibility = 'visible';
+      FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+      canRandom = false;
       break;
     case 'picking':
-      if (data.order[data.currentOrder].team === teamID) {
+      if (order.team === teamID) {
         var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
         isPicking = !apData[Game.GetLocalPlayerID()];
+        herolocked = !isPicking;
+        $.Msg('Set hero picking state and stuff')
+        FindDotaHudElement('HeroLockIn').style.visibility = 'visible';
+        FindDotaHudElement('HeroRandom').style.visibility = order.canRandom === false ? 'collapse' : 'visible';
+        canRandom = order.canRandom;
+      } else {
+        FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
+        FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+        $.Msg('Not my turn ' + order.team + ' / ' + teamID);
+        $.Msg(data.currentOrder);
+        $.Msg(data.order);
+        $.Msg(order);
       }
       break;
   }
-  herolocked = !isPicking;
 }
 
 function SetupTopBar () {
@@ -656,7 +680,7 @@ function PreviewHero (name) {
     selectedherocm = name;
 
     lockButton.style.visibility = (!isPicking || IsHeroDisabled(currentHeroPreview)) ? 'collapse' : 'visible';
-    $('#HeroRandom').style.visibility = !isPicking ? 'collapse' : 'visible';
+    $('#HeroRandom').style.visibility = (!isPicking || !canRandom) ? 'collapse' : 'visible';
 
     GameEvents.SendCustomGameEventToServer('preview_hero', {
       hero: name

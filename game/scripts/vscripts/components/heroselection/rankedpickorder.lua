@@ -7,62 +7,64 @@ rankedpickorder = {
   ["order"] = {
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_GOODGUYS,
+      ["team"] = DOTA_TEAM_GOODGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_BADGUYS,
+      ["team"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_BADGUYS,
+      ["team"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_GOODGUYS,
+      ["team"] = DOTA_TEAM_GOODGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_GOODGUYS,
+      ["team"] = DOTA_TEAM_GOODGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_BADGUYS,
+      ["team"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_BADGUYS,
+      ["team"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_GOODGUYS,
+      ["team"] = DOTA_TEAM_GOODGUYS,
       ["hero"] = "empty"
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_GOODGUYS,
-      ["hero"] = "empty"
+      ["team"] = DOTA_TEAM_GOODGUYS,
+      ["hero"] = "empty",
+      canRandom = false
     },
 
     {
       ["type"] = "Pick",
-      ["side"] = DOTA_TEAM_BADGUYS,
-      ["hero"] = "empty"
+      ["team"] = DOTA_TEAM_BADGUYS,
+      ["hero"] = "empty",
+      canRandom = false
     }
   },
 }
