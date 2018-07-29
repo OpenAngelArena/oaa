@@ -44,13 +44,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "20 30 40 50 65 85"
+        "bonus_damage_pct"                                "10 20 30 40 50 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "20 30 40 50 65 85"
+        "cleave_damage_pct"                               "10 20 30 40 50 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"

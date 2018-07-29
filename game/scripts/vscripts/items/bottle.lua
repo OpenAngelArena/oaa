@@ -60,6 +60,7 @@ local special_bottles = {
 
   --steam: Steamcommunity.com/id/amidable_money81 - twitch: Frazzlefrancis provided steam link didn't work
   --chrisinajar
+  --darknighthawk
   [370630108] = 3, --steam: http://steamcommunity.com/profiles/76561198330895836 - twitch: angerywalrus
   [144242481] = 3, --steam: http://steamcommunity.com/profiles/76561198104508209 - twitch: B0bbyxy
   [105264015] = 3, --steam: http://steamcommunity.com/profiles/76561198065529743 - twitch: B4mnb1
@@ -76,7 +77,6 @@ local special_bottles = {
   [58659208] = 3, --steam: http://steamcommunity.com/profiles/76561198018924936 - twitch: D34thscythe
   [75111160] = 3, --steam: http://steamcommunity.com/profiles/76561198035376888 - twitch: da1wizard
   [88602082] = 3, --steam: http://steamcommunity.com/profiles/76561198048867810 - twitch: Dark_Lord_Xana
-  [61476137] = 3, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
   [157684926] = 3, --steam: http://steamcommunity.com/profiles/76561198117950654 - twitch: deathgamer22
   [81825448] = 3, --steam: http://steamcommunity.com/profiles/76561198042091176 - twitch: Dgenaraition
   [38504326] = 3, --steam: http://steamcommunity.com/profiles/76561197998770054 - twitch: DJ_Boras
@@ -216,6 +216,11 @@ local special_bottles = {
   [147100058] = 46, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
   [94579357] = 47, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: -no name given, current steam name Doctor Demon
   [232219850] = 48, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
+  [128386634] = 49, --steam: https://steamcommunity.com/profiles/76561198088652362/ - twitch: -no name given, Discord: TruffleHunt
+  [61476137] = 50, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
+  [40292108] = 51, --steam: https://steamcommunity.com/profiles/76561198000557836 - twitch: Zeldamasterrt
+  [80851899] = 52, --steam: http://steamcommunity.com/profiles/76561198041117627 - twitch: Nohnius
+  [34885005] = 53, --steam: http://steamcommunity.com/profiles/76561197995150733 - twitch: ArcheMagArch
 }
 
 local bonusNames = {
@@ -266,7 +271,13 @@ local bonusNames = {
   'custom/bottles/bottle_brickbrack743', --45
   'custom/bottles/bottle_yoloswag',
   'custom/bottles/bottle_kyler',
-  'custom/bottles/bottle_maxpower', --48
+  'custom/bottles/bottle_maxpower',
+  'custom/bottles/bottle_trufflehunt',
+  'custom/bottles/bottle_darkknighthawk', --50
+  'custom/bottles/bottle_zeldamasterrt',
+  'custom/bottles/bottle_nohnius',
+  'custom/bottles/bottle_archemagarch',
+
 }
 
 --------------------------------------------------------------------------------

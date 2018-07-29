@@ -39,7 +39,9 @@ function GameMode:_OnGameRulesStateChange(keys)
       for i=0,19 do
         if PlayerResource:IsValidPlayer(i) then
           local color = TEAM_COLORS[PlayerResource:GetTeam(i)]
-          PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
+          if color then
+            PlayerResource:SetCustomPlayerColor(i, color[1], color[2], color[3])
+          end
         end
       end
     end

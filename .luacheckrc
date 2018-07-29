@@ -66,7 +66,12 @@ globals = { -- these globals can be set and accessed.
 "SURRENDER_TIME_TO_DISPLAY",
 "SAVE_STATE_ENABLED",
 "SAVE_STATE_INTERVAL",
-"SAVE_STATE_AP"
+"SAVE_STATE_AP",
+"TIME_TO_ABANDON",
+"AUTO_ABANDON_IN_CM",
+"MIN_MATCH_TIME",
+"ABANDON_DIFF_NEEDED",
+"ABANDON_NEEDED"
 }
 
 read_globals = { -- these globals can only be accessed.
