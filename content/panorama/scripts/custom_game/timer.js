@@ -1,13 +1,12 @@
 /* global CustomNetTables $ FindDotaHudElement  */
-var topBar = FindDotaHudElement('topbar')
-var extraInfo = FindDotaHudElement('ExtraInfo')
-var killLimit = FindDotaHudElement('KillLimitValue')
-var nextDuel = FindDotaHudElement('TimeToNextDuelValue')
-var nextCapture = FindDotaHudElement('TimeToNextCaptureValue')
+var topBar = FindDotaHudElement('topbar');
+var extraInfo = FindDotaHudElement('ExtraInfo');
+var killLimit = FindDotaHudElement('KillLimitValue');
+var nextDuel = FindDotaHudElement('TimeToNextDuelValue');
+var nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
 
-if(extraInfo.GetParent().id !== 'topbar')
-{
-  extraInfo.SetParent(topBar)
+if (extraInfo.GetParent().id !== 'topbar') {
+  extraInfo.SetParent(topBar);
   extraInfo = null;
   killLimit = null;
   nextDuel = null;
@@ -23,13 +22,13 @@ function UpdateClock (table, name, data) {
   if (!data || data.time === undefined) {
     return;
   }
-  if(killLimit === null){
+  if (killLimit === null) {
     killLimit = FindDotaHudElement('KillLimitValue');
   }
-  if(nextDuel === null){
+  if (nextDuel === null) {
     nextDuel = FindDotaHudElement('TimeToNextDuelValue');
   }
-  if(nextCapture === null){
+  if (nextCapture === null) {
     nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
   }
 
