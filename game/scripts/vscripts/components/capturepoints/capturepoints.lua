@@ -55,6 +55,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
 
+  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + INITIAL_CAPTURE_POINT_DELAY
   Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
     self:ScheduleCapture()
   end)
