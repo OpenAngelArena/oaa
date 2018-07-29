@@ -1,3 +1,17 @@
+local refresh_banned_items = {
+  'item_refresher',
+  'item_refresher_2',
+  'item_refresher_3',
+  'item_refresher_4',
+  'item_refresher_5',
+  -- bkb
+  'item_black_king_bar_1',
+  'item_black_king_bar_2',
+  'item_black_king_bar_3',
+  'item_black_king_bar_4',
+  'item_black_king_bar_5'
+}
+
 -- This module contains functions for saving and restoring the state of heroes
 local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
@@ -94,7 +108,15 @@ local function SaveState(hero)
 
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
-    if item then
+    local isBanned = false
+
+    for _,bannedItem in pairs(refresh_banned_items) do
+      if item == bannedItem then
+        isBanned = true
+      end
+    end
+
+    if not isBanned and item then
       state.items[item] = {
         cooldown = item:GetCooldownTimeRemaining()
       }
