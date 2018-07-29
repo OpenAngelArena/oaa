@@ -10,7 +10,7 @@ end
 function HeroCosmetics:Sohei (hero)
   DebugPrint ( 'Starting Sohei Cosmetics' )
   -- Add bottlepass arcana check here
-  hero:AddNewModifier( hero, nil, 'modifier_arcana_dbz', nil )
+  -- hero:AddNewModifier( hero, nil, 'modifier_arcana_dbz', nil )
 
   --hero.body = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/thousand_faces_hakama/thousand_faces_hakama.vmdl"})
   --hero.hand = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/sohei/so_weapon.vmdl"})
