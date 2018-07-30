@@ -1028,10 +1028,10 @@ DOTAScenePanel {
 
 
 #DefaultElectricianSet Panel{
-  background-image: url("s2r://panorama/images/items/bottle_png.vtex");
+  background-image: url("file://panorama/images/heroes/electrician/arcanas/DefaultSet.png");
 }
 #RockElectricianSet Panel{
-  background-image: url("s2r://panorama/images/items/bottle_png.vtex");
+  background-image: url("file://panorama/images/heroes/electrician/arcanas/RockElectrician.png");
 }
 
 #Bottle0 Panel{
