@@ -167,11 +167,43 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
+  CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
 
   if GetMapName() == "oaa_captains_mode" then
     HeroSelection:CMManager(nil)
   else
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
+  end
+end
+
+function HeroSelection:MMRShuffle (event)
+  local player = PlayerResource:GetPlayer(event.PlayerID)
+  if not GameRules:PlayerHasCustomGameHostPrivileges(player) then
+    DebugPrint('Only host can mmr shuffle')
+  end
+
+  local radTeam = 0
+  local direTeam = 0
+  local radMMR = 0
+  local direMMR = 0
+
+  local playerIds = totable(PlayerResource:GetAllTeamPlayerIDs())
+  local totalPlayers = #playerIds
+
+  while #playerIds > 0 do
+    local choice = RandomInt(1, #playerIds)
+    local playerId = playerIds[choice]
+    local steamid = HeroSelection:GetSteamAccountID(playerId)
+    local mmr = Bottlepass.userData[steamid].unrankedMMR
+    table.remove(playerIds, choice)
+    local radChange = math.abs((direMMR / direTeam) - ((radMMR + mmr) / (radTeam + 1)))
+    local direChange = math.abs((radMMR / radTeam) - ((direMMR + mmr) / (direTeam + 1)))
+
+    if radChange < direChange or direTeam > totalPlayers / 2 and radTeam < totalPlayers / 2 then
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
+    else
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)
+    end
   end
 end
 

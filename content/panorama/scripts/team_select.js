@@ -11,6 +11,10 @@
   }
 }());
 
+function MMRShuffle () {
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', {});
+}
+
 function hideShowUI (state) {
   if (state === 2) {
     hidePregameUI();
