@@ -44,8 +44,8 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "6.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "8.0"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -72,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "75 100"
+        "sangromancy_self_damage"                         "100 100"
       }
       "03"
       {
