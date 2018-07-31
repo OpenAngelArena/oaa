@@ -1,7 +1,6 @@
 rankedpickorder = {
   phase = 'start',
-  banChoices = {
-  },
+  banChoices = {},
   bans = {},
 
   ["order"] = {

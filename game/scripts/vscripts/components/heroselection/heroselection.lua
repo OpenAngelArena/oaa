@@ -33,10 +33,10 @@ function HeroSelection:Init ()
   Debug:EnableDebugging()
 
   DebugPrint("Initializing HeroSelection")
-  self.isCM = GetMapName() == "oaa_captains_mode"
+  self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
-  self.is10v10 = GetMapName() == "oaa_10v10"
-  self.isRanked = GetMapName() == "oaa"
+  self.is10v10 = GetMapName() == "10v10"
+  self.isRanked = GetMapName() == "ranked"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -190,6 +190,9 @@ function HeroSelection:RankedManager (event)
   end
 
   -- phases!
+  if rankedpickorder.phase == 'strategy' then
+    return
+  end
   if rankedpickorder.phase == 'start' then
     if event.isTimeout then
       rankedpickorder.phase = 'bans'
@@ -210,6 +213,7 @@ function HeroSelection:RankedManager (event)
     else
       -- ban hero
       if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
+        save()
         return
       end
       rankedpickorder.banChoices[event.PlayerID] = event.hero
@@ -220,6 +224,7 @@ function HeroSelection:RankedManager (event)
   if rankedpickorder.phase == 'picking' then
     if forcestop or not rankedpickorder.order[rankedpickorder.currentOrder] then
       rankedpickorder.phase = 'strategy'
+      save()
       return HeroSelection:APTimer(0)
     end
     local choice = event.hero
@@ -251,11 +256,13 @@ function HeroSelection:RankedManager (event)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
       -- wrong team
       DebugPrint("This pick is from the wrong team!");
+      save()
       return
     end
     if selectedtable[event.PlayerID] and selectedtable[event.PlayerID].selectedhero ~= 'empty' then
       -- already picked a hero
       DebugPrint("This player slready selected!");
+      save()
       return
     end
     rankedpickorder.order[rankedpickorder.currentOrder].hero = choice
@@ -265,6 +272,7 @@ function HeroSelection:RankedManager (event)
     return self:RankedTimer(RANKED_PICK_TIME, "PICK")
   end
   if forcestop then
+    save()
     return HeroSelection:APTimer(0)
   end
 end
@@ -305,10 +313,10 @@ function HeroSelection:ChooseBans ()
     end
   else
     while banCount < totalChoices / 2 do
-      local choiceNum = RandomInt(1, totalChoices)
+      local choiceNum = RandomInt(1, totalChoices - banCount)
       local playerID = playerIDs[choiceNum]
       table.remove(playerIDs, choiceNum)
-      local team = PlayerResource.GetTeam(playerID)
+      local team = PlayerResource:GetTeam(playerID)
       local canBan = true
       if team == DOTA_TEAM_BADGUYS then
         if badBans >= 3 then
@@ -522,7 +530,7 @@ function HeroSelection:APTimer (time, message)
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
-        if GetMapName() == "oaa_captains_mode" then
+        if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(key, cmpickorder[value.team.."picks"][1])
         else
           HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
@@ -532,7 +540,7 @@ function HeroSelection:APTimer (time, message)
     end
     PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
       if not lockedHeroes[playerId] then
-        if GetMapName() == "oaa_captains_mode" then
+        if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
         else
           HeroSelection:UpdateTable(playerId, HeroSelection:RandomHero())
@@ -745,7 +753,7 @@ function HeroSelection:UpdateTable (playerID, hero)
     hero = "empty"
   end
 
-  if GetMapName() == "oaa_captains_mode" then
+  if GetMapName() == "captains_mode" then
     if hero ~= "empty" then
       local cmFound = false
       for k,v in pairs(cmpickorder[teamID.."picks"])do
@@ -771,7 +779,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   -- if everyone has picked, stop
   local isanyempty = false
   for key, value in pairs(selectedtable) do --pseudocode
-    if GetMapName() ~= "oaa_captains_mode" and value.steamid == "0" then
+    if GetMapName() ~= "captains_mode" and value.steamid == "0" then
       value.selectedhero = HeroSelection:RandomHero()
     end
     if value.selectedhero == "empty" then

@@ -362,11 +362,12 @@ function onPlayerStatChange (table, key, data) {
     } else if (data.time > -1) {
       $('#TimeLeft').text = data.time;
       $('#GameMode').text = $.Localize(data.mode);
-      $.Msg('Timer mode ' + data.mode);
+      // spammy
+      // $.Msg('Timer mode ' + data.mode);
     } else {
       // CM Hides the chat on last pick, before selecting plyer hero
       // ARDM don't have pick screen chat
-      if (currentMap === 'oaa' || currentMap === 'oaa_10v10' || currentMap === 'oaa_test') {
+      if (!currentMap === 'ardm' && !currentMap === 'captains_mode') {
         ReturnChatWindow();
       }
       HideStrategy();
@@ -376,33 +377,33 @@ function onPlayerStatChange (table, key, data) {
 
 function UpdatedRankedPickState (data) {
   $.Msg(data);
-  var bans = [];
+
+  var bans = Object.keys(data.bans)
+    .map(function (key) { return data.bans[key]; })
+    .filter(function (banned) { return banned !== 'empty'; });
+
   Object.keys(data.banChoices)
     .map(function (key) { return data.banChoices[key]; })
     .filter(function (banned) { return banned !== 'empty'; })
-    .forEach(function (hero) {
-      bans.push(hero);
-    });
-  bans.forEach(function (banned) {
-    if (data.phase === 'bans') {
+    .forEach(function (banned) {
+    if (data.phase === 'bans' || data.phase === 'start') {
       if (!IsHeroDisabled(banned)) {
         DisableHero(banned);
       }
     } else {
-      if (IsHeroDisabled(banned)) {
+      if (bans.indexOf(banned) === -1 && IsHeroDisabled(banned)) {
         EnableHero(banned);
       }
     }
   });
-  Object.keys(data.bans)
-    .map(function (key) { return data.bans[key]; })
-    .filter(function (banned) { return banned !== 'empty'; })
-    .forEach(function (banned) {
+
+  bans.forEach(function (banned) {
       $.Msg('Banned hero: ' + banned);
       if (!IsHeroDisabled(banned)) {
         DisableHero(banned);
       }
     });
+
   Object.keys(data.order)
     .map(function (key) { return data.order[key].hero; })
     .filter(function (banned) { return banned !== 'empty'; })
@@ -447,13 +448,19 @@ function UpdatedRankedPickState (data) {
 }
 
 function UpdateButtons () {
+  if (IsHeroDisabled(selectedhero)) {
+    FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
+    FindDotaHudElement('HeroBan').style.visibility = 'collapse';
+    FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+    return;
+  }
   FindDotaHudElement('HeroLockIn').style.visibility = isPicking && !isBanning ? 'visible' : 'collapse';
   FindDotaHudElement('HeroBan').style.visibility = isPicking && isBanning ? 'visible' : 'collapse';
   FindDotaHudElement('HeroRandom').style.visibility = isPicking && canRandom ? 'visible' : 'collapse';
 }
 
 function SetupTopBar () {
-  if (currentMap !== 'oaa_10v10') {
+  if (currentMap !== '10v10') {
     return;
   }
 
@@ -629,7 +636,7 @@ function ReloadCMStatus (data) {
 function EnableHero (name) {
   if (FindDotaHudElement(name) != null) {
     FindDotaHudElement(name).RemoveClass('Disabled');
-    disabledheroes.push(name);
+    disabledheroes.splice(disabledheroes.indexOf(name), 1);
   }
 }
 
@@ -641,10 +648,8 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
-  if (disabledheroes.indexOf(name) !== -1) {
-    return true;
-  }
-  return false;
+  // if it's not -1 it's in the disabled list
+  return disabledheroes.indexOf(name) !== -1;
 }
 
 function PreviewHero (name) {
