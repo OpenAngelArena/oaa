@@ -386,23 +386,23 @@ function UpdatedRankedPickState (data) {
     .map(function (key) { return data.banChoices[key]; })
     .filter(function (banned) { return banned !== 'empty'; })
     .forEach(function (banned) {
-    if (data.phase === 'bans' || data.phase === 'start') {
-      if (!IsHeroDisabled(banned)) {
-        DisableHero(banned);
-      }
-    } else {
-      if (bans.indexOf(banned) === -1 && IsHeroDisabled(banned)) {
-        EnableHero(banned);
-      }
-    }
-  });
-
-  bans.forEach(function (banned) {
-      $.Msg('Banned hero: ' + banned);
-      if (!IsHeroDisabled(banned)) {
-        DisableHero(banned);
+      if (data.phase === 'bans' || data.phase === 'start') {
+        if (!IsHeroDisabled(banned)) {
+          DisableHero(banned);
+        }
+      } else {
+        if (bans.indexOf(banned) === -1 && IsHeroDisabled(banned)) {
+          EnableHero(banned);
+        }
       }
     });
+
+  bans.forEach(function (banned) {
+    $.Msg('Banned hero: ' + banned);
+    if (!IsHeroDisabled(banned)) {
+      DisableHero(banned);
+    }
+  });
 
   Object.keys(data.order)
     .map(function (key) { return data.order[key].hero; })
@@ -434,7 +434,7 @@ function UpdatedRankedPickState (data) {
         isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
         herolocked = !isPicking;
         canRandom = order.canRandom !== false;
-        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[Game.GetLocalPlayerID()].selectedhero + JSON.stringify(apData[Game.GetLocalPlayerID()]))
+        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[Game.GetLocalPlayerID()].selectedhero + JSON.stringify(apData[Game.GetLocalPlayerID()]));
       } else {
         isPicking = false;
         $.Msg('Not my turn ' + order.team + ' / ' + teamID);

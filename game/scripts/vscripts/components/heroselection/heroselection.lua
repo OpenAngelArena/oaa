@@ -309,8 +309,8 @@ function HeroSelection:ChooseBans ()
     for playerID,choice in pairs(rankedpickorder.banChoices) do
       rankedpickorder.bans[1] = choice
       DebugPrint('Only suggestion was ' .. choice)
-      return
     end
+    return
   else
     while banCount < totalChoices / 2 do
       local choiceNum = RandomInt(1, totalChoices - banCount)
