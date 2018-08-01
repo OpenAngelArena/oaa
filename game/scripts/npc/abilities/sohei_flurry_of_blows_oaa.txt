@@ -1,4 +1,4 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ronin: Flurry of Blows
@@ -25,7 +25,6 @@
     "AbilityCastPoint"        "1.0"
     "AbilityCastRange"        "400"
     "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_4"
-    "AnimationPlaybackRate"  "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -68,6 +67,12 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"attack_interval"			"0.6"
+			}
+      // the bonus must be set on sohei_talents_oaa.txt to update its tooltips
+      "05"
+			{
+				"var_type"					      "FIELD_FLOAT"
+				"talent_bonus_radius"			"200"
 			}
     }
   }
