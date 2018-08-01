@@ -1,4 +1,4 @@
-﻿"DOTAHeroes"
+"DOTAHeroes"
 {
   //=================================================================================================================
   // HERO: Clinkz
@@ -7,9 +7,6 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability1"  "clinkz_strafe_oaa" // replaces clinkz_strafe
     "Ability6"  "clinkz_death_pact_oaa" // replaces clinkz_death_pact
-
-    "Ability16" "special_bonus_clinkz_strafe_cooldown" // Replace "+4s Strafe Duration" with "-5s Strafe Cooldown"
   }
 }
