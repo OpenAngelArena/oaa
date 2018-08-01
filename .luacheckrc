@@ -176,6 +176,8 @@ read_globals = { -- these globals can only be accessed.
 -- logging
 "D2CustomLogging",
 
+"DOTA_TEAM_SPECTATOR",
+
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
 "ACT_RUN_SCARED",
