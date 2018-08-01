@@ -12,7 +12,6 @@ SPECIAL_BOTTLES = {
 
   -- contributors
 
-  --Yzanas
   [7131038] = {1,5,4,3}, -- chrisinajar
   [109151532] = {1}, -- Chronophylos
   [60408038] = {1}, -- Trildar

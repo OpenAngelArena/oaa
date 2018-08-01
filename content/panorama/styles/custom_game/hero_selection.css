@@ -618,8 +618,8 @@ DOTAScenePanel {
 
 #HeroPickContainer {
   width: 32%;
-  height: 100px;
-  flow-children: left;
+  height: 100%;
+  flow-children: down;
   margin-bottom: 30px;
   vertical-align: bottom;
   horizontal-align: right;
@@ -657,7 +657,7 @@ DOTAScenePanel {
   background-image: url("s2r://panorama/images/control_icons/lock_medium_png.vtex");
 }
 
-#HeroLockIn.Activated, #HeroBan.Activated {
+#HeroLockIn.Activated #HeroBan.Activated {
   sound: "ui.pick_play";
 }
 
@@ -898,11 +898,22 @@ DOTAScenePanel {
   margin-top: 10%;
   transition-delay: 7s;
 }
+.CaptainsMode .BottlePassSelection{
+  margin-top: -45px;
+}
+
+.CMHeroChoices .BottlePassSelection{
+  visibility: collapse;
+}
+
+.CMHeroChoices #AbilityPreview{
+  visibility: collapse;
+}
 
 .BottlePassSelection
 {
   height: 600px;
-  width: 600px;
+  width: 400px;
   horizontal-align: right;
   vertical-align: top;
 }
@@ -925,7 +936,7 @@ DOTAScenePanel {
 
 .ArcanaPanel
 {
-  margin: 210px 0px;
+  margin: 210px 0px 0px 0px;
   visibility: collapse;
 }
 

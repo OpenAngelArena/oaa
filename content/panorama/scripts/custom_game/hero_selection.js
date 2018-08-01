@@ -84,6 +84,7 @@ var hilariousLoadingPhrases = [
 SetupTopBar();
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList)
 
 // load hero selection
 onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
@@ -331,6 +332,7 @@ function onPlayerStatChange (table, key, data) {
       if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
+        isBanning = currentPick.type == 'Ban';
         PreviewHero();
       } else {
         isPicking = false;
@@ -574,6 +576,9 @@ function ReloadCMStatus (data) {
   };
 
   var currentPick = null;
+  if(!data['order'][data['currentstage']]) {
+    return;
+  }
   if (data['order'][data['currentstage']].hero === 'empty') {
     currentPick = data['currentstage'];
   } else {
@@ -832,8 +837,6 @@ function SelectHero (hero) {
     var newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
       newhero = selectedherocm;
-      FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
-      FindDotaHudElement('HeroRandom').style.brightness = 0.5;
     } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
       herolocked = true;
       isPicking = false;
@@ -842,10 +845,15 @@ function SelectHero (hero) {
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
     }
     $.Msg('Selecting ' + newhero);
-    GameEvents.SendCustomGameEventToServer('hero_selected', {
-      PlayerID: Game.GetLocalPlayerID(),
-      hero: newhero
-    });
+
+    if (iscm) {
+      CaptainSelectHero();
+    } else {
+      GameEvents.SendCustomGameEventToServer('hero_selected', {
+        PlayerID: Game.GetLocalPlayerID(),
+        hero: newhero
+      });
+    }
   }
 }
 

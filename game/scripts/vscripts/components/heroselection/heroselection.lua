@@ -197,7 +197,6 @@ function HeroSelection:StartSelection ()
   -- Populate table with playerIds and list of bottles/arcanas for players
   CustomNetTables:SetTableValue( 'bottlepass', 'special_bottles', special_bottles )
   CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
-
 end
 
 
