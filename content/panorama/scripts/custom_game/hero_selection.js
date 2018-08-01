@@ -84,7 +84,7 @@ var hilariousLoadingPhrases = [
 SetupTopBar();
 
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
-CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList)
+CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
 // load hero selection
 onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
@@ -332,7 +332,7 @@ function onPlayerStatChange (table, key, data) {
       if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
-        isBanning = currentPick.type == 'Ban';
+        isBanning = currentPick.type === 'Ban';
         PreviewHero();
       } else {
         isPicking = false;
@@ -576,7 +576,7 @@ function ReloadCMStatus (data) {
   };
 
   var currentPick = null;
-  if(!data['order'][data['currentstage']]) {
+  if (!data['order'][data['currentstage']]) {
     return;
   }
   if (data['order'][data['currentstage']].hero === 'empty') {
@@ -800,7 +800,7 @@ function UpdateBottleList () {
     var bottleCount = Object.keys(bottles).length;
     Object.keys(bottles).forEach(function (bottleId, i) {
       var id = bottles[bottleId];
-      radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+      var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
       radio.BLoadLayoutSnippet('BottleRadio');
       radio.bottleId = id;
 
