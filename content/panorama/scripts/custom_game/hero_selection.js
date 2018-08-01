@@ -99,6 +99,7 @@ onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_se
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
 UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 changeHilariousLoadingText();
+UpdateBottleList();
 
 $('#ARDMLoading').style.opacity = 0;
 
@@ -683,6 +684,8 @@ function PreviewHero (name) {
         }
         CreateAbilityPanel(abilityPreview, ability);
       });
+
+      UpdateBottlePassArcana(name);
     }
     selectedhero = name;
     selectedherocm = name;
@@ -693,6 +696,124 @@ function PreviewHero (name) {
       hero: name
     });
   }
+}
+
+function UpdateBottlePassArcana (heroName) {
+  $('#ArcanaSelection').RemoveAndDeleteChildren();
+
+  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
+    $('#ArcanaPanel').SetHasClass('HasArcana', false);
+    return;
+  }
+  $('#ArcanaPanel').SetHasClass('HasArcana', true);
+
+  $.Schedule(0.2, function () {
+    $.Msg('UpdateBottlePassArcana(' + heroName + ')');
+    var arcanas = null;
+
+    var playerID = Game.GetLocalPlayerID();
+    var specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
+    for (var arcanaIndex in specialArcanas) {
+      if (specialArcanas[arcanaIndex].PlayerId === playerID) {
+        arcanas = specialArcanas[arcanaIndex].Arcanas;
+      }
+    }
+    var radio = null;
+    if (heroName === 'npc_dota_hero_sohei') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultSoheiSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.checked = true;
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+
+      // Disabled
+      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
+      // radio.BLoadLayoutSnippet('ArcanaRadio');
+      // radio.hero = heroName;
+      // radio.setName = 'PepsiSohei';
+
+      for (var index in arcanas) {
+        if (arcanas[index] === 'DBZSohei') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DBZSoheiSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'DBZSohei';
+        }
+      }
+    } else if (heroName === 'npc_dota_hero_electrician') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultElectricianSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.checked = true;
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+
+      // Disabled
+
+      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
+      // radio.BLoadLayoutSnippet('ArcanaRadio');
+      // radio.hero = heroName;
+      // radio.setName = 'RockElectrician';
+    }
+    SelectArcana();
+  });
+}
+
+function SelectArcana () {
+  var arcanasList = $('#ArcanaSelection');
+  if (arcanasList.GetChildCount() > 0) {
+    var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+
+    var data = {
+      Hero: selectedArcana.hero,
+      Arcana: selectedArcana.setName,
+      PlayerId: Game.GetLocalPlayerID()
+    };
+
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + data.PlayerId + ' for hero ' + data.Hero);
+    GameEvents.SendCustomGameEventToServer('arcana_selected', data);
+  }
+}
+
+function UpdateBottleList () {
+  $('#BottleSelection').RemoveAndDeleteChildren();
+  SelectBottle();
+  // Wait the parent be updated
+  $.Schedule(0.2, function () {
+    var playerID = Game.GetLocalPlayerID();
+    var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+    var bottles = null;
+    for (var bottleIndex in specialBottles) {
+      if (specialBottles[bottleIndex].PlayerId === playerID) {
+        bottles = specialBottles[bottleIndex].Bottles;
+      }
+    }
+    // Default Bottle
+    var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle0');
+    radio.BLoadLayoutSnippet('BottleRadio');
+    radio.checked = true;
+    radio.bottleId = 0;
+    for (var bottleId in bottles) {
+      var id = bottles[bottleId];
+
+      radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+      radio.BLoadLayoutSnippet('BottleRadio');
+      radio.bottleId = id;
+    }
+  });
+}
+
+function SelectBottle () {
+  var bottleId = 0;
+  var btn = $('#Bottle0');
+  if (btn != null) {
+    bottleId = $('#Bottle0').GetSelectedButton().bottleId;
+  }
+  var data = {
+    BottleId: bottleId,
+    PlayerId: Game.GetLocalPlayerID()
+  };
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + data.PlayerId);
+  GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
 function PreviewHeroCM (name) {
