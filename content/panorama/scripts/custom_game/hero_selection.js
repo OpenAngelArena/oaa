@@ -629,10 +629,11 @@ function UpdateBottlePassArcana (heroName) {
       radio.hero = heroName;
       radio.setName = 'DefaultSet';
 
-      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
-      radio.BLoadLayoutSnippet('ArcanaRadio');
-      radio.hero = heroName;
-      radio.setName = 'PepsiSohei';
+      // Disabled
+      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
+      // radio.BLoadLayoutSnippet('ArcanaRadio');
+      // radio.hero = heroName;
+      // radio.setName = 'PepsiSohei';
 
       for (var index in arcanas) {
         if (arcanas[index] === 'DBZSohei') {
@@ -649,10 +650,12 @@ function UpdateBottlePassArcana (heroName) {
       radio.hero = heroName;
       radio.setName = 'DefaultSet';
 
-      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
-      radio.BLoadLayoutSnippet('ArcanaRadio');
-      radio.hero = heroName;
-      radio.setName = 'RockElectrician';
+      // Disabled
+
+      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
+      // radio.BLoadLayoutSnippet('ArcanaRadio');
+      // radio.hero = heroName;
+      // radio.setName = 'RockElectrician';
     }
     SelectArcana();
   });

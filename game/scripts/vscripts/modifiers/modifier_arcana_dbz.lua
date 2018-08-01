@@ -44,6 +44,6 @@ function modifier_arcana_dbz:OnCreated()
     self.Glow = ParticleManager:CreateParticle( "particles/hero/sohei/arcana/dbz/dbz_flare_core.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     ParticleManager:SetParticleControlEnt( self.Glow, 0, parent, PATTACH_POINT_FOLLOW, "attach_origin", parent:GetAbsOrigin(), true)
     ParticleManager:SetParticleControlEnt( self.Glow, 3, parent, PATTACH_POINT_FOLLOW, "attach_origin", parent:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControl( self.Glow, 2, Vector(10,0,0) )
+    ParticleManager:SetParticleControl( self.Glow, 2, Vector(0,0,0) )
   end
 end

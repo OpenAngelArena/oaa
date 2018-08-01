@@ -159,7 +159,7 @@ if IsServer() then
         self:SetStackCount( 0 )
         local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
         if dbzArcana ~= nil then
-          ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(10,0,0) )
+          ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
         end
 			end
 
