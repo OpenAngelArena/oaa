@@ -183,11 +183,14 @@ function HeroSelection:StartSelection ()
   -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
   local special_bottles = {}
   local special_arcanas = {}
+  HeroSelection.SelectedBottle = {}
+  HeroSelection.SelectedArcana = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
 
     if SPECIAL_BOTTLES[steamid] then
       special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
+      HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
     end
     if SPECIAL_ARCANAS[steamid] then
       special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}

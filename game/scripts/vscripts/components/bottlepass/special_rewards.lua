@@ -3,16 +3,13 @@ SPECIAL_BOTTLES = {
   --comments with names indicate a person having access to that icon but another one being currently active
 
 
-
   -- TP master, and Lord of the Lotus Orb
-
-  [43305444] = {6}, -- baumi
-
+  [43305444] = {5,4,6}, -- baumi
 
 
   -- contributors
 
-  [7131038] = {1,5,4,3}, -- chrisinajar
+  [7131038] = {5,4,1}, -- chrisinajar
   [109151532] = {1}, -- Chronophylos
   [60408038] = {1}, -- Trildar
   [141335296] = {1}, -- SquawkyArctangent
@@ -24,7 +21,6 @@ SPECIAL_BOTTLES = {
   [103179022] = {1}, -- Allan vbhg
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
-
 
 
   -- golden tournament winners
@@ -47,8 +43,7 @@ SPECIAL_BOTTLES = {
   [110318967] = {7}, -- timo
   [34314091] = {8}, -- frej
   [370166341] = {9}, -- Melon
-  [110964954] = {10,3,4}, -- Karmatic
-
+  [110964954] = {3,4,10}, -- Karmatic
 
 
   -- twitch donators 3
@@ -154,7 +149,6 @@ SPECIAL_BOTTLES = {
   [123104098] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198083369826 - twitch: sir_mampfer
 
 
-
   -- twitch donators 50
 
   [116097701] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198076363429 - twitch: Azure_Robe
@@ -167,7 +161,6 @@ SPECIAL_BOTTLES = {
   [53067223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
   [107719587] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
   [80434451] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
-
 
 
   -- twitch donators 50 Custom

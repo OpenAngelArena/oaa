@@ -793,17 +793,21 @@ function UpdateBottleList () {
       }
     }
     // Default Bottle
-    var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle0');
-    radio.BLoadLayoutSnippet('BottleRadio');
-    radio.checked = true;
-    radio.bottleId = 0;
-    for (var bottleId in bottles) {
+    // var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle0');
+    // radio.BLoadLayoutSnippet('BottleRadio');
+    // radio.checked = true;
+    // radio.bottleId = 0;
+    var bottleCount = Object.keys(bottles).length;
+    Object.keys(bottles).forEach(function (bottleId, i) {
       var id = bottles[bottleId];
-
       radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
       radio.BLoadLayoutSnippet('BottleRadio');
       radio.bottleId = id;
-    }
+
+      if (i === bottleCount - 1) {
+        radio.checked = true;
+      }
+    });
   });
 }
 
