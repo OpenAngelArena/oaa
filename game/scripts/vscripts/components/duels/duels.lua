@@ -99,7 +99,7 @@ function Duels:Init ()
       self:CountPlayerDeath(player)
     end
   end)
-
+  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY + DUEL_START_WARN_TIME
   Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
@@ -496,6 +496,15 @@ function Duels:TimeoutDuel ()
   })
 end
 
+function Duels:SetNextDuelTime()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + DUEL_INTERVAL + DUEL_START_WARN_TIME
+end
+
+function Duels:GetNextDuelTime()
+  if Duels:IsActive() then return HudTimer:GetGameTime() end
+  return Duels.nextDuelTime
+end
+
 function Duels:EndDuel ()
   if self.currentDuel == nil then
     DebugPrint ('There is no duel running')
@@ -508,6 +517,7 @@ function Duels:EndDuel ()
   Music:PlayBackground(1, 7)
 
   local nextDuelIn = DUEL_INTERVAL
+  Duels:SetNextDuelTime()
 
   if self.startDuelTimer then
     Timers:RemoveTimer(self.startDuelTimer)
